@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -132,6 +133,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ad0f04351a4bd8784ab3c367ec58a6592"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor. <br/></td></tr>
 <tr class="memitem:aacdbd3e0dc8867b9b83acd88c6211ca7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aacdbd3e0dc8867b9b83acd88c6211ca7"></a>
 <a class="el" href="classsdsl_1_1rmq__support__sparse__table.html">rmq_support_sparse_table</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classsdsl_1_1rmq__support__sparse__table.html">rmq_support_sparse_table</a> &amp;rm)</td></tr>
+<tr class="memitem:a5f4800648c7b975ef94e373f7d4e3639"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5f4800648c7b975ef94e373f7d4e3639"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> (<a class="el" href="classsdsl_1_1rmq__support__sparse__table.html">rmq_support_sparse_table</a> &amp;rm)</td></tr>
 <tr class="memitem:a48bb20617682f95a7e48eb8df02e4321"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a48bb20617682f95a7e48eb8df02e4321"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>set_vector</b> (const RandomAccessContainer *v)</td></tr>
 <tr class="memitem:a7a8efc136980328239edc492e5643573"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rmq__support__sparse__table.html#a7a8efc136980328239edc492e5643573">operator()</a> (const size_type l, const size_type r) const </td></tr>
@@ -149,8 +152,8 @@ class sdsl::rmq_support_sparse_table&lt; RandomAccessContainer, Minimum &gt;</h3
 
 <p>A class to support range minimum or range maximum queries on a random access container. </p>
 <p>This class takes two template parameters. The first on is the type of random access container, for which the range minimum/maximum support should be build. The second one specifies whether the data structure should answer range minimum queries (Minimum=true) or range maximum queries (Maximum=false).</p>
-<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{1} $" src="form_90.png"/> for the range minimum/maximum queries. </dd></dl>
-<dl class="section user"><dt>Space complexity:</b></dt><dd><img class="formulaInl" alt="$ \Order{n\log^2 n} $" src="form_206.png"/> bits for the data structure ( <img class="formulaInl" alt="$ n=size() $" src="form_199.png"/> ). We used bit compression to get a good result in practice. </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{1} $" src="form_51.png"/> for the range minimum/maximum queries. </dd></dl>
+<dl class="section user"><dt>Space complexity:</b></dt><dd><img class="formulaInl" alt="$ \Order{n\log^2 n} $" src="form_210.png"/> bits for the data structure ( <img class="formulaInl" alt="$ n=size() $" src="form_203.png"/> ). We used bit compression to get a good result in practice. </dd></dl>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a7a8efc136980328239edc492e5643573"></a>
 <div class="memitem">
@@ -187,13 +190,13 @@ template&lt;class RandomAccessContainer , bool Minimum&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns:</dt><dd>The minimal index i with <img class="formulaInl" alt="$\ell \leq i \leq r$" src="form_200.png"/> for which <img class="formulaInl" alt="$ v[i] $" src="form_201.png"/> is minimal/maximal. </dd></dl>
+<dl class="section return"><dt>Returns:</dt><dd>The minimal index i with <img class="formulaInl" alt="$\ell \leq i \leq r$" src="form_204.png"/> for which <img class="formulaInl" alt="$ v[i] $" src="form_205.png"/> is minimal/maximal. </dd></dl>
 <dl class="section pre"><dt>Precondition:</dt><dd><ul>
 <li>r &lt; size()</li>
-<li><img class="formulaInl" alt="$ \ell \leq r $" src="form_202.png"/> </li>
+<li><img class="formulaInl" alt="$ \ell \leq r $" src="form_206.png"/> </li>
 </ul>
 </dd></dl>
-<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{1} $" src="form_90.png"/> </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{1} $" src="form_51.png"/> </dd></dl>
 
 </div>
 </div>
@@ -204,7 +207,7 @@ template&lt;class RandomAccessContainer , bool Minimum&gt; </div>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:35 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:31 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

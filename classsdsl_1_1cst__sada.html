@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -172,7 +173,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a6dcb9f99dcaa54fd0b3f947c2fb74ee6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor. <br/></td></tr>
 <tr class="memitem:ab6148c0ed5157f34b23dc2ef079e495d"><td class="memTemplParams" colspan="2"><a class="anchor" id="ab6148c0ed5157f34b23dc2ef079e495d"></a>
 template&lt;uint8_t int_width, class size_type_class , uint8_t int_width_1, class size_type_class_1 , uint8_t int_width_2, class size_type_class_2 &gt; </td></tr>
-<tr class="memitem:ab6148c0ed5157f34b23dc2ef079e495d"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>cst_sada</b> (const std::string &amp;csa_file_name, int_vector_file_buffer&lt; int_width, size_type_class &gt; &amp;lcp_buf, int_vector_file_buffer&lt; int_width_1, size_type_class_1 &gt; &amp;sa_buf, int_vector_file_buffer&lt; int_width_2, size_type_class_2 &gt; &amp;isa_buf, std::string dir=&quot;./&quot;, bool build_ony_bps=false)</td></tr>
+<tr class="memitem:ab6148c0ed5157f34b23dc2ef079e495d"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>cst_sada</b> (const std::string &amp;csa_file_name, <a class="el" href="classsdsl_1_1int__vector__file__buffer.html">int_vector_file_buffer</a>&lt; int_width, size_type_class &gt; &amp;lcp_buf, <a class="el" href="classsdsl_1_1int__vector__file__buffer.html">int_vector_file_buffer</a>&lt; int_width_1, size_type_class_1 &gt; &amp;sa_buf, <a class="el" href="classsdsl_1_1int__vector__file__buffer.html">int_vector_file_buffer</a>&lt; int_width_2, size_type_class_2 &gt; &amp;isa_buf, std::string dir=&quot;./&quot;, bool build_ony_bps=false)</td></tr>
 <tr class="memitem:ad7a986595da65519faa01296c0529bc8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad7a986595da65519faa01296c0529bc8"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>cst_sada</b> (tMSS &amp;file_map, const std::string dir, const std::string <a class="el" href="group__cst__sada__tree__methods.html#ga6a61b2b1a473ba53b532a338adf08ca5">id</a>, bool build_only_bps=false)</td></tr>
 <tr class="memitem:a6d7c1c8010d29f85d718cfb7cb0ce09a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6d7c1c8010d29f85d718cfb7cb0ce09a"></a>
@@ -181,8 +182,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>construct</b> (tMSS &
 <tr class="memdesc:a1ed08bccecd1b747d81ce203c47d55e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of leaves in the suffix tree.  <a href="#a1ed08bccecd1b747d81ce203c47d55e1"></a><br/></td></tr>
 <tr class="memitem:ac64072325ae0afb065b4a66b417a52e1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1cst__sada.html#ac64072325ae0afb065b4a66b417a52e1">empty</a> () const </td></tr>
 <tr class="memdesc:ac64072325ae0afb065b4a66b417a52e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns if the data strucutre is empty.  <a href="#ac64072325ae0afb065b4a66b417a52e1"></a><br/></td></tr>
-<tr class="memitem:a4bc1b22b1caeef8df2aad7f1b3882d71"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1cst__sada.html#a4bc1b22b1caeef8df2aad7f1b3882d71">swap</a> (<a class="el" href="classsdsl_1_1cst__sada.html">cst_sada</a>&lt; Csa, Lcp &gt; &amp;cst)</td></tr>
-<tr class="memdesc:a4bc1b22b1caeef8df2aad7f1b3882d71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swap method for <a class="el" href="classsdsl_1_1cst__sada.html" title="A class for the Compressed Suffix Tree (CST) proposed by Sadakane.">cst_sada</a>.  <a href="#a4bc1b22b1caeef8df2aad7f1b3882d71"></a><br/></td></tr>
+<tr class="memitem:aab0107fa1782344dd5bd8c8db8c99f4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1cst__sada.html#aab0107fa1782344dd5bd8c8db8c99f4d">swap</a> (<a class="el" href="classsdsl_1_1cst__sada.html">cst_sada</a> &amp;cst)</td></tr>
+<tr class="memdesc:aab0107fa1782344dd5bd8c8db8c99f4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swap method for <a class="el" href="classsdsl_1_1cst__sada.html" title="A class for the Compressed Suffix Tree (CST) proposed by Sadakane.">cst_sada</a>.  <a href="#aab0107fa1782344dd5bd8c8db8c99f4d"></a><br/></td></tr>
 <tr class="memitem:aced0b47d656303c0eba02587625c9fd2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsdsl_1_1cst__dfs__const__forward__iterator.html">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1cst__sada.html#aced0b47d656303c0eba02587625c9fd2">begin</a> () const </td></tr>
 <tr class="memdesc:aced0b47d656303c0eba02587625c9fd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a const_iterator to the first element.  <a href="#aced0b47d656303c0eba02587625c9fd2"></a><br/></td></tr>
 <tr class="memitem:a6aac5c57db4a51463bc0a88dc32ddbb0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsdsl_1_1cst__dfs__const__forward__iterator.html">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1cst__sada.html#a6aac5c57db4a51463bc0a88dc32ddbb0">end</a> () const </td></tr>
@@ -247,7 +248,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>construct</b> (tMSS &
 <tr class="memitem:ga84df60eb3e3d5ea3a92592c7287158be"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cst__sada__tree__methods.html#ga84df60eb3e3d5ea3a92592c7287158be">sn</a> (<a class="el" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8">node_type</a> v) const </td></tr>
 <tr class="memdesc:ga84df60eb3e3d5ea3a92592c7287158be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the suffix number of a leaf node v.  <a href="group__cst__sada__tree__methods.html#ga84df60eb3e3d5ea3a92592c7287158be"></a><br/></td></tr>
 <tr class="memitem:ga6a61b2b1a473ba53b532a338adf08ca5"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cst__sada__tree__methods.html#ga6a61b2b1a473ba53b532a338adf08ca5">id</a> (<a class="el" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8">node_type</a> v) const </td></tr>
-<tr class="memdesc:ga6a61b2b1a473ba53b532a338adf08ca5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comuptes a unique identification number for a node of the suffix tree in the range [0..<a class="el" href="group__cst__sada__tree__methods.html#ga1975d2d360e2c7cd01205d1c9b96ca79" title="Get the number of nodes of the suffix tree.">nodes()</a>-1].  <a href="group__cst__sada__tree__methods.html#ga6a61b2b1a473ba53b532a338adf08ca5"></a><br/></td></tr>
+<tr class="memdesc:ga6a61b2b1a473ba53b532a338adf08ca5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes a unique identification number for a node of the suffix tree in the range [0..<a class="el" href="group__cst__sada__tree__methods.html#ga1975d2d360e2c7cd01205d1c9b96ca79" title="Get the number of nodes of the suffix tree.">nodes()</a>-1].  <a href="group__cst__sada__tree__methods.html#ga6a61b2b1a473ba53b532a338adf08ca5"></a><br/></td></tr>
+<tr class="memitem:ga63616dcebb8f34023a1ba31752e6901a"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cst__sada__tree__methods.html#ga63616dcebb8f34023a1ba31752e6901a">inv_id</a> (size_type <a class="el" href="group__cst__sada__tree__methods.html#ga6a61b2b1a473ba53b532a338adf08ca5">id</a>)</td></tr>
+<tr class="memdesc:ga63616dcebb8f34023a1ba31752e6901a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the node for such that id(v)=id.  <a href="group__cst__sada__tree__methods.html#ga63616dcebb8f34023a1ba31752e6901a"></a><br/></td></tr>
 <tr class="memitem:ga1975d2d360e2c7cd01205d1c9b96ca79"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga1975d2d360e2c7cd01205d1c9b96ca79"></a>
 size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cst__sada__tree__methods.html#ga1975d2d360e2c7cd01205d1c9b96ca79">nodes</a> () const </td></tr>
 <tr class="memdesc:ga1975d2d360e2c7cd01205d1c9b96ca79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of nodes of the suffix tree. <br/></td></tr>
@@ -274,7 +277,7 @@ const Csa &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el"
 const lcp_type &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1cst__sada.html#a3acc21d46abdac9861fc41a66b57aa29">lcp</a></td></tr>
 <tr class="memdesc:a3acc21d46abdac9861fc41a66b57aa29"><td class="mdescLeft">&#160;</td><td class="mdescRight">The lcp array the suffix tree is based on. <br/></td></tr>
 <tr class="memitem:ae25541428336ad697b9ceefffccea100"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae25541428336ad697b9ceefffccea100"></a>
-const bit_vector &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1cst__sada.html#ae25541428336ad697b9ceefffccea100">bp</a></td></tr>
+const <a class="el" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb">bit_vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1cst__sada.html#ae25541428336ad697b9ceefffccea100">bp</a></td></tr>
 <tr class="memdesc:ae25541428336ad697b9ceefffccea100"><td class="mdescLeft">&#160;</td><td class="mdescRight">The balanced parentheses sequence of the suffix tree. <br/></td></tr>
 <tr class="memitem:ae6a021c0152e18b70e0e6eff161f82ec"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae6a021c0152e18b70e0e6eff161f82ec"></a>
 const Bp_support &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1cst__sada.html#ae6a021c0152e18b70e0e6eff161f82ec">bp_support</a></td></tr>
@@ -293,13 +296,13 @@ class sdsl::cst_sada&lt; Csa, Lcp, Bp_support, Rank_support10, Select_support10 
 <p>A class for the Compressed Suffix Tree (CST) proposed by Sadakane. </p>
 <p>The CSA is parameterized by</p>
 <ul>
-<li>a (compressed) suffix array data structure (accessible via member <img class="formulaInl" alt="$csa$" src="form_108.png"/>, default class is <a class="el" href="classsdsl_1_1csa__sada.html" title="A class for the Compressed Suffix Array (CSA) proposed by Sadakane for practical implementation.">sdsl::csa_sada</a>),</li>
-<li>a (compressed) longest common prefix data structure (accessible via member <img class="formulaInl" alt="$lcp$" src="form_109.png"/>, default class is <a class="el" href="classsdsl_1_1lcp__support__sada.html" title="Helper class which provides _lcp_support_sada the context of a CSA.">sdsl::lcp_support_sada</a>),</li>
-<li>a support data structure for balanced parentheses sequences (accessible via member <img class="formulaInl" alt="$bp\_support$" src="form_110.png"/>, default class is <a class="el" href="classsdsl_1_1bp__support__sada.html" title="A class that provides support for bit_vectors that represent a balanced parentheses sequence...">sdsl::bp_support_sada</a>),</li>
-<li>a rank data structure for the 2-bit pattern "10" (accessible via memeber <img class="formulaInl" alt="$bp\_rank\_10$" src="form_133.png"/>, default class is <a class="el" href="classsdsl_1_1rank__support__v.html" title="A class supporting rank queries in constant time. The implementation is a version of the data structu...">sdsl::rank_support_v</a>), and</li>
-<li><p class="startli">a select data structure for the 2-bit pattern "10" (accessible via member <img class="formulaInl" alt="$bp\_select\_10$" src="form_134.png"/>, default class is <a class="el" href="classsdsl_1_1select__support__mcl.html" title="A class supporting constant time select queries (proposed by Munro/Clark, 1996) enhanced by broadword...">sdsl::select_support_mcl</a>).</p>
-<p class="startli">It also contains a sdsl::bit_vector which represents the balanced parentheses sequence of the suffix tree. This bit_vector can be accessed via the member <img class="formulaInl" alt="$bp$" src="form_111.png"/>.</p>
-<p class="startli">A node <img class="formulaInl" alt="$v$" src="form_46.png"/> of the <a class="el" href="classsdsl_1_1csa__sada.html" title="A class for the Compressed Suffix Array (CSA) proposed by Sadakane for practical implementation.">csa_sada</a> is represented by an integer <img class="formulaInl" alt="$i$" src="form_76.png"/> which gives the opening parenthesis of the parenthesis pair <img class="formulaInl" alt="$(i,\mu(i))$" src="form_70.png"/> that corresponds to <img class="formulaInl" alt="$v$" src="form_46.png"/> in <img class="formulaInl" alt="$bp$" src="form_111.png"/>.</p>
+<li>a (compressed) suffix array data structure (accessible via member <img class="formulaInl" alt="$csa$" src="form_109.png"/>, default class is <a class="el" href="classsdsl_1_1csa__sada.html" title="A class for the Compressed Suffix Array (CSA) proposed by Sadakane for practical implementation.">sdsl::csa_sada</a>),</li>
+<li>a (compressed) longest common prefix data structure (accessible via member <img class="formulaInl" alt="$lcp$" src="form_110.png"/>, default class is <a class="el" href="classsdsl_1_1lcp__support__sada.html" title="Helper class which provides _lcp_support_sada the context of a CSA.">sdsl::lcp_support_sada</a>),</li>
+<li>a support data structure for balanced parentheses sequences (accessible via member <img class="formulaInl" alt="$bp\_support$" src="form_111.png"/>, default class is <a class="el" href="classsdsl_1_1bp__support__sada.html" title="A class that provides support for bit_vectors that represent a balanced parentheses sequence...">sdsl::bp_support_sada</a>),</li>
+<li>a rank data structure for the 2-bit pattern "10" (accessible via memeber <img class="formulaInl" alt="$bp\_rank\_10$" src="form_134.png"/>, default class is <a class="el" href="classsdsl_1_1rank__support__v.html" title="A class supporting rank queries in constant time. The implementation is a version of the data structu...">sdsl::rank_support_v</a>), and</li>
+<li><p class="startli">a select data structure for the 2-bit pattern "10" (accessible via member <img class="formulaInl" alt="$bp\_select\_10$" src="form_135.png"/>, default class is <a class="el" href="classsdsl_1_1select__support__mcl.html" title="A class supporting constant time select queries (proposed by Munro/Clark, 1996) enhanced by broadword...">sdsl::select_support_mcl</a>).</p>
+<p class="startli">It also contains a <a class="el" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb" title="bit_vector is a specialization of the int_vector.">sdsl::bit_vector</a> which represents the balanced parentheses sequence of the suffix tree. This bit_vector can be accessed via the member <img class="formulaInl" alt="$bp$" src="form_112.png"/>.</p>
+<p class="startli">A node <img class="formulaInl" alt="$v$" src="form_46.png"/> of the <a class="el" href="classsdsl_1_1csa__sada.html" title="A class for the Compressed Suffix Array (CSA) proposed by Sadakane for practical implementation.">csa_sada</a> is represented by an integer <img class="formulaInl" alt="$i$" src="form_78.png"/> which gives the opening parenthesis of the parenthesis pair <img class="formulaInl" alt="$(i,\mu(i))$" src="form_72.png"/> that corresponds to <img class="formulaInl" alt="$v$" src="form_46.png"/> in <img class="formulaInl" alt="$bp$" src="form_112.png"/>.</p>
 <div class="image">
 <img src="./example/size_of_csts.png" alt="size_of_csts.png"/>
 <div class="caption">
@@ -311,7 +314,7 @@ Size comparison between cst_sct and cst_sada</div></div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Csa = csa_sada&lt;&gt;, class Lcp = lcp_support_sada&lt;&gt;, class Bp_support = bp_support_sada&lt;&gt;, class Rank_support10 = rank_support_v&lt;10,2&gt;, class Select_support10 = select_support_mcl&lt;10,2&gt;&gt; </div>
+template&lt;class Csa  = csa_sada&lt;&gt;, class Lcp  = lcp_support_sada&lt;&gt;, class Bp_support  = bp_support_sada&lt;&gt;, class Rank_support10  = rank_support_v&lt;10,2&gt;, class Select_support10  = select_support_mcl&lt;10,2&gt;&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classsdsl_1_1cst__dfs__const__forward__iterator.html">const_iterator</a> <a class="el" href="classsdsl_1_1cst__sada.html">sdsl::cst_sada</a>&lt; Csa, Lcp, Bp_support, Rank_support10, Select_support10 &gt;::<a class="el" href="classsdsl_1_1cst__sada.html#aced0b47d656303c0eba02587625c9fd2">begin</a> </td>
@@ -333,7 +336,7 @@ template&lt;class Csa = csa_sada&lt;&gt;, class Lcp = lcp_support_sada&lt;&gt;, 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Csa = csa_sada&lt;&gt;, class Lcp = lcp_support_sada&lt;&gt;, class Bp_support = bp_support_sada&lt;&gt;, class Rank_support10 = rank_support_v&lt;10,2&gt;, class Select_support10 = select_support_mcl&lt;10,2&gt;&gt; </div>
+template&lt;class Csa  = csa_sada&lt;&gt;, class Lcp  = lcp_support_sada&lt;&gt;, class Bp_support  = bp_support_sada&lt;&gt;, class Rank_support10  = rank_support_v&lt;10,2&gt;, class Select_support10  = select_support_mcl&lt;10,2&gt;&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">bool <a class="el" href="classsdsl_1_1cst__sada.html">sdsl::cst_sada</a>&lt; Csa, Lcp, Bp_support, Rank_support10, Select_support10 &gt;::<a class="el" href="classsdsl_1_1cst__sada.html#ac64072325ae0afb065b4a66b417a52e1">empty</a> </td>
@@ -355,7 +358,7 @@ template&lt;class Csa = csa_sada&lt;&gt;, class Lcp = lcp_support_sada&lt;&gt;, 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Csa = csa_sada&lt;&gt;, class Lcp = lcp_support_sada&lt;&gt;, class Bp_support = bp_support_sada&lt;&gt;, class Rank_support10 = rank_support_v&lt;10,2&gt;, class Select_support10 = select_support_mcl&lt;10,2&gt;&gt; </div>
+template&lt;class Csa  = csa_sada&lt;&gt;, class Lcp  = lcp_support_sada&lt;&gt;, class Bp_support  = bp_support_sada&lt;&gt;, class Rank_support10  = rank_support_v&lt;10,2&gt;, class Select_support10  = select_support_mcl&lt;10,2&gt;&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classsdsl_1_1cst__dfs__const__forward__iterator.html">const_iterator</a> <a class="el" href="classsdsl_1_1cst__sada.html">sdsl::cst_sada</a>&lt; Csa, Lcp, Bp_support, Rank_support10, Select_support10 &gt;::<a class="el" href="classsdsl_1_1cst__sada.html#a6aac5c57db4a51463bc0a88dc32ddbb0">end</a> </td>
@@ -377,7 +380,7 @@ template&lt;class Csa = csa_sada&lt;&gt;, class Lcp = lcp_support_sada&lt;&gt;, 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Csa = csa_sada&lt;&gt;, class Lcp = lcp_support_sada&lt;&gt;, class Bp_support = bp_support_sada&lt;&gt;, class Rank_support10 = rank_support_v&lt;10,2&gt;, class Select_support10 = select_support_mcl&lt;10,2&gt;&gt; </div>
+template&lt;class Csa  = csa_sada&lt;&gt;, class Lcp  = lcp_support_sada&lt;&gt;, class Bp_support  = bp_support_sada&lt;&gt;, class Rank_support10  = rank_support_v&lt;10,2&gt;, class Select_support10  = select_support_mcl&lt;10,2&gt;&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="classsdsl_1_1cst__sada.html">sdsl::cst_sada</a>&lt; Csa, Lcp, Bp_support, Rank_support10, Select_support10 &gt;::<a class="el" href="classsdsl_1_1cst__sada.html#a6da906663ec0cf0d09275af2f6c13682">load</a> </td>
@@ -404,7 +407,7 @@ template&lt;class Csa = csa_sada&lt;&gt;, class Lcp = lcp_support_sada&lt;&gt;, 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Csa = csa_sada&lt;&gt;, class Lcp = lcp_support_sada&lt;&gt;, class Bp_support = bp_support_sada&lt;&gt;, class Rank_support10 = rank_support_v&lt;10,2&gt;, class Select_support10 = select_support_mcl&lt;10,2&gt;&gt; </div>
+template&lt;class Csa  = csa_sada&lt;&gt;, class Lcp  = lcp_support_sada&lt;&gt;, class Bp_support  = bp_support_sada&lt;&gt;, class Rank_support10  = rank_support_v&lt;10,2&gt;, class Select_support10  = select_support_mcl&lt;10,2&gt;&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">static size_type <a class="el" href="classsdsl_1_1cst__sada.html">sdsl::cst_sada</a>&lt; Csa, Lcp, Bp_support, Rank_support10, Select_support10 &gt;::<a class="el" href="classsdsl_1_1cst__sada.html#a9cd834f44ea05c8a5bf25dd5978e646f">max_size</a> </td>
@@ -426,7 +429,7 @@ template&lt;class Csa = csa_sada&lt;&gt;, class Lcp = lcp_support_sada&lt;&gt;, 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Csa = csa_sada&lt;&gt;, class Lcp = lcp_support_sada&lt;&gt;, class Bp_support = bp_support_sada&lt;&gt;, class Rank_support10 = rank_support_v&lt;10,2&gt;, class Select_support10 = select_support_mcl&lt;10,2&gt;&gt; </div>
+template&lt;class Csa  = csa_sada&lt;&gt;, class Lcp  = lcp_support_sada&lt;&gt;, class Bp_support  = bp_support_sada&lt;&gt;, class Rank_support10  = rank_support_v&lt;10,2&gt;, class Select_support10  = select_support_mcl&lt;10,2&gt;&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">bool <a class="el" href="classsdsl_1_1cst__sada.html">sdsl::cst_sada</a>&lt; Csa, Lcp, Bp_support, Rank_support10, Select_support10 &gt;::operator!= </td>
@@ -450,7 +453,7 @@ template&lt;class Csa = csa_sada&lt;&gt;, class Lcp = lcp_support_sada&lt;&gt;, 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Csa = csa_sada&lt;&gt;, class Lcp = lcp_support_sada&lt;&gt;, class Bp_support = bp_support_sada&lt;&gt;, class Rank_support10 = rank_support_v&lt;10,2&gt;, class Select_support10 = select_support_mcl&lt;10,2&gt;&gt; </div>
+template&lt;class Csa  = csa_sada&lt;&gt;, class Lcp  = lcp_support_sada&lt;&gt;, class Bp_support  = bp_support_sada&lt;&gt;, class Rank_support10  = rank_support_v&lt;10,2&gt;, class Select_support10  = select_support_mcl&lt;10,2&gt;&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classsdsl_1_1cst__sada.html">cst_sada</a>&amp; <a class="el" href="classsdsl_1_1cst__sada.html">sdsl::cst_sada</a>&lt; Csa, Lcp, Bp_support, Rank_support10, Select_support10 &gt;::operator= </td>
@@ -472,7 +475,7 @@ template&lt;class Csa = csa_sada&lt;&gt;, class Lcp = lcp_support_sada&lt;&gt;, 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Csa = csa_sada&lt;&gt;, class Lcp = lcp_support_sada&lt;&gt;, class Bp_support = bp_support_sada&lt;&gt;, class Rank_support10 = rank_support_v&lt;10,2&gt;, class Select_support10 = select_support_mcl&lt;10,2&gt;&gt; </div>
+template&lt;class Csa  = csa_sada&lt;&gt;, class Lcp  = lcp_support_sada&lt;&gt;, class Bp_support  = bp_support_sada&lt;&gt;, class Rank_support10  = rank_support_v&lt;10,2&gt;, class Select_support10  = select_support_mcl&lt;10,2&gt;&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">bool <a class="el" href="classsdsl_1_1cst__sada.html">sdsl::cst_sada</a>&lt; Csa, Lcp, Bp_support, Rank_support10, Select_support10 &gt;::operator== </td>
@@ -496,7 +499,7 @@ template&lt;class Csa = csa_sada&lt;&gt;, class Lcp = lcp_support_sada&lt;&gt;, 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Csa = csa_sada&lt;&gt;, class Lcp = lcp_support_sada&lt;&gt;, class Bp_support = bp_support_sada&lt;&gt;, class Rank_support10 = rank_support_v&lt;10,2&gt;, class Select_support10 = select_support_mcl&lt;10,2&gt;&gt; </div>
+template&lt;class Csa  = csa_sada&lt;&gt;, class Lcp  = lcp_support_sada&lt;&gt;, class Bp_support  = bp_support_sada&lt;&gt;, class Rank_support10  = rank_support_v&lt;10,2&gt;, class Select_support10  = select_support_mcl&lt;10,2&gt;&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">size_type <a class="el" href="classsdsl_1_1cst__sada.html">sdsl::cst_sada</a>&lt; Csa, Lcp, Bp_support, Rank_support10, Select_support10 &gt;::<a class="el" href="classsdsl_1_1cst__sada.html#aa4ac3c5b3e84d95fba2e0227f909f5e7">serialize</a> </td>
@@ -524,7 +527,7 @@ template&lt;class Csa = csa_sada&lt;&gt;, class Lcp = lcp_support_sada&lt;&gt;, 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Csa = csa_sada&lt;&gt;, class Lcp = lcp_support_sada&lt;&gt;, class Bp_support = bp_support_sada&lt;&gt;, class Rank_support10 = rank_support_v&lt;10,2&gt;, class Select_support10 = select_support_mcl&lt;10,2&gt;&gt; </div>
+template&lt;class Csa  = csa_sada&lt;&gt;, class Lcp  = lcp_support_sada&lt;&gt;, class Bp_support  = bp_support_sada&lt;&gt;, class Rank_support10  = rank_support_v&lt;10,2&gt;, class Select_support10  = select_support_mcl&lt;10,2&gt;&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">size_type <a class="el" href="classsdsl_1_1cst__sada.html">sdsl::cst_sada</a>&lt; Csa, Lcp, Bp_support, Rank_support10, Select_support10 &gt;::<a class="el" href="classsdsl_1_1cst__sada.html#a1ed08bccecd1b747d81ce203c47d55e1">size</a> </td>
@@ -542,18 +545,18 @@ template&lt;class Csa = csa_sada&lt;&gt;, class Lcp = lcp_support_sada&lt;&gt;, 
 
 </div>
 </div>
-<a class="anchor" id="a4bc1b22b1caeef8df2aad7f1b3882d71"></a>
+<a class="anchor" id="aab0107fa1782344dd5bd8c8db8c99f4d"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Csa = csa_sada&lt;&gt;, class Lcp = lcp_support_sada&lt;&gt;, class Bp_support = bp_support_sada&lt;&gt;, class Rank_support10 = rank_support_v&lt;10,2&gt;, class Select_support10 = select_support_mcl&lt;10,2&gt;&gt; </div>
+template&lt;class Csa  = csa_sada&lt;&gt;, class Lcp  = lcp_support_sada&lt;&gt;, class Bp_support  = bp_support_sada&lt;&gt;, class Rank_support10  = rank_support_v&lt;10,2&gt;, class Select_support10  = select_support_mcl&lt;10,2&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classsdsl_1_1cst__sada.html">sdsl::cst_sada</a>&lt; Csa, Lcp, Bp_support, Rank_support10, Select_support10 &gt;::<a class="el" href="classsdsl_1_1cst__sada.html#a4bc1b22b1caeef8df2aad7f1b3882d71">swap</a> </td>
+          <td class="memname">void <a class="el" href="classsdsl_1_1cst__sada.html">sdsl::cst_sada</a>&lt; Csa, Lcp, Bp_support, Rank_support10, Select_support10 &gt;::<a class="el" href="classsdsl_1_1cst__sada.html#aab0107fa1782344dd5bd8c8db8c99f4d">swap</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classsdsl_1_1cst__sada.html">cst_sada</a>&lt; Csa, Lcp &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classsdsl_1_1cst__sada.html">cst_sada</a>&lt; Csa, Lcp, Bp_support, Rank_support10, Select_support10 &gt; &amp;&#160;</td>
           <td class="paramname"><em>cst</em></td><td>)</td>
-          <td></td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
@@ -578,7 +581,7 @@ template&lt;class Csa = csa_sada&lt;&gt;, class Lcp = lcp_support_sada&lt;&gt;, 
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:35 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:30 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

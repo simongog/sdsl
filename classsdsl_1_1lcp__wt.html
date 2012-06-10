@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -127,7 +128,7 @@ Public Types</h2></td></tr>
 <b>sa_order</b> =  1
  }</td></tr>
 <tr class="memitem:a7018458f129af6376dcc8aad3dd0387a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7018458f129af6376dcc8aad3dd0387a"></a>
-typedef int_vector&lt; width &gt;<br class="typebreak"/>
+typedef <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; width &gt;<br class="typebreak"/>
 ::value_type&#160;</td><td class="memItemRight" valign="bottom"><b>value_type</b></td></tr>
 <tr class="memitem:a62f2c6f1ca4fed1b0f77aa7260845abd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a62f2c6f1ca4fed1b0f77aa7260845abd"></a>
 typedef <br class="typebreak"/>
@@ -166,14 +167,14 @@ template&lt;class Text , class Sa &gt; </td></tr>
 <tr class="memdesc:aa68abc1ebe6c01df12240d2aa4a3c53f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the compressed lcp from a compressed suffix array. <br/></td></tr>
 <tr class="memitem:ac616c0a4a2af3823e9ef76f093deadbf"><td class="memTemplParams" colspan="2"><a class="anchor" id="ac616c0a4a2af3823e9ef76f093deadbf"></a>
 template&lt;uint8_t int_width, class size_type_class &gt; </td></tr>
-<tr class="memitem:ac616c0a4a2af3823e9ef76f093deadbf"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsdsl_1_1lcp__wt.html#ac616c0a4a2af3823e9ef76f093deadbf">lcp_wt</a> (int_vector_file_buffer&lt; int_width, size_type_class &gt; &amp;lcp_buf)</td></tr>
-<tr class="memdesc:ac616c0a4a2af3823e9ef76f093deadbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the lcp array from an int_vector_file_buffer. <br/></td></tr>
+<tr class="memitem:ac616c0a4a2af3823e9ef76f093deadbf"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsdsl_1_1lcp__wt.html#ac616c0a4a2af3823e9ef76f093deadbf">lcp_wt</a> (<a class="el" href="classsdsl_1_1int__vector__file__buffer.html">int_vector_file_buffer</a>&lt; int_width, size_type_class &gt; &amp;lcp_buf)</td></tr>
+<tr class="memdesc:ac616c0a4a2af3823e9ef76f093deadbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the lcp array from an <a class="el" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer</a>. <br/></td></tr>
 <tr class="memitem:abed5d871025d8ded1d884e82b4bd458b"><td class="memTemplParams" colspan="2"><a class="anchor" id="abed5d871025d8ded1d884e82b4bd458b"></a>
 template&lt;class Text , class Sa &gt; </td></tr>
 <tr class="memitem:abed5d871025d8ded1d884e82b4bd458b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>construct</b> (const Text &amp;text, const Sa &amp;sa)</td></tr>
 <tr class="memitem:a0281e17428c1453126be518ba9715976"><td class="memTemplParams" colspan="2"><a class="anchor" id="a0281e17428c1453126be518ba9715976"></a>
 template&lt;uint8_t int_width, class size_type_class &gt; </td></tr>
-<tr class="memitem:a0281e17428c1453126be518ba9715976"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>construct</b> (int_vector_file_buffer&lt; int_width, size_type_class &gt; &amp;lcp_buf)</td></tr>
+<tr class="memitem:a0281e17428c1453126be518ba9715976"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>construct</b> (<a class="el" href="classsdsl_1_1int__vector__file__buffer.html">int_vector_file_buffer</a>&lt; int_width, size_type_class &gt; &amp;lcp_buf)</td></tr>
 <tr class="memitem:a7af8f24d0a786e16d2826ff75cfdb396"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1lcp__wt.html#a7af8f24d0a786e16d2826ff75cfdb396">size</a> () const </td></tr>
 <tr class="memdesc:a7af8f24d0a786e16d2826ff75cfdb396"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of elements in the instance.  <a href="#a7af8f24d0a786e16d2826ff75cfdb396"></a><br/></td></tr>
 <tr class="memitem:a6442f09143bf188437a2b8639b681e8e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1lcp__wt.html#a6442f09143bf188437a2b8639b681e8e">empty</a> () const </td></tr>
@@ -206,10 +207,10 @@ Static Public Member Functions</h2></td></tr>
 class sdsl::lcp_wt&lt; width &gt;</h3>
 
 <p>A class for the compressed version of lcp information of an suffix array. </p>
-<p>We use <img class="formulaInl" alt="$H_0$" src="form_185.png"/> bit for each lcp values &lt; 255 and <img class="formulaInl" alt="$ log n $" src="form_180.png"/> bits for each lcp value which is greater than 254. </p>
-<dl class="section user"><dt>Time complexity </b></dt><dd><ul>
-<li><img class="formulaInl" alt="$\Order{1}$" src="form_120.png"/> if the value is less than 255 and</li>
-<li><img class="formulaInl" alt="$\Order{\log n}$" src="form_181.png"/> ( <img class="formulaInl" alt="$n=size()$" src="form_182.png"/>) otherwise. </li>
+<p>We use <img class="formulaInl" alt="$H_0$" src="form_188.png"/> bit for each lcp values &lt; 255 and <img class="formulaInl" alt="$ log n $" src="form_183.png"/> bits for each lcp value which is greater than 254. </p>
+<dl class="section user"><dt>Time complexity</b></dt><dd><ul>
+<li><img class="formulaInl" alt="$\Order{1}$" src="form_121.png"/> if the value is less than 255 and</li>
+<li><img class="formulaInl" alt="$\Order{\log n}$" src="form_184.png"/> ( <img class="formulaInl" alt="$n=size()$" src="form_185.png"/>) otherwise. </li>
 </ul>
 </dd></dl>
 </div><hr/><h2>Member Function Documentation</h2>
@@ -418,7 +419,7 @@ template&lt;uint8_t width&gt; </div>
 <p>[]-operator </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>Index of the value. <img class="formulaInl" alt="$ i \in [0..size()-1]$" src="form_91.png"/>. Time complexity: O(suffix array access) Required for the STL Random Access Container Concept. </td></tr>
+    <tr><td class="paramname">i</td><td>Index of the value. <img class="formulaInl" alt="$ i \in [0..size()-1]$" src="form_92.png"/>. Time complexity: O(suffix array access) Required for the STL Random Access Container Concept. </td></tr>
   </table>
   </dd>
 </dl>
@@ -511,7 +512,7 @@ template&lt;uint8_t width&gt; </div>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:35 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:31 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

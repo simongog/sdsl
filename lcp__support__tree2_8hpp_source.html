@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -82,7 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -103,208 +104,213 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00005"></a>00005 <span class="preprocessor">#include &quot;<a class="code" href="util_8hpp.html" title="util.hpp contains some helper methods for int_vector and other stuff like demangle class names...">util.hpp</a>&quot;</span>
 <a name="l00006"></a>00006 <span class="preprocessor">#include &quot;<a class="code" href="algorithms__for__compressed__suffix__trees_8hpp.html" title="algorithms_for_compressed_suffix_trees.hpp contains algorithms for compressed suffix trees...">algorithms_for_compressed_suffix_trees.hpp</a>&quot;</span>
 <a name="l00007"></a>00007 <span class="preprocessor">#include &quot;<a class="code" href="rank__support__v_8hpp.html" title="rank_support_v.hpp contains rank_support_v that support a sdsl::bit_vector with constant time rank in...">rank_support_v.hpp</a>&quot;</span>
-<a name="l00008"></a>00008 <span class="preprocessor">#include &quot;<a class="code" href="wt__huff_8hpp.html" title="wt_huff.hpp contains a class for the wavelet tree of byte sequences which is in Huffman shape...">wt_huff.hpp</a>&quot;</span>
-<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;iostream&gt;</span>
-<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;string&gt;</span>
-<a name="l00011"></a>00011 
-<a name="l00012"></a>00012 <span class="keyword">namespace </span>sdsl{
-<a name="l00013"></a>00013 
-<a name="l00014"></a>00014         
-<a name="l00022"></a>00022 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>32_t SampleDens, <span class="keyword">class</span> Cst&gt;
-<a name="l00023"></a><a class="code" href="classsdsl_1_1__lcp__support__tree2.html">00023</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1__lcp__support__tree2.html">_lcp_support_tree2</a>{
-<a name="l00024"></a>00024         <span class="keyword">public</span>:
-<a name="l00025"></a>00025         <span class="keyword">typedef</span> int_vector&lt;&gt;::value_type                                value_type;      <span class="comment">// STL Container requirement</span>
-<a name="l00026"></a>00026         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">random_access_const_iterator&lt;_lcp_support_tree2&gt;</a>        <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>;  <span class="comment">// STL Container requirement</span>
-<a name="l00027"></a>00027         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>                                                                  <a class="code" href="classsdsl_1_1random__access__const__iterator.html">iterator</a>;                <span class="comment">// STL Container requirement</span>
-<a name="l00028"></a>00028         <span class="keyword">typedef</span> <span class="keyword">const</span> value_type                                                                const_reference;
-<a name="l00029"></a>00029         <span class="keyword">typedef</span> const_reference                                                                 reference;
-<a name="l00030"></a>00030         <span class="keyword">typedef</span> const_reference*                                                                pointer;
-<a name="l00031"></a>00031         <span class="keyword">typedef</span> <span class="keyword">const</span> pointer                                                                   const_pointer;
-<a name="l00032"></a>00032         <span class="keyword">typedef</span> int_vector&lt;&gt;::size_type                                                 size_type;               <span class="comment">// STL Container requirement</span>
-<a name="l00033"></a>00033         <span class="keyword">typedef</span> int_vector&lt;&gt;::difference_type                                   difference_type; <span class="comment">// STL Container requirement</span>
-<a name="l00034"></a>00034         <span class="keyword">typedef</span> Cst                                                                                             cst_type;
-<a name="l00035"></a>00035 
-<a name="l00036"></a>00036         <span class="keyword">typedef</span> <a class="code" href="structsdsl_1_1lcp__tree__and__lf__compressed__tag.html">lcp_tree_and_lf_compressed_tag</a>                                  <a class="code" href="structsdsl_1_1lcp__tree__and__lf__compressed__tag.html">lcp_category</a>;
-<a name="l00037"></a>00037 
-<a name="l00038"></a>00038         <span class="keyword">enum</span>{ fast_access = 0,
-<a name="l00039"></a>00039                   text_order = 0,
-<a name="l00040"></a>00040                   sa_order = 0    
-<a name="l00041"></a>00041                 };
-<a name="l00042"></a>00042 
-<a name="l00043"></a>00043         <span class="keyword">template</span>&lt;<span class="keyword">class</span> CST&gt;  <span class="comment">// template inner class which is used in CSTs to parametrize lcp classes</span>
-<a name="l00044"></a><a class="code" href="classsdsl_1_1__lcp__support__tree2_1_1type.html">00044</a>         <span class="keyword">class </span><a class="code" href="classsdsl_1_1__lcp__support__tree2_1_1type.html">type</a>{          <span class="comment">// with information about the CST. Thanks Stefan Arnold! (2011-03-02)</span>
-<a name="l00045"></a>00045                 <span class="keyword">public</span>:
-<a name="l00046"></a>00046                 <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1__lcp__support__tree2.html">_lcp_support_tree2</a> <a class="code" href="classsdsl_1_1__lcp__support__tree2.html">lcp_type</a>;    
-<a name="l00047"></a>00047         };
-<a name="l00048"></a>00048 
-<a name="l00049"></a>00049         <span class="keyword">private</span>:
-<a name="l00050"></a>00050                 <span class="keyword">const</span> cst_type  *m_cst;
-<a name="l00051"></a>00051                 <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1select__support__bs.html" title="A class supporting select quries by using a rank_support and binary search.">select_support_bs&lt; rank_support_v&lt;&gt;</a> &gt; <a class="code" href="classsdsl_1_1select__support__bs.html" title="A class supporting select quries by using a rank_support and binary search.">tDummySS</a>;
-<a name="l00052"></a>00052                 <a class="code" href="classsdsl_1_1wt__huff.html" title="A Wavelet Tree class for byte sequences.">wt_huff&lt;bit_vector, rank_support_v5&lt;&gt;</a>, <a class="code" href="classsdsl_1_1select__support__bs.html" title="A class supporting select quries by using a rank_support and binary search.">tDummySS</a>, <a class="code" href="classsdsl_1_1select__support__bs.html" title="A class supporting select quries by using a rank_support and binary search.">tDummySS</a> &gt; m_small_lcp; <span class="comment">// vector for lcp values &lt; 254</span>
-<a name="l00053"></a>00053                 int_vector&lt;&gt; m_big_lcp;  <span class="comment">// vector for lcp values &gt;= 254</span>
-<a name="l00054"></a>00054 
-<a name="l00055"></a>00055                 <span class="keywordtype">void</span> copy(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1__lcp__support__tree2.html">_lcp_support_tree2</a> &amp;lcp_c){
-<a name="l00056"></a>00056                         m_small_lcp = lcp_c.m_small_lcp;
-<a name="l00057"></a>00057                         m_big_lcp = lcp_c.m_big_lcp;
-<a name="l00058"></a>00058                         m_cst = lcp_c.m_cst;
-<a name="l00059"></a>00059                 }
-<a name="l00060"></a>00060 
-<a name="l00061"></a>00061         <span class="keyword">public</span>:
-<a name="l00062"></a>00062 
-<a name="l00064"></a><a class="code" href="classsdsl_1_1__lcp__support__tree2.html#ae1ff84125af424997d6eded50c6d68ec">00064</a>                 <a class="code" href="classsdsl_1_1__lcp__support__tree2.html#ae1ff84125af424997d6eded50c6d68ec" title="Default constructor.">_lcp_support_tree2</a>(){}
-<a name="l00065"></a>00065 
-<a name="l00066"></a>00066                 <span class="comment">// Destructor</span>
-<a name="l00067"></a>00067                 ~<a class="code" href="classsdsl_1_1__lcp__support__tree2.html">_lcp_support_tree2</a>(){}
-<a name="l00068"></a>00068 
-<a name="l00070"></a><a class="code" href="classsdsl_1_1__lcp__support__tree2.html#a433f508ddb77e7f1458fa3327825f978">00070</a>                 <a class="code" href="classsdsl_1_1__lcp__support__tree2.html#a433f508ddb77e7f1458fa3327825f978" title="Copy constructor.">_lcp_support_tree2</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1__lcp__support__tree2.html">_lcp_support_tree2</a> &amp;lcp){
-<a name="l00071"></a>00071                         copy(lcp);
-<a name="l00072"></a>00072                 }
-<a name="l00073"></a>00073 
-<a name="l00077"></a>00077                 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Text, <span class="keyword">class</span> Sa&gt;
-<a name="l00078"></a>00078                 <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1__lcp__support__tree2.html#a0a436a6bb4c786eec936ccf05f8f14c4">construct</a>(<span class="keyword">const</span> Text &amp;text, <span class="keyword">const</span> Sa &amp;sa, <span class="keyword">const</span> cst_type *cst);
-<a name="l00079"></a>00079 
-<a name="l00080"></a>00080 
-<a name="l00082"></a>00082 
-<a name="l00085"></a>00085                 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>&gt;
-<a name="l00086"></a><a class="code" href="classsdsl_1_1__lcp__support__tree2.html#ab9f77fd0ee756a5dccfe03f134813908">00086</a>                 <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1__lcp__support__tree2.html#a0a436a6bb4c786eec936ccf05f8f14c4">construct</a>(int_vector_file_buffer&lt;int_width, size_type_class&gt; &amp;lcp_buf, 
-<a name="l00087"></a>00087                                                 int_vector_file_buffer&lt;8, size_type_class&gt; &amp;bwt_buf,
-<a name="l00088"></a>00088                                                 <span class="keyword">const</span> cst_type *cst = NULL ){
-<a name="l00089"></a>00089                         m_cst = cst;
-<a name="l00090"></a>00090                         std::string small_lcp_file_name =  <a class="code" href="namespacesdsl_1_1util.html#a6d8c83ac15f316e914edff973d8d77b6" title="Convert type to string.">util::to_string</a>(<a class="code" href="namespacesdsl_1_1util.html#ad89157cf167352afc99fe41318990191" title="Get the process id of the current process.">util::get_pid</a>())+<span class="stringliteral">&quot;_&quot;</span>+<a class="code" href="namespacesdsl_1_1util.html#a6d8c83ac15f316e914edff973d8d77b6" title="Convert type to string.">util::to_string</a>(<a class="code" href="namespacesdsl_1_1util.html#a6d9b7c00544c815b561e2f1e8a04c486" title="Get a unique id inside the process.">util::get_id</a>()).c_str() + <span class="stringliteral">&quot;_fc_lf_lcp_sml&quot;</span>;
-<a name="l00091"></a>00091                         std::string big_lcp_file_name =  <a class="code" href="namespacesdsl_1_1util.html#a6d8c83ac15f316e914edff973d8d77b6" title="Convert type to string.">util::to_string</a>(<a class="code" href="namespacesdsl_1_1util.html#ad89157cf167352afc99fe41318990191" title="Get the process id of the current process.">util::get_pid</a>())+<span class="stringliteral">&quot;_&quot;</span>+<a class="code" href="namespacesdsl_1_1util.html#a6d8c83ac15f316e914edff973d8d77b6" title="Convert type to string.">util::to_string</a>(<a class="code" href="namespacesdsl_1_1util.html#a6d9b7c00544c815b561e2f1e8a04c486" title="Get a unique id inside the process.">util::get_id</a>()).c_str() + <span class="stringliteral">&quot;_fc_lf_lcp_big&quot;</span>;
-<a name="l00092"></a>00092 
-<a name="l00093"></a>00093                         algorithm::construct_first_child_and_lf_lcp&lt;SampleDens&gt;( lcp_buf, bwt_buf, 
-<a name="l00094"></a>00094                                                                                                                                          small_lcp_file_name, big_lcp_file_name, m_big_lcp );   
-<a name="l00095"></a>00095                         <span class="comment">// construct wavelet tree huffman from file buffer</span>
-<a name="l00096"></a>00096                         int_vector_file_buffer&lt;8&gt; small_lcp_buf(small_lcp_file_name.c_str());
-<a name="l00097"></a>00097                         m_small_lcp.construct(small_lcp_buf, small_lcp_buf.int_vector_size);
-<a name="l00098"></a>00098                         std::remove(small_lcp_file_name.c_str());       
-<a name="l00099"></a>00099                 }
-<a name="l00100"></a>00100 
-<a name="l00101"></a>00101                 <span class="keywordtype">void</span> set_cst(<span class="keyword">const</span> cst_type *cst){
-<a name="l00102"></a>00102                         m_cst = cst;
-<a name="l00103"></a>00103                 }
+<a name="l00008"></a>00008 <span class="preprocessor">#include &quot;<a class="code" href="select__support__dummy_8hpp.html" title="select_support_dummy.hpp contains classes that support a sdsl::bit_vector with constant time select i...">select_support_dummy.hpp</a>&quot;</span>
+<a name="l00009"></a>00009 <span class="preprocessor">#include &quot;<a class="code" href="wt__huff_8hpp.html" title="wt_huff.hpp contains a class for the wavelet tree of byte sequences which is in Huffman shape...">wt_huff.hpp</a>&quot;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;iostream&gt;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 <span class="keyword">namespace </span>sdsl
+<a name="l00014"></a>00014 {
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016 
+<a name="l00024"></a>00024 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>32_t SampleDens, <span class="keyword">class</span> Cst&gt;
+<a name="l00025"></a><a class="code" href="classsdsl_1_1__lcp__support__tree2.html">00025</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1__lcp__support__tree2.html">_lcp_support_tree2</a>
+<a name="l00026"></a>00026 {
+<a name="l00027"></a>00027     <span class="keyword">public</span>:
+<a name="l00028"></a>00028         <span class="keyword">typedef</span> int_vector&lt;&gt;::value_type                                value_type;      <span class="comment">// STL Container requirement</span>
+<a name="l00029"></a>00029         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">random_access_const_iterator&lt;_lcp_support_tree2&gt;</a>        <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>;  <span class="comment">// STL Container requirement</span>
+<a name="l00030"></a>00030         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>                                                                  <a class="code" href="classsdsl_1_1random__access__const__iterator.html">iterator</a>;                <span class="comment">// STL Container requirement</span>
+<a name="l00031"></a>00031         <span class="keyword">typedef</span> <span class="keyword">const</span> value_type                                                                const_reference;
+<a name="l00032"></a>00032         <span class="keyword">typedef</span> const_reference                                                                 reference;
+<a name="l00033"></a>00033         <span class="keyword">typedef</span> const_reference*                                                                pointer;
+<a name="l00034"></a>00034         <span class="keyword">typedef</span> <span class="keyword">const</span> pointer                                                                   const_pointer;
+<a name="l00035"></a>00035         <span class="keyword">typedef</span> int_vector&lt;&gt;::size_type                                                 size_type;               <span class="comment">// STL Container requirement</span>
+<a name="l00036"></a>00036         <span class="keyword">typedef</span> int_vector&lt;&gt;::difference_type                                   difference_type; <span class="comment">// STL Container requirement</span>
+<a name="l00037"></a>00037         <span class="keyword">typedef</span> Cst                                                                                             cst_type;
+<a name="l00038"></a>00038 
+<a name="l00039"></a>00039         <span class="keyword">typedef</span> <a class="code" href="structsdsl_1_1lcp__tree__and__lf__compressed__tag.html">lcp_tree_and_lf_compressed_tag</a>                                  <a class="code" href="structsdsl_1_1lcp__tree__and__lf__compressed__tag.html">lcp_category</a>;
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041         <span class="keyword">enum</span> { fast_access = 0,
+<a name="l00042"></a>00042                text_order = 0,
+<a name="l00043"></a>00043                sa_order = 0
+<a name="l00044"></a>00044              };
+<a name="l00045"></a>00045 
+<a name="l00046"></a>00046         <span class="keyword">template</span>&lt;<span class="keyword">class</span> CST&gt;  <span class="comment">// template inner class which is used in CSTs to parametrize lcp classes</span>
+<a name="l00047"></a><a class="code" href="classsdsl_1_1__lcp__support__tree2_1_1type.html">00047</a>         <span class="keyword">class </span><a class="code" href="classsdsl_1_1__lcp__support__tree2_1_1type.html">type</a>           <span class="comment">// with information about the CST. Thanks Stefan Arnold! (2011-03-02)</span>
+<a name="l00048"></a>00048         {
+<a name="l00049"></a>00049             <span class="keyword">public</span>:
+<a name="l00050"></a>00050                 <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1__lcp__support__tree2.html">_lcp_support_tree2</a> <a class="code" href="classsdsl_1_1__lcp__support__tree2.html">lcp_type</a>;
+<a name="l00051"></a>00051         };
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053     <span class="keyword">private</span>:
+<a name="l00054"></a>00054         <span class="keyword">const</span> cst_type* m_cst;
+<a name="l00055"></a>00055         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1select__support__dummy.html" title="A dummy class for select.">select_support_dummy</a> <a class="code" href="classsdsl_1_1select__support__dummy.html" title="A dummy class for select.">tDummySS</a>;
+<a name="l00056"></a>00056         <a class="code" href="classsdsl_1_1wt__huff.html" title="A Wavelet Tree class for byte sequences.">wt_huff&lt;bit_vector, rank_support_v5&lt;&gt;</a>, <a class="code" href="classsdsl_1_1select__support__dummy.html" title="A dummy class for select.">tDummySS</a>, <a class="code" href="classsdsl_1_1select__support__dummy.html" title="A dummy class for select.">tDummySS</a> &gt; m_small_lcp; <span class="comment">// vector for lcp values &lt; 254</span>
+<a name="l00057"></a>00057         <a class="code" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector&lt;&gt;</a> m_big_lcp;  <span class="comment">// vector for lcp values &gt;= 254</span>
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059         <span class="keywordtype">void</span> copy(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1__lcp__support__tree2.html">_lcp_support_tree2</a>&amp; lcp_c) {
+<a name="l00060"></a>00060             m_small_lcp = lcp_c.m_small_lcp;
+<a name="l00061"></a>00061             m_big_lcp = lcp_c.m_big_lcp;
+<a name="l00062"></a>00062             m_cst = lcp_c.m_cst;
+<a name="l00063"></a>00063         }
+<a name="l00064"></a>00064 
+<a name="l00065"></a>00065     <span class="keyword">public</span>:
+<a name="l00066"></a>00066 
+<a name="l00068"></a><a class="code" href="classsdsl_1_1__lcp__support__tree2.html#ae1ff84125af424997d6eded50c6d68ec">00068</a>         <a class="code" href="classsdsl_1_1__lcp__support__tree2.html#ae1ff84125af424997d6eded50c6d68ec" title="Default constructor.">_lcp_support_tree2</a>() {}
+<a name="l00069"></a>00069 
+<a name="l00070"></a>00070         <span class="comment">// Destructor</span>
+<a name="l00071"></a>00071         ~<a class="code" href="classsdsl_1_1__lcp__support__tree2.html">_lcp_support_tree2</a>() {}
+<a name="l00072"></a>00072 
+<a name="l00074"></a><a class="code" href="classsdsl_1_1__lcp__support__tree2.html#a433f508ddb77e7f1458fa3327825f978">00074</a>         <a class="code" href="classsdsl_1_1__lcp__support__tree2.html#a433f508ddb77e7f1458fa3327825f978" title="Copy constructor.">_lcp_support_tree2</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1__lcp__support__tree2.html">_lcp_support_tree2</a>&amp; lcp) {
+<a name="l00075"></a>00075             copy(lcp);
+<a name="l00076"></a>00076         }
+<a name="l00077"></a>00077 
+<a name="l00081"></a>00081         <span class="keyword">template</span>&lt;<span class="keyword">class</span> Text, <span class="keyword">class</span> Sa&gt;
+<a name="l00082"></a>00082         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1__lcp__support__tree2.html#a0a436a6bb4c786eec936ccf05f8f14c4">construct</a>(<span class="keyword">const</span> Text&amp; text, <span class="keyword">const</span> Sa&amp; sa, <span class="keyword">const</span> cst_type* cst);
+<a name="l00083"></a>00083 
+<a name="l00084"></a>00084 
+<a name="l00086"></a>00086 
+<a name="l00089"></a>00089         <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>&gt;
+<a name="l00090"></a><a class="code" href="classsdsl_1_1__lcp__support__tree2.html#ab9f77fd0ee756a5dccfe03f134813908">00090</a>         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1__lcp__support__tree2.html#a0a436a6bb4c786eec936ccf05f8f14c4">construct</a>(<a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;int_width, size_type_class&gt;</a>&amp; lcp_buf,
+<a name="l00091"></a>00091                        <a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;8, size_type_class&gt;</a>&amp; bwt_buf,
+<a name="l00092"></a>00092                        <span class="keyword">const</span> cst_type* cst = NULL) {
+<a name="l00093"></a>00093             m_cst = cst;
+<a name="l00094"></a>00094             std::string small_lcp_file_name =  <a class="code" href="namespacesdsl_1_1util.html#a6d8c83ac15f316e914edff973d8d77b6" title="Convert type to string.">util::to_string</a>(<a class="code" href="namespacesdsl_1_1util.html#ad89157cf167352afc99fe41318990191" title="Get the process id of the current process.">util::get_pid</a>())+<span class="stringliteral">&quot;_&quot;</span>+<a class="code" href="namespacesdsl_1_1util.html#a6d8c83ac15f316e914edff973d8d77b6" title="Convert type to string.">util::to_string</a>(<a class="code" href="namespacesdsl_1_1util.html#a6d9b7c00544c815b561e2f1e8a04c486" title="Get a unique id inside the process.">util::get_id</a>()).c_str() + <span class="stringliteral">&quot;_fc_lf_lcp_sml&quot;</span>;
+<a name="l00095"></a>00095             std::string big_lcp_file_name =  <a class="code" href="namespacesdsl_1_1util.html#a6d8c83ac15f316e914edff973d8d77b6" title="Convert type to string.">util::to_string</a>(<a class="code" href="namespacesdsl_1_1util.html#ad89157cf167352afc99fe41318990191" title="Get the process id of the current process.">util::get_pid</a>())+<span class="stringliteral">&quot;_&quot;</span>+<a class="code" href="namespacesdsl_1_1util.html#a6d8c83ac15f316e914edff973d8d77b6" title="Convert type to string.">util::to_string</a>(<a class="code" href="namespacesdsl_1_1util.html#a6d9b7c00544c815b561e2f1e8a04c486" title="Get a unique id inside the process.">util::get_id</a>()).c_str() + <span class="stringliteral">&quot;_fc_lf_lcp_big&quot;</span>;
+<a name="l00096"></a>00096 
+<a name="l00097"></a>00097             algorithm::construct_first_child_and_lf_lcp&lt;SampleDens&gt;(lcp_buf, bwt_buf,
+<a name="l00098"></a>00098                     small_lcp_file_name, big_lcp_file_name, m_big_lcp);
+<a name="l00099"></a>00099             <span class="comment">// construct wavelet tree huffman from file buffer</span>
+<a name="l00100"></a>00100             <a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;8&gt;</a> small_lcp_buf(small_lcp_file_name.c_str());
+<a name="l00101"></a>00101             m_small_lcp.construct(small_lcp_buf, small_lcp_buf.int_vector_size);
+<a name="l00102"></a>00102             std::remove(small_lcp_file_name.c_str());
+<a name="l00103"></a>00103         }
 <a name="l00104"></a>00104 
-<a name="l00105"></a>00105                 size_type size()<span class="keyword">const</span>{
-<a name="l00106"></a>00106                         <span class="keywordflow">return</span> m_cst-&gt;size(); <span class="comment">// corresponds to the length of the </span>
-<a name="l00107"></a>00107                                                                   <span class="comment">// original lcp array</span>
-<a name="l00108"></a>00108                 }
-<a name="l00109"></a>00109 
-<a name="l00110"></a>00110                 <span class="keyword">static</span> size_type max_size(){
-<a name="l00111"></a>00111                         <span class="keywordflow">return</span> int_vector&lt;&gt;::max_size();
-<a name="l00112"></a>00112                 }
+<a name="l00105"></a>00105         <span class="keywordtype">void</span> set_cst(<span class="keyword">const</span> cst_type* cst) {
+<a name="l00106"></a>00106             m_cst = cst;
+<a name="l00107"></a>00107         }
+<a name="l00108"></a>00108 
+<a name="l00109"></a>00109         size_type size()<span class="keyword">const </span>{
+<a name="l00110"></a>00110             <span class="keywordflow">return</span> m_cst-&gt;size(); <span class="comment">// corresponds to the length of the</span>
+<a name="l00111"></a>00111             <span class="comment">// original lcp array</span>
+<a name="l00112"></a>00112         }
 <a name="l00113"></a>00113 
-<a name="l00114"></a>00114                 size_type empty()<span class="keyword">const</span>{
-<a name="l00115"></a>00115                         <span class="keywordflow">return</span> m_small_lcp.<a class="code" href="classsdsl_1_1wt__huff.html#ad1ec60533c702470822811e84e9b3c43" title="Returns whether the wavelet tree contains no data.">empty</a>();
-<a name="l00116"></a>00116                 }
+<a name="l00114"></a>00114         <span class="keyword">static</span> size_type max_size() {
+<a name="l00115"></a>00115             <span class="keywordflow">return</span> int_vector&lt;&gt;::max_size();
+<a name="l00116"></a>00116         }
 <a name="l00117"></a>00117 
-<a name="l00118"></a>00118                 <span class="keywordtype">void</span> swap(<a class="code" href="classsdsl_1_1__lcp__support__tree2.html#ae1ff84125af424997d6eded50c6d68ec" title="Default constructor.">_lcp_support_tree2</a> &amp;lcp_c){
-<a name="l00119"></a>00119                         m_small_lcp.<a class="code" href="classsdsl_1_1wt__huff.html#aa4e05dfd86171fbd272712c3aa2bbfcb" title="Swap operator.">swap</a>(lcp_c.m_small_lcp);
-<a name="l00120"></a>00120                         m_big_lcp.swap(lcp_c.m_big_lcp);
-<a name="l00121"></a>00121                 }
-<a name="l00122"></a>00122 
-<a name="l00124"></a>00124 
-<a name="l00127"></a><a class="code" href="classsdsl_1_1__lcp__support__tree2.html#afa0e7e64d9b666c1b67bb9f60f4e9dc8">00127</a>                 <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a> <a class="code" href="classsdsl_1_1__lcp__support__tree2.html#afa0e7e64d9b666c1b67bb9f60f4e9dc8" title="Returns a const_iterator to the first element.">begin</a>()<span class="keyword">const</span>{
-<a name="l00128"></a>00128                         <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>(<span class="keyword">this</span>, 0);
-<a name="l00129"></a>00129                 }
-<a name="l00130"></a>00130 
-<a name="l00132"></a>00132 
-<a name="l00135"></a><a class="code" href="classsdsl_1_1__lcp__support__tree2.html#a66457bcda2378cfa28f74c80197ca7f2">00135</a>                 <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a> <a class="code" href="classsdsl_1_1__lcp__support__tree2.html#a66457bcda2378cfa28f74c80197ca7f2" title="Returns a const_iterator to the element after the last element.">end</a>()<span class="keyword">const</span>{
-<a name="l00136"></a>00136                         <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>(<span class="keyword">this</span>, size());
-<a name="l00137"></a>00137                 }
-<a name="l00138"></a>00138 
-<a name="l00140"></a>00140 
-<a name="l00146"></a><a class="code" href="classsdsl_1_1__lcp__support__tree2.html#a118ce080309d9f7945e68e61f0ca5d83">00146</a>                 <span class="keyword">inline</span> value_type <a class="code" href="classsdsl_1_1__lcp__support__tree2.html#a118ce080309d9f7945e68e61f0ca5d83" title="[]-operator">operator[]</a>(size_type i)<span class="keyword">const</span>{
-<a name="l00147"></a>00147                         size_type idx, offset=0;
-<a name="l00148"></a>00148                         uint8_t val;
-<a name="l00149"></a>00149 start:
-<a name="l00150"></a>00150                         idx = m_cst-&gt;tlcp_idx(i);
-<a name="l00151"></a>00151                         val = m_small_lcp[idx];
-<a name="l00152"></a>00152                         <span class="keywordflow">if</span>( val &lt; 254 ){
-<a name="l00153"></a>00153                                 <span class="keywordflow">return</span> val;<span class="comment">// - offset;</span>
-<a name="l00154"></a>00154                         }
-<a name="l00155"></a>00155                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>( val == 254 ){ <span class="comment">// if lcp value is &gt;= 254 and position i is reducable</span>
-<a name="l00156"></a>00156                                 i = m_cst-&gt;csa.psi(i); <span class="comment">// i = LF[i]    // (*m_psi)(i); </span>
-<a name="l00157"></a>00157                                 ++offset; <span class="comment">// goto lcp value, which is one bigger</span>
-<a name="l00158"></a>00158                                 <span class="keywordflow">goto</span> start;
-<a name="l00159"></a>00159                         }<span class="keywordflow">else</span>{ <span class="comment">// if lcp value is &gt;= 254 and (not reducable or sampled)</span>
-<a name="l00160"></a>00160                                 <span class="keywordflow">return</span> m_big_lcp[m_small_lcp.<a class="code" href="classsdsl_1_1wt__huff.html#a95d43deede23dfb41bb3b8a1227efd6a" title="Calculates how many symbols c are in the prefix [0..i-1] of the supported vector.">rank</a>(idx ,255)] - offset;
-<a name="l00161"></a>00161                         }
-<a name="l00162"></a>00162                 }
-<a name="l00163"></a>00163 
-<a name="l00165"></a>00165 
-<a name="l00168"></a><a class="code" href="classsdsl_1_1__lcp__support__tree2.html#a9c9e7a06f1c9b3c98c2d287418a9c532">00168</a>                 <a class="code" href="classsdsl_1_1__lcp__support__tree2.html">_lcp_support_tree2</a>&amp; <a class="code" href="classsdsl_1_1__lcp__support__tree2.html#a9c9e7a06f1c9b3c98c2d287418a9c532" title="Assignment Operator.">operator=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1__lcp__support__tree2.html">_lcp_support_tree2</a> &amp;lcp_c){
-<a name="l00169"></a>00169                         <span class="keywordflow">if</span>(<span class="keyword">this</span> != &amp;lcp_c ){
-<a name="l00170"></a>00170                                 copy( lcp_c );
-<a name="l00171"></a>00171                         }
-<a name="l00172"></a>00172                         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
-<a name="l00173"></a>00173                 }
-<a name="l00174"></a>00174 
-<a name="l00176"></a>00176 
-<a name="l00181"></a><a class="code" href="classsdsl_1_1__lcp__support__tree2.html#a854f558498f52b2cae01b897f25186b0">00181</a>                 <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1__lcp__support__tree2.html#a854f558498f52b2cae01b897f25186b0" title="Equality Operator.">operator==</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1__lcp__support__tree2.html">_lcp_support_tree2</a> &amp;lcp_c)<span class="keyword">const</span>{
-<a name="l00182"></a>00182                         <span class="keywordflow">if</span>( <span class="keyword">this</span> == &amp;lcp_c )
-<a name="l00183"></a>00183                                 <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00184"></a>00184                         <span class="keywordflow">return</span> m_cst == lcp_c.m_cst and
-<a name="l00185"></a>00185                                    m_small_lcp == lcp_c.m_small_lcp and 
-<a name="l00186"></a>00186                                    m_big_lcp == lcp_c.m_big_lcp;
-<a name="l00187"></a>00187                 }
-<a name="l00188"></a>00188 
-<a name="l00190"></a>00190 
-<a name="l00195"></a><a class="code" href="classsdsl_1_1__lcp__support__tree2.html#ab74d86928f57a9ed41ad9bfbee32693b">00195</a>                 <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1__lcp__support__tree2.html#ab74d86928f57a9ed41ad9bfbee32693b" title="Unequality Operator.">operator!=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1__lcp__support__tree2.html">_lcp_support_tree2</a> &amp;lcp_c)<span class="keyword">const</span>{
-<a name="l00196"></a>00196                         <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == lcp_c);
-<a name="l00197"></a>00197                 }
-<a name="l00198"></a>00198 
-<a name="l00200"></a>00200 
-<a name="l00203"></a><a class="code" href="classsdsl_1_1__lcp__support__tree2.html#acd2810706b3a683fee689cce477da34b">00203</a>                 size_type <a class="code" href="classsdsl_1_1__lcp__support__tree2.html#acd2810706b3a683fee689cce477da34b" title="Serialize to a stream.">serialize</a>(std::ostream &amp;out)<span class="keyword"> const</span>{
-<a name="l00204"></a>00204                         size_type written_bytes = 0;
-<a name="l00205"></a>00205                         written_bytes += m_small_lcp.<a class="code" href="classsdsl_1_1wt__huff.html#a5da5bd422aca32d68819854db9ea2fb8" title="Serializes the data structure into the given ostream.">serialize</a>(out);
-<a name="l00206"></a>00206                         written_bytes += m_big_lcp.serialize(out);
-<a name="l00207"></a>00207                         <span class="keywordflow">return</span> written_bytes;
-<a name="l00208"></a>00208                 }
-<a name="l00209"></a>00209 
-<a name="l00211"></a>00211 
-<a name="l00215"></a><a class="code" href="classsdsl_1_1__lcp__support__tree2.html#acf148909c298e3dab4e77e045574bb79">00215</a>                 <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1__lcp__support__tree2.html#acf148909c298e3dab4e77e045574bb79" title="Load from a stream.">load</a>(std::istream &amp;in, <span class="keyword">const</span> Cst *cst=NULL){
-<a name="l00216"></a>00216                         m_small_lcp.<a class="code" href="classsdsl_1_1wt__huff.html#a40a80f0efc6a099b7a6cd9945a6d1782" title="Loads the data structure from the given istream.">load</a>(in); 
-<a name="l00217"></a>00217                         m_big_lcp.load(in);
-<a name="l00218"></a>00218                         m_cst = cst;
-<a name="l00219"></a>00219                 }
-<a name="l00220"></a>00220 
-<a name="l00221"></a>00221 <span class="preprocessor">#ifdef MEM_INFO</span>
-<a name="l00222"></a>00222 <span class="preprocessor"></span>
-<a name="l00223"></a>00223                 <span class="keywordtype">void</span> mem_info(std::string label=<span class="stringliteral">&quot;&quot;</span>)<span class="keyword">const</span>{
-<a name="l00224"></a>00224                         <span class="keywordflow">if</span>(label==<span class="stringliteral">&quot;&quot;</span>)
-<a name="l00225"></a>00225                                 label=<span class="stringliteral">&quot;lcp&quot;</span>;
-<a name="l00226"></a>00226                         size_type bytes = <a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(*<span class="keyword">this</span>);
-<a name="l00227"></a>00227                         std::cout &lt;&lt; <span class="stringliteral">&quot;list(label = \&quot;&quot;</span>&lt;&lt;label&lt;&lt;<span class="stringliteral">&quot;\&quot;, size = &quot;</span>&lt;&lt; bytes/(1024.0*1024.0) &lt;&lt;<span class="stringliteral">&quot;\n,&quot;</span>;
-<a name="l00228"></a>00228                         m_small_lcp.mem_info(<span class="stringliteral">&quot;small lcp&quot;</span>);
-<a name="l00229"></a>00229                         std::cout&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>;
-<a name="l00230"></a>00230                         m_big_lcp.mem_info(<span class="stringliteral">&quot;big lcp&quot;</span>);
-<a name="l00231"></a>00231                         std::cout &lt;&lt; <span class="stringliteral">&quot;)\n&quot;</span>;
-<a name="l00232"></a>00232                 }
-<a name="l00233"></a>00233 <span class="preprocessor">#endif</span>
-<a name="l00234"></a>00234 <span class="preprocessor"></span>
-<a name="l00235"></a>00235 };
-<a name="l00236"></a>00236 
-<a name="l00238"></a>00238 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>32_t SampleDens=16&gt;        
-<a name="l00239"></a><a class="code" href="classsdsl_1_1lcp__support__tree2.html">00239</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1lcp__support__tree2.html" title="Helper class which provides _lcp_support_tree2 the context of a CST.">lcp_support_tree2</a>{
-<a name="l00240"></a>00240         <span class="keyword">public</span>:
-<a name="l00241"></a>00241         <span class="keyword">template</span>&lt;<span class="keyword">class</span> Cst&gt;  <span class="comment">// template inner class which is used in CSTs to parametrize lcp classes</span>
-<a name="l00242"></a><a class="code" href="classsdsl_1_1lcp__support__tree2_1_1type.html">00242</a>         <span class="keyword">class </span><a class="code" href="classsdsl_1_1lcp__support__tree2_1_1type.html">type</a>{          <span class="comment">// with information about the CST. Thanks Stefan Arnold! (2011-03-02)</span>
-<a name="l00243"></a>00243                 <span class="keyword">public</span>:
-<a name="l00244"></a>00244                 <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1__lcp__support__tree2.html">_lcp_support_tree2&lt;SampleDens, Cst&gt;</a> <a class="code" href="classsdsl_1_1__lcp__support__tree2.html">lcp_type</a>;   
-<a name="l00245"></a>00245         };      
-<a name="l00246"></a>00246 };      
-<a name="l00247"></a>00247 
-<a name="l00248"></a>00248 
-<a name="l00249"></a>00249 
-<a name="l00250"></a>00250 } <span class="comment">// end namespace</span>
-<a name="l00251"></a>00251 
-<a name="l00252"></a>00252 <span class="preprocessor">#endif</span>
+<a name="l00118"></a>00118         size_type empty()<span class="keyword">const </span>{
+<a name="l00119"></a>00119             <span class="keywordflow">return</span> m_small_lcp.<a class="code" href="classsdsl_1_1wt__huff.html#ad1ec60533c702470822811e84e9b3c43" title="Returns whether the wavelet tree contains no data.">empty</a>();
+<a name="l00120"></a>00120         }
+<a name="l00121"></a>00121 
+<a name="l00122"></a>00122         <span class="keywordtype">void</span> swap(<a class="code" href="classsdsl_1_1__lcp__support__tree2.html#ae1ff84125af424997d6eded50c6d68ec" title="Default constructor.">_lcp_support_tree2</a>&amp; lcp_c) {
+<a name="l00123"></a>00123             m_small_lcp.<a class="code" href="classsdsl_1_1wt__huff.html#aa4e05dfd86171fbd272712c3aa2bbfcb" title="Swap operator.">swap</a>(lcp_c.m_small_lcp);
+<a name="l00124"></a>00124             m_big_lcp.<a class="code" href="classsdsl_1_1int__vector.html#ae042b894c07ed66c8f2c245b12bf0661" title="Swap method for int_vector.">swap</a>(lcp_c.m_big_lcp);
+<a name="l00125"></a>00125         }
+<a name="l00126"></a>00126 
+<a name="l00128"></a>00128 
+<a name="l00131"></a><a class="code" href="classsdsl_1_1__lcp__support__tree2.html#afa0e7e64d9b666c1b67bb9f60f4e9dc8">00131</a>         <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a> <a class="code" href="classsdsl_1_1__lcp__support__tree2.html#afa0e7e64d9b666c1b67bb9f60f4e9dc8" title="Returns a const_iterator to the first element.">begin</a>()<span class="keyword">const </span>{
+<a name="l00132"></a>00132             <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>(<span class="keyword">this</span>, 0);
+<a name="l00133"></a>00133         }
+<a name="l00134"></a>00134 
+<a name="l00136"></a>00136 
+<a name="l00139"></a><a class="code" href="classsdsl_1_1__lcp__support__tree2.html#a66457bcda2378cfa28f74c80197ca7f2">00139</a>         <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a> <a class="code" href="classsdsl_1_1__lcp__support__tree2.html#a66457bcda2378cfa28f74c80197ca7f2" title="Returns a const_iterator to the element after the last element.">end</a>()<span class="keyword">const </span>{
+<a name="l00140"></a>00140             <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>(<span class="keyword">this</span>, size());
+<a name="l00141"></a>00141         }
+<a name="l00142"></a>00142 
+<a name="l00144"></a>00144 
+<a name="l00150"></a><a class="code" href="classsdsl_1_1__lcp__support__tree2.html#a118ce080309d9f7945e68e61f0ca5d83">00150</a>         <span class="keyword">inline</span> value_type <a class="code" href="classsdsl_1_1__lcp__support__tree2.html#a118ce080309d9f7945e68e61f0ca5d83" title="[]-operator">operator[]</a>(size_type i)<span class="keyword">const </span>{
+<a name="l00151"></a>00151             size_type idx, offset=0;
+<a name="l00152"></a>00152             uint8_t val;
+<a name="l00153"></a>00153 start:
+<a name="l00154"></a>00154             idx = m_cst-&gt;tlcp_idx(i);
+<a name="l00155"></a>00155             val = m_small_lcp[idx];
+<a name="l00156"></a>00156             <span class="keywordflow">if</span> (val &lt; 254) {
+<a name="l00157"></a>00157                 <span class="keywordflow">return</span> val;<span class="comment">// - offset;</span>
+<a name="l00158"></a>00158             } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (val == 254) { <span class="comment">// if lcp value is &gt;= 254 and position i is reducible</span>
+<a name="l00159"></a>00159                 i = m_cst-&gt;csa.psi(i); <span class="comment">// i = LF[i]    // (*m_psi)(i);</span>
+<a name="l00160"></a>00160                 ++offset; <span class="comment">// goto lcp value, which is one bigger</span>
+<a name="l00161"></a>00161                 <span class="keywordflow">goto</span> start;
+<a name="l00162"></a>00162             } <span class="keywordflow">else</span> { <span class="comment">// if lcp value is &gt;= 254 and (not reducable or sampled)</span>
+<a name="l00163"></a>00163                 <span class="keywordflow">return</span> m_big_lcp[m_small_lcp.<a class="code" href="classsdsl_1_1wt__huff.html#a95d43deede23dfb41bb3b8a1227efd6a" title="Calculates how many symbols c are in the prefix [0..i-1] of the supported vector.">rank</a>(idx ,255)] - offset;
+<a name="l00164"></a>00164             }
+<a name="l00165"></a>00165         }
+<a name="l00166"></a>00166 
+<a name="l00168"></a>00168 
+<a name="l00171"></a><a class="code" href="classsdsl_1_1__lcp__support__tree2.html#a9c9e7a06f1c9b3c98c2d287418a9c532">00171</a>         <a class="code" href="classsdsl_1_1__lcp__support__tree2.html">_lcp_support_tree2</a>&amp; <a class="code" href="classsdsl_1_1__lcp__support__tree2.html#a9c9e7a06f1c9b3c98c2d287418a9c532" title="Assignment Operator.">operator=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1__lcp__support__tree2.html">_lcp_support_tree2</a>&amp; lcp_c) {
+<a name="l00172"></a>00172             <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;lcp_c) {
+<a name="l00173"></a>00173                 copy(lcp_c);
+<a name="l00174"></a>00174             }
+<a name="l00175"></a>00175             <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00176"></a>00176         }
+<a name="l00177"></a>00177 
+<a name="l00179"></a>00179 
+<a name="l00184"></a><a class="code" href="classsdsl_1_1__lcp__support__tree2.html#a854f558498f52b2cae01b897f25186b0">00184</a>         <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1__lcp__support__tree2.html#a854f558498f52b2cae01b897f25186b0" title="Equality Operator.">operator==</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1__lcp__support__tree2.html">_lcp_support_tree2</a>&amp; lcp_c)<span class="keyword">const </span>{
+<a name="l00185"></a>00185             <span class="keywordflow">if</span> (<span class="keyword">this</span> == &amp;lcp_c)
+<a name="l00186"></a>00186                 <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00187"></a>00187             <span class="keywordflow">return</span> m_cst == lcp_c.m_cst and
+<a name="l00188"></a>00188                    m_small_lcp == lcp_c.m_small_lcp and
+<a name="l00189"></a>00189                    m_big_lcp == lcp_c.m_big_lcp;
+<a name="l00190"></a>00190         }
+<a name="l00191"></a>00191 
+<a name="l00193"></a>00193 
+<a name="l00198"></a><a class="code" href="classsdsl_1_1__lcp__support__tree2.html#ab74d86928f57a9ed41ad9bfbee32693b">00198</a>         <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1__lcp__support__tree2.html#ab74d86928f57a9ed41ad9bfbee32693b" title="Unequality Operator.">operator!=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1__lcp__support__tree2.html">_lcp_support_tree2</a>&amp; lcp_c)<span class="keyword">const </span>{
+<a name="l00199"></a>00199             <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == lcp_c);
+<a name="l00200"></a>00200         }
+<a name="l00201"></a>00201 
+<a name="l00203"></a>00203 
+<a name="l00206"></a><a class="code" href="classsdsl_1_1__lcp__support__tree2.html#acd2810706b3a683fee689cce477da34b">00206</a>         size_type <a class="code" href="classsdsl_1_1__lcp__support__tree2.html#acd2810706b3a683fee689cce477da34b" title="Serialize to a stream.">serialize</a>(std::ostream&amp; out)<span class="keyword"> const </span>{
+<a name="l00207"></a>00207             size_type written_bytes = 0;
+<a name="l00208"></a>00208             written_bytes += m_small_lcp.<a class="code" href="classsdsl_1_1wt__huff.html#a5da5bd422aca32d68819854db9ea2fb8" title="Serializes the data structure into the given ostream.">serialize</a>(out);
+<a name="l00209"></a>00209             written_bytes += m_big_lcp.<a class="code" href="classsdsl_1_1int__vector.html#a32bfb973d19b10c8e9d32107805bbab0" title="Serializes the int_vector to a stream.">serialize</a>(out);
+<a name="l00210"></a>00210             <span class="keywordflow">return</span> written_bytes;
+<a name="l00211"></a>00211         }
+<a name="l00212"></a>00212 
+<a name="l00214"></a>00214 
+<a name="l00218"></a><a class="code" href="classsdsl_1_1__lcp__support__tree2.html#acf148909c298e3dab4e77e045574bb79">00218</a>         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1__lcp__support__tree2.html#acf148909c298e3dab4e77e045574bb79" title="Load from a stream.">load</a>(std::istream&amp; in, <span class="keyword">const</span> Cst* cst=NULL) {
+<a name="l00219"></a>00219             m_small_lcp.<a class="code" href="classsdsl_1_1wt__huff.html#a40a80f0efc6a099b7a6cd9945a6d1782" title="Loads the data structure from the given istream.">load</a>(in);
+<a name="l00220"></a>00220             m_big_lcp.<a class="code" href="classsdsl_1_1int__vector.html#a57c9fc2fdc93eeaa477a49389e7a47ac" title="Load the int_vector for a stream.">load</a>(in);
+<a name="l00221"></a>00221             m_cst = cst;
+<a name="l00222"></a>00222         }
+<a name="l00223"></a>00223 
+<a name="l00224"></a>00224 <span class="preprocessor">#ifdef MEM_INFO</span>
+<a name="l00225"></a>00225 <span class="preprocessor"></span>
+<a name="l00226"></a>00226         <span class="keywordtype">void</span> mem_info(std::string label=<span class="stringliteral">&quot;&quot;</span>)<span class="keyword">const </span>{
+<a name="l00227"></a>00227             <span class="keywordflow">if</span> (label==<span class="stringliteral">&quot;&quot;</span>)
+<a name="l00228"></a>00228                 label=<span class="stringliteral">&quot;lcp&quot;</span>;
+<a name="l00229"></a>00229             size_type bytes = <a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(*<span class="keyword">this</span>);
+<a name="l00230"></a>00230             std::cout &lt;&lt; <span class="stringliteral">&quot;list(label = \&quot;&quot;</span>&lt;&lt;label&lt;&lt;<span class="stringliteral">&quot;\&quot;, size = &quot;</span>&lt;&lt; bytes/(1024.0*1024.0) &lt;&lt;<span class="stringliteral">&quot;\n,&quot;</span>;
+<a name="l00231"></a>00231             m_small_lcp.mem_info(<span class="stringliteral">&quot;small lcp&quot;</span>);
+<a name="l00232"></a>00232             std::cout&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>;
+<a name="l00233"></a>00233             m_big_lcp.mem_info(<span class="stringliteral">&quot;big lcp&quot;</span>);
+<a name="l00234"></a>00234             std::cout &lt;&lt; <span class="stringliteral">&quot;)\n&quot;</span>;
+<a name="l00235"></a>00235         }
+<a name="l00236"></a>00236 <span class="preprocessor">#endif</span>
+<a name="l00237"></a>00237 <span class="preprocessor"></span>
+<a name="l00238"></a>00238 };
+<a name="l00239"></a>00239 
+<a name="l00241"></a>00241 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>32_t SampleDens=16&gt;
+<a name="l00242"></a><a class="code" href="classsdsl_1_1lcp__support__tree2.html">00242</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1lcp__support__tree2.html" title="Helper class which provides _lcp_support_tree2 the context of a CST.">lcp_support_tree2</a>
+<a name="l00243"></a>00243 {
+<a name="l00244"></a>00244     <span class="keyword">public</span>:
+<a name="l00245"></a>00245         <span class="keyword">template</span>&lt;<span class="keyword">class</span> Cst&gt;  <span class="comment">// template inner class which is used in CSTs to parametrize lcp classes</span>
+<a name="l00246"></a><a class="code" href="classsdsl_1_1lcp__support__tree2_1_1type.html">00246</a>         <span class="keyword">class </span><a class="code" href="classsdsl_1_1lcp__support__tree2_1_1type.html">type</a>           <span class="comment">// with information about the CST. Thanks Stefan Arnold! (2011-03-02)</span>
+<a name="l00247"></a>00247         {
+<a name="l00248"></a>00248             <span class="keyword">public</span>:
+<a name="l00249"></a>00249                 <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1__lcp__support__tree2.html">_lcp_support_tree2&lt;SampleDens, Cst&gt;</a> <a class="code" href="classsdsl_1_1__lcp__support__tree2.html">lcp_type</a>;
+<a name="l00250"></a>00250         };
+<a name="l00251"></a>00251 };
+<a name="l00252"></a>00252 
+<a name="l00253"></a>00253 
+<a name="l00254"></a>00254 
+<a name="l00255"></a>00255 } <span class="comment">// end namespace</span>
+<a name="l00256"></a>00256 
+<a name="l00257"></a>00257 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:34 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:27 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

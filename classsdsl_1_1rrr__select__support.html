@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Succinct Data Structure Library (sdsl): sdsl::rrr_select_support&lt; b, wt_type &gt; Class Template Reference</title>
+<title>Succinct Data Structure Library (sdsl): sdsl::rrr_select_support&lt; b, block_size, wt_type &gt; Class Template Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -104,7 +105,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">sdsl::rrr_select_support&lt; b, wt_type &gt; Class Template Reference</div>  </div>
+<div class="title">sdsl::rrr_select_support&lt; b, block_size, wt_type &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -117,43 +118,48 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:aa9f4ad3fe836a3a834628fb1bd33218d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa9f4ad3fe836a3a834628fb1bd33218d"></a>
-typedef <a class="el" href="classsdsl_1_1rrr__vector.html">rrr_vector</a>&lt; wt_type &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>bit_vector_type</b></td></tr>
-<tr class="memitem:a15392383cec16070eb3cce984b9911ea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a15392383cec16070eb3cce984b9911ea"></a>
+<tr class="memitem:ab7781012e7626b14595842c21bca5775"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab7781012e7626b14595842c21bca5775"></a>
+typedef <a class="el" href="classsdsl_1_1rrr__vector.html">rrr_vector</a>&lt; block_size, <br class="typebreak"/>
+wt_type &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>bit_vector_type</b></td></tr>
+<tr class="memitem:a8d761f09d99e3a2b28f40a6b65001bc9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8d761f09d99e3a2b28f40a6b65001bc9"></a>
 typedef bit_vector_type::size_type&#160;</td><td class="memItemRight" valign="bottom"><b>size_type</b></td></tr>
-<tr class="memitem:a20f849351f0da2b423347d41490e97f3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a20f849351f0da2b423347d41490e97f3"></a>
-typedef <a class="el" href="classsdsl_1_1binomial.html">bit_vector_type::bi_type</a>&#160;</td><td class="memItemRight" valign="bottom"><b>bi_type</b></td></tr>
+<tr class="memitem:ac4a3c55829088667ef9b1eaa5bca67b1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac4a3c55829088667ef9b1eaa5bca67b1"></a>
+typedef <br class="typebreak"/>
+<a class="el" href="classsdsl_1_1rrr__helper.html">bit_vector_type::rrr_helper_type</a>&#160;</td><td class="memItemRight" valign="bottom"><b>rrr_helper_type</b></td></tr>
+<tr class="memitem:ab5f5c8c1b80ae1051d41a791252b9839"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab5f5c8c1b80ae1051d41a791252b9839"></a>
+typedef <br class="typebreak"/>
+<a class="el" href="classsdsl_1_1rrr__helper.html#aed403cce18ff8c1ffdbaa9a2bdd84805">rrr_helper_type::number_type</a>&#160;</td><td class="memItemRight" valign="bottom"><b>number_type</b></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9905c9cccb09f6d6ae05a684db3f1d51"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9905c9cccb09f6d6ae05a684db3f1d51"></a>
+<tr class="memitem:ae9e6cb165c7ea47cc539187daed81741"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae9e6cb165c7ea47cc539187daed81741"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>rrr_select_support</b> (const <a class="el" href="classsdsl_1_1rrr__vector.html">bit_vector_type</a> *v=NULL)</td></tr>
-<tr class="memitem:a448a101f1bc7d8be214091fa0b77c80d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a448a101f1bc7d8be214091fa0b77c80d"></a>
+<tr class="memitem:a771db624f0b79e8d1826ee4815a7125a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a771db624f0b79e8d1826ee4815a7125a"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> (const <a class="el" href="classsdsl_1_1rrr__vector.html">bit_vector_type</a> *v=NULL)</td></tr>
-<tr class="memitem:a57efcd9eba2debe597089b523c7555f7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a57efcd9eba2debe597089b523c7555f7"></a>
-size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rrr__select__support.html#a57efcd9eba2debe597089b523c7555f7">select</a> (size_type i) const </td></tr>
-<tr class="memdesc:a57efcd9eba2debe597089b523c7555f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Answers select queries. <br/></td></tr>
-<tr class="memitem:a6dba583dba3abf4990981d3c1ecda4ba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6dba583dba3abf4990981d3c1ecda4ba"></a>
+<tr class="memitem:adb62f885f3d2661dac2e70d0745adc7c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adb62f885f3d2661dac2e70d0745adc7c"></a>
+size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rrr__select__support.html#adb62f885f3d2661dac2e70d0745adc7c">select</a> (size_type i) const </td></tr>
+<tr class="memdesc:adb62f885f3d2661dac2e70d0745adc7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Answers select queries. <br/></td></tr>
+<tr class="memitem:a43cce68f13f717ae46da1fe51d844437"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a43cce68f13f717ae46da1fe51d844437"></a>
 const size_type&#160;</td><td class="memItemRight" valign="bottom"><b>operator()</b> (size_type i) const </td></tr>
-<tr class="memitem:a31f3b51c2123750f466e66064da21996"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a31f3b51c2123750f466e66064da21996"></a>
+<tr class="memitem:a78c393dae0c33d6b5b77666b9c900936"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a78c393dae0c33d6b5b77666b9c900936"></a>
 const size_type&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> () const </td></tr>
-<tr class="memitem:a52f996ada369e2162bb859473f60b9ee"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a52f996ada369e2162bb859473f60b9ee"></a>
+<tr class="memitem:a2240bb5efc588b92c0a4995694946997"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2240bb5efc588b92c0a4995694946997"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>set_vector</b> (const <a class="el" href="classsdsl_1_1rrr__vector.html">bit_vector_type</a> *v=NULL)</td></tr>
-<tr class="memitem:a0d0430ad12d2e2257768c7fe224f5aaa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0d0430ad12d2e2257768c7fe224f5aaa"></a>
+<tr class="memitem:ad2fe5a8932cb2791f617c8b74dc96c91"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad2fe5a8932cb2791f617c8b74dc96c91"></a>
 <a class="el" href="classsdsl_1_1rrr__select__support.html">rrr_select_support</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classsdsl_1_1rrr__select__support.html">rrr_select_support</a> &amp;rs)</td></tr>
-<tr class="memitem:ad23683cbd3fd94d39a44f1c13e445be1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad23683cbd3fd94d39a44f1c13e445be1"></a>
+<tr class="memitem:a8f3478e927852d7bcf283ad2ce6fc74a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8f3478e927852d7bcf283ad2ce6fc74a"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> (<a class="el" href="classsdsl_1_1rrr__select__support.html">rrr_select_support</a> &amp;rs)</td></tr>
-<tr class="memitem:af577b6971049964afcc15b92a970c7a8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af577b6971049964afcc15b92a970c7a8"></a>
+<tr class="memitem:a00aa8a3ae69ee3fa008471f1acb4da66"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a00aa8a3ae69ee3fa008471f1acb4da66"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="classsdsl_1_1rrr__select__support.html">rrr_select_support</a> &amp;rs) const </td></tr>
-<tr class="memitem:aa43b216d321e14bde98332d90e555fa2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa43b216d321e14bde98332d90e555fa2"></a>
+<tr class="memitem:a7d644c561cae99fd53ec1fc6fadf7b9a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7d644c561cae99fd53ec1fc6fadf7b9a"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="classsdsl_1_1rrr__select__support.html">rrr_select_support</a> &amp;rs) const </td></tr>
-<tr class="memitem:aeaa82dcd5388bbcb145391ea8186aee4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeaa82dcd5388bbcb145391ea8186aee4"></a>
+<tr class="memitem:a9e64ec54c5b3f00cba4f43f898f8357d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9e64ec54c5b3f00cba4f43f898f8357d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>load</b> (std::istream &amp;in, const <a class="el" href="classsdsl_1_1rrr__vector.html">bit_vector_type</a> *v=NULL)</td></tr>
-<tr class="memitem:aeb3b35b38ffc3ed89ecd79fe74369c5a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeb3b35b38ffc3ed89ecd79fe74369c5a"></a>
+<tr class="memitem:abca119d245a4a1843d67a1282ca774f7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abca119d245a4a1843d67a1282ca774f7"></a>
 size_type&#160;</td><td class="memItemRight" valign="bottom"><b>serialize</b> (std::ostream &amp;out) const </td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><h3>template&lt;uint8_t b, class wt_type&gt;<br/>
-class sdsl::rrr_select_support&lt; b, wt_type &gt;</h3>
+<div class="textblock"><h3>template&lt;uint8_t b, uint16_t block_size, class wt_type&gt;<br/>
+class sdsl::rrr_select_support&lt; b, block_size, wt_type &gt;</h3>
 
 <p>Select support for the <a class="el" href="classsdsl_1_1rrr__vector.html" title="A bit vector which compresses the input with the method from Raman, Raman, and Rao.">rrr_vector</a> class. </p>
 </div><hr/>The documentation for this class was generated from the following file:<ul>
@@ -163,7 +169,7 @@ class sdsl::rrr_select_support&lt; b, wt_type &gt;</h3>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:35 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:32 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

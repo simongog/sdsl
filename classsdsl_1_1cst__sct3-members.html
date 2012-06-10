@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -137,6 +138,7 @@ This is the complete list of members for <a class="el" href="classsdsl_1_1cst__s
   <tr bgcolor="#f0f0f0"><td><b>first_child_rank</b> (defined in <a class="el" href="classsdsl_1_1cst__sct3.html">sdsl::cst_sct3&lt; Csa, Lcp, Bp_support, Rank_support &gt;</a>)</td><td><a class="el" href="classsdsl_1_1cst__sct3.html">sdsl::cst_sct3&lt; Csa, Lcp, Bp_support, Rank_support &gt;</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="group__cst__sct3__tree__methods.html#gab368bf6371b8be6de329112079131a61">id</a>(const node_type &amp;v) const </td><td><a class="el" href="classsdsl_1_1cst__sct3.html">sdsl::cst_sct3&lt; Csa, Lcp, Bp_support, Rank_support &gt;</a></td><td><code> [inline]</code></td></tr>
   <tr bgcolor="#f0f0f0"><td><b>index_category</b> typedef (defined in <a class="el" href="classsdsl_1_1cst__sct3.html">sdsl::cst_sct3&lt; Csa, Lcp, Bp_support, Rank_support &gt;</a>)</td><td><a class="el" href="classsdsl_1_1cst__sct3.html">sdsl::cst_sct3&lt; Csa, Lcp, Bp_support, Rank_support &gt;</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="group__cst__sct3__tree__methods.html#ga8c510b8298793533fe997bc7d5fedc64">inv_id</a>(size_type id)</td><td><a class="el" href="classsdsl_1_1cst__sct3.html">sdsl::cst_sct3&lt; Csa, Lcp, Bp_support, Rank_support &gt;</a></td><td><code> [inline]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="group__cst__sct3__tree__methods.html#gac3f5ef33aebbda796d2466f59fef6fe3">is_leaf</a>(const node_type &amp;v) const </td><td><a class="el" href="classsdsl_1_1cst__sct3.html">sdsl::cst_sct3&lt; Csa, Lcp, Bp_support, Rank_support &gt;</a></td><td><code> [inline]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="group__cst__sct3__tree__methods.html#ga321d8a8f5a771c88744588493419d81b">ith_child</a>(const node_type &amp;v, size_type i) const </td><td><a class="el" href="classsdsl_1_1cst__sct3.html">sdsl::cst_sct3&lt; Csa, Lcp, Bp_support, Rank_support &gt;</a></td><td><code> [inline]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="group__cst__sct3__tree__methods.html#ga39276fbb2f2ca1a215988041e2cfa5e8">ith_leaf</a>(size_type i) const </td><td><a class="el" href="classsdsl_1_1cst__sct3.html">sdsl::cst_sct3&lt; Csa, Lcp, Bp_support, Rank_support &gt;</a></td><td><code> [inline]</code></td></tr>
@@ -169,7 +171,7 @@ This is the complete list of members for <a class="el" href="classsdsl_1_1cst__s
   <tr bgcolor="#f0f0f0"><td><b>size_type</b> typedef (defined in <a class="el" href="classsdsl_1_1cst__sct3.html">sdsl::cst_sct3&lt; Csa, Lcp, Bp_support, Rank_support &gt;</a>)</td><td><a class="el" href="classsdsl_1_1cst__sct3.html">sdsl::cst_sct3&lt; Csa, Lcp, Bp_support, Rank_support &gt;</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="group__cst__sct3__tree__methods.html#ga08715fd9de5cb9ef1cfd70fb7c4f7977">sl</a>(const node_type &amp;v) const </td><td><a class="el" href="classsdsl_1_1cst__sct3.html">sdsl::cst_sct3&lt; Csa, Lcp, Bp_support, Rank_support &gt;</a></td><td><code> [inline]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="group__cst__sct3__tree__methods.html#gaec49ce93e5adecfc6fc94d88be98af22">sn</a>(const node_type &amp;v) const </td><td><a class="el" href="classsdsl_1_1cst__sct3.html">sdsl::cst_sct3&lt; Csa, Lcp, Bp_support, Rank_support &gt;</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="classsdsl_1_1cst__sct3.html#adae6ec1ca2777237d2a767a81ea41e89">swap</a>(cst_sct3 &amp;cst)</td><td><a class="el" href="classsdsl_1_1cst__sct3.html">sdsl::cst_sct3&lt; Csa, Lcp, Bp_support, Rank_support &gt;</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classsdsl_1_1cst__sct3.html#adae6ec1ca2777237d2a767a81ea41e89">swap</a>(cst_sct3 &amp;cst)</td><td><a class="el" href="classsdsl_1_1cst__sct3.html">sdsl::cst_sct3&lt; Csa, Lcp, Bp_support, Rank_support &gt;</a></td><td><code> [inline]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="group__cst__sct3__tree__methods.html#ga97251b1053f5387a05bdab526f374e85">tlcp_idx</a>(size_type i) const </td><td><a class="el" href="classsdsl_1_1cst__sct3.html">sdsl::cst_sct3&lt; Csa, Lcp, Bp_support, Rank_support &gt;</a></td><td><code> [inline]</code></td></tr>
   <tr bgcolor="#f0f0f0"><td><b>value_type</b> typedef (defined in <a class="el" href="classsdsl_1_1cst__sct3.html">sdsl::cst_sct3&lt; Csa, Lcp, Bp_support, Rank_support &gt;</a>)</td><td><a class="el" href="classsdsl_1_1cst__sct3.html">sdsl::cst_sct3&lt; Csa, Lcp, Bp_support, Rank_support &gt;</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="group__cst__sct3__tree__methods.html#ga7f1f675dfb95a1656fbfccc61694a039">wl</a>(const node_type &amp;v, const unsigned char c) const </td><td><a class="el" href="classsdsl_1_1cst__sct3.html">sdsl::cst_sct3&lt; Csa, Lcp, Bp_support, Rank_support &gt;</a></td><td><code> [inline]</code></td></tr>
@@ -178,7 +180,7 @@ This is the complete list of members for <a class="el" href="classsdsl_1_1cst__s
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:35 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:30 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

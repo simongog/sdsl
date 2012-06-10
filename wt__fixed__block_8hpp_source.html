@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -82,7 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -99,13 +100,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
 <a name="l00002"></a>00002 
 <a name="l00003"></a>00003 <span class="comment">/*</span>
-<a name="l00004"></a>00004 <span class="comment"> *   template parameter block size </span>
+<a name="l00004"></a>00004 <span class="comment"> *   template parameter block size</span>
 <a name="l00005"></a>00005 <span class="comment"> *</span>
 <a name="l00006"></a>00006 <span class="comment"> * average access time \f$ \Order{H_k} \f$</span>
 <a name="l00007"></a>00007 <span class="comment"> * References:</span>
 <a name="l00008"></a>00008 <span class="comment"> *    Juha K&quot;arkk&quot;ainen and Simon J. Puglisi &quot;Fixed Block Compression Boosting in FM-Indexes&quot;, SPIRE 2011</span>
 <a name="l00009"></a>00009 <span class="comment"> *</span>
-<a name="l00010"></a>00010 <span class="comment"> * Implementation for small alphabet size (&lt;=256) </span>
+<a name="l00010"></a>00010 <span class="comment"> * Implementation for small alphabet size (&lt;=256)</span>
 <a name="l00011"></a>00011 <span class="comment"></span>
 <a name="l00012"></a>00012 <span class="comment"></span>
 <a name="l00013"></a>00013 <span class="comment"> *</span>
@@ -118,80 +119,82 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00020"></a>00020 <span class="preprocessor">#include &quot;wt_helper.hpp&quot;</span>
 <a name="l00021"></a>00021 <span class="preprocessor">#include &quot;<a class="code" href="bp__support_8hpp.html" title="bp_support.hpp contains several classed which support find_open, find_close, enclose and rr-enclose q...">bp_support.hpp</a>&quot;</span>
 <a name="l00022"></a>00022 
-<a name="l00023"></a>00023 <span class="keyword">namespace </span>sdsl{
-<a name="l00024"></a>00024 
-<a name="l00025"></a>00025 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>32_t block_size = 1&lt;&lt;15, <span class="keyword">class</span> bp_support_type = bp_support_sada&lt;&gt; &gt;
-<a name="l00026"></a>00026 <span class="keyword">class</span> wt_fixed_block{
-<a name="l00027"></a>00027         public:
-<a name="l00028"></a>00028                 typedef bit_vector::<span class="keywordtype">size_t</span>ype <span class="keywordtype">size_t</span>ype;
-<a name="l00029"></a>00029         private:
-<a name="l00030"></a>00030                 <span class="keywordtype">size_t</span>ype                       m_size; <span class="comment">// stores the size of the sequence</span>
-<a name="l00031"></a>00031                 <span class="keywordtype">size_t</span>ype                       m_blk_cnt; <span class="comment">// stores the number of blocks</span>
-<a name="l00032"></a>00032                 u<span class="keywordtype">int</span>16_t                        m_sigma; <span class="comment">// size of the effective alphabet</span>
-<a name="l00033"></a>00033                 u<span class="keywordtype">int</span>16_t                        m_c_to_nr; <span class="comment">// map symbol c to a unqiue number in the range [0..m_sigma-1] </span>
-<a name="l00034"></a>00034                 bit_vector                      m_occ; <span class="comment">// indicator bit vector for occurences of a character c</span>
-<a name="l00035"></a>00035                                            <span class="comment">// in a block i; if m_occ[m_c_to_nr[c]*(m_blk_cnt+1) + i +1] = 1</span>
-<a name="l00036"></a>00036                 bit_vector                      m_bp;  <span class="comment">// the concatenated balanced parentheses sequences for the </span>
-<a name="l00037"></a>00037                                            <span class="comment">// Huffman trees of the blocks</span>
-<a name="l00038"></a>00038                 bp_support_type         m_bp_support; <span class="comment">// supporting data structure for m_bp</span>
-<a name="l00039"></a>00039                 <span class="keywordtype">int</span>_vector&lt;&gt;        m_bp_po<span class="keywordtype">int</span>ers; <span class="comment">// for each block, we store a pointer to the start</span>
-<a name="l00040"></a>00040                                                    <span class="comment">// of the corrsponding start of the tree representation in m_bp</span>
-<a name="l00041"></a>00041                 bit_vector                      m_tree; <span class="comment">// store the concatenated bit vectors of the wavelet trees of</span>
-<a name="l00042"></a>00042                                             <span class="comment">// the blocks</span>
-<a name="l00043"></a>00043                 <span class="keywordtype">int</span>_vector&lt;&gt;        m_tree_po<span class="keywordtype">int</span>ers; <span class="comment">// for each block, we store a pointer to the start</span>
-<a name="l00044"></a>00044                                                      <span class="comment">// of the  </span>
-<a name="l00045"></a>00045                 
-<a name="l00046"></a>00046                 <span class="comment">// TODO: * for each node in a huffman shaped wt, we have to save the size of the right nodes</span>
-<a name="l00047"></a>00047                 <span class="comment">//       * for each occurring character we have to store the number of its leaf</span>
-<a name="l00048"></a>00048                 <span class="comment">//           or the position ... number of leaf is more space efficient but requires an additional select</span>
-<a name="l00049"></a>00049                 <span class="keywordtype">int</span>_vector&lt;&gt;            m_leaf_nr;
-<a name="l00050"></a>00050 
-<a name="l00051"></a>00051                 <span class="comment">// if alphabet size is &lt;= 4,text almost random, and block size not very larg, </span>
-<a name="l00052"></a>00052                 <span class="comment">// use scanning with broadword methods b1Cnt, b11Cnt,... to answer questions</span>
-<a name="l00053"></a>00053 
-<a name="l00054"></a>00054                 <span class="comment">// if alphabet size equals 1, do not store m_tree, all answers can be </span>
-<a name="l00055"></a>00055             <span class="comment">// calculated easily</span>
-<a name="l00056"></a>00056 
-<a name="l00057"></a>00057                 <span class="comment">// if the alphabet size is 2, we can decide with m_leaf_nr, which char is encoded as 1 or 0.</span>
-<a name="l00058"></a>00058         public:
-<a name="l00059"></a>00059 
-<a name="l00061"></a>00061         <span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>&gt; 
-<a name="l00062"></a>00062         wt_fixed_block(int_vector_file_buffer&lt;8, size_type_class&gt; &amp;text, size_type size){
-<a name="l00063"></a>00063                 m_size = size;
-<a name="l00064"></a>00064                 <span class="keywordflow">if</span>( m_size == 0 )
-<a name="l00065"></a>00065                         <span class="keywordflow">return</span>;
-<a name="l00066"></a>00066                 <span class="comment">// calculate number of blocks</span>
-<a name="l00067"></a>00067                 size_type m_blk_cnt = (m_size + block_size - 1) / block_size;
-<a name="l00068"></a>00068                 <span class="comment">// caculate the number of occurences of each character in the text </span>
-<a name="l00069"></a>00069                 size_type C[256] = {0};
-<a name="l00070"></a>00070                 <a class="code" href="namespacesdsl.html#a4af7e3d1d37c1645e07c0de48c0d73d2" title="Count for each character in [0..255] the number of occurences in rac[0..size-1].">calculate_character_occurences</a>(text, m_size, C);
-<a name="l00071"></a>00071                 <span class="comment">// calculate the size of the effective alphabet</span>
-<a name="l00072"></a>00072                 calculate_effective_alphabet_size(C, m_sigma);  
-<a name="l00073"></a>00073 
-<a name="l00074"></a>00074                 m_occ.resize( m_sigma * (m_blk_cnt+1) ); <span class="comment">// +1 since we also store a dummy element for block[-1]</span>
+<a name="l00023"></a>00023 <span class="keyword">namespace </span>sdsl
+<a name="l00024"></a>00024 {
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>32_t block_size = 1&lt;&lt;15, <span class="keyword">class</span> bp_support_type = bp_support_sada&lt;&gt; &gt;
+<a name="l00027"></a>00027 <span class="keyword">class</span> wt_fixed_block
+<a name="l00028"></a>00028 {
+<a name="l00029"></a>00029     public:
+<a name="l00030"></a>00030         typedef bit_vector::<span class="keywordtype">size_t</span>ype <span class="keywordtype">size_t</span>ype;
+<a name="l00031"></a>00031     private:
+<a name="l00032"></a>00032         <span class="keywordtype">size_t</span>ype                       m_size; <span class="comment">// stores the size of the sequence</span>
+<a name="l00033"></a>00033         <span class="keywordtype">size_t</span>ype                       m_blk_cnt; <span class="comment">// stores the number of blocks</span>
+<a name="l00034"></a>00034         u<span class="keywordtype">int</span>16_t                        m_sigma; <span class="comment">// size of the effective alphabet</span>
+<a name="l00035"></a>00035         u<span class="keywordtype">int</span>16_t                        m_c_to_nr; <span class="comment">// map symbol c to a unqiue number in the range [0..m_sigma-1]</span>
+<a name="l00036"></a>00036         bit_vector                      m_occ; <span class="comment">// indicator bit vector for occurences of a character c</span>
+<a name="l00037"></a>00037         <span class="comment">// in a block i; if m_occ[m_c_to_nr[c]*(m_blk_cnt+1) + i +1] = 1</span>
+<a name="l00038"></a>00038         bit_vector                      m_bp;  <span class="comment">// the concatenated balanced parentheses sequences for the</span>
+<a name="l00039"></a>00039         <span class="comment">// Huffman trees of the blocks</span>
+<a name="l00040"></a>00040         bp_support_type         m_bp_support; <span class="comment">// supporting data structure for m_bp</span>
+<a name="l00041"></a>00041         <span class="keywordtype">int</span>_vector&lt;&gt;        m_bp_po<span class="keywordtype">int</span>ers; <span class="comment">// for each block, we store a pointer to the start</span>
+<a name="l00042"></a>00042         <span class="comment">// of the corrsponding start of the tree representation in m_bp</span>
+<a name="l00043"></a>00043         bit_vector                      m_tree; <span class="comment">// store the concatenated bit vectors of the wavelet trees of</span>
+<a name="l00044"></a>00044         <span class="comment">// the blocks</span>
+<a name="l00045"></a>00045         <span class="keywordtype">int</span>_vector&lt;&gt;        m_tree_po<span class="keywordtype">int</span>ers; <span class="comment">// for each block, we store a pointer to the start</span>
+<a name="l00046"></a>00046         <span class="comment">// of the</span>
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048         <span class="comment">// TODO: * for each node in a huffman shaped wt, we have to save the size of the right nodes</span>
+<a name="l00049"></a>00049         <span class="comment">//       * for each occurring character we have to store the number of its leaf</span>
+<a name="l00050"></a>00050         <span class="comment">//           or the position ... number of leaf is more space efficient but requires an additional select</span>
+<a name="l00051"></a>00051         <span class="keywordtype">int</span>_vector&lt;&gt;            m_leaf_nr;
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053         <span class="comment">// if alphabet size is &lt;= 4,text almost random, and block size not very larg,</span>
+<a name="l00054"></a>00054         <span class="comment">// use scanning with broadword methods b1Cnt, b11Cnt,... to answer questions</span>
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056         <span class="comment">// if alphabet size equals 1, do not store m_tree, all answers can be</span>
+<a name="l00057"></a>00057         <span class="comment">// calculated easily</span>
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059         <span class="comment">// if the alphabet size is 2, we can decide with m_leaf_nr, which char is encoded as 1 or 0.</span>
+<a name="l00060"></a>00060     public:
+<a name="l00061"></a>00061 
+<a name="l00063"></a>00063         <span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>&gt;
+<a name="l00064"></a>00064         wt_fixed_block(int_vector_file_buffer&lt;8, size_type_class&gt;&amp; text, size_type size) {
+<a name="l00065"></a>00065             m_size = size;
+<a name="l00066"></a>00066             <span class="keywordflow">if</span> (m_size == 0)
+<a name="l00067"></a>00067                 <span class="keywordflow">return</span>;
+<a name="l00068"></a>00068             <span class="comment">// calculate number of blocks</span>
+<a name="l00069"></a>00069             size_type m_blk_cnt = (m_size + block_size - 1) / block_size;
+<a name="l00070"></a>00070             <span class="comment">// caculate the number of occurences of each character in the text</span>
+<a name="l00071"></a>00071             size_type C[256] = {0};
+<a name="l00072"></a>00072             <a class="code" href="namespacesdsl.html#a4af7e3d1d37c1645e07c0de48c0d73d2" title="Count for each character in [0..255] the number of occurences in rac[0..size-1].">calculate_character_occurences</a>(text, m_size, C);
+<a name="l00073"></a>00073             <span class="comment">// calculate the size of the effective alphabet</span>
+<a name="l00074"></a>00074             calculate_effective_alphabet_size(C, m_sigma);
 <a name="l00075"></a>00075 
-<a name="l00076"></a>00076                 <span class="comment">// initialize m_c_to_nr</span>
-<a name="l00077"></a>00077                 uint16_t nr=0;
-<a name="l00078"></a>00078                 <span class="keywordflow">for</span>(size_type i=0; i&lt;256; ++i){
-<a name="l00079"></a>00079                         <span class="keywordflow">if</span>( C[i]&gt;0 ){
-<a name="l00080"></a>00080                                 m_c_to_nr[i] = nr++;
-<a name="l00081"></a>00081                         }<span class="keywordflow">else</span>{
-<a name="l00082"></a>00082                                 m_c_to_nr[i] = _undef_node;
-<a name="l00083"></a>00083                         }
-<a name="l00084"></a>00084                 }
-<a name="l00085"></a>00085                 
-<a name="l00086"></a>00086 
-<a name="l00087"></a>00087         }
-<a name="l00088"></a>00088 }
-<a name="l00089"></a>00089 
-<a name="l00090"></a>00090 } <span class="comment">// end namespace sdsl</span>
+<a name="l00076"></a>00076             m_occ.resize(m_sigma * (m_blk_cnt+1));   <span class="comment">// +1 since we also store a dummy element for block[-1]</span>
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078             <span class="comment">// initialize m_c_to_nr</span>
+<a name="l00079"></a>00079             uint16_t nr=0;
+<a name="l00080"></a>00080             <span class="keywordflow">for</span> (size_type i=0; i&lt;256; ++i) {
+<a name="l00081"></a>00081                 <span class="keywordflow">if</span> (C[i]&gt;0) {
+<a name="l00082"></a>00082                     m_c_to_nr[i] = nr++;
+<a name="l00083"></a>00083                 } <span class="keywordflow">else</span> {
+<a name="l00084"></a>00084                     m_c_to_nr[i] = _undef_node;
+<a name="l00085"></a>00085                 }
+<a name="l00086"></a>00086             }
+<a name="l00087"></a>00087 
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089         }
+<a name="l00090"></a>00090 }
 <a name="l00091"></a>00091 
-<a name="l00092"></a>00092 <span class="preprocessor">#endif</span>
+<a name="l00092"></a>00092 } <span class="comment">// end namespace sdsl</span>
+<a name="l00093"></a>00093 
+<a name="l00094"></a>00094 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:34 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:28 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

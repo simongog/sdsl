@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -117,21 +118,21 @@ typedef select_support::size_type&#160;</td><td class="memItemRight" valign="bot
 <tr><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ac1e6f544d918545ab5b7d9c4cd5467c4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac1e6f544d918545ab5b7d9c4cd5467c4"></a>
-static size_type&#160;</td><td class="memItemRight" valign="bottom"><b>arg_cnt</b> (const bit_vector &amp;v)</td></tr>
-<tr class="memitem:ad849a52b3e1e65909173219c0930cb17"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad849a52b3e1e65909173219c0930cb17"></a>
-static size_type&#160;</td><td class="memItemRight" valign="bottom"><b>args_in_the_first_word</b> (uint64_t w, uint8_t offset, uint64_t carry)</td></tr>
-<tr class="memitem:abbd74d75273ffba4ec0a5c21039937ec"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abbd74d75273ffba4ec0a5c21039937ec"></a>
-static size_type&#160;</td><td class="memItemRight" valign="bottom"><b>ith_arg_pos_in_the_first_word</b> (uint64_t w, size_type i, uint8_t offset, uint64_t carry)</td></tr>
-<tr class="memitem:ae081bb556061b3ec9c2fde846b448e3c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae081bb556061b3ec9c2fde846b448e3c"></a>
-static size_type&#160;</td><td class="memItemRight" valign="bottom"><b>args_in_the_word</b> (uint64_t w, uint64_t &amp;carry)</td></tr>
-<tr class="memitem:ae9d998263a054d2f6db6761552a1421e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae9d998263a054d2f6db6761552a1421e"></a>
-static size_type&#160;</td><td class="memItemRight" valign="bottom"><b>ith_arg_pos_in_the_word</b> (uint64_t w, size_type i, uint64_t carry)</td></tr>
+static size_type&#160;</td><td class="memItemRight" valign="bottom"><b>arg_cnt</b> (const <a class="el" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb">bit_vector</a> &amp;v)</td></tr>
+<tr class="memitem:a52db72375aa160a70f49c832850d24a3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a52db72375aa160a70f49c832850d24a3"></a>
+static size_type&#160;</td><td class="memItemRight" valign="bottom"><b>args_in_the_first_word</b> (uint64_t w, uint8_t offset, uint64_t)</td></tr>
+<tr class="memitem:a8f0527e92b7a798a7bdea249b5cd73c7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8f0527e92b7a798a7bdea249b5cd73c7"></a>
+static size_type&#160;</td><td class="memItemRight" valign="bottom"><b>ith_arg_pos_in_the_first_word</b> (uint64_t w, size_type i, uint8_t offset, uint64_t)</td></tr>
+<tr class="memitem:a51fcd8616c81ed9a9c65cdd7153db3b1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a51fcd8616c81ed9a9c65cdd7153db3b1"></a>
+static size_type&#160;</td><td class="memItemRight" valign="bottom"><b>args_in_the_word</b> (uint64_t w, uint64_t &amp;)</td></tr>
+<tr class="memitem:a322839579d2f09dc5401ea76970fb5c1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a322839579d2f09dc5401ea76970fb5c1"></a>
+static size_type&#160;</td><td class="memItemRight" valign="bottom"><b>ith_arg_pos_in_the_word</b> (uint64_t w, size_type i, uint64_t)</td></tr>
 <tr class="memitem:a2f86417024a0d2cfa8014511985985ce"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2f86417024a0d2cfa8014511985985ce"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>found_arg</b> (size_type i, const bit_vector &amp;v)</td></tr>
-<tr class="memitem:ac7cc1aa6c269c970d71c5c46c87321a7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac7cc1aa6c269c970d71c5c46c87321a7"></a>
-static uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>init_carry</b> (const uint64_t *data, size_type word_pos)</td></tr>
-<tr class="memitem:a74ef33a1fd8c159f306c4c7e343b85fa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a74ef33a1fd8c159f306c4c7e343b85fa"></a>
-static uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>get_carry</b> (uint64_t w)</td></tr>
+static bool&#160;</td><td class="memItemRight" valign="bottom"><b>found_arg</b> (size_type i, const <a class="el" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb">bit_vector</a> &amp;v)</td></tr>
+<tr class="memitem:a52464b12dd35a8d22e3df6ffeb34d948"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a52464b12dd35a8d22e3df6ffeb34d948"></a>
+static uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>init_carry</b> (const uint64_t *, size_type)</td></tr>
+<tr class="memitem:a14f57e31d37160a62b29c845767cd607"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a14f57e31d37160a62b29c845767cd607"></a>
+static uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>get_carry</b> (uint64_t)</td></tr>
 </table>
 <h3>template&lt;&gt;<br/>
  struct sdsl::select_support_mcl_trait&lt; 1, 1 &gt;</h3>
@@ -143,7 +144,7 @@ static uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>get_carry<
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:35 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:32 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

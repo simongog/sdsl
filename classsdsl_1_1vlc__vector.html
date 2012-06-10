@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -143,7 +144,7 @@ typedef Coder&#160;</td><td class="memItemRight" valign="bottom"><b>coder</b></t
 <tr class="memitem:ac50d05253333c44903f64f8c53d4e50a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac50d05253333c44903f64f8c53d4e50a"></a>
 typedef <a class="el" href="structsdsl_1_1vlc__vector__trait.html">vlc_vector_trait</a><br class="typebreak"/>
 &lt; fixedIntWidth &gt;<br class="typebreak"/>
-::int_vector_type&#160;</td><td class="memItemRight" valign="bottom"><b>int_vector_type</b></td></tr>
+::<a class="el" href="classsdsl_1_1int__vector.html">int_vector_type</a>&#160;</td><td class="memItemRight" valign="bottom"><b>int_vector_type</b></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:af11b309afbf02fad4b3661ad022714be"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af11b309afbf02fad4b3661ad022714be"></a>
@@ -156,14 +157,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a6df64180fd0f349568ce61ac717e37a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for a Container of positive integers.  <a href="#a6df64180fd0f349568ce61ac717e37a5"></a><br/></td></tr>
 <tr class="memitem:a91a3559e38cfcc1851dd568f0e95e50e"><td class="memTemplParams" colspan="2"><a class="anchor" id="a91a3559e38cfcc1851dd568f0e95e50e"></a>
 template&lt;uint8_t int_width, class size_type_class &gt; </td></tr>
-<tr class="memitem:a91a3559e38cfcc1851dd568f0e95e50e"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsdsl_1_1vlc__vector.html#a91a3559e38cfcc1851dd568f0e95e50e">vlc_vector</a> (int_vector_file_buffer&lt; int_width, size_type_class &gt; &amp;v_buf)</td></tr>
-<tr class="memdesc:a91a3559e38cfcc1851dd568f0e95e50e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for an int_vector_file_buffer of positive integers. <br/></td></tr>
+<tr class="memitem:a91a3559e38cfcc1851dd568f0e95e50e"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsdsl_1_1vlc__vector.html#a91a3559e38cfcc1851dd568f0e95e50e">vlc_vector</a> (<a class="el" href="classsdsl_1_1int__vector__file__buffer.html">int_vector_file_buffer</a>&lt; int_width, size_type_class &gt; &amp;v_buf)</td></tr>
+<tr class="memdesc:a91a3559e38cfcc1851dd568f0e95e50e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for an <a class="el" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer</a> of positive integers. <br/></td></tr>
 <tr class="memitem:a74ddb3db8c6afa685c2592a682642d82"><td class="memTemplParams" colspan="2"><a class="anchor" id="a74ddb3db8c6afa685c2592a682642d82"></a>
 template&lt;class Container &gt; </td></tr>
 <tr class="memitem:a74ddb3db8c6afa685c2592a682642d82"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>init</b> (const Container &amp;c)</td></tr>
 <tr class="memitem:a648f7eab502a18024659cb72b5f4f7dc"><td class="memTemplParams" colspan="2"><a class="anchor" id="a648f7eab502a18024659cb72b5f4f7dc"></a>
 template&lt;uint8_t int_width, class size_type_class &gt; </td></tr>
-<tr class="memitem:a648f7eab502a18024659cb72b5f4f7dc"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>init</b> (int_vector_file_buffer&lt; int_width, size_type_class &gt; &amp;v_buf)</td></tr>
+<tr class="memitem:a648f7eab502a18024659cb72b5f4f7dc"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>init</b> (<a class="el" href="classsdsl_1_1int__vector__file__buffer.html">int_vector_file_buffer</a>&lt; int_width, size_type_class &gt; &amp;v_buf)</td></tr>
 <tr class="memitem:a061f44634e9d0761e0a664b9a8ee353e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a061f44634e9d0761e0a664b9a8ee353e"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1vlc__vector.html#a061f44634e9d0761e0a664b9a8ee353e">~vlc_vector</a> ()</td></tr>
 <tr class="memdesc:a061f44634e9d0761e0a664b9a8ee353e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default Destructor. <br/></td></tr>
@@ -203,7 +204,7 @@ Static Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:ab1c29362da9bdd6287b8bfa077dc332f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab1c29362da9bdd6287b8bfa077dc332f"></a>
-int_vector&lt; 0 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_z</b></td></tr>
+<a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 0 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_z</b></td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:adc02f652ec0efa974217802d66a2eddc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adc02f652ec0efa974217802d66a2eddc"></a>
@@ -454,7 +455,7 @@ template&lt;class Coder , uint32_t SampleDens, uint8_t fixedIntWidth&gt; </div>
 <p>[]-operator </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>Index of the value. <img class="formulaInl" alt="$ i \in [0..size()-1]$" src="form_91.png"/>.</td></tr>
+    <tr><td class="paramname">i</td><td>Index of the value. <img class="formulaInl" alt="$ i \in [0..size()-1]$" src="form_92.png"/>.</td></tr>
   </table>
   </dd>
 </dl>
@@ -576,7 +577,7 @@ template&lt;class Coder , uint32_t SampleDens, uint8_t fixedIntWidth&gt; </div>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:36 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:32 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

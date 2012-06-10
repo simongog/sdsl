@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -84,6 +85,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions_func.html"><span>Functions</span></a></li>
       <li class="current"><a href="functions_vars.html"><span>Variables</span></a></li>
       <li><a href="functions_type.html"><span>Typedefs</span></a></li>
+      <li><a href="functions_rela.html"><span>Related&#160;Functions</span></a></li>
     </ul>
   </div>
   <div id="navrow4" class="tabs3">
@@ -111,7 +113,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -138,12 +140,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_b"></a>- b -</h3><ul>
+<li>B1CntBytes
+: <a class="el" href="classsdsl_1_1bit__magic.html#a06bc2dd6bb0ec15bffab7e0015492ce1">sdsl::bit_magic</a>
+</li>
 <li>bp
 : <a class="el" href="classsdsl_1_1cst__sct3p.html#aead7bd8d895cad60ce05187a7ea90303">sdsl::cst_sct3p&lt; Csa, Lcp, Bp_support, Rank_support &gt;</a>
-, <a class="el" href="classsdsl_1_1cst__sada.html#ae25541428336ad697b9ceefffccea100">sdsl::cst_sada&lt; Csa, Lcp, Bp_support, Rank_support10, Select_support10 &gt;</a>
-, <a class="el" href="classsdsl_1_1cst__sct2.html#a5eb54f13fa543699d51063bb0a8b84c5">sdsl::cst_sct2&lt; Csa, Lcp, Bp_support, Rank_support &gt;</a>
-, <a class="el" href="classsdsl_1_1cst__sct3.html#a930e270fdb5d857a3335872fa0c94ec5">sdsl::cst_sct3&lt; Csa, Lcp, Bp_support, Rank_support &gt;</a>
 , <a class="el" href="classsdsl_1_1cst__sct.html#a3252574708be08710e0a058621ec26d5">sdsl::cst_sct&lt; Csa, Lcp, Bp_support &gt;</a>
+, <a class="el" href="classsdsl_1_1cst__sct2.html#a5eb54f13fa543699d51063bb0a8b84c5">sdsl::cst_sct2&lt; Csa, Lcp, Bp_support, Rank_support &gt;</a>
+, <a class="el" href="classsdsl_1_1cst__sada.html#ae25541428336ad697b9ceefffccea100">sdsl::cst_sada&lt; Csa, Lcp, Bp_support, Rank_support10, Select_support10 &gt;</a>
+, <a class="el" href="classsdsl_1_1cst__sct3.html#a930e270fdb5d857a3335872fa0c94ec5">sdsl::cst_sct3&lt; Csa, Lcp, Bp_support, Rank_support &gt;</a>
 </li>
 <li>bp_rank
 : <a class="el" href="classsdsl_1_1bp__support__sada.html#a82446d12036cbd7e37212638f7327eed">sdsl::bp_support_sada&lt; SmlBlkSize, MedBlkDeg, RankSupport, SelectSupport &gt;</a>
@@ -159,9 +164,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>bp_support
 : <a class="el" href="classsdsl_1_1cst__sada.html#ae6a021c0152e18b70e0e6eff161f82ec">sdsl::cst_sada&lt; Csa, Lcp, Bp_support, Rank_support10, Select_support10 &gt;</a>
-, <a class="el" href="classsdsl_1_1cst__sct2.html#a14bcac4007b133f1d2d4f6dc76ff1820">sdsl::cst_sct2&lt; Csa, Lcp, Bp_support, Rank_support &gt;</a>
 , <a class="el" href="classsdsl_1_1cst__sct3.html#aa9384e34d14efbdce32bc27ddd143d7b">sdsl::cst_sct3&lt; Csa, Lcp, Bp_support, Rank_support &gt;</a>
 , <a class="el" href="classsdsl_1_1cst__sct.html#aa4be9891228e8122a79ffac2a933c2a8">sdsl::cst_sct&lt; Csa, Lcp, Bp_support &gt;</a>
+, <a class="el" href="classsdsl_1_1cst__sct2.html#a14bcac4007b133f1d2d4f6dc76ff1820">sdsl::cst_sct2&lt; Csa, Lcp, Bp_support, Rank_support &gt;</a>
 , <a class="el" href="classsdsl_1_1cst__sct3p.html#a432bbd0fb38a44bcebd92bbc0d4af415">sdsl::cst_sct3p&lt; Csa, Lcp, Bp_support, Rank_support &gt;</a>
 </li>
 </ul>
@@ -274,7 +279,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="classsdsl_1_1bit__magic.html#a56828569e00df6315dbc5b50653e0013">sdsl::bit_magic</a>
 </li>
 <li>sigma
-: <a class="el" href="classsdsl_1_1wt__int.html#a43585943fc4c16aaf9f6a15b6d42a71a">sdsl::wt_int&lt; RandomAccessContainer, RankSupport, SelectSupport, SelectSupportZero &gt;</a>
+: <a class="el" href="classsdsl_1_1wt__int.html#a262a5ba26691f66db2d13ee70f3f3e09">sdsl::wt_int&lt; RandomAccessContainer, BitVector, RankSupport, SelectSupport, SelectSupportZero &gt;</a>
 </li>
 <li>sml_block_min_max
 : <a class="el" href="classsdsl_1_1bp__support__sada.html#aa186d5e01c17fbe06d0a570f5419f7a8">sdsl::bp_support_sada&lt; SmlBlkSize, MedBlkDeg, RankSupport, SelectSupport &gt;</a>
@@ -284,7 +289,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
 <li>tree
-: <a class="el" href="classsdsl_1_1wt__int.html#a544a4d5581611021f2a71049b56cdfd9">sdsl::wt_int&lt; RandomAccessContainer, RankSupport, SelectSupport, SelectSupportZero &gt;</a>
+: <a class="el" href="classsdsl_1_1wt__int.html#a3fe3d84d817ba4221ff42dc5c818c701">sdsl::wt_int&lt; RandomAccessContainer, BitVector, RankSupport, SelectSupport, SelectSupportZero &gt;</a>
 </li>
 <li>Trny2bin_0_16
 : <a class="el" href="classsdsl_1_1coder_1_1ternary.html#af4925d37f8d82bf4ebaf5f42b275cb8e">sdsl::coder::ternary</a>
@@ -301,7 +306,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:36 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:33 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

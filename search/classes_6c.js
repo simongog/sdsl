@@ -12,5 +12,7 @@ var searchData=
   ['lcp_5ftree_5fcompressed_5ftag',['lcp_tree_compressed_tag',['../structsdsl_1_1lcp__tree__compressed__tag.html',1,'sdsl']]],
   ['lcp_5funcompressed',['lcp_uncompressed',['../classsdsl_1_1lcp__uncompressed.html',1,'sdsl']]],
   ['lcp_5fvlc',['lcp_vlc',['../classsdsl_1_1lcp__vlc.html',1,'sdsl']]],
-  ['lcp_5fwt',['lcp_wt',['../classsdsl_1_1lcp__wt.html',1,'sdsl']]]
+  ['lcp_5fwt',['lcp_wt',['../classsdsl_1_1lcp__wt.html',1,'sdsl']]],
+  ['louds_5fnode',['louds_node',['../classsdsl_1_1louds__node.html',1,'sdsl']]],
+  ['louds_5ftree',['louds_tree',['../classsdsl_1_1louds__tree.html',1,'sdsl']]]
 ];

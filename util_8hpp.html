@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -81,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -144,40 +145,43 @@ Functions</h2></td></tr>
 <tr class="memitem:ab7e3467fc3050296f4815ad697a67456"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab7e3467fc3050296f4815ad697a67456"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#ab7e3467fc3050296f4815ad697a67456">sdsl::util::basename</a> (const std::string &amp;file_name)</td></tr>
 <tr class="memdesc:ab7e3467fc3050296f4815ad697a67456"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the basename of a file_name. <br/></td></tr>
-<tr class="memitem:ac12aa08ba0692c79d44cff140ab536ea"><td class="memTemplParams" colspan="2">template&lt;class int_vector &gt; </td></tr>
-<tr class="memitem:ac12aa08ba0692c79d44cff140ab536ea"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#ac12aa08ba0692c79d44cff140ab536ea">sdsl::util::set_random_bits</a> (int_vector &amp;v, int seed=0)</td></tr>
-<tr class="memdesc:ac12aa08ba0692c79d44cff140ab536ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets all bits of the int_vector to pseudo-random bits.  <a href="#ac12aa08ba0692c79d44cff140ab536ea"></a><br/></td></tr>
-<tr class="memitem:adbf5408e0db8f01e525bfb8ffaf8b689"><td class="memTemplParams" colspan="2"><a class="anchor" id="adbf5408e0db8f01e525bfb8ffaf8b689"></a>
-template&lt;class int_vector &gt; </td></tr>
-<tr class="memitem:adbf5408e0db8f01e525bfb8ffaf8b689"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#adbf5408e0db8f01e525bfb8ffaf8b689">sdsl::util::set_zero_bits</a> (int_vector &amp;v)</td></tr>
-<tr class="memdesc:adbf5408e0db8f01e525bfb8ffaf8b689"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets all bits of the int_vector to 0-bits. <br/></td></tr>
-<tr class="memitem:a1000eb195c27a4e6a1a5969676bc2949"><td class="memTemplParams" colspan="2"><a class="anchor" id="a1000eb195c27a4e6a1a5969676bc2949"></a>
-template&lt;class int_vector &gt; </td></tr>
-<tr class="memitem:a1000eb195c27a4e6a1a5969676bc2949"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#a1000eb195c27a4e6a1a5969676bc2949">sdsl::util::set_one_bits</a> (int_vector &amp;v)</td></tr>
-<tr class="memdesc:a1000eb195c27a4e6a1a5969676bc2949"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets all bits of the int_vector to 1-bits. <br/></td></tr>
-<tr class="memitem:ad7e3f74378c5677821d64cf0a760bc01"><td class="memTemplParams" colspan="2">template&lt;class int_vector &gt; </td></tr>
-<tr class="memitem:ad7e3f74378c5677821d64cf0a760bc01"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#ad7e3f74378c5677821d64cf0a760bc01">sdsl::util::bit_compress</a> (int_vector &amp;v)</td></tr>
-<tr class="memdesc:ad7e3f74378c5677821d64cf0a760bc01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bit compress the int_vector.  <a href="#ad7e3f74378c5677821d64cf0a760bc01"></a><br/></td></tr>
-<tr class="memitem:a335dff45f531c7500b85045d16e4e25b"><td class="memTemplParams" colspan="2"><a class="anchor" id="a335dff45f531c7500b85045d16e4e25b"></a>
-template&lt;class int_vector , class size_type_class &gt; </td></tr>
-<tr class="memitem:a335dff45f531c7500b85045d16e4e25b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#a335dff45f531c7500b85045d16e4e25b">sdsl::util::all_elements_mod</a> (int_vector &amp;v, size_type_class m)</td></tr>
-<tr class="memdesc:a335dff45f531c7500b85045d16e4e25b"><td class="mdescLeft">&#160;</td><td class="mdescRight">All elements of v modulo m. <br/></td></tr>
-<tr class="memitem:a7fe29a6e7ce170c4dd4e4d29abc1eca6"><td class="memTemplParams" colspan="2">template&lt;class int_vector &gt; </td></tr>
-<tr class="memitem:a7fe29a6e7ce170c4dd4e4d29abc1eca6"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#a7fe29a6e7ce170c4dd4e4d29abc1eca6">sdsl::util::set_all_values_to_k</a> (int_vector &amp;v, uint64_t k)</td></tr>
-<tr class="memdesc:a7fe29a6e7ce170c4dd4e4d29abc1eca6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set all entries of int_vector to value k.  <a href="#a7fe29a6e7ce170c4dd4e4d29abc1eca6"></a><br/></td></tr>
-<tr class="memitem:a98063c6d826f31194c9410ab883c0e76"><td class="memTemplParams" colspan="2"><a class="anchor" id="a98063c6d826f31194c9410ab883c0e76"></a>
-template&lt;class int_vector &gt; </td></tr>
-<tr class="memitem:a98063c6d826f31194c9410ab883c0e76"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#a98063c6d826f31194c9410ab883c0e76">sdsl::util::set_to_id</a> (int_vector &amp;v)</td></tr>
-<tr class="memdesc:a98063c6d826f31194c9410ab883c0e76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets each entry of the numerical vector v at position $fi. <br/></td></tr>
-<tr class="memitem:a55d9746d83c8c32dcc2a0ce7ab38616d"><td class="memTemplParams" colspan="2">template&lt;class int_vector &gt; </td></tr>
-<tr class="memitem:a55d9746d83c8c32dcc2a0ce7ab38616d"><td class="memTemplItemLeft" align="right" valign="top">int_vector::size_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#a55d9746d83c8c32dcc2a0ce7ab38616d">sdsl::util::get_one_bits</a> (const int_vector &amp;v)</td></tr>
-<tr class="memdesc:a55d9746d83c8c32dcc2a0ce7ab38616d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts and returns the 1-bits an int_vector contains.  <a href="#a55d9746d83c8c32dcc2a0ce7ab38616d"></a><br/></td></tr>
-<tr class="memitem:afd48f77f11e6ccc3753b180e89d100e9"><td class="memTemplParams" colspan="2">template&lt;class int_vector &gt; </td></tr>
-<tr class="memitem:afd48f77f11e6ccc3753b180e89d100e9"><td class="memTemplItemLeft" align="right" valign="top">int_vector::size_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#afd48f77f11e6ccc3753b180e89d100e9">sdsl::util::get_onezero_bits</a> (const int_vector &amp;v)</td></tr>
-<tr class="memdesc:afd48f77f11e6ccc3753b180e89d100e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts 10 bit pair occurencies.  <a href="#afd48f77f11e6ccc3753b180e89d100e9"></a><br/></td></tr>
-<tr class="memitem:a63db6a1e27c369ef5777a483b225c773"><td class="memTemplParams" colspan="2">template&lt;class int_vector &gt; </td></tr>
-<tr class="memitem:a63db6a1e27c369ef5777a483b225c773"><td class="memTemplItemLeft" align="right" valign="top">int_vector::size_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#a63db6a1e27c369ef5777a483b225c773">sdsl::util::get_zeroone_bits</a> (const int_vector &amp;v)</td></tr>
-<tr class="memdesc:a63db6a1e27c369ef5777a483b225c773"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts 01 bit pair occurencies.  <a href="#a63db6a1e27c369ef5777a483b225c773"></a><br/></td></tr>
+<tr class="memitem:a401ce966db8feeb1e77c9e262388127a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a401ce966db8feeb1e77c9e262388127a"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#a401ce966db8feeb1e77c9e262388127a">sdsl::util::dirname</a> (const std::string &amp;file_name)</td></tr>
+<tr class="memdesc:a401ce966db8feeb1e77c9e262388127a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the directory of a file_name. Trailing / are removed. <br/></td></tr>
+<tr class="memitem:a50422b42efb23c5335c8be282624c127"><td class="memTemplParams" colspan="2">template&lt;class int_vector_type &gt; </td></tr>
+<tr class="memitem:a50422b42efb23c5335c8be282624c127"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#a50422b42efb23c5335c8be282624c127">sdsl::util::set_random_bits</a> (int_vector_type &amp;v, int seed=0)</td></tr>
+<tr class="memdesc:a50422b42efb23c5335c8be282624c127"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets all bits of the <a class="el" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector</a> to pseudo-random bits.  <a href="#a50422b42efb23c5335c8be282624c127"></a><br/></td></tr>
+<tr class="memitem:a314eb549472389e274962c50929bc448"><td class="memTemplParams" colspan="2"><a class="anchor" id="a314eb549472389e274962c50929bc448"></a>
+template&lt;class int_vector_type &gt; </td></tr>
+<tr class="memitem:a314eb549472389e274962c50929bc448"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#a314eb549472389e274962c50929bc448">sdsl::util::set_zero_bits</a> (int_vector_type &amp;v)</td></tr>
+<tr class="memdesc:a314eb549472389e274962c50929bc448"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets all bits of the <a class="el" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector</a> to 0-bits. <br/></td></tr>
+<tr class="memitem:adbb7f224a1496d0c1748289712fa4200"><td class="memTemplParams" colspan="2"><a class="anchor" id="adbb7f224a1496d0c1748289712fa4200"></a>
+template&lt;class int_vector_type &gt; </td></tr>
+<tr class="memitem:adbb7f224a1496d0c1748289712fa4200"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#adbb7f224a1496d0c1748289712fa4200">sdsl::util::set_one_bits</a> (int_vector_type &amp;v)</td></tr>
+<tr class="memdesc:adbb7f224a1496d0c1748289712fa4200"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets all bits of the <a class="el" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector</a> to 1-bits. <br/></td></tr>
+<tr class="memitem:a3256ec5437d2c9fd6bbfabd5c2527b0d"><td class="memTemplParams" colspan="2">template&lt;class int_vector_type &gt; </td></tr>
+<tr class="memitem:a3256ec5437d2c9fd6bbfabd5c2527b0d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#a3256ec5437d2c9fd6bbfabd5c2527b0d">sdsl::util::bit_compress</a> (int_vector_type &amp;v)</td></tr>
+<tr class="memdesc:a3256ec5437d2c9fd6bbfabd5c2527b0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bit compress the <a class="el" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector</a>.  <a href="#a3256ec5437d2c9fd6bbfabd5c2527b0d"></a><br/></td></tr>
+<tr class="memitem:a067611da7af576ed170d51e707e960c0"><td class="memTemplParams" colspan="2"><a class="anchor" id="a067611da7af576ed170d51e707e960c0"></a>
+template&lt;class int_vector_type , class size_type_class &gt; </td></tr>
+<tr class="memitem:a067611da7af576ed170d51e707e960c0"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#a067611da7af576ed170d51e707e960c0">sdsl::util::all_elements_mod</a> (int_vector_type &amp;v, size_type_class m)</td></tr>
+<tr class="memdesc:a067611da7af576ed170d51e707e960c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">All elements of v modulo m. <br/></td></tr>
+<tr class="memitem:abc810abc26cf4e5fc9652d979ecd90d9"><td class="memTemplParams" colspan="2">template&lt;class int_vector_type &gt; </td></tr>
+<tr class="memitem:abc810abc26cf4e5fc9652d979ecd90d9"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#abc810abc26cf4e5fc9652d979ecd90d9">sdsl::util::set_all_values_to_k</a> (int_vector_type &amp;v, uint64_t k)</td></tr>
+<tr class="memdesc:abc810abc26cf4e5fc9652d979ecd90d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set all entries of <a class="el" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector</a> to value k.  <a href="#abc810abc26cf4e5fc9652d979ecd90d9"></a><br/></td></tr>
+<tr class="memitem:a3ef17a9700e3663355939479dde84a75"><td class="memTemplParams" colspan="2"><a class="anchor" id="a3ef17a9700e3663355939479dde84a75"></a>
+template&lt;class int_vector_type &gt; </td></tr>
+<tr class="memitem:a3ef17a9700e3663355939479dde84a75"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#a3ef17a9700e3663355939479dde84a75">sdsl::util::set_to_id</a> (int_vector_type &amp;v)</td></tr>
+<tr class="memdesc:a3ef17a9700e3663355939479dde84a75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets each entry of the numerical vector v at position $fi. <br/></td></tr>
+<tr class="memitem:abc9ca0032f4c83fcc4a22b3493976b53"><td class="memTemplParams" colspan="2">template&lt;class int_vector_type &gt; </td></tr>
+<tr class="memitem:abc9ca0032f4c83fcc4a22b3493976b53"><td class="memTemplItemLeft" align="right" valign="top">int_vector_type::size_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#abc9ca0032f4c83fcc4a22b3493976b53">sdsl::util::get_one_bits</a> (const int_vector_type &amp;v)</td></tr>
+<tr class="memdesc:abc9ca0032f4c83fcc4a22b3493976b53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts and returns the 1-bits an <a class="el" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector</a> contains.  <a href="#abc9ca0032f4c83fcc4a22b3493976b53"></a><br/></td></tr>
+<tr class="memitem:a9e99639ebbcf17b0d285991193eb3473"><td class="memTemplParams" colspan="2">template&lt;class int_vector_type &gt; </td></tr>
+<tr class="memitem:a9e99639ebbcf17b0d285991193eb3473"><td class="memTemplItemLeft" align="right" valign="top">int_vector_type::size_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#a9e99639ebbcf17b0d285991193eb3473">sdsl::util::get_onezero_bits</a> (const int_vector_type &amp;v)</td></tr>
+<tr class="memdesc:a9e99639ebbcf17b0d285991193eb3473"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts 10 bit pair occurencies.  <a href="#a9e99639ebbcf17b0d285991193eb3473"></a><br/></td></tr>
+<tr class="memitem:a6019a53c6ba314c3318fa7e30a37949d"><td class="memTemplParams" colspan="2">template&lt;class int_vector_type &gt; </td></tr>
+<tr class="memitem:a6019a53c6ba314c3318fa7e30a37949d"><td class="memTemplItemLeft" align="right" valign="top">int_vector_type::size_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#a6019a53c6ba314c3318fa7e30a37949d">sdsl::util::get_zeroone_bits</a> (const int_vector_type &amp;v)</td></tr>
+<tr class="memdesc:a6019a53c6ba314c3318fa7e30a37949d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts 01 bit pair occurencies.  <a href="#a6019a53c6ba314c3318fa7e30a37949d"></a><br/></td></tr>
 <tr class="memitem:a61645c49a282eb5bde5c9ca9d6dc94ff"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:a61645c49a282eb5bde5c9ca9d6dc94ff"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#a61645c49a282eb5bde5c9ca9d6dc94ff">sdsl::util::load_from_file</a> (T &amp;v, const char *file_name)</td></tr>
 <tr class="memdesc:a61645c49a282eb5bde5c9ca9d6dc94ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load a data structure from a file.  <a href="#a61645c49a282eb5bde5c9ca9d6dc94ff"></a><br/></td></tr>
@@ -199,7 +203,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="name
 <tr class="memitem:aa6e5a838f551e3da7e18d905cd538930"><td class="memTemplParams" colspan="2"><a class="anchor" id="aa6e5a838f551e3da7e18d905cd538930"></a>
 template&lt;uint8_t fixed_int_width, class size_type_class &gt; </td></tr>
 <tr class="memitem:aa6e5a838f551e3da7e18d905cd538930"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#aa6e5a838f551e3da7e18d905cd538930">sdsl::util::store_to_file</a> (const int_vector&lt; fixed_int_width, size_type_class &gt; &amp;v, const char *file_name, bool write_fixed_as_variable=false)</td></tr>
-<tr class="memdesc:aa6e5a838f551e3da7e18d905cd538930"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialization of store_to_file for int_vector. <br/></td></tr>
+<tr class="memdesc:aa6e5a838f551e3da7e18d905cd538930"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialization of store_to_file for <a class="el" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector</a>. <br/></td></tr>
 <tr class="memitem:a5ac1913316c61c170cba986b98c27c90"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#a5ac1913316c61c170cba986b98c27c90">sdsl::util::demangle</a> (const char *name)</td></tr>
 <tr class="memdesc:a5ac1913316c61c170cba986b98c27c90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Demangle the class name of typeid(...).name()  <a href="#a5ac1913316c61c170cba986b98c27c90"></a><br/></td></tr>
 <tr class="memitem:a80b5944bc4677736dd6dcb218781f04f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a80b5944bc4677736dd6dcb218781f04f"></a>
@@ -247,6 +251,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="name
 <tr class="memitem:a2451237e38f47f64674feb69e29e509e"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:a2451237e38f47f64674feb69e29e509e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#a2451237e38f47f64674feb69e29e509e">sdsl::util::assign</a> (T &amp;x, T &amp;y)</td></tr>
 <tr class="memdesc:a2451237e38f47f64674feb69e29e509e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swaps variables x and y.  <a href="#a2451237e38f47f64674feb69e29e509e"></a><br/></td></tr>
+<tr class="memitem:af2dfe4b7eacdc9e8fcc552c8972fa16d"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:af2dfe4b7eacdc9e8fcc552c8972fa16d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#af2dfe4b7eacdc9e8fcc552c8972fa16d">sdsl::util::clear</a> (T &amp;x)</td></tr>
+<tr class="memdesc:af2dfe4b7eacdc9e8fcc552c8972fa16d"><td class="mdescLeft">&#160;</td><td class="mdescRight">clear the space used by x  <a href="#af2dfe4b7eacdc9e8fcc552c8972fa16d"></a><br/></td></tr>
+<tr class="memitem:aa60ad1bcd3cc5099fbf22ac1ee3764ef"><td class="memTemplParams" colspan="2">template&lt;class S , class P &gt; </td></tr>
+<tr class="memitem:aa60ad1bcd3cc5099fbf22ac1ee3764ef"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#aa60ad1bcd3cc5099fbf22ac1ee3764ef">sdsl::util::swap_support</a> (S &amp;s1, S &amp;s2, const P *p1, const P *p2)</td></tr>
+<tr class="memdesc:aa60ad1bcd3cc5099fbf22ac1ee3764ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swap support data structure and assign to new vector.  <a href="#aa60ad1bcd3cc5099fbf22ac1ee3764ef"></a><br/></td></tr>
+<tr class="memitem:a261681cbaa98ab77a78dddb6f21b1f6e"><td class="memTemplParams" colspan="2">template&lt;class S , class X &gt; </td></tr>
+<tr class="memitem:a261681cbaa98ab77a78dddb6f21b1f6e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#a261681cbaa98ab77a78dddb6f21b1f6e">sdsl::util::init_support</a> (S &amp;s, const X *x)</td></tr>
+<tr class="memdesc:a261681cbaa98ab77a78dddb6f21b1f6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise support data structure with.  <a href="#a261681cbaa98ab77a78dddb6f21b1f6e"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="util_8hpp.html" title="util.hpp contains some helper methods for int_vector and other stuff like demangle class names...">util.hpp</a> contains some helper methods for int_vector and other stuff like demangle class names. </p>
@@ -255,7 +268,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="name
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:35 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:29 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

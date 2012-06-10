@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -84,6 +85,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions_func.html"><span>Functions</span></a></li>
       <li><a href="functions_vars.html"><span>Variables</span></a></li>
       <li><a href="functions_type.html"><span>Typedefs</span></a></li>
+      <li><a href="functions_rela.html"><span>Related&#160;Functions</span></a></li>
     </ul>
   </div>
   <div id="navrow4" class="tabs3">
@@ -98,6 +100,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions_0x67.html#index_g"><span>g</span></a></li>
       <li><a href="functions_0x69.html#index_i"><span>i</span></a></li>
       <li><a href="functions_0x6a.html#index_j"><span>j</span></a></li>
+      <li><a href="functions_0x6b.html#index_k"><span>k</span></a></li>
       <li><a href="functions_0x6c.html#index_l"><span>l</span></a></li>
       <li><a href="functions_0x6d.html#index_m"><span>m</span></a></li>
       <li><a href="functions_0x6e.html#index_n"><span>n</span></a></li>
@@ -117,7 +120,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -136,11 +139,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="group__cst__sct2__tree__methods.html#ga8778f489a2e2b00000a8c0463b9a5a02">sdsl::cst_sct2&lt; Csa, Lcp, Bp_support, Rank_support &gt;</a>
 , <a class="el" href="group__cst__sct3__tree__methods.html#gaee743656fa0f13f8affcdc872db85c9f">sdsl::cst_sct3&lt; Csa, Lcp, Bp_support, Rank_support &gt;</a>
 , <a class="el" href="group__cst__sct__tree__methods.html#ga22307ad00719bf309bf18486868c5b52">sdsl::cst_sct&lt; Csa, Lcp, Bp_support &gt;</a>
+, <a class="el" href="classsdsl_1_1louds__tree.html#aa01d4ce9d04e7f30d659acc196358349">sdsl::louds_tree&lt; BitVector, SelectSupport1, SelectSupport0 &gt;</a>
 </li>
 <li>pop()
-: <a class="el" href="classsdsl_1_1sorted__stack__support.html#a4861495b2ca977ea865e955391d3ddd1">sdsl::sorted_stack_support</a>
+: <a class="el" href="classsdsl_1_1sorted__multi__stack__support.html#ae92858b7fa4e097825661f638b9ef11b">sdsl::sorted_multi_stack_support</a>
+, <a class="el" href="classsdsl_1_1sorted__stack__support.html#a4861495b2ca977ea865e955391d3ddd1">sdsl::sorted_stack_support</a>
 , <a class="el" href="classsdsl_1_1sorted__int__stack.html#afc899cffb0909aaf3493c8e0275c5391">sdsl::sorted_int_stack</a>
-, <a class="el" href="classsdsl_1_1sorted__multi__stack__support.html#ae92858b7fa4e097825661f638b9ef11b">sdsl::sorted_multi_stack_support</a>
+</li>
+<li>popcount()
+: <a class="el" href="structsdsl_1_1binomial__coefficients__trait.html#a6005bd9139b92b8fa764760a3e326dc4">sdsl::binomial_coefficients_trait&lt; log_n &gt;</a>
 </li>
 <li>preceding_closing_parentheses()
 : <a class="el" href="classsdsl_1_1bp__support__g.html#a5a570ed11fe8daaece7384a45ebdcd01">sdsl::bp_support_g&lt; NearestNeighbourDictionary, RankSupport, SelectSupport, RangeMaxSupport &gt;</a>
@@ -149,20 +156,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="classsdsl_1_1bp__support__sada.html#aaf24af535e0a0331cb880c3b0b95a844">sdsl::bp_support_sada&lt; SmlBlkSize, MedBlkDeg, RankSupport, SelectSupport &gt;</a>
 </li>
 <li>prev()
-: <a class="el" href="classsdsl_1_1bit__magic.html#a995145a208cf3d7c44b4d856fbc9308f">sdsl::bit_magic</a>
-, <a class="el" href="classsdsl_1_1nearest__neighbour__dictionary.html#a856ee1ce4e3b247bdd4b9f3787b42190">sdsl::nearest_neighbour_dictionary&lt; sample_dens &gt;</a>
+: <a class="el" href="classsdsl_1_1nearest__neighbour__dictionary.html#a856ee1ce4e3b247bdd4b9f3787b42190">sdsl::nearest_neighbour_dictionary&lt; sample_dens &gt;</a>
 , <a class="el" href="classsdsl_1_1nn__dict__dynamic.html#af96ee7a9cb1bce94e08df1228aa88650">sdsl::nn_dict_dynamic</a>
+, <a class="el" href="classsdsl_1_1bit__magic.html#a995145a208cf3d7c44b4d856fbc9308f">sdsl::bit_magic</a>
 </li>
 <li>print_info()
 : <a class="el" href="group__cst__sada__tree__methods.html#gaf699e3494f15c1f4adafa3ddefc89db3">sdsl::cst_sada&lt; Csa, Lcp, Bp_support, Rank_support10, Select_support10 &gt;</a>
-, <a class="el" href="group__cst__sct__tree__methods.html#ga3a6a8acb7e4dd736ee21b9c0d0b0a68f">sdsl::cst_sct&lt; Csa, Lcp, Bp_support &gt;</a>
 , <a class="el" href="group__cst__sct2__tree__methods.html#gaf31bf5cd76b3ab98e7b7d4780949d629">sdsl::cst_sct2&lt; Csa, Lcp, Bp_support, Rank_support &gt;</a>
+, <a class="el" href="group__cst__sct__tree__methods.html#ga3a6a8acb7e4dd736ee21b9c0d0b0a68f">sdsl::cst_sct&lt; Csa, Lcp, Bp_support &gt;</a>
 </li>
 <li>psi_k()
 : <a class="el" href="classsdsl_1_1psi__of__csa__wt.html#a3111b5ef579374481f4da3c47e107e41">sdsl::psi_of_csa_wt&lt; CsaWT &gt;</a>
 </li>
 <li>psi_of_csa_psi()
-: <a class="el" href="classsdsl_1_1psi__of__csa__psi.html#ae79de4eadcf7b75ca7b68dcd6dc6143e">sdsl::psi_of_csa_psi&lt; CsaPsi &gt;</a>
+: <a class="el" href="classsdsl_1_1psi__of__csa__psi.html#a569a22d201f392c3d4fb0897446c4780">sdsl::psi_of_csa_psi&lt; CsaPsi &gt;</a>
 </li>
 <li>psi_of_csa_wt()
 : <a class="el" href="classsdsl_1_1psi__of__csa__wt.html#a595711eca54f467bcecad1b910e3050b">sdsl::psi_of_csa_wt&lt; CsaWT &gt;</a>
@@ -171,16 +178,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="classsdsl_1_1psi__of__sa__and__isa.html#ab318aa6e55824da30799d5424af1a7cf">sdsl::psi_of_sa_and_isa&lt; Csa &gt;</a>
 </li>
 <li>push()
-: <a class="el" href="classsdsl_1_1sorted__int__stack.html#a9d60f22e4435c51767f2b66c71c2532d">sdsl::sorted_int_stack</a>
+: <a class="el" href="classsdsl_1_1sorted__stack__support.html#ae5d0c7dcf22d3a340e4e0e53f83467b7">sdsl::sorted_stack_support</a>
+, <a class="el" href="classsdsl_1_1sorted__int__stack.html#a9d60f22e4435c51767f2b66c71c2532d">sdsl::sorted_int_stack</a>
 , <a class="el" href="classsdsl_1_1sorted__multi__stack__support.html#afab07124f243db68b793bee680763913">sdsl::sorted_multi_stack_support</a>
-, <a class="el" href="classsdsl_1_1sorted__stack__support.html#ae5d0c7dcf22d3a340e4e0e53f83467b7">sdsl::sorted_stack_support</a>
 </li>
 </ul>
 </div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:36 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:33 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

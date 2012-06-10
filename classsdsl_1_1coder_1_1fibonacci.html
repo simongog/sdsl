@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -141,9 +142,9 @@ template&lt;class int_vector1 , class int_vector2 &gt; </td></tr>
 <tr class="memitem:abc2aca3b9d59894734a2ca0a06ac3e73"><td class="memTemplItemLeft" align="right" valign="top">static bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>encode</b> (const int_vector1 &amp;v, int_vector2 &amp;z)</td></tr>
 <tr class="memitem:a5f0362ece475c67c77d275f38bb21318"><td class="memTemplParams" colspan="2"><a class="anchor" id="a5f0362ece475c67c77d275f38bb21318"></a>
 template&lt;class int_vector &gt; </td></tr>
-<tr class="memitem:a5f0362ece475c67c77d275f38bb21318"><td class="memTemplItemLeft" align="right" valign="top">static uint64_t *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>raw_data</b> (int_vector &amp;v)</td></tr>
+<tr class="memitem:a5f0362ece475c67c77d275f38bb21318"><td class="memTemplItemLeft" align="right" valign="top">static uint64_t *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>raw_data</b> (<a class="el" href="classsdsl_1_1int__vector.html">int_vector</a> &amp;v)</td></tr>
 <tr class="memitem:af34c9c8f57c6b524faec6970789d2af9"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1coder_1_1fibonacci.html#af34c9c8f57c6b524faec6970789d2af9">encode</a> (uint64_t x, uint64_t *&amp;z, uint8_t &amp;offset)</td></tr>
-<tr class="memdesc:af34c9c8f57c6b524faec6970789d2af9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encode one positive integer x to an int_vector at bit position start_idx.  <a href="#af34c9c8f57c6b524faec6970789d2af9"></a><br/></td></tr>
+<tr class="memdesc:af34c9c8f57c6b524faec6970789d2af9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encode one positive integer x to an <a class="el" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector</a> at bit position start_idx.  <a href="#af34c9c8f57c6b524faec6970789d2af9"></a><br/></td></tr>
 <tr class="memitem:ab2f61594e9e642e5567787996f268d20"><td class="memTemplParams" colspan="2"><a class="anchor" id="ab2f61594e9e642e5567787996f268d20"></a>
 template&lt;class int_vector1 , class int_vector2 &gt; </td></tr>
 <tr class="memitem:ab2f61594e9e642e5567787996f268d20"><td class="memTemplItemLeft" align="right" valign="top">static bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>decode</b> (const int_vector1 &amp;z, int_vector2 &amp;v)</td></tr>
@@ -278,12 +279,12 @@ static const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>min_c
 </div>
 <div class="memdoc">
 
-<p>Encode one positive integer x to an int_vector at bit position start_idx. </p>
+<p>Encode one positive integer x to an <a class="el" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector</a> at bit position start_idx. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">x</td><td>Positive integer to encode. </td></tr>
     <tr><td class="paramname">z</td><td>Raw data of vector to write the encoded form of x. </td></tr>
-    <tr><td class="paramname">offset</td><td>Start offset to write the encoded form of x in z. <img class="formulaInl" alt="$0\leq offset< 64$" src="form_168.png"/>. </td></tr>
+    <tr><td class="paramname">offset</td><td>Start offset to write the encoded form of x in z. <img class="formulaInl" alt="$0\leq offset< 64$" src="form_171.png"/>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -355,7 +356,7 @@ static const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>min_c
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:36 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:33 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

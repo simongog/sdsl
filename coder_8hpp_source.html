@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -82,7 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -97,7 +98,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="coder_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/* sdsl - succinct data structures library</span>
-<a name="l00002"></a>00002 <span class="comment">    Copyright (C) 2008 Simon Gog </span>
+<a name="l00002"></a>00002 <span class="comment">    Copyright (C) 2008 Simon Gog</span>
 <a name="l00003"></a>00003 <span class="comment"></span>
 <a name="l00004"></a>00004 <span class="comment">    This program is free software: you can redistribute it and/or modify</span>
 <a name="l00005"></a>00005 <span class="comment">    it under the terms of the GNU General Public License as published by</span>
@@ -120,51 +121,58 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00026"></a>00026 <span class="preprocessor">#include &quot;<a class="code" href="elias__delta__coder_8hpp.html" title="elias_delta_coder.hpp contains the class sdsl::coder::elias_delta">elias_delta_coder.hpp</a>&quot;</span>
 <a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="ternary__coder_8hpp.html" title="ternary_coder.hpp contains the class sdsl::coder::ternary">ternary_coder.hpp</a>&quot;</span>
 <a name="l00028"></a>00028 
-<a name="l00029"></a>00029 <span class="keyword">namespace </span>sdsl{
-<a name="l00030"></a>00030 
-<a name="l00032"></a><a class="code" href="namespacesdsl_1_1coder.html">00032</a> <span class="keyword">namespace </span>coder{
-<a name="l00033"></a>00033 
-<a name="l00034"></a>00034 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder&gt;
-<a name="l00035"></a><a class="code" href="classsdsl_1_1coder_1_1run__length.html">00035</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1coder_1_1run__length.html">run_length</a>{
-<a name="l00036"></a>00036         <span class="keyword">public</span>:
-<a name="l00037"></a>00037                 <span class="keyword">typedef</span> uint64_t size_type;
-<a name="l00038"></a>00038                 <span class="keyword">static</span> <span class="keywordtype">void</span> encode(uint64_t x, uint64_t* &amp;z, uint8_t offset);
-<a name="l00039"></a>00039                 <span class="keyword">static</span> uint64_t encoding_length(<span class="keyword">const</span> uint64_t *s, uint8_t s_offset, size_type bit_length);
-<a name="l00040"></a>00040 };
-<a name="l00041"></a>00041 
-<a name="l00042"></a>00042 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder&gt;
-<a name="l00043"></a>00043 <span class="keyword">typename</span> run_length&lt;Coder&gt;::size_type <a class="code" href="classsdsl_1_1coder_1_1run__length.html">run_length&lt;Coder&gt;::encoding_length</a>(<span class="keyword">const</span> uint64_t *s, uint8_t s_offset, size_type bit_length){
-<a name="l00044"></a>00044         assert(s_offset &lt; 64);
-<a name="l00045"></a>00045         size_type i=0;
-<a name="l00046"></a>00046         uint64_t w = (*s &gt;&gt; s_offset);
-<a name="l00047"></a>00047         uint8_t last_bit = w&amp;1;
-<a name="l00048"></a>00048         size_type result = 0;
-<a name="l00049"></a>00049         <span class="keywordflow">while</span>(i &lt; bit_length){
-<a name="l00050"></a>00050                 size_type len = 0;      
-<a name="l00051"></a>00051                 <span class="keywordflow">while</span>( last_bit == (w&amp;1) and  i &lt; bit_length ){
-<a name="l00052"></a>00052 <span class="comment">//                      std::cout&lt;&lt;w&lt;&lt;&quot; &quot;&lt;&lt;i&lt;&lt;std::endl;</span>
-<a name="l00053"></a>00053                         ++len; ++i; ++s_offset;
-<a name="l00054"></a>00054                         w &gt;&gt;= 1;
-<a name="l00055"></a>00055                         <span class="keywordflow">if</span>( s_offset == 64 ){ s_offset = 0; w = *(++s); }
-<a name="l00056"></a>00056                 }       
-<a name="l00057"></a>00057 <span class="comment">//              std::cout&lt;&lt;&quot;len=&quot;&lt;&lt;Coder::encoding_length(len)&lt;&lt;std::endl;</span>
-<a name="l00058"></a>00058                 last_bit = (w&amp;1);
-<a name="l00059"></a>00059                 result += Coder::encoding_length(len);
-<a name="l00060"></a>00060         }
-<a name="l00061"></a>00061         <span class="keywordflow">return</span> result;
-<a name="l00062"></a>00062 }       
-<a name="l00063"></a>00063 
-<a name="l00064"></a>00064 
-<a name="l00065"></a>00065 } <span class="comment">// end namespace coder</span>
-<a name="l00066"></a>00066 
-<a name="l00067"></a>00067 } <span class="comment">// end namespace sdsl</span>
-<a name="l00068"></a>00068 
-<a name="l00069"></a>00069 <span class="preprocessor">#endif</span>
+<a name="l00029"></a>00029 <span class="keyword">namespace </span>sdsl
+<a name="l00030"></a>00030 {
+<a name="l00031"></a>00031 
+<a name="l00033"></a><a class="code" href="namespacesdsl_1_1coder.html">00033</a> <span class="keyword">namespace </span>coder
+<a name="l00034"></a>00034 {
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder&gt;
+<a name="l00037"></a><a class="code" href="classsdsl_1_1coder_1_1run__length.html">00037</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1coder_1_1run__length.html">run_length</a>
+<a name="l00038"></a>00038 {
+<a name="l00039"></a>00039     <span class="keyword">public</span>:
+<a name="l00040"></a>00040         <span class="keyword">typedef</span> uint64_t size_type;
+<a name="l00041"></a>00041         <span class="keyword">static</span> <span class="keywordtype">void</span> encode(uint64_t x, uint64_t*&amp; z, uint8_t offset);
+<a name="l00042"></a>00042         <span class="keyword">static</span> uint64_t encoding_length(<span class="keyword">const</span> uint64_t* s, uint8_t s_offset, size_type bit_length);
+<a name="l00043"></a>00043 };
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder&gt;
+<a name="l00046"></a>00046 <span class="keyword">typename</span> run_length&lt;Coder&gt;::size_type <a class="code" href="classsdsl_1_1coder_1_1run__length.html">run_length&lt;Coder&gt;::encoding_length</a>(<span class="keyword">const</span> uint64_t* s, uint8_t s_offset, size_type bit_length)
+<a name="l00047"></a>00047 {
+<a name="l00048"></a>00048     assert(s_offset &lt; 64);
+<a name="l00049"></a>00049     size_type i=0;
+<a name="l00050"></a>00050     uint64_t w = (*s &gt;&gt; s_offset);
+<a name="l00051"></a>00051     uint8_t last_bit = w&amp;1;
+<a name="l00052"></a>00052     size_type result = 0;
+<a name="l00053"></a>00053     <span class="keywordflow">while</span> (i &lt; bit_length) {
+<a name="l00054"></a>00054         size_type len = 0;
+<a name="l00055"></a>00055         <span class="keywordflow">while</span> (last_bit == (w&amp;1) and  i &lt; bit_length) {
+<a name="l00056"></a>00056 <span class="comment">//                      std::cout&lt;&lt;w&lt;&lt;&quot; &quot;&lt;&lt;i&lt;&lt;std::endl;</span>
+<a name="l00057"></a>00057             ++len; ++i; ++s_offset;
+<a name="l00058"></a>00058             w &gt;&gt;= 1;
+<a name="l00059"></a>00059             <span class="keywordflow">if</span> (s_offset == 64) {
+<a name="l00060"></a>00060                 s_offset = 0;
+<a name="l00061"></a>00061                 w = *(++s);
+<a name="l00062"></a>00062             }
+<a name="l00063"></a>00063         }
+<a name="l00064"></a>00064 <span class="comment">//              std::cout&lt;&lt;&quot;len=&quot;&lt;&lt;Coder::encoding_length(len)&lt;&lt;std::endl;</span>
+<a name="l00065"></a>00065         last_bit = (w&amp;1);
+<a name="l00066"></a>00066         result += Coder::encoding_length(len);
+<a name="l00067"></a>00067     }
+<a name="l00068"></a>00068     <span class="keywordflow">return</span> result;
+<a name="l00069"></a>00069 }
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072 } <span class="comment">// end namespace coder</span>
+<a name="l00073"></a>00073 
+<a name="l00074"></a>00074 } <span class="comment">// end namespace sdsl</span>
+<a name="l00075"></a>00075 
+<a name="l00076"></a>00076 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:33 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:25 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

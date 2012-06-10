@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -117,7 +118,7 @@ typedef select_support::size_type&#160;</td><td class="memItemRight" valign="bot
 <tr><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ab15a188cbcf287e03de139f74865852c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab15a188cbcf287e03de139f74865852c"></a>
-static size_type&#160;</td><td class="memItemRight" valign="bottom"><b>arg_cnt</b> (const bit_vector &amp;v)</td></tr>
+static size_type&#160;</td><td class="memItemRight" valign="bottom"><b>arg_cnt</b> (const <a class="el" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb">bit_vector</a> &amp;v)</td></tr>
 <tr class="memitem:a345d5693dd2d2d4855c78e9b75bc0bf6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a345d5693dd2d2d4855c78e9b75bc0bf6"></a>
 static size_type&#160;</td><td class="memItemRight" valign="bottom"><b>args_in_the_first_word</b> (uint64_t w, uint8_t offset, uint64_t carry)</td></tr>
 <tr class="memitem:ab9df68ac0c487b76c51b2f5ef2f3c2c4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab9df68ac0c487b76c51b2f5ef2f3c2c4"></a>
@@ -127,7 +128,7 @@ static size_type&#160;</td><td class="memItemRight" valign="bottom"><b>args_in_t
 <tr class="memitem:a0b4f5e597ec3f8e840a251c00f94615d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b4f5e597ec3f8e840a251c00f94615d"></a>
 static size_type&#160;</td><td class="memItemRight" valign="bottom"><b>ith_arg_pos_in_the_word</b> (uint64_t w, size_type i, uint64_t carry)</td></tr>
 <tr class="memitem:af8879ad2921ef6a2db8050c9bc80abf0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af8879ad2921ef6a2db8050c9bc80abf0"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>found_arg</b> (size_type i, const bit_vector &amp;v)</td></tr>
+static bool&#160;</td><td class="memItemRight" valign="bottom"><b>found_arg</b> (size_type i, const <a class="el" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb">bit_vector</a> &amp;v)</td></tr>
 <tr class="memitem:ac1f77848c1987c5955f15b5b9b3bab74"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac1f77848c1987c5955f15b5b9b3bab74"></a>
 static uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>init_carry</b> (const uint64_t *data, size_type word_pos)</td></tr>
 <tr class="memitem:acc69bd04624d94b31736bfadc4609a08"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acc69bd04624d94b31736bfadc4609a08"></a>
@@ -143,7 +144,7 @@ static uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>get_carry<
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:35 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:32 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

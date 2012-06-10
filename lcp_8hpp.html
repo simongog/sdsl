@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -81,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -165,6 +166,21 @@ template&lt;class Lcp , class Cst &gt; </td></tr>
 <tr class="memitem:aa47b6073dbad0235d87fc414b51168ee"><td class="memTemplParams" colspan="2"><a class="anchor" id="aa47b6073dbad0235d87fc414b51168ee"></a>
 template&lt;class Lcp , class Cst &gt; </td></tr>
 <tr class="memitem:aa47b6073dbad0235d87fc414b51168ee"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>sdsl::copy_lcp</b> (Lcp &amp;lcp, const Lcp &amp;lcp_c, const Cst &amp;cst, lcp_tree_and_lf_compressed_tag)</td></tr>
+<tr class="memitem:a38fecc971b95124b67f4452269176ad0"><td class="memTemplParams" colspan="2"><a class="anchor" id="a38fecc971b95124b67f4452269176ad0"></a>
+template&lt;class Lcp , class Cst &gt; </td></tr>
+<tr class="memitem:a38fecc971b95124b67f4452269176ad0"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>sdsl::swap_lcp</b> (Lcp &amp;lcp1, Lcp &amp;lcp2, const Cst &amp;cst1, const Cst &amp;cst2)</td></tr>
+<tr class="memitem:a2cf736efba2a36d2730db78cda72d3c1"><td class="memTemplParams" colspan="2"><a class="anchor" id="a2cf736efba2a36d2730db78cda72d3c1"></a>
+template&lt;class Lcp , class Cst &gt; </td></tr>
+<tr class="memitem:a2cf736efba2a36d2730db78cda72d3c1"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>sdsl::swap_lcp</b> (Lcp &amp;lcp1, Lcp &amp;lcp2, const Cst &amp;cst1, const Cst &amp;cst2, lcp_plain_tag)</td></tr>
+<tr class="memitem:a9e4858eae4c43635159e39e34531fcc3"><td class="memTemplParams" colspan="2"><a class="anchor" id="a9e4858eae4c43635159e39e34531fcc3"></a>
+template&lt;class Lcp , class Cst &gt; </td></tr>
+<tr class="memitem:a9e4858eae4c43635159e39e34531fcc3"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>sdsl::swap_lcp</b> (Lcp &amp;lcp1, Lcp &amp;lcp2, const Cst &amp;cst1, const Cst &amp;cst2, lcp_permuted_tag)</td></tr>
+<tr class="memitem:aea28a36b040e48028309b523b2bea164"><td class="memTemplParams" colspan="2"><a class="anchor" id="aea28a36b040e48028309b523b2bea164"></a>
+template&lt;class Lcp , class Cst &gt; </td></tr>
+<tr class="memitem:aea28a36b040e48028309b523b2bea164"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>sdsl::swap_lcp</b> (Lcp &amp;lcp1, Lcp &amp;lcp2, const Cst &amp;cst1, const Cst &amp;cst2, lcp_tree_compressed_tag)</td></tr>
+<tr class="memitem:aefffc135b06eb584c87b06f5588638a4"><td class="memTemplParams" colspan="2"><a class="anchor" id="aefffc135b06eb584c87b06f5588638a4"></a>
+template&lt;class Lcp , class Cst &gt; </td></tr>
+<tr class="memitem:aefffc135b06eb584c87b06f5588638a4"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>sdsl::swap_lcp</b> (Lcp &amp;lcp1, Lcp &amp;lcp2, const Cst &amp;cst1, const Cst &amp;cst2, lcp_tree_and_lf_compressed_tag)</td></tr>
 <tr class="memitem:a9fec0293a3751170067f452a3d352867"><td class="memTemplParams" colspan="2"><a class="anchor" id="a9fec0293a3751170067f452a3d352867"></a>
 template&lt;class Lcp , class Cst &gt; </td></tr>
 <tr class="memitem:a9fec0293a3751170067f452a3d352867"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>sdsl::load_lcp</b> (Lcp &amp;lcp, std::istream &amp;in, const Cst &amp;cst)</td></tr>
@@ -188,7 +204,7 @@ template&lt;class Lcp , class Cst &gt; </td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:34 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:29 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

@@ -153,6 +153,12 @@ $ \Order{t_{cst.child}} $
 $ cst.depth(v)+1$
 \pagebreak
 
+$ 0 \leq i < size() $
+\pagebreak
+
+$ \Order{1} $
+\pagebreak
+
 $2^64$
 \pagebreak
 
@@ -271,9 +277,6 @@ $s_{\Psi}$
 \pagebreak
 
 $\CSA$
-\pagebreak
-
-$ \Order{1} $
 \pagebreak
 
 $ i \in [0..size()-1]$
@@ -426,6 +429,9 @@ $ i \leq \sigma $
 $ \Order{ 1 } $
 \pagebreak
 
+$ \log n $
+\pagebreak
+
 $ \Order{\sigma} $
 \pagebreak
 
@@ -501,6 +507,9 @@ $ \Order{ \rrenclose + \lcpaccess \cdot \log\sigma} $
 $ \Order{\lcpaccess}$
 \pagebreak
 
+$ \Order{\log size()} $
+\pagebreak
+
 $\delta$
 \pagebreak
 
@@ -510,10 +519,10 @@ $idx\in [0..v->size()]$
 $0\leq offset< 64$
 \pagebreak
 
-$ 0 \leq i < size() $
+$ \Order{\log m} $
 \pagebreak
 
-$ \Order{\log m} $
+$w\in [1..64]$
 \pagebreak
 
 $ 5n $
@@ -559,6 +568,9 @@ $ \Order{t_{find\_close} + t_{rank}} $
 \pagebreak
 
 $H_0$
+\pagebreak
+
+$ i \in [1..degree(v)] $
 \pagebreak
 
 $i\in [1..ones()]$
@@ -624,13 +636,34 @@ $\Order{n\log^2 n} bits$
 $ \Order{n\log^2 n} $
 \pagebreak
 
+${m \choose k}$
+\pagebreak
+
+$ k\leq m\leq \leq n$
+\pagebreak
+
+$ n/\lceil\log{n+1}\rceil $
+\pagebreak
+
+$ k<n\log(n) $
+\pagebreak
+
+$len$
+\pagebreak
+
+${n \choose k}$
+\pagebreak
+
+$ off $
+\pagebreak
+
+$ block\_size \in \{1,...,23\} $
+\pagebreak
+
 $0\leq i \leq size()$
 \pagebreak
 
 $ \Order{ sample\_rate of the rrr\_vector} $
-\pagebreak
-
-$ block\_size \in \{1,...,23\} $
 \pagebreak
 
 $ \Order{t_{select0} + n/m} $
@@ -640,6 +673,18 @@ $\Order{t_{select0}+\log(n/m)}$
 \pagebreak
 
 $\in [0..v.size()-1]$
+\pagebreak
+
+$ m $
+\pagebreak
+
+$\frac{m}{4096} \log{n} \leq \frac{64}{n}$
+\pagebreak
+
+$ \log n = 35 $
+\pagebreak
+
+$ \frac{4\log\log n}{64} \leq \frac{24}{64} = 0.375$
 \pagebreak
 
 $0$

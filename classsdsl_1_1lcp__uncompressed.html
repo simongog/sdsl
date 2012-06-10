@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -127,10 +128,10 @@ Public Types</h2></td></tr>
 <b>sa_order</b> =  1
  }</td></tr>
 <tr class="memitem:a4e08d03e5911671ac5023460f139eb4b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4e08d03e5911671ac5023460f139eb4b"></a>
-typedef int_vector&lt; width &gt;<br class="typebreak"/>
+typedef <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; width &gt;<br class="typebreak"/>
 ::value_type&#160;</td><td class="memItemRight" valign="bottom"><b>value_type</b></td></tr>
 <tr class="memitem:a5e4256fbfe06667022f23bf9217f2a01"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5e4256fbfe06667022f23bf9217f2a01"></a>
-typedef int_vector&lt; width &gt;<br class="typebreak"/>
+typedef <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; width &gt;<br class="typebreak"/>
 ::size_type&#160;</td><td class="memItemRight" valign="bottom"><b>size_type</b></td></tr>
 <tr class="memitem:adbb4115876fea20a0ae44eb781980cb3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adbb4115876fea20a0ae44eb781980cb3"></a>
 typedef <br class="typebreak"/>
@@ -167,14 +168,14 @@ template&lt;class Text , class Sa &gt; </td></tr>
 <tr class="memdesc:a851c2c0ff0dd405c19578a217cff78b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the compressed lcp from a (compressed) suffix array. <br/></td></tr>
 <tr class="memitem:adb4885dc2d9b5578720d3dac2615ae99"><td class="memTemplParams" colspan="2"><a class="anchor" id="adb4885dc2d9b5578720d3dac2615ae99"></a>
 template&lt;uint8_t int_width, class size_type_class &gt; </td></tr>
-<tr class="memitem:adb4885dc2d9b5578720d3dac2615ae99"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsdsl_1_1lcp__uncompressed.html#adb4885dc2d9b5578720d3dac2615ae99">lcp_uncompressed</a> (int_vector_file_buffer&lt; int_width, size_type_class &gt; &amp;lcp_buf)</td></tr>
-<tr class="memdesc:adb4885dc2d9b5578720d3dac2615ae99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the lcp array from an int_vector_file_buffer. <br/></td></tr>
+<tr class="memitem:adb4885dc2d9b5578720d3dac2615ae99"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsdsl_1_1lcp__uncompressed.html#adb4885dc2d9b5578720d3dac2615ae99">lcp_uncompressed</a> (<a class="el" href="classsdsl_1_1int__vector__file__buffer.html">int_vector_file_buffer</a>&lt; int_width, size_type_class &gt; &amp;lcp_buf)</td></tr>
+<tr class="memdesc:adb4885dc2d9b5578720d3dac2615ae99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the lcp array from an <a class="el" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer</a>. <br/></td></tr>
 <tr class="memitem:af85811dac724be8923d7a312dbedc7c9"><td class="memTemplParams" colspan="2"><a class="anchor" id="af85811dac724be8923d7a312dbedc7c9"></a>
 template&lt;class Text , class Sa &gt; </td></tr>
 <tr class="memitem:af85811dac724be8923d7a312dbedc7c9"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>construct</b> (const Text &amp;text, const Sa &amp;sa)</td></tr>
 <tr class="memitem:a452d45a3a69ee24dff208eee641811f5"><td class="memTemplParams" colspan="2"><a class="anchor" id="a452d45a3a69ee24dff208eee641811f5"></a>
 template&lt;uint8_t int_width, class size_type_class &gt; </td></tr>
-<tr class="memitem:a452d45a3a69ee24dff208eee641811f5"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>construct</b> (int_vector_file_buffer&lt; int_width, size_type_class &gt; &amp;lcp_buf)</td></tr>
+<tr class="memitem:a452d45a3a69ee24dff208eee641811f5"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>construct</b> (<a class="el" href="classsdsl_1_1int__vector__file__buffer.html">int_vector_file_buffer</a>&lt; int_width, size_type_class &gt; &amp;lcp_buf)</td></tr>
 <tr class="memitem:a7a8ad39d32fe0d0d391efb1df1e8de0d"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1lcp__uncompressed.html#a7a8ad39d32fe0d0d391efb1df1e8de0d">size</a> () const </td></tr>
 <tr class="memdesc:a7a8ad39d32fe0d0d391efb1df1e8de0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of elements in the instance.  <a href="#a7a8ad39d32fe0d0d391efb1df1e8de0d"></a><br/></td></tr>
 <tr class="memitem:a5a6f0af4c3e636564a41877a14d37644"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1lcp__uncompressed.html#a5a6f0af4c3e636564a41877a14d37644">empty</a> () const </td></tr>
@@ -192,7 +193,7 @@ template&lt;uint8_t int_width, class size_type_class &gt; </td></tr>
 <tr class="memitem:a7d72e1e04031a9bafd0d8f5ff1b2d63b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1lcp__uncompressed.html#a7d72e1e04031a9bafd0d8f5ff1b2d63b">operator==</a> (const <a class="el" href="classsdsl_1_1lcp__uncompressed.html">lcp_uncompressed</a> &amp;lcp_c) const </td></tr>
 <tr class="memdesc:a7d72e1e04031a9bafd0d8f5ff1b2d63b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality Operator.  <a href="#a7d72e1e04031a9bafd0d8f5ff1b2d63b"></a><br/></td></tr>
 <tr class="memitem:a2cc3a636ee3084ba910ea93fe2cba851"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1lcp__uncompressed.html#a2cc3a636ee3084ba910ea93fe2cba851">operator!=</a> (const <a class="el" href="classsdsl_1_1lcp__uncompressed.html">lcp_uncompressed</a> &amp;lcp_c) const </td></tr>
-<tr class="memdesc:a2cc3a636ee3084ba910ea93fe2cba851"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unequality Operator.  <a href="#a2cc3a636ee3084ba910ea93fe2cba851"></a><br/></td></tr>
+<tr class="memdesc:a2cc3a636ee3084ba910ea93fe2cba851"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inequality Operator.  <a href="#a2cc3a636ee3084ba910ea93fe2cba851"></a><br/></td></tr>
 <tr class="memitem:af1b5fd3e8503e5d497ead753e1463c95"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1lcp__uncompressed.html#af1b5fd3e8503e5d497ead753e1463c95">serialize</a> (std::ostream &amp;out) const </td></tr>
 <tr class="memdesc:af1b5fd3e8503e5d497ead753e1463c95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize to a stream.  <a href="#af1b5fd3e8503e5d497ead753e1463c95"></a><br/></td></tr>
 <tr class="memitem:a3ed9a92eb885edab49c547933c9a4061"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1lcp__uncompressed.html#a3ed9a92eb885edab49c547933c9a4061">load</a> (std::istream &amp;in)</td></tr>
@@ -340,7 +341,7 @@ template&lt;uint8_t width&gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Unequality Operator. </p>
+<p>Inequality Operator. </p>
 <p>Two Instances of <a class="el" href="classsdsl_1_1lcp__uncompressed.html" title="A class which stores the lcp array uncompressed.">lcp_uncompressed</a> are equal if not all their members are equal. </p>
 <dl class="section user"><dt>Required for the Equality Comparable Concept of the STL.</b></dt><dd></dd></dl>
 <dl class="section see"><dt>See also:</dt><dd>operator== </dd></dl>
@@ -413,7 +414,7 @@ template&lt;uint8_t width&gt; </div>
 <p>[]-operator </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>Index of the value. <img class="formulaInl" alt="$ i \in [0..size()-1]$" src="form_91.png"/>. Time complexity: O(suffix array access) Required for the STL Random Access Container Concept. </td></tr>
+    <tr><td class="paramname">i</td><td>Index of the value. <img class="formulaInl" alt="$ i \in [0..size()-1]$" src="form_92.png"/>. Time complexity: O(suffix array access) Required for the STL Random Access Container Concept. </td></tr>
   </table>
   </dd>
 </dl>
@@ -506,7 +507,7 @@ template&lt;uint8_t width&gt; </div>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:35 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:31 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

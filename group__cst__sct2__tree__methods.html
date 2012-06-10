@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -76,7 +77,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -199,7 +200,7 @@ template&lt;class Csa = csa_wt&lt;&gt;, class Lcp = lcp_support_sada&lt;Csa&gt;,
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>The child node w which edge label (v,w) starts with c or <a class="el" href="group__cst__sct2__tree__methods.html#gabc86348fb0babf587b212d5a275c5726" title="Return the root of the suffix tree.">root()</a> if it does not exist. </dd></dl>
-<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{(\lcpaccess+\saaccess+\isaaccess) \cdot \log\sigma} $" src="form_163.png"/> </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{(\lcpaccess+\saaccess+\isaaccess) \cdot \log\sigma} $" src="form_165.png"/> </dd></dl>
 
 </div>
 </div>
@@ -246,7 +247,7 @@ template&lt;class Csa = csa_wt&lt;&gt;, class Lcp = lcp_support_sada&lt;Csa&gt;,
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>The child node w which edge label (v,w) starts with c or <a class="el" href="group__cst__sct2__tree__methods.html#gabc86348fb0babf587b212d5a275c5726" title="Return the root of the suffix tree.">root()</a> if it does not exist. </dd></dl>
-<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{ \sigma \cdot (\saaccess+\isaaccess+\lcpaccess) } $" src="form_162.png"/> </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{ \sigma \cdot (\saaccess+\isaaccess+\lcpaccess) } $" src="form_164.png"/> </dd></dl>
 
 </div>
 </div>
@@ -275,7 +276,7 @@ template&lt;class Csa = csa_wt&lt;&gt;, class Lcp = lcp_support_sada&lt;Csa&gt;,
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>The number of children of node v. </dd></dl>
-<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{\lcpaccess \cdot \log\sigma} $" src="form_160.png"/> </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{\lcpaccess \cdot \log\sigma} $" src="form_162.png"/> </dd></dl>
 
 </div>
 </div>
@@ -304,7 +305,7 @@ template&lt;class Csa = csa_wt&lt;&gt;, class Lcp = lcp_support_sada&lt;Csa&gt;,
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>The string depth of node v. </dd></dl>
-<dl class="section user"><dt>Time complexity </b></dt><dd><img class="formulaInl" alt="$ \Order{1} $" src="form_90.png"/> </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{1} $" src="form_51.png"/> </dd></dl>
 
 </div>
 </div>
@@ -339,13 +340,13 @@ template&lt;class Csa = csa_wt&lt;&gt;, class Lcp = lcp_support_sada&lt;Csa&gt;,
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">v</td><td>The node at which the edge path ends. </td></tr>
-    <tr><td class="paramname">d</td><td>The position (1-based indexing) of the requested character on the edge path from the root to v. <img class="formulaInl" alt="$ d > 0 \wedge d < depth(v) $" src="form_123.png"/> </td></tr>
+    <tr><td class="paramname">d</td><td>The position (1-based indexing) of the requested character on the edge path from the root to v. <img class="formulaInl" alt="$ d > 0 \wedge d < depth(v) $" src="form_124.png"/> </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>The character at position d on the edge path from the root to v. </dd></dl>
-<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{ \log\sigma + (\saaccess+\isaaccess) } $" src="form_124.png"/> </dd></dl>
-<dl class="section pre"><dt>Precondition:</dt><dd><img class="formulaInl" alt="$ 1 \leq d \leq depth(v) $" src="form_125.png"/> </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{ \log\sigma + (\saaccess+\isaaccess) } $" src="form_125.png"/> </dd></dl>
+<dl class="section pre"><dt>Precondition:</dt><dd><img class="formulaInl" alt="$ 1 \leq d \leq depth(v) $" src="form_126.png"/> </dd></dl>
 
 </div>
 </div>
@@ -369,7 +370,7 @@ template&lt;class Csa = csa_wt&lt;&gt;, class Lcp = lcp_support_sada&lt;Csa&gt;,
 <p>Computes a unique identification number for a node of the suffx tree in the range [0..<a class="el" href="group__cst__sct2__tree__methods.html#ga70ca29d9abb8d9131bec6889314b7235" title="Get the number of nodes of the suffix tree.">nodes()</a>-1]. </p>
 <div class="fragment"><pre class="fragment">   \param v A valid node of a cst_sct2.
 </pre></div> <dl class="section return"><dt>Returns:</dt><dd>A unique identification number for the node v in the range [0..<a class="el" href="group__cst__sct2__tree__methods.html#ga70ca29d9abb8d9131bec6889314b7235" title="Get the number of nodes of the suffix tree.">nodes()</a>-1] </dd></dl>
-<dl class="section user"><dt>Time complexity </b></dt><dd><img class="formulaInl" alt="$ \Order{\lcpaccess}$" src="form_165.png"/> </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{\lcpaccess}$" src="form_167.png"/> </dd></dl>
 
 </div>
 </div>
@@ -398,7 +399,7 @@ template&lt;class Csa = csa_wt&lt;&gt;, class Lcp = lcp_support_sada&lt;Csa&gt;,
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>A boolean value indicating if v is a leaf. </dd></dl>
-<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{1} $" src="form_90.png"/> </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{1} $" src="form_51.png"/> </dd></dl>
 
 </div>
 </div>
@@ -433,14 +434,14 @@ template&lt;class Csa = csa_wt&lt;&gt;, class Lcp = lcp_support_sada&lt;Csa&gt;,
 <div class="fragment"><pre class="fragment">   \param v A valid tree node of the cst.
 </pre></div> <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>1-based index of the child which should be returned. <img class="formulaInl" alt="$i \geq 1$" src="form_118.png"/>. </td></tr>
+    <tr><td class="paramname">i</td><td>1-based index of the child which should be returned. <img class="formulaInl" alt="$i \geq 1$" src="form_119.png"/>. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>The i-th child node of v or <a class="el" href="group__cst__sct2__tree__methods.html#gabc86348fb0babf587b212d5a275c5726" title="Return the root of the suffix tree.">root()</a> if v has no i-th child. </dd></dl>
-<dl class="section user"><dt>Time complexity </b></dt><dd><img class="formulaInl" alt="$ \Order{i \cdot \lcpaccess}$" src="form_158.png"/>, <img class="formulaInl" alt="$ i \leq \sigma $" src="form_139.png"/> </dd></dl>
-<dl class="section pre"><dt>Precondition:</dt><dd><img class="formulaInl" alt="$ 1 \leq i \leq degree(v) $" src="form_121.png"/> </dd></dl>
-<dl class="section note"><dt>Note:</dt><dd>Could be implemented in time <img class="formulaInl" alt="$\Order{\log i \cdot \lcpaccess}$" src="form_159.png"/> with binary search. </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{i \cdot \lcpaccess}$" src="form_160.png"/>, <img class="formulaInl" alt="$ i \leq \sigma $" src="form_140.png"/> </dd></dl>
+<dl class="section pre"><dt>Precondition:</dt><dd><img class="formulaInl" alt="$ 1 \leq i \leq degree(v) $" src="form_122.png"/> </dd></dl>
+<dl class="section note"><dt>Note:</dt><dd>Could be implemented in time <img class="formulaInl" alt="$\Order{\log i \cdot \lcpaccess}$" src="form_161.png"/> with binary search. </dd></dl>
 
 </div>
 </div>
@@ -464,13 +465,13 @@ template&lt;class Csa = csa_wt&lt;&gt;, class Lcp = lcp_support_sada&lt;Csa&gt;,
 <p>Return the i-th leaf (1-based from left to right) of the suffix tree. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>1-based position of the leaf. <img class="formulaInl" alt="$1\leq i\leq csa.size()$" src="form_135.png"/>. </td></tr>
+    <tr><td class="paramname">i</td><td>1-based position of the leaf. <img class="formulaInl" alt="$1\leq i\leq csa.size()$" src="form_136.png"/>. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>The i-th leave. </dd></dl>
-<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{\saaccess} $" src="form_156.png"/> </dd></dl>
-<dl class="section pre"><dt>Precondition:</dt><dd><img class="formulaInl" alt="$ 1 \leq i \leq csa.size() $" src="form_136.png"/> </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{\saaccess} $" src="form_158.png"/> </dd></dl>
+<dl class="section pre"><dt>Precondition:</dt><dd><img class="formulaInl" alt="$ 1 \leq i \leq csa.size() $" src="form_137.png"/> </dd></dl>
 
 </div>
 </div>
@@ -499,7 +500,7 @@ template&lt;class Csa = csa_wt&lt;&gt;, class Lcp = lcp_support_sada&lt;Csa&gt;,
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>The index of the leftmost leaf in the corresponding suffix array. </dd></dl>
-<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{1} $" src="form_90.png"/> </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{1} $" src="form_51.png"/> </dd></dl>
 <dl class="section user"><dt>Note</b></dt><dd>lb is an abbreviation for ,,left bound'' </dd></dl>
 
 </div>
@@ -540,7 +541,7 @@ template&lt;class Csa = csa_wt&lt;&gt;, class Lcp = lcp_support_sada&lt;Csa&gt;,
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>A node that is the lowest common ancestor of v and w in the suffix tree. </dd></dl>
-<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{\rrenclose}\ $" src="form_126.png"/> </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{\rrenclose}\ $" src="form_127.png"/> </dd></dl>
 
 </div>
 </div>
@@ -569,7 +570,7 @@ template&lt;class Csa = csa_wt&lt;&gt;, class Lcp = lcp_support_sada&lt;Csa&gt;,
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>The number of leaves in the subtree rooted at node v. </dd></dl>
-<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{1} $" src="form_90.png"/></dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{1} $" src="form_51.png"/></dd></dl>
 <p>This method is used e.g. in the sdsl::algorithm::count&lt;Cst&gt; method. </p>
 
 </div>
@@ -599,7 +600,7 @@ template&lt;class Csa = csa_wt&lt;&gt;, class Lcp = lcp_support_sada&lt;Csa&gt;,
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>The leftmost leaf in the subtree rooted at node v. </dd></dl>
-<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{\saaccess} $" src="form_156.png"/> </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{\saaccess} $" src="form_158.png"/> </dd></dl>
 
 </div>
 </div>
@@ -628,7 +629,7 @@ template&lt;class Csa = csa_wt&lt;&gt;, class Lcp = lcp_support_sada&lt;Csa&gt;,
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>The node depth of node v. </dd></dl>
-<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{z} $" src="form_128.png"/>, where <img class="formulaInl" alt="$z$" src="form_39.png"/> is the resulting node depth. </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{z} $" src="form_129.png"/>, where <img class="formulaInl" alt="$z$" src="form_39.png"/> is the resulting node depth. </dd></dl>
 
 </div>
 </div>
@@ -657,7 +658,7 @@ template&lt;class Csa = csa_wt&lt;&gt;, class Lcp = lcp_support_sada&lt;Csa&gt;,
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>The parent node of v or the root if v==<a class="el" href="group__cst__sct2__tree__methods.html#gabc86348fb0babf587b212d5a275c5726" title="Return the root of the suffix tree.">root()</a>. </dd></dl>
-<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{\lcpaccess \cdot \log\sigma}$" src="form_157.png"/> </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{\lcpaccess \cdot \log\sigma}$" src="form_159.png"/> </dd></dl>
 
 </div>
 </div>
@@ -686,7 +687,7 @@ template&lt;class Csa = csa_wt&lt;&gt;, class Lcp = lcp_support_sada&lt;Csa&gt;,
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>The index of the rightmost leaf in the corresponding suffix array. </dd></dl>
-<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{1} $" src="form_90.png"/> </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{1} $" src="form_51.png"/> </dd></dl>
 <dl class="section user"><dt>Note</b></dt><dd>rb is an abbreviation for ,,right bound'' </dd></dl>
 
 </div>
@@ -716,7 +717,7 @@ template&lt;class Csa = csa_wt&lt;&gt;, class Lcp = lcp_support_sada&lt;Csa&gt;,
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>The rightmost leaf in the subtree rooted at node v. </dd></dl>
-<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{\saaccess} $" src="form_156.png"/> </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{\saaccess} $" src="form_158.png"/> </dd></dl>
 
 </div>
 </div>
@@ -737,7 +738,7 @@ template&lt;class Csa = csa_wt&lt;&gt;, class Lcp = lcp_support_sada&lt;Csa&gt;,
 <div class="memdoc">
 
 <p>Return the root of the suffix tree. </p>
-<dl class="section user"><dt>Time complexity O(1) </b></dt><dd><img class="formulaInl" alt="$ \Order{1} $" src="form_90.png"/> </dd></dl>
+<dl class="section user"><dt>Time complexity O(1)</b></dt><dd><img class="formulaInl" alt="$ \Order{1} $" src="form_51.png"/> </dd></dl>
 
 </div>
 </div>
@@ -766,7 +767,7 @@ template&lt;class Csa = csa_wt&lt;&gt;, class Lcp = lcp_support_sada&lt;Csa&gt;,
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>The next (right) sibling of node v or <a class="el" href="group__cst__sct2__tree__methods.html#gabc86348fb0babf587b212d5a275c5726" title="Return the root of the suffix tree.">root()</a> if v has no next (right) sibling. </dd></dl>
-<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{\lcpaccess} $" src="form_161.png"/> </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{\lcpaccess} $" src="form_163.png"/> </dd></dl>
 
 </div>
 </div>
@@ -795,7 +796,7 @@ template&lt;class Csa = csa_wt&lt;&gt;, class Lcp = lcp_support_sada&lt;Csa&gt;,
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>The suffix link of node v. </dd></dl>
-<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{ \rrenclose + \lcpaccess \cdot \log\sigma} $" src="form_164.png"/> </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{ \rrenclose + \lcpaccess \cdot \log\sigma} $" src="form_166.png"/> </dd></dl>
 
 </div>
 </div>
@@ -824,7 +825,7 @@ template&lt;class Csa = csa_wt&lt;&gt;, class Lcp = lcp_support_sada&lt;Csa&gt;,
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>The suffix array value corresponding to the leaf node v. </dd></dl>
-<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{ \saaccess } $" src="form_130.png"/> </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{ \saaccess } $" src="form_131.png"/> </dd></dl>
 
 </div>
 </div>
@@ -832,7 +833,7 @@ template&lt;class Csa = csa_wt&lt;&gt;, class Lcp = lcp_support_sada&lt;Csa&gt;,
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:35 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:29 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

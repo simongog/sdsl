@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -125,10 +126,10 @@ RankSupport::bit_vector_type&#160;</td><td class="memItemRight" valign="bottom">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a737bf83167e5355377989e486122305f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a737bf83167e5355377989e486122305f"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>select_support_bs</b> (const int_vector&lt; 1 &gt; *v=NULL, const RankSupport *m_rs=NULL)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>select_support_bs</b> (const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 1 &gt; *v=NULL, const RankSupport *m_rs=NULL)</td></tr>
 <tr class="memitem:add6483a2734e33d36037cc29baab76b8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="add6483a2734e33d36037cc29baab76b8"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>select_support_bs</b> (const <a class="el" href="classsdsl_1_1select__support__bs.html">select_support_bs</a> &amp;ss)</td></tr>
-<tr class="memitem:a3b85b93b980c88559dd8436eb84e9f49"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1select__support__bs.html#a3b85b93b980c88559dd8436eb84e9f49">init</a> (const int_vector&lt; 1 &gt; *v=NULL)</td></tr>
+<tr class="memitem:a3b85b93b980c88559dd8436eb84e9f49"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1select__support__bs.html#a3b85b93b980c88559dd8436eb84e9f49">init</a> (const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 1 &gt; *v=NULL)</td></tr>
 <tr class="memdesc:a3b85b93b980c88559dd8436eb84e9f49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initalization method for <a class="el" href="classsdsl_1_1select__support.html" title="The base class of classes supporting select queries for a sdsl::bit_vector in constant time...">select_support</a>.  <a href="#a3b85b93b980c88559dd8436eb84e9f49"></a><br/></td></tr>
 <tr class="memitem:a30cf35b1f80cb64ff8be2ab7f5f53a90"><td class="memItemLeft" align="right" valign="top">const size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1select__support__bs.html#a30cf35b1f80cb64ff8be2ab7f5f53a90">select</a> (size_type) const </td></tr>
 <tr class="memdesc:a30cf35b1f80cb64ff8be2ab7f5f53a90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Select returns the index of the i-th 1-bit in the supported bit_vector.  <a href="#a30cf35b1f80cb64ff8be2ab7f5f53a90"></a><br/></td></tr>
@@ -138,9 +139,9 @@ const size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el"
 <tr class="memitem:adee65b986982744d4c63574bfcb727ab"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adee65b986982744d4c63574bfcb727ab"></a>
 size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1select__support__bs.html#adee65b986982744d4c63574bfcb727ab">serialize</a> (std::ostream &amp;out) const </td></tr>
 <tr class="memdesc:adee65b986982744d4c63574bfcb727ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize the <a class="el" href="classsdsl_1_1select__support.html" title="The base class of classes supporting select queries for a sdsl::bit_vector in constant time...">select_support</a> to an out file stream. <br/></td></tr>
-<tr class="memitem:a9147fba536d4b692b448125c928be45a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1select__support__bs.html#a9147fba536d4b692b448125c928be45a">load</a> (std::istream &amp;in, const int_vector&lt; 1 &gt; *v=NULL)</td></tr>
+<tr class="memitem:a9147fba536d4b692b448125c928be45a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1select__support__bs.html#a9147fba536d4b692b448125c928be45a">load</a> (std::istream &amp;in, const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 1 &gt; *v=NULL)</td></tr>
 <tr class="memdesc:a9147fba536d4b692b448125c928be45a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load the <a class="el" href="classsdsl_1_1select__support.html" title="The base class of classes supporting select queries for a sdsl::bit_vector in constant time...">select_support</a> from an in file stream.  <a href="#a9147fba536d4b692b448125c928be45a"></a><br/></td></tr>
-<tr class="memitem:a887459dab217bed717b4c3ec1eb0f901"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1select__support__bs.html#a887459dab217bed717b4c3ec1eb0f901">set_vector</a> (const int_vector&lt; 1 &gt; *v=NULL)</td></tr>
+<tr class="memitem:a887459dab217bed717b4c3ec1eb0f901"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1select__support__bs.html#a887459dab217bed717b4c3ec1eb0f901">set_vector</a> (const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 1 &gt; *v=NULL)</td></tr>
 <tr class="memdesc:a887459dab217bed717b4c3ec1eb0f901"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method sets the supported bit_vector.  <a href="#a887459dab217bed717b4c3ec1eb0f901"></a><br/></td></tr>
 <tr class="memitem:a095a723ea90a36b9f644b8097a87e5dd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a095a723ea90a36b9f644b8097a87e5dd"></a>
 <a class="el" href="classsdsl_1_1select__support__bs.html">select_support_bs</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classsdsl_1_1select__support__bs.html">select_support_bs</a> &amp;ss)</td></tr>
@@ -166,7 +167,7 @@ template&lt;class RankSupport &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classsdsl_1_1select__support__bs.html">sdsl::select_support_bs</a>&lt; RankSupport &gt;::<a class="el" href="classsdsl_1_1select__support__bs.html#a3b85b93b980c88559dd8436eb84e9f49">init</a> </td>
           <td>(</td>
-          <td class="paramtype">const int_vector&lt; 1 &gt; *&#160;</td>
+          <td class="paramtype">const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 1 &gt; *&#160;</td>
           <td class="paramname"><em>v</em> = <code>NULL</code></td><td>)</td>
           <td><code> [virtual]</code></td>
         </tr>
@@ -201,7 +202,7 @@ template&lt;class RankSupport &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const int_vector&lt; 1 &gt; *&#160;</td>
+          <td class="paramtype">const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 1 &gt; *&#160;</td>
           <td class="paramname"><em>v</em> = <code>NULL</code>&#160;</td>
         </tr>
         <tr>
@@ -298,7 +299,7 @@ template&lt;class RankSupport &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns:</dt><dd>The index <img class="formulaInl" alt="$\in [0..v.size()-1]$" src="form_212.png"/> of the i-th 1-bit in the supported bit_vector. Call init or load to initialize the data structure before the first call of this method. </dd></dl>
+<dl class="section return"><dt>Returns:</dt><dd>The index <img class="formulaInl" alt="$\in [0..v.size()-1]$" src="form_223.png"/> of the i-th 1-bit in the supported bit_vector. Call init or load to initialize the data structure before the first call of this method. </dd></dl>
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="classsdsl_1_1select__support__bs.html#a3b85b93b980c88559dd8436eb84e9f49" title="Initalization method for select_support.">init</a>, <a class="el" href="classsdsl_1_1select__support__bs.html#a9147fba536d4b692b448125c928be45a" title="Load the select_support from an in file stream.">load</a>. </dd></dl>
 
 <p>Implements <a class="el" href="classsdsl_1_1select__support.html#a6d9737aa32d821a5e1b4e6d2574bb365">sdsl::select_support</a>.</p>
@@ -314,7 +315,7 @@ template&lt;class RankSupport &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classsdsl_1_1select__support__bs.html">sdsl::select_support_bs</a>&lt; RankSupport &gt;::<a class="el" href="classsdsl_1_1select__support__bs.html#a887459dab217bed717b4c3ec1eb0f901">set_vector</a> </td>
           <td>(</td>
-          <td class="paramtype">const int_vector&lt; 1 &gt; *&#160;</td>
+          <td class="paramtype">const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 1 &gt; *&#160;</td>
           <td class="paramname"><em>v</em> = <code>NULL</code></td><td>)</td>
           <td><code> [virtual]</code></td>
         </tr>
@@ -336,7 +337,7 @@ template&lt;class RankSupport &gt; </div>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:35 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:32 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

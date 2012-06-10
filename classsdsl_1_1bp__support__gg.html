@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -126,10 +127,14 @@ typedef NearestNeighbourDictionary&#160;</td><td class="memItemRight" valign="bo
 typedef RankSupport&#160;</td><td class="memItemRight" valign="bottom"><b>rank_support_type</b></td></tr>
 <tr class="memitem:ab92236ce508d6d6ce3e3d506584076ca"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab92236ce508d6d6ce3e3d506584076ca"></a>
 typedef SelectSupport&#160;</td><td class="memItemRight" valign="bottom"><b>select_support_type</b></td></tr>
+<tr class="memitem:a7274ab48aa468cd1c2fa5ffbfddfca90"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7274ab48aa468cd1c2fa5ffbfddfca90"></a>
+typedef <a class="el" href="classsdsl_1_1bp__support__gg.html">bp_support_gg</a><br class="typebreak"/>
+&lt; nnd_type, RankSupport, <br class="typebreak"/>
+<a class="el" href="classsdsl_1_1select__support__bs.html">select_support_bs</a>&lt; RankSupport &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>bp_support_type</b></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a3d846f81c99186bf32d5d1bdba87bcfb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3d846f81c99186bf32d5d1bdba87bcfb"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1bp__support__gg.html#a3d846f81c99186bf32d5d1bdba87bcfb">bp_support_gg</a> (const bit_vector *bp, uint32_t used_block_size=840)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1bp__support__gg.html#a3d846f81c99186bf32d5d1bdba87bcfb">bp_support_gg</a> (const <a class="el" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb">bit_vector</a> *bp, uint32_t used_block_size=840)</td></tr>
 <tr class="memdesc:a3d846f81c99186bf32d5d1bdba87bcfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br/></td></tr>
 <tr class="memitem:ae402db1607fa6e60d6c9e6c8454668cf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae402db1607fa6e60d6c9e6c8454668cf"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1bp__support__gg.html#ae402db1607fa6e60d6c9e6c8454668cf">bp_support_gg</a> (const <a class="el" href="classsdsl_1_1bp__support__gg.html">bp_support_gg</a> &amp;bp_support)</td></tr>
@@ -137,11 +142,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5628b7240ef3dae8c6139e3fe3c7b0fe"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5628b7240ef3dae8c6139e3fe3c7b0fe"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1bp__support__gg.html#a5628b7240ef3dae8c6139e3fe3c7b0fe">~bp_support_gg</a> ()</td></tr>
 <tr class="memdesc:a5628b7240ef3dae8c6139e3fe3c7b0fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
+<tr class="memitem:af6ba2bd8236deaff54f6fcd564319eac"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af6ba2bd8236deaff54f6fcd564319eac"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1bp__support__gg.html#af6ba2bd8236deaff54f6fcd564319eac">swap</a> (<a class="el" href="classsdsl_1_1bp__support__gg.html">bp_support_gg</a> &amp;bp_support)</td></tr>
+<tr class="memdesc:af6ba2bd8236deaff54f6fcd564319eac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swap operator. <br/></td></tr>
 <tr class="memitem:a09cd0d3e82c2fe6b4fa24a6a19c93cc2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a09cd0d3e82c2fe6b4fa24a6a19c93cc2"></a>
 <a class="el" href="classsdsl_1_1bp__support__gg.html">bp_support_gg</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1bp__support__gg.html#a09cd0d3e82c2fe6b4fa24a6a19c93cc2">operator=</a> (const <a class="el" href="classsdsl_1_1bp__support__gg.html">bp_support_gg</a> &amp;bp_support)</td></tr>
 <tr class="memdesc:a09cd0d3e82c2fe6b4fa24a6a19c93cc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment operator. <br/></td></tr>
 <tr class="memitem:a041c692ae8b01081a428d29c0c696705"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a041c692ae8b01081a428d29c0c696705"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>set_vector</b> (const bit_vector *bp)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>set_vector</b> (const <a class="el" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb">bit_vector</a> *bp)</td></tr>
 <tr class="memitem:a1057a21814e4347617936bb2d1a61f15"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1bp__support__gg.html#a1057a21814e4347617936bb2d1a61f15">excess</a> (size_type i) const </td></tr>
 <tr class="memitem:ac34a109192c34522849c233e829e9034"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1bp__support__gg.html#ac34a109192c34522849c233e829e9034">rank</a> (size_type i) const </td></tr>
 <tr class="memitem:aab4eb213d4d5f61725317b25fcfd6067"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1bp__support__gg.html#aab4eb213d4d5f61725317b25fcfd6067">select</a> (size_type i) const </td></tr>
@@ -151,12 +159,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>set_vector</b> (const
 <tr class="memitem:ad3db66f871b8e80dad7cd4c7b5412247"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1bp__support__gg.html#ad3db66f871b8e80dad7cd4c7b5412247">enclose</a> (size_type i) const </td></tr>
 <tr class="memdesc:ad3db66f871b8e80dad7cd4c7b5412247"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the index of the opening parenthesis corresponding to the closest matching parenthesis pair enclosing i.  <a href="#ad3db66f871b8e80dad7cd4c7b5412247"></a><br/></td></tr>
 <tr class="memitem:ae2e0ccee65918d81125ae4609ce1a54a"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1bp__support__gg.html#ae2e0ccee65918d81125ae4609ce1a54a">rr_enclose</a> (const size_type i, const size_type j) const </td></tr>
-<tr class="memdesc:ae2e0ccee65918d81125ae4609ce1a54a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The range restricted enclose operation for parentheses pairs <img class="formulaInl" alt="$(i,\mu(i))$" src="form_70.png"/> and <img class="formulaInl" alt="$(j,\mu(j))$" src="form_71.png"/>.  <a href="#ae2e0ccee65918d81125ae4609ce1a54a"></a><br/></td></tr>
+<tr class="memdesc:ae2e0ccee65918d81125ae4609ce1a54a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The range restricted enclose operation for parentheses pairs <img class="formulaInl" alt="$(i,\mu(i))$" src="form_72.png"/> and <img class="formulaInl" alt="$(j,\mu(j))$" src="form_73.png"/>.  <a href="#ae2e0ccee65918d81125ae4609ce1a54a"></a><br/></td></tr>
 <tr class="memitem:a3d34962e4992f2bebbae29dc29369ab4"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1bp__support__gg.html#a3d34962e4992f2bebbae29dc29369ab4">rmq_open</a> (const size_type l, const size_type r) const </td></tr>
 <tr class="memitem:a4f635a892e86cbc8e4e983416178f3cb"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1bp__support__gg.html#a4f635a892e86cbc8e4e983416178f3cb">rr_enclose_naive</a> (size_type i, size_type j) const </td></tr>
 <tr class="memdesc:a4f635a892e86cbc8e4e983416178f3cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">The range restricted enclose operation.  <a href="#a4f635a892e86cbc8e4e983416178f3cb"></a><br/></td></tr>
 <tr class="memitem:ad249b35ca9686bd9382425d7582b93d7"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1bp__support__gg.html#ad249b35ca9686bd9382425d7582b93d7">rmq</a> (size_type l, size_type r) const </td></tr>
-<tr class="memdesc:ad249b35ca9686bd9382425d7582b93d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The range minimum query (rmq) returns the index of the parenthesis with minimal excess in the range <img class="formulaInl" alt="$[l..r]$" src="form_66.png"/>.  <a href="#ad249b35ca9686bd9382425d7582b93d7"></a><br/></td></tr>
+<tr class="memdesc:ad249b35ca9686bd9382425d7582b93d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The range minimum query (rmq) returns the index of the parenthesis with minimal excess in the range <img class="formulaInl" alt="$[l..r]$" src="form_68.png"/>.  <a href="#ad249b35ca9686bd9382425d7582b93d7"></a><br/></td></tr>
 <tr class="memitem:ac088e6cd37d75d8ca886c417400d2f6a"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1bp__support__gg.html#ac088e6cd37d75d8ca886c417400d2f6a">double_enclose</a> (size_type i, size_type j) const </td></tr>
 <tr class="memdesc:ac088e6cd37d75d8ca886c417400d2f6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The double enclose operation.  <a href="#ac088e6cd37d75d8ca886c417400d2f6a"></a><br/></td></tr>
 <tr class="memitem:a35bfbd7a2e8e2200373c134a79ea3bb7"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1bp__support__gg.html#a35bfbd7a2e8e2200373c134a79ea3bb7">preceding_closing_parentheses</a> (size_type i) const </td></tr>
@@ -164,7 +172,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>set_vector</b> (const
 <tr class="memitem:a4e9e205bee57e6c84fc94d351b53299f"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1bp__support__gg.html#a4e9e205bee57e6c84fc94d351b53299f">size</a> () const </td></tr>
 <tr class="memitem:a93c0eff47e262277d3c3a8fbc9c2e0c9"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1bp__support__gg.html#a93c0eff47e262277d3c3a8fbc9c2e0c9">serialize</a> (std::ostream &amp;out) const </td></tr>
 <tr class="memdesc:a93c0eff47e262277d3c3a8fbc9c2e0c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes the <a class="el" href="classsdsl_1_1bp__support__gg.html" title="A class that provides support for bit_vectors that represent a balanced parentheses sequence...">bp_support_gg</a> to a stream.  <a href="#a93c0eff47e262277d3c3a8fbc9c2e0c9"></a><br/></td></tr>
-<tr class="memitem:a47a1f707bc0b29bbb9dda2871c1aab4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1bp__support__gg.html#a47a1f707bc0b29bbb9dda2871c1aab4c">load</a> (std::istream &amp;in, const bit_vector *bp)</td></tr>
+<tr class="memitem:a47a1f707bc0b29bbb9dda2871c1aab4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1bp__support__gg.html#a47a1f707bc0b29bbb9dda2871c1aab4c">load</a> (std::istream &amp;in, const <a class="el" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb">bit_vector</a> *bp)</td></tr>
 <tr class="memdesc:a47a1f707bc0b29bbb9dda2871c1aab4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load the <a class="el" href="classsdsl_1_1bp__support__gg.html" title="A class that provides support for bit_vectors that represent a balanced parentheses sequence...">bp_support_gg</a> for a bit_vector v.  <a href="#a47a1f707bc0b29bbb9dda2871c1aab4c"></a><br/></td></tr>
 <tr class="memitem:a1174f2cd1395f11de27119a18337e0ba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1174f2cd1395f11de27119a18337e0ba"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>get_info</b> () const </td></tr>
@@ -202,7 +210,7 @@ class sdsl::bp_support_gg&lt; NearestNeighbourDictionary, RankSupport, SelectSup
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;30&gt;, class RankSupport  = rank_support_v&lt;&gt;, class SelectSupport  = select_support_mcl&lt;&gt;&gt; </div>
+template&lt;class NearestNeighbourDictionary = nearest_neighbour_dictionary&lt;30&gt;, class RankSupport = rank_support_v&lt;&gt;, class SelectSupport = select_support_mcl&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">size_type <a class="el" href="classsdsl_1_1bp__support__gg.html">sdsl::bp_support_gg</a>&lt; NearestNeighbourDictionary, RankSupport, SelectSupport &gt;::<a class="el" href="classsdsl_1_1bp__support__gg.html#ac088e6cd37d75d8ca886c417400d2f6a">double_enclose</a> </td>
@@ -229,11 +237,11 @@ template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">i</td><td>Index of an opening parenthesis. </td></tr>
-    <tr><td class="paramname">j</td><td>Index of an opening parenthesis <img class="formulaInl" alt="$ i<j \wedge findclose(i) < j $" src="form_62.png"/>. </td></tr>
+    <tr><td class="paramname">j</td><td>Index of an opening parenthesis <img class="formulaInl" alt="$ i<j \wedge findclose(i) < j $" src="form_64.png"/>. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns:</dt><dd>The maximal opening parenthesis, say k, such that <img class="formulaInl" alt="$ k<j \wedge k>findclose(j) $" src="form_69.png"/>. If such a k does not exists, double_enclose(i,j) returns <a class="el" href="classsdsl_1_1bp__support__gg.html#a4e9e205bee57e6c84fc94d351b53299f">size()</a>. </dd></dl>
+<dl class="section return"><dt>Returns:</dt><dd>The maximal opening parenthesis, say k, such that <img class="formulaInl" alt="$ k<j \wedge k>findclose(j) $" src="form_71.png"/>. If such a k does not exists, double_enclose(i,j) returns <a class="el" href="classsdsl_1_1bp__support__gg.html#a4e9e205bee57e6c84fc94d351b53299f">size()</a>. </dd></dl>
 
 </div>
 </div>
@@ -241,7 +249,7 @@ template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;30&gt;, class RankSupport  = rank_support_v&lt;&gt;, class SelectSupport  = select_support_mcl&lt;&gt;&gt; </div>
+template&lt;class NearestNeighbourDictionary = nearest_neighbour_dictionary&lt;30&gt;, class RankSupport = rank_support_v&lt;&gt;, class SelectSupport = select_support_mcl&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">size_type <a class="el" href="classsdsl_1_1bp__support__gg.html">sdsl::bp_support_gg</a>&lt; NearestNeighbourDictionary, RankSupport, SelectSupport &gt;::<a class="el" href="classsdsl_1_1bp__support__gg.html#ad3db66f871b8e80dad7cd4c7b5412247">enclose</a> </td>
@@ -269,7 +277,7 @@ template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;30&gt;, class RankSupport  = rank_support_v&lt;&gt;, class SelectSupport  = select_support_mcl&lt;&gt;&gt; </div>
+template&lt;class NearestNeighbourDictionary = nearest_neighbour_dictionary&lt;30&gt;, class RankSupport = rank_support_v&lt;&gt;, class SelectSupport = select_support_mcl&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">size_type <a class="el" href="classsdsl_1_1bp__support__gg.html">sdsl::bp_support_gg</a>&lt; NearestNeighbourDictionary, RankSupport, SelectSupport &gt;::<a class="el" href="classsdsl_1_1bp__support__gg.html#a1057a21814e4347617936bb2d1a61f15">excess</a> </td>
@@ -295,7 +303,7 @@ template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;30&gt;, class RankSupport  = rank_support_v&lt;&gt;, class SelectSupport  = select_support_mcl&lt;&gt;&gt; </div>
+template&lt;class NearestNeighbourDictionary = nearest_neighbour_dictionary&lt;30&gt;, class RankSupport = rank_support_v&lt;&gt;, class SelectSupport = select_support_mcl&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">size_type <a class="el" href="classsdsl_1_1bp__support__gg.html">sdsl::bp_support_gg</a>&lt; NearestNeighbourDictionary, RankSupport, SelectSupport &gt;::<a class="el" href="classsdsl_1_1bp__support__gg.html#ab36c992a888c43d4dfd6078b2f231684">find_close</a> </td>
@@ -326,7 +334,7 @@ template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;30&gt;, class RankSupport  = rank_support_v&lt;&gt;, class SelectSupport  = select_support_mcl&lt;&gt;&gt; </div>
+template&lt;class NearestNeighbourDictionary = nearest_neighbour_dictionary&lt;30&gt;, class RankSupport = rank_support_v&lt;&gt;, class SelectSupport = select_support_mcl&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">size_type <a class="el" href="classsdsl_1_1bp__support__gg.html">sdsl::bp_support_gg</a>&lt; NearestNeighbourDictionary, RankSupport, SelectSupport &gt;::<a class="el" href="classsdsl_1_1bp__support__gg.html#a7a45033a5c70076ede0fd268534f01df">find_open</a> </td>
@@ -358,7 +366,7 @@ template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;30&gt;, class RankSupport  = rank_support_v&lt;&gt;, class SelectSupport  = select_support_mcl&lt;&gt;&gt; </div>
+template&lt;class NearestNeighbourDictionary = nearest_neighbour_dictionary&lt;30&gt;, class RankSupport = rank_support_v&lt;&gt;, class SelectSupport = select_support_mcl&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="classsdsl_1_1bp__support__gg.html">sdsl::bp_support_gg</a>&lt; NearestNeighbourDictionary, RankSupport, SelectSupport &gt;::<a class="el" href="classsdsl_1_1bp__support__gg.html#a47a1f707bc0b29bbb9dda2871c1aab4c">load</a> </td>
@@ -369,7 +377,7 @@ template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const bit_vector *&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb">bit_vector</a> *&#160;</td>
           <td class="paramname"><em>bp</em>&#160;</td>
         </tr>
         <tr>
@@ -396,7 +404,7 @@ template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;30&gt;, class RankSupport  = rank_support_v&lt;&gt;, class SelectSupport  = select_support_mcl&lt;&gt;&gt; </div>
+template&lt;class NearestNeighbourDictionary = nearest_neighbour_dictionary&lt;30&gt;, class RankSupport = rank_support_v&lt;&gt;, class SelectSupport = select_support_mcl&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">size_type <a class="el" href="classsdsl_1_1bp__support__gg.html">sdsl::bp_support_gg</a>&lt; NearestNeighbourDictionary, RankSupport, SelectSupport &gt;::<a class="el" href="classsdsl_1_1bp__support__gg.html#a35bfbd7a2e8e2200373c134a79ea3bb7">preceding_closing_parentheses</a> </td>
@@ -423,7 +431,7 @@ template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;30&gt;, class RankSupport  = rank_support_v&lt;&gt;, class SelectSupport  = select_support_mcl&lt;&gt;&gt; </div>
+template&lt;class NearestNeighbourDictionary = nearest_neighbour_dictionary&lt;30&gt;, class RankSupport = rank_support_v&lt;&gt;, class SelectSupport = select_support_mcl&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">size_type <a class="el" href="classsdsl_1_1bp__support__gg.html">sdsl::bp_support_gg</a>&lt; NearestNeighbourDictionary, RankSupport, SelectSupport &gt;::<a class="el" href="classsdsl_1_1bp__support__gg.html#ac34a109192c34522849c233e829e9034">rank</a> </td>
@@ -436,7 +444,7 @@ template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;
 </div>
 <div class="memdoc">
 <p>Returns the number of opening parentheses up to and including index i. </p>
-<dl class="section pre"><dt>Precondition:</dt><dd>{ <img class="formulaInl" alt="$ 0\leq i < size() $" src="form_59.png"/> } </dd></dl>
+<dl class="section pre"><dt>Precondition:</dt><dd>{ <img class="formulaInl" alt="$ 0\leq i < size() $" src="form_61.png"/> } </dd></dl>
 
 </div>
 </div>
@@ -444,7 +452,7 @@ template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;30&gt;, class RankSupport  = rank_support_v&lt;&gt;, class SelectSupport  = select_support_mcl&lt;&gt;&gt; </div>
+template&lt;class NearestNeighbourDictionary = nearest_neighbour_dictionary&lt;30&gt;, class RankSupport = rank_support_v&lt;&gt;, class SelectSupport = select_support_mcl&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">size_type <a class="el" href="classsdsl_1_1bp__support__gg.html">sdsl::bp_support_gg</a>&lt; NearestNeighbourDictionary, RankSupport, SelectSupport &gt;::<a class="el" href="classsdsl_1_1bp__support__gg.html#ad249b35ca9686bd9382425d7582b93d7">rmq</a> </td>
@@ -467,9 +475,9 @@ template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;
 </div>
 <div class="memdoc">
 
-<p>The range minimum query (rmq) returns the index of the parenthesis with minimal excess in the range <img class="formulaInl" alt="$[l..r]$" src="form_66.png"/>. </p>
-<div class="fragment"><pre class="fragment">    \param l The left border of the interval \form#66 ( \form#67).
-    \param r The right border of the interval \form#66 ( \form#68).
+<p>The range minimum query (rmq) returns the index of the parenthesis with minimal excess in the range <img class="formulaInl" alt="$[l..r]$" src="form_68.png"/>. </p>
+<div class="fragment"><pre class="fragment">    \param l The left border of the interval \form#68 ( \form#69).
+    \param r The right border of the interval \form#68 ( \form#70).
 </pre></div><p> TODO: bisher liefert rmq nicht immer das am weitesen rechts liegende minimum </p>
 
 </div>
@@ -478,7 +486,7 @@ template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;30&gt;, class RankSupport  = rank_support_v&lt;&gt;, class SelectSupport  = select_support_mcl&lt;&gt;&gt; </div>
+template&lt;class NearestNeighbourDictionary = nearest_neighbour_dictionary&lt;30&gt;, class RankSupport = rank_support_v&lt;&gt;, class SelectSupport = select_support_mcl&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">size_type <a class="el" href="classsdsl_1_1bp__support__gg.html">sdsl::bp_support_gg</a>&lt; NearestNeighbourDictionary, RankSupport, SelectSupport &gt;::<a class="el" href="classsdsl_1_1bp__support__gg.html#a3d34962e4992f2bebbae29dc29369ab4">rmq_open</a> </td>
@@ -508,8 +516,8 @@ template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns:</dt><dd>the minimal opening parenthesis i with <img class="formulaInl" alt="$ \ell \leq i < r $" src="form_64.png"/> and <img class="formulaInl" alt="$ find_close(i) \geq r $" src="form_65.png"/>; if no such i exists <a class="el" href="classsdsl_1_1bp__support__gg.html#a4e9e205bee57e6c84fc94d351b53299f">size()</a> is returned. </dd></dl>
-<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{block\_size} $" src="form_63.png"/> </dd></dl>
+<dl class="section return"><dt>Returns:</dt><dd>the minimal opening parenthesis i with <img class="formulaInl" alt="$ \ell \leq i < r $" src="form_66.png"/> and <img class="formulaInl" alt="$ find_close(i) \geq r $" src="form_67.png"/>; if no such i exists <a class="el" href="classsdsl_1_1bp__support__gg.html#a4e9e205bee57e6c84fc94d351b53299f">size()</a> is returned. </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{block\_size} $" src="form_65.png"/> </dd></dl>
 
 </div>
 </div>
@@ -517,7 +525,7 @@ template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;30&gt;, class RankSupport  = rank_support_v&lt;&gt;, class SelectSupport  = select_support_mcl&lt;&gt;&gt; </div>
+template&lt;class NearestNeighbourDictionary = nearest_neighbour_dictionary&lt;30&gt;, class RankSupport = rank_support_v&lt;&gt;, class SelectSupport = select_support_mcl&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">size_type <a class="el" href="classsdsl_1_1bp__support__gg.html">sdsl::bp_support_gg</a>&lt; NearestNeighbourDictionary, RankSupport, SelectSupport &gt;::<a class="el" href="classsdsl_1_1bp__support__gg.html#ae2e0ccee65918d81125ae4609ce1a54a">rr_enclose</a> </td>
@@ -540,16 +548,16 @@ template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;
 </div>
 <div class="memdoc">
 
-<p>The range restricted enclose operation for parentheses pairs <img class="formulaInl" alt="$(i,\mu(i))$" src="form_70.png"/> and <img class="formulaInl" alt="$(j,\mu(j))$" src="form_71.png"/>. </p>
+<p>The range restricted enclose operation for parentheses pairs <img class="formulaInl" alt="$(i,\mu(i))$" src="form_72.png"/> and <img class="formulaInl" alt="$(j,\mu(j))$" src="form_73.png"/>. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">i</td><td>First opening parenthesis. </td></tr>
-    <tr><td class="paramname">j</td><td>Second opening parenthesis <img class="formulaInl" alt="$ i<j \wedge findclose(i) < j $" src="form_62.png"/>. </td></tr>
+    <tr><td class="paramname">j</td><td>Second opening parenthesis <img class="formulaInl" alt="$ i<j \wedge findclose(i) < j $" src="form_64.png"/>. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>The smallest index, say k, of an opening parenthesis such that findclose(i) &lt; k &lt; j and findclose(j) &lt; findclose(k). If such a k does not exists, restricted_enclose(i,j) returns <a class="el" href="classsdsl_1_1bp__support__gg.html#a4e9e205bee57e6c84fc94d351b53299f">size()</a>. </dd></dl>
-<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{block\_size} $" src="form_63.png"/> </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{block\_size} $" src="form_65.png"/> </dd></dl>
 
 </div>
 </div>
@@ -557,7 +565,7 @@ template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;30&gt;, class RankSupport  = rank_support_v&lt;&gt;, class SelectSupport  = select_support_mcl&lt;&gt;&gt; </div>
+template&lt;class NearestNeighbourDictionary = nearest_neighbour_dictionary&lt;30&gt;, class RankSupport = rank_support_v&lt;&gt;, class SelectSupport = select_support_mcl&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">size_type <a class="el" href="classsdsl_1_1bp__support__gg.html">sdsl::bp_support_gg</a>&lt; NearestNeighbourDictionary, RankSupport, SelectSupport &gt;::<a class="el" href="classsdsl_1_1bp__support__gg.html#a4f635a892e86cbc8e4e983416178f3cb">rr_enclose_naive</a> </td>
@@ -584,12 +592,12 @@ template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">i</td><td>Index of an opening parenthesis. </td></tr>
-    <tr><td class="paramname">j</td><td>Index of an opening parenthesis <img class="formulaInl" alt="$ i<j \wedge findclose(i) < j $" src="form_62.png"/>. </td></tr>
+    <tr><td class="paramname">j</td><td>Index of an opening parenthesis <img class="formulaInl" alt="$ i<j \wedge findclose(i) < j $" src="form_64.png"/>. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns:</dt><dd>The minimal opening parenthesis, say k, such that <img class="formulaInl" alt="$ findclose(i) < k < j$" src="form_72.png"/> and findclose(j) &lt; findclose(k). If such a k does not exists, restricted_enclose(i,j) returns <a class="el" href="classsdsl_1_1bp__support__gg.html#a4e9e205bee57e6c84fc94d351b53299f">size()</a>. </dd></dl>
-<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{size()}$" src="form_73.png"/> in the worst case. </dd></dl>
+<dl class="section return"><dt>Returns:</dt><dd>The minimal opening parenthesis, say k, such that <img class="formulaInl" alt="$ findclose(i) < k < j$" src="form_74.png"/> and findclose(j) &lt; findclose(k). If such a k does not exists, restricted_enclose(i,j) returns <a class="el" href="classsdsl_1_1bp__support__gg.html#a4e9e205bee57e6c84fc94d351b53299f">size()</a>. </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{size()}$" src="form_75.png"/> in the worst case. </dd></dl>
 
 </div>
 </div>
@@ -597,7 +605,7 @@ template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;30&gt;, class RankSupport  = rank_support_v&lt;&gt;, class SelectSupport  = select_support_mcl&lt;&gt;&gt; </div>
+template&lt;class NearestNeighbourDictionary = nearest_neighbour_dictionary&lt;30&gt;, class RankSupport = rank_support_v&lt;&gt;, class SelectSupport = select_support_mcl&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">size_type <a class="el" href="classsdsl_1_1bp__support__gg.html">sdsl::bp_support_gg</a>&lt; NearestNeighbourDictionary, RankSupport, SelectSupport &gt;::<a class="el" href="classsdsl_1_1bp__support__gg.html#aab4eb213d4d5f61725317b25fcfd6067">select</a> </td>
@@ -616,8 +624,8 @@ template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;
   </table>
   </dd>
 </dl>
-<dl class="section pre"><dt>Precondition:</dt><dd>{ <img class="formulaInl" alt="$1\leq i < rank(size())$" src="form_60.png"/> } </dd></dl>
-<dl class="section post"><dt>Postcondition:</dt><dd>{ <img class="formulaInl" alt="$ 0\leq select(i) < size() $" src="form_61.png"/> } </dd></dl>
+<dl class="section pre"><dt>Precondition:</dt><dd>{ <img class="formulaInl" alt="$1\leq i < rank(size())$" src="form_62.png"/> } </dd></dl>
+<dl class="section post"><dt>Postcondition:</dt><dd>{ <img class="formulaInl" alt="$ 0\leq select(i) < size() $" src="form_63.png"/> } </dd></dl>
 
 </div>
 </div>
@@ -625,7 +633,7 @@ template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;30&gt;, class RankSupport  = rank_support_v&lt;&gt;, class SelectSupport  = select_support_mcl&lt;&gt;&gt; </div>
+template&lt;class NearestNeighbourDictionary = nearest_neighbour_dictionary&lt;30&gt;, class RankSupport = rank_support_v&lt;&gt;, class SelectSupport = select_support_mcl&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">size_type <a class="el" href="classsdsl_1_1bp__support__gg.html">sdsl::bp_support_gg</a>&lt; NearestNeighbourDictionary, RankSupport, SelectSupport &gt;::<a class="el" href="classsdsl_1_1bp__support__gg.html#a93c0eff47e262277d3c3a8fbc9c2e0c9">serialize</a> </td>
@@ -653,7 +661,7 @@ template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;30&gt;, class RankSupport  = rank_support_v&lt;&gt;, class SelectSupport  = select_support_mcl&lt;&gt;&gt; </div>
+template&lt;class NearestNeighbourDictionary = nearest_neighbour_dictionary&lt;30&gt;, class RankSupport = rank_support_v&lt;&gt;, class SelectSupport = select_support_mcl&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">size_type <a class="el" href="classsdsl_1_1bp__support__gg.html">sdsl::bp_support_gg</a>&lt; NearestNeighbourDictionary, RankSupport, SelectSupport &gt;::<a class="el" href="classsdsl_1_1bp__support__gg.html#a4e9e205bee57e6c84fc94d351b53299f">size</a> </td>
@@ -676,7 +684,7 @@ template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:35 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:30 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

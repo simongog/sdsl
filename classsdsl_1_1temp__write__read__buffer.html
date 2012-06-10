@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -108,12 +109,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p><code>#include &lt;<a class="el" href="temp__write__read__buffer_8hpp_source.html">temp_write_read_buffer.hpp</a>&gt;</code></p>
+
 <p><a href="classsdsl_1_1temp__write__read__buffer-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:ae1190bf6149af2eef15948dd4360eeb0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae1190bf6149af2eef15948dd4360eeb0"></a>
-typedef int_vector&lt; int_width &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>buffer_type</b></td></tr>
+typedef <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; int_width &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>buffer_type</b></td></tr>
 <tr class="memitem:a4bdcdfc6b07f386bf60d57c2707b32db"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4bdcdfc6b07f386bf60d57c2707b32db"></a>
 typedef buffer_type::size_type&#160;</td><td class="memItemRight" valign="bottom"><b>size_type</b></td></tr>
 <tr class="memitem:a98b6d4928d9b5b607e2841e0a3e1d611"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a98b6d4928d9b5b607e2841e0a3e1d611"></a>
@@ -131,10 +134,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>reset</b> ()</td></tr
 <tr class="memitem:a823b3eec55aee6f6f23c74e34e1058b6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a823b3eec55aee6f6f23c74e34e1058b6"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;&gt;</b> (value_type &amp;x)</td></tr>
 </table>
-<h3>template&lt;uint8_t int_width = 0&gt;<br/>
- class sdsl::temp_write_read_buffer&lt; int_width &gt;</h3>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><h3>template&lt;uint8_t int_width = 0&gt;<br/>
+class sdsl::temp_write_read_buffer&lt; int_width &gt;</h3>
 
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<p>FIFO data structure </p>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a259e890e3fd8bfa7549f548f18c5fef4"></a>
 <div class="memitem">
 <div class="memproto">
@@ -187,7 +192,7 @@ template&lt;uint8_t int_width = 0&gt; </div>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:36 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:32 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

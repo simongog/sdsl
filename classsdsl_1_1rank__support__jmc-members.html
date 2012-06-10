@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -116,7 +117,7 @@ This is the complete list of members for <a class="el" href="classsdsl_1_1rank__
   <tr class="memlist"><td><a class="el" href="classsdsl_1_1rank__support__jmc.html#a8bbe33e4bc8e1cd40668465d965a8af3">rank</a>(size_type idx) const </td><td><a class="el" href="classsdsl_1_1rank__support__jmc.html">sdsl::rank_support_jmc</a></td><td><code> [inline, virtual]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classsdsl_1_1rank__support.html#a9e02940f5de430db7ad48138bcf61cb7">rank_support</a>(const int_vector&lt; 1 &gt; *v=NULL)</td><td><a class="el" href="classsdsl_1_1rank__support.html">sdsl::rank_support</a></td><td><code> [inline]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classsdsl_1_1rank__support.html#a1509cdccde0613cb938de431bcc11fa2">rank_support</a>(const rank_support &amp;rs)</td><td><a class="el" href="classsdsl_1_1rank__support.html">sdsl::rank_support</a></td><td><code> [inline]</code></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>rank_support_jmc</b>(const int_vector&lt; 1 &gt; *v=NULL) (defined in <a class="el" href="classsdsl_1_1rank__support__jmc.html">sdsl::rank_support_jmc</a>)</td><td><a class="el" href="classsdsl_1_1rank__support__jmc.html">sdsl::rank_support_jmc</a></td><td><code> [inline]</code></td></tr>
+  <tr bgcolor="#f0f0f0"><td><b>rank_support_jmc</b>(const int_vector&lt; 1 &gt; *v=NULL) (defined in <a class="el" href="classsdsl_1_1rank__support__jmc.html">sdsl::rank_support_jmc</a>)</td><td><a class="el" href="classsdsl_1_1rank__support__jmc.html">sdsl::rank_support_jmc</a></td><td><code> [inline, explicit]</code></td></tr>
   <tr bgcolor="#f0f0f0"><td><b>rank_support_jmc</b>(const rank_support_jmc &amp;rs) (defined in <a class="el" href="classsdsl_1_1rank__support__jmc.html">sdsl::rank_support_jmc</a>)</td><td><a class="el" href="classsdsl_1_1rank__support__jmc.html">sdsl::rank_support_jmc</a></td><td><code> [inline]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classsdsl_1_1rank__support__jmc.html#adae3d6f90d4d560f5f220378c479cfe3">serialize</a>(std::ostream &amp;out) const </td><td><a class="el" href="classsdsl_1_1rank__support__jmc.html">sdsl::rank_support_jmc</a></td><td><code> [inline, virtual]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classsdsl_1_1rank__support__jmc.html#af7bf7d06971ca11f750cc3dcf5dabce9">set_vector</a>(const int_vector&lt; 1 &gt; *v)</td><td><a class="el" href="classsdsl_1_1rank__support__jmc.html">sdsl::rank_support_jmc</a></td><td><code> [inline, virtual]</code></td></tr>
@@ -128,7 +129,7 @@ This is the complete list of members for <a class="el" href="classsdsl_1_1rank__
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:35 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:31 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

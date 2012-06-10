@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -82,7 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -97,7 +98,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="select__support__dummy_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/* sdsl - succinct data structures library</span>
-<a name="l00002"></a>00002 <span class="comment">    Copyright (C) 2011 Simon Gog </span>
+<a name="l00002"></a>00002 <span class="comment">    Copyright (C) 2011 Simon Gog</span>
 <a name="l00003"></a>00003 <span class="comment"></span>
 <a name="l00004"></a>00004 <span class="comment">    This program is free software: you can redistribute it and/or modify</span>
 <a name="l00005"></a>00005 <span class="comment">    it under the terms of the GNU General Public License as published by</span>
@@ -126,45 +127,45 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00032"></a>00032 <span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="testutils_8hpp.html" title="testutils.hpp contains a &quot;stopwatch&quot; class for performance meassurement of program pieces...">testutils.hpp</a>&quot;</span>
 <a name="l00033"></a>00033 <span class="preprocessor">#endif</span>
 <a name="l00034"></a>00034 <span class="preprocessor"></span>
-<a name="l00036"></a>00036 <span class="keyword">namespace </span>sdsl{
-<a name="l00037"></a>00037 
+<a name="l00036"></a>00036 <span class="keyword">namespace </span>sdsl
+<a name="l00037"></a>00037 {
 <a name="l00038"></a>00038 
-<a name="l00040"></a>00040 
-<a name="l00043"></a><a class="code" href="classsdsl_1_1select__support__dummy.html">00043</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1select__support__dummy.html" title="A dummy class for select.">select_support_dummy</a> : <span class="keyword">public</span> <a class="code" href="classsdsl_1_1select__support.html" title="The base class of classes supporting select queries for a sdsl::bit_vector in constant time...">select_support</a>{
-<a name="l00044"></a>00044         <span class="keyword">public</span>:
-<a name="l00045"></a>00045                 <a class="code" href="classsdsl_1_1select__support__dummy.html" title="A dummy class for select.">select_support_dummy</a>(<span class="keyword">const</span> int_vector&lt;1&gt; *v=NULL);
-<a name="l00046"></a>00046                 <a class="code" href="classsdsl_1_1select__support__dummy.html" title="A dummy class for select.">select_support_dummy</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1select__support__dummy.html" title="A dummy class for select.">select_support_dummy</a> &amp;ss);
-<a name="l00047"></a>00047                 ~<a class="code" href="classsdsl_1_1select__support__dummy.html" title="A dummy class for select.">select_support_dummy</a>();
-<a name="l00048"></a>00048                 <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1select__support__dummy.html#a74aed99fb8bbba5bf3261eeb5bc6615a" title="Initalization method for select_support.">init</a>(<span class="keyword">const</span> int_vector&lt;1&gt; *v=NULL);
-<a name="l00050"></a>00050 
-<a name="l00052"></a>00052                 <span class="keyword">inline</span> <span class="keyword">const</span> size_type <a class="code" href="classsdsl_1_1select__support__dummy.html#ac4cca9b47639835255c3c719cc58b230" title="Select function.">select</a>(size_type i) <span class="keyword">const</span>;
-<a name="l00054"></a>00054                 <span class="keyword">inline</span> <span class="keyword">const</span> size_type <a class="code" href="classsdsl_1_1select__support__dummy.html#aebcba2de57d90a6b30b3e4eb53fd6fa8" title="Alias for select(i).">operator()</a>(size_type i)<span class="keyword">const</span>;
-<a name="l00055"></a>00055                 size_type <a class="code" href="classsdsl_1_1select__support__dummy.html#ac27eaa8eb6b5c8d3b280c526e420e689" title="Serialize the select_support to an out file stream.">serialize</a>(std::ostream &amp;out)<span class="keyword">const</span>;
-<a name="l00056"></a>00056 <span class="preprocessor">#ifdef MEM_INFO         </span>
-<a name="l00057"></a>00057 <span class="preprocessor"></span>                <span class="keywordtype">void</span> mem_info(std::string label=<span class="stringliteral">&quot;&quot;</span>)<span class="keyword">const</span>;
-<a name="l00058"></a>00058 <span class="preprocessor">#endif                  </span>
-<a name="l00059"></a>00059 <span class="preprocessor"></span>                <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1select__support__dummy.html#a690f5a5d1a16fd7d2c147b22bcb3996a" title="Load the select_support from an in file stream.">load</a>(std::istream &amp;in, <span class="keyword">const</span> int_vector&lt;1&gt; *v=NULL);
-<a name="l00060"></a>00060                 <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1select__support__dummy.html#a92bba4ef1294523ac53616ccb3d1ee13" title="This method sets the supported bit_vector.">set_vector</a>(<span class="keyword">const</span> int_vector&lt;1&gt; *v=NULL);
-<a name="l00061"></a>00061                 <a class="code" href="classsdsl_1_1select__support__dummy.html" title="A dummy class for select.">select_support_dummy</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1select__support__dummy.html" title="A dummy class for select.">select_support_dummy</a> &amp;ss);
-<a name="l00062"></a>00062 
+<a name="l00039"></a>00039 
+<a name="l00041"></a>00041 
+<a name="l00044"></a><a class="code" href="classsdsl_1_1select__support__dummy.html">00044</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1select__support__dummy.html" title="A dummy class for select.">select_support_dummy</a> : <span class="keyword">public</span> <a class="code" href="classsdsl_1_1select__support.html" title="The base class of classes supporting select queries for a sdsl::bit_vector in constant time...">select_support</a>
+<a name="l00045"></a>00045 {
+<a name="l00046"></a>00046     <span class="keyword">public</span>:
+<a name="l00047"></a>00047         <a class="code" href="classsdsl_1_1select__support__dummy.html" title="A dummy class for select.">select_support_dummy</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;1&gt;</a>* v=NULL);
+<a name="l00048"></a>00048         <a class="code" href="classsdsl_1_1select__support__dummy.html" title="A dummy class for select.">select_support_dummy</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1select__support__dummy.html" title="A dummy class for select.">select_support_dummy</a>&amp; ss);
+<a name="l00049"></a>00049         ~<a class="code" href="classsdsl_1_1select__support__dummy.html" title="A dummy class for select.">select_support_dummy</a>();
+<a name="l00050"></a>00050         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1select__support__dummy.html#a74aed99fb8bbba5bf3261eeb5bc6615a" title="Initalization method for select_support.">init</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;1&gt;</a>* v=NULL);
+<a name="l00052"></a>00052 
+<a name="l00054"></a>00054         <span class="keyword">inline</span> <span class="keyword">const</span> size_type <a class="code" href="classsdsl_1_1select__support__dummy.html#ac4cca9b47639835255c3c719cc58b230" title="Select function.">select</a>(size_type i) <span class="keyword">const</span>;
+<a name="l00056"></a>00056         <span class="keyword">inline</span> <span class="keyword">const</span> size_type <a class="code" href="classsdsl_1_1select__support__dummy.html#aebcba2de57d90a6b30b3e4eb53fd6fa8" title="Alias for select(i).">operator()</a>(size_type i)<span class="keyword">const</span>;
+<a name="l00057"></a>00057         size_type <a class="code" href="classsdsl_1_1select__support__dummy.html#ac27eaa8eb6b5c8d3b280c526e420e689" title="Serialize the select_support to an out file stream.">serialize</a>(std::ostream&amp; out)<span class="keyword">const</span>;
+<a name="l00058"></a>00058 <span class="preprocessor">#ifdef MEM_INFO</span>
+<a name="l00059"></a>00059 <span class="preprocessor"></span>        <span class="keywordtype">void</span> mem_info(std::string label=<span class="stringliteral">&quot;&quot;</span>)<span class="keyword">const</span>;
+<a name="l00060"></a>00060 <span class="preprocessor">#endif</span>
+<a name="l00061"></a>00061 <span class="preprocessor"></span>        <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1select__support__dummy.html#a690f5a5d1a16fd7d2c147b22bcb3996a" title="Load the select_support from an in file stream.">load</a>(std::istream&amp; in, <span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;1&gt;</a>* v=NULL);
+<a name="l00062"></a>00062         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1select__support__dummy.html#a92bba4ef1294523ac53616ccb3d1ee13" title="This method sets the supported bit_vector.">set_vector</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;1&gt;</a>* v=NULL);
+<a name="l00063"></a>00063         <a class="code" href="classsdsl_1_1select__support__dummy.html" title="A dummy class for select.">select_support_dummy</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1select__support__dummy.html" title="A dummy class for select.">select_support_dummy</a>&amp; ss);
 <a name="l00064"></a>00064 
-<a name="l00067"></a>00067                 <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1select__support__dummy.html#aac3cd40ba191b0951af57193e77520cb" title="Swap operator.">swap</a>(<a class="code" href="classsdsl_1_1select__support__dummy.html" title="A dummy class for select.">select_support_dummy</a> &amp;ss);
-<a name="l00069"></a>00069 
-<a name="l00073"></a>00073                 <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1select__support__dummy.html#a6c170196b4841297497393ab131ec221" title="Equality Operator.">operator==</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1select__support__dummy.html" title="A dummy class for select.">select_support_dummy</a> &amp;ss)<span class="keyword">const</span>;
-<a name="l00075"></a>00075 
-<a name="l00079"></a>00079                 <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1select__support__dummy.html#a61871891945c61717b4510aeb97593b5" title="Unequality Operator.">operator!=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1select__support__dummy.html" title="A dummy class for select.">select_support_dummy</a> &amp;ss)<span class="keyword">const</span>;
-<a name="l00080"></a>00080 };
-<a name="l00081"></a>00081 
-<a name="l00082"></a>00082 
-<a name="l00083"></a>00083 
-<a name="l00084"></a>00084 }
-<a name="l00085"></a>00085 
-<a name="l00086"></a>00086 <span class="preprocessor">#endif</span>
+<a name="l00066"></a>00066         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1select__support__dummy.html#aac3cd40ba191b0951af57193e77520cb" title="Swap operator.">swap</a>(<a class="code" href="classsdsl_1_1select__support__dummy.html" title="A dummy class for select.">select_support_dummy</a>&amp; ss);
+<a name="l00068"></a>00068 
+<a name="l00072"></a>00072         <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1select__support__dummy.html#a6c170196b4841297497393ab131ec221" title="Equality Operator.">operator==</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1select__support__dummy.html" title="A dummy class for select.">select_support_dummy</a>&amp; ss)<span class="keyword">const</span>;
+<a name="l00074"></a>00074         <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1select__support__dummy.html#a61871891945c61717b4510aeb97593b5" title="Unequality Operator.">operator!=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1select__support__dummy.html" title="A dummy class for select.">select_support_dummy</a>&amp; ss)<span class="keyword">const</span>;
+<a name="l00075"></a>00075 };
+<a name="l00076"></a>00076 
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078 
+<a name="l00079"></a>00079 }
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:34 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:28 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

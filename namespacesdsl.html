@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li class="current"><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -81,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -116,6 +117,10 @@ Namespaces</h2></td></tr>
 <tr class="memdesc:namespacesdsl_1_1util"><td class="mdescLeft">&#160;</td><td class="mdescRight">A namespace for helper functions. <br/></td></tr>
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1bit__vector__interleaved.html">bit_vector_interleaved</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A bit vector which interleaves the original bit_vector with rank information.  <a href="classsdsl_1_1bit__vector__interleaved.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rank__support__interleaved.html">rank_support_interleaved</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1select__support__interleaved.html">select_support_interleaved</a></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1bit__magic.html">bit_magic</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A helper class for bitwise tricks on 64 bit words.  <a href="classsdsl_1_1bit__magic.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1bp__support__g.html">bp_support_g</a></td></tr>
@@ -149,11 +154,13 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1cst__dfs__const__forward__iterator.html">cst_dfs_const_forward_iterator</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An forward iterator for (compressed) suffix trees.  <a href="classsdsl_1_1cst__dfs__const__forward__iterator.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1cst__bottom__up__const__forward__iterator.html">cst_bottom_up_const_forward_iterator</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A itertator for a bottom up traversal of a suffix tree.  <a href="classsdsl_1_1cst__bottom__up__const__forward__iterator.html#details">More...</a><br/></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A forward iterator for a bottom up traversal of a suffix tree.  <a href="classsdsl_1_1cst__bottom__up__const__forward__iterator.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1cst__bfs__iterator.html">cst_bfs_iterator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A forward iterator for a breath first traversal of a tree.  <a href="classsdsl_1_1cst__bfs__iterator.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1cst__sada.html">cst_sada</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class for the Compressed Suffix Tree (CST) proposed by Sadakane.  <a href="classsdsl_1_1cst__sada.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdsl_1_1lcp__interval.html">lcp_interval</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A struct for the representation of an lcp-interval <img class="formulaInl" alt="$\ell-[left..right]$" src="form_142.png"/>.  <a href="structsdsl_1_1lcp__interval.html#details">More...</a><br/></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A struct for the representation of an lcp-interval <img class="formulaInl" alt="$\ell-[left..right]$" src="form_144.png"/>.  <a href="structsdsl_1_1lcp__interval.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1cst__sct.html">cst_sct</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class for the Compressed Suffix Tree (CST) proposed by Ohlebusch and Gog.  <a href="classsdsl_1_1cst__sct.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1cst__sct2.html">cst_sct2</a></td></tr>
@@ -183,6 +190,23 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A bit vector which compresses very sparse populated bit vectors by representing the 1 or 0 by gap encoding.  <a href="classsdsl_1_1gap__vector.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1gap__rank__support.html">gap_rank_support</a></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1gap__select__support.html">gap_select_support</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdsl_1_1int__vector__trait.html">int_vector_trait</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdsl_1_1int__vector__trait_3_0164_00_01size__type__class_01_4.html">int_vector_trait&lt; 64, size_type_class &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdsl_1_1int__vector__trait_3_0132_00_01size__type__class_01_4.html">int_vector_trait&lt; 32, size_type_class &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdsl_1_1int__vector__trait_3_0116_00_01size__type__class_01_4.html">int_vector_trait&lt; 16, size_type_class &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdsl_1_1int__vector__trait_3_018_00_01size__type__class_01_4.html">int_vector_trait&lt; 8, size_type_class &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1int__vector.html">int_vector</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A generic vector class for integers of width <img class="formulaInl" alt="$w\in [1..64]$" src="form_173.png"/>.  <a href="classsdsl_1_1int__vector.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1int__vector__reference.html">int_vector_reference</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A proxy class that acts as a reference to an integer of length <code>len</code> bits in a <a class="el" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector</a>.  <a href="classsdsl_1_1int__vector__reference.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1int__vector__reference_3_01bit__vector_01_4.html">int_vector_reference&lt; bit_vector &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1int__vector__iterator__base.html">int_vector_iterator_base</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1int__vector__iterator.html">int_vector_iterator</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1int__vector__const__iterator.html">int_vector_const_iterator</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1char__array__serialize__wrapper.html">char_array_serialize_wrapper</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A wrapper class which allows us to serialize an char array as an <a class="el" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector</a>.  <a href="classsdsl_1_1char__array__serialize__wrapper.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1int__vector__file__buffer.html">int_vector_file_buffer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class for reading an <a class="el" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector</a> buffered from a file.  <a href="classsdsl_1_1int__vector__file__buffer.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1int__vector__serialize__vbyte__wrapper.html">int_vector_serialize_vbyte_wrapper</a></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1int__vector__load__vbyte__wrapper.html">int_vector_load_vbyte_wrapper</a></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1int__vector__serialize__wrapper.html">int_vector_serialize_wrapper</a></td></tr>
@@ -208,12 +232,16 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1lcp__vlc.html">lcp_vlc</a></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1lcp__wt.html">lcp_wt</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class for the compressed version of lcp information of an suffix array.  <a href="classsdsl_1_1lcp__wt.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1louds__node.html">louds_node</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class for the node representation of <a class="el" href="classsdsl_1_1louds__tree.html" title="A tree class based on the level order unary degree sequence (LOUDS) representation.">louds_tree</a>.  <a href="classsdsl_1_1louds__node.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1louds__tree.html">louds_tree</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A tree class based on the level order unary degree sequence (LOUDS) representation.  <a href="classsdsl_1_1louds__tree.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1nearest__neighbour__dictionary.html">nearest_neighbour_dictionary</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nearest neighbour dictionary for sparse uniform sets (described in Geary et al., A Simple Optimal Representation for Balanced Parentheses, CPM 2004).  <a href="classsdsl_1_1nearest__neighbour__dictionary.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1nn__dict__dynamic.html">nn_dict_dynamic</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class for a dynamic bit vector which also supports the prev and next operations.  <a href="classsdsl_1_1nn__dict__dynamic.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rank__support.html">rank_support</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The base class of classes supporting rank_queries for a sdsl::bit_vector in constant time.  <a href="classsdsl_1_1rank__support.html#details">More...</a><br/></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The base class of classes supporting rank_queries for a <a class="el" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb" title="bit_vector is a specialization of the int_vector.">sdsl::bit_vector</a> in constant time.  <a href="classsdsl_1_1rank__support.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rank__support__jmc.html">rank_support_jmc</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class supporting rank queries in constant time. The implementation is a lightweight version of the data structure proposed by Jacobson (1989), Munro (1996), and Clark (1996).  <a href="classsdsl_1_1rank__support__jmc.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdsl_1_1rank__support__v__trait.html">rank_support_v_trait</a></td></tr>
@@ -234,8 +262,16 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdsl_1_1range__maximum__support__sparse__table.html">range_maximum_support_sparse_table</a></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rmq__support__sparse__table.html">rmq_support_sparse_table</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class to support range minimum or range maximum queries on a random access container.  <a href="classsdsl_1_1rmq__support__sparse__table.html#details">More...</a><br/></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1binomial.html">binomial</a></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1binomial2.html">binomial2</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdsl_1_1binomial__coefficients__trait.html">binomial_coefficients_trait</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trait class for the binomial coefficient class to handle different type of intergers.  <a href="structsdsl_1_1binomial__coefficients__trait.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdsl_1_1binomial__coefficients__trait_3_017_01_4.html">binomial_coefficients_trait&lt; 7 &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialization of <a class="el" href="structsdsl_1_1binomial__coefficients__trait.html" title="Trait class for the binomial coefficient class to handle different type of intergers.">binomial_coefficients_trait</a> for 128-bit integers.  <a href="structsdsl_1_1binomial__coefficients__trait_3_017_01_4.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdsl_1_1binomial__coefficients__trait_3_018_01_4.html">binomial_coefficients_trait&lt; 8 &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialization of <a class="el" href="structsdsl_1_1binomial__coefficients__trait.html" title="Trait class for the binomial coefficient class to handle different type of intergers.">binomial_coefficients_trait</a> for 256-bit integers.  <a href="structsdsl_1_1binomial__coefficients__trait_3_018_01_4.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1binomial__coefficients.html">binomial_coefficients</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class for the binomial coefficients up to n.  <a href="classsdsl_1_1binomial__coefficients.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rrr__helper.html">rrr_helper</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class to encode and decode binomial coefficients on the fly.  <a href="classsdsl_1_1rrr__helper.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rrr__vector.html">rrr_vector</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A bit vector which compresses the input with the method from Raman, Raman, and Rao.  <a href="classsdsl_1_1rrr__vector.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdsl_1_1rrr__rank__support__trait.html">rrr_rank_support_trait</a></td></tr>
@@ -244,18 +280,19 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classsdsl_1_1rank__support.html" title="The base class of classes supporting rank_queries for a sdsl::bit_vector in constant time...">rank_support</a> for the <a class="el" href="classsdsl_1_1rrr__vector.html" title="A bit vector which compresses the input with the method from Raman, Raman, and Rao.">rrr_vector</a> class  <a href="classsdsl_1_1rrr__rank__support.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rrr__select__support.html">rrr_select_support</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Select support for the <a class="el" href="classsdsl_1_1rrr__vector.html" title="A bit vector which compresses the input with the method from Raman, Raman, and Rao.">rrr_vector</a> class.  <a href="classsdsl_1_1rrr__select__support.html#details">More...</a><br/></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rrr__vector__var.html">rrr_vector_var</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A bit vector which compresses the input with the method from Raman, Raman, and Rao.  <a href="classsdsl_1_1rrr__vector__var.html#details">More...</a><br/></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdsl_1_1rrr__rank__support__var__trait.html">rrr_rank_support_var_trait</a></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdsl_1_1rrr__rank__support__var__trait_3_010_01_4.html">rrr_rank_support_var_trait&lt; 0 &gt;</a></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rrr__rank__support__var.html">rrr_rank_support_var</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classsdsl_1_1rank__support.html" title="The base class of classes supporting rank_queries for a sdsl::bit_vector in constant time...">rank_support</a> for the <a class="el" href="classsdsl_1_1rrr__vector__var.html" title="A bit vector which compresses the input with the method from Raman, Raman, and Rao.">rrr_vector_var</a> class  <a href="classsdsl_1_1rrr__rank__support__var.html#details">More...</a><br/></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rrr__select__support__var.html">rrr_select_support_var</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Select support for the <a class="el" href="classsdsl_1_1rrr__vector__var.html" title="A bit vector which compresses the input with the method from Raman, Raman, and Rao.">rrr_vector_var</a> class.  <a href="classsdsl_1_1rrr__select__support__var.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1binomial.html">binomial</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rrr__vector_3_0115_00_01wt__type_01_4.html">rrr_vector&lt; 15, wt_type &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A specialization of the <a class="el" href="classsdsl_1_1rrr__vector.html" title="A bit vector which compresses the input with the method from Raman, Raman, and Rao.">rrr_vector</a> class for a block_size of 15.  <a href="classsdsl_1_1rrr__vector_3_0115_00_01wt__type_01_4.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rrr__rank__support_3_01b_00_0115_00_01wt__type_01_4.html">rrr_rank_support&lt; b, 15, wt_type &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classsdsl_1_1rank__support.html" title="The base class of classes supporting rank_queries for a sdsl::bit_vector in constant time...">rank_support</a> for the specialized <a class="el" href="classsdsl_1_1rrr__vector.html" title="A bit vector which compresses the input with the method from Raman, Raman, and Rao.">rrr_vector</a> class of block size 15.  <a href="classsdsl_1_1rrr__rank__support_3_01b_00_0115_00_01wt__type_01_4.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rrr__select__support_3_01b_00_0115_00_01wt__type_01_4.html">rrr_select_support&lt; b, 15, wt_type &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Select support for the specialized <a class="el" href="classsdsl_1_1rrr__vector.html" title="A bit vector which compresses the input with the method from Raman, Raman, and Rao.">rrr_vector</a> class of block size 15.  <a href="classsdsl_1_1rrr__select__support_3_01b_00_0115_00_01wt__type_01_4.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1sd__vector.html">sd_vector</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A bit vector which compresses very sparse populated bit vectors by.  <a href="classsdsl_1_1sd__vector.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1sd__rank__support.html">sd_rank_support</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rank data structure for <a class="el" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">sd_vector</a>.  <a href="classsdsl_1_1sd__rank__support.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1sd__select__support.html">sd_select_support</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Select data structure for <a class="el" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">sd_vector</a>.  <a href="classsdsl_1_1sd__select__support.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdsl_1_1csa__tag.html">csa_tag</a></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdsl_1_1cst__tag.html">cst_tag</a></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdsl_1_1lcp__plain__tag.html">lcp_plain_tag</a></td></tr>
@@ -263,7 +300,7 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdsl_1_1lcp__tree__compressed__tag.html">lcp_tree_compressed_tag</a></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdsl_1_1lcp__tree__and__lf__compressed__tag.html">lcp_tree_and_lf_compressed_tag</a></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1select__support.html">select_support</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The base class of classes supporting select queries for a sdsl::bit_vector in constant time.  <a href="classsdsl_1_1select__support.html#details">More...</a><br/></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The base class of classes supporting select queries for a <a class="el" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb" title="bit_vector is a specialization of the int_vector.">sdsl::bit_vector</a> in constant time.  <a href="classsdsl_1_1select__support.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1select__support__bs.html">select_support_bs</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class supporting select quries by using a <a class="el" href="classsdsl_1_1rank__support.html" title="The base class of classes supporting rank_queries for a sdsl::bit_vector in constant time...">rank_support</a> and binary search.  <a href="classsdsl_1_1select__support__bs.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1select__support__dummy.html">select_support_dummy</a></td></tr>
@@ -276,7 +313,7 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1select__support__mcl.html">select_support_mcl</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class supporting constant time select queries (proposed by Munro/Clark, 1996) enhanced by broadword computing tricks.  <a href="classsdsl_1_1select__support__mcl.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1sorted__int__stack.html">sorted_int_stack</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A stack class which can contain integers from <img class="formulaInl" alt="$0$" src="form_213.png"/> to <img class="formulaInl" alt="$n-1$" src="form_214.png"/> in sorted order.  <a href="classsdsl_1_1sorted__int__stack.html#details">More...</a><br/></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A stack class which can contain integers from <img class="formulaInl" alt="$0$" src="form_228.png"/> to <img class="formulaInl" alt="$n-1$" src="form_229.png"/> in sorted order.  <a href="classsdsl_1_1sorted__int__stack.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1sorted__multi__stack__support.html">sorted_multi_stack_support</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A stack class which contains ...  <a href="classsdsl_1_1sorted__multi__stack__support.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1sorted__stack__support.html">sorted_stack_support</a></td></tr>
@@ -286,7 +323,7 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1psi__of__sa__and__isa.html">psi_of_sa_and_isa</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A helper class for the <img class="formulaInl" alt="$\Psi$" src="form_6.png"/> function for (compressed) suffix arrays which provide also the inverse suffix array values (like <a class="el" href="classsdsl_1_1csa__uncompressed.html" title="A class for the uncmpressed suffix array (SA).">sdsl::csa_uncompressed</a>).  <a href="classsdsl_1_1psi__of__sa__and__isa.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1bwt__of__csa__psi.html">bwt_of_csa_psi</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A wrapper for the bwt of a compressed suffix array that is based on the <img class="formulaInl" alt="$\psi$" src="form_215.png"/> function.  <a href="classsdsl_1_1bwt__of__csa__psi.html#details">More...</a><br/></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A wrapper for the bwt of a compressed suffix array that is based on the <img class="formulaInl" alt="$\psi$" src="form_230.png"/> function.  <a href="classsdsl_1_1bwt__of__csa__psi.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1temp__write__read__buffer.html">temp_write_read_buffer</a></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1stop__watch.html">stop_watch</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A helper class to meassure the time consumption of program pieces.  <a href="classsdsl_1_1stop__watch.html#details">More...</a><br/></td></tr>
@@ -294,6 +331,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A helper class to get time information.  <a href="classsdsl_1_1clock.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1file.html">file</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A helper class to handle files.  <a href="classsdsl_1_1file.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1uint256__t.html">uint256_t</a></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdsl_1_1vlc__vector__trait.html">vlc_vector_trait</a></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdsl_1_1vlc__vector__trait_3_0132_01_4.html">vlc_vector_trait&lt; 32 &gt;</a></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1vlc__vector.html">vlc_vector</a></td></tr>
@@ -318,24 +356,31 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A Wavelet Tree class for byte sequences.  <a href="classsdsl_1_1wt__rlmn.html#details">More...</a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
+<tr class="memitem:a8c93cd5343cbafc4d1b44861231d6a07"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8c93cd5343cbafc4d1b44861231d6a07"></a>
+typedef uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>std_size_type_for_int_vector</b></td></tr>
+<tr class="memitem:a93df8f263fced9ae9a8b0f9f37e444eb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a93df8f263fced9ae9a8b0f9f37e444eb"></a>
+typedef <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb">bit_vector</a></td></tr>
+<tr class="memdesc:a93df8f263fced9ae9a8b0f9f37e444eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">bit_vector is a specialization of the <a class="el" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector</a>. <br/></td></tr>
 <tr class="memitem:ae8672206e98803e0530ed9541ca5d8ea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae8672206e98803e0530ed9541ca5d8ea"></a>
-typedef std::list&lt; int_vector<br class="typebreak"/>
+typedef std::list&lt; <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a><br class="typebreak"/>
 &lt;&gt;::size_type &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>tLI</b></td></tr>
 <tr class="memitem:ab74bbd5b19812bed437ae3ede9eab50c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab74bbd5b19812bed437ae3ede9eab50c"></a>
 typedef std::vector<br class="typebreak"/>
-&lt; int_vector&lt;&gt;::size_type &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>tVI</b></td></tr>
+&lt; <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt;&gt;::size_type &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>tVI</b></td></tr>
 <tr class="memitem:a254e0582cdc78b259b2294d6687c28d8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a254e0582cdc78b259b2294d6687c28d8"></a>
 typedef std::map&lt; std::string, <br class="typebreak"/>
 std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>tMSS</b></td></tr>
 <tr class="memitem:ac4851d5c2b608f04bff98d170b60ffd0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac4851d5c2b608f04bff98d170b60ffd0"></a>
 typedef std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>tVS</b></td></tr>
+<tr class="memitem:a2537aa8063ec7bb70da91ac471761bb3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2537aa8063ec7bb70da91ac471761bb3"></a>
+typedef unsigned int uint128_t&#160;</td><td class="memItemRight" valign="bottom"><b>__attribute__</b> ((mode(TI)))</td></tr>
 <tr class="memitem:aa2567c0ab442126aeeae17f56e381fcd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa2567c0ab442126aeeae17f56e381fcd"></a>
 typedef <a class="el" href="classsdsl_1_1wt__huff.html">wt_huff</a>&lt; <a class="el" href="classsdsl_1_1rrr__vector.html">rrr_vector</a><br class="typebreak"/>
 &lt;&gt;, <a class="el" href="classsdsl_1_1rrr__vector.html">rrr_vector</a>&lt;&gt;::rank_1_type, <br class="typebreak"/>
 <a class="el" href="classsdsl_1_1rrr__vector.html">rrr_vector</a>&lt;&gt;::select_1_type, <br class="typebreak"/>
 <a class="el" href="classsdsl_1_1rrr__vector.html">rrr_vector</a>&lt;&gt;::select_0_type, 0 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>wt_huff_rrr</b></td></tr>
 <tr class="memitem:a52dd5e6787e1465b6c4936428c63280c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a52dd5e6787e1465b6c4936428c63280c"></a>
-typedef <a class="el" href="classsdsl_1_1wt__huff.html">wt_huff</a>&lt; bit_vector, <br class="typebreak"/>
+typedef <a class="el" href="classsdsl_1_1wt__huff.html">wt_huff</a>&lt; <a class="el" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb">bit_vector</a>, <br class="typebreak"/>
 <a class="el" href="classsdsl_1_1rank__support__v5.html">rank_support_v5</a><br class="typebreak"/>
 &lt;&gt;, <a class="el" href="classsdsl_1_1select__support__bs.html">select_support_bs</a><br class="typebreak"/>
 &lt;&gt;, <a class="el" href="classsdsl_1_1select__support__bs.html">select_support_bs</a>&lt;&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>wt_without_select</b></td></tr>
@@ -361,6 +406,25 @@ template&lt;class Int &gt; </td></tr>
 <tr class="memitem:a56a1f9c3486668906a4ea66795db468b"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;os, const <a class="el" href="structsdsl_1_1bp__interval.html">bp_interval</a>&lt; Int &gt; &amp;interval)</td></tr>
 <tr class="memitem:a20393b6b6cf8245aa525b643a36176cf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a20393b6b6cf8245aa525b643a36176cf"></a>
 uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>decode64bit</b> (uint64_t w)</td></tr>
+<tr class="memitem:ad8ca33a4202bbcefcb136ed695debdd8"><td class="memTemplParams" colspan="2"><a class="anchor" id="ad8ca33a4202bbcefcb136ed695debdd8"></a>
+template&lt;class int_vector &gt; </td></tr>
+<tr class="memitem:ad8ca33a4202bbcefcb136ed695debdd8"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classsdsl_1_1int__vector__iterator.html">int_vector_iterator</a>&lt; <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator+</b> (typename <a class="el" href="classsdsl_1_1int__vector__iterator.html">int_vector_iterator</a>&lt; <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a> &gt;::difference_type n, const <a class="el" href="classsdsl_1_1int__vector__iterator.html">int_vector_iterator</a>&lt; <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a> &gt; &amp;it)</td></tr>
+<tr class="memitem:ad2be861d11795ed9a03afd41020053dd"><td class="memTemplParams" colspan="2"><a class="anchor" id="ad2be861d11795ed9a03afd41020053dd"></a>
+template&lt;class int_vector &gt; </td></tr>
+<tr class="memitem:ad2be861d11795ed9a03afd41020053dd"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classsdsl_1_1int__vector__const__iterator.html">int_vector_const_iterator</a><br class="typebreak"/>
+&lt; <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a> &gt;<br class="typebreak"/>
+::difference_type&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator-</b> (const <a class="el" href="classsdsl_1_1int__vector__const__iterator.html">int_vector_const_iterator</a>&lt; <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a> &gt; &amp;x, const <a class="el" href="classsdsl_1_1int__vector__const__iterator.html">int_vector_const_iterator</a>&lt; <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a> &gt; &amp;y)</td></tr>
+<tr class="memitem:a35f48db0edcfbc1dacca803d5e6a24e9"><td class="memTemplParams" colspan="2"><a class="anchor" id="a35f48db0edcfbc1dacca803d5e6a24e9"></a>
+template&lt;class int_vector &gt; </td></tr>
+<tr class="memitem:a35f48db0edcfbc1dacca803d5e6a24e9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classsdsl_1_1int__vector__const__iterator.html">int_vector_const_iterator</a><br class="typebreak"/>
+&lt; <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator+</b> (typename <a class="el" href="classsdsl_1_1int__vector__const__iterator.html">int_vector_const_iterator</a>&lt; <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a> &gt;::difference_type n, const <a class="el" href="classsdsl_1_1int__vector__const__iterator.html">int_vector_const_iterator</a>&lt; <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a> &gt; &amp;it)</td></tr>
+<tr class="memitem:a8fa9e88cf7859bd834ac9b12dc3931b5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8fa9e88cf7859bd834ac9b12dc3931b5"></a>
+std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;os, const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 1 &gt; &amp;v)</td></tr>
+<tr class="memitem:aca89230548f6ad69d04aa1f8e85143f2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aca89230548f6ad69d04aa1f8e85143f2"></a>
+std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;os, const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 0 &gt; &amp;v)</td></tr>
+<tr class="memitem:a5c7628fc70bba30e310e16c971b72a72"><td class="memTemplParams" colspan="2"><a class="anchor" id="a5c7628fc70bba30e310e16c971b72a72"></a>
+template&lt;class size_type_class &gt; </td></tr>
+<tr class="memitem:a5c7628fc70bba30e310e16c971b72a72"><td class="memTemplItemLeft" align="right" valign="top">size_type_class&#160;</td><td class="memTemplItemRight" valign="bottom"><b>_sdsl_serialize_size_and_int_width</b> (std::ostream &amp;out, uint8_t fixed_int_width, uint8_t int_width, size_type_class size)</td></tr>
 <tr class="memitem:aa1800d2ffff6fb79021c88b7c9e6caac"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa1800d2ffff6fb79021c88b7c9e6caac"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>construct_isa</b> (tMSS &amp;file_map, const std::string &amp;dir, const std::string &amp;id)</td></tr>
 <tr class="memitem:ace3686eb1137a70b264621e0c3ae238a"><td class="memTemplParams" colspan="2"><a class="anchor" id="ace3686eb1137a70b264621e0c3ae238a"></a>
@@ -374,16 +438,16 @@ template&lt;class RandomAccessContainer &gt; </td></tr>
 &lt; RandomAccessContainer &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator+</b> (typename <a class="el" href="classsdsl_1_1random__access__const__iterator.html">random_access_const_iterator</a>&lt; RandomAccessContainer &gt;::difference_type n, const <a class="el" href="classsdsl_1_1random__access__const__iterator.html">random_access_const_iterator</a>&lt; RandomAccessContainer &gt; &amp;it)</td></tr>
 <tr class="memitem:a0b1236eeb07b4584bc222faaa2685ff5"><td class="memTemplParams" colspan="2"><a class="anchor" id="a0b1236eeb07b4584bc222faaa2685ff5"></a>
 template&lt;class Lcp , class Cst , uint8_t int_width, class size_type_class , uint8_t int_width1, class size_type_class1 &gt; </td></tr>
-<tr class="memitem:a0b1236eeb07b4584bc222faaa2685ff5"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>construct_lcp</b> (Lcp &amp;lcp, const Cst &amp;cst, int_vector_file_buffer&lt; int_width, size_type_class &gt; &amp;lcp_buf, int_vector_file_buffer&lt; int_width1, size_type_class1 &gt; &amp;isa_buf)</td></tr>
+<tr class="memitem:a0b1236eeb07b4584bc222faaa2685ff5"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>construct_lcp</b> (Lcp &amp;lcp, const Cst &amp;cst, <a class="el" href="classsdsl_1_1int__vector__file__buffer.html">int_vector_file_buffer</a>&lt; int_width, size_type_class &gt; &amp;lcp_buf, <a class="el" href="classsdsl_1_1int__vector__file__buffer.html">int_vector_file_buffer</a>&lt; int_width1, size_type_class1 &gt; &amp;isa_buf)</td></tr>
 <tr class="memitem:a3c9a73f6130a68eb9f441f42483c965f"><td class="memTemplParams" colspan="2"><a class="anchor" id="a3c9a73f6130a68eb9f441f42483c965f"></a>
 template&lt;class Lcp , class Cst , uint8_t int_width, class size_type_class , uint8_t int_width1, class size_type_class1 &gt; </td></tr>
-<tr class="memitem:a3c9a73f6130a68eb9f441f42483c965f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>construct_lcp</b> (Lcp &amp;lcp, const Cst &amp;cst, int_vector_file_buffer&lt; int_width, size_type_class &gt; &amp;lcp_buf, int_vector_file_buffer&lt; int_width1, size_type_class1 &gt; &amp;isa_buf, <a class="el" href="structsdsl_1_1lcp__plain__tag.html">lcp_plain_tag</a>)</td></tr>
+<tr class="memitem:a3c9a73f6130a68eb9f441f42483c965f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>construct_lcp</b> (Lcp &amp;lcp, const Cst &amp;cst, <a class="el" href="classsdsl_1_1int__vector__file__buffer.html">int_vector_file_buffer</a>&lt; int_width, size_type_class &gt; &amp;lcp_buf, <a class="el" href="classsdsl_1_1int__vector__file__buffer.html">int_vector_file_buffer</a>&lt; int_width1, size_type_class1 &gt; &amp;isa_buf, <a class="el" href="structsdsl_1_1lcp__plain__tag.html">lcp_plain_tag</a>)</td></tr>
 <tr class="memitem:adb415ab46da7142cd0dabedca9eacbf2"><td class="memTemplParams" colspan="2"><a class="anchor" id="adb415ab46da7142cd0dabedca9eacbf2"></a>
 template&lt;class Lcp , class Cst , uint8_t int_width, class size_type_class , uint8_t int_width1, class size_type_class1 &gt; </td></tr>
-<tr class="memitem:adb415ab46da7142cd0dabedca9eacbf2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>construct_lcp</b> (Lcp &amp;lcp, const Cst &amp;cst, int_vector_file_buffer&lt; int_width, size_type_class &gt; &amp;lcp_buf, int_vector_file_buffer&lt; int_width1, size_type_class1 &gt; &amp;isa_buf, <a class="el" href="structsdsl_1_1lcp__permuted__tag.html">lcp_permuted_tag</a>)</td></tr>
+<tr class="memitem:adb415ab46da7142cd0dabedca9eacbf2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>construct_lcp</b> (Lcp &amp;lcp, const Cst &amp;cst, <a class="el" href="classsdsl_1_1int__vector__file__buffer.html">int_vector_file_buffer</a>&lt; int_width, size_type_class &gt; &amp;lcp_buf, <a class="el" href="classsdsl_1_1int__vector__file__buffer.html">int_vector_file_buffer</a>&lt; int_width1, size_type_class1 &gt; &amp;isa_buf, <a class="el" href="structsdsl_1_1lcp__permuted__tag.html">lcp_permuted_tag</a>)</td></tr>
 <tr class="memitem:a4effbaf5cd81a73fff25faa6ee7d03dd"><td class="memTemplParams" colspan="2"><a class="anchor" id="a4effbaf5cd81a73fff25faa6ee7d03dd"></a>
 template&lt;class Lcp , class Cst , uint8_t int_width, class size_type_class , uint8_t int_width1, class size_type_class1 &gt; </td></tr>
-<tr class="memitem:a4effbaf5cd81a73fff25faa6ee7d03dd"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>construct_lcp</b> (Lcp &amp;lcp, const Cst &amp;cst, int_vector_file_buffer&lt; int_width, size_type_class &gt; &amp;lcp_buf, int_vector_file_buffer&lt; int_width1, size_type_class1 &gt; &amp;isa_buf, <a class="el" href="structsdsl_1_1lcp__tree__compressed__tag.html">lcp_tree_compressed_tag</a>)</td></tr>
+<tr class="memitem:a4effbaf5cd81a73fff25faa6ee7d03dd"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>construct_lcp</b> (Lcp &amp;lcp, const Cst &amp;cst, <a class="el" href="classsdsl_1_1int__vector__file__buffer.html">int_vector_file_buffer</a>&lt; int_width, size_type_class &gt; &amp;lcp_buf, <a class="el" href="classsdsl_1_1int__vector__file__buffer.html">int_vector_file_buffer</a>&lt; int_width1, size_type_class1 &gt; &amp;isa_buf, <a class="el" href="structsdsl_1_1lcp__tree__compressed__tag.html">lcp_tree_compressed_tag</a>)</td></tr>
 <tr class="memitem:a044349f842ecf203bb99a4dc0b00d2c3"><td class="memTemplParams" colspan="2"><a class="anchor" id="a044349f842ecf203bb99a4dc0b00d2c3"></a>
 template&lt;class Lcp , class Cst &gt; </td></tr>
 <tr class="memitem:a044349f842ecf203bb99a4dc0b00d2c3"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>construct_lcp</b> (Lcp &amp;lcp, const Cst &amp;cst, tMSS &amp;file_map, const std::string dir, const std::string id)</td></tr>
@@ -414,6 +478,21 @@ template&lt;class Lcp , class Cst &gt; </td></tr>
 <tr class="memitem:aa47b6073dbad0235d87fc414b51168ee"><td class="memTemplParams" colspan="2"><a class="anchor" id="aa47b6073dbad0235d87fc414b51168ee"></a>
 template&lt;class Lcp , class Cst &gt; </td></tr>
 <tr class="memitem:aa47b6073dbad0235d87fc414b51168ee"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>copy_lcp</b> (Lcp &amp;lcp, const Lcp &amp;lcp_c, const Cst &amp;cst, <a class="el" href="structsdsl_1_1lcp__tree__and__lf__compressed__tag.html">lcp_tree_and_lf_compressed_tag</a>)</td></tr>
+<tr class="memitem:a38fecc971b95124b67f4452269176ad0"><td class="memTemplParams" colspan="2"><a class="anchor" id="a38fecc971b95124b67f4452269176ad0"></a>
+template&lt;class Lcp , class Cst &gt; </td></tr>
+<tr class="memitem:a38fecc971b95124b67f4452269176ad0"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>swap_lcp</b> (Lcp &amp;lcp1, Lcp &amp;lcp2, const Cst &amp;cst1, const Cst &amp;cst2)</td></tr>
+<tr class="memitem:a2cf736efba2a36d2730db78cda72d3c1"><td class="memTemplParams" colspan="2"><a class="anchor" id="a2cf736efba2a36d2730db78cda72d3c1"></a>
+template&lt;class Lcp , class Cst &gt; </td></tr>
+<tr class="memitem:a2cf736efba2a36d2730db78cda72d3c1"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>swap_lcp</b> (Lcp &amp;lcp1, Lcp &amp;lcp2, const Cst &amp;cst1, const Cst &amp;cst2, <a class="el" href="structsdsl_1_1lcp__plain__tag.html">lcp_plain_tag</a>)</td></tr>
+<tr class="memitem:a9e4858eae4c43635159e39e34531fcc3"><td class="memTemplParams" colspan="2"><a class="anchor" id="a9e4858eae4c43635159e39e34531fcc3"></a>
+template&lt;class Lcp , class Cst &gt; </td></tr>
+<tr class="memitem:a9e4858eae4c43635159e39e34531fcc3"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>swap_lcp</b> (Lcp &amp;lcp1, Lcp &amp;lcp2, const Cst &amp;cst1, const Cst &amp;cst2, <a class="el" href="structsdsl_1_1lcp__permuted__tag.html">lcp_permuted_tag</a>)</td></tr>
+<tr class="memitem:aea28a36b040e48028309b523b2bea164"><td class="memTemplParams" colspan="2"><a class="anchor" id="aea28a36b040e48028309b523b2bea164"></a>
+template&lt;class Lcp , class Cst &gt; </td></tr>
+<tr class="memitem:aea28a36b040e48028309b523b2bea164"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>swap_lcp</b> (Lcp &amp;lcp1, Lcp &amp;lcp2, const Cst &amp;cst1, const Cst &amp;cst2, <a class="el" href="structsdsl_1_1lcp__tree__compressed__tag.html">lcp_tree_compressed_tag</a>)</td></tr>
+<tr class="memitem:aefffc135b06eb584c87b06f5588638a4"><td class="memTemplParams" colspan="2"><a class="anchor" id="aefffc135b06eb584c87b06f5588638a4"></a>
+template&lt;class Lcp , class Cst &gt; </td></tr>
+<tr class="memitem:aefffc135b06eb584c87b06f5588638a4"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>swap_lcp</b> (Lcp &amp;lcp1, Lcp &amp;lcp2, const Cst &amp;cst1, const Cst &amp;cst2, <a class="el" href="structsdsl_1_1lcp__tree__and__lf__compressed__tag.html">lcp_tree_and_lf_compressed_tag</a>)</td></tr>
 <tr class="memitem:a9fec0293a3751170067f452a3d352867"><td class="memTemplParams" colspan="2"><a class="anchor" id="a9fec0293a3751170067f452a3d352867"></a>
 template&lt;class Lcp , class Cst &gt; </td></tr>
 <tr class="memitem:a9fec0293a3751170067f452a3d352867"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>load_lcp</b> (Lcp &amp;lcp, std::istream &amp;in, const Cst &amp;cst)</td></tr>
@@ -453,6 +532,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>construct_lcp_simple2
 <tr class="memdesc:aa99d7a193bf9889994ef8bc1cb3da646"><td class="mdescLeft">&#160;</td><td class="mdescRight">Our new 2 phases lcp algorithm using usually 1 n bytes.  <a href="#aa99d7a193bf9889994ef8bc1cb3da646"></a><br/></td></tr>
 <tr class="memitem:aca6b6154d2cc20aec31d986684f39b5a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aca6b6154d2cc20aec31d986684f39b5a"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>lcp_info</b> (tMSS &amp;file_map)</td></tr>
+<tr class="memitem:a1e7223b0ea6e774d0c549e3fb8a16d59"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1e7223b0ea6e774d0c549e3fb8a16d59"></a>
+std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;os, const <a class="el" href="classsdsl_1_1louds__node.html">louds_node</a> &amp;v)</td></tr>
 <tr class="memitem:ac80054ed6a03880ca9d4065ffe3f6c0a"><td class="memTemplParams" colspan="2">template&lt;class tCst &gt; </td></tr>
 <tr class="memitem:ac80054ed6a03880ca9d4065ffe3f6c0a"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl.html#ac80054ed6a03880ca9d4065ffe3f6c0a">H0</a> (const typename tCst::node_type &amp;v, const tCst &amp;cst)</td></tr>
 <tr class="memdesc:ac80054ed6a03880ca9d4065ffe3f6c0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the zeroth order entropy of the text that follows a certain substring s.  <a href="#ac80054ed6a03880ca9d4065ffe3f6c0a"></a><br/></td></tr>
@@ -465,9 +546,9 @@ template&lt;class Csa &gt; </td></tr>
 <tr class="memitem:a9f5fc126859d8c6f039fc67d6738c7f5"><td class="memTemplParams" colspan="2"><a class="anchor" id="a9f5fc126859d8c6f039fc67d6738c7f5"></a>
 template&lt;class Cst &gt; </td></tr>
 <tr class="memitem:a9f5fc126859d8c6f039fc67d6738c7f5"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>cst_info</b> (const Cst &amp;cst)</td></tr>
-<tr class="memitem:a5f6a02e4b904f1593cdf44ac0626da30"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5f6a02e4b904f1593cdf44ac0626da30"></a>
-int_vector&lt; 32 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesdsl.html#a5f6a02e4b904f1593cdf44ac0626da30">get_rnd_positions</a> (uint8_t log_s, uint64_t &amp;mask, uint64_t m=0, uint64_t x=17)</td></tr>
-<tr class="memdesc:a5f6a02e4b904f1593cdf44ac0626da30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create 1^{log_s} random intergers mod m with seed x. <br/></td></tr>
+<tr class="memitem:a2cf94834fbf70b7144b0db7c9d73a5da"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2cf94834fbf70b7144b0db7c9d73a5da"></a>
+<a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 64 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesdsl.html#a2cf94834fbf70b7144b0db7c9d73a5da">get_rnd_positions</a> (uint8_t log_s, uint64_t &amp;mask, uint64_t m=0, uint64_t x=17)</td></tr>
+<tr class="memdesc:a2cf94834fbf70b7144b0db7c9d73a5da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create 1^{log_s} random intergers mod m with seed x. <br/></td></tr>
 <tr class="memitem:a0539789b0c02c92136f49bdb04529bb4"><td class="memTemplParams" colspan="2"><a class="anchor" id="a0539789b0c02c92136f49bdb04529bb4"></a>
 template&lt;class Vector &gt; </td></tr>
 <tr class="memitem:a0539789b0c02c92136f49bdb04529bb4"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>test_int_vector_random_access</b> (const Vector &amp;v, bit_vector::size_type times=100000000)</td></tr>
@@ -539,15 +620,15 @@ template&lt;class Lcp &gt; </td></tr>
 <tr class="memitem:a828748493020c4ba4d22c1dddf0d86c2"><td class="memTemplParams" colspan="2">template&lt;class Lcp &gt; </td></tr>
 <tr class="memitem:a828748493020c4ba4d22c1dddf0d86c2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl.html#a828748493020c4ba4d22c1dddf0d86c2">test_lcp_sequential_access</a> (Lcp &amp;lcp, typename Lcp::size_type times=10000000)</td></tr>
 <tr class="memdesc:a828748493020c4ba4d22c1dddf0d86c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make sequential accesses to an LCP array.  <a href="#a828748493020c4ba4d22c1dddf0d86c2"></a><br/></td></tr>
-<tr class="memitem:a97cfc02477e1b8a4bbe36a6f244cd259"><td class="memTemplParams" colspan="2">template&lt;class Lcp &gt; </td></tr>
-<tr class="memitem:a97cfc02477e1b8a4bbe36a6f244cd259"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl.html#a97cfc02477e1b8a4bbe36a6f244cd259">test_lcp_random_sequential_access</a> (Lcp &amp;lcp, typename Lcp::size_type times=1000000, typename Lcp::size_type seq_len=32)</td></tr>
-<tr class="memdesc:a97cfc02477e1b8a4bbe36a6f244cd259"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make random sequential accesse to an LCP array.  <a href="#a97cfc02477e1b8a4bbe36a6f244cd259"></a><br/></td></tr>
+<tr class="memitem:ac5a4df7d86b576d54c32b81eb71da86b"><td class="memTemplParams" colspan="2">template&lt;class Lcp &gt; </td></tr>
+<tr class="memitem:ac5a4df7d86b576d54c32b81eb71da86b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl.html#ac5a4df7d86b576d54c32b81eb71da86b">test_lcp_random_sequential_access</a> (Lcp &amp;lcp, typename Lcp::size_type times=1000000, typename Lcp::size_type seq_len=64)</td></tr>
+<tr class="memdesc:ac5a4df7d86b576d54c32b81eb71da86b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make random sequential accesse to an LCP array.  <a href="#ac5a4df7d86b576d54c32b81eb71da86b"></a><br/></td></tr>
 <tr class="memitem:a91911d2c2a0edcc1a49625fcb0f50040"><td class="memTemplParams" colspan="2">template&lt;class Cst &gt; </td></tr>
 <tr class="memitem:a91911d2c2a0edcc1a49625fcb0f50040"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl.html#a91911d2c2a0edcc1a49625fcb0f50040">test_cst_parent_operation</a> (const Cst &amp;cst, typename Cst::size_type times=100000, uint64_t x=17)</td></tr>
 <tr class="memdesc:a91911d2c2a0edcc1a49625fcb0f50040"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test the speed of the parent operation.  <a href="#a91911d2c2a0edcc1a49625fcb0f50040"></a><br/></td></tr>
 <tr class="memitem:a02ad999788274a8e73f4e3a1807912cf"><td class="memTemplParams" colspan="2">template&lt;class Cst &gt; </td></tr>
 <tr class="memitem:a02ad999788274a8e73f4e3a1807912cf"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl.html#a02ad999788274a8e73f4e3a1807912cf">generate_nodes_from_random_leaves</a> (const Cst &amp;cst, typename Cst::size_type times, std::vector&lt; typename Cst::node_type &gt; &amp;nodes, uint64_t x=17)</td></tr>
-<tr class="memdesc:a02ad999788274a8e73f4e3a1807912cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate nodes of a cst by applying the child operation to each of <img class="formulaInl" alt="$times$" src="form_218.png"/> random leaves until we get to the root.  <a href="#a02ad999788274a8e73f4e3a1807912cf"></a><br/></td></tr>
+<tr class="memdesc:a02ad999788274a8e73f4e3a1807912cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate nodes of a cst by applying the child operation to each of <img class="formulaInl" alt="$times$" src="form_233.png"/> random leaves until we get to the root.  <a href="#a02ad999788274a8e73f4e3a1807912cf"></a><br/></td></tr>
 <tr class="memitem:a0604c9f7ef1bac0ae4281e6a76266f0d"><td class="memTemplParams" colspan="2">template&lt;class Cst &gt; </td></tr>
 <tr class="memitem:a0604c9f7ef1bac0ae4281e6a76266f0d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl.html#a0604c9f7ef1bac0ae4281e6a76266f0d">test_cst_child_operation</a> (const Cst &amp;cst, typename Cst::size_type times=5000, uint64_t x=17)</td></tr>
 <tr class="memdesc:a0604c9f7ef1bac0ae4281e6a76266f0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test the speed of the child operation.  <a href="#a0604c9f7ef1bac0ae4281e6a76266f0d"></a><br/></td></tr>
@@ -582,13 +663,13 @@ template&lt;class Cst &gt; </td></tr>
 <tr class="memdesc:a8a1b1ea4e6dc58b2f90259bf9898c122"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test matching statistics.  <a href="#a8a1b1ea4e6dc58b2f90259bf9898c122"></a><br/></td></tr>
 <tr class="memitem:a5e2ea1602a03798447641a1b02e25ac3"><td class="memTemplParams" colspan="2"><a class="anchor" id="a5e2ea1602a03798447641a1b02e25ac3"></a>
 template&lt;class Bps &gt; </td></tr>
-<tr class="memitem:a5e2ea1602a03798447641a1b02e25ac3"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>test_bps_find_close_and_enclose</b> (const Bps &amp;bps, const bit_vector &amp;b, uint64_t times=10000000, uint64_t x=17)</td></tr>
+<tr class="memitem:a5e2ea1602a03798447641a1b02e25ac3"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>test_bps_find_close_and_enclose</b> (const Bps &amp;bps, const <a class="el" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb">bit_vector</a> &amp;b, uint64_t times=10000000, uint64_t x=17)</td></tr>
 <tr class="memitem:a5e1fb7cf15f5c30dddb6d2ec677407d7"><td class="memTemplParams" colspan="2"><a class="anchor" id="a5e1fb7cf15f5c30dddb6d2ec677407d7"></a>
 template&lt;class Bps &gt; </td></tr>
-<tr class="memitem:a5e1fb7cf15f5c30dddb6d2ec677407d7"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>test_bps_find_open</b> (const Bps &amp;bps, const bit_vector &amp;b, uint64_t times=10000000, uint64_t x=17)</td></tr>
+<tr class="memitem:a5e1fb7cf15f5c30dddb6d2ec677407d7"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>test_bps_find_open</b> (const Bps &amp;bps, const <a class="el" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb">bit_vector</a> &amp;b, uint64_t times=10000000, uint64_t x=17)</td></tr>
 <tr class="memitem:af112ac8fd45f90ad28ca581b92c04ade"><td class="memTemplParams" colspan="2"><a class="anchor" id="af112ac8fd45f90ad28ca581b92c04ade"></a>
 template&lt;class Bps &gt; </td></tr>
-<tr class="memitem:af112ac8fd45f90ad28ca581b92c04ade"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>test_bps_double_enclose</b> (const Bps &amp;bps, const bit_vector &amp;b, uint64_t times=10000000, uint64_t x=17)</td></tr>
+<tr class="memitem:af112ac8fd45f90ad28ca581b92c04ade"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>test_bps_double_enclose</b> (const Bps &amp;bps, const <a class="el" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb">bit_vector</a> &amp;b, uint64_t times=10000000, uint64_t x=17)</td></tr>
 <tr class="memitem:a478f5f7db45f61644d75e6c664bd961e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a478f5f7db45f61644d75e6c664bd961e"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesdsl.html#a478f5f7db45f61644d75e6c664bd961e">write_R_output</a> (std::string data_structure, std::string action, std::string state=&quot;begin&quot;, uint64_t times=1, uint64_t check=0)</td></tr>
 <tr class="memdesc:a478f5f7db45f61644d75e6c664bd961e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write stopwatch output in readable format. <br/></td></tr>
@@ -615,8 +696,12 @@ template&lt;class tContainer &gt; </td></tr>
 <tr class="memitem:aa732b7154c3b4237ef7baa7aa8ce223e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>write_tikz_array</b> (ostream &amp;out, const tContainer &amp;v, string array_name=&quot;&quot;, bool escape=false)</td></tr>
 <tr class="memitem:a6ebe4eba97be9f3a4f1440b3159022d7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6ebe4eba97be9f3a4f1440b3159022d7"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>write_y_column</b> (ostream &amp;out, size_t n)</td></tr>
+<tr class="memitem:ab8567dd79c2d725af8f71e05d9c8f82b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab8567dd79c2d725af8f71e05d9c8f82b"></a>
+std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;os, const uint128_t &amp;x)</td></tr>
+<tr class="memitem:a8ed9a3303718a1ba92d9f84bba83fffc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8ed9a3303718a1ba92d9f84bba83fffc"></a>
+std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;os, const <a class="el" href="classsdsl_1_1uint256__t.html">uint256_t</a> &amp;x)</td></tr>
 <tr class="memitem:a4af7e3d1d37c1645e07c0de48c0d73d2"><td class="memTemplParams" colspan="2">template&lt;class size_type_class , class size_type &gt; </td></tr>
-<tr class="memitem:a4af7e3d1d37c1645e07c0de48c0d73d2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl.html#a4af7e3d1d37c1645e07c0de48c0d73d2">calculate_character_occurences</a> (int_vector_file_buffer&lt; 8, size_type_class &gt; &amp;text, const size_type size, size_type *C)</td></tr>
+<tr class="memitem:a4af7e3d1d37c1645e07c0de48c0d73d2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl.html#a4af7e3d1d37c1645e07c0de48c0d73d2">calculate_character_occurences</a> (<a class="el" href="classsdsl_1_1int__vector__file__buffer.html">int_vector_file_buffer</a>&lt; 8, size_type_class &gt; &amp;text, const size_type size, size_type *C)</td></tr>
 <tr class="memdesc:a4af7e3d1d37c1645e07c0de48c0d73d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Count for each character in [0..255] the number of occurences in rac[0..size-1].  <a href="#a4af7e3d1d37c1645e07c0de48c0d73d2"></a><br/></td></tr>
 <tr class="memitem:aabaa9b09015e7fb1b71493562cf558f5"><td class="memTemplParams" colspan="2"><a class="anchor" id="aabaa9b09015e7fb1b71493562cf558f5"></a>
 template&lt;class size_type &gt; </td></tr>
@@ -626,7 +711,7 @@ Variables</h2></td></tr>
 <tr class="memitem:a15caa2cf9a468eaabf7352b5cd021799"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a15caa2cf9a468eaabf7352b5cd021799"></a>
 const uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>_undef_node</b> = 65535</td></tr>
 <tr class="memitem:a1c342c78e904e09a64c927273f7bc491"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1c342c78e904e09a64c927273f7bc491"></a>
-const int_vector::size_type&#160;</td><td class="memItemRight" valign="bottom"><b>ZoO</b> [2] = {0, (int_vector&lt;&gt;::size_type)-1}</td></tr>
+const int_vector::size_type&#160;</td><td class="memItemRight" valign="bottom"><b>ZoO</b> [2] = {0, (<a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt;&gt;::size_type)-1}</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Namespace for the succinct data structure library. </p>
@@ -708,7 +793,7 @@ template&lt;class size_type_class , class size_type &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section user"><dt>Space complexity: </b></dt><dd><img class="formulaInl" alt="$n$" src="form_20.png"/> bytes </dd></dl>
+<dl class="section user"><dt>Space complexity:</b></dt><dd><img class="formulaInl" alt="$n$" src="form_20.png"/> bytes </dd></dl>
 
 </div>
 </div>
@@ -748,7 +833,7 @@ template&lt;class Cst &gt; </div>
   </dd>
 </dl>
 <dl class="section user"><dt>Details</b></dt><dd>The semi-external construction algorithm creates some temporary files in the current directory during the calculation.</dd></dl>
-<dl class="section user"><dt>Space complexity</b></dt><dd><img class="formulaInl" alt="$5n$" src="form_131.png"/> bytes </dd></dl>
+<dl class="section user"><dt>Space complexity</b></dt><dd><img class="formulaInl" alt="$5n$" src="form_132.png"/> bytes </dd></dl>
 <dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$\Order{n}$" src="form_29.png"/> </dd></dl>
 
 </div>
@@ -829,7 +914,7 @@ template&lt;class Cst &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section user"><dt>Space complexity</b></dt><dd><img class="formulaInl" alt="$5n$" src="form_131.png"/> bytes </dd></dl>
+<dl class="section user"><dt>Space complexity</b></dt><dd><img class="formulaInl" alt="$5n$" src="form_132.png"/> bytes </dd></dl>
 <dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$\Order{n}$" src="form_29.png"/> </dd></dl>
 
 </div>
@@ -875,7 +960,7 @@ template&lt;class Cst &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section user"><dt>Space complexity</b></dt><dd>Usually <img class="formulaInl" alt="$ 2n $" src="form_173.png"/> bytes, worst case <img class="formulaInl" alt="$5n bytes$" src="form_174.png"/> </dd></dl>
+<dl class="section user"><dt>Space complexity</b></dt><dd>Usually <img class="formulaInl" alt="$ 2n $" src="form_176.png"/> bytes, worst case <img class="formulaInl" alt="$5n bytes$" src="form_177.png"/> </dd></dl>
 
 </div>
 </div>
@@ -920,7 +1005,7 @@ template&lt;class Cst &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section user"><dt>Space complexity:</b></dt><dd>Usually <img class="formulaInl" alt="$ n+\Order{1} $" src="form_175.png"/> bytes, worst case <img class="formulaInl" alt="$ 5n $" src="form_171.png"/> bytes </dd></dl>
+<dl class="section user"><dt>Space complexity:</b></dt><dd>Usually <img class="formulaInl" alt="$ n+\Order{1} $" src="form_178.png"/> bytes, worst case <img class="formulaInl" alt="$ 5n $" src="form_174.png"/> bytes </dd></dl>
 
 </div>
 </div>
@@ -965,7 +1050,7 @@ template&lt;class Cst &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section user"><dt>Space complexity</b></dt><dd>Usually <img class="formulaInl" alt="$ 2n $" src="form_173.png"/> bytes, worst case <img class="formulaInl" alt="$5n bytes$" src="form_174.png"/> </dd></dl>
+<dl class="section user"><dt>Space complexity</b></dt><dd>Usually <img class="formulaInl" alt="$ 2n $" src="form_176.png"/> bytes, worst case <img class="formulaInl" alt="$5n bytes$" src="form_177.png"/> </dd></dl>
 
 </div>
 </div>
@@ -1010,7 +1095,7 @@ template&lt;class Cst &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section user"><dt>Space complexity</b></dt><dd><img class="formulaInl" alt="$ 5n $" src="form_171.png"/> bytes </dd></dl>
+<dl class="section user"><dt>Space complexity</b></dt><dd><img class="formulaInl" alt="$ 5n $" src="form_174.png"/> bytes </dd></dl>
 
 </div>
 </div>
@@ -1062,7 +1147,7 @@ template&lt;class Cst &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section user"><dt>Space complexity</b></dt><dd><img class="formulaInl" alt="$ 5n $" src="form_171.png"/> bytes or <img class="formulaInl" alt="$ 4n $" src="form_172.png"/> bytes if semi_external is set to true </dd></dl>
+<dl class="section user"><dt>Space complexity</b></dt><dd><img class="formulaInl" alt="$ 5n $" src="form_174.png"/> bytes or <img class="formulaInl" alt="$ 4n $" src="form_175.png"/> bytes if semi_external is set to true </dd></dl>
 
 </div>
 </div>
@@ -1105,7 +1190,7 @@ template&lt;class Cst &gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Generate nodes of a cst by applying the child operation to each of <img class="formulaInl" alt="$times$" src="form_218.png"/> random leaves until we get to the root. </p>
+<p>Generate nodes of a cst by applying the child operation to each of <img class="formulaInl" alt="$times$" src="form_233.png"/> random leaves until we get to the root. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">Cst</td><td>The compressed suffix </td></tr>
@@ -1325,7 +1410,7 @@ template&lt;class Cst &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section user"><dt>Details </b></dt><dd>This method increments the depth first search iterator of a CST n times. </dd></dl>
+<dl class="section user"><dt>Details</b></dt><dd>This method increments the depth first search iterator of a CST n times. </dd></dl>
 
 </div>
 </div>
@@ -1370,7 +1455,7 @@ template&lt;class Cst &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section user"><dt>Details </b></dt><dd>This method increments the depth first search iterator of a CST n times and calculates the depth for each visited node. </dd></dl>
+<dl class="section user"><dt>Details</b></dt><dd>This method increments the depth first search iterator of a CST n times and calculates the depth for each visited node. </dd></dl>
 
 </div>
 </div>
@@ -1415,7 +1500,7 @@ template&lt;class Cst &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section user"><dt>Details </b></dt><dd>This method increments the depth first search iterator of a CST n times and calculates the function id for each visited node. </dd></dl>
+<dl class="section user"><dt>Details</b></dt><dd>This method increments the depth first search iterator of a CST n times and calculates the function id for each visited node. </dd></dl>
 
 </div>
 </div>
@@ -1552,14 +1637,14 @@ template&lt;class Cst &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a97cfc02477e1b8a4bbe36a6f244cd259"></a>
+<a class="anchor" id="ac5a4df7d86b576d54c32b81eb71da86b"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class Lcp &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="namespacesdsl.html#a97cfc02477e1b8a4bbe36a6f244cd259">sdsl::test_lcp_random_sequential_access</a> </td>
+          <td class="memname">void <a class="el" href="namespacesdsl.html#ac5a4df7d86b576d54c32b81eb71da86b">sdsl::test_lcp_random_sequential_access</a> </td>
           <td>(</td>
           <td class="paramtype">Lcp &amp;&#160;</td>
           <td class="paramname"><em>lcp</em>, </td>
@@ -1574,7 +1659,7 @@ template&lt;class Lcp &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">typename Lcp::size_type&#160;</td>
-          <td class="paramname"><em>seq_len</em> = <code>32</code>&#160;</td>
+          <td class="paramname"><em>seq_len</em> = <code>64</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1677,7 +1762,7 @@ template&lt;class Csa &gt; </div>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:35 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:29 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

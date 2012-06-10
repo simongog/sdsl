@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Succinct Data Structure Library (sdsl): sdsl::rrr_rank_support&lt; b, wt_type &gt; Class Template Reference</title>
+<title>Succinct Data Structure Library (sdsl): sdsl::rrr_rank_support&lt; b, block_size, wt_type &gt; Class Template Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -104,7 +105,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">sdsl::rrr_rank_support&lt; b, wt_type &gt; Class Template Reference</div>  </div>
+<div class="title">sdsl::rrr_rank_support&lt; b, block_size, wt_type &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -117,64 +118,69 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:aef851ddb555412256a26897e118d4fb0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aef851ddb555412256a26897e118d4fb0"></a>
-typedef <a class="el" href="classsdsl_1_1rrr__vector.html">rrr_vector</a>&lt; wt_type &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>bit_vector_type</b></td></tr>
-<tr class="memitem:afa35fb0fc5c56a953ae8d634592b312b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afa35fb0fc5c56a953ae8d634592b312b"></a>
+<tr class="memitem:a86c12482b17c2236280264179bf959c7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a86c12482b17c2236280264179bf959c7"></a>
+typedef <a class="el" href="classsdsl_1_1rrr__vector.html">rrr_vector</a>&lt; block_size, <br class="typebreak"/>
+wt_type &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>bit_vector_type</b></td></tr>
+<tr class="memitem:a8995e00146dc1cfee7122f517674049d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8995e00146dc1cfee7122f517674049d"></a>
 typedef bit_vector_type::size_type&#160;</td><td class="memItemRight" valign="bottom"><b>size_type</b></td></tr>
-<tr class="memitem:a752e548295735566d1c17515b03a4c57"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a752e548295735566d1c17515b03a4c57"></a>
-typedef <a class="el" href="classsdsl_1_1binomial.html">bit_vector_type::bi_type</a>&#160;</td><td class="memItemRight" valign="bottom"><b>bi_type</b></td></tr>
+<tr class="memitem:adc98bd247cb941ee4c041349b64d7fb6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adc98bd247cb941ee4c041349b64d7fb6"></a>
+typedef <br class="typebreak"/>
+<a class="el" href="classsdsl_1_1rrr__helper.html">bit_vector_type::rrr_helper_type</a>&#160;</td><td class="memItemRight" valign="bottom"><b>rrr_helper_type</b></td></tr>
+<tr class="memitem:ac8960755f74a72b4fbdd5148d5251ad0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac8960755f74a72b4fbdd5148d5251ad0"></a>
+typedef <br class="typebreak"/>
+<a class="el" href="classsdsl_1_1rrr__helper.html#aed403cce18ff8c1ffdbaa9a2bdd84805">rrr_helper_type::number_type</a>&#160;</td><td class="memItemRight" valign="bottom"><b>number_type</b></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a50223bc1e7f4681bf28f0f26eb126a77"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rrr__rank__support.html#a50223bc1e7f4681bf28f0f26eb126a77">rrr_rank_support</a> (const <a class="el" href="classsdsl_1_1rrr__vector.html">bit_vector_type</a> *v=NULL)</td></tr>
-<tr class="memdesc:a50223bc1e7f4681bf28f0f26eb126a77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Standard constructor.  <a href="#a50223bc1e7f4681bf28f0f26eb126a77"></a><br/></td></tr>
-<tr class="memitem:a0afbc86d8d168d442e904aea51b47737"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0afbc86d8d168d442e904aea51b47737"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rrr__rank__support.html#a0afbc86d8d168d442e904aea51b47737">init</a> (const <a class="el" href="classsdsl_1_1rrr__vector.html">bit_vector_type</a> *v=NULL)</td></tr>
-<tr class="memdesc:a0afbc86d8d168d442e904aea51b47737"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the data structure with a <a class="el" href="classsdsl_1_1rrr__vector.html" title="A bit vector which compresses the input with the method from Raman, Raman, and Rao.">rrr_vector</a>, which should be supported. <br/></td></tr>
-<tr class="memitem:a639d8d2c7b1ba1a404fd57cbd4d81cb8"><td class="memItemLeft" align="right" valign="top">const size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rrr__rank__support.html#a639d8d2c7b1ba1a404fd57cbd4d81cb8">rank</a> (size_type i) const </td></tr>
-<tr class="memdesc:a639d8d2c7b1ba1a404fd57cbd4d81cb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Answers rank queries.  <a href="#a639d8d2c7b1ba1a404fd57cbd4d81cb8"></a><br/></td></tr>
-<tr class="memitem:a9afa200d7e79c71888100898c230236a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9afa200d7e79c71888100898c230236a"></a>
-const size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rrr__rank__support.html#a9afa200d7e79c71888100898c230236a">operator()</a> (size_type i) const </td></tr>
-<tr class="memdesc:a9afa200d7e79c71888100898c230236a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Short hand for rank(i) <br/></td></tr>
-<tr class="memitem:a04b3efdda94fd7351d90cc80481e1896"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a04b3efdda94fd7351d90cc80481e1896"></a>
-const size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rrr__rank__support.html#a04b3efdda94fd7351d90cc80481e1896">size</a> () const </td></tr>
-<tr class="memdesc:a04b3efdda94fd7351d90cc80481e1896"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the size of the original vector. <br/></td></tr>
-<tr class="memitem:a101fe748def6370abca12c85683ea860"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a101fe748def6370abca12c85683ea860"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rrr__rank__support.html#a101fe748def6370abca12c85683ea860">set_vector</a> (const <a class="el" href="classsdsl_1_1rrr__vector.html">bit_vector_type</a> *v=NULL)</td></tr>
-<tr class="memdesc:a101fe748def6370abca12c85683ea860"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the supported vector. <br/></td></tr>
-<tr class="memitem:ad7c6d78e3f82329d56ba59e4c232eeda"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad7c6d78e3f82329d56ba59e4c232eeda"></a>
+<tr class="memitem:ab333ca63b66d8e8b5ab2bb938e210f2e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rrr__rank__support.html#ab333ca63b66d8e8b5ab2bb938e210f2e">rrr_rank_support</a> (const <a class="el" href="classsdsl_1_1rrr__vector.html">bit_vector_type</a> *v=NULL)</td></tr>
+<tr class="memdesc:ab333ca63b66d8e8b5ab2bb938e210f2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Standard constructor.  <a href="#ab333ca63b66d8e8b5ab2bb938e210f2e"></a><br/></td></tr>
+<tr class="memitem:aa0f30b4f0a5721f9e47c4de9bae952e7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa0f30b4f0a5721f9e47c4de9bae952e7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rrr__rank__support.html#aa0f30b4f0a5721f9e47c4de9bae952e7">init</a> (const <a class="el" href="classsdsl_1_1rrr__vector.html">bit_vector_type</a> *v=NULL)</td></tr>
+<tr class="memdesc:aa0f30b4f0a5721f9e47c4de9bae952e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the data structure with a <a class="el" href="classsdsl_1_1rrr__vector.html" title="A bit vector which compresses the input with the method from Raman, Raman, and Rao.">rrr_vector</a>, which should be supported. <br/></td></tr>
+<tr class="memitem:a7270e94fd7745f635c2fad794f52ac47"><td class="memItemLeft" align="right" valign="top">const size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rrr__rank__support.html#a7270e94fd7745f635c2fad794f52ac47">rank</a> (size_type i) const </td></tr>
+<tr class="memdesc:a7270e94fd7745f635c2fad794f52ac47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Answers rank queries.  <a href="#a7270e94fd7745f635c2fad794f52ac47"></a><br/></td></tr>
+<tr class="memitem:a3460a4891121fa5b4bf328ae1d674405"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3460a4891121fa5b4bf328ae1d674405"></a>
+const size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rrr__rank__support.html#a3460a4891121fa5b4bf328ae1d674405">operator()</a> (size_type i) const </td></tr>
+<tr class="memdesc:a3460a4891121fa5b4bf328ae1d674405"><td class="mdescLeft">&#160;</td><td class="mdescRight">Short hand for rank(i) <br/></td></tr>
+<tr class="memitem:a2345deb39cb3abf7d2c4afa7d8294a31"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2345deb39cb3abf7d2c4afa7d8294a31"></a>
+const size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rrr__rank__support.html#a2345deb39cb3abf7d2c4afa7d8294a31">size</a> () const </td></tr>
+<tr class="memdesc:a2345deb39cb3abf7d2c4afa7d8294a31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the size of the original vector. <br/></td></tr>
+<tr class="memitem:a0c963a637d333b3f64cd0463cbc59bf8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0c963a637d333b3f64cd0463cbc59bf8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rrr__rank__support.html#a0c963a637d333b3f64cd0463cbc59bf8">set_vector</a> (const <a class="el" href="classsdsl_1_1rrr__vector.html">bit_vector_type</a> *v=NULL)</td></tr>
+<tr class="memdesc:a0c963a637d333b3f64cd0463cbc59bf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the supported vector. <br/></td></tr>
+<tr class="memitem:a1c81bc53ec4faedd09a2ecddac59546f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1c81bc53ec4faedd09a2ecddac59546f"></a>
 <a class="el" href="classsdsl_1_1rrr__rank__support.html">rrr_rank_support</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classsdsl_1_1rrr__rank__support.html">rrr_rank_support</a> &amp;rs)</td></tr>
-<tr class="memitem:a7872f11ca852fa492a4d4f0193cc4ab8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7872f11ca852fa492a4d4f0193cc4ab8"></a>
+<tr class="memitem:a7b36be84dd7dbdb91ed3d242d580db73"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7b36be84dd7dbdb91ed3d242d580db73"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> (<a class="el" href="classsdsl_1_1rrr__rank__support.html">rrr_rank_support</a> &amp;rs)</td></tr>
-<tr class="memitem:aefba689053d94928b6221109989425f6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aefba689053d94928b6221109989425f6"></a>
+<tr class="memitem:a8839e5a42f8c2f97ce9cfeb7d353ebe8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8839e5a42f8c2f97ce9cfeb7d353ebe8"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="classsdsl_1_1rrr__rank__support.html">rrr_rank_support</a> &amp;rs) const </td></tr>
-<tr class="memitem:a730cd76df805dcd02da610dbd2c85cc4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a730cd76df805dcd02da610dbd2c85cc4"></a>
+<tr class="memitem:ae7f91b842a82b2b198cd266671fb95cc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae7f91b842a82b2b198cd266671fb95cc"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="classsdsl_1_1rrr__rank__support.html">rrr_rank_support</a> &amp;rs) const </td></tr>
-<tr class="memitem:a9493491a2e6090b11d045e52f55cc441"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9493491a2e6090b11d045e52f55cc441"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rrr__rank__support.html#a9493491a2e6090b11d045e52f55cc441">load</a> (std::istream &amp;in, const <a class="el" href="classsdsl_1_1rrr__vector.html">bit_vector_type</a> *v=NULL)</td></tr>
-<tr class="memdesc:a9493491a2e6090b11d045e52f55cc441"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load the data structure from a stream and set the supported vector. <br/></td></tr>
-<tr class="memitem:ad1fc246a51b66cbfbf5808aaf393b1a1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad1fc246a51b66cbfbf5808aaf393b1a1"></a>
-size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rrr__rank__support.html#ad1fc246a51b66cbfbf5808aaf393b1a1">serialize</a> (std::ostream &amp;out) const </td></tr>
-<tr class="memdesc:ad1fc246a51b66cbfbf5808aaf393b1a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes the data structure into a stream. <br/></td></tr>
+<tr class="memitem:a9d4ea827579ea0586c465b9ddf008b26"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9d4ea827579ea0586c465b9ddf008b26"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rrr__rank__support.html#a9d4ea827579ea0586c465b9ddf008b26">load</a> (std::istream &amp;in, const <a class="el" href="classsdsl_1_1rrr__vector.html">bit_vector_type</a> *v=NULL)</td></tr>
+<tr class="memdesc:a9d4ea827579ea0586c465b9ddf008b26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load the data structure from a stream and set the supported vector. <br/></td></tr>
+<tr class="memitem:aaf189d9610acaf7145f630dfe4ada1b2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaf189d9610acaf7145f630dfe4ada1b2"></a>
+size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rrr__rank__support.html#aaf189d9610acaf7145f630dfe4ada1b2">serialize</a> (std::ostream &amp;out) const </td></tr>
+<tr class="memdesc:aaf189d9610acaf7145f630dfe4ada1b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes the data structure into a stream. <br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><h3>template&lt;uint8_t b, class wt_type&gt;<br/>
-class sdsl::rrr_rank_support&lt; b, wt_type &gt;</h3>
+<div class="textblock"><h3>template&lt;uint8_t b, uint16_t block_size, class wt_type&gt;<br/>
+class sdsl::rrr_rank_support&lt; b, block_size, wt_type &gt;</h3>
 
 <p><a class="el" href="classsdsl_1_1rank__support.html" title="The base class of classes supporting rank_queries for a sdsl::bit_vector in constant time...">rank_support</a> for the <a class="el" href="classsdsl_1_1rrr__vector.html" title="A bit vector which compresses the input with the method from Raman, Raman, and Rao.">rrr_vector</a> class </p>
-<p>The first template parameter is the bit pattern of size one. TODO: Test if the binary search can be speed up by saving the (n/2)-th rank value in T[0], the (n/4)-th in T[1], the (3n/4)-th in T[2],... for small number of rank values is this called hinted binary search??? or is this called </p>
+<p>The first template parameter is the bit pattern of size one. The second one the block size and the third the array type that is used to store the block types. TODO: Test if the binary search can be speed up by saving the (n/2)-th rank value in T[0], the (n/4)-th in T[1], the (3n/4)-th in T[2],... for small number of rank values is this called hinted binary search??? or is this called </p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a50223bc1e7f4681bf28f0f26eb126a77"></a>
+<a class="anchor" id="ab333ca63b66d8e8b5ab2bb938e210f2e"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;uint8_t b, class wt_type &gt; </div>
+template&lt;uint8_t b, uint16_t block_size, class wt_type &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classsdsl_1_1rrr__rank__support.html">sdsl::rrr_rank_support</a>&lt; b, wt_type &gt;::<a class="el" href="classsdsl_1_1rrr__rank__support.html">rrr_rank_support</a> </td>
+          <td class="memname"><a class="el" href="classsdsl_1_1rrr__rank__support.html">sdsl::rrr_rank_support</a>&lt; b, block_size, wt_type &gt;::<a class="el" href="classsdsl_1_1rrr__rank__support.html">rrr_rank_support</a> </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classsdsl_1_1rrr__vector.html">bit_vector_type</a> *&#160;</td>
           <td class="paramname"><em>v</em> = <code>NULL</code></td><td>)</td>
-          <td><code> [inline]</code></td>
+          <td><code> [inline, explicit]</code></td>
         </tr>
       </table>
 </div>
@@ -191,14 +197,14 @@ template&lt;uint8_t b, class wt_type &gt; </div>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a639d8d2c7b1ba1a404fd57cbd4d81cb8"></a>
+<a class="anchor" id="a7270e94fd7745f635c2fad794f52ac47"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;uint8_t b, class wt_type &gt; </div>
+template&lt;uint8_t b, uint16_t block_size, class wt_type &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">const size_type <a class="el" href="classsdsl_1_1rrr__rank__support.html">sdsl::rrr_rank_support</a>&lt; b, wt_type &gt;::<a class="el" href="classsdsl_1_1rrr__rank__support.html#a639d8d2c7b1ba1a404fd57cbd4d81cb8">rank</a> </td>
+          <td class="memname">const size_type <a class="el" href="classsdsl_1_1rrr__rank__support.html">sdsl::rrr_rank_support</a>&lt; b, block_size, wt_type &gt;::<a class="el" href="classsdsl_1_1rrr__rank__support.html#a7270e94fd7745f635c2fad794f52ac47">rank</a> </td>
           <td>(</td>
           <td class="paramtype">size_type&#160;</td>
           <td class="paramname"><em>i</em></td><td>)</td>
@@ -211,12 +217,12 @@ template&lt;uint8_t b, class wt_type &gt; </div>
 <p>Answers rank queries. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>Argument for the length of the prefix v[0..i-1], with <img class="formulaInl" alt="$0\leq i \leq size()$" src="form_207.png"/>. </td></tr>
+    <tr><td class="paramname">i</td><td>Argument for the length of the prefix v[0..i-1], with <img class="formulaInl" alt="$0\leq i \leq size()$" src="form_219.png"/>. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>Number of 1-bits in the prefix [0..i-1] of the original bit_vector. </dd></dl>
-<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{ sample\_rate of the rrr\_vector} $" src="form_208.png"/> </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{ sample\_rate of the rrr\_vector} $" src="form_220.png"/> </dd></dl>
 
 </div>
 </div>
@@ -227,7 +233,7 @@ template&lt;uint8_t b, class wt_type &gt; </div>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:35 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:32 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -110,7 +111,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>A class to encode and decode between Elias- <img class="formulaInl" alt="$\delta$" src="form_166.png"/> and binary code.  
+<p>A class to encode and decode between Elias- <img class="formulaInl" alt="$\delta$" src="form_169.png"/> and binary code.  
  <a href="classsdsl_1_1coder_1_1elias__delta.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="elias__delta__coder_8hpp_source.html">elias_delta_coder.hpp</a>&gt;</code></p>
@@ -135,16 +136,16 @@ template&lt;bool sumup, bool increment, class Iterator &gt; </td></tr>
 static uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>decode_prefix_sum</b> (const uint64_t *data, const size_type start_idx, const size_type end_idx, size_type n)</td></tr>
 <tr class="memitem:a55c23cfb4d5e554a8feaa5df7df02ffc"><td class="memTemplParams" colspan="2"><a class="anchor" id="a55c23cfb4d5e554a8feaa5df7df02ffc"></a>
 template&lt;class int_vector &gt; </td></tr>
-<tr class="memitem:a55c23cfb4d5e554a8feaa5df7df02ffc"><td class="memTemplItemLeft" align="right" valign="top">static bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>encode</b> (const int_vector &amp;v, int_vector &amp;z)</td></tr>
+<tr class="memitem:a55c23cfb4d5e554a8feaa5df7df02ffc"><td class="memTemplItemLeft" align="right" valign="top">static bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>encode</b> (const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a> &amp;v, <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a> &amp;z)</td></tr>
 <tr class="memitem:aecdab4ae82abf9314f6d45e92c3c9f43"><td class="memTemplParams" colspan="2"><a class="anchor" id="aecdab4ae82abf9314f6d45e92c3c9f43"></a>
 template&lt;class int_vector &gt; </td></tr>
-<tr class="memitem:aecdab4ae82abf9314f6d45e92c3c9f43"><td class="memTemplItemLeft" align="right" valign="top">static bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>decode</b> (const int_vector &amp;z, int_vector &amp;v)</td></tr>
+<tr class="memitem:aecdab4ae82abf9314f6d45e92c3c9f43"><td class="memTemplItemLeft" align="right" valign="top">static bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>decode</b> (const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a> &amp;z, <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a> &amp;v)</td></tr>
 <tr class="memitem:a8563b911568420aa8397b0d9529419e0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8563b911568420aa8397b0d9529419e0"></a>
 static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1coder_1_1elias__delta.html#a8563b911568420aa8397b0d9529419e0">encode</a> (uint64_t x, uint64_t *&amp;z, uint8_t &amp;offset)</td></tr>
-<tr class="memdesc:a8563b911568420aa8397b0d9529419e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encode one positive integer x to an int_vector at bit position start_idx. <br/></td></tr>
+<tr class="memdesc:a8563b911568420aa8397b0d9529419e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encode one positive integer x to an <a class="el" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector</a> at bit position start_idx. <br/></td></tr>
 <tr class="memitem:ad002ba8066c759b25ae4d6bf4a6053a3"><td class="memTemplParams" colspan="2"><a class="anchor" id="ad002ba8066c759b25ae4d6bf4a6053a3"></a>
 template&lt;class int_vector &gt; </td></tr>
-<tr class="memitem:ad002ba8066c759b25ae4d6bf4a6053a3"><td class="memTemplItemLeft" align="right" valign="top">static uint64_t *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>raw_data</b> (int_vector &amp;v)</td></tr>
+<tr class="memitem:ad002ba8066c759b25ae4d6bf4a6053a3"><td class="memTemplItemLeft" align="right" valign="top">static uint64_t *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>raw_data</b> (<a class="el" href="classsdsl_1_1int__vector.html">int_vector</a> &amp;v)</td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:ae207052af0f7347bdccd683154cdb4d9"><td class="memItemLeft" align="right" valign="top">static const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1coder_1_1elias__delta.html#ae207052af0f7347bdccd683154cdb4d9">EliasDeltaPrefixSum</a> [1&lt;&lt; 16]</td></tr>
@@ -155,7 +156,7 @@ static const uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>Elia
 static const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>min_codeword_length</b> = 1</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>A class to encode and decode between Elias- <img class="formulaInl" alt="$\delta$" src="form_166.png"/> and binary code. </p>
+<div class="textblock"><p>A class to encode and decode between Elias- <img class="formulaInl" alt="$\delta$" src="form_169.png"/> and binary code. </p>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a6670a7a0a0da54d91b3806e6e21426e2"></a>
 <div class="memitem">
@@ -224,7 +225,7 @@ static const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>min_c
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:36 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:33 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

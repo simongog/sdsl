@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -129,7 +130,10 @@ typedef <a class="el" href="classsdsl_1_1gap__select__support.html">gap_select_s
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a35c12b7e908d13ac3b6d1f7e4bef9823"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a35c12b7e908d13ac3b6d1f7e4bef9823"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>gap_vector</b> (const bit_vector &amp;bv)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>gap_vector</b> (const <a class="el" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb">bit_vector</a> &amp;bv)</td></tr>
+<tr class="memitem:aff7ce092642b2ff97f600d2c78910a28"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aff7ce092642b2ff97f600d2c78910a28"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1gap__vector.html#aff7ce092642b2ff97f600d2c78910a28">swap</a> (<a class="el" href="classsdsl_1_1gap__vector.html">gap_vector</a> &amp;v)</td></tr>
+<tr class="memdesc:aff7ce092642b2ff97f600d2c78910a28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swap method. <br/></td></tr>
 <tr class="memitem:a8d9c93994e2b01c0b4718626b84ae602"><td class="memItemLeft" align="right" valign="top">value_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1gap__vector.html#a8d9c93994e2b01c0b4718626b84ae602">operator[]</a> (size_type i) const </td></tr>
 <tr class="memdesc:a8d9c93994e2b01c0b4718626b84ae602"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accessing the i-th element of the original bit_vector.  <a href="#a8d9c93994e2b01c0b4718626b84ae602"></a><br/></td></tr>
 <tr class="memitem:a2a682fa1ecf65c572fdc07181ed8ce18"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2a682fa1ecf65c572fdc07181ed8ce18"></a>
@@ -174,12 +178,12 @@ template&lt;bool b = true&gt; </div>
 <p>Accessing the i-th element of the original bit_vector. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>An index i with <img class="formulaInl" alt="$ 0 \leq i < size() $" src="form_169.png"/>. </td></tr>
+    <tr><td class="paramname">i</td><td>An index i with <img class="formulaInl" alt="$ 0 \leq i < size() $" src="form_50.png"/>. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>The i-th bit of the original bit_vector </dd></dl>
-<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{\log m} $" src="form_170.png"/>, where m equals the number of zeros </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{\log m} $" src="form_172.png"/>, where m equals the number of zeros </dd></dl>
 
 </div>
 </div>
@@ -190,7 +194,7 @@ template&lt;bool b = true&gt; </div>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:35 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:31 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -120,17 +121,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr><td colspan="2"><h2><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a2273b6a6def4e4d575a753d5cac77cd6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2273b6a6def4e4d575a753d5cac77cd6"></a>
-typedef bit_vector&#160;</td><td class="memItemRight" valign="bottom"><b>bit_vector_type</b></td></tr>
+typedef <a class="el" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb">bit_vector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>bit_vector_type</b></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:af3800b1aef557e8b78837ab655b8eef7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af3800b1aef557e8b78837ab655b8eef7"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>select_support_mcl</b> (const int_vector&lt; 1 &gt; *v=NULL)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>select_support_mcl</b> (const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 1 &gt; *v=NULL)</td></tr>
 <tr class="memitem:a3118dc715c719c7dad4f5e4f82bbc642"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3118dc715c719c7dad4f5e4f82bbc642"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>select_support_mcl</b> (const <a class="el" href="classsdsl_1_1select__support__mcl.html">select_support_mcl</a>&lt; b, pattern_len &gt; &amp;ss)</td></tr>
-<tr class="memitem:a24c7fe14c4fda0a4874eb2ef9c914aea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1select__support__mcl.html#a24c7fe14c4fda0a4874eb2ef9c914aea">init</a> (const int_vector&lt; 1 &gt; *v=NULL)</td></tr>
+<tr class="memitem:a24c7fe14c4fda0a4874eb2ef9c914aea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1select__support__mcl.html#a24c7fe14c4fda0a4874eb2ef9c914aea">init</a> (const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 1 &gt; *v=NULL)</td></tr>
 <tr class="memdesc:a24c7fe14c4fda0a4874eb2ef9c914aea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initalization method for <a class="el" href="classsdsl_1_1select__support.html" title="The base class of classes supporting select queries for a sdsl::bit_vector in constant time...">select_support</a>.  <a href="#a24c7fe14c4fda0a4874eb2ef9c914aea"></a><br/></td></tr>
 <tr class="memitem:a7bb22b758fe15e4561eb2b0c1f44655a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7bb22b758fe15e4561eb2b0c1f44655a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>init_slow</b> (const int_vector&lt; 1 &gt; *v=NULL)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>init_slow</b> (const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 1 &gt; *v=NULL)</td></tr>
 <tr class="memitem:afae58cc9016c77bdffb03cba207d797f"><td class="memItemLeft" align="right" valign="top">const size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1select__support__mcl.html#afae58cc9016c77bdffb03cba207d797f">select</a> (size_type i) const </td></tr>
 <tr class="memdesc:afae58cc9016c77bdffb03cba207d797f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Select function.  <a href="#afae58cc9016c77bdffb03cba207d797f"></a><br/></td></tr>
 <tr class="memitem:ab0a00acc31ed80909047b996489883a3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab0a00acc31ed80909047b996489883a3"></a>
@@ -139,9 +140,9 @@ const size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el"
 <tr class="memitem:a383bb6d253e973e31474bbe77c329285"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a383bb6d253e973e31474bbe77c329285"></a>
 size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1select__support__mcl.html#a383bb6d253e973e31474bbe77c329285">serialize</a> (std::ostream &amp;out) const </td></tr>
 <tr class="memdesc:a383bb6d253e973e31474bbe77c329285"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize the <a class="el" href="classsdsl_1_1select__support.html" title="The base class of classes supporting select queries for a sdsl::bit_vector in constant time...">select_support</a> to an out file stream. <br/></td></tr>
-<tr class="memitem:ab258439ebe8f2aa6b9b1beb272b6920a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1select__support__mcl.html#ab258439ebe8f2aa6b9b1beb272b6920a">load</a> (std::istream &amp;in, const int_vector&lt; 1 &gt; *v=NULL)</td></tr>
+<tr class="memitem:ab258439ebe8f2aa6b9b1beb272b6920a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1select__support__mcl.html#ab258439ebe8f2aa6b9b1beb272b6920a">load</a> (std::istream &amp;in, const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 1 &gt; *v=NULL)</td></tr>
 <tr class="memdesc:ab258439ebe8f2aa6b9b1beb272b6920a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load the <a class="el" href="classsdsl_1_1select__support.html" title="The base class of classes supporting select queries for a sdsl::bit_vector in constant time...">select_support</a> from an in file stream.  <a href="#ab258439ebe8f2aa6b9b1beb272b6920a"></a><br/></td></tr>
-<tr class="memitem:a77387ea16ced906bc5d6cbec14b5d450"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1select__support__mcl.html#a77387ea16ced906bc5d6cbec14b5d450">set_vector</a> (const int_vector&lt; 1 &gt; *v=NULL)</td></tr>
+<tr class="memitem:a77387ea16ced906bc5d6cbec14b5d450"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1select__support__mcl.html#a77387ea16ced906bc5d6cbec14b5d450">set_vector</a> (const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 1 &gt; *v=NULL)</td></tr>
 <tr class="memdesc:a77387ea16ced906bc5d6cbec14b5d450"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method sets the supported bit_vector.  <a href="#a77387ea16ced906bc5d6cbec14b5d450"></a><br/></td></tr>
 <tr class="memitem:a7c8cbdb352b6d1893f06c6f93317b514"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7c8cbdb352b6d1893f06c6f93317b514"></a>
 <a class="el" href="classsdsl_1_1select__support__mcl.html">select_support_mcl</a>&lt; b, <br class="typebreak"/>
@@ -158,6 +159,7 @@ pattern_len &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>ope
 class sdsl::select_support_mcl&lt; b, pattern_len &gt;</h3>
 
 <p>A class supporting constant time select queries (proposed by Munro/Clark, 1996) enhanced by broadword computing tricks. </p>
+<dl class="section user"><dt>Space usage</b></dt><dd>The space usage of the data structure depends on the number of <img class="formulaInl" alt="$ m $" src="form_224.png"/> of ones in the original bitvector $b$. We store the position of every $4096$th set bit (called L1-sampled bits) of $b$. This takes in the worst case <img class="formulaInl" alt="$\frac{m}{4096} \log{n} \leq \frac{64}{n}$" src="form_225.png"/> bits. Next, (1) if the distance of two adjacent L1-sampled bits $b[i]$ and $b[j]$ is greater or equal than $^4 n$, then we store each of the 4096 positions of the set $b$ in [i..j-1] with ${n}$ bits. This results in at most $ {4096  n}{^4 n}={4096}{^3 n}$ bits per bit. For a bitvector of 1GB, i.e. <img class="formulaInl" alt="$ \log n = 35 $" src="form_226.png"/> we get about 0.01 bits per bit. If the $j-i+1 &lt; ^4 n$ then (2) we store the relative position of every $64$th set bit (called L2-sampled bits) in b[i..j-1] in at most $4 n$ bits per L2-sampled bits. An pessimistic upper bound for the space would be <img class="formulaInl" alt="$ \frac{4\log\log n}{64} \leq \frac{24}{64} = 0.375$" src="form_227.png"/> bit per bit (since $ n 6$. It is very pessimistic, since we store the relative position in $(j-i+1)  n$ bits. </dd></dl>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a24c7fe14c4fda0a4874eb2ef9c914aea"></a>
 <div class="memitem">
@@ -168,7 +170,7 @@ template&lt;uint8_t b, uint8_t pattern_len&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classsdsl_1_1select__support__mcl.html">sdsl::select_support_mcl</a>&lt; b, pattern_len &gt;::<a class="el" href="classsdsl_1_1select__support__mcl.html#a24c7fe14c4fda0a4874eb2ef9c914aea">init</a> </td>
           <td>(</td>
-          <td class="paramtype">const int_vector&lt; 1 &gt; *&#160;</td>
+          <td class="paramtype">const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 1 &gt; *&#160;</td>
           <td class="paramname"><em>v</em> = <code>NULL</code></td><td>)</td>
           <td><code> [virtual]</code></td>
         </tr>
@@ -203,7 +205,7 @@ template&lt;uint8_t b, uint8_t pattern_len&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const int_vector&lt; 1 &gt; *&#160;</td>
+          <td class="paramtype">const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 1 &gt; *&#160;</td>
           <td class="paramname"><em>v</em> = <code>NULL</code>&#160;</td>
         </tr>
         <tr>
@@ -309,7 +311,7 @@ template&lt;uint8_t b, uint8_t pattern_len&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classsdsl_1_1select__support__mcl.html">sdsl::select_support_mcl</a>&lt; b, pattern_len &gt;::<a class="el" href="classsdsl_1_1select__support__mcl.html#a77387ea16ced906bc5d6cbec14b5d450">set_vector</a> </td>
           <td>(</td>
-          <td class="paramtype">const int_vector&lt; 1 &gt; *&#160;</td>
+          <td class="paramtype">const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 1 &gt; *&#160;</td>
           <td class="paramname"><em>v</em> = <code>NULL</code></td><td>)</td>
           <td><code> [virtual]</code></td>
         </tr>
@@ -353,7 +355,7 @@ template&lt;uint8_t b, uint8_t pattern_len&gt; </div>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:35 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:32 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

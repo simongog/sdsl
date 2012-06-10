@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -184,7 +185,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a54ef45516cbd62d35ab8d4b3e50e924f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the <a class="el" href="classsdsl_1_1csa__sada.html" title="A class for the Compressed Suffix Array (CSA) proposed by Sadakane for practical implementation.">csa_sada</a> from another (compressed) suffix array and the original text.  <a href="#a54ef45516cbd62d35ab8d4b3e50e924f"></a><br/></td></tr>
 <tr class="memitem:ae54af81874f01f6387b53497730ac902"><td class="memTemplParams" colspan="2"><a class="anchor" id="ae54af81874f01f6387b53497730ac902"></a>
 template&lt;class size_type_class , uint8_t int_width, class size_type_class_1 &gt; </td></tr>
-<tr class="memitem:ae54af81874f01f6387b53497730ac902"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsdsl_1_1csa__sada.html#ae54af81874f01f6387b53497730ac902">csa_sada</a> (int_vector_file_buffer&lt; 8, size_type_class &gt; &amp;bwt_buf, int_vector_file_buffer&lt; int_width, size_type_class_1 &gt; &amp;sa_buf)</td></tr>
+<tr class="memitem:ae54af81874f01f6387b53497730ac902"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsdsl_1_1csa__sada.html#ae54af81874f01f6387b53497730ac902">csa_sada</a> (<a class="el" href="classsdsl_1_1int__vector__file__buffer.html">int_vector_file_buffer</a>&lt; 8, size_type_class &gt; &amp;bwt_buf, <a class="el" href="classsdsl_1_1int__vector__file__buffer.html">int_vector_file_buffer</a>&lt; int_width, size_type_class_1 &gt; &amp;sa_buf)</td></tr>
 <tr class="memdesc:ae54af81874f01f6387b53497730ac902"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the <a class="el" href="classsdsl_1_1csa__sada.html" title="A class for the Compressed Suffix Array (CSA) proposed by Sadakane for practical implementation.">csa_sada</a> from the int_vector_file_buffers of the text, the suffix array and the inverse suffix array. <br/></td></tr>
 <tr class="memitem:a98aa4915c2978a665ed68b5835d7faa8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a98aa4915c2978a665ed68b5835d7faa8"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>csa_sada</b> (tMSS &amp;file_map, const std::string &amp;dir, const std::string &amp;id)</td></tr>
@@ -193,7 +194,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>construct</b> (tMSS &
 <tr class="memitem:aece2da07aa659c395d3e0004bbd58801"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1csa__sada.html#aece2da07aa659c395d3e0004bbd58801">csa_sada</a> (const unsigned char *str)</td></tr>
 <tr class="memdesc:aece2da07aa659c395d3e0004bbd58801"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the CSA taking a string for that the CSA should be calculated.  <a href="#aece2da07aa659c395d3e0004bbd58801"></a><br/></td></tr>
 <tr class="memitem:a1afcf491a7bf08b77677d33d014bf9c8"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1csa__sada.html#a1afcf491a7bf08b77677d33d014bf9c8">size</a> () const </td></tr>
-<tr class="memdesc:a1afcf491a7bf08b77677d33d014bf9c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of elements in the <img class="formulaInl" alt="$\CSA$" src="form_89.png"/>.  <a href="#a1afcf491a7bf08b77677d33d014bf9c8"></a><br/></td></tr>
+<tr class="memdesc:a1afcf491a7bf08b77677d33d014bf9c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of elements in the <img class="formulaInl" alt="$\CSA$" src="form_91.png"/>.  <a href="#a1afcf491a7bf08b77677d33d014bf9c8"></a><br/></td></tr>
 <tr class="memitem:a3c77e2e2e317327d3e0e79e759de6350"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1csa__sada.html#a3c77e2e2e317327d3e0e79e759de6350">empty</a> () const </td></tr>
 <tr class="memdesc:a3c77e2e2e317327d3e0e79e759de6350"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns if the data strucutre is empty.  <a href="#a3c77e2e2e317327d3e0e79e759de6350"></a><br/></td></tr>
 <tr class="memitem:a97fa85ab6eddf463aacf4bc3acea8cf2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1csa__sada.html#a97fa85ab6eddf463aacf4bc3acea8cf2">swap</a> (<a class="el" href="classsdsl_1_1csa__sada.html">csa_sada</a>&lt; EncVector, SampleDens, InvSampleDens, fixedIntWidth &gt; &amp;csa)</td></tr>
@@ -218,8 +219,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>construct</b> (tMSS &
 <tr class="memdesc:a05189d33cb86c33ce4d68da7fccd97ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load from a stream.  <a href="#a05189d33cb86c33ce4d68da7fccd97ca"></a><br/></td></tr>
 <tr class="memitem:a862082122c8a168f90d36c09c8706c9f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a862082122c8a168f90d36c09c8706c9f"></a>
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>get_sample_dens</b> () const </td></tr>
-<tr class="memitem:a06d5e756ca46808dde0983fa0128358e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a06d5e756ca46808dde0983fa0128358e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>set_sample_dens</b> (const uint32_t sample_dens)</td></tr>
 <tr class="memitem:a06f6fdb7e2d1e7dc1c67a1ce058198e4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a06f6fdb7e2d1e7dc1c67a1ce058198e4"></a>
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>get_psi_sample_dens</b> () const </td></tr>
 <tr class="memitem:aa33ab58f57a26e17461e7a2f0c5e3a70"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa33ab58f57a26e17461e7a2f0c5e3a70"></a>
@@ -234,22 +233,22 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memdesc:af40dca1e2ebe42ab05162d8559cab540"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the largest size that <a class="el" href="classsdsl_1_1csa__sada.html" title="A class for the Compressed Suffix Array (CSA) proposed by Sadakane for practical implementation.">csa_sada</a> can ever have.  <a href="#af40dca1e2ebe42ab05162d8559cab540"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ad7b97df3c3e69211832f8c701dcecc1e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad7b97df3c3e69211832f8c701dcecc1e"></a>
-const unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><b>char2comp</b></td></tr>
-<tr class="memitem:a6e67ccabfbabc1099a706dd42948cadf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6e67ccabfbabc1099a706dd42948cadf"></a>
-const unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><b>comp2char</b></td></tr>
-<tr class="memitem:a41ccf9ad5ecd4b98a140e70498806b9d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a41ccf9ad5ecd4b98a140e70498806b9d"></a>
-const size_type *&#160;</td><td class="memItemRight" valign="bottom"><b>C</b></td></tr>
-<tr class="memitem:afd4a05c15425ed71bbb8df3eea140e59"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afd4a05c15425ed71bbb8df3eea140e59"></a>
-const uint8_t &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>sigma</b></td></tr>
+<tr class="memitem:afc76e40201ab5567b2c0bfc22f39097e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afc76e40201ab5567b2c0bfc22f39097e"></a>
+const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 8 &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>char2comp</b></td></tr>
+<tr class="memitem:ad3d14f42b62cb200ddc31b69e1f21e4a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad3d14f42b62cb200ddc31b69e1f21e4a"></a>
+const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 8 &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>comp2char</b></td></tr>
+<tr class="memitem:ac513138db5ed0a7c2ade537f23898b1b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac513138db5ed0a7c2ade537f23898b1b"></a>
+const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 64 &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>C</b></td></tr>
+<tr class="memitem:a066127f88a1e79ed6b696490b29e1645"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a066127f88a1e79ed6b696490b29e1645"></a>
+const uint16_t &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>sigma</b></td></tr>
 <tr class="memitem:af052e7792d8f577ad2abd380db8c4d8f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af052e7792d8f577ad2abd380db8c4d8f"></a>
 const <a class="el" href="classsdsl_1_1psi__of__csa__psi.html">psi_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>psi</b></td></tr>
 <tr class="memitem:a2bd5841ca8eacd71a7605d73020a0dc0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2bd5841ca8eacd71a7605d73020a0dc0"></a>
 const <a class="el" href="classsdsl_1_1bwt__of__csa__psi.html">bwt_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>bwt</b></td></tr>
 <tr class="memitem:a35a8fb9e680684e09e7002047080be0c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a35a8fb9e680684e09e7002047080be0c"></a>
-const sa_sample_type &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>sa_sample</b></td></tr>
+const <a class="el" href="classsdsl_1_1int__vector.html">sa_sample_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>sa_sample</b></td></tr>
 <tr class="memitem:ab0e260e69cf39ffdf2601f28caa76fea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab0e260e69cf39ffdf2601f28caa76fea"></a>
-const isa_sample_type &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>isa_sample</b></td></tr>
+const <a class="el" href="classsdsl_1_1int__vector.html">isa_sample_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>isa_sample</b></td></tr>
 <tr><td colspan="2"><h2><a name="friends"></a>
 Friends</h2></td></tr>
 <tr class="memitem:a8a0f54366ebb0c95a672350ec0bc1b21"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8a0f54366ebb0c95a672350ec0bc1b21"></a>
@@ -262,8 +261,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>bwt_of_csa_psi&lt; c
 class sdsl::csa_sada&lt; EncVector, SampleDens, InvSampleDens, fixedIntWidth &gt;</h3>
 
 <p>A class for the Compressed Suffix Array (CSA) proposed by Sadakane for practical implementation. </p>
-<p>The CSA is parameterized with an EncVector and the sample density SampleDens ( <img class="formulaInl" alt="$s_{SA}$" src="form_85.png"/>). I.e. every <img class="formulaInl" alt="$s_{SA}th$" src="form_86.png"/> value from the original suffix array is explicitely stored with <img class="formulaInl" alt="$\log n$" src="form_87.png"/> bits.</p>
-<p>The EncVector (default is <a class="el" href="classsdsl_1_1enc__vector.html" title="A generic immutable space-saving vector class for unsigned positiv integers. It encodes each integer ...">sdsl::enc_vector</a>) holds the <img class="formulaInl" alt="$\Psi$" src="form_6.png"/>-function and can be parametrized with <img class="formulaInl" alt="$s_{\Psi}$" src="form_88.png"/>. </p>
+<p>The CSA is parameterized with an EncVector and the sample density SampleDens ( <img class="formulaInl" alt="$s_{SA}$" src="form_87.png"/>). I.e. every <img class="formulaInl" alt="$s_{SA}th$" src="form_88.png"/> value from the original suffix array is explicitely stored with <img class="formulaInl" alt="$\log n$" src="form_89.png"/> bits.</p>
+<p>The EncVector (default is <a class="el" href="classsdsl_1_1enc__vector.html" title="A generic immutable space-saving vector class for unsigned positiv integers. It encodes each integer ...">sdsl::enc_vector</a>) holds the <img class="formulaInl" alt="$\Psi$" src="form_6.png"/>-function and can be parametrized with <img class="formulaInl" alt="$s_{\Psi}$" src="form_90.png"/>. </p>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>example, code example </dd></dl>
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="classsdsl_1_1csa__sada__theo.html" title="A class for the Compressed Suffix Array (CSA) proposed by Sadakane. csa_sada_theo is the one to one i...">csa_sada_theo</a> </dd></dl>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
@@ -534,11 +533,11 @@ template&lt;class EncVector , uint32_t SampleDens, uint32_t InvSampleDens, uint8
 <p>()-operator return inverse suffix array values </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>Index of the value. <img class="formulaInl" alt="$ i \in [0..size()-1]$" src="form_91.png"/>. </td></tr>
+    <tr><td class="paramname">i</td><td>Index of the value. <img class="formulaInl" alt="$ i \in [0..size()-1]$" src="form_92.png"/>. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{s_{SA^{-1}}\cdot t_{\Psi}} $" src="form_94.png"/>, where every <img class="formulaInl" alt="$s_{SA^{-1}}$" src="form_95.png"/>th suffix array entry is sampled and <img class="formulaInl" alt="$t_{\Psi}$" src="form_93.png"/> is the access time for an element in the <img class="formulaInl" alt="$\Psi$" src="form_6.png"/>-function. </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{s_{SA^{-1}}\cdot t_{\Psi}} $" src="form_95.png"/>, where every <img class="formulaInl" alt="$s_{SA^{-1}}$" src="form_96.png"/>th suffix array entry is sampled and <img class="formulaInl" alt="$t_{\Psi}$" src="form_94.png"/> is the access time for an element in the <img class="formulaInl" alt="$\Psi$" src="form_6.png"/>-function. </dd></dl>
 
 </div>
 </div>
@@ -608,11 +607,11 @@ template&lt;class EncVector , uint32_t SampleDens, uint32_t InvSampleDens, uint8
 <p>[]-operator </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>Index of the value. <img class="formulaInl" alt="$ i \in [0..size()-1]$" src="form_91.png"/>. Required for the STL Random Access Container Concept. </td></tr>
+    <tr><td class="paramname">i</td><td>Index of the value. <img class="formulaInl" alt="$ i \in [0..size()-1]$" src="form_92.png"/>. Required for the STL Random Access Container Concept. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{s_{SA}\cdot t_{\Psi}} $" src="form_92.png"/>, where every <img class="formulaInl" alt="$s_{SA}$" src="form_85.png"/>th suffix array entry is sampled and <img class="formulaInl" alt="$t_{\Psi}$" src="form_93.png"/> is the access time for an element in the <img class="formulaInl" alt="$\Psi$" src="form_6.png"/>-function. </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{s_{SA}\cdot t_{\Psi}} $" src="form_93.png"/>, where every <img class="formulaInl" alt="$s_{SA}$" src="form_87.png"/>th suffix array entry is sampled and <img class="formulaInl" alt="$t_{\Psi}$" src="form_94.png"/> is the access time for an element in the <img class="formulaInl" alt="$\Psi$" src="form_6.png"/>-function. </dd></dl>
 
 </div>
 </div>
@@ -646,13 +645,13 @@ template&lt;class EncVector = enc_vector&lt;&gt;, uint32_t SampleDens = 32, uint
 <p>Calculates how many symbols c are in the prefix [0..i-1] of the BWT of the original text. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>The exclusive index of the prefix range [0..i-1], so <img class="formulaInl" alt="$i\in [0..size()]$" src="form_96.png"/>. </td></tr>
+    <tr><td class="paramname">i</td><td>The exclusive index of the prefix range [0..i-1], so <img class="formulaInl" alt="$i\in [0..size()]$" src="form_97.png"/>. </td></tr>
     <tr><td class="paramname">c</td><td>The symbol to count the occurences in the prefix. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>The number of occurences of symbol c in the prefix [0..i-1] of the BWT. </dd></dl>
-<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{\log n t_{\Psi}} $" src="form_97.png"/> </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{\log n t_{\Psi}} $" src="form_98.png"/> </dd></dl>
 
 </div>
 </div>
@@ -687,13 +686,13 @@ template&lt;class EncVector = enc_vector&lt;&gt;, uint32_t SampleDens = 32, uint
 <p>" </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>The ith occurence. <img class="formulaInl" alt="$i\in [1..rank(size(),c)]$" src="form_98.png"/>. </td></tr>
+    <tr><td class="paramname">i</td><td>The ith occurence. <img class="formulaInl" alt="$i\in [1..rank(size(),c)]$" src="form_99.png"/>. </td></tr>
     <tr><td class="paramname">c</td><td>The symbol c. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>The ith occurence symbol c in the the BWT or <a class="el" href="classsdsl_1_1csa__sada.html#a1afcf491a7bf08b77677d33d014bf9c8" title="Number of elements in the .">size()</a> if no ith occurence of the symbol exists in the BWT. </dd></dl>
-<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{t_{\Psi}} $" src="form_99.png"/> </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{t_{\Psi}} $" src="form_100.png"/> </dd></dl>
 
 </div>
 </div>
@@ -741,10 +740,10 @@ template&lt;class EncVector = enc_vector&lt;&gt;, uint32_t SampleDens = 32, uint
 </div>
 <div class="memdoc">
 
-<p>Number of elements in the <img class="formulaInl" alt="$\CSA$" src="form_89.png"/>. </p>
+<p>Number of elements in the <img class="formulaInl" alt="$\CSA$" src="form_91.png"/>. </p>
 <p>Required for the Container Concept of the STL. </p>
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="classsdsl_1_1csa__sada.html#af40dca1e2ebe42ab05162d8559cab540" title="Returns the largest size that csa_sada can ever have.">max_size</a>, <a class="el" href="classsdsl_1_1csa__sada.html#a3c77e2e2e317327d3e0e79e759de6350" title="Returns if the data strucutre is empty.">empty</a> </dd></dl>
-<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{1} $" src="form_90.png"/> </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{1} $" src="form_51.png"/> </dd></dl>
 
 </div>
 </div>
@@ -784,7 +783,7 @@ template&lt;class EncVector, uint32_t SampleDens, uint32_t InvSampleDens, uint8_
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:35 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:30 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

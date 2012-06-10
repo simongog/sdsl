@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -82,7 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -97,7 +98,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="sd__vector_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/* sdsl - succinct data structures library</span>
-<a name="l00002"></a>00002 <span class="comment">    Copyright (C) 2012 Simon Gog </span>
+<a name="l00002"></a>00002 <span class="comment">    Copyright (C) 2012 Simon Gog</span>
 <a name="l00003"></a>00003 <span class="comment"></span>
 <a name="l00004"></a>00004 <span class="comment">    This program is free software: you can redistribute it and/or modify</span>
 <a name="l00005"></a>00005 <span class="comment">    it under the terms of the GNU General Public License as published by</span>
@@ -112,379 +113,377 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00014"></a>00014 <span class="comment">    You should have received a copy of the GNU General Public License</span>
 <a name="l00015"></a>00015 <span class="comment">    along with this program.  If not, see http://www.gnu.org/licenses/ .</span>
 <a name="l00016"></a>00016 <span class="comment">*/</span>
-<a name="l00022"></a>00022 <span class="preprocessor">#ifndef SDSL_SD_VECTOR</span>
-<a name="l00023"></a>00023 <span class="preprocessor"></span><span class="preprocessor">#define SDSL_SD_VECTOR</span>
+<a name="l00022"></a>00022 <span class="preprocessor">#ifndef INCLUDED_SDSL_SD_VECTOR</span>
+<a name="l00023"></a>00023 <span class="preprocessor"></span><span class="preprocessor">#define INCLUDED_SDSL_SD_VECTOR</span>
 <a name="l00024"></a>00024 <span class="preprocessor"></span>
 <a name="l00025"></a>00025 <span class="preprocessor">#include &quot;int_vector.hpp&quot;</span>
 <a name="l00026"></a>00026 <span class="preprocessor">#include &quot;<a class="code" href="select__support__mcl_8hpp.html" title="select_support_mcl.hpp contains classes that support a sdsl::bit_vector with constant time select inf...">select_support_mcl.hpp</a>&quot;</span>
 <a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="util_8hpp.html" title="util.hpp contains some helper methods for int_vector and other stuff like demangle class names...">util.hpp</a>&quot;</span>
 <a name="l00028"></a>00028 <span class="preprocessor">#include &quot;<a class="code" href="bitmagic_8hpp.html" title="bitmagic.hpp contains the sdsl::bit_magic class.">bitmagic.hpp</a>&quot;</span>
 <a name="l00029"></a>00029 
-<a name="l00031"></a>00031 <span class="keyword">namespace </span>sdsl{
-<a name="l00032"></a>00032 
-<a name="l00033"></a>00033 <span class="comment">// forward declaration needed for friend declaration</span>
-<a name="l00034"></a>00034 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Select1Support=select_support_mcl&lt;1&gt;, <span class="keyword">class</span> Select0Support=select_support_mcl&lt;0&gt; &gt;
-<a name="l00035"></a>00035 <span class="keyword">class </span>sd_rank_support;  <span class="comment">// in sd_vector</span>
-<a name="l00036"></a>00036 
-<a name="l00037"></a>00037 <span class="comment">// forward declaration needed for friend declaration</span>
-<a name="l00038"></a>00038 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Select1Support=select_support_mcl&lt;1&gt;, <span class="keyword">class</span> Select0Support=select_support_mcl&lt;0&gt; &gt;
-<a name="l00039"></a>00039 <span class="keyword">class </span>sd_select_support;  <span class="comment">// in sd_vector</span>
-<a name="l00040"></a>00040 
-<a name="l00042"></a>00042 <span class="comment">// representing the positions of 1 by the Elias-Fano representation for non-decreasing sequences</span>
-<a name="l00057"></a>00057 <span class="comment"></span><span class="keyword">template</span>&lt;<span class="keyword">class</span> Select1Support=select_support_mcl&lt;1&gt;, <span class="keyword">class</span> Select0Support=select_support_mcl&lt;0&gt; &gt;       
-<a name="l00058"></a><a class="code" href="classsdsl_1_1sd__vector.html">00058</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">sd_vector</a>{
-<a name="l00059"></a>00059         <span class="keyword">public</span>:
-<a name="l00060"></a>00060                 <span class="keyword">typedef</span> bit_vector::size_type size_type;
-<a name="l00061"></a>00061                 <span class="keyword">typedef</span> size_type value_type;
-<a name="l00062"></a>00062                 <span class="keyword">typedef</span> Select0Support select_0_support_type;
-<a name="l00063"></a>00063                 <span class="keyword">typedef</span> Select1Support select_1_support_type;
-<a name="l00064"></a>00064 
-<a name="l00065"></a>00065                 <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classsdsl_1_1sd__rank__support.html">sd_rank_support</a>&lt;select_1_support_type, select_0_support_type&gt;;
-<a name="l00066"></a>00066                 <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classsdsl_1_1sd__select__support.html">sd_select_support</a>&lt;select_1_support_type, select_0_support_type&gt;;
-<a name="l00067"></a>00067 
-<a name="l00068"></a>00068                 <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1sd__rank__support.html">sd_rank_support&lt;select_1_support_type, select_0_support_type&gt;</a> <a class="code" href="classsdsl_1_1sd__rank__support.html">rank_1_type</a>;
-<a name="l00069"></a>00069                 <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1sd__select__support.html">sd_select_support&lt;select_1_support_type, select_0_support_type&gt;</a> <a class="code" href="classsdsl_1_1sd__select__support.html">select_1_type</a>;
-<a name="l00070"></a>00070         <span class="keyword">private</span>:
-<a name="l00071"></a>00071                 <span class="comment">// we need this variables to represent the m ones of the original bit vector of size n </span>
-<a name="l00072"></a>00072                 size_type m_size;                <span class="comment">// length of the original bit vector</span>
-<a name="l00073"></a>00073                 uint8_t   m_wl;                  <span class="comment">// log n - log m, where n is the length of the original bit vector</span>
-<a name="l00074"></a>00074                                                                  <span class="comment">// and m is the number of ones in the bit vector, lw is the abbreviation</span>
-<a name="l00075"></a>00075                                                                  <span class="comment">// for ,,with (of) low (part)&#39;&#39;</span>
-<a name="l00076"></a>00076 
-<a name="l00077"></a>00077                 int_vector&lt;&gt; m_low;      <span class="comment">// vector for the least significant bits of the positions of the m ones </span>
-<a name="l00078"></a>00078                 bit_vector   m_high;     <span class="comment">// bit vector that represents the most significant bit in permuted order</span>
-<a name="l00079"></a>00079                 select_1_support_type m_high_1_select; <span class="comment">// </span>
-<a name="l00080"></a>00080                 select_0_support_type m_high_0_select; <span class="comment">// </span>
-<a name="l00081"></a>00081 
-<a name="l00082"></a>00082         <span class="keywordtype">void</span> copy(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">sd_vector</a> &amp;v){
-<a name="l00083"></a>00083                 m_size = v.m_size;
-<a name="l00084"></a>00084                 m_wl   = v.m_wl;
-<a name="l00085"></a>00085                 m_low  = v.m_low;
-<a name="l00086"></a>00086                 m_high = v.m_high;
-<a name="l00087"></a>00087                 m_high_1_select = v.m_high_1_select;
-<a name="l00088"></a>00088                 m_high_1_select.set_vector( &amp;m_high );  
-<a name="l00089"></a>00089                 m_high_0_select = v.m_high_0_select;
-<a name="l00090"></a>00090                 m_high_0_select.set_vector( &amp;m_high );  
-<a name="l00091"></a>00091         }       
+<a name="l00031"></a>00031 <span class="keyword">namespace </span>sdsl
+<a name="l00032"></a>00032 {
+<a name="l00033"></a>00033 
+<a name="l00034"></a>00034 <span class="comment">// forward declaration needed for friend declaration</span>
+<a name="l00035"></a>00035 <span class="keyword">template</span>&lt;<span class="keyword">class </span>hi_bit_vector_type = <a class="code" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb" title="bit_vector is a specialization of the int_vector.">bit_vector</a>,
+<a name="l00036"></a>00036          <span class="keyword">class </span>Select1Support     = <span class="keyword">typename</span> hi_bit_vector_type::select_1_type,
+<a name="l00037"></a>00037          <span class="keyword">class </span>Select0Support     = <span class="keyword">typename</span> hi_bit_vector_type::select_0_type&gt;
+<a name="l00038"></a>00038 <span class="keyword">class </span>sd_rank_support;  <span class="comment">// in sd_vector</span>
+<a name="l00039"></a>00039 
+<a name="l00040"></a>00040 <span class="comment">// forward declaration needed for friend declaration</span>
+<a name="l00041"></a>00041 <span class="keyword">template</span>&lt;<span class="keyword">class </span>hi_bit_vector_type = <a class="code" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb" title="bit_vector is a specialization of the int_vector.">bit_vector</a>,
+<a name="l00042"></a>00042          <span class="keyword">class </span>Select1Support     = <span class="keyword">typename</span> hi_bit_vector_type::select_1_type,
+<a name="l00043"></a>00043          <span class="keyword">class </span>Select0Support     = <span class="keyword">typename</span> hi_bit_vector_type::select_0_type&gt;
+<a name="l00044"></a>00044 <span class="keyword">class </span>sd_select_support;  <span class="comment">// in sd_vector</span>
+<a name="l00045"></a>00045 
+<a name="l00047"></a>00047 <span class="comment">// representing the positions of 1 by the Elias-Fano representation for non-decreasing sequences</span>
+<a name="l00065"></a>00065 <span class="comment"></span><span class="keyword">template</span>&lt;<span class="keyword">class </span>hi_bit_vector_type       = <a class="code" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb" title="bit_vector is a specialization of the int_vector.">bit_vector</a>,
+<a name="l00066"></a>00066            <span class="keyword">class </span>hi_select_1                    = <span class="keyword">typename</span> hi_bit_vector_type::select_1_type,
+<a name="l00067"></a>00067            <span class="keyword">class </span>hi_select_0                    = <span class="keyword">typename</span> hi_bit_vector_type::select_0_type&gt;
+<a name="l00068"></a><a class="code" href="classsdsl_1_1sd__vector.html">00068</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">sd_vector</a>
+<a name="l00069"></a>00069 {
+<a name="l00070"></a>00070     <span class="keyword">public</span>:
+<a name="l00071"></a>00071         <span class="keyword">typedef</span> bit_vector::size_type size_type;
+<a name="l00072"></a>00072         <span class="keyword">typedef</span> size_type value_type;
+<a name="l00073"></a>00073         <span class="keyword">typedef</span> hi_select_0 select_0_support_type;
+<a name="l00074"></a>00074         <span class="keyword">typedef</span> hi_select_1 select_1_support_type;
+<a name="l00075"></a>00075 
+<a name="l00076"></a>00076         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classsdsl_1_1sd__rank__support.html" title="Rank data structure for sd_vector.">sd_rank_support</a>&lt;hi_bit_vector_type, select_1_support_type, select_0_support_type&gt;;
+<a name="l00077"></a>00077         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classsdsl_1_1sd__select__support.html" title="Select data structure for sd_vector.">sd_select_support</a>&lt;hi_bit_vector_type, select_1_support_type, select_0_support_type&gt;;
+<a name="l00078"></a>00078 
+<a name="l00079"></a>00079         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1sd__rank__support.html" title="Rank data structure for sd_vector.">sd_rank_support&lt;hi_bit_vector_type, select_1_support_type, select_0_support_type&gt;</a> <a class="code" href="classsdsl_1_1sd__rank__support.html" title="Rank data structure for sd_vector.">rank_1_type</a>;
+<a name="l00080"></a>00080         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1sd__select__support.html" title="Select data structure for sd_vector.">sd_select_support&lt;hi_bit_vector_type, select_1_support_type, select_0_support_type&gt;</a> <a class="code" href="classsdsl_1_1sd__select__support.html" title="Select data structure for sd_vector.">select_1_type</a>;
+<a name="l00081"></a>00081     <span class="keyword">private</span>:
+<a name="l00082"></a>00082         <span class="comment">// we need this variables to represent the m ones of the original bit vector of size n</span>
+<a name="l00083"></a>00083         size_type m_size;                <span class="comment">// length of the original bit vector</span>
+<a name="l00084"></a>00084         uint8_t   m_wl;                  <span class="comment">// log n - log m, where n is the length of the original bit vector</span>
+<a name="l00085"></a>00085         <span class="comment">// and m is the number of ones in the bit vector, wl is the abbreviation</span>
+<a name="l00086"></a>00086         <span class="comment">// for ,,width (of) low (part)&#39;&#39;</span>
+<a name="l00087"></a>00087 
+<a name="l00088"></a>00088         <a class="code" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector&lt;&gt;</a>                    m_low;           <span class="comment">// vector for the least significant bits of the positions of the m ones</span>
+<a name="l00089"></a>00089         hi_bit_vector_type      m_high;          <span class="comment">// bit vector that represents the most significant bit in permuted order</span>
+<a name="l00090"></a>00090         select_1_support_type   m_high_1_select; <span class="comment">// select support for the ones in m_high</span>
+<a name="l00091"></a>00091         select_0_support_type   m_high_0_select; <span class="comment">// select support for the zeros in m_high</span>
 <a name="l00092"></a>00092 
-<a name="l00093"></a>00093 
-<a name="l00094"></a>00094         <span class="keyword">public</span>:
-<a name="l00095"></a>00095                 <span class="keyword">const</span> bit_vector &amp;high;
-<a name="l00096"></a>00096                 <a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">sd_vector</a>():high(m_high){
-<a name="l00097"></a>00097                 <span class="comment">//      std::cout&lt;&lt;&quot;std constructor of sd_vector&quot;&lt;&lt;std::endl;</span>
-<a name="l00098"></a>00098                 }
-<a name="l00099"></a>00099 
-<a name="l00100"></a>00100                 <a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">sd_vector</a>(<span class="keyword">const</span> bit_vector &amp;bv):high(m_high){
-<a name="l00101"></a>00101 <span class="comment">//std::cout&lt;&lt;&quot;calling constructor of sd_vector&quot;&lt;&lt;std::endl;</span>
-<a name="l00102"></a>00102                         m_size = bv.size();
-<a name="l00103"></a>00103                         <span class="keywordflow">if</span>(m_size == 0)
-<a name="l00104"></a>00104                                 <span class="keywordflow">return</span>;
-<a name="l00105"></a>00105                         size_type m = <a class="code" href="namespacesdsl_1_1util.html#a55d9746d83c8c32dcc2a0ce7ab38616d" title="Counts and returns the 1-bits an int_vector contains.">util::get_one_bits</a>(bv); 
-<a name="l00106"></a>00106 <span class="comment">//std::cout&lt;&lt;&quot;ones in bv=&quot;&lt;&lt;m&lt;&lt;std::endl;</span>
-<a name="l00107"></a>00107                         uint8_t logm = <a class="code" href="classsdsl_1_1bit__magic.html#add0a212c8b5f894223c49e95aaa2ae8e" title="Calculates the position of the leftmost 1-bit in the 64bit integer x if it exists.">bit_magic::l1BP</a>(m)+1;
-<a name="l00108"></a>00108                         uint8_t logn = <a class="code" href="classsdsl_1_1bit__magic.html#add0a212c8b5f894223c49e95aaa2ae8e" title="Calculates the position of the leftmost 1-bit in the 64bit integer x if it exists.">bit_magic::l1BP</a>(m_size)+1;
-<a name="l00109"></a>00109                         <span class="keywordflow">if</span>( logm == logn ){ --logm; } <span class="comment">// to ensure logn-logm &gt; 0</span>
-<a name="l00110"></a>00110                         m_wl    = logn - logm;
-<a name="l00111"></a>00111 <span class="comment">//std::cout&lt;&lt;&quot;m_wl=&quot;&lt;&lt;(int)m_wl&lt;&lt;std::endl;</span>
-<a name="l00112"></a>00112                         m_low = int_vector&lt;&gt;(m, 0, m_wl);
-<a name="l00113"></a>00113                         m_high = bit_vector(m + (1ULL&lt;&lt;logm), 0);
-<a name="l00114"></a>00114 <span class="comment">//std::cout&lt;&lt;&quot;m_low and m_high initialized=&quot;&lt;&lt;std::endl;</span>
-<a name="l00115"></a>00115                         <span class="keyword">const</span> uint64_t *bvp = bv.data();
-<a name="l00116"></a>00116                         <span class="keywordflow">for</span>(size_type i=0, mm=0,last_high=0,highpos=0; i &lt; (bv.size()+63)/64; ++i, ++bvp){
-<a name="l00117"></a>00117                                 size_type position = 64*i;
-<a name="l00118"></a>00118                                 uint64_t  w = *bvp;
-<a name="l00119"></a>00119                                 <span class="keywordflow">while</span> ( w ){
-<a name="l00120"></a>00120                                         uint8_t offset = <a class="code" href="classsdsl_1_1bit__magic.html#acedc420a68ddb4d8774174f233a8ef61" title="Calculates the position of the rightmost 1-bit in the 64bit integer x if it exists.">bit_magic::r1BP</a>(w);
-<a name="l00121"></a>00121                                         w &gt;&gt;= offset;   <span class="comment">// note:  w &gt;&gt;= (offset+1) can not be applied for offset=63!</span>
-<a name="l00122"></a>00122                                         position += offset;
-<a name="l00123"></a>00123                                         <span class="keywordflow">if</span> ( position &gt;= bv.size() )
-<a name="l00124"></a>00124                                                 <span class="keywordflow">break</span>;
-<a name="l00125"></a>00125                                         <span class="comment">// (1) handle high part</span>
-<a name="l00126"></a>00126                                         size_type cur_high = position &gt;&gt; m_wl;
-<a name="l00127"></a>00127                                         highpos += ( cur_high - last_high ); <span class="comment">// write cur_high-last_high 0s </span>
-<a name="l00128"></a>00128                                         last_high = cur_high;
-<a name="l00129"></a>00129                                         <span class="comment">// (2) handle low part</span>
-<a name="l00130"></a>00130                                         m_low[mm++] = position; <span class="comment">// int_vector truncates the most significant logm bits</span>
-<a name="l00131"></a>00131                                         m_high[highpos++] = 1;     <span class="comment">// write 1 for the entry</span>
-<a name="l00132"></a>00132                                         position += 1;
-<a name="l00133"></a>00133                                         w &gt;&gt;= 1;
-<a name="l00134"></a>00134                                 }
-<a name="l00135"></a>00135                         }
-<a name="l00136"></a>00136 <span class="comment">//std::cout&lt;&lt;&quot;m_low and m_high filled&quot;&lt;&lt;std::endl;</span>
-<a name="l00137"></a>00137 <span class="comment">/*                      </span>
-<a name="l00138"></a>00138 <span class="comment">                        if( m_size &lt; 50 ){</span>
-<a name="l00139"></a>00139 <span class="comment">                                for(size_type i=0; i&lt;m; ++i)</span>
-<a name="l00140"></a>00140 <span class="comment">                                        std::cout&lt;&lt;i&lt;&lt;&quot; &quot;&lt;&lt;m_low[i]&lt;&lt;std::endl;</span>
-<a name="l00141"></a>00141 <span class="comment">                                std::cout&lt;&lt; m_high &lt;&lt; std::endl;</span>
-<a name="l00142"></a>00142 <span class="comment">                        }</span>
-<a name="l00143"></a>00143 <span class="comment">*/</span>                      
-<a name="l00144"></a>00144                         m_high_1_select.init(&amp;m_high);
-<a name="l00145"></a>00145                         m_high_0_select.init(&amp;m_high);
-<a name="l00146"></a>00146 <span class="comment">//cout &lt;&lt; &quot;m_v=&quot;&lt;&lt; (this) &lt;&lt; endl;</span>
-<a name="l00147"></a>00147 <span class="comment">//                      cout &lt;&lt; &quot;m_v.m_high_0_select=&quot;&lt;&lt; (&amp;m_high_0_select) &lt;&lt; endl;</span>
-<a name="l00148"></a>00148 <span class="comment">//                      for(size_type i=1; i&lt;=(1&lt;&lt;logm);++i){</span>
-<a name="l00149"></a>00149 <span class="comment">//                              cout &lt;&lt;&quot; 0 select &quot;&lt;&lt;i&lt;&lt;&quot; = &quot;&lt;&lt;m_high_0_select(i)&lt;&lt;endl;</span>
-<a name="l00150"></a>00150 <span class="comment">//                      }</span>
-<a name="l00151"></a>00151                 }
+<a name="l00093"></a>00093         <span class="keywordtype">void</span> copy(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">sd_vector</a>&amp; v) {
+<a name="l00094"></a>00094             m_size = v.m_size;
+<a name="l00095"></a>00095             m_wl   = v.m_wl;
+<a name="l00096"></a>00096             m_low  = v.m_low;
+<a name="l00097"></a>00097             m_high = v.m_high;
+<a name="l00098"></a>00098             m_high_1_select = v.m_high_1_select;
+<a name="l00099"></a>00099             m_high_1_select.set_vector(&amp;m_high);
+<a name="l00100"></a>00100             m_high_0_select = v.m_high_0_select;
+<a name="l00101"></a>00101             m_high_0_select.set_vector(&amp;m_high);
+<a name="l00102"></a>00102         }
+<a name="l00103"></a>00103 
+<a name="l00104"></a>00104     <span class="keyword">public</span>:
+<a name="l00105"></a>00105         <span class="keyword">const</span> hi_bit_vector_type&amp; high;
+<a name="l00106"></a>00106         <span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector&lt;&gt;</a>&amp; low;
+<a name="l00107"></a>00107         <span class="keyword">const</span> select_1_support_type&amp;     high_1_select;
+<a name="l00108"></a>00108         <span class="keyword">const</span> select_0_support_type&amp;     high_0_select;
+<a name="l00109"></a>00109 
+<a name="l00110"></a>00110         <a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">sd_vector</a>():m_size(0), m_wl(0),
+<a name="l00111"></a>00111             high(m_high), low(m_low),
+<a name="l00112"></a>00112             high_1_select(m_high_1_select), high_0_select(m_high_0_select) {
+<a name="l00113"></a>00113         }
+<a name="l00114"></a>00114 
+<a name="l00115"></a>00115         <a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">sd_vector</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">bit_vector</a>&amp; bv):high(m_high),low(m_low),
+<a name="l00116"></a>00116             high_1_select(m_high_1_select), high_0_select(m_high_0_select) {
+<a name="l00117"></a>00117             m_size = bv.<a class="code" href="classsdsl_1_1int__vector.html#aea4fcbbab7fbef9c1cc4a4c89f4b1520" title="The number of elements in the int_vector.">size</a>();
+<a name="l00118"></a>00118             size_type m = <a class="code" href="namespacesdsl_1_1util.html#abc9ca0032f4c83fcc4a22b3493976b53" title="Counts and returns the 1-bits an int_vector contains.">util::get_one_bits</a>(bv);
+<a name="l00119"></a>00119             uint8_t logm = <a class="code" href="classsdsl_1_1bit__magic.html#a7e056c78ea2cea39ac49e552731c0c95" title="Calculates the position of the leftmost 1-bit in the 64bit integer x if it exists.">bit_magic::l1BP</a>(m)+1;
+<a name="l00120"></a>00120             uint8_t logn = <a class="code" href="classsdsl_1_1bit__magic.html#a7e056c78ea2cea39ac49e552731c0c95" title="Calculates the position of the leftmost 1-bit in the 64bit integer x if it exists.">bit_magic::l1BP</a>(m_size)+1;
+<a name="l00121"></a>00121             <span class="keywordflow">if</span> (logm == logn) {
+<a name="l00122"></a>00122                 --logm;    <span class="comment">// to ensure logn-logm &gt; 0</span>
+<a name="l00123"></a>00123             }
+<a name="l00124"></a>00124             m_wl    = logn - logm;
+<a name="l00125"></a>00125             m_low = <a class="code" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector&lt;&gt;</a>(m, 0, m_wl);
+<a name="l00126"></a>00126             <a class="code" href="classsdsl_1_1int__vector.html">bit_vector</a> high = <a class="code" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb" title="bit_vector is a specialization of the int_vector.">bit_vector</a>(m + (1ULL&lt;&lt;logm), 0); <span class="comment">//</span>
+<a name="l00127"></a>00127             <span class="keyword">const</span> uint64_t* bvp = bv.<a class="code" href="classsdsl_1_1int__vector.html#a95c37593805480d99a258cc9417a8a1d" title="Pointer to the raw data of the int_vector.">data</a>();
+<a name="l00128"></a>00128             <span class="keywordflow">for</span> (size_type i=0, mm=0,last_high=0,highpos=0; i &lt; (bv.<a class="code" href="classsdsl_1_1int__vector.html#aea4fcbbab7fbef9c1cc4a4c89f4b1520" title="The number of elements in the int_vector.">size</a>()+63)/64; ++i, ++bvp) {
+<a name="l00129"></a>00129                 size_type position = 64*i;
+<a name="l00130"></a>00130                 uint64_t  w = *bvp;
+<a name="l00131"></a>00131                 <span class="keywordflow">while</span> (w) {  <span class="comment">// process bit_vector word by word</span>
+<a name="l00132"></a>00132                     uint8_t offset = <a class="code" href="classsdsl_1_1bit__magic.html#a78d74ed3ead2d306bd92e040305e675a" title="Calculates the position of the rightmost 1-bit in the 64bit integer x if it exists.">bit_magic::r1BP</a>(w);
+<a name="l00133"></a>00133                     w &gt;&gt;= offset;   <span class="comment">// note:  w &gt;&gt;= (offset+1) can not be applied for offset=63!</span>
+<a name="l00134"></a>00134                     position += offset;
+<a name="l00135"></a>00135                     <span class="keywordflow">if</span> (position &gt;= bv.<a class="code" href="classsdsl_1_1int__vector.html#aea4fcbbab7fbef9c1cc4a4c89f4b1520" title="The number of elements in the int_vector.">size</a>()) <span class="comment">// check that we have not reached the end of the bitvector</span>
+<a name="l00136"></a>00136                         <span class="keywordflow">break</span>;
+<a name="l00137"></a>00137                     <span class="comment">// (1) handle high part</span>
+<a name="l00138"></a>00138                     size_type cur_high = position &gt;&gt; m_wl;
+<a name="l00139"></a>00139                     highpos += (cur_high - last_high);   <span class="comment">// write cur_high-last_high 0s</span>
+<a name="l00140"></a>00140                     last_high = cur_high;
+<a name="l00141"></a>00141                     <span class="comment">// (2) handle low part</span>
+<a name="l00142"></a>00142                     m_low[mm++] = position; <span class="comment">// int_vector truncates the most significant logm bits</span>
+<a name="l00143"></a>00143                     high[highpos++] = 1;     <span class="comment">// write 1 for the entry</span>
+<a name="l00144"></a>00144                     position += 1;
+<a name="l00145"></a>00145                     w &gt;&gt;= 1;
+<a name="l00146"></a>00146                 }
+<a name="l00147"></a>00147             }
+<a name="l00148"></a>00148             <a class="code" href="namespacesdsl_1_1util.html#aa945b4d1593f6bf0f5f2a913610e5bf5" title="Assigns the value x of type T to the value of y of type U.">util::assign</a>(m_high, high);
+<a name="l00149"></a>00149             <a class="code" href="namespacesdsl_1_1util.html#a261681cbaa98ab77a78dddb6f21b1f6e" title="Initialise support data structure with.">util::init_support</a>(m_high_1_select, &amp;m_high);
+<a name="l00150"></a>00150             <a class="code" href="namespacesdsl_1_1util.html#a261681cbaa98ab77a78dddb6f21b1f6e" title="Initialise support data structure with.">util::init_support</a>(m_high_0_select, &amp;m_high);
+<a name="l00151"></a>00151         }
 <a name="l00152"></a>00152 
 <a name="l00154"></a>00154 
-<a name="l00163"></a><a class="code" href="classsdsl_1_1sd__vector.html#a6e37aaeab586a1e2990c90a07f734f74">00163</a>                 value_type <a class="code" href="classsdsl_1_1sd__vector.html#a6e37aaeab586a1e2990c90a07f734f74" title="Accessing the i-th element of the original bit_vector.">operator[]</a>(size_type i)<span class="keyword">const</span>{
-<a name="l00164"></a>00164 <span class="comment">//                      size_type h = i &gt;&gt; m_wl; // extract high part</span>
-<a name="l00165"></a>00165                         <span class="comment">// search for the h&#39;s zero in m_high</span>
-<a name="l00166"></a>00166                         <span class="comment">//size_type m_high_0_select(  );        </span>
-<a name="l00167"></a>00167                         <span class="comment">// split problem in two parts:</span>
-<a name="l00168"></a>00168                         <span class="comment">// (1) find  &gt;=</span>
-<a name="l00169"></a>00169                         size_type high_val = ( i &gt;&gt; (m_wl) ); 
-<a name="l00170"></a>00170                         size_type sel_high = m_high_0_select.select( high_val + 1 );    
-<a name="l00171"></a>00171                         size_type rank_low = sel_high - high_val; 
-<a name="l00172"></a>00172                         <span class="keywordflow">if</span>( 0 == rank_low )
-<a name="l00173"></a>00173                                 <span class="keywordflow">return</span> 0;
-<a name="l00174"></a>00174                         size_type val_low = i &amp; <a class="code" href="classsdsl_1_1bit__magic.html#a1d17114e1e8edc00d4e093df9b43c491" title="An array with entry i containing a 64bit integer with the last i bits set.">bit_magic::Li1Mask</a>[ m_wl ];
-<a name="l00175"></a>00175                         <span class="comment">// now since rank_low &gt; 0 =&gt; sel_high &gt; 0</span>
-<a name="l00176"></a>00176                         --sel_high; --rank_low;
-<a name="l00177"></a>00177                         <span class="keywordflow">while</span>( m_high[sel_high] and m_low[rank_low] &gt; val_low ){
-<a name="l00178"></a>00178                                 <span class="keywordflow">if</span>(sel_high &gt; 0){
-<a name="l00179"></a>00179                                         --sel_high; --rank_low;
-<a name="l00180"></a>00180                                 }<span class="keywordflow">else</span>
-<a name="l00181"></a>00181                                         <span class="keywordflow">return</span> 0;
-<a name="l00182"></a>00182                         }
-<a name="l00183"></a>00183                         <span class="keywordflow">return</span> m_high[sel_high] and m_low[rank_low] == val_low;
-<a name="l00184"></a>00184                 }
-<a name="l00185"></a>00185 
-<a name="l00187"></a><a class="code" href="classsdsl_1_1sd__vector.html#ad279d4a8b836300de08105b2291e1aa3">00187</a>            size_type <a class="code" href="classsdsl_1_1sd__vector.html#ad279d4a8b836300de08105b2291e1aa3" title="Returns the size of the original bit vector.">size</a>()<span class="keyword">const</span>{
-<a name="l00188"></a>00188                  <span class="keywordflow">return</span> m_size;
-<a name="l00189"></a>00189            }
-<a name="l00190"></a>00190 
-<a name="l00191"></a>00191            <a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">sd_vector</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">sd_vector</a> &amp;v){
-<a name="l00192"></a>00192 <span class="comment">//                 std::cout&lt;&lt;&quot;copy constructor of sd_vector was called&quot;&lt;&lt;std::endl;</span>
-<a name="l00193"></a>00193                    <span class="keywordflow">if</span>( <span class="keyword">this</span> != &amp;v ){
-<a name="l00194"></a>00194                                 copy(v);
-<a name="l00195"></a>00195                    }
-<a name="l00196"></a>00196                    <span class="keywordflow">return</span> *<span class="keyword">this</span>;
-<a name="l00197"></a>00197            }
-<a name="l00198"></a>00198 
-<a name="l00200"></a><a class="code" href="classsdsl_1_1sd__vector.html#a7aab28d2c910a89295bbb82c0f7a709b">00200</a>            size_type <a class="code" href="classsdsl_1_1sd__vector.html#a7aab28d2c910a89295bbb82c0f7a709b" title="Serializes the data structure into the given ostream.">serialize</a>(std::ostream &amp;out)<span class="keyword">const</span>{
-<a name="l00201"></a>00201                  size_type written_bytes = 0;
-<a name="l00202"></a>00202                  written_bytes += util::write_member(m_size, out);
-<a name="l00203"></a>00203                  written_bytes += util::write_member(m_wl, out);
-<a name="l00204"></a>00204                  written_bytes += m_low.serialize(out);
-<a name="l00205"></a>00205                  written_bytes += m_high.serialize(out);
-<a name="l00206"></a>00206                  written_bytes += m_high_1_select.serialize(out);
-<a name="l00207"></a>00207                  written_bytes += m_high_0_select.serialize(out);
-<a name="l00208"></a>00208                  <span class="keywordflow">return</span> written_bytes;
-<a name="l00209"></a>00209            }
-<a name="l00210"></a>00210 
-<a name="l00212"></a><a class="code" href="classsdsl_1_1sd__vector.html#a6775461b5ac6c115829f842a0be96936">00212</a>                 <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1sd__vector.html#a6775461b5ac6c115829f842a0be96936" title="Loads the data structure from the given istream.">load</a>(std::istream &amp;in){
-<a name="l00213"></a>00213                         util::read_member(m_size, in);
-<a name="l00214"></a>00214                         util::read_member(m_wl, in);
-<a name="l00215"></a>00215                         m_low.load(in);
-<a name="l00216"></a>00216                         m_high.load(in);
-<a name="l00217"></a>00217                         m_high_1_select.load(in, &amp;m_high);
-<a name="l00218"></a>00218                         m_high_0_select.load(in, &amp;m_high);
-<a name="l00219"></a>00219                 }       
-<a name="l00220"></a>00220 
-<a name="l00221"></a>00221 <span class="preprocessor">#ifdef MEM_INFO</span>
-<a name="l00222"></a>00222 <span class="preprocessor"></span>                <span class="keywordtype">void</span> mem_info(std::string label=<span class="stringliteral">&quot;&quot;</span>)<span class="keyword">const</span>{
-<a name="l00223"></a>00223                         <span class="keywordflow">if</span>(label==<span class="stringliteral">&quot;&quot;</span>)
-<a name="l00224"></a>00224                                 label = <span class="stringliteral">&quot;sd_vector&quot;</span>;
-<a name="l00225"></a>00225                         size_type bytes = <a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(*<span class="keyword">this</span>);
-<a name="l00226"></a>00226                         std::cout &lt;&lt; <span class="stringliteral">&quot;list(label=\&quot;&quot;</span>&lt;&lt;label&lt;&lt;<span class="stringliteral">&quot;\&quot;, size = &quot;</span>&lt;&lt; bytes/(1024.0*1024.0) &lt;&lt; <span class="stringliteral">&quot;,\n&quot;</span>;
-<a name="l00227"></a>00227                         m_high.mem_info(<span class="stringliteral">&quot;high part&quot;</span>); std::cout &lt;&lt; <span class="stringliteral">&quot;,\n&quot;</span>;
-<a name="l00228"></a>00228                         m_low.mem_info(<span class="stringliteral">&quot;low part&quot;</span>); std::cout &lt;&lt; <span class="stringliteral">&quot;,\n&quot;</span>;
-<a name="l00229"></a>00229                         m_high_1_select.mem_info(<span class="stringliteral">&quot;high_1_select&quot;</span>); std::cout &lt;&lt; <span class="stringliteral">&quot;,\n&quot;</span>;
-<a name="l00230"></a>00230                         m_high_0_select.mem_info(<span class="stringliteral">&quot;high_0_select&quot;</span>); std::cout &lt;&lt; <span class="stringliteral">&quot;)\n&quot;</span>;
-<a name="l00231"></a>00231                 }
-<a name="l00232"></a>00232 <span class="preprocessor">#endif  </span>
-<a name="l00233"></a>00233 <span class="preprocessor"></span>
-<a name="l00234"></a>00234 };
-<a name="l00235"></a>00235 
-<a name="l00236"></a>00236 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Select1Support, <span class="keyword">class</span> Select0Support&gt;
-<a name="l00237"></a><a class="code" href="classsdsl_1_1sd__rank__support.html">00237</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1sd__rank__support.html">sd_rank_support</a>{
-<a name="l00238"></a>00238         <span class="keyword">public</span>:
-<a name="l00239"></a>00239                 <span class="keyword">typedef</span> bit_vector::size_type size_type;
-<a name="l00240"></a>00240                 <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">sd_vector&lt;Select1Support, Select0Support&gt;</a> <a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">bit_vector_type</a>;
-<a name="l00241"></a>00241         <span class="keyword">private</span>:
-<a name="l00242"></a>00242                 <span class="keyword">const</span> <a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">bit_vector_type</a> *m_v;
-<a name="l00243"></a>00243 <span class="comment">//              mutable bit_vector_type *m_v;</span>
-<a name="l00244"></a>00244 
-<a name="l00245"></a>00245         <span class="keyword">public</span>:
-<a name="l00246"></a>00246 
-<a name="l00247"></a>00247 <span class="comment">//              sd_rank_support(const bit_vector_type *v=NULL){</span>
-<a name="l00248"></a>00248                 <a class="code" href="classsdsl_1_1sd__rank__support.html">sd_rank_support</a>(<a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">bit_vector_type</a> *v=NULL){
-<a name="l00249"></a>00249                         init(v);
-<a name="l00250"></a>00250                 }
-<a name="l00251"></a>00251 
-<a name="l00252"></a>00252 <span class="comment">//              void init(const bit_vector_type *v=NULL){</span>
-<a name="l00253"></a>00253                 <span class="keywordtype">void</span> init(<a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">bit_vector_type</a> *v=NULL){
-<a name="l00254"></a>00254                         set_vector(v);
-<a name="l00255"></a>00255                 }
-<a name="l00256"></a>00256 
-<a name="l00257"></a>00257                 size_type rank(size_type i)<span class="keyword">const</span>{
-<a name="l00258"></a>00258                         <span class="comment">// split problem in two parts:</span>
-<a name="l00259"></a>00259                         <span class="comment">// (1) find  &gt;=</span>
-<a name="l00260"></a>00260                         size_type high_val = ( i &gt;&gt; (m_v-&gt;m_wl) ); 
-<a name="l00261"></a>00261 <span class="comment">//std::cout&lt;&lt;&quot;high_val=&quot;&lt;&lt;high_val&lt;&lt;&quot; i=&quot;&lt;&lt;i&lt;&lt;&quot; / &quot;&lt;&lt;m_v-&gt;m_high.size()&lt;&lt;&quot; / &quot;&lt;&lt;m_v-&gt;size() &lt;&lt;std::endl;</span>
-<a name="l00262"></a>00262 <span class="comment">//std::cout&lt;&lt;&quot;m_v=&quot;&lt;&lt;m_v&lt;&lt;std::endl;</span>
-<a name="l00263"></a>00263 <span class="comment">//std::cout&lt;&lt;&quot;m_v=&quot;&lt;&lt; (&amp;(m_v-&gt;m_high_0_select)) &lt;&lt;std::endl;</span>
-<a name="l00264"></a>00264 <span class="comment">//for(size_type j=1; j&lt;2; ++j)</span>
-<a name="l00265"></a>00265 <span class="comment">//      std::cout&lt;&lt;&quot;m_v-&gt;m_high_0_select(&quot;&lt;&lt;j&lt;&lt;&quot;)=&quot;&lt;&lt; m_v-&gt;m_high_0_select.select(j) &lt;&lt; std::endl;</span>
-<a name="l00266"></a>00266 <span class="comment">//std::cout&lt;&lt;&quot;------------&quot;&lt;&lt;std::endl;</span>
-<a name="l00267"></a>00267                         size_type sel_high = m_v-&gt;m_high_0_select.select( high_val + 1 );       
-<a name="l00268"></a>00268 <span class="comment">//std::cout&lt;&lt;&quot;sel_high=&quot;&lt;&lt;sel_high&lt;&lt;&quot; /&quot;&lt;&lt;m_v-&gt;m_high.size() &lt;&lt;std::endl;</span>
-<a name="l00269"></a>00269                         size_type rank_low = sel_high - high_val; <span class="comment">// </span>
-<a name="l00270"></a>00270 <span class="comment">//std::cout&lt;&lt;&quot;rank_low=&quot;&lt;&lt;rank_low&lt;&lt;std::endl;</span>
-<a name="l00271"></a>00271                         <span class="keywordflow">if</span>( 0 == rank_low )
-<a name="l00272"></a>00272                                 <span class="keywordflow">return</span> 0;
-<a name="l00273"></a>00273                         size_type val_low = i &amp; <a class="code" href="classsdsl_1_1bit__magic.html#a1d17114e1e8edc00d4e093df9b43c491" title="An array with entry i containing a 64bit integer with the last i bits set.">bit_magic::Li1Mask</a>[ m_v-&gt;m_wl ];
-<a name="l00274"></a>00274 <span class="comment">//std::cout&lt;&lt;&quot;val_low=&quot;&lt;&lt;val_low&lt;&lt;std::endl;</span>
-<a name="l00275"></a>00275                         <span class="comment">// now since rank_low &gt; 0 =&gt; sel_high &gt; 0</span>
-<a name="l00276"></a>00276                         <span class="keywordflow">do</span>{
-<a name="l00277"></a>00277                                 <span class="keywordflow">if</span>(!sel_high)
-<a name="l00278"></a>00278                                         <span class="keywordflow">return</span> 0;
-<a name="l00279"></a>00279                                 --sel_high; --rank_low;
-<a name="l00280"></a>00280                         }
-<a name="l00281"></a>00281                         <span class="keywordflow">while</span>( m_v-&gt;m_high[sel_high] and m_v-&gt;m_low[rank_low] &gt;= val_low );
-<a name="l00282"></a>00282 <span class="comment">//std::cout&lt;&lt;&quot;result = &quot;&lt;&lt;rank_low+1&lt;&lt;std::endl;                        </span>
-<a name="l00283"></a>00283                         <span class="keywordflow">return</span> rank_low+1;
-<a name="l00284"></a>00284                 } 
-<a name="l00285"></a>00285 
-<a name="l00286"></a>00286                 <span class="keyword">const</span> size_type operator()(size_type i)<span class="keyword">const</span>{
-<a name="l00287"></a>00287                         <span class="keywordflow">return</span> rank(i);
-<a name="l00288"></a>00288                 }
-<a name="l00289"></a>00289 
-<a name="l00290"></a>00290                 <span class="keyword">const</span> size_type size()<span class="keyword">const</span>{
-<a name="l00291"></a>00291                         <span class="keywordflow">return</span> m_v-&gt;<a class="code" href="classsdsl_1_1sd__vector.html#ad279d4a8b836300de08105b2291e1aa3" title="Returns the size of the original bit vector.">size</a>();
-<a name="l00292"></a>00292                 }
-<a name="l00293"></a>00293 
-<a name="l00294"></a>00294 <span class="comment">//              void set_vector(const bit_vector_type *v=NULL){</span>
-<a name="l00295"></a>00295                 <span class="keywordtype">void</span> set_vector(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">bit_vector_type</a> *v=NULL){
-<a name="l00296"></a>00296                         m_v = v;
-<a name="l00297"></a>00297                 }
-<a name="l00298"></a>00298 
-<a name="l00299"></a>00299                 <a class="code" href="classsdsl_1_1sd__rank__support.html">sd_rank_support</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1sd__rank__support.html">sd_rank_support</a> &amp;rs){
-<a name="l00300"></a>00300                         <span class="keywordflow">if</span>(<span class="keyword">this</span> != &amp;rs){
-<a name="l00301"></a>00301                                 set_vector(rs.m_v);
-<a name="l00302"></a>00302                         }
-<a name="l00303"></a>00303                         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
-<a name="l00304"></a>00304                 }
-<a name="l00305"></a>00305 
-<a name="l00306"></a>00306                 <span class="keywordtype">void</span> swap(<a class="code" href="classsdsl_1_1sd__rank__support.html">sd_rank_support</a> &amp;rs){ }
-<a name="l00307"></a>00307 
-<a name="l00308"></a>00308                 <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1sd__rank__support.html">sd_rank_support</a> &amp;ss)<span class="keyword">const</span>{
-<a name="l00309"></a>00309                         <span class="keywordflow">if</span>(<span class="keyword">this</span> == &amp;ss)
-<a name="l00310"></a>00310                                 <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00311"></a>00311                         <span class="keywordflow">return</span> ss.m_v == m_v;
-<a name="l00312"></a>00312                 }
-<a name="l00313"></a>00313 
-<a name="l00314"></a>00314                 <span class="keywordtype">bool</span> operator!=(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1sd__rank__support.html">sd_rank_support</a> &amp;rs)<span class="keyword">const</span>{
-<a name="l00315"></a>00315                         <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == rs);  
-<a name="l00316"></a>00316                 }
-<a name="l00317"></a>00317 
-<a name="l00318"></a>00318 
-<a name="l00319"></a>00319                 <span class="keywordtype">void</span> load(std::istream &amp;in, <span class="keyword">const</span> <a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">bit_vector_type</a> *v=NULL){
-<a name="l00320"></a>00320                         set_vector(v);
-<a name="l00321"></a>00321                 }
-<a name="l00322"></a>00322 
-<a name="l00323"></a>00323                 size_type serialize(std::ostream &amp;out)<span class="keyword">const</span>{
-<a name="l00324"></a>00324                         size_type written_bytes = 0;
-<a name="l00325"></a>00325                         <span class="keywordflow">return</span> written_bytes;
-<a name="l00326"></a>00326                 }
-<a name="l00327"></a>00327 
-<a name="l00328"></a>00328 <span class="preprocessor">#ifdef MEM_INFO</span>
-<a name="l00329"></a>00329 <span class="preprocessor"></span>                <span class="keywordtype">void</span> mem_info(std::string label=<span class="stringliteral">&quot;&quot;</span>)<span class="keyword">const</span>{
-<a name="l00330"></a>00330                         <span class="keywordflow">if</span>(label==<span class="stringliteral">&quot;&quot;</span>)
-<a name="l00331"></a>00331                                 label = <span class="stringliteral">&quot;sd_rank_support&quot;</span>;
-<a name="l00332"></a>00332                         size_type bytes = <a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(*<span class="keyword">this</span>);
-<a name="l00333"></a>00333                         std::cout &lt;&lt; <span class="stringliteral">&quot;list(label=\&quot;&quot;</span>&lt;&lt;label&lt;&lt;<span class="stringliteral">&quot;\&quot;, size = &quot;</span>&lt;&lt; bytes/(1024.0*1024.0) &lt;&lt; <span class="stringliteral">&quot;)\n&quot;</span>;
-<a name="l00334"></a>00334                 }
-<a name="l00335"></a>00335 <span class="preprocessor">#endif  </span>
-<a name="l00336"></a>00336 <span class="preprocessor"></span>
-<a name="l00337"></a>00337 };
-<a name="l00338"></a>00338 
-<a name="l00339"></a>00339 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Select1Support, <span class="keyword">class</span> Select0Support&gt;
-<a name="l00340"></a><a class="code" href="classsdsl_1_1sd__select__support.html">00340</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1sd__select__support.html">sd_select_support</a>{
-<a name="l00341"></a>00341         <span class="keyword">public</span>:
-<a name="l00342"></a>00342                 <span class="keyword">typedef</span> bit_vector::size_type size_type;
-<a name="l00343"></a>00343                 <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">sd_vector&lt;Select1Support, Select0Support&gt;</a> <a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">bit_vector_type</a>;
-<a name="l00344"></a>00344         <span class="keyword">private</span>:
-<a name="l00345"></a>00345                 <span class="keyword">const</span> <a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">bit_vector_type</a> *m_v;
-<a name="l00346"></a>00346 
-<a name="l00347"></a>00347         <span class="keyword">public</span>:
-<a name="l00348"></a>00348 
-<a name="l00349"></a>00349                 <a class="code" href="classsdsl_1_1sd__select__support.html">sd_select_support</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">bit_vector_type</a> *v=NULL){
-<a name="l00350"></a>00350                         init(v);
-<a name="l00351"></a>00351                 }
+<a name="l00163"></a><a class="code" href="classsdsl_1_1sd__vector.html#ae58f46d3022b7ad401cc84449b634896">00163</a>         value_type <a class="code" href="classsdsl_1_1sd__vector.html#ae58f46d3022b7ad401cc84449b634896" title="Accessing the i-th element of the original bit_vector.">operator[]</a>(size_type i)<span class="keyword">const </span>{
+<a name="l00164"></a>00164             size_type high_val = (i &gt;&gt; (m_wl));
+<a name="l00165"></a>00165             size_type sel_high = m_high_0_select.select(high_val + 1);
+<a name="l00166"></a>00166             size_type rank_low = sel_high - high_val;
+<a name="l00167"></a>00167             <span class="keywordflow">if</span> (0 == rank_low)
+<a name="l00168"></a>00168                 <span class="keywordflow">return</span> 0;
+<a name="l00169"></a>00169             size_type val_low = i &amp; <a class="code" href="classsdsl_1_1bit__magic.html#a1d17114e1e8edc00d4e093df9b43c491" title="An array with entry i containing a 64bit integer with the last i bits set.">bit_magic::Li1Mask</a>[ m_wl ]; <span class="comment">// extract the low m_wl = log n -log m bits</span>
+<a name="l00170"></a>00170             --sel_high; --rank_low;
+<a name="l00171"></a>00171             <span class="keywordflow">while</span> (m_high[sel_high] and m_low[rank_low] &gt; val_low) {
+<a name="l00172"></a>00172                 <span class="keywordflow">if</span> (sel_high &gt; 0) {
+<a name="l00173"></a>00173                     --sel_high; --rank_low;
+<a name="l00174"></a>00174                 } <span class="keywordflow">else</span>
+<a name="l00175"></a>00175                     <span class="keywordflow">return</span> 0;
+<a name="l00176"></a>00176             }
+<a name="l00177"></a>00177             <span class="keywordflow">return</span> m_high[sel_high] and m_low[rank_low] == val_low;
+<a name="l00178"></a>00178         }
+<a name="l00179"></a>00179 
+<a name="l00181"></a><a class="code" href="classsdsl_1_1sd__vector.html#a3302d9777f65c67c817d1fdb647a65ad">00181</a>         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1sd__vector.html#a3302d9777f65c67c817d1fdb647a65ad" title="Swap method.">swap</a>(<a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">sd_vector</a>&amp; v) {
+<a name="l00182"></a>00182             <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;v) {
+<a name="l00183"></a>00183                 <a class="code" href="classsdsl_1_1sd__vector.html#a3302d9777f65c67c817d1fdb647a65ad" title="Swap method.">std::swap</a>(m_size, v.m_size);
+<a name="l00184"></a>00184                 <a class="code" href="classsdsl_1_1sd__vector.html#a3302d9777f65c67c817d1fdb647a65ad" title="Swap method.">std::swap</a>(m_wl, v.m_wl);
+<a name="l00185"></a>00185                 m_low.<a class="code" href="classsdsl_1_1int__vector.html#ae042b894c07ed66c8f2c245b12bf0661" title="Swap method for int_vector.">swap</a>(v.m_low);
+<a name="l00186"></a>00186                 m_high.swap(v.m_high);
+<a name="l00187"></a>00187                 <a class="code" href="namespacesdsl_1_1util.html#aa60ad1bcd3cc5099fbf22ac1ee3764ef" title="Swap support data structure and assign to new vector.">util::swap_support</a>(m_high_1_select, v.m_high_1_select, &amp;m_high, &amp;v.m_high);
+<a name="l00188"></a>00188                 <a class="code" href="namespacesdsl_1_1util.html#aa60ad1bcd3cc5099fbf22ac1ee3764ef" title="Swap support data structure and assign to new vector.">util::swap_support</a>(m_high_0_select, v.m_high_0_select, &amp;m_high, &amp;v.m_high);
+<a name="l00189"></a>00189             }
+<a name="l00190"></a>00190         }
+<a name="l00191"></a>00191 
+<a name="l00193"></a><a class="code" href="classsdsl_1_1sd__vector.html#a8c4b53483db23c6c65399fa9d1c62a71">00193</a>         size_type <a class="code" href="classsdsl_1_1sd__vector.html#a8c4b53483db23c6c65399fa9d1c62a71" title="Returns the size of the original bit vector.">size</a>()<span class="keyword">const </span>{
+<a name="l00194"></a>00194             <span class="keywordflow">return</span> m_size;
+<a name="l00195"></a>00195         }
+<a name="l00196"></a>00196 
+<a name="l00197"></a>00197         <a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">sd_vector</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">sd_vector</a>&amp; v) {
+<a name="l00198"></a>00198             <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;v) {
+<a name="l00199"></a>00199                 copy(v);
+<a name="l00200"></a>00200             }
+<a name="l00201"></a>00201             <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00202"></a>00202         }
+<a name="l00203"></a>00203 
+<a name="l00205"></a><a class="code" href="classsdsl_1_1sd__vector.html#ac82e630d2bcbc644d8d1b989d1d9f353">00205</a>         size_type <a class="code" href="classsdsl_1_1sd__vector.html#ac82e630d2bcbc644d8d1b989d1d9f353" title="Serializes the data structure into the given ostream.">serialize</a>(std::ostream&amp; out)<span class="keyword">const </span>{
+<a name="l00206"></a>00206             size_type written_bytes = 0;
+<a name="l00207"></a>00207             written_bytes += util::write_member(m_size, out);
+<a name="l00208"></a>00208             written_bytes += util::write_member(m_wl, out);
+<a name="l00209"></a>00209             written_bytes += m_low.<a class="code" href="classsdsl_1_1int__vector.html#a32bfb973d19b10c8e9d32107805bbab0" title="Serializes the int_vector to a stream.">serialize</a>(out);
+<a name="l00210"></a>00210             written_bytes += m_high.serialize(out);
+<a name="l00211"></a>00211             written_bytes += m_high_1_select.serialize(out);
+<a name="l00212"></a>00212             written_bytes += m_high_0_select.serialize(out);
+<a name="l00213"></a>00213             <span class="keywordflow">return</span> written_bytes;
+<a name="l00214"></a>00214         }
+<a name="l00215"></a>00215 
+<a name="l00217"></a><a class="code" href="classsdsl_1_1sd__vector.html#a7019df40fb6e5db6fe241da1bf7b01e2">00217</a>         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1sd__vector.html#a7019df40fb6e5db6fe241da1bf7b01e2" title="Loads the data structure from the given istream.">load</a>(std::istream&amp; in) {
+<a name="l00218"></a>00218             util::read_member(m_size, in);
+<a name="l00219"></a>00219             util::read_member(m_wl, in);
+<a name="l00220"></a>00220             m_low.<a class="code" href="classsdsl_1_1int__vector.html#a57c9fc2fdc93eeaa477a49389e7a47ac" title="Load the int_vector for a stream.">load</a>(in);
+<a name="l00221"></a>00221             m_high.load(in);
+<a name="l00222"></a>00222             m_high_1_select.load(in, &amp;m_high);
+<a name="l00223"></a>00223             m_high_0_select.load(in, &amp;m_high);
+<a name="l00224"></a>00224         }
+<a name="l00225"></a>00225 
+<a name="l00226"></a>00226 <span class="preprocessor">#ifdef MEM_INFO</span>
+<a name="l00227"></a>00227 <span class="preprocessor"></span>        <span class="keywordtype">void</span> mem_info(std::string label=<span class="stringliteral">&quot;&quot;</span>)<span class="keyword">const </span>{
+<a name="l00228"></a>00228             <span class="keywordflow">if</span> (label==<span class="stringliteral">&quot;&quot;</span>)
+<a name="l00229"></a>00229                 label = <span class="stringliteral">&quot;sd_vector&quot;</span>;
+<a name="l00230"></a>00230             size_type bytes = <a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(*<span class="keyword">this</span>);
+<a name="l00231"></a>00231             std::cout &lt;&lt; <span class="stringliteral">&quot;list(label=\&quot;&quot;</span>&lt;&lt;label&lt;&lt;<span class="stringliteral">&quot;\&quot;, size = &quot;</span>&lt;&lt; bytes/(1024.0*1024.0) &lt;&lt; <span class="stringliteral">&quot;,\n&quot;</span>;
+<a name="l00232"></a>00232             m_high.mem_info(<span class="stringliteral">&quot;high part&quot;</span>); std::cout &lt;&lt; <span class="stringliteral">&quot;,\n&quot;</span>;
+<a name="l00233"></a>00233             m_low.mem_info(<span class="stringliteral">&quot;low part&quot;</span>); std::cout &lt;&lt; <span class="stringliteral">&quot;,\n&quot;</span>;
+<a name="l00234"></a>00234             m_high_1_select.mem_info(<span class="stringliteral">&quot;high_1_select&quot;</span>); std::cout &lt;&lt; <span class="stringliteral">&quot;,\n&quot;</span>;
+<a name="l00235"></a>00235             m_high_0_select.mem_info(<span class="stringliteral">&quot;high_0_select&quot;</span>); std::cout &lt;&lt; <span class="stringliteral">&quot;)\n&quot;</span>;
+<a name="l00236"></a>00236         }
+<a name="l00237"></a>00237 <span class="preprocessor">#endif</span>
+<a name="l00238"></a>00238 <span class="preprocessor"></span>
+<a name="l00239"></a>00239 };
+<a name="l00240"></a>00240 
+<a name="l00242"></a>00242 <span class="comment">/*</span>
+<a name="l00243"></a>00243 <span class="comment"> *      \tparam hi_bit_vector_type      Type of the bitvector HI used for representing the high part of the positions of the 1s in sd_vector.</span>
+<a name="l00244"></a>00244 <span class="comment"> *  \tparam hi_select_1                 Type of the select support data structure which is used to select ones in HI in sd_vector.</span>
+<a name="l00245"></a>00245 <span class="comment"> *  \tparam hi_select_0                 Type of the select support data structure which is used to select zeros in HI in sd_vector.</span>
+<a name="l00246"></a>00246 <span class="comment"> */</span>
+<a name="l00247"></a>00247 <span class="keyword">template</span>&lt;<span class="keyword">class</span> hi_bit_vector_type, <span class="keyword">class</span> Select1Support, <span class="keyword">class</span> Select0Support&gt;
+<a name="l00248"></a><a class="code" href="classsdsl_1_1sd__rank__support.html">00248</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1sd__rank__support.html" title="Rank data structure for sd_vector.">sd_rank_support</a>
+<a name="l00249"></a>00249 {
+<a name="l00250"></a>00250     <span class="keyword">public</span>:
+<a name="l00251"></a>00251         <span class="keyword">typedef</span> bit_vector::size_type size_type;
+<a name="l00252"></a>00252         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">sd_vector&lt;hi_bit_vector_type, Select1Support, Select0Support&gt;</a> <a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">bit_vector_type</a>;
+<a name="l00253"></a>00253     <span class="keyword">private</span>:
+<a name="l00254"></a>00254         <span class="keyword">const</span> <a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">bit_vector_type</a>* m_v;
+<a name="l00255"></a>00255 
+<a name="l00256"></a>00256     <span class="keyword">public</span>:
+<a name="l00257"></a>00257 
+<a name="l00258"></a>00258         <span class="keyword">explicit</span> <a class="code" href="classsdsl_1_1sd__rank__support.html" title="Rank data structure for sd_vector.">sd_rank_support</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">bit_vector_type</a>* v=NULL) {
+<a name="l00259"></a>00259             init(v);
+<a name="l00260"></a>00260         }
+<a name="l00261"></a>00261 
+<a name="l00262"></a>00262         <span class="keywordtype">void</span> init(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">bit_vector_type</a>* v=NULL) {
+<a name="l00263"></a>00263             set_vector(v);
+<a name="l00264"></a>00264         }
+<a name="l00265"></a>00265 
+<a name="l00266"></a>00266         size_type rank(size_type i)<span class="keyword">const </span>{
+<a name="l00267"></a>00267             <span class="comment">// split problem in two parts:</span>
+<a name="l00268"></a>00268             <span class="comment">// (1) find  &gt;=</span>
+<a name="l00269"></a>00269             size_type high_val = (i &gt;&gt; (m_v-&gt;m_wl));
+<a name="l00270"></a>00270             size_type sel_high = m_v-&gt;m_high_0_select.select(high_val + 1);
+<a name="l00271"></a>00271             size_type rank_low = sel_high - high_val; <span class="comment">//</span>
+<a name="l00272"></a>00272             <span class="keywordflow">if</span> (0 == rank_low)
+<a name="l00273"></a>00273                 <span class="keywordflow">return</span> 0;
+<a name="l00274"></a>00274             size_type val_low = i &amp; <a class="code" href="classsdsl_1_1bit__magic.html#a1d17114e1e8edc00d4e093df9b43c491" title="An array with entry i containing a 64bit integer with the last i bits set.">bit_magic::Li1Mask</a>[ m_v-&gt;m_wl ];
+<a name="l00275"></a>00275             <span class="comment">// now since rank_low &gt; 0 =&gt; sel_high &gt; 0</span>
+<a name="l00276"></a>00276             <span class="keywordflow">do</span> {
+<a name="l00277"></a>00277                 <span class="keywordflow">if</span> (!sel_high)
+<a name="l00278"></a>00278                     <span class="keywordflow">return</span> 0;
+<a name="l00279"></a>00279                 --sel_high; --rank_low;
+<a name="l00280"></a>00280             } <span class="keywordflow">while</span> (m_v-&gt;m_high[sel_high] and m_v-&gt;m_low[rank_low] &gt;= val_low);
+<a name="l00281"></a>00281             <span class="keywordflow">return</span> rank_low+1;
+<a name="l00282"></a>00282         }
+<a name="l00283"></a>00283 
+<a name="l00284"></a>00284         <span class="keyword">const</span> size_type operator()(size_type i)<span class="keyword">const </span>{
+<a name="l00285"></a>00285             <span class="keywordflow">return</span> rank(i);
+<a name="l00286"></a>00286         }
+<a name="l00287"></a>00287 
+<a name="l00288"></a>00288         <span class="keyword">const</span> size_type size()<span class="keyword">const </span>{
+<a name="l00289"></a>00289             <span class="keywordflow">return</span> m_v-&gt;<a class="code" href="classsdsl_1_1sd__vector.html#a8c4b53483db23c6c65399fa9d1c62a71" title="Returns the size of the original bit vector.">size</a>();
+<a name="l00290"></a>00290         }
+<a name="l00291"></a>00291 
+<a name="l00292"></a>00292         <span class="keywordtype">void</span> set_vector(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">bit_vector_type</a>* v=NULL) {
+<a name="l00293"></a>00293             m_v = v;
+<a name="l00294"></a>00294         }
+<a name="l00295"></a>00295 
+<a name="l00296"></a>00296         <a class="code" href="classsdsl_1_1sd__rank__support.html" title="Rank data structure for sd_vector.">sd_rank_support</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1sd__rank__support.html" title="Rank data structure for sd_vector.">sd_rank_support</a>&amp; rs) {
+<a name="l00297"></a>00297             <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;rs) {
+<a name="l00298"></a>00298                 set_vector(rs.m_v);
+<a name="l00299"></a>00299             }
+<a name="l00300"></a>00300             <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00301"></a>00301         }
+<a name="l00302"></a>00302 
+<a name="l00303"></a>00303         <span class="keywordtype">void</span> swap(<a class="code" href="classsdsl_1_1sd__rank__support.html" title="Rank data structure for sd_vector.">sd_rank_support</a>&amp;) { }
+<a name="l00304"></a>00304 
+<a name="l00305"></a>00305         <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1sd__rank__support.html" title="Rank data structure for sd_vector.">sd_rank_support</a>&amp; ss)<span class="keyword">const </span>{
+<a name="l00306"></a>00306             <span class="keywordflow">if</span> (<span class="keyword">this</span> == &amp;ss)
+<a name="l00307"></a>00307                 <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00308"></a>00308             <span class="keywordflow">return</span> ss.m_v == m_v;
+<a name="l00309"></a>00309         }
+<a name="l00310"></a>00310 
+<a name="l00311"></a>00311         <span class="keywordtype">bool</span> operator!=(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1sd__rank__support.html" title="Rank data structure for sd_vector.">sd_rank_support</a>&amp; rs)<span class="keyword">const </span>{
+<a name="l00312"></a>00312             <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == rs);
+<a name="l00313"></a>00313         }
+<a name="l00314"></a>00314 
+<a name="l00315"></a>00315 
+<a name="l00316"></a>00316         <span class="keywordtype">void</span> load(std::istream&amp; in, <span class="keyword">const</span> <a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">bit_vector_type</a>* v=NULL) {
+<a name="l00317"></a>00317             set_vector(v);
+<a name="l00318"></a>00318         }
+<a name="l00319"></a>00319 
+<a name="l00320"></a>00320         size_type serialize(std::ostream&amp; out)<span class="keyword">const </span>{
+<a name="l00321"></a>00321             size_type written_bytes = 0;
+<a name="l00322"></a>00322             <span class="keywordflow">return</span> written_bytes;
+<a name="l00323"></a>00323         }
+<a name="l00324"></a>00324 
+<a name="l00325"></a>00325 <span class="preprocessor">#ifdef MEM_INFO</span>
+<a name="l00326"></a>00326 <span class="preprocessor"></span>        <span class="keywordtype">void</span> mem_info(std::string label=<span class="stringliteral">&quot;&quot;</span>)<span class="keyword">const </span>{
+<a name="l00327"></a>00327             <span class="keywordflow">if</span> (label==<span class="stringliteral">&quot;&quot;</span>)
+<a name="l00328"></a>00328                 label = <span class="stringliteral">&quot;sd_rank_support&quot;</span>;
+<a name="l00329"></a>00329             size_type bytes = <a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(*<span class="keyword">this</span>);
+<a name="l00330"></a>00330             std::cout &lt;&lt; <span class="stringliteral">&quot;list(label=\&quot;&quot;</span>&lt;&lt;label&lt;&lt;<span class="stringliteral">&quot;\&quot;, size = &quot;</span>&lt;&lt; bytes/(1024.0*1024.0) &lt;&lt; <span class="stringliteral">&quot;)\n&quot;</span>;
+<a name="l00331"></a>00331         }
+<a name="l00332"></a>00332 <span class="preprocessor">#endif</span>
+<a name="l00333"></a>00333 <span class="preprocessor"></span>
+<a name="l00334"></a>00334 };
+<a name="l00335"></a>00335 
+<a name="l00337"></a>00337 <span class="comment">/*</span>
+<a name="l00338"></a>00338 <span class="comment"> *      \tparam hi_bit_vector_type      Type of the bitvector HI used for representing the high part of the positions of the 1s in sd_vector.</span>
+<a name="l00339"></a>00339 <span class="comment"> *  \tparam hi_select_1                 Type of the select support data structure which is used to select ones in HI in sd_vector.</span>
+<a name="l00340"></a>00340 <span class="comment"> *  \tparam hi_select_0                 Type of the select support data structure which is used to select zeros in HI in sd_vector.</span>
+<a name="l00341"></a>00341 <span class="comment"> */</span>
+<a name="l00342"></a>00342 <span class="keyword">template</span>&lt;<span class="keyword">class</span> hi_bit_vector_type, <span class="keyword">class</span> Select1Support, <span class="keyword">class</span> Select0Support&gt;
+<a name="l00343"></a><a class="code" href="classsdsl_1_1sd__select__support.html">00343</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1sd__select__support.html" title="Select data structure for sd_vector.">sd_select_support</a>
+<a name="l00344"></a>00344 {
+<a name="l00345"></a>00345     <span class="keyword">public</span>:
+<a name="l00346"></a>00346         <span class="keyword">typedef</span> bit_vector::size_type size_type;
+<a name="l00347"></a>00347         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">sd_vector&lt;hi_bit_vector_type, Select1Support, Select0Support&gt;</a> <a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">bit_vector_type</a>;
+<a name="l00348"></a>00348     <span class="keyword">private</span>:
+<a name="l00349"></a>00349         <span class="keyword">const</span> <a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">bit_vector_type</a>* m_v;
+<a name="l00350"></a>00350 
+<a name="l00351"></a>00351     <span class="keyword">public</span>:
 <a name="l00352"></a>00352 
-<a name="l00353"></a>00353                 <span class="keywordtype">void</span> init(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">bit_vector_type</a> *v=NULL){
-<a name="l00354"></a>00354                         set_vector(v);
-<a name="l00355"></a>00355                 }
+<a name="l00353"></a>00353         <span class="keyword">explicit</span> <a class="code" href="classsdsl_1_1sd__select__support.html" title="Select data structure for sd_vector.">sd_select_support</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">bit_vector_type</a>* v=NULL) {
+<a name="l00354"></a>00354             init(v);
+<a name="l00355"></a>00355         }
 <a name="l00356"></a>00356 
-<a name="l00358"></a><a class="code" href="classsdsl_1_1sd__select__support.html#ab186a8065b66533b344fb973dca253ca">00358</a>                 size_type <a class="code" href="classsdsl_1_1sd__select__support.html#ab186a8065b66533b344fb973dca253ca" title="Returns the position of the i-th occurrence in the bit vector.">select</a>(size_type i)<span class="keyword">const</span>{
-<a name="l00359"></a>00359                         <span class="keywordflow">return</span> m_v-&gt;m_low[i-1] +  <span class="comment">// lower part of the number</span>
-<a name="l00360"></a>00360                                    ( (m_v-&gt;m_high_1_select(i) + 1 - i)  &lt;&lt; (m_v-&gt;m_wl)); <span class="comment">// upper part</span>
-<a name="l00361"></a>00361                                <span class="comment">//^-number of 0 before the i-th 1-^      ^-shift by m_wl</span>
-<a name="l00362"></a>00362                 } 
-<a name="l00363"></a>00363 
-<a name="l00364"></a>00364                 <span class="keyword">const</span> size_type operator()(size_type i)<span class="keyword">const</span>{
-<a name="l00365"></a>00365                         <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1sd__select__support.html#ab186a8065b66533b344fb973dca253ca" title="Returns the position of the i-th occurrence in the bit vector.">select</a>(i);
-<a name="l00366"></a>00366                 }
+<a name="l00357"></a>00357         <span class="keywordtype">void</span> init(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1sd__vector.html" title="A bit vector which compresses very sparse populated bit vectors by.">bit_vector_type</a>* v=NULL) {
+<a name="l00358"></a>00358             set_vector(v);
+<a name="l00359"></a>00359         }
+<a name="l00360"></a>00360 
+<a name="l00362"></a><a class="code" href="classsdsl_1_1sd__select__support.html#ab62ebf09a0399fa4419247f90227f6d7">00362</a>         size_type <a class="code" href="classsdsl_1_1sd__select__support.html#ab62ebf09a0399fa4419247f90227f6d7" title="Returns the position of the i-th occurrence in the bit vector.">select</a>(size_type i)<span class="keyword">const </span>{
+<a name="l00363"></a>00363             <span class="keywordflow">return</span> m_v-&gt;m_low[i-1] +  <span class="comment">// lower part of the number</span>
+<a name="l00364"></a>00364                    ((m_v-&gt;m_high_1_select(i) + 1 - i)  &lt;&lt; (m_v-&gt;m_wl));  <span class="comment">// upper part</span>
+<a name="l00365"></a>00365             <span class="comment">//^-number of 0 before the i-th 1-^      ^-shift by m_wl</span>
+<a name="l00366"></a>00366         }
 <a name="l00367"></a>00367 
-<a name="l00368"></a>00368                 <span class="keyword">const</span> size_type size()<span class="keyword">const</span>{
-<a name="l00369"></a>00369                         <span class="keywordflow">return</span> m_v-&gt;<a class="code" href="classsdsl_1_1sd__vector.html#ad279d4a8b836300de08105b2291e1aa3" title="Returns the size of the original bit vector.">size</a>();
-<a name="l00370"></a>00370                 }
+<a name="l00368"></a>00368         <span class="keyword">const</span> size_type operator()(size_type i)<span class="keyword">const </span>{
+<a name="l00369"></a>00369             <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1sd__select__support.html#ab62ebf09a0399fa4419247f90227f6d7" title="Returns the position of the i-th occurrence in the bit vector.">select</a>(i);
+<a name="l00370"></a>00370         }
 <a name="l00371"></a>00371 
-<a name="l00372"></a>00372                 <span class="keywordtype">void</span> set_vector(<span class="keyword">const</span> bit_vector_type *v=NULL){
-<a name="l00373"></a>00373                         m_v = v;
-<a name="l00374"></a>00374                 }
+<a name="l00372"></a>00372         <span class="keyword">const</span> size_type size()<span class="keyword">const </span>{
+<a name="l00373"></a>00373             <span class="keywordflow">return</span> m_v-&gt;<a class="code" href="classsdsl_1_1sd__vector.html#a8c4b53483db23c6c65399fa9d1c62a71" title="Returns the size of the original bit vector.">size</a>();
+<a name="l00374"></a>00374         }
 <a name="l00375"></a>00375 
-<a name="l00376"></a>00376                 sd_select_support&amp; operator=(<span class="keyword">const</span> sd_select_support &amp;rs){
-<a name="l00377"></a>00377                         <span class="keywordflow">if</span>(<span class="keyword">this</span> != &amp;rs){
-<a name="l00378"></a>00378                                 set_vector(rs.m_v);
-<a name="l00379"></a>00379                         }
-<a name="l00380"></a>00380                         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
-<a name="l00381"></a>00381                 }
-<a name="l00382"></a>00382 
-<a name="l00383"></a>00383                 <span class="keywordtype">void</span> swap(sd_select_support &amp;rs){ }
-<a name="l00384"></a>00384 
-<a name="l00385"></a>00385                 <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> sd_select_support &amp;ss)<span class="keyword">const</span>{
-<a name="l00386"></a>00386                         <span class="keywordflow">if</span>(<span class="keyword">this</span> == &amp;ss)
-<a name="l00387"></a>00387                                 <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00388"></a>00388                         <span class="keywordflow">return</span> ss.m_v == m_v;
-<a name="l00389"></a>00389                 }
-<a name="l00390"></a>00390 
-<a name="l00391"></a>00391                 <span class="keywordtype">bool</span> operator!=(<span class="keyword">const</span> sd_select_support &amp;rs)<span class="keyword">const</span>{
-<a name="l00392"></a>00392                         <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == rs);  
-<a name="l00393"></a>00393                 }
+<a name="l00376"></a>00376         <span class="keywordtype">void</span> set_vector(<span class="keyword">const</span> bit_vector_type* v=NULL) {
+<a name="l00377"></a>00377             m_v = v;
+<a name="l00378"></a>00378         }
+<a name="l00379"></a>00379 
+<a name="l00380"></a>00380         sd_select_support&amp; operator=(<span class="keyword">const</span> sd_select_support&amp; rs) {
+<a name="l00381"></a>00381             <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;rs) {
+<a name="l00382"></a>00382                 set_vector(rs.m_v);
+<a name="l00383"></a>00383             }
+<a name="l00384"></a>00384             <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00385"></a>00385         }
+<a name="l00386"></a>00386 
+<a name="l00387"></a>00387         <span class="keywordtype">void</span> swap(sd_select_support&amp;) { }
+<a name="l00388"></a>00388 
+<a name="l00389"></a>00389         <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> sd_select_support&amp; ss)<span class="keyword">const </span>{
+<a name="l00390"></a>00390             <span class="keywordflow">if</span> (<span class="keyword">this</span> == &amp;ss)
+<a name="l00391"></a>00391                 <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00392"></a>00392             <span class="keywordflow">return</span> ss.m_v == m_v;
+<a name="l00393"></a>00393         }
 <a name="l00394"></a>00394 
-<a name="l00395"></a>00395 
-<a name="l00396"></a>00396                 <span class="keywordtype">void</span> load(std::istream &amp;in, <span class="keyword">const</span> bit_vector_type *v=NULL){
-<a name="l00397"></a>00397                         set_vector(v);
-<a name="l00398"></a>00398                 }
+<a name="l00395"></a>00395         <span class="keywordtype">bool</span> operator!=(<span class="keyword">const</span> sd_select_support&amp; rs)<span class="keyword">const </span>{
+<a name="l00396"></a>00396             <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == rs);
+<a name="l00397"></a>00397         }
+<a name="l00398"></a>00398 
 <a name="l00399"></a>00399 
-<a name="l00400"></a>00400                 size_type serialize(std::ostream &amp;out)<span class="keyword">const</span>{
-<a name="l00401"></a>00401                         size_type written_bytes = 0;
-<a name="l00402"></a>00402                         <span class="keywordflow">return</span> written_bytes;
-<a name="l00403"></a>00403                 }
-<a name="l00404"></a>00404 
-<a name="l00405"></a>00405 <span class="preprocessor">#ifdef MEM_INFO</span>
-<a name="l00406"></a>00406 <span class="preprocessor"></span>                <span class="keywordtype">void</span> mem_info(std::string label=<span class="stringliteral">&quot;&quot;</span>)<span class="keyword">const</span>{
-<a name="l00407"></a>00407                         <span class="keywordflow">if</span>(label==<span class="stringliteral">&quot;&quot;</span>)
-<a name="l00408"></a>00408                                 label = <span class="stringliteral">&quot;sd_select_support&quot;</span>;
-<a name="l00409"></a>00409                         size_type bytes = <a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(*<span class="keyword">this</span>);
-<a name="l00410"></a>00410                         std::cout &lt;&lt; <span class="stringliteral">&quot;list(label=\&quot;&quot;</span>&lt;&lt;label&lt;&lt;<span class="stringliteral">&quot;\&quot;, size = &quot;</span>&lt;&lt; bytes/(1024.0*1024.0) &lt;&lt; <span class="stringliteral">&quot;)\n&quot;</span>;
-<a name="l00411"></a>00411                 }
-<a name="l00412"></a>00412 <span class="preprocessor">#endif  </span>
-<a name="l00413"></a>00413 <span class="preprocessor"></span>
-<a name="l00414"></a>00414 };
-<a name="l00415"></a>00415 
-<a name="l00416"></a>00416 } <span class="comment">// end namespace</span>
-<a name="l00417"></a>00417 
-<a name="l00418"></a>00418 <span class="preprocessor">#endif</span>
+<a name="l00400"></a>00400         <span class="keywordtype">void</span> load(std::istream&amp; in, <span class="keyword">const</span> bit_vector_type* v=NULL) {
+<a name="l00401"></a>00401             set_vector(v);
+<a name="l00402"></a>00402         }
+<a name="l00403"></a>00403 
+<a name="l00404"></a>00404         size_type serialize(std::ostream&amp; out)<span class="keyword">const </span>{
+<a name="l00405"></a>00405             size_type written_bytes = 0;
+<a name="l00406"></a>00406             <span class="keywordflow">return</span> written_bytes;
+<a name="l00407"></a>00407         }
+<a name="l00408"></a>00408 
+<a name="l00409"></a>00409 <span class="preprocessor">#ifdef MEM_INFO</span>
+<a name="l00410"></a>00410 <span class="preprocessor"></span>        <span class="keywordtype">void</span> mem_info(std::string label=<span class="stringliteral">&quot;&quot;</span>)<span class="keyword">const </span>{
+<a name="l00411"></a>00411             <span class="keywordflow">if</span> (label==<span class="stringliteral">&quot;&quot;</span>)
+<a name="l00412"></a>00412                 label = <span class="stringliteral">&quot;sd_select_support&quot;</span>;
+<a name="l00413"></a>00413             size_type bytes = <a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(*<span class="keyword">this</span>);
+<a name="l00414"></a>00414             std::cout &lt;&lt; <span class="stringliteral">&quot;list(label=\&quot;&quot;</span>&lt;&lt;label&lt;&lt;<span class="stringliteral">&quot;\&quot;, size = &quot;</span>&lt;&lt; bytes/(1024.0*1024.0) &lt;&lt; <span class="stringliteral">&quot;)\n&quot;</span>;
+<a name="l00415"></a>00415         }
+<a name="l00416"></a>00416 <span class="preprocessor">#endif</span>
+<a name="l00417"></a>00417 <span class="preprocessor"></span>
+<a name="l00418"></a>00418 };
+<a name="l00419"></a>00419 
+<a name="l00420"></a>00420 } <span class="comment">// end namespace</span>
+<a name="l00421"></a>00421 
+<a name="l00422"></a>00422 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:34 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:27 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

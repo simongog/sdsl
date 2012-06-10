@@ -17,6 +17,7 @@ var searchData=
   ['_7eenc_5fvector_5fdna',['~enc_vector_dna',['../classsdsl_1_1enc__vector__dna.html#aa3f3e711a7092ccd6ef487cf20685f8e',1,'sdsl::enc_vector_dna']]],
   ['_7eenc_5fvector_5fprac2',['~enc_vector_prac2',['../classsdsl_1_1enc__vector__prac2.html#a2f5776372387c80660974fa61615e124',1,'sdsl::enc_vector_prac2']]],
   ['_7eenc_5fvector_5ftheo',['~enc_vector_theo',['../classsdsl_1_1enc__vector__theo.html#af04e6a279d8a43c997b3e191abdbcce3',1,'sdsl::enc_vector_theo']]],
+  ['_7eint_5fvector',['~int_vector',['../classsdsl_1_1int__vector.html#ac2f684c3bd673d107f4ca5e5658604a5',1,'sdsl::int_vector']]],
   ['_7elcp_5fdac',['~lcp_dac',['../classsdsl_1_1lcp__dac.html#ab164f3c83649fed8fd2fb9a61cda9802',1,'sdsl::lcp_dac']]],
   ['_7elcp_5fkurtz',['~lcp_kurtz',['../classsdsl_1_1lcp__kurtz.html#af2e9e53d3b0955119c86d81600313b64',1,'sdsl::lcp_kurtz']]],
   ['_7elcp_5funcompressed',['~lcp_uncompressed',['../classsdsl_1_1lcp__uncompressed.html#a019f0190953cbc65dffd95a34311ddfb',1,'sdsl::lcp_uncompressed']]],

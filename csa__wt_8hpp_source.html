@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -82,7 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -97,7 +98,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="csa__wt_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/* sdsl - succinct data structures library</span>
-<a name="l00002"></a>00002 <span class="comment">    Copyright (C) 2009 Simon Gog </span>
+<a name="l00002"></a>00002 <span class="comment">    Copyright (C) 2009 Simon Gog</span>
 <a name="l00003"></a>00003 <span class="comment"></span>
 <a name="l00004"></a>00004 <span class="comment">    This program is free software: you can redistribute it and/or modify</span>
 <a name="l00005"></a>00005 <span class="comment">    it under the terms of the GNU General Public License as published by</span>
@@ -116,7 +117,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00022"></a>00022 <span class="preprocessor"></span><span class="preprocessor">#define INCLUDED_SDSL_CSA_WT</span>
 <a name="l00023"></a>00023 <span class="preprocessor"></span>
 <a name="l00024"></a>00024 <span class="preprocessor">#ifdef SDSL_DEBUG</span>
-<a name="l00025"></a>00025 <span class="preprocessor"></span><span class="preprocessor">        #define SDSL_DEBUG_CSA_WT</span>
+<a name="l00025"></a>00025 <span class="preprocessor"></span><span class="preprocessor">#define SDSL_DEBUG_CSA_WT</span>
 <a name="l00026"></a>00026 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
 <a name="l00027"></a>00027 <span class="preprocessor"></span>
 <a name="l00028"></a>00028 <span class="preprocessor">#include &quot;<a class="code" href="wt__huff_8hpp.html" title="wt_huff.hpp contains a class for the wavelet tree of byte sequences which is in Huffman shape...">wt_huff.hpp</a>&quot;</span>
@@ -133,706 +134,721 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00039"></a>00039 <span class="preprocessor">#include &lt;iomanip&gt;</span>
 <a name="l00040"></a>00040 <span class="preprocessor">#include &lt;iterator&gt;</span>
 <a name="l00041"></a>00041 
-<a name="l00042"></a>00042 <span class="keyword">namespace </span>sdsl{
-<a name="l00043"></a>00043 
-<a name="l00044"></a>00044 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree = wt_huff&lt;&gt;, u<span class="keywordtype">int</span>32_t SampleDens = 32, u<span class="keywordtype">int</span>32_t InvSampleDens = 64,  u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th = 0, <span class="keyword">class</span> <span class="keywordtype">char</span>Type=<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>&gt; <span class="comment">// forward declaration</span>
-<a name="l00045"></a>00045 <span class="keyword">class </span>csa_wt;
-<a name="l00046"></a>00046 
-<a name="l00047"></a>00047 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
-<a name="l00048"></a><a class="code" href="structsdsl_1_1csa__wt__trait.html">00048</a> <span class="keyword">struct </span><a class="code" href="structsdsl_1_1csa__wt__trait.html">csa_wt_trait</a>{
-<a name="l00049"></a>00049         <span class="keyword">typedef</span> int_vector&lt;0&gt; int_vector_type;
-<a name="l00050"></a>00050 };
-<a name="l00051"></a>00051 
-<a name="l00052"></a>00052 <span class="keyword">template</span>&lt;&gt;
-<a name="l00053"></a><a class="code" href="structsdsl_1_1csa__wt__trait_3_0132_01_4.html">00053</a> <span class="keyword">struct </span><a class="code" href="structsdsl_1_1csa__wt__trait.html">csa_wt_trait</a>&lt;32&gt;{
-<a name="l00054"></a>00054         <span class="keyword">typedef</span> int_vector&lt;32&gt; int_vector_type;
-<a name="l00055"></a>00055 };
-<a name="l00056"></a>00056 
-<a name="l00057"></a>00057 <span class="keyword">template</span>&lt;&gt;
-<a name="l00058"></a><a class="code" href="structsdsl_1_1csa__wt__trait_3_0164_01_4.html">00058</a> <span class="keyword">struct </span><a class="code" href="structsdsl_1_1csa__wt__trait.html">csa_wt_trait</a>&lt;64&gt;{
-<a name="l00059"></a>00059         <span class="keyword">typedef</span> int_vector&lt;64&gt; int_vector_type;
-<a name="l00060"></a>00060 };
-<a name="l00061"></a>00061 
-<a name="l00063"></a>00063 <span class="keyword">template</span>&lt;<span class="keyword">class</span> CsaWT&gt;
-<a name="l00064"></a><a class="code" href="classsdsl_1_1psi__of__csa__wt.html">00064</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1psi__of__csa__wt.html" title="A wrapper class for the  and LF function for (compressed) suffix arrays that are based on a wavelet t...">psi_of_csa_wt</a>{
-<a name="l00065"></a>00065         <span class="keyword">public</span>:
-<a name="l00066"></a>00066         <span class="keyword">typedef</span> <span class="keyword">typename</span> CsaWT::value_type value_type;  
-<a name="l00067"></a>00067         <span class="keyword">typedef</span> <span class="keyword">typename</span> CsaWT::size_type size_type;    
-<a name="l00068"></a>00068         <span class="keyword">typedef</span> <span class="keyword">typename</span> CsaWT::char_type char_type;    
-<a name="l00069"></a>00069         <span class="keyword">typedef</span> <span class="keyword">typename</span> CsaWT::difference_type difference_type;
-<a name="l00070"></a>00070         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">random_access_const_iterator&lt;psi_of_csa_wt&gt;</a> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>;<span class="comment">// STL Container requirement</span>
-<a name="l00071"></a>00071         <span class="keyword">private</span>:
-<a name="l00072"></a>00072                 CsaWT *m_csa_wt; <span class="comment">//&lt;- pointer to the (compressed) suffix array that is based on a wavelet tree </span>
-<a name="l00073"></a>00073         <span class="keyword">public</span>:
-<a name="l00074"></a>00074 
-<a name="l00076"></a><a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a49cf09ebdb63f1b59f2bf30205c01a74">00076</a>         <a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a49cf09ebdb63f1b59f2bf30205c01a74" title="Constructor.">psi_of_csa_wt</a>(CsaWT *<a class="code" href="classsdsl_1_1csa__wt.html" title="A class for the Compressed Suffix Array (CSA) based on a Wavelet Tree (WT) of the Burrow Wheeler Tran...">csa_wt</a>=NULL){
-<a name="l00077"></a>00077                 m_csa_wt = <a class="code" href="classsdsl_1_1csa__wt.html" title="A class for the Compressed Suffix Array (CSA) based on a Wavelet Tree (WT) of the Burrow Wheeler Tran...">csa_wt</a>;
-<a name="l00078"></a>00078         }
-<a name="l00079"></a>00079 
-<a name="l00081"></a><a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a595711eca54f467bcecad1b910e3050b">00081</a>         <a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a595711eca54f467bcecad1b910e3050b" title="Copy constructor.">psi_of_csa_wt</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1psi__of__csa__wt.html" title="A wrapper class for the  and LF function for (compressed) suffix arrays that are based on a wavelet t...">psi_of_csa_wt</a> &amp;psi_of_csa){
-<a name="l00082"></a>00082                 m_csa_wt = psi_of_csa.m_csa_wt; 
-<a name="l00083"></a>00083         }
-<a name="l00084"></a>00084 
+<a name="l00042"></a>00042 <span class="keyword">namespace </span>sdsl
+<a name="l00043"></a>00043 {
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree = wt_huff&lt;&gt;, u<span class="keywordtype">int</span>32_t SampleDens = 32, u<span class="keywordtype">int</span>32_t InvSampleDens = 64,  u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th = 0, <span class="keyword">class</span> <span class="keywordtype">char</span>Type=<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>&gt; <span class="comment">// forward declaration</span>
+<a name="l00046"></a>00046 <span class="keyword">class </span>csa_wt;
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
+<a name="l00049"></a><a class="code" href="structsdsl_1_1csa__wt__trait.html">00049</a> <span class="keyword">struct </span><a class="code" href="structsdsl_1_1csa__wt__trait.html">csa_wt_trait</a> {
+<a name="l00050"></a>00050     <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;0&gt;</a> <a class="code" href="classsdsl_1_1int__vector.html">int_vector_type</a>;
+<a name="l00051"></a>00051 };
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053 <span class="keyword">template</span>&lt;&gt;
+<a name="l00054"></a><a class="code" href="structsdsl_1_1csa__wt__trait_3_0132_01_4.html">00054</a> <span class="keyword">struct </span><a class="code" href="structsdsl_1_1csa__wt__trait.html">csa_wt_trait</a>&lt;32&gt; {
+<a name="l00055"></a>00055     <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;32&gt;</a> <a class="code" href="classsdsl_1_1int__vector.html">int_vector_type</a>;
+<a name="l00056"></a>00056 };
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058 <span class="keyword">template</span>&lt;&gt;
+<a name="l00059"></a><a class="code" href="structsdsl_1_1csa__wt__trait_3_0164_01_4.html">00059</a> <span class="keyword">struct </span><a class="code" href="structsdsl_1_1csa__wt__trait.html">csa_wt_trait</a>&lt;64&gt; {
+<a name="l00060"></a>00060     <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;64&gt;</a> <a class="code" href="classsdsl_1_1int__vector.html">int_vector_type</a>;
+<a name="l00061"></a>00061 };
+<a name="l00062"></a>00062 
+<a name="l00064"></a>00064 <span class="keyword">template</span>&lt;<span class="keyword">class</span> CsaWT&gt;
+<a name="l00065"></a><a class="code" href="classsdsl_1_1psi__of__csa__wt.html">00065</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1psi__of__csa__wt.html" title="A wrapper class for the  and LF function for (compressed) suffix arrays that are based on a wavelet t...">psi_of_csa_wt</a>
+<a name="l00066"></a>00066 {
+<a name="l00067"></a>00067     <span class="keyword">public</span>:
+<a name="l00068"></a>00068         <span class="keyword">typedef</span> <span class="keyword">typename</span> CsaWT::value_type value_type;
+<a name="l00069"></a>00069         <span class="keyword">typedef</span> <span class="keyword">typename</span> CsaWT::size_type size_type;
+<a name="l00070"></a>00070         <span class="keyword">typedef</span> <span class="keyword">typename</span> CsaWT::char_type char_type;
+<a name="l00071"></a>00071         <span class="keyword">typedef</span> <span class="keyword">typename</span> CsaWT::difference_type difference_type;
+<a name="l00072"></a>00072         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">random_access_const_iterator&lt;psi_of_csa_wt&gt;</a> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>;<span class="comment">// STL Container requirement</span>
+<a name="l00073"></a>00073     <span class="keyword">private</span>:
+<a name="l00074"></a>00074         CsaWT* m_csa_wt; <span class="comment">//&lt;- pointer to the (compressed) suffix array that is based on a wavelet tree</span>
+<a name="l00075"></a>00075     <span class="keyword">public</span>:
+<a name="l00076"></a>00076 
+<a name="l00078"></a><a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a49cf09ebdb63f1b59f2bf30205c01a74">00078</a>         <a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a49cf09ebdb63f1b59f2bf30205c01a74" title="Constructor.">psi_of_csa_wt</a>(CsaWT* <a class="code" href="classsdsl_1_1csa__wt.html" title="A class for the Compressed Suffix Array (CSA) based on a Wavelet Tree (WT) of the Burrow Wheeler Tran...">csa_wt</a>=NULL) {
+<a name="l00079"></a>00079             m_csa_wt = <a class="code" href="classsdsl_1_1csa__wt.html" title="A class for the Compressed Suffix Array (CSA) based on a Wavelet Tree (WT) of the Burrow Wheeler Tran...">csa_wt</a>;
+<a name="l00080"></a>00080         }
+<a name="l00081"></a>00081 
+<a name="l00083"></a><a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a595711eca54f467bcecad1b910e3050b">00083</a>         <a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a595711eca54f467bcecad1b910e3050b" title="Copy constructor.">psi_of_csa_wt</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1psi__of__csa__wt.html" title="A wrapper class for the  and LF function for (compressed) suffix arrays that are based on a wavelet t...">psi_of_csa_wt</a>&amp; psi_of_csa) {
+<a name="l00084"></a>00084             m_csa_wt = psi_of_csa.m_csa_wt;
+<a name="l00085"></a>00085         }
 <a name="l00086"></a>00086 
-<a name="l00090"></a><a class="code" href="classsdsl_1_1psi__of__csa__wt.html#ae823a89704fffaa6f2873a6c0b7c014c">00090</a>         value_type <a class="code" href="classsdsl_1_1psi__of__csa__wt.html#ae823a89704fffaa6f2873a6c0b7c014c" title="Calculate the  value at position i.">operator[]</a>(size_type i)<span class="keyword">const</span>{
-<a name="l00091"></a>00091                 assert( m_csa_wt != NULL );
-<a name="l00092"></a>00092                 char_type c = algorithm::get_ith_character_of_the_first_row(i, *m_csa_wt); 
-<a name="l00093"></a>00093                 <span class="keywordflow">return</span> m_csa_wt-&gt;wavelet_tree.select( i - m_csa_wt-&gt;C[m_csa_wt-&gt;char2comp[c]] + 1 , c);
-<a name="l00094"></a>00094         }
-<a name="l00095"></a>00095 
+<a name="l00088"></a>00088 
+<a name="l00092"></a><a class="code" href="classsdsl_1_1psi__of__csa__wt.html#ae823a89704fffaa6f2873a6c0b7c014c">00092</a>         value_type <a class="code" href="classsdsl_1_1psi__of__csa__wt.html#ae823a89704fffaa6f2873a6c0b7c014c" title="Calculate the  value at position i.">operator[]</a>(size_type i)<span class="keyword">const </span>{
+<a name="l00093"></a>00093             assert(m_csa_wt != NULL);
+<a name="l00094"></a>00094             char_type c = algorithm::get_ith_character_of_the_first_row(i, *m_csa_wt);
+<a name="l00095"></a>00095             <span class="keywordflow">return</span> m_csa_wt-&gt;wavelet_tree.select(i - m_csa_wt-&gt;C[m_csa_wt-&gt;char2comp[c]] + 1 , c);
+<a name="l00096"></a>00096         }
 <a name="l00097"></a>00097 
-<a name="l00102"></a><a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a3111b5ef579374481f4da3c47e107e41">00102</a>         value_type <a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a3111b5ef579374481f4da3c47e107e41" title="Apply  k times to the value at position i.">psi_k</a>(size_type i, size_type k)<span class="keyword">const</span>{
-<a name="l00103"></a>00103                 assert( m_csa_wt != NULL );
-<a name="l00104"></a>00104                 <span class="keywordflow">if</span>( k &lt; m_csa_wt-&gt;sa_sample_dens + m_csa_wt-&gt;isa_sample_dens ){
-<a name="l00105"></a>00105                         <span class="keywordflow">for</span>(size_type j=0; j&lt;k; ++j){
-<a name="l00106"></a>00106                                 i = (*this)[i];
-<a name="l00107"></a>00107                         }
-<a name="l00108"></a>00108                         <span class="keywordflow">return</span> i;
-<a name="l00109"></a>00109                 }<span class="keywordflow">else</span>{
-<a name="l00110"></a>00110                         size_type x = (*m_csa_wt)[i];
-<a name="l00111"></a>00111                         x += k;
-<a name="l00112"></a>00112                         <span class="keywordflow">if</span>( x &gt;= m_csa_wt-&gt;size() ){
-<a name="l00113"></a>00113                                 x -= m_csa_wt-&gt;size();
-<a name="l00114"></a>00114                         }
-<a name="l00115"></a>00115                         <span class="keywordflow">return</span> (*m_csa_wt)( x );
+<a name="l00099"></a>00099 
+<a name="l00104"></a><a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a3111b5ef579374481f4da3c47e107e41">00104</a>         value_type <a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a3111b5ef579374481f4da3c47e107e41" title="Apply  k times to the value at position i.">psi_k</a>(size_type i, size_type k)<span class="keyword">const </span>{
+<a name="l00105"></a>00105             assert(m_csa_wt != NULL);
+<a name="l00106"></a>00106             <span class="keywordflow">if</span> (k &lt; m_csa_wt-&gt;sa_sample_dens + m_csa_wt-&gt;isa_sample_dens) {
+<a name="l00107"></a>00107                 <span class="keywordflow">for</span> (size_type j=0; j&lt;k; ++j) {
+<a name="l00108"></a>00108                     i = (*this)[i];
+<a name="l00109"></a>00109                 }
+<a name="l00110"></a>00110                 <span class="keywordflow">return</span> i;
+<a name="l00111"></a>00111             } <span class="keywordflow">else</span> {
+<a name="l00112"></a>00112                 size_type x = (*m_csa_wt)[i];
+<a name="l00113"></a>00113                 x += k;
+<a name="l00114"></a>00114                 <span class="keywordflow">if</span> (x &gt;= m_csa_wt-&gt;size()) {
+<a name="l00115"></a>00115                     x -= m_csa_wt-&gt;size();
 <a name="l00116"></a>00116                 }
-<a name="l00117"></a>00117         }
-<a name="l00118"></a>00118 
+<a name="l00117"></a>00117                 <span class="keywordflow">return</span> (*m_csa_wt)(x);
+<a name="l00118"></a>00118             }
+<a name="l00119"></a>00119         }
 <a name="l00120"></a>00120 
-<a name="l00125"></a><a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a76110e00b08c15346e96f707cf81747f">00125</a>         value_type <a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a76110e00b08c15346e96f707cf81747f" title="Calculate the LF mapping at position i.">operator()</a>(size_type i)<span class="keyword">const</span>{
-<a name="l00126"></a>00126                 assert( m_csa_wt != NULL );
-<a name="l00127"></a>00127                 assert( i &lt; <a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a48addc469dbdaf785cd336d238f70a6e" title="Returns the size of the  function.">size</a>() );
-<a name="l00128"></a>00128                 <span class="comment">// (1) get the ith character in the bwt, this takes \f$\log |\Sigma| \f$ time with use of the wavelet tree</span>
-<a name="l00129"></a>00129 <span class="comment">//              value_type c = m_csa_wt-&gt;m_wavelet_tree[i]; </span>
-<a name="l00130"></a>00130                 <span class="comment">// (2) next count how many symbols c are in the prefix [0..i-1] of the bwt, this takes \f$\log |\Sigma| \f$ time with use of the wavelet tree.</span>
-<a name="l00131"></a>00131 <span class="comment">//              size_type j = m_csa_wt-&gt;m_wavelet_tree.rank(i, c);</span>
-<a name="l00132"></a>00132                 <span class="comment">// TODO: (1) and (2) can be calculated in only one request to the wavelet tree -&gt; method rank_ith_symbol !!!</span>
-<a name="l00133"></a>00133                 <span class="comment">// (3) calculate the position of the j+1 th c in the sorted string of the bwt in constant time.</span>
-<a name="l00134"></a>00134                 <span class="keyword">typename</span> CsaWT::char_type c;
-<a name="l00135"></a>00135                 size_type j = m_csa_wt-&gt;m_wavelet_tree.rank_ith_symbol(i,c); <span class="comment">// see documentation of rank_ith_symbol in wt_huff</span>
-<a name="l00136"></a>00136                 <span class="keywordflow">return</span> m_csa_wt-&gt;C[ m_csa_wt-&gt;char2comp[c] ] + j;
-<a name="l00137"></a>00137         }
-<a name="l00138"></a>00138 
+<a name="l00122"></a>00122 
+<a name="l00127"></a><a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a76110e00b08c15346e96f707cf81747f">00127</a>         value_type <a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a76110e00b08c15346e96f707cf81747f" title="Calculate the LF mapping at position i.">operator()</a>(size_type i)<span class="keyword">const </span>{
+<a name="l00128"></a>00128             assert(m_csa_wt != NULL);
+<a name="l00129"></a>00129             assert(i &lt; <a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a48addc469dbdaf785cd336d238f70a6e" title="Returns the size of the  function.">size</a>());
+<a name="l00130"></a>00130             <span class="comment">// (1) get the ith character in the bwt, this takes \f$\log |\Sigma| \f$ time with use of the wavelet tree</span>
+<a name="l00131"></a>00131 <span class="comment">//              value_type c = m_csa_wt-&gt;m_wavelet_tree[i];</span>
+<a name="l00132"></a>00132             <span class="comment">// (2) next count how many symbols c are in the prefix [0..i-1] of the bwt, this takes \f$\log |\Sigma| \f$ time with use of the wavelet tree.</span>
+<a name="l00133"></a>00133 <span class="comment">//              size_type j = m_csa_wt-&gt;m_wavelet_tree.rank(i, c);</span>
+<a name="l00134"></a>00134             <span class="comment">// TODO: (1) and (2) can be calculated in only one request to the wavelet tree -&gt; method rank_ith_symbol !!!</span>
+<a name="l00135"></a>00135             <span class="comment">// (3) calculate the position of the j+1 th c in the sorted string of the bwt in constant time.</span>
+<a name="l00136"></a>00136             <span class="keyword">typename</span> CsaWT::char_type c;
+<a name="l00137"></a>00137             size_type j = m_csa_wt-&gt;m_wavelet_tree.rank_ith_symbol(i,c); <span class="comment">// see documentation of rank_ith_symbol in wt_huff</span>
+<a name="l00138"></a>00138             <span class="keywordflow">return</span> m_csa_wt-&gt;C[ m_csa_wt-&gt;char2comp[c] ] + j;
+<a name="l00139"></a>00139         }
 <a name="l00140"></a>00140 
-<a name="l00145"></a><a class="code" href="classsdsl_1_1psi__of__csa__wt.html#ac50377924ca141bbf261ad42287bf7a6">00145</a>         value_type <a class="code" href="classsdsl_1_1psi__of__csa__wt.html#ac50377924ca141bbf261ad42287bf7a6" title="Apply LF k times to the value at position i.">lf_k</a>(size_type i, size_type k)<span class="keyword">const</span>{
-<a name="l00146"></a>00146                 assert( m_csa_wt != NULL );
-<a name="l00147"></a>00147                 <span class="keywordflow">if</span>( k &lt; m_csa_wt-&gt;sa_sample_dens + m_csa_wt-&gt;isa_sample_dens ){
-<a name="l00148"></a>00148                         <span class="keywordflow">for</span>(size_type j=0; j&lt;k; ++j){
-<a name="l00149"></a>00149                                 i = (*this)(i);
-<a name="l00150"></a>00150                         }
-<a name="l00151"></a>00151                         <span class="keywordflow">return</span> i;
-<a name="l00152"></a>00152                 }<span class="keywordflow">else</span>{
-<a name="l00153"></a>00153                         size_type x = (*m_csa_wt)[i];
-<a name="l00154"></a>00154                         <span class="keywordflow">if</span>( x &lt; k ){
-<a name="l00155"></a>00155                                 x += m_csa_wt-&gt;size();
-<a name="l00156"></a>00156                         }
-<a name="l00157"></a>00157                         x -= k;
-<a name="l00158"></a>00158                         <span class="keywordflow">return</span> (*m_csa_wt)( x );
-<a name="l00159"></a>00159                 }
-<a name="l00160"></a>00160         }
-<a name="l00161"></a>00161 
-<a name="l00163"></a><a class="code" href="classsdsl_1_1psi__of__csa__wt.html#adad039a6344a5e6d7491a051514ee868">00163</a>         <a class="code" href="classsdsl_1_1psi__of__csa__wt.html" title="A wrapper class for the  and LF function for (compressed) suffix arrays that are based on a wavelet t...">psi_of_csa_wt</a>&amp; <a class="code" href="classsdsl_1_1psi__of__csa__wt.html#adad039a6344a5e6d7491a051514ee868" title="Assignment operator.">operator=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1psi__of__csa__wt.html" title="A wrapper class for the  and LF function for (compressed) suffix arrays that are based on a wavelet t...">psi_of_csa_wt</a>&amp; psi_of_csa){
-<a name="l00164"></a>00164                 <span class="keywordflow">if</span>( <span class="keyword">this</span> != &amp;psi_of_csa ){
-<a name="l00165"></a>00165                         m_csa_wt = psi_of_csa.m_csa_wt;
-<a name="l00166"></a>00166                 }
-<a name="l00167"></a>00167                 <span class="keywordflow">return</span> *<span class="keyword">this</span>;
-<a name="l00168"></a>00168         }
-<a name="l00169"></a>00169 
+<a name="l00142"></a>00142 
+<a name="l00147"></a><a class="code" href="classsdsl_1_1psi__of__csa__wt.html#ac50377924ca141bbf261ad42287bf7a6">00147</a>         value_type <a class="code" href="classsdsl_1_1psi__of__csa__wt.html#ac50377924ca141bbf261ad42287bf7a6" title="Apply LF k times to the value at position i.">lf_k</a>(size_type i, size_type k)<span class="keyword">const </span>{
+<a name="l00148"></a>00148             assert(m_csa_wt != NULL);
+<a name="l00149"></a>00149             <span class="keywordflow">if</span> (k &lt; m_csa_wt-&gt;sa_sample_dens + m_csa_wt-&gt;isa_sample_dens) {
+<a name="l00150"></a>00150                 <span class="keywordflow">for</span> (size_type j=0; j&lt;k; ++j) {
+<a name="l00151"></a>00151                     i = (*this)(i);
+<a name="l00152"></a>00152                 }
+<a name="l00153"></a>00153                 <span class="keywordflow">return</span> i;
+<a name="l00154"></a>00154             } <span class="keywordflow">else</span> {
+<a name="l00155"></a>00155                 size_type x = (*m_csa_wt)[i];
+<a name="l00156"></a>00156                 <span class="keywordflow">if</span> (x &lt; k) {
+<a name="l00157"></a>00157                     x += m_csa_wt-&gt;size();
+<a name="l00158"></a>00158                 }
+<a name="l00159"></a>00159                 x -= k;
+<a name="l00160"></a>00160                 <span class="keywordflow">return</span> (*m_csa_wt)(x);
+<a name="l00161"></a>00161             }
+<a name="l00162"></a>00162         }
+<a name="l00163"></a>00163 
+<a name="l00165"></a><a class="code" href="classsdsl_1_1psi__of__csa__wt.html#adad039a6344a5e6d7491a051514ee868">00165</a>         <a class="code" href="classsdsl_1_1psi__of__csa__wt.html" title="A wrapper class for the  and LF function for (compressed) suffix arrays that are based on a wavelet t...">psi_of_csa_wt</a>&amp; <a class="code" href="classsdsl_1_1psi__of__csa__wt.html#adad039a6344a5e6d7491a051514ee868" title="Assignment operator.">operator=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1psi__of__csa__wt.html" title="A wrapper class for the  and LF function for (compressed) suffix arrays that are based on a wavelet t...">psi_of_csa_wt</a>&amp; psi_of_csa) {
+<a name="l00166"></a>00166             <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;psi_of_csa) {
+<a name="l00167"></a>00167                 m_csa_wt = psi_of_csa.m_csa_wt;
+<a name="l00168"></a>00168             }
+<a name="l00169"></a>00169             <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00170"></a>00170         }
 <a name="l00171"></a>00171 
-<a name="l00173"></a><a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a44b0149a4eb1a947f58fd6f4dfd042d2">00173</a>         <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a44b0149a4eb1a947f58fd6f4dfd042d2" title="Equality operator.">operator==</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1psi__of__csa__wt.html" title="A wrapper class for the  and LF function for (compressed) suffix arrays that are based on a wavelet t...">psi_of_csa_wt</a>&amp; psi){
-<a name="l00174"></a>00174                 <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00175"></a>00175         }
-<a name="l00176"></a>00176 
-<a name="l00178"></a><a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a48addc469dbdaf785cd336d238f70a6e">00178</a>         size_type <a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a48addc469dbdaf785cd336d238f70a6e" title="Returns the size of the  function.">size</a>()<span class="keyword">const</span>{
-<a name="l00179"></a>00179                 <span class="keywordflow">return</span> m_csa_wt-&gt;size();
-<a name="l00180"></a>00180         }
-<a name="l00181"></a>00181 
-<a name="l00183"></a><a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a18e6bb81967bf73f67265d204ddbb3bc">00183</a>         size_type <a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a18e6bb81967bf73f67265d204ddbb3bc" title="Returns if the  function is empty.">empty</a>()<span class="keyword">const</span>{
-<a name="l00184"></a>00184                 <span class="keywordflow">return</span> m_csa_wt-&gt;empty();
-<a name="l00185"></a>00185         }
-<a name="l00186"></a>00186 
-<a name="l00188"></a><a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a0da7c5ab77a469f1a697bd0e9ae86fbe">00188</a>         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a0da7c5ab77a469f1a697bd0e9ae86fbe" title="Swap operation require by the STL.">swap</a>(<a class="code" href="classsdsl_1_1psi__of__csa__wt.html" title="A wrapper class for the  and LF function for (compressed) suffix arrays that are based on a wavelet t...">psi_of_csa_wt</a> &amp;psi_of_csa){
-<a name="l00189"></a>00189                 <span class="keywordflow">if</span>( <span class="keyword">this</span> != &amp;psi_of_csa){
-<a name="l00190"></a>00190                         ;<span class="comment">// std::swap(m_csa_wt, psi_of_csa.m_csa_wt); // do not exchange the supported structure!</span>
-<a name="l00191"></a>00191                 }
-<a name="l00192"></a>00192         }
-<a name="l00193"></a>00193 
+<a name="l00173"></a>00173 
+<a name="l00175"></a><a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a44b0149a4eb1a947f58fd6f4dfd042d2">00175</a>         <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a44b0149a4eb1a947f58fd6f4dfd042d2" title="Equality operator.">operator==</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1psi__of__csa__wt.html" title="A wrapper class for the  and LF function for (compressed) suffix arrays that are based on a wavelet t...">psi_of_csa_wt</a>&amp; psi) {
+<a name="l00176"></a>00176             <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00177"></a>00177         }
+<a name="l00178"></a>00178 
+<a name="l00180"></a><a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a48addc469dbdaf785cd336d238f70a6e">00180</a>         size_type <a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a48addc469dbdaf785cd336d238f70a6e" title="Returns the size of the  function.">size</a>()<span class="keyword">const </span>{
+<a name="l00181"></a>00181             <span class="keywordflow">return</span> m_csa_wt-&gt;size();
+<a name="l00182"></a>00182         }
+<a name="l00183"></a>00183 
+<a name="l00185"></a><a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a18e6bb81967bf73f67265d204ddbb3bc">00185</a>         size_type <a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a18e6bb81967bf73f67265d204ddbb3bc" title="Returns if the  function is empty.">empty</a>()<span class="keyword">const </span>{
+<a name="l00186"></a>00186             <span class="keywordflow">return</span> m_csa_wt-&gt;empty();
+<a name="l00187"></a>00187         }
+<a name="l00188"></a>00188 
+<a name="l00190"></a><a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a0da7c5ab77a469f1a697bd0e9ae86fbe">00190</a>         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a0da7c5ab77a469f1a697bd0e9ae86fbe" title="Swap operation require by the STL.">swap</a>(<a class="code" href="classsdsl_1_1psi__of__csa__wt.html" title="A wrapper class for the  and LF function for (compressed) suffix arrays that are based on a wavelet t...">psi_of_csa_wt</a>&amp; psi_of_csa) {
+<a name="l00191"></a>00191             <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;psi_of_csa) {
+<a name="l00192"></a>00192                 ;<span class="comment">// std::swap(m_csa_wt, psi_of_csa.m_csa_wt); // do not exchange the supported structure!</span>
+<a name="l00193"></a>00193             }
+<a name="l00194"></a>00194         }
 <a name="l00195"></a>00195 
-<a name="l00198"></a><a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a671649aaef2888b10558b4865ab59eac">00198</a>         <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a> <a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a671649aaef2888b10558b4865ab59eac" title="Returns a const_iterator to the first element.">begin</a>()<span class="keyword">const</span>{
-<a name="l00199"></a>00199                 <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>(<span class="keyword">this</span>, 0);
-<a name="l00200"></a>00200         }
-<a name="l00201"></a>00201 
+<a name="l00197"></a>00197 
+<a name="l00200"></a><a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a671649aaef2888b10558b4865ab59eac">00200</a>         <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a> <a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a671649aaef2888b10558b4865ab59eac" title="Returns a const_iterator to the first element.">begin</a>()<span class="keyword">const </span>{
+<a name="l00201"></a>00201             <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>(<span class="keyword">this</span>, 0);
+<a name="l00202"></a>00202         }
 <a name="l00203"></a>00203 
-<a name="l00206"></a><a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a7dfd5337e95e2ca1bd493c94cd55c610">00206</a>         <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a> <a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a7dfd5337e95e2ca1bd493c94cd55c610" title="Returns a const_iterator to the element after the last element.">end</a>()<span class="keyword">const</span>{
-<a name="l00207"></a>00207                 <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>(<span class="keyword">this</span>, <a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a48addc469dbdaf785cd336d238f70a6e" title="Returns the size of the  function.">size</a>());
-<a name="l00208"></a>00208         }
-<a name="l00209"></a>00209 
-<a name="l00210"></a>00210         <span class="comment">// Get the number of sampled \f$\Psi\f$ values. In the wavelet tree approach the number of sampled (i.e. explicitly stored) \f$\Psi\f$ values is zero.</span>
-<a name="l00211"></a>00211         uint32_t get_sample_dens()<span class="keyword">const</span>{
-<a name="l00212"></a>00212                 <span class="keywordflow">return</span> 0;
-<a name="l00213"></a>00213         }
-<a name="l00214"></a>00214 };
-<a name="l00215"></a>00215 
-<a name="l00216"></a>00216 <span class="keyword">template</span>&lt;<span class="keyword">class</span> CsaWT&gt;
-<a name="l00217"></a><a class="code" href="classsdsl_1_1bwt__of__csa__wt.html">00217</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1bwt__of__csa__wt.html">bwt_of_csa_wt</a>{
-<a name="l00218"></a>00218         <span class="keyword">public</span>:
-<a name="l00219"></a>00219         <span class="keyword">typedef</span> <span class="keyword">const</span> <span class="keyword">typename</span> CsaWT::char_type value_type;     
-<a name="l00220"></a>00220         <span class="keyword">typedef</span> <span class="keyword">typename</span> CsaWT::size_type size_type;    
-<a name="l00221"></a>00221         <span class="keyword">typedef</span> <span class="keyword">typename</span> CsaWT::difference_type difference_type;
-<a name="l00222"></a>00222         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">random_access_const_iterator&lt;bwt_of_csa_wt&gt;</a> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>;<span class="comment">// STL Container requirement</span>
-<a name="l00223"></a>00223         <span class="keyword">private</span>:
-<a name="l00224"></a>00224                 CsaWT *m_csa_wt; <span class="comment">//&lt;- pointer to the (compressed) suffix array that is based on a wavelet tree </span>
-<a name="l00225"></a>00225         <span class="keyword">public</span>:
-<a name="l00226"></a>00226 
-<a name="l00228"></a><a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#ad6632f9727a3f5f430188d69d3a526a3">00228</a>         <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#ad6632f9727a3f5f430188d69d3a526a3" title="Constructor.">bwt_of_csa_wt</a>(CsaWT *<a class="code" href="classsdsl_1_1csa__wt.html" title="A class for the Compressed Suffix Array (CSA) based on a Wavelet Tree (WT) of the Burrow Wheeler Tran...">csa_wt</a>=NULL){
-<a name="l00229"></a>00229                 m_csa_wt = <a class="code" href="classsdsl_1_1csa__wt.html" title="A class for the Compressed Suffix Array (CSA) based on a Wavelet Tree (WT) of the Burrow Wheeler Tran...">csa_wt</a>;
-<a name="l00230"></a>00230         }
-<a name="l00231"></a>00231 
-<a name="l00233"></a><a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#a5a7c8477a2bf064fab372e7a470782f8">00233</a>         <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#a5a7c8477a2bf064fab372e7a470782f8" title="Copy constructor.">bwt_of_csa_wt</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html">bwt_of_csa_wt</a> &amp;bwt_of_csa){
-<a name="l00234"></a>00234                 m_csa_wt = bwt_of_csa.m_csa_wt; 
-<a name="l00235"></a>00235         }
-<a name="l00236"></a>00236 
-<a name="l00238"></a>00238 
-<a name="l00242"></a><a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#ab0eb8172579cfad229dd1ee800f340c5">00242</a>         value_type <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#ab0eb8172579cfad229dd1ee800f340c5" title="Calculate the Burrows Wheeler Transform (BWT) at position i.">operator[]</a>(size_type i)<span class="keyword">const</span>{
-<a name="l00243"></a>00243                 assert( m_csa_wt != NULL );
-<a name="l00244"></a>00244                 assert( i &lt; <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#a3ed198822b5631ec43e98b229b833622" title="Returns the size of the  function.">size</a>() );
-<a name="l00245"></a>00245                 <span class="keywordflow">return</span> m_csa_wt-&gt;m_wavelet_tree[i];             
-<a name="l00246"></a>00246         }
-<a name="l00247"></a>00247 
-<a name="l00249"></a><a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#a31c6e55853248c8ffd2ee8ba3a868d86">00249</a>         <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html">bwt_of_csa_wt</a>&amp; <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#a31c6e55853248c8ffd2ee8ba3a868d86" title="Assignment operator.">operator=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html">bwt_of_csa_wt</a>&amp; bwt_of_csa){
-<a name="l00250"></a>00250                 <span class="keywordflow">if</span>( <span class="keyword">this</span> != &amp;bwt_of_csa ){
-<a name="l00251"></a>00251                         m_csa_wt = bwt_of_csa.m_csa_wt;
-<a name="l00252"></a>00252                 }
-<a name="l00253"></a>00253                 <span class="keywordflow">return</span> *<span class="keyword">this</span>;
-<a name="l00254"></a>00254         }
-<a name="l00255"></a>00255 
-<a name="l00257"></a><a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#a3ed198822b5631ec43e98b229b833622">00257</a>         size_type <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#a3ed198822b5631ec43e98b229b833622" title="Returns the size of the  function.">size</a>()<span class="keyword">const</span>{
-<a name="l00258"></a>00258                 <span class="keywordflow">return</span> m_csa_wt-&gt;size();
-<a name="l00259"></a>00259         }
-<a name="l00260"></a>00260 
-<a name="l00262"></a><a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#a15770b96734ee3396322f987df0d1aac">00262</a>         size_type <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#a15770b96734ee3396322f987df0d1aac" title="Returns if the bwt function is empty.">empty</a>()<span class="keyword">const</span>{
-<a name="l00263"></a>00263                 <span class="keywordflow">return</span> m_csa_wt-&gt;empty();
-<a name="l00264"></a>00264         }
-<a name="l00265"></a>00265 
-<a name="l00267"></a><a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#a88684f3d5fee323b98ce47a92d6d75c6">00267</a>         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#a88684f3d5fee323b98ce47a92d6d75c6" title="Swap operation require by the STL.">swap</a>(<a class="code" href="classsdsl_1_1bwt__of__csa__wt.html">bwt_of_csa_wt</a> &amp;bwt_of_csa){
-<a name="l00268"></a>00268                 <span class="keywordflow">if</span>( <span class="keyword">this</span> != &amp;bwt_of_csa){
-<a name="l00269"></a>00269                         ;<span class="comment">// std::swap(m_csa_wt, bwt_of_csa.m_csa_wt); // do not exchange the supported structure!</span>
-<a name="l00270"></a>00270                 }
-<a name="l00271"></a>00271         }
-<a name="l00272"></a>00272 
-<a name="l00274"></a>00274 
-<a name="l00277"></a><a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#a02c2f6bf8fa61b93ec079625a11e85c5">00277</a>         <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a> <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#a02c2f6bf8fa61b93ec079625a11e85c5" title="Returns a const_iterator to the first element.">begin</a>()<span class="keyword">const</span>{
-<a name="l00278"></a>00278                 <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>(<span class="keyword">this</span>, 0);
-<a name="l00279"></a>00279         }
-<a name="l00280"></a>00280 
-<a name="l00282"></a>00282 
-<a name="l00285"></a><a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#a8e90021ec5520b1c3cbf0db690bb91f3">00285</a>         <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a> <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#a8e90021ec5520b1c3cbf0db690bb91f3" title="Returns a const_iterator to the element after the last element.">end</a>()<span class="keyword">const</span>{
-<a name="l00286"></a>00286                 <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>(<span class="keyword">this</span>, <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#a3ed198822b5631ec43e98b229b833622" title="Returns the size of the  function.">size</a>());
-<a name="l00287"></a>00287         }
-<a name="l00288"></a>00288 };
-<a name="l00289"></a>00289 
-<a name="l00290"></a>00290 
+<a name="l00205"></a>00205 
+<a name="l00208"></a><a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a7dfd5337e95e2ca1bd493c94cd55c610">00208</a>         <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a> <a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a7dfd5337e95e2ca1bd493c94cd55c610" title="Returns a const_iterator to the element after the last element.">end</a>()<span class="keyword">const </span>{
+<a name="l00209"></a>00209             <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>(<span class="keyword">this</span>, <a class="code" href="classsdsl_1_1psi__of__csa__wt.html#a48addc469dbdaf785cd336d238f70a6e" title="Returns the size of the  function.">size</a>());
+<a name="l00210"></a>00210         }
+<a name="l00211"></a>00211 
+<a name="l00212"></a>00212         <span class="comment">// Get the number of sampled \f$\Psi\f$ values. In the wavelet tree approach the number of sampled (i.e. explicitly stored) \f$\Psi\f$ values is zero.</span>
+<a name="l00213"></a>00213         uint32_t get_sample_dens()<span class="keyword">const </span>{
+<a name="l00214"></a>00214             <span class="keywordflow">return</span> 0;
+<a name="l00215"></a>00215         }
+<a name="l00216"></a>00216 };
+<a name="l00217"></a>00217 
+<a name="l00218"></a>00218 <span class="keyword">template</span>&lt;<span class="keyword">class</span> CsaWT&gt;
+<a name="l00219"></a><a class="code" href="classsdsl_1_1bwt__of__csa__wt.html">00219</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1bwt__of__csa__wt.html">bwt_of_csa_wt</a>
+<a name="l00220"></a>00220 {
+<a name="l00221"></a>00221     <span class="keyword">public</span>:
+<a name="l00222"></a>00222         <span class="keyword">typedef</span> <span class="keyword">const</span> <span class="keyword">typename</span> CsaWT::char_type value_type;
+<a name="l00223"></a>00223         <span class="keyword">typedef</span> <span class="keyword">typename</span> CsaWT::size_type size_type;
+<a name="l00224"></a>00224         <span class="keyword">typedef</span> <span class="keyword">typename</span> CsaWT::difference_type difference_type;
+<a name="l00225"></a>00225         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">random_access_const_iterator&lt;bwt_of_csa_wt&gt;</a> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>;<span class="comment">// STL Container requirement</span>
+<a name="l00226"></a>00226     <span class="keyword">private</span>:
+<a name="l00227"></a>00227         CsaWT* m_csa_wt; <span class="comment">//&lt;- pointer to the (compressed) suffix array that is based on a wavelet tree</span>
+<a name="l00228"></a>00228     <span class="keyword">public</span>:
+<a name="l00229"></a>00229 
+<a name="l00231"></a><a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#ad6632f9727a3f5f430188d69d3a526a3">00231</a>         <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#ad6632f9727a3f5f430188d69d3a526a3" title="Constructor.">bwt_of_csa_wt</a>(CsaWT* <a class="code" href="classsdsl_1_1csa__wt.html" title="A class for the Compressed Suffix Array (CSA) based on a Wavelet Tree (WT) of the Burrow Wheeler Tran...">csa_wt</a>=NULL) {
+<a name="l00232"></a>00232             m_csa_wt = <a class="code" href="classsdsl_1_1csa__wt.html" title="A class for the Compressed Suffix Array (CSA) based on a Wavelet Tree (WT) of the Burrow Wheeler Tran...">csa_wt</a>;
+<a name="l00233"></a>00233         }
+<a name="l00234"></a>00234 
+<a name="l00236"></a><a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#a5a7c8477a2bf064fab372e7a470782f8">00236</a>         <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#a5a7c8477a2bf064fab372e7a470782f8" title="Copy constructor.">bwt_of_csa_wt</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html">bwt_of_csa_wt</a>&amp; bwt_of_csa) {
+<a name="l00237"></a>00237             m_csa_wt = bwt_of_csa.m_csa_wt;
+<a name="l00238"></a>00238         }
+<a name="l00239"></a>00239 
+<a name="l00241"></a>00241 
+<a name="l00245"></a><a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#ab0eb8172579cfad229dd1ee800f340c5">00245</a>         value_type <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#ab0eb8172579cfad229dd1ee800f340c5" title="Calculate the Burrows Wheeler Transform (BWT) at position i.">operator[]</a>(size_type i)<span class="keyword">const </span>{
+<a name="l00246"></a>00246             assert(m_csa_wt != NULL);
+<a name="l00247"></a>00247             assert(i &lt; <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#a3ed198822b5631ec43e98b229b833622" title="Returns the size of the  function.">size</a>());
+<a name="l00248"></a>00248             <span class="keywordflow">return</span> m_csa_wt-&gt;m_wavelet_tree[i];
+<a name="l00249"></a>00249         }
+<a name="l00250"></a>00250 
+<a name="l00252"></a><a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#a31c6e55853248c8ffd2ee8ba3a868d86">00252</a>         <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html">bwt_of_csa_wt</a>&amp; <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#a31c6e55853248c8ffd2ee8ba3a868d86" title="Assignment operator.">operator=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html">bwt_of_csa_wt</a>&amp; bwt_of_csa) {
+<a name="l00253"></a>00253             <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;bwt_of_csa) {
+<a name="l00254"></a>00254                 m_csa_wt = bwt_of_csa.m_csa_wt;
+<a name="l00255"></a>00255             }
+<a name="l00256"></a>00256             <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00257"></a>00257         }
+<a name="l00258"></a>00258 
+<a name="l00260"></a><a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#a3ed198822b5631ec43e98b229b833622">00260</a>         size_type <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#a3ed198822b5631ec43e98b229b833622" title="Returns the size of the  function.">size</a>()<span class="keyword">const </span>{
+<a name="l00261"></a>00261             <span class="keywordflow">return</span> m_csa_wt-&gt;size();
+<a name="l00262"></a>00262         }
+<a name="l00263"></a>00263 
+<a name="l00265"></a><a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#a15770b96734ee3396322f987df0d1aac">00265</a>         size_type <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#a15770b96734ee3396322f987df0d1aac" title="Returns if the bwt function is empty.">empty</a>()<span class="keyword">const </span>{
+<a name="l00266"></a>00266             <span class="keywordflow">return</span> m_csa_wt-&gt;empty();
+<a name="l00267"></a>00267         }
+<a name="l00268"></a>00268 
+<a name="l00270"></a><a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#a88684f3d5fee323b98ce47a92d6d75c6">00270</a>         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#a88684f3d5fee323b98ce47a92d6d75c6" title="Swap operation require by the STL.">swap</a>(<a class="code" href="classsdsl_1_1bwt__of__csa__wt.html">bwt_of_csa_wt</a>&amp; bwt_of_csa) {
+<a name="l00271"></a>00271             <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;bwt_of_csa) {
+<a name="l00272"></a>00272                 ;<span class="comment">// std::swap(m_csa_wt, bwt_of_csa.m_csa_wt); // do not exchange the supported structure!</span>
+<a name="l00273"></a>00273             }
+<a name="l00274"></a>00274         }
+<a name="l00275"></a>00275 
+<a name="l00277"></a>00277 
+<a name="l00280"></a><a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#a02c2f6bf8fa61b93ec079625a11e85c5">00280</a>         <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a> <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#a02c2f6bf8fa61b93ec079625a11e85c5" title="Returns a const_iterator to the first element.">begin</a>()<span class="keyword">const </span>{
+<a name="l00281"></a>00281             <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>(<span class="keyword">this</span>, 0);
+<a name="l00282"></a>00282         }
+<a name="l00283"></a>00283 
+<a name="l00285"></a>00285 
+<a name="l00288"></a><a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#a8e90021ec5520b1c3cbf0db690bb91f3">00288</a>         <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a> <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#a8e90021ec5520b1c3cbf0db690bb91f3" title="Returns a const_iterator to the element after the last element.">end</a>()<span class="keyword">const </span>{
+<a name="l00289"></a>00289             <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>(<span class="keyword">this</span>, <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html#a3ed198822b5631ec43e98b229b833622" title="Returns the size of the  function.">size</a>());
+<a name="l00290"></a>00290         }
+<a name="l00291"></a>00291 };
 <a name="l00292"></a>00292 
-<a name="l00299"></a>00299 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens,  u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
-<a name="l00300"></a><a class="code" href="classsdsl_1_1csa__wt.html">00300</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1csa__wt.html" title="A class for the Compressed Suffix Array (CSA) based on a Wavelet Tree (WT) of the Burrow Wheeler Tran...">csa_wt</a>{
-<a name="l00301"></a>00301         <span class="keyword">public</span>:
-<a name="l00302"></a>00302         <span class="keyword">typedef</span> uint64_t                                                                                         value_type;    <span class="comment">// STL Container requirement</span>
-<a name="l00303"></a>00303         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">random_access_const_iterator&lt;csa_wt&gt;</a>                             <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>;<span class="comment">// STL Container requirement</span>
-<a name="l00304"></a>00304         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>                                                                           <a class="code" href="classsdsl_1_1random__access__const__iterator.html">iterator</a>;              <span class="comment">// STL Container requirement</span>
-<a name="l00305"></a>00305         <span class="keyword">typedef</span> <span class="keyword">const</span> value_type                                                                         const_reference;
-<a name="l00306"></a>00306         <span class="keyword">typedef</span> const_reference                                                                          reference;
-<a name="l00307"></a>00307         <span class="keyword">typedef</span> const_reference*                                                                         pointer;
-<a name="l00308"></a>00308         <span class="keyword">typedef</span> <span class="keyword">const</span> pointer                                                                            const_pointer;
-<a name="l00309"></a>00309         <span class="keyword">typedef</span> int_vector&lt;&gt;::size_type                                                          size_type;             <span class="comment">// STL Container requirement</span>
-<a name="l00310"></a>00310         <span class="keyword">typedef</span> size_type                                                                                        csa_size_type;         
-<a name="l00311"></a>00311         <span class="keyword">typedef</span> ptrdiff_t                                                                                        difference_type; <span class="comment">// STL Container requirement</span>
-<a name="l00312"></a>00312         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1psi__of__csa__wt.html">psi_of_csa_wt&lt;csa_wt&gt;</a>                                                            <a class="code" href="classsdsl_1_1psi__of__csa__wt.html">psi_type</a>;
-<a name="l00313"></a>00313         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html">bwt_of_csa_wt&lt;csa_wt&gt;</a>                                                            <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html">bwt_type</a>;
-<a name="l00314"></a>00314         <span class="keyword">typedef</span> WaveletTree                                                                                      wavelet_tree_type;
-<a name="l00315"></a>00315         <span class="keyword">typedef</span> charType                                                                                         char_type;
-<a name="l00316"></a>00316         <span class="keyword">typedef</span> <span class="keyword">const</span> char_type*                                                                         pattern_type;
-<a name="l00317"></a>00317         <span class="keyword">typedef</span> <span class="keyword">typename</span> csa_wt_trait&lt;fixedIntWidth&gt;::int_vector_type sa_sample_type; 
-<a name="l00318"></a>00318         <span class="keyword">typedef</span> <span class="keyword">typename</span> csa_wt_trait&lt;fixedIntWidth&gt;::int_vector_type isa_sample_type; 
-<a name="l00319"></a>00319 
-<a name="l00320"></a>00320         <span class="keyword">typedef</span> <a class="code" href="structsdsl_1_1csa__tag.html">csa_tag</a>                                                                                                 <a class="code" href="structsdsl_1_1csa__tag.html">index_category</a>;
-<a name="l00321"></a>00321 
-<a name="l00322"></a>00322 
+<a name="l00293"></a>00293 
+<a name="l00295"></a>00295 
+<a name="l00302"></a>00302 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens,  u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
+<a name="l00303"></a><a class="code" href="classsdsl_1_1csa__wt.html">00303</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1csa__wt.html" title="A class for the Compressed Suffix Array (CSA) based on a Wavelet Tree (WT) of the Burrow Wheeler Tran...">csa_wt</a>
+<a name="l00304"></a>00304 {
+<a name="l00305"></a>00305     <span class="keyword">public</span>:
+<a name="l00306"></a>00306         <span class="keyword">typedef</span> uint64_t                                                                                         value_type;    <span class="comment">// STL Container requirement</span>
+<a name="l00307"></a>00307         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">random_access_const_iterator&lt;csa_wt&gt;</a>                             <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>;<span class="comment">// STL Container requirement</span>
+<a name="l00308"></a>00308         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>                                                                           <a class="code" href="classsdsl_1_1random__access__const__iterator.html">iterator</a>;              <span class="comment">// STL Container requirement</span>
+<a name="l00309"></a>00309         <span class="keyword">typedef</span> <span class="keyword">const</span> value_type                                                                         const_reference;
+<a name="l00310"></a>00310         <span class="keyword">typedef</span> const_reference                                                                          reference;
+<a name="l00311"></a>00311         <span class="keyword">typedef</span> const_reference*                                                                         pointer;
+<a name="l00312"></a>00312         <span class="keyword">typedef</span> <span class="keyword">const</span> pointer                                                                            const_pointer;
+<a name="l00313"></a>00313         <span class="keyword">typedef</span> int_vector&lt;&gt;::size_type                                                          size_type;             <span class="comment">// STL Container requirement</span>
+<a name="l00314"></a>00314         <span class="keyword">typedef</span> size_type                                                                                        csa_size_type;
+<a name="l00315"></a>00315         <span class="keyword">typedef</span> ptrdiff_t                                                                                        difference_type; <span class="comment">// STL Container requirement</span>
+<a name="l00316"></a>00316         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1psi__of__csa__wt.html">psi_of_csa_wt&lt;csa_wt&gt;</a>                                                            <a class="code" href="classsdsl_1_1psi__of__csa__wt.html">psi_type</a>;
+<a name="l00317"></a>00317         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html">bwt_of_csa_wt&lt;csa_wt&gt;</a>                                                            <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html">bwt_type</a>;
+<a name="l00318"></a>00318         <span class="keyword">typedef</span> WaveletTree                                                                                      wavelet_tree_type;
+<a name="l00319"></a>00319         <span class="keyword">typedef</span> charType                                                                                         char_type;
+<a name="l00320"></a>00320         <span class="keyword">typedef</span> <span class="keyword">const</span> char_type*                                                                         pattern_type;
+<a name="l00321"></a>00321         <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="classsdsl_1_1int__vector.html">csa_wt_trait&lt;fixedIntWidth&gt;::int_vector_type</a> <a class="code" href="classsdsl_1_1int__vector.html">sa_sample_type</a>;
+<a name="l00322"></a>00322         <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="classsdsl_1_1int__vector.html">csa_wt_trait&lt;fixedIntWidth&gt;::int_vector_type</a> <a class="code" href="classsdsl_1_1int__vector.html">isa_sample_type</a>;
 <a name="l00323"></a>00323 
-<a name="l00324"></a>00324         <span class="keyword">enum</span> { sa_sample_dens = SampleDens, 
-<a name="l00325"></a>00325                    isa_sample_dens = InvSampleDens };
+<a name="l00324"></a>00324         <span class="keyword">typedef</span> <a class="code" href="structsdsl_1_1csa__tag.html">csa_tag</a>                                                                                                 <a class="code" href="structsdsl_1_1csa__tag.html">index_category</a>;
+<a name="l00325"></a>00325 
 <a name="l00326"></a>00326 
-<a name="l00327"></a>00327         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classsdsl_1_1psi__of__csa__wt.html" title="A wrapper class for the  and LF function for (compressed) suffix arrays that are based on a wavelet t...">psi_of_csa_wt</a>&lt;csa_wt&gt;;
-<a name="l00328"></a>00328         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classsdsl_1_1bwt__of__csa__wt.html">bwt_of_csa_wt</a>&lt;csa_wt&gt;;
-<a name="l00329"></a>00329 <span class="comment">//      static const uint32_t sample_dens = SampleDens;</span>
-<a name="l00330"></a>00330         <span class="keyword">private</span>:
-<a name="l00331"></a>00331                 WaveletTree             m_wavelet_tree; <span class="comment">// the wavelet tree</span>
-<a name="l00332"></a>00332                 <a class="code" href="classsdsl_1_1psi__of__csa__wt.html">psi_type</a> m_psi;  <span class="comment">// psi function</span>
-<a name="l00333"></a>00333                 <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html">bwt_type</a> m_bwt;  <span class="comment">// bwt</span>
-<a name="l00334"></a>00334                 sa_sample_type m_sa_sample; <span class="comment">// suffix array samples</span>
-<a name="l00335"></a>00335                 isa_sample_type m_isa_sample; <span class="comment">// inverse suffix array samples</span>
-<a name="l00336"></a>00336                 char_type               m_char2comp[256]; 
-<a name="l00337"></a>00337                 char_type               m_comp2char[256];
-<a name="l00338"></a>00338                 
-<a name="l00339"></a>00339                 size_type       m_C[257]; <span class="comment">// counts for the compact alphabet [0..sigma-1]</span>
-<a name="l00340"></a>00340                 uint8_t                 m_sigma;
-<a name="l00341"></a>00341 <span class="comment">//              uint32_t m_sample_dens; // additional to SampleDens value</span>
-<a name="l00342"></a>00342 <span class="comment">//#define USE_CSA_CACHE</span>
-<a name="l00343"></a>00343 <span class="preprocessor">#ifdef USE_CSA_CACHE</span>
-<a name="l00344"></a>00344 <span class="preprocessor"></span>                <span class="keyword">mutable</span> <a class="code" href="structsdsl_1_1fast__cache.html">fast_cache</a> csa_cache;   
-<a name="l00345"></a>00345 <span class="preprocessor">#endif  </span>
-<a name="l00346"></a>00346 <span class="preprocessor"></span>
-<a name="l00347"></a>00347                 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> RandomAccessContainer&gt;
-<a name="l00348"></a>00348                 <span class="keywordtype">void</span> construct(<span class="keyword">const</span> RandomAccessContainer &amp;sa, <span class="keyword">const</span> char_type *str);
-<a name="l00349"></a>00349 
-<a name="l00350"></a>00350                 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> RandomAccessContainer&gt;
-<a name="l00351"></a>00351                 <span class="keywordtype">void</span> construct_samples(<span class="keyword">const</span> RandomAccessContainer &amp;sa, <span class="keyword">const</span> char_type *str);
-<a name="l00352"></a>00352 
-<a name="l00353"></a>00353                 <span class="keywordtype">void</span> copy(<span class="keyword">const</span> csa_wt &amp;csa){
-<a name="l00354"></a>00354                         m_wavelet_tree                  = csa.m_wavelet_tree;
-<a name="l00355"></a>00355                         m_sa_sample                     = csa.m_sa_sample;
-<a name="l00356"></a>00356                         m_isa_sample                    = csa.m_isa_sample;
-<a name="l00357"></a>00357                         m_sigma                 = csa.m_sigma;
-<a name="l00358"></a>00358                         <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;256; ++i){
-<a name="l00359"></a>00359                                 m_char2comp[i]  = csa.m_char2comp[i];
-<a name="l00360"></a>00360                                 m_comp2char[i]  = csa.m_comp2char[i];
-<a name="l00361"></a>00361                                 m_C[i]                  = csa.m_C[i];
-<a name="l00362"></a>00362                         }
-<a name="l00363"></a>00363                         m_C[256] = csa.m_C[256];
-<a name="l00364"></a>00364                         m_psi = <a class="code" href="classsdsl_1_1psi__of__csa__wt.html">psi_type</a>(<span class="keyword">this</span>);
-<a name="l00365"></a>00365                         m_bwt = <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html">bwt_type</a>(<span class="keyword">this</span>); 
-<a name="l00366"></a>00366                 }
-<a name="l00367"></a>00367 
-<a name="l00368"></a>00368         <span class="keyword">public</span>:
-<a name="l00369"></a>00369                 <span class="keyword">const</span> char_type *char2comp;
-<a name="l00370"></a>00370                 <span class="keyword">const</span> char_type *comp2char;
-<a name="l00371"></a>00371                 <span class="keyword">const</span> size_type *C;
-<a name="l00372"></a>00372                 <span class="keyword">const</span> uint8_t &amp;sigma;
-<a name="l00373"></a>00373                 <span class="keyword">const</span> <a class="code" href="classsdsl_1_1psi__of__csa__wt.html">psi_type</a> &amp;psi;
-<a name="l00374"></a>00374                 <span class="keyword">const</span> <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html">bwt_type</a> &amp;bwt;
-<a name="l00375"></a>00375                 <span class="keyword">const</span> sa_sample_type &amp;sa_sample;
-<a name="l00376"></a>00376                 <span class="keyword">const</span> isa_sample_type &amp;isa_sample;
-<a name="l00377"></a>00377                 <span class="keyword">const</span> wavelet_tree_type &amp;wavelet_tree;
-<a name="l00378"></a>00378                 
-<a name="l00380"></a><a class="code" href="classsdsl_1_1csa__wt.html#aae573fa0807f37870f5f7d6ce59fe3e1">00380</a>                 <a class="code" href="classsdsl_1_1csa__wt.html#aae573fa0807f37870f5f7d6ce59fe3e1" title="Default Constructor.">csa_wt</a>():char2comp(m_char2comp), comp2char(m_comp2char), C(m_C), sigma(m_sigma) ,psi(m_psi), bwt(m_bwt),sa_sample(m_sa_sample), isa_sample(m_isa_sample), wavelet_tree(m_wavelet_tree){}
-<a name="l00382"></a><a class="code" href="classsdsl_1_1csa__wt.html#abdc4a9789a8ba8c923d91c1e5a463e92">00382</a>                 <a class="code" href="classsdsl_1_1csa__wt.html#abdc4a9789a8ba8c923d91c1e5a463e92" title="Default Destructor.">~csa_wt</a>(){}
-<a name="l00384"></a><a class="code" href="classsdsl_1_1csa__wt.html#adf5a13583b2821d35d361276adacc224">00384</a>                 <a class="code" href="classsdsl_1_1csa__wt.html#aae573fa0807f37870f5f7d6ce59fe3e1" title="Default Constructor.">csa_wt</a>(<span class="keyword">const</span> csa_wt &amp;csa): m_sa_sample(csa.m_sa_sample), m_isa_sample(csa.m_isa_sample),  char2comp(m_char2comp), comp2char(m_comp2char), C(m_C), sigma(m_sigma), psi(m_psi), bwt(m_bwt), sa_sample(m_sa_sample), isa_sample(m_isa_sample), wavelet_tree(m_wavelet_tree)
-<a name="l00385"></a>00385                 { 
-<a name="l00386"></a>00386                         copy(csa);
-<a name="l00387"></a>00387                 }
-<a name="l00388"></a>00388 
-<a name="l00390"></a>00390                 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> RandomAccessContainer&gt;
-<a name="l00391"></a>00391                 <a class="code" href="classsdsl_1_1csa__wt.html#aae573fa0807f37870f5f7d6ce59fe3e1" title="Default Constructor.">csa_wt</a>(<span class="keyword">const</span> RandomAccessContainer &amp;sa, <span class="keyword">const</span> char_type *str);
-<a name="l00392"></a>00392 
-<a name="l00394"></a>00394                 <a class="code" href="classsdsl_1_1csa__wt.html#aae573fa0807f37870f5f7d6ce59fe3e1" title="Default Constructor.">csa_wt</a>(<span class="keyword">const</span> char_type *str);
-<a name="l00395"></a>00395 
-<a name="l00397"></a>00397                 <span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>, u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>_1&gt;
-<a name="l00398"></a>00398                 <a class="code" href="classsdsl_1_1csa__wt.html#aae573fa0807f37870f5f7d6ce59fe3e1" title="Default Constructor.">csa_wt</a>(int_vector_file_buffer&lt;8, size_type_class&gt; &amp;bwt_buf, 
-<a name="l00399"></a>00399                            int_vector_file_buffer&lt;int_width, size_type_class_1&gt; &amp;sa_buf 
-<a name="l00400"></a>00400                                 );
-<a name="l00401"></a>00401 
-<a name="l00403"></a>00403                 <span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>&gt;
-<a name="l00404"></a>00404                 <a class="code" href="classsdsl_1_1csa__wt.html#aae573fa0807f37870f5f7d6ce59fe3e1" title="Default Constructor.">csa_wt</a>(int_vector_file_buffer&lt;8, size_type_class&gt; &amp;bwt_buf);
-<a name="l00405"></a>00405 
-<a name="l00406"></a>00406                 <a class="code" href="classsdsl_1_1csa__wt.html#aae573fa0807f37870f5f7d6ce59fe3e1" title="Default Constructor.">csa_wt</a>(tMSS &amp;file_map, <span class="keyword">const</span> std::string &amp;dir, <span class="keyword">const</span> std::string &amp;<span class="keywordtype">id</span>);
-<a name="l00407"></a>00407 
-<a name="l00408"></a>00408                 <span class="keywordtype">void</span> construct(tMSS &amp;file_map, <span class="keyword">const</span> std::string &amp;dir, <span class="keyword">const</span> std::string &amp;<span class="keywordtype">id</span>);
-<a name="l00409"></a>00409 
-<a name="l00411"></a>00411 
-<a name="l00416"></a><a class="code" href="classsdsl_1_1csa__wt.html#abfc0df2b14ba06181938e61b4bc39db1">00416</a>                 size_type <a class="code" href="classsdsl_1_1csa__wt.html#abfc0df2b14ba06181938e61b4bc39db1" title="Number of elements in the .">size</a>()<span class="keyword">const</span>{ <span class="keywordflow">return</span> m_wavelet_tree.size();}
-<a name="l00417"></a>00417 
-<a name="l00419"></a>00419 
-<a name="l00422"></a><a class="code" href="classsdsl_1_1csa__wt.html#ae7320a5b3a4b93c03fc4a0044c7a2a46">00422</a>                 <span class="keyword">static</span> size_type <a class="code" href="classsdsl_1_1csa__wt.html#ae7320a5b3a4b93c03fc4a0044c7a2a46" title="Returns the largest size that csa_wt can ever have.">max_size</a>(){ <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1csa__wt.html#ae7320a5b3a4b93c03fc4a0044c7a2a46" title="Returns the largest size that csa_wt can ever have.">bit_vector::max_size</a>(); }
-<a name="l00423"></a>00423 
-<a name="l00425"></a>00425 
-<a name="l00428"></a><a class="code" href="classsdsl_1_1csa__wt.html#ae962aedb15e6426c68fe346ab9a1a274">00428</a>                 <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1csa__wt.html#ae962aedb15e6426c68fe346ab9a1a274" title="Returns if the data strucutre is empty.">empty</a>()<span class="keyword">const</span>{ <span class="keywordflow">return</span> m_wavelet_tree.empty();}
-<a name="l00429"></a>00429 
-<a name="l00431"></a>00431 
-<a name="l00439"></a>00439                 <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1csa__wt.html#a036e7733d38881f08081464815f8fad3" title="Swap method for csa_wt.">swap</a>(<a class="code" href="classsdsl_1_1csa__wt.html" title="A class for the Compressed Suffix Array (CSA) based on a Wavelet Tree (WT) of the Burrow Wheeler Tran...">csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;</a> &amp;csa);
-<a name="l00440"></a>00440 
-<a name="l00442"></a>00442 
-<a name="l00445"></a>00445                 const_iterator <a class="code" href="classsdsl_1_1csa__wt.html#a3c48dfe5875c85320ddd069997c4f215" title="Returns a const_iterator to the first element.">begin</a>()<span class="keyword">const</span>;
-<a name="l00446"></a>00446 
-<a name="l00448"></a>00448 
-<a name="l00451"></a>00451                 const_iterator <a class="code" href="classsdsl_1_1csa__wt.html#aa5ee6c532996f3bd2bf8c4b963969535" title="Returns a const_iterator to the element after the last element.">end</a>()<span class="keyword">const</span>;
-<a name="l00452"></a>00452 
-<a name="l00454"></a>00454 
-<a name="l00460"></a>00460                 <span class="keyword">inline</span> value_type <a class="code" href="classsdsl_1_1csa__wt.html#a8c92e607116f31c5c160e19cc414f5b2" title="[]-operator">operator[]</a>(size_type i)<span class="keyword">const</span>;
+<a name="l00327"></a>00327 
+<a name="l00328"></a>00328         <span class="keyword">enum</span> { sa_sample_dens = SampleDens,
+<a name="l00329"></a>00329                isa_sample_dens = InvSampleDens
+<a name="l00330"></a>00330              };
+<a name="l00331"></a>00331 
+<a name="l00332"></a>00332         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classsdsl_1_1psi__of__csa__wt.html" title="A wrapper class for the  and LF function for (compressed) suffix arrays that are based on a wavelet t...">psi_of_csa_wt</a>&lt;csa_wt&gt;;
+<a name="l00333"></a>00333         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classsdsl_1_1bwt__of__csa__wt.html">bwt_of_csa_wt</a>&lt;csa_wt&gt;;
+<a name="l00334"></a>00334 <span class="comment">//      static const uint32_t sample_dens = SampleDens;</span>
+<a name="l00335"></a>00335     <span class="keyword">private</span>:
+<a name="l00336"></a>00336         WaveletTree             m_wavelet_tree; <span class="comment">// the wavelet tree</span>
+<a name="l00337"></a>00337         <a class="code" href="classsdsl_1_1psi__of__csa__wt.html">psi_type</a> m_psi;  <span class="comment">// psi function</span>
+<a name="l00338"></a>00338         <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html">bwt_type</a> m_bwt;  <span class="comment">// bwt</span>
+<a name="l00339"></a>00339         <a class="code" href="classsdsl_1_1int__vector.html">sa_sample_type</a> m_sa_sample; <span class="comment">// suffix array samples</span>
+<a name="l00340"></a>00340         <a class="code" href="classsdsl_1_1int__vector.html">isa_sample_type</a> m_isa_sample; <span class="comment">// inverse suffix array samples</span>
+<a name="l00341"></a>00341         <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;8&gt;</a>   m_char2comp;
+<a name="l00342"></a>00342         <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;8&gt;</a>   m_comp2char;
+<a name="l00343"></a>00343 
+<a name="l00344"></a>00344         <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;64&gt;</a>  m_C; <span class="comment">// counts for the compact alphabet [0..sigma-1]</span>
+<a name="l00345"></a>00345         uint16_t                m_sigma;
+<a name="l00346"></a>00346 <span class="comment">//              uint32_t m_sample_dens; // additional to SampleDens value</span>
+<a name="l00347"></a>00347 <span class="comment">//#define USE_CSA_CACHE</span>
+<a name="l00348"></a>00348 <span class="preprocessor">#ifdef USE_CSA_CACHE</span>
+<a name="l00349"></a>00349 <span class="preprocessor"></span>        <span class="keyword">mutable</span> <a class="code" href="structsdsl_1_1fast__cache.html">fast_cache</a> csa_cache;
+<a name="l00350"></a>00350 <span class="preprocessor">#endif</span>
+<a name="l00351"></a>00351 <span class="preprocessor"></span>
+<a name="l00352"></a>00352         <span class="keyword">template</span>&lt;<span class="keyword">typename</span> RandomAccessContainer&gt;
+<a name="l00353"></a>00353         <span class="keywordtype">void</span> construct(<span class="keyword">const</span> RandomAccessContainer&amp; sa, <span class="keyword">const</span> char_type* str);
+<a name="l00354"></a>00354 
+<a name="l00355"></a>00355         <span class="keyword">template</span>&lt;<span class="keyword">typename</span> RandomAccessContainer&gt;
+<a name="l00356"></a>00356         <span class="keywordtype">void</span> construct_samples(<span class="keyword">const</span> RandomAccessContainer&amp; sa, <span class="keyword">const</span> char_type* str);
+<a name="l00357"></a>00357 
+<a name="l00358"></a>00358         <span class="keywordtype">void</span> copy(<span class="keyword">const</span> csa_wt&amp; csa) {
+<a name="l00359"></a>00359             m_wavelet_tree                      = csa.m_wavelet_tree;
+<a name="l00360"></a>00360             m_sa_sample                         = csa.m_sa_sample;
+<a name="l00361"></a>00361             m_isa_sample                        = csa.m_isa_sample;
+<a name="l00362"></a>00362             m_sigma                                     = csa.m_sigma;
+<a name="l00363"></a>00363             m_char2comp                         = csa.m_char2comp;
+<a name="l00364"></a>00364             m_comp2char                         = csa.m_comp2char;
+<a name="l00365"></a>00365             m_C = csa.m_C;
+<a name="l00366"></a>00366             m_psi = <a class="code" href="classsdsl_1_1psi__of__csa__wt.html">psi_type</a>(<span class="keyword">this</span>);
+<a name="l00367"></a>00367             m_bwt = <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html">bwt_type</a>(<span class="keyword">this</span>);
+<a name="l00368"></a>00368         }
+<a name="l00369"></a>00369 
+<a name="l00370"></a>00370     <span class="keyword">public</span>:
+<a name="l00371"></a>00371         <span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;8&gt;</a>&amp; char2comp;
+<a name="l00372"></a>00372         <span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;8&gt;</a>&amp; comp2char;
+<a name="l00373"></a>00373         <span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;64&gt;</a>&amp; C;
+<a name="l00374"></a>00374         <span class="keyword">const</span> uint16_t&amp; sigma;
+<a name="l00375"></a>00375         <span class="keyword">const</span> <a class="code" href="classsdsl_1_1psi__of__csa__wt.html">psi_type</a>&amp; psi;
+<a name="l00376"></a>00376         <span class="keyword">const</span> <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html">bwt_type</a>&amp; bwt;
+<a name="l00377"></a>00377         <span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">sa_sample_type</a>&amp; sa_sample;
+<a name="l00378"></a>00378         <span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">isa_sample_type</a>&amp; isa_sample;
+<a name="l00379"></a>00379         <span class="keyword">const</span> wavelet_tree_type&amp; wavelet_tree;
+<a name="l00380"></a>00380 
+<a name="l00382"></a><a class="code" href="classsdsl_1_1csa__wt.html#aae573fa0807f37870f5f7d6ce59fe3e1">00382</a>         <a class="code" href="classsdsl_1_1csa__wt.html#aae573fa0807f37870f5f7d6ce59fe3e1" title="Default Constructor.">csa_wt</a>():char2comp(m_char2comp), comp2char(m_comp2char), C(m_C), sigma(m_sigma) ,psi(m_psi), bwt(m_bwt),sa_sample(m_sa_sample), isa_sample(m_isa_sample), wavelet_tree(m_wavelet_tree) {}
+<a name="l00384"></a><a class="code" href="classsdsl_1_1csa__wt.html#abdc4a9789a8ba8c923d91c1e5a463e92">00384</a>         <a class="code" href="classsdsl_1_1csa__wt.html#abdc4a9789a8ba8c923d91c1e5a463e92" title="Default Destructor.">~csa_wt</a>() {}
+<a name="l00386"></a><a class="code" href="classsdsl_1_1csa__wt.html#adf5a13583b2821d35d361276adacc224">00386</a>         <a class="code" href="classsdsl_1_1csa__wt.html#adf5a13583b2821d35d361276adacc224" title="Copy constructor.">csa_wt</a>(<span class="keyword">const</span> csa_wt&amp; csa): m_sa_sample(csa.m_sa_sample), m_isa_sample(csa.m_isa_sample),  char2comp(m_char2comp), comp2char(m_comp2char), C(m_C), sigma(m_sigma), psi(m_psi), bwt(m_bwt), sa_sample(m_sa_sample), isa_sample(m_isa_sample), wavelet_tree(m_wavelet_tree) {
+<a name="l00387"></a>00387             copy(csa);
+<a name="l00388"></a>00388         }
+<a name="l00389"></a>00389 
+<a name="l00391"></a>00391         <span class="keyword">template</span>&lt;<span class="keyword">typename</span> RandomAccessContainer&gt;
+<a name="l00392"></a>00392         <a class="code" href="classsdsl_1_1csa__wt.html#aae573fa0807f37870f5f7d6ce59fe3e1" title="Default Constructor.">csa_wt</a>(<span class="keyword">const</span> RandomAccessContainer&amp; sa, <span class="keyword">const</span> char_type* str);
+<a name="l00393"></a>00393 
+<a name="l00395"></a>00395         <a class="code" href="classsdsl_1_1csa__wt.html#aae573fa0807f37870f5f7d6ce59fe3e1" title="Default Constructor.">csa_wt</a>(<span class="keyword">const</span> char_type* str);
+<a name="l00396"></a>00396 
+<a name="l00398"></a>00398         <span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>, u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>_1&gt;
+<a name="l00399"></a>00399         <a class="code" href="classsdsl_1_1csa__wt.html#aae573fa0807f37870f5f7d6ce59fe3e1" title="Default Constructor.">csa_wt</a>(<a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;8, size_type_class&gt;</a>&amp; bwt_buf,
+<a name="l00400"></a>00400                <a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;int_width, size_type_class_1&gt;</a>&amp; sa_buf
+<a name="l00401"></a>00401               );
+<a name="l00402"></a>00402 
+<a name="l00404"></a>00404         <span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>&gt;
+<a name="l00405"></a>00405         <a class="code" href="classsdsl_1_1csa__wt.html#aae573fa0807f37870f5f7d6ce59fe3e1" title="Default Constructor.">csa_wt</a>(<a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;8, size_type_class&gt;</a>&amp; bwt_buf);
+<a name="l00406"></a>00406 
+<a name="l00407"></a>00407         <a class="code" href="classsdsl_1_1csa__wt.html#aae573fa0807f37870f5f7d6ce59fe3e1" title="Default Constructor.">csa_wt</a>(tMSS&amp; file_map, <span class="keyword">const</span> std::string&amp; dir, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>);
+<a name="l00408"></a>00408 
+<a name="l00409"></a>00409         <span class="keywordtype">void</span> construct(tMSS&amp; file_map, <span class="keyword">const</span> std::string&amp; dir, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>);
+<a name="l00410"></a>00410 
+<a name="l00412"></a>00412 
+<a name="l00417"></a><a class="code" href="classsdsl_1_1csa__wt.html#abfc0df2b14ba06181938e61b4bc39db1">00417</a>         size_type <a class="code" href="classsdsl_1_1csa__wt.html#abfc0df2b14ba06181938e61b4bc39db1" title="Number of elements in the .">size</a>()<span class="keyword">const </span>{
+<a name="l00418"></a>00418             <span class="keywordflow">return</span> m_wavelet_tree.size();
+<a name="l00419"></a>00419         }
+<a name="l00420"></a>00420 
+<a name="l00422"></a>00422 
+<a name="l00425"></a><a class="code" href="classsdsl_1_1csa__wt.html#ae7320a5b3a4b93c03fc4a0044c7a2a46">00425</a>         <span class="keyword">static</span> size_type <a class="code" href="classsdsl_1_1csa__wt.html#ae7320a5b3a4b93c03fc4a0044c7a2a46" title="Returns the largest size that csa_wt can ever have.">max_size</a>() {
+<a name="l00426"></a>00426             <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1csa__wt.html#ae7320a5b3a4b93c03fc4a0044c7a2a46" title="Returns the largest size that csa_wt can ever have.">bit_vector::max_size</a>();
+<a name="l00427"></a>00427         }
+<a name="l00428"></a>00428 
+<a name="l00430"></a>00430 
+<a name="l00433"></a><a class="code" href="classsdsl_1_1csa__wt.html#ae962aedb15e6426c68fe346ab9a1a274">00433</a>         <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1csa__wt.html#ae962aedb15e6426c68fe346ab9a1a274" title="Returns if the data strucutre is empty.">empty</a>()<span class="keyword">const </span>{
+<a name="l00434"></a>00434             <span class="keywordflow">return</span> m_wavelet_tree.empty();
+<a name="l00435"></a>00435         }
+<a name="l00436"></a>00436 
+<a name="l00438"></a>00438 
+<a name="l00446"></a>00446         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1csa__wt.html#a036e7733d38881f08081464815f8fad3" title="Swap method for csa_wt.">swap</a>(<a class="code" href="classsdsl_1_1csa__wt.html" title="A class for the Compressed Suffix Array (CSA) based on a Wavelet Tree (WT) of the Burrow Wheeler Tran...">csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;</a>&amp; csa);
+<a name="l00447"></a>00447 
+<a name="l00449"></a>00449 
+<a name="l00452"></a>00452         const_iterator <a class="code" href="classsdsl_1_1csa__wt.html#a3c48dfe5875c85320ddd069997c4f215" title="Returns a const_iterator to the first element.">begin</a>()<span class="keyword">const</span>;
+<a name="l00453"></a>00453 
+<a name="l00455"></a>00455 
+<a name="l00458"></a>00458         const_iterator <a class="code" href="classsdsl_1_1csa__wt.html#aa5ee6c532996f3bd2bf8c4b963969535" title="Returns a const_iterator to the element after the last element.">end</a>()<span class="keyword">const</span>;
+<a name="l00459"></a>00459 
 <a name="l00461"></a>00461 
-<a name="l00463"></a>00463 
-<a name="l00468"></a>00468                 <span class="keyword">inline</span> value_type <a class="code" href="classsdsl_1_1csa__wt.html#a10bc180696220eb2538a812813bd5f12" title="()-operator return inverse suffix array values">operator()</a>(size_type i)<span class="keyword">const</span>;
-<a name="l00469"></a>00469 
-<a name="l00471"></a>00471 
-<a name="l00474"></a>00474                 csa_wt&amp; <a class="code" href="classsdsl_1_1csa__wt.html#a5141742d5235d742e3fbab6bc065ec80" title="Assignment Operator.">operator=</a>(<span class="keyword">const</span> csa_wt &amp;csa);
-<a name="l00475"></a>00475 
-<a name="l00477"></a>00477 
-<a name="l00482"></a>00482                 <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1csa__wt.html#a512eca5b58b1bbd34e759eb6b2ac7de9" title="Equality Operator.">operator==</a>(<span class="keyword">const</span> csa_wt &amp;csa)<span class="keyword">const</span>;
-<a name="l00483"></a>00483 
-<a name="l00485"></a>00485 
-<a name="l00490"></a>00490                 <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1csa__wt.html#a518aae765eaf510ca6bb72fb7a732568" title="Unequality Operator.">operator!=</a>(<span class="keyword">const</span> csa_wt &amp;csa)<span class="keyword">const</span>;
-<a name="l00491"></a>00491 
-<a name="l00493"></a>00493 
-<a name="l00496"></a>00496                 size_type <a class="code" href="classsdsl_1_1csa__wt.html#a54bb45c439e023bd35b82c38e0f1faca" title="Serialize to a stream.">serialize</a>(std::ostream &amp;out) <span class="keyword">const</span>;
-<a name="l00497"></a>00497 
-<a name="l00499"></a>00499 
-<a name="l00501"></a>00501                 <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1csa__wt.html#a7ea024aa093debef6605971583898c34" title="Load from a stream.">load</a>(std::istream &amp;in);
-<a name="l00502"></a>00502 
-<a name="l00503"></a>00503 <span class="comment">//              uint32_t get_sample_dens() const;</span>
-<a name="l00504"></a>00504 <span class="comment">//              void set_sample_dens(const uint32_t sample_dens);</span>
-<a name="l00505"></a>00505 
-<a name="l00506"></a>00506                 uint32_t get_psi_sample_dens() <span class="keyword">const</span>;
-<a name="l00507"></a>00507                 <span class="keywordtype">void</span> set_psi_sample_dens(<span class="keyword">const</span> uint32_t sample_dens);
-<a name="l00508"></a>00508 
-<a name="l00510"></a>00510 
-<a name="l00517"></a><a class="code" href="classsdsl_1_1csa__wt.html#ac6d316f3d719f20c13023fa5dfcf83ce">00517</a>                 size_type <a class="code" href="classsdsl_1_1csa__wt.html#ac6d316f3d719f20c13023fa5dfcf83ce" title="Calculates how many symbols c are in the prefix [0..i-1] of the BWT of the original text...">rank_bwt</a>(size_type i, <span class="keyword">const</span> char_type c)<span class="keyword">const</span>{
-<a name="l00518"></a>00518                         <span class="keywordflow">return</span> m_wavelet_tree.rank(i, c);
-<a name="l00519"></a>00519                 }
-<a name="l00520"></a>00520 
-<a name="l00522"></a>00522 
-<a name="l00529"></a><a class="code" href="classsdsl_1_1csa__wt.html#aba7d6496a4a8c806eb677eb39322fca6">00529</a>                 size_type <a class="code" href="classsdsl_1_1csa__wt.html#aba7d6496a4a8c806eb677eb39322fca6" title="Calculates the ith occurence of symbol c in the BWT of the original text.">select_bwt</a>(size_type i, <span class="keyword">const</span> char_type c)<span class="keyword">const</span>{
-<a name="l00530"></a>00530                         assert( i &gt; 0 );
-<a name="l00531"></a>00531                         char_type cc = m_char2comp[c];
-<a name="l00532"></a>00532                         <span class="keywordflow">if</span>( cc==0 and c!=0 ) <span class="comment">// character is not in the text =&gt; return size() </span>
-<a name="l00533"></a>00533                                 <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1csa__wt.html#abfc0df2b14ba06181938e61b4bc39db1" title="Number of elements in the .">size</a>();
-<a name="l00534"></a>00534                         assert( cc != 255 );
-<a name="l00535"></a>00535                         <span class="keywordflow">if</span>( m_C[cc]+i-1 &lt;  m_C[cc+1] ){
-<a name="l00536"></a>00536                                 <span class="keywordflow">return</span> m_wavelet_tree.select(i, c);
-<a name="l00537"></a>00537                         }<span class="keywordflow">else</span>
-<a name="l00538"></a>00538                                 <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1csa__wt.html#abfc0df2b14ba06181938e61b4bc39db1" title="Number of elements in the .">size</a>();
-<a name="l00539"></a>00539                 }
-<a name="l00540"></a>00540 
-<a name="l00541"></a>00541 <span class="preprocessor">#ifdef MEM_INFO</span>
-<a name="l00542"></a>00542 <span class="preprocessor"></span>
-<a name="l00543"></a>00543                 <span class="keywordtype">void</span> mem_info(std::string label=<span class="stringliteral">&quot;&quot;</span>)<span class="keyword">const</span>{
-<a name="l00544"></a>00544                         <span class="keywordflow">if</span>(label==<span class="stringliteral">&quot;&quot;</span>)
-<a name="l00545"></a>00545                                 label=<span class="stringliteral">&quot;csa&quot;</span>;
-<a name="l00546"></a>00546                         size_type bytes = <a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(*<span class="keyword">this</span>);
-<a name="l00547"></a>00547                         std::cout &lt;&lt; <span class="stringliteral">&quot;list(label = \&quot;&quot;</span>&lt;&lt;label&lt;&lt;<span class="stringliteral">&quot;\&quot;, size = &quot;</span>&lt;&lt; bytes/(1024.0*1024.0) &lt;&lt;<span class="stringliteral">&quot;\n,&quot;</span>;
-<a name="l00548"></a>00548                         wavelet_tree.mem_info(<span class="stringliteral">&quot;wt&quot;</span>);
-<a name="l00549"></a>00549                         std::cout&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>;
-<a name="l00550"></a>00550                         sa_sample.mem_info(<span class="stringliteral">&quot;sa_sample&quot;</span>);
-<a name="l00551"></a>00551                         std::cout&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>;
-<a name="l00552"></a>00552                         isa_sample.mem_info(<span class="stringliteral">&quot;isa_sample&quot;</span>);
-<a name="l00553"></a>00553                         std::cout &lt;&lt; <span class="stringliteral">&quot;)\n&quot;</span>;
-<a name="l00554"></a>00554                 }
-<a name="l00555"></a>00555 <span class="preprocessor">#endif</span>
-<a name="l00556"></a>00556 <span class="preprocessor"></span>};
-<a name="l00557"></a>00557 
-<a name="l00558"></a>00558 <span class="comment">// == template functions ==</span>
-<a name="l00559"></a>00559 
-<a name="l00560"></a>00560 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
-<a name="l00561"></a><a class="code" href="classsdsl_1_1csa__wt.html#ae7a4dd317468e149222a8f52dab304bd">00561</a> <a class="code" href="classsdsl_1_1csa__wt.html#aae573fa0807f37870f5f7d6ce59fe3e1" title="Default Constructor.">csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::csa_wt</a>(<span class="keyword">const</span> char_type *str):char2comp(m_char2comp), comp2char(m_comp2char), C(m_C), sigma(m_sigma), psi(m_psi), bwt(m_bwt), sa_sample(m_sa_sample), isa_sample(m_isa_sample), wavelet_tree(m_wavelet_tree){
-<a name="l00562"></a>00562         <a class="code" href="classsdsl_1_1csa__uncompressed.html" title="A class for the uncmpressed suffix array (SA).">csa_uncompressed</a> sa(str);
-<a name="l00563"></a>00563 <span class="comment">/*      size_type n = strlen((const char*)str);</span>
-<a name="l00564"></a>00564 <span class="comment">        int_vector&lt;&gt; sa(n+1, 0, bit_magic::l1BP(n+1)+1);</span>
-<a name="l00565"></a>00565 <span class="comment">        algorithm::calculate_sa(str, n+1, sa);   // calculate the suffix array sa of str</span>
-<a name="l00566"></a>00566 <span class="comment">        assert(sa.size() == n+1);</span>
-<a name="l00567"></a>00567 <span class="comment">*/</span>      
-<a name="l00568"></a>00568         algorithm::set_text&lt;csa_wt&gt;(str, sa.<a class="code" href="classsdsl_1_1csa__uncompressed.html#a9bf96cb9b01edd0d79c0cab7f439eaa3" title="Number of elements in the instance.">size</a>(), m_C, m_char2comp, m_comp2char, m_sigma);
-<a name="l00569"></a>00569         construct(sa, str);
-<a name="l00570"></a>00570 <span class="comment">//      if( n+1 &gt; 0 and n+1 != size() )</span>
-<a name="l00571"></a>00571 <span class="comment">//              throw std::logic_error(util::demangle(typeid(this).name())+&quot;: text size differ with sa size!&quot;);</span>
-<a name="l00572"></a>00572 }
-<a name="l00573"></a>00573 
-<a name="l00574"></a>00574 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
-<a name="l00575"></a>00575 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> RandomAccessContainer&gt;
-<a name="l00576"></a><a class="code" href="classsdsl_1_1csa__wt.html#a91b971f0e91ee17c0e32bd68d074e69a">00576</a> <a class="code" href="classsdsl_1_1csa__wt.html#aae573fa0807f37870f5f7d6ce59fe3e1" title="Default Constructor.">csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::csa_wt</a>(<span class="keyword">const</span> RandomAccessContainer &amp;sa, <span class="keyword">const</span> char_type *str):char2comp(m_char2comp), comp2char(m_comp2char),C(m_C), sigma(m_sigma), psi(m_psi), bwt(m_bwt),sa_sample(m_sa_sample), isa_sample(m_isa_sample),wavelet_tree(m_wavelet_tree){
-<a name="l00577"></a>00577         size_type n = 1;
-<a name="l00578"></a>00578         <span class="keywordflow">if</span>(str != NULL){
-<a name="l00579"></a>00579                 n = strlen((<span class="keyword">const</span> <span class="keywordtype">char</span>*)str);
-<a name="l00580"></a>00580         }
-<a name="l00581"></a>00581         algorithm::set_text&lt;csa_wt&gt;(str, n+1, m_C, m_char2comp, m_comp2char, m_sigma);
-<a name="l00582"></a>00582         assert(sa.size() == n+1);
-<a name="l00583"></a>00583         construct(sa, str);
-<a name="l00584"></a>00584         <span class="keywordflow">if</span>( n+1 &gt; 0 and n+1 != <a class="code" href="classsdsl_1_1csa__wt.html#abfc0df2b14ba06181938e61b4bc39db1" title="Number of elements in the .">size</a>() )
-<a name="l00585"></a>00585                 <span class="keywordflow">throw</span> std::logic_error(<a class="code" href="namespacesdsl_1_1util.html#a5ac1913316c61c170cba986b98c27c90" title="Demangle the class name of typeid(...).name()">util::demangle</a>(<span class="keyword">typeid</span>(<span class="keyword">this</span>).name())+<span class="stringliteral">&quot;: text size differ with sa size! &quot;</span>);
-<a name="l00586"></a>00586 }
-<a name="l00587"></a>00587 
-<a name="l00588"></a>00588 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
-<a name="l00589"></a>00589 <span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>, u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>_1&gt;
-<a name="l00590"></a><a class="code" href="classsdsl_1_1csa__wt.html#ae326892b3eda9e0407ce5c359b13089f">00590</a> <a class="code" href="classsdsl_1_1csa__wt.html#aae573fa0807f37870f5f7d6ce59fe3e1" title="Default Constructor.">csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::csa_wt</a>(int_vector_file_buffer&lt;8, size_type_class&gt; &amp;bwt_buf, 
-<a name="l00591"></a>00591                    int_vector_file_buffer&lt;int_width, size_type_class_1&gt; &amp;sa_buf):char2comp(m_char2comp), comp2char(m_comp2char),C(m_C), sigma(m_sigma), psi(m_psi), bwt(m_bwt),sa_sample(m_sa_sample),isa_sample(m_isa_sample),wavelet_tree(m_wavelet_tree)
-<a name="l00592"></a>00592 {
-<a name="l00593"></a>00593         bwt_buf.reset(); sa_buf.reset();
-<a name="l00594"></a>00594         size_type n = bwt_buf.int_vector_size;
-<a name="l00595"></a>00595         algorithm::set_text&lt;csa_wt&gt;(bwt_buf, n, m_C, m_char2comp, m_comp2char, m_sigma);
-<a name="l00596"></a>00596         assert( sa_buf.int_vetor_size == n );
-<a name="l00597"></a>00597 
-<a name="l00598"></a>00598 <span class="comment">//      m_wavelet_tree = WaveletTree(bwt_buf, n);</span>
-<a name="l00599"></a>00599         m_wavelet_tree.construct(bwt_buf, n);
-<a name="l00600"></a>00600 
-<a name="l00601"></a>00601         algorithm::set_sa_and_isa_samples&lt;csa_wt&gt;(sa_buf, m_sa_sample, m_isa_sample);
-<a name="l00602"></a>00602 
-<a name="l00603"></a>00603         m_psi = <a class="code" href="classsdsl_1_1psi__of__csa__wt.html">psi_type</a>(<span class="keyword">this</span>);
-<a name="l00604"></a>00604         m_bwt = <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html">bwt_type</a>(<span class="keyword">this</span>);
-<a name="l00605"></a>00605 }
+<a name="l00467"></a>00467         <span class="keyword">inline</span> value_type <a class="code" href="classsdsl_1_1csa__wt.html#a8c92e607116f31c5c160e19cc414f5b2" title="[]-operator">operator[]</a>(size_type i)<span class="keyword">const</span>;
+<a name="l00468"></a>00468 
+<a name="l00470"></a>00470 
+<a name="l00475"></a>00475         <span class="keyword">inline</span> value_type <a class="code" href="classsdsl_1_1csa__wt.html#a10bc180696220eb2538a812813bd5f12" title="()-operator return inverse suffix array values">operator()</a>(size_type i)<span class="keyword">const</span>;
+<a name="l00476"></a>00476 
+<a name="l00478"></a>00478 
+<a name="l00481"></a>00481         csa_wt&amp; <a class="code" href="classsdsl_1_1csa__wt.html#a5141742d5235d742e3fbab6bc065ec80" title="Assignment Operator.">operator=</a>(<span class="keyword">const</span> csa_wt&amp; csa);
+<a name="l00482"></a>00482 
+<a name="l00484"></a>00484 
+<a name="l00489"></a>00489         <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1csa__wt.html#a512eca5b58b1bbd34e759eb6b2ac7de9" title="Equality Operator.">operator==</a>(<span class="keyword">const</span> csa_wt&amp; csa)<span class="keyword">const</span>;
+<a name="l00490"></a>00490 
+<a name="l00492"></a>00492 
+<a name="l00497"></a>00497         <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1csa__wt.html#a518aae765eaf510ca6bb72fb7a732568" title="Unequality Operator.">operator!=</a>(<span class="keyword">const</span> csa_wt&amp; csa)<span class="keyword">const</span>;
+<a name="l00498"></a>00498 
+<a name="l00500"></a>00500 
+<a name="l00503"></a>00503         size_type <a class="code" href="classsdsl_1_1csa__wt.html#a54bb45c439e023bd35b82c38e0f1faca" title="Serialize to a stream.">serialize</a>(std::ostream&amp; out) <span class="keyword">const</span>;
+<a name="l00504"></a>00504 
+<a name="l00506"></a>00506 
+<a name="l00508"></a>00508         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1csa__wt.html#a7ea024aa093debef6605971583898c34" title="Load from a stream.">load</a>(std::istream&amp; in);
+<a name="l00509"></a>00509 
+<a name="l00510"></a>00510 <span class="comment">//              uint32_t get_sample_dens() const;</span>
+<a name="l00511"></a>00511 <span class="comment">//              void set_sample_dens(const uint32_t sample_dens);</span>
+<a name="l00512"></a>00512 
+<a name="l00513"></a>00513         uint32_t get_psi_sample_dens() <span class="keyword">const</span>;
+<a name="l00514"></a>00514         <span class="keywordtype">void</span> set_psi_sample_dens(<span class="keyword">const</span> uint32_t sample_dens);
+<a name="l00515"></a>00515 
+<a name="l00517"></a>00517 
+<a name="l00524"></a><a class="code" href="classsdsl_1_1csa__wt.html#ac6d316f3d719f20c13023fa5dfcf83ce">00524</a>         size_type <a class="code" href="classsdsl_1_1csa__wt.html#ac6d316f3d719f20c13023fa5dfcf83ce" title="Calculates how many symbols c are in the prefix [0..i-1] of the BWT of the original text...">rank_bwt</a>(size_type i, <span class="keyword">const</span> char_type c)<span class="keyword">const </span>{
+<a name="l00525"></a>00525             <span class="keywordflow">return</span> m_wavelet_tree.rank(i, c);
+<a name="l00526"></a>00526         }
+<a name="l00527"></a>00527 
+<a name="l00529"></a>00529 
+<a name="l00536"></a><a class="code" href="classsdsl_1_1csa__wt.html#aba7d6496a4a8c806eb677eb39322fca6">00536</a>         size_type <a class="code" href="classsdsl_1_1csa__wt.html#aba7d6496a4a8c806eb677eb39322fca6" title="Calculates the ith occurence of symbol c in the BWT of the original text.">select_bwt</a>(size_type i, <span class="keyword">const</span> char_type c)<span class="keyword">const </span>{
+<a name="l00537"></a>00537             assert(i &gt; 0);
+<a name="l00538"></a>00538             char_type cc = m_char2comp[c];
+<a name="l00539"></a>00539             <span class="keywordflow">if</span> (cc==0 and c!=0)  <span class="comment">// character is not in the text =&gt; return size()</span>
+<a name="l00540"></a>00540                 <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1csa__wt.html#abfc0df2b14ba06181938e61b4bc39db1" title="Number of elements in the .">size</a>();
+<a name="l00541"></a>00541             assert(cc != 255);
+<a name="l00542"></a>00542             <span class="keywordflow">if</span> (m_C[cc]+i-1 &lt;  m_C[cc+1]) {
+<a name="l00543"></a>00543                 <span class="keywordflow">return</span> m_wavelet_tree.select(i, c);
+<a name="l00544"></a>00544             } <span class="keywordflow">else</span>
+<a name="l00545"></a>00545                 <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1csa__wt.html#abfc0df2b14ba06181938e61b4bc39db1" title="Number of elements in the .">size</a>();
+<a name="l00546"></a>00546         }
+<a name="l00547"></a>00547 
+<a name="l00548"></a>00548 <span class="preprocessor">#ifdef MEM_INFO</span>
+<a name="l00549"></a>00549 <span class="preprocessor"></span>
+<a name="l00550"></a>00550         <span class="keywordtype">void</span> mem_info(std::string label=<span class="stringliteral">&quot;&quot;</span>)<span class="keyword">const </span>{
+<a name="l00551"></a>00551             <span class="keywordflow">if</span> (label==<span class="stringliteral">&quot;&quot;</span>)
+<a name="l00552"></a>00552                 label=<span class="stringliteral">&quot;csa&quot;</span>;
+<a name="l00553"></a>00553             size_type bytes = <a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(*<span class="keyword">this</span>);
+<a name="l00554"></a>00554             std::cout &lt;&lt; <span class="stringliteral">&quot;list(label = \&quot;&quot;</span>&lt;&lt;label&lt;&lt;<span class="stringliteral">&quot;\&quot;, size = &quot;</span>&lt;&lt; bytes/(1024.0*1024.0) &lt;&lt;<span class="stringliteral">&quot;\n,&quot;</span>;
+<a name="l00555"></a>00555             wavelet_tree.mem_info(<span class="stringliteral">&quot;wt&quot;</span>);
+<a name="l00556"></a>00556             std::cout&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>;
+<a name="l00557"></a>00557             sa_sample.mem_info(<span class="stringliteral">&quot;sa_sample&quot;</span>);
+<a name="l00558"></a>00558             std::cout&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>;
+<a name="l00559"></a>00559             isa_sample.mem_info(<span class="stringliteral">&quot;isa_sample&quot;</span>);
+<a name="l00560"></a>00560             std::cout &lt;&lt; <span class="stringliteral">&quot;)\n&quot;</span>;
+<a name="l00561"></a>00561         }
+<a name="l00562"></a>00562 <span class="preprocessor">#endif</span>
+<a name="l00563"></a>00563 <span class="preprocessor"></span>};
+<a name="l00564"></a>00564 
+<a name="l00565"></a>00565 <span class="comment">// == template functions ==</span>
+<a name="l00566"></a>00566 
+<a name="l00567"></a>00567 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
+<a name="l00568"></a><a class="code" href="classsdsl_1_1csa__wt.html#ae7a4dd317468e149222a8f52dab304bd">00568</a> <a class="code" href="classsdsl_1_1csa__wt.html#aae573fa0807f37870f5f7d6ce59fe3e1" title="Default Constructor.">csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::csa_wt</a>(<span class="keyword">const</span> char_type* str):char2comp(m_char2comp), comp2char(m_comp2char), C(m_C), sigma(m_sigma), psi(m_psi), bwt(m_bwt), sa_sample(m_sa_sample), isa_sample(m_isa_sample), wavelet_tree(m_wavelet_tree)
+<a name="l00569"></a>00569 {
+<a name="l00570"></a>00570     <a class="code" href="classsdsl_1_1csa__uncompressed.html" title="A class for the uncmpressed suffix array (SA).">csa_uncompressed</a> sa(str);
+<a name="l00571"></a>00571     <span class="comment">/*  size_type n = strlen((const char*)str);</span>
+<a name="l00572"></a>00572 <span class="comment">        int_vector&lt;&gt; sa(n+1, 0, bit_magic::l1BP(n+1)+1);</span>
+<a name="l00573"></a>00573 <span class="comment">        algorithm::calculate_sa(str, n+1, sa);   // calculate the suffix array sa of str</span>
+<a name="l00574"></a>00574 <span class="comment">        assert(sa.size() == n+1);</span>
+<a name="l00575"></a>00575 <span class="comment">    */</span>
+<a name="l00576"></a>00576     algorithm::set_text&lt;csa_wt&gt;(str, sa.<a class="code" href="classsdsl_1_1csa__uncompressed.html#a9bf96cb9b01edd0d79c0cab7f439eaa3" title="Number of elements in the instance.">size</a>(), m_C, m_char2comp, m_comp2char, m_sigma);
+<a name="l00577"></a>00577     construct(sa, str);
+<a name="l00578"></a>00578 <span class="comment">//      if( n+1 &gt; 0 and n+1 != size() )</span>
+<a name="l00579"></a>00579 <span class="comment">//              throw std::logic_error(util::demangle(typeid(this).name())+&quot;: text size differ with sa size!&quot;);</span>
+<a name="l00580"></a>00580 }
+<a name="l00581"></a>00581 
+<a name="l00582"></a>00582 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
+<a name="l00583"></a>00583 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> RandomAccessContainer&gt;
+<a name="l00584"></a><a class="code" href="classsdsl_1_1csa__wt.html#a91b971f0e91ee17c0e32bd68d074e69a">00584</a> <a class="code" href="classsdsl_1_1csa__wt.html#aae573fa0807f37870f5f7d6ce59fe3e1" title="Default Constructor.">csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::csa_wt</a>(<span class="keyword">const</span> RandomAccessContainer&amp; sa, <span class="keyword">const</span> char_type* str):char2comp(m_char2comp), comp2char(m_comp2char),C(m_C), sigma(m_sigma), psi(m_psi), bwt(m_bwt),sa_sample(m_sa_sample), isa_sample(m_isa_sample),wavelet_tree(m_wavelet_tree)
+<a name="l00585"></a>00585 {
+<a name="l00586"></a>00586     size_type n = 1;
+<a name="l00587"></a>00587     <span class="keywordflow">if</span> (str != NULL) {
+<a name="l00588"></a>00588         n = strlen((<span class="keyword">const</span> <span class="keywordtype">char</span>*)str);
+<a name="l00589"></a>00589     }
+<a name="l00590"></a>00590     algorithm::set_text&lt;csa_wt&gt;(str, n+1, m_C, m_char2comp, m_comp2char, m_sigma);
+<a name="l00591"></a>00591     assert(sa.size() == n+1);
+<a name="l00592"></a>00592     construct(sa, str);
+<a name="l00593"></a>00593     <span class="keywordflow">if</span> (n+1 &gt; 0 and n+1 != <a class="code" href="classsdsl_1_1csa__wt.html#abfc0df2b14ba06181938e61b4bc39db1" title="Number of elements in the .">size</a>())
+<a name="l00594"></a>00594         <span class="keywordflow">throw</span> std::logic_error(<a class="code" href="namespacesdsl_1_1util.html#a5ac1913316c61c170cba986b98c27c90" title="Demangle the class name of typeid(...).name()">util::demangle</a>(<span class="keyword">typeid</span>(<span class="keyword">this</span>).name())+<span class="stringliteral">&quot;: text size differ with sa size! &quot;</span>);
+<a name="l00595"></a>00595 }
+<a name="l00596"></a>00596 
+<a name="l00597"></a>00597 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
+<a name="l00598"></a>00598 <span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>, u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>_1&gt;
+<a name="l00599"></a><a class="code" href="classsdsl_1_1csa__wt.html#ae326892b3eda9e0407ce5c359b13089f">00599</a> <a class="code" href="classsdsl_1_1csa__wt.html#aae573fa0807f37870f5f7d6ce59fe3e1" title="Default Constructor.">csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::csa_wt</a>(<a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;8, size_type_class&gt;</a>&amp; bwt_buf,
+<a name="l00600"></a>00600         <a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;int_width, size_type_class_1&gt;</a>&amp; sa_buf):char2comp(m_char2comp), comp2char(m_comp2char),C(m_C), sigma(m_sigma), psi(m_psi), bwt(m_bwt),sa_sample(m_sa_sample),isa_sample(m_isa_sample),wavelet_tree(m_wavelet_tree)
+<a name="l00601"></a>00601 {
+<a name="l00602"></a>00602     bwt_buf.reset(); sa_buf.reset();
+<a name="l00603"></a>00603     size_type n = bwt_buf.int_vector_size;
+<a name="l00604"></a>00604     algorithm::set_text&lt;csa_wt&gt;(bwt_buf, n, m_C, m_char2comp, m_comp2char, m_sigma);
+<a name="l00605"></a>00605     assert(sa_buf.int_vetor_size == n);
 <a name="l00606"></a>00606 
-<a name="l00607"></a>00607 
-<a name="l00608"></a>00608 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
-<a name="l00609"></a>00609 <span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>&gt;
-<a name="l00610"></a><a class="code" href="classsdsl_1_1csa__wt.html#a3856a2b4945543feef000bb6844e3af0">00610</a> <a class="code" href="classsdsl_1_1csa__wt.html#aae573fa0807f37870f5f7d6ce59fe3e1" title="Default Constructor.">csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::csa_wt</a>(int_vector_file_buffer&lt;8, size_type_class&gt; &amp;bwt_buf):char2comp(m_char2comp), comp2char(m_comp2char),C(m_C), sigma(m_sigma), psi(m_psi), bwt(m_bwt),sa_sample(m_sa_sample),isa_sample(m_isa_sample),wavelet_tree(m_wavelet_tree)
-<a name="l00611"></a>00611 {
-<a name="l00612"></a>00612         <span class="keywordflow">if</span>( SampleDens != 0 or InvSampleDens !=0 ){
-<a name="l00613"></a>00613                 std::cerr &lt;&lt; <span class="stringliteral">&quot;Warning: Construct only the BWT part of the CSA, please make sure SampleDens and InvSampleDens equal 0!&quot;</span> &lt;&lt; std::endl;
-<a name="l00614"></a>00614         }
-<a name="l00615"></a>00615         bwt_buf.reset(); 
-<a name="l00616"></a>00616         size_type n = bwt_buf.int_vector_size;
-<a name="l00617"></a>00617         algorithm::set_text&lt;csa_wt&gt;(bwt_buf, n, m_C, m_char2comp, m_comp2char, m_sigma);
-<a name="l00618"></a>00618 
-<a name="l00619"></a>00619         m_wavelet_tree.construct(bwt_buf, n);
-<a name="l00620"></a>00620 
-<a name="l00621"></a>00621         m_psi = <a class="code" href="classsdsl_1_1psi__of__csa__wt.html">psi_type</a>(<span class="keyword">this</span>);
-<a name="l00622"></a>00622         m_bwt = <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html">bwt_type</a>(<span class="keyword">this</span>);
-<a name="l00623"></a>00623 }
-<a name="l00624"></a>00624 
-<a name="l00625"></a>00625 
-<a name="l00626"></a>00626 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
-<a name="l00627"></a>00627 <a class="code" href="classsdsl_1_1csa__wt.html#aae573fa0807f37870f5f7d6ce59fe3e1" title="Default Constructor.">csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::csa_wt</a>(tMSS &amp;file_map, <span class="keyword">const</span> std::string &amp;dir, <span class="keyword">const</span> std::string &amp;<span class="keywordtype">id</span>):char2comp(m_char2comp), comp2char(m_comp2char),C(m_C), sigma(m_sigma), psi(m_psi), bwt(m_bwt),sa_sample(m_sa_sample),isa_sample(m_isa_sample),wavelet_tree(m_wavelet_tree)
-<a name="l00628"></a>00628 {
-<a name="l00629"></a>00629         construct(file_map, dir, <span class="keywordtype">id</span>);
-<a name="l00630"></a>00630 }
-<a name="l00631"></a>00631 
-<a name="l00632"></a>00632 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
-<a name="l00633"></a>00633 <span class="keywordtype">void</span> csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::construct(tMSS &amp;file_map, <span class="keyword">const</span> std::string &amp;dir, <span class="keyword">const</span> std::string &amp;<span class="keywordtype">id</span>){
-<a name="l00634"></a>00634         <span class="keywordflow">if</span>( file_map.find(<span class="stringliteral">&quot;bwt&quot;</span>) == file_map.end() ){ <span class="comment">// if bwt is not already stored on disk =&gt; construct bwt</span>
-<a name="l00635"></a>00635                 <a class="code" href="namespacesdsl.html#a396b6b833af2ec71736f28b65b23e605">construct_bwt</a>(file_map, dir, <span class="keywordtype">id</span>);
-<a name="l00636"></a>00636 <span class="comment">//              construct_bwt2(file_map, dir, id);</span>
-<a name="l00637"></a>00637         }
-<a name="l00638"></a>00638         int_vector_file_buffer&lt;8&gt; bwt_buf(file_map[<span class="stringliteral">&quot;bwt&quot;</span>].c_str());
-<a name="l00639"></a>00639         int_vector_file_buffer&lt;&gt;  sa_buf(file_map[<span class="stringliteral">&quot;sa&quot;</span>].c_str());
-<a name="l00640"></a>00640         size_type n = bwt_buf.int_vector_size;
-<a name="l00641"></a>00641         algorithm::set_text&lt;csa_wt&gt;(bwt_buf, n, m_C, m_char2comp, m_comp2char, m_sigma);
-<a name="l00642"></a>00642 <span class="comment">//      m_wavelet_tree = WaveletTree(bwt_buf, n);</span>
-<a name="l00643"></a>00643         <a class="code" href="namespacesdsl.html#a478f5f7db45f61644d75e6c664bd961e" title="Write stopwatch output in readable format.">write_R_output</a>(<span class="stringliteral">&quot;csa&quot;</span>, <span class="stringliteral">&quot;construct WT&quot;</span>, <span class="stringliteral">&quot;begin&quot;</span>, 1, 0);
-<a name="l00644"></a>00644         m_wavelet_tree.construct(bwt_buf, n);
-<a name="l00645"></a>00645         <a class="code" href="namespacesdsl.html#a478f5f7db45f61644d75e6c664bd961e" title="Write stopwatch output in readable format.">write_R_output</a>(<span class="stringliteral">&quot;csa&quot;</span>, <span class="stringliteral">&quot;construct WT&quot;</span>, <span class="stringliteral">&quot;end&quot;</span>, 1, 0);
-<a name="l00646"></a>00646 
-<a name="l00647"></a>00647         algorithm::set_sa_and_isa_samples&lt;csa_wt&gt;(sa_buf, m_sa_sample, m_isa_sample);
-<a name="l00648"></a>00648 
-<a name="l00649"></a>00649         m_psi = psi_type(<span class="keyword">this</span>);
-<a name="l00650"></a>00650         m_bwt = bwt_type(<span class="keyword">this</span>);
-<a name="l00651"></a>00651 }
-<a name="l00652"></a>00652 
-<a name="l00653"></a>00653 <span class="comment">/*</span>
-<a name="l00654"></a>00654 <span class="comment">template&lt;class WaveletTree, uint32_t SampleDens, uint32_t InvSampleDens, uint8_t fixedIntWidth&gt;</span>
-<a name="l00655"></a>00655 <span class="comment">uint32_t csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth&gt;::get_sample_dens()const{</span>
-<a name="l00656"></a>00656 <span class="comment">        if(SampleDens==0)</span>
-<a name="l00657"></a>00657 <span class="comment">                return m_sample_dens;</span>
-<a name="l00658"></a>00658 <span class="comment">        else</span>
-<a name="l00659"></a>00659 <span class="comment">                return SampleDens;</span>
-<a name="l00660"></a>00660 <span class="comment">}</span>
-<a name="l00661"></a>00661 <span class="comment"></span>
-<a name="l00662"></a>00662 <span class="comment">template&lt;class WaveletTree, uint32_t SampleDens, uint32_t InvSampleDens, uint8_t fixedIntWidth&gt;</span>
-<a name="l00663"></a>00663 <span class="comment">void csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth&gt;::set_sample_dens(const uint32_t sample_dens){</span>
-<a name="l00664"></a>00664 <span class="comment">        m_sample_dens = sample_dens;</span>
-<a name="l00665"></a>00665 <span class="comment">}</span>
-<a name="l00666"></a>00666 <span class="comment">*/</span>
-<a name="l00667"></a>00667 
-<a name="l00668"></a>00668 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
-<a name="l00669"></a>00669 uint32_t csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::get_psi_sample_dens()<span class="keyword">const</span>{
-<a name="l00670"></a>00670         <span class="keywordflow">return</span> m_psi.get_sample_dens();
-<a name="l00671"></a>00671 }
-<a name="l00672"></a>00672 
-<a name="l00673"></a>00673 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
-<a name="l00674"></a>00674 <span class="keywordtype">void</span> csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::set_psi_sample_dens(<span class="keyword">const</span> uint32_t sample_dens){
-<a name="l00675"></a>00675 }
-<a name="l00676"></a>00676 
-<a name="l00677"></a>00677 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
-<a name="l00678"></a>00678 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> RandomAccessContainer&gt;
-<a name="l00679"></a>00679 <span class="keywordtype">void</span> csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::construct_samples(<span class="keyword">const</span> RandomAccessContainer &amp;sa, <span class="keyword">const</span> char_type *str){
-<a name="l00680"></a>00680         m_sa_sample.set_int_width( <a class="code" href="classsdsl_1_1bit__magic.html#add0a212c8b5f894223c49e95aaa2ae8e" title="Calculates the position of the leftmost 1-bit in the 64bit integer x if it exists.">bit_magic::l1BP</a>(sa.size())+1 );
-<a name="l00681"></a>00681         m_sa_sample.resize( (sa.size()+SampleDens-1)/SampleDens );
-<a name="l00682"></a>00682         <span class="keyword">typename</span> RandomAccessContainer::size_type i=0, idx=0;
-<a name="l00683"></a>00683         <span class="keywordflow">for</span>(<span class="keyword">typename</span> RandomAccessContainer::const_iterator it = sa.begin(); i &lt; sa.size(); it += (difference_type)SampleDens, i += SampleDens, ++idx){
-<a name="l00684"></a>00684                 m_sa_sample[idx] = *it;
-<a name="l00685"></a>00685         }
-<a name="l00686"></a>00686         m_isa_sample.set_int_width( <a class="code" href="classsdsl_1_1bit__magic.html#add0a212c8b5f894223c49e95aaa2ae8e" title="Calculates the position of the leftmost 1-bit in the 64bit integer x if it exists.">bit_magic::l1BP</a>(sa.size())+1 );
-<a name="l00687"></a>00687         m_isa_sample.resize( (sa.size()+(InvSampleDens)-1)/(InvSampleDens) );
-<a name="l00688"></a>00688         i = 0;
-<a name="l00689"></a>00689         <span class="keywordflow">for</span>(<span class="keyword">typename</span> RandomAccessContainer::const_iterator it = sa.begin(), end = sa.end(); it != end; ++it, ++i){
-<a name="l00690"></a>00690                 <span class="keywordflow">if</span>( (*it % InvSampleDens) == 0 ){
-<a name="l00691"></a>00691                         m_isa_sample[*it/InvSampleDens] = i;
-<a name="l00692"></a>00692                 }
-<a name="l00693"></a>00693         }
-<a name="l00694"></a>00694 }
-<a name="l00695"></a>00695 
-<a name="l00696"></a>00696 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
-<a name="l00697"></a>00697 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> RandomAccessContainer&gt;
-<a name="l00698"></a>00698 <span class="keywordtype">void</span> csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::construct(<span class="keyword">const</span> RandomAccessContainer &amp;sa, <span class="keyword">const</span> char_type *str){
-<a name="l00699"></a>00699         construct_samples(sa, str);
-<a name="l00700"></a>00700         <span class="keyword">const</span> <span class="keyword">typename</span> RandomAccessContainer::size_type n = sa.size();
-<a name="l00701"></a>00701         <span class="keyword">typename</span> RandomAccessContainer::size_type i=0;
-<a name="l00702"></a>00702         <span class="keywordflow">if</span>(str == NULL){
-<a name="l00703"></a>00703                 <span class="keywordflow">throw</span> std::logic_error(<a class="code" href="namespacesdsl_1_1util.html#a5ac1913316c61c170cba986b98c27c90" title="Demangle the class name of typeid(...).name()">util::demangle</a>(<span class="keyword">typeid</span>(<span class="keyword">this</span>).name())+<span class="stringliteral">&quot;: text is needed to construct the csa_wt!&quot;</span>);
-<a name="l00704"></a>00704         }<span class="keywordflow">else</span>{
-<a name="l00705"></a>00705                 char_type *_bwt = <span class="keyword">new</span> char_type[n+1];
-<a name="l00706"></a>00706                 i = 0;
-<a name="l00707"></a>00707                 assert(str[n-1]==<span class="charliteral">&#39;\0&#39;</span>);
-<a name="l00708"></a>00708                 <span class="comment">// TODO: %-operation is slow, replace by to_add[] lookup</span>
-<a name="l00709"></a>00709                 <span class="keywordflow">for</span>(<span class="keyword">typename</span> RandomAccessContainer::const_iterator it = sa.begin(), end = sa.end(); it != end; ++it, ++i){
-<a name="l00710"></a>00710                         _bwt[i] = str[(*it+n-1)%(n)];
-<a name="l00711"></a>00711                 }
-<a name="l00712"></a>00712                 m_wavelet_tree = WaveletTree(_bwt, n);
-<a name="l00713"></a>00713                 <span class="keyword">delete</span> [] _bwt;
-<a name="l00714"></a>00714 
-<a name="l00715"></a>00715                 m_psi = psi_type(<span class="keyword">this</span>);
-<a name="l00716"></a>00716                 m_bwt = bwt_type(<span class="keyword">this</span>);
-<a name="l00717"></a>00717         }
-<a name="l00718"></a>00718 }
-<a name="l00719"></a>00719 
-<a name="l00720"></a>00720 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
-<a name="l00721"></a><a class="code" href="classsdsl_1_1csa__wt.html#a3c48dfe5875c85320ddd069997c4f215">00721</a> <span class="keyword">typename</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::const_iterator</a> <a class="code" href="classsdsl_1_1csa__wt.html#a3c48dfe5875c85320ddd069997c4f215" title="Returns a const_iterator to the first element.">csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::begin</a>()<span class="keyword">const</span>{
-<a name="l00722"></a>00722         <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>(<span class="keyword">this</span>, 0);
-<a name="l00723"></a>00723 }
-<a name="l00724"></a>00724 
-<a name="l00725"></a>00725 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
-<a name="l00726"></a><a class="code" href="classsdsl_1_1csa__wt.html#aa5ee6c532996f3bd2bf8c4b963969535">00726</a> <span class="keyword">typename</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::const_iterator</a> <a class="code" href="classsdsl_1_1csa__wt.html#aa5ee6c532996f3bd2bf8c4b963969535" title="Returns a const_iterator to the element after the last element.">csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::end</a>()<span class="keyword">const</span>{
-<a name="l00727"></a>00727         <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>(<span class="keyword">this</span>, size());
-<a name="l00728"></a>00728 }
-<a name="l00729"></a>00729 
-<a name="l00730"></a>00730 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
-<a name="l00731"></a><a class="code" href="classsdsl_1_1csa__wt.html#a8c92e607116f31c5c160e19cc414f5b2">00731</a> <span class="keyword">inline</span> <span class="keyword">typename</span> csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::value_type <a class="code" href="classsdsl_1_1csa__wt.html#a8c92e607116f31c5c160e19cc414f5b2" title="[]-operator">csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::operator[]</a>(size_type i)<span class="keyword">const</span>{
-<a name="l00732"></a>00732         size_type off = 0;
-<a name="l00733"></a>00733         <span class="keywordflow">while</span>( i % SampleDens ){
-<a name="l00734"></a>00734                 i = m_psi(i);
-<a name="l00735"></a>00735                 ++off;
-<a name="l00736"></a>00736         }
-<a name="l00737"></a>00737         value_type result = m_sa_sample[i/SampleDens];
-<a name="l00738"></a>00738         <span class="keywordflow">if</span>( result + off &lt; size() ){
-<a name="l00739"></a>00739                 <span class="keywordflow">return</span> result + off;    
-<a name="l00740"></a>00740         }<span class="keywordflow">else</span>{
-<a name="l00741"></a>00741                 <span class="keywordflow">return</span> result + off - size();
-<a name="l00742"></a>00742         }
-<a name="l00743"></a>00743 <span class="comment">/*</span>
-<a name="l00744"></a>00744 <span class="comment">#ifdef USE_CSA_CACHE    </span>
-<a name="l00745"></a>00745 <span class="comment">        size_type r = 0;</span>
-<a name="l00746"></a>00746 <span class="comment">        if( csa_cache.exists(i, r) ){</span>
-<a name="l00747"></a>00747 <span class="comment">                return r;</span>
-<a name="l00748"></a>00748 <span class="comment">        }</span>
-<a name="l00749"></a>00749 <span class="comment">#endif  </span>
-<a name="l00750"></a>00750 <span class="comment">        size_type off = 0;</span>
-<a name="l00751"></a>00751 <span class="comment">        while( i % SampleDens ){// while i mod SampleDens != 0 (SA[i] is not sampled)</span>
-<a name="l00752"></a>00752 <span class="comment">                i = m_psi[i];       // go to the position where SA[i]+1 is located</span>
-<a name="l00753"></a>00753 <span class="comment">                ++off;              // add 1 to the offset</span>
-<a name="l00754"></a>00754 <span class="comment">        }</span>
-<a name="l00755"></a>00755 <span class="comment">        value_type result = m_sa_sample[i/SampleDens];</span>
-<a name="l00756"></a>00756 <span class="comment">        // TODO: try LF-function for iteration</span>
-<a name="l00757"></a>00757 <span class="comment">        if( result &lt; off ){</span>
-<a name="l00758"></a>00758 <span class="comment">#ifdef USE_CSA_CACHE</span>
-<a name="l00759"></a>00759 <span class="comment">                r = m_psi.size()-(off-result);</span>
-<a name="l00760"></a>00760 <span class="comment">                return r;</span>
-<a name="l00761"></a>00761 <span class="comment">#endif          </span>
-<a name="l00762"></a>00762 <span class="comment">                return m_psi.size()-(off-result);</span>
-<a name="l00763"></a>00763 <span class="comment">        }</span>
-<a name="l00764"></a>00764 <span class="comment">        else{</span>
-<a name="l00765"></a>00765 <span class="comment">#ifdef USE_CSA_CACHE</span>
-<a name="l00766"></a>00766 <span class="comment">                r = result-off;</span>
-<a name="l00767"></a>00767 <span class="comment">                return r;</span>
-<a name="l00768"></a>00768 <span class="comment">#endif</span>
-<a name="l00769"></a>00769 <span class="comment">                return result-off;</span>
-<a name="l00770"></a>00770 <span class="comment">        }</span>
-<a name="l00771"></a>00771 <span class="comment">*/</span>      
-<a name="l00772"></a>00772 }
-<a name="l00773"></a>00773 
-<a name="l00774"></a>00774 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
-<a name="l00775"></a><a class="code" href="classsdsl_1_1csa__wt.html#a10bc180696220eb2538a812813bd5f12">00775</a> <span class="keyword">inline</span> <span class="keyword">typename</span> csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::value_type <a class="code" href="classsdsl_1_1csa__wt.html#a10bc180696220eb2538a812813bd5f12" title="()-operator return inverse suffix array values">csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::operator()</a>(size_type i)<span class="keyword">const</span>{
-<a name="l00776"></a>00776         size_type ii;
-<a name="l00777"></a>00777         value_type result = m_isa_sample[ ii = ((i+InvSampleDens-1)/InvSampleDens) ]; <span class="comment">// get the leftmost sampled isa value to the right of i</span>
-<a name="l00778"></a>00778         ii *= InvSampleDens;
-<a name="l00779"></a>00779         <span class="keywordflow">if</span>( ii &gt;= size() ){
-<a name="l00780"></a>00780                 i = size() - 1 - i;
-<a name="l00781"></a>00781         }<span class="keywordflow">else</span>{
-<a name="l00782"></a>00782                 i = ii - i;
-<a name="l00783"></a>00783         }
-<a name="l00784"></a>00784         <span class="keywordflow">while</span>( i-- ){
-<a name="l00785"></a>00785                 result = m_psi(result);
-<a name="l00786"></a>00786         }
-<a name="l00787"></a>00787         <span class="keywordflow">return</span> result;
-<a name="l00788"></a>00788 }
-<a name="l00789"></a>00789 
-<a name="l00790"></a>00790 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
-<a name="l00791"></a><a class="code" href="classsdsl_1_1csa__wt.html#a5141742d5235d742e3fbab6bc065ec80">00791</a> <a class="code" href="classsdsl_1_1csa__wt.html" title="A class for the Compressed Suffix Array (CSA) based on a Wavelet Tree (WT) of the Burrow Wheeler Tran...">csa_wt&lt;WaveletTree,SampleDens, InvSampleDens, fixedIntWidth, charType&gt;</a>&amp; <a class="code" href="classsdsl_1_1csa__wt.html#a5141742d5235d742e3fbab6bc065ec80" title="Assignment Operator.">csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::operator=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1csa__wt.html" title="A class for the Compressed Suffix Array (CSA) based on a Wavelet Tree (WT) of the Burrow Wheeler Tran...">csa_wt&lt;WaveletTree,SampleDens, InvSampleDens, fixedIntWidth, charType&gt;</a> &amp;csa){
-<a name="l00792"></a>00792         <span class="keywordflow">if</span>(<span class="keyword">this</span> != &amp;csa){
-<a name="l00793"></a>00793                 copy(csa);
-<a name="l00794"></a>00794         }
-<a name="l00795"></a>00795         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
-<a name="l00796"></a>00796 }
-<a name="l00797"></a>00797 
-<a name="l00798"></a>00798 
-<a name="l00799"></a>00799 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
-<a name="l00800"></a><a class="code" href="classsdsl_1_1csa__wt.html#a54bb45c439e023bd35b82c38e0f1faca">00800</a> <span class="keyword">typename</span> csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::size_type <a class="code" href="classsdsl_1_1csa__wt.html#a54bb45c439e023bd35b82c38e0f1faca" title="Serialize to a stream.">csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::serialize</a>(std::ostream &amp;out)<span class="keyword">const</span>{
-<a name="l00801"></a>00801         size_type written_bytes = 0;
-<a name="l00802"></a>00802         written_bytes += m_wavelet_tree.serialize(out);
-<a name="l00803"></a>00803         written_bytes += m_sa_sample.serialize(out);
-<a name="l00804"></a>00804         written_bytes += m_isa_sample.serialize(out);
-<a name="l00805"></a>00805         size_type wb   = <span class="keyword">sizeof</span>(m_char2comp[0])*256;
-<a name="l00806"></a>00806         out.write((<span class="keywordtype">char</span>*)m_char2comp, wb);
-<a name="l00807"></a>00807         written_bytes += wb;
-<a name="l00808"></a>00808         wb                         = <span class="keyword">sizeof</span>(m_comp2char[0])*256;
-<a name="l00809"></a>00809         out.write((<span class="keywordtype">char</span>*)m_comp2char, wb);
-<a name="l00810"></a>00810         written_bytes += wb;
-<a name="l00811"></a>00811         wb                         = <span class="keyword">sizeof</span>(m_C[0])*257;
-<a name="l00812"></a>00812         out.write((<span class="keywordtype">char</span>*)C, wb);
-<a name="l00813"></a>00813         written_bytes += wb;
-<a name="l00814"></a>00814         out.write((<span class="keywordtype">char</span>*)&amp;m_sigma, <span class="keyword">sizeof</span>(m_sigma));
-<a name="l00815"></a>00815         wb += <span class="keyword">sizeof</span>(m_sigma);
-<a name="l00816"></a>00816         <span class="keywordflow">return</span> written_bytes;
-<a name="l00817"></a>00817 }
-<a name="l00818"></a>00818 
-<a name="l00819"></a>00819 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
-<a name="l00820"></a><a class="code" href="classsdsl_1_1csa__wt.html#a7ea024aa093debef6605971583898c34">00820</a> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1csa__wt.html#a7ea024aa093debef6605971583898c34" title="Load from a stream.">csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::load</a>(std::istream &amp;in){
-<a name="l00821"></a>00821         m_wavelet_tree.load(in);
-<a name="l00822"></a>00822         m_sa_sample.load(in);
-<a name="l00823"></a>00823         m_isa_sample.load(in);
-<a name="l00824"></a>00824         in.read((<span class="keywordtype">char</span>*)m_char2comp, <span class="keyword">sizeof</span>(m_char2comp[0])*256);
-<a name="l00825"></a>00825         in.read((<span class="keywordtype">char</span>*)m_comp2char, <span class="keyword">sizeof</span>(m_comp2char[0])*256);
-<a name="l00826"></a>00826         in.read((<span class="keywordtype">char</span>*)m_C, <span class="keyword">sizeof</span>(m_C[0])*257);
-<a name="l00827"></a>00827         in.read((<span class="keywordtype">char</span>*)&amp;m_sigma, <span class="keyword">sizeof</span>(m_sigma));
-<a name="l00828"></a>00828         m_psi = <a class="code" href="classsdsl_1_1psi__of__csa__wt.html">psi_type</a>(<span class="keyword">this</span>);
-<a name="l00829"></a>00829         m_bwt = <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html">bwt_type</a>(<span class="keyword">this</span>);
+<a name="l00607"></a>00607 <span class="comment">//      m_wavelet_tree = WaveletTree(bwt_buf, n);</span>
+<a name="l00608"></a>00608     m_wavelet_tree.construct(bwt_buf, n);
+<a name="l00609"></a>00609 
+<a name="l00610"></a>00610     algorithm::set_sa_and_isa_samples&lt;csa_wt&gt;(sa_buf, m_sa_sample, m_isa_sample);
+<a name="l00611"></a>00611 
+<a name="l00612"></a>00612     m_psi = <a class="code" href="classsdsl_1_1psi__of__csa__wt.html">psi_type</a>(<span class="keyword">this</span>);
+<a name="l00613"></a>00613     m_bwt = <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html">bwt_type</a>(<span class="keyword">this</span>);
+<a name="l00614"></a>00614 }
+<a name="l00615"></a>00615 
+<a name="l00616"></a>00616 
+<a name="l00617"></a>00617 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
+<a name="l00618"></a>00618 <span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>&gt;
+<a name="l00619"></a><a class="code" href="classsdsl_1_1csa__wt.html#a3856a2b4945543feef000bb6844e3af0">00619</a> <a class="code" href="classsdsl_1_1csa__wt.html#aae573fa0807f37870f5f7d6ce59fe3e1" title="Default Constructor.">csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::csa_wt</a>(<a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;8, size_type_class&gt;</a>&amp; bwt_buf):char2comp(m_char2comp), comp2char(m_comp2char),C(m_C), sigma(m_sigma), psi(m_psi), bwt(m_bwt),sa_sample(m_sa_sample),isa_sample(m_isa_sample),wavelet_tree(m_wavelet_tree)
+<a name="l00620"></a>00620 {
+<a name="l00621"></a>00621     <span class="keywordflow">if</span> (SampleDens != 0 or InvSampleDens !=0) {
+<a name="l00622"></a>00622         std::cerr &lt;&lt; <span class="stringliteral">&quot;Warning: Construct only the BWT part of the CSA, please make sure SampleDens and InvSampleDens equal 0!&quot;</span> &lt;&lt; std::endl;
+<a name="l00623"></a>00623     }
+<a name="l00624"></a>00624     bwt_buf.reset();
+<a name="l00625"></a>00625     size_type n = bwt_buf.int_vector_size;
+<a name="l00626"></a>00626     algorithm::set_text&lt;csa_wt&gt;(bwt_buf, n, m_C, m_char2comp, m_comp2char, m_sigma);
+<a name="l00627"></a>00627 
+<a name="l00628"></a>00628     m_wavelet_tree.construct(bwt_buf, n);
+<a name="l00629"></a>00629 
+<a name="l00630"></a>00630     m_psi = <a class="code" href="classsdsl_1_1psi__of__csa__wt.html">psi_type</a>(<span class="keyword">this</span>);
+<a name="l00631"></a>00631     m_bwt = <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html">bwt_type</a>(<span class="keyword">this</span>);
+<a name="l00632"></a>00632 }
+<a name="l00633"></a>00633 
+<a name="l00634"></a>00634 
+<a name="l00635"></a>00635 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
+<a name="l00636"></a>00636 <a class="code" href="classsdsl_1_1csa__wt.html#aae573fa0807f37870f5f7d6ce59fe3e1" title="Default Constructor.">csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::csa_wt</a>(tMSS&amp; file_map, <span class="keyword">const</span> std::string&amp; dir, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>):char2comp(m_char2comp), comp2char(m_comp2char),C(m_C), sigma(m_sigma), psi(m_psi), bwt(m_bwt),sa_sample(m_sa_sample),isa_sample(m_isa_sample),wavelet_tree(m_wavelet_tree)
+<a name="l00637"></a>00637 {
+<a name="l00638"></a>00638     construct(file_map, dir, <span class="keywordtype">id</span>);
+<a name="l00639"></a>00639 }
+<a name="l00640"></a>00640 
+<a name="l00641"></a>00641 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
+<a name="l00642"></a>00642 <span class="keywordtype">void</span> csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::construct(tMSS&amp; file_map, <span class="keyword">const</span> std::string&amp; dir, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>)
+<a name="l00643"></a>00643 {
+<a name="l00644"></a>00644     <span class="keywordflow">if</span> (file_map.find(<span class="stringliteral">&quot;bwt&quot;</span>) == file_map.end()) { <span class="comment">// if bwt is not already stored on disk =&gt; construct bwt</span>
+<a name="l00645"></a>00645         <a class="code" href="namespacesdsl.html#a396b6b833af2ec71736f28b65b23e605">construct_bwt</a>(file_map, dir, <span class="keywordtype">id</span>);
+<a name="l00646"></a>00646 <span class="comment">//              construct_bwt2(file_map, dir, id);</span>
+<a name="l00647"></a>00647     }
+<a name="l00648"></a>00648     int_vector_file_buffer&lt;8&gt; bwt_buf(file_map[<span class="stringliteral">&quot;bwt&quot;</span>].c_str());
+<a name="l00649"></a>00649     int_vector_file_buffer&lt;&gt;  sa_buf(file_map[<span class="stringliteral">&quot;sa&quot;</span>].c_str());
+<a name="l00650"></a>00650     size_type n = bwt_buf.int_vector_size;
+<a name="l00651"></a>00651     algorithm::set_text&lt;csa_wt&gt;(bwt_buf, n, m_C, m_char2comp, m_comp2char, m_sigma);
+<a name="l00652"></a>00652 <span class="comment">//      m_wavelet_tree = WaveletTree(bwt_buf, n);</span>
+<a name="l00653"></a>00653     <a class="code" href="namespacesdsl.html#a478f5f7db45f61644d75e6c664bd961e" title="Write stopwatch output in readable format.">write_R_output</a>(<span class="stringliteral">&quot;csa&quot;</span>, <span class="stringliteral">&quot;construct WT&quot;</span>, <span class="stringliteral">&quot;begin&quot;</span>, 1, 0);
+<a name="l00654"></a>00654     m_wavelet_tree.construct(bwt_buf, n);
+<a name="l00655"></a>00655     <a class="code" href="namespacesdsl.html#a478f5f7db45f61644d75e6c664bd961e" title="Write stopwatch output in readable format.">write_R_output</a>(<span class="stringliteral">&quot;csa&quot;</span>, <span class="stringliteral">&quot;construct WT&quot;</span>, <span class="stringliteral">&quot;end&quot;</span>, 1, 0);
+<a name="l00656"></a>00656 
+<a name="l00657"></a>00657     algorithm::set_sa_and_isa_samples&lt;csa_wt&gt;(sa_buf, m_sa_sample, m_isa_sample);
+<a name="l00658"></a>00658 
+<a name="l00659"></a>00659     m_psi = psi_type(<span class="keyword">this</span>);
+<a name="l00660"></a>00660     m_bwt = bwt_type(<span class="keyword">this</span>);
+<a name="l00661"></a>00661 }
+<a name="l00662"></a>00662 
+<a name="l00663"></a>00663 <span class="comment">/*</span>
+<a name="l00664"></a>00664 <span class="comment">template&lt;class WaveletTree, uint32_t SampleDens, uint32_t InvSampleDens, uint8_t fixedIntWidth&gt;</span>
+<a name="l00665"></a>00665 <span class="comment">uint32_t csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth&gt;::get_sample_dens()const{</span>
+<a name="l00666"></a>00666 <span class="comment">        if(SampleDens==0)</span>
+<a name="l00667"></a>00667 <span class="comment">                return m_sample_dens;</span>
+<a name="l00668"></a>00668 <span class="comment">        else</span>
+<a name="l00669"></a>00669 <span class="comment">                return SampleDens;</span>
+<a name="l00670"></a>00670 <span class="comment">}</span>
+<a name="l00671"></a>00671 <span class="comment"></span>
+<a name="l00672"></a>00672 <span class="comment">template&lt;class WaveletTree, uint32_t SampleDens, uint32_t InvSampleDens, uint8_t fixedIntWidth&gt;</span>
+<a name="l00673"></a>00673 <span class="comment">void csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth&gt;::set_sample_dens(const uint32_t sample_dens){</span>
+<a name="l00674"></a>00674 <span class="comment">        m_sample_dens = sample_dens;</span>
+<a name="l00675"></a>00675 <span class="comment">}</span>
+<a name="l00676"></a>00676 <span class="comment">*/</span>
+<a name="l00677"></a>00677 
+<a name="l00678"></a>00678 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
+<a name="l00679"></a>00679 uint32_t csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::get_psi_sample_dens()<span class="keyword">const</span>
+<a name="l00680"></a>00680 <span class="keyword"></span>{
+<a name="l00681"></a>00681     <span class="keywordflow">return</span> m_psi.get_sample_dens();
+<a name="l00682"></a>00682 }
+<a name="l00683"></a>00683 
+<a name="l00684"></a>00684 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
+<a name="l00685"></a>00685 <span class="keywordtype">void</span> csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::set_psi_sample_dens(<span class="keyword">const</span> uint32_t sample_dens)
+<a name="l00686"></a>00686 {
+<a name="l00687"></a>00687 }
+<a name="l00688"></a>00688 
+<a name="l00689"></a>00689 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
+<a name="l00690"></a>00690 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> RandomAccessContainer&gt;
+<a name="l00691"></a>00691 <span class="keywordtype">void</span> csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::construct_samples(<span class="keyword">const</span> RandomAccessContainer&amp; sa, <span class="keyword">const</span> char_type* str)
+<a name="l00692"></a>00692 {
+<a name="l00693"></a>00693     m_sa_sample.set_int_width(<a class="code" href="classsdsl_1_1bit__magic.html#a7e056c78ea2cea39ac49e552731c0c95" title="Calculates the position of the leftmost 1-bit in the 64bit integer x if it exists.">bit_magic::l1BP</a>(sa.size())+1);
+<a name="l00694"></a>00694     m_sa_sample.resize((sa.size()+SampleDens-1)/SampleDens);
+<a name="l00695"></a>00695     <span class="keyword">typename</span> RandomAccessContainer::size_type i=0, idx=0;
+<a name="l00696"></a>00696     <span class="keywordflow">for</span> (<span class="keyword">typename</span> RandomAccessContainer::const_iterator it = sa.begin(); i &lt; sa.size(); it += (difference_type)SampleDens, i += SampleDens, ++idx) {
+<a name="l00697"></a>00697         m_sa_sample[idx] = *it;
+<a name="l00698"></a>00698     }
+<a name="l00699"></a>00699     m_isa_sample.set_int_width(<a class="code" href="classsdsl_1_1bit__magic.html#a7e056c78ea2cea39ac49e552731c0c95" title="Calculates the position of the leftmost 1-bit in the 64bit integer x if it exists.">bit_magic::l1BP</a>(sa.size())+1);
+<a name="l00700"></a>00700     m_isa_sample.resize((sa.size()+(InvSampleDens)-1)/(InvSampleDens));
+<a name="l00701"></a>00701     i = 0;
+<a name="l00702"></a>00702     <span class="keywordflow">for</span> (<span class="keyword">typename</span> RandomAccessContainer::const_iterator it = sa.begin(), end = sa.end(); it != end; ++it, ++i) {
+<a name="l00703"></a>00703         <span class="keywordflow">if</span> ((*it % InvSampleDens) == 0) {
+<a name="l00704"></a>00704             m_isa_sample[*it/InvSampleDens] = i;
+<a name="l00705"></a>00705         }
+<a name="l00706"></a>00706     }
+<a name="l00707"></a>00707 }
+<a name="l00708"></a>00708 
+<a name="l00709"></a>00709 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
+<a name="l00710"></a>00710 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> RandomAccessContainer&gt;
+<a name="l00711"></a>00711 <span class="keywordtype">void</span> csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::construct(<span class="keyword">const</span> RandomAccessContainer&amp; sa, <span class="keyword">const</span> char_type* str)
+<a name="l00712"></a>00712 {
+<a name="l00713"></a>00713     construct_samples(sa, str);
+<a name="l00714"></a>00714     <span class="keyword">const</span> <span class="keyword">typename</span> RandomAccessContainer::size_type n = sa.size();
+<a name="l00715"></a>00715     <span class="keyword">typename</span> RandomAccessContainer::size_type i=0;
+<a name="l00716"></a>00716     <span class="keywordflow">if</span> (str == NULL) {
+<a name="l00717"></a>00717         <span class="keywordflow">throw</span> std::logic_error(<a class="code" href="namespacesdsl_1_1util.html#a5ac1913316c61c170cba986b98c27c90" title="Demangle the class name of typeid(...).name()">util::demangle</a>(<span class="keyword">typeid</span>(<span class="keyword">this</span>).name())+<span class="stringliteral">&quot;: text is needed to construct the csa_wt!&quot;</span>);
+<a name="l00718"></a>00718     } <span class="keywordflow">else</span> {
+<a name="l00719"></a>00719         char_type* _bwt = <span class="keyword">new</span> char_type[n+1];
+<a name="l00720"></a>00720         i = 0;
+<a name="l00721"></a>00721         assert(str[n-1]==<span class="charliteral">&#39;\0&#39;</span>);
+<a name="l00722"></a>00722         <span class="comment">// TODO: %-operation is slow, replace by to_add[] lookup</span>
+<a name="l00723"></a>00723         <span class="keywordflow">for</span> (<span class="keyword">typename</span> RandomAccessContainer::const_iterator it = sa.begin(), end = sa.end(); it != end; ++it, ++i) {
+<a name="l00724"></a>00724             _bwt[i] = str[(*it+n-1)%(n)];
+<a name="l00725"></a>00725         }
+<a name="l00726"></a>00726         m_wavelet_tree = WaveletTree(_bwt, n);
+<a name="l00727"></a>00727         <span class="keyword">delete</span> [] _bwt;
+<a name="l00728"></a>00728 
+<a name="l00729"></a>00729         m_psi = psi_type(<span class="keyword">this</span>);
+<a name="l00730"></a>00730         m_bwt = bwt_type(<span class="keyword">this</span>);
+<a name="l00731"></a>00731     }
+<a name="l00732"></a>00732 }
+<a name="l00733"></a>00733 
+<a name="l00734"></a>00734 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
+<a name="l00735"></a><a class="code" href="classsdsl_1_1csa__wt.html#a3c48dfe5875c85320ddd069997c4f215">00735</a> <span class="keyword">typename</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::const_iterator</a> <a class="code" href="classsdsl_1_1csa__wt.html#a3c48dfe5875c85320ddd069997c4f215" title="Returns a const_iterator to the first element.">csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::begin</a>()<span class="keyword">const</span>
+<a name="l00736"></a>00736 <span class="keyword"></span>{
+<a name="l00737"></a>00737     <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>(<span class="keyword">this</span>, 0);
+<a name="l00738"></a>00738 }
+<a name="l00739"></a>00739 
+<a name="l00740"></a>00740 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
+<a name="l00741"></a><a class="code" href="classsdsl_1_1csa__wt.html#aa5ee6c532996f3bd2bf8c4b963969535">00741</a> <span class="keyword">typename</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::const_iterator</a> <a class="code" href="classsdsl_1_1csa__wt.html#aa5ee6c532996f3bd2bf8c4b963969535" title="Returns a const_iterator to the element after the last element.">csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::end</a>()<span class="keyword">const</span>
+<a name="l00742"></a>00742 <span class="keyword"></span>{
+<a name="l00743"></a>00743     <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>(<span class="keyword">this</span>, size());
+<a name="l00744"></a>00744 }
+<a name="l00745"></a>00745 
+<a name="l00746"></a>00746 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
+<a name="l00747"></a><a class="code" href="classsdsl_1_1csa__wt.html#a8c92e607116f31c5c160e19cc414f5b2">00747</a> <span class="keyword">inline</span> <span class="keyword">typename</span> csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::value_type <a class="code" href="classsdsl_1_1csa__wt.html#a8c92e607116f31c5c160e19cc414f5b2" title="[]-operator">csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::operator[]</a>(size_type i)<span class="keyword">const</span>
+<a name="l00748"></a>00748 <span class="keyword"></span>{
+<a name="l00749"></a>00749     size_type off = 0;
+<a name="l00750"></a>00750     <span class="keywordflow">while</span> (i % SampleDens) {
+<a name="l00751"></a>00751         i = m_psi(i);
+<a name="l00752"></a>00752         ++off;
+<a name="l00753"></a>00753     }
+<a name="l00754"></a>00754     value_type result = m_sa_sample[i/SampleDens];
+<a name="l00755"></a>00755     <span class="keywordflow">if</span> (result + off &lt; size()) {
+<a name="l00756"></a>00756         <span class="keywordflow">return</span> result + off;
+<a name="l00757"></a>00757     } <span class="keywordflow">else</span> {
+<a name="l00758"></a>00758         <span class="keywordflow">return</span> result + off - size();
+<a name="l00759"></a>00759     }
+<a name="l00760"></a>00760     <span class="comment">/*</span>
+<a name="l00761"></a>00761 <span class="comment">    #ifdef USE_CSA_CACHE</span>
+<a name="l00762"></a>00762 <span class="comment">        size_type r = 0;</span>
+<a name="l00763"></a>00763 <span class="comment">        if( csa_cache.exists(i, r) ){</span>
+<a name="l00764"></a>00764 <span class="comment">                return r;</span>
+<a name="l00765"></a>00765 <span class="comment">        }</span>
+<a name="l00766"></a>00766 <span class="comment">    #endif</span>
+<a name="l00767"></a>00767 <span class="comment">        size_type off = 0;</span>
+<a name="l00768"></a>00768 <span class="comment">        while( i % SampleDens ){// while i mod SampleDens != 0 (SA[i] is not sampled)</span>
+<a name="l00769"></a>00769 <span class="comment">                i = m_psi[i];       // go to the position where SA[i]+1 is located</span>
+<a name="l00770"></a>00770 <span class="comment">                ++off;              // add 1 to the offset</span>
+<a name="l00771"></a>00771 <span class="comment">        }</span>
+<a name="l00772"></a>00772 <span class="comment">        value_type result = m_sa_sample[i/SampleDens];</span>
+<a name="l00773"></a>00773 <span class="comment">        // TODO: try LF-function for iteration</span>
+<a name="l00774"></a>00774 <span class="comment">        if( result &lt; off ){</span>
+<a name="l00775"></a>00775 <span class="comment">    #ifdef USE_CSA_CACHE</span>
+<a name="l00776"></a>00776 <span class="comment">                r = m_psi.size()-(off-result);</span>
+<a name="l00777"></a>00777 <span class="comment">                return r;</span>
+<a name="l00778"></a>00778 <span class="comment">    #endif</span>
+<a name="l00779"></a>00779 <span class="comment">                return m_psi.size()-(off-result);</span>
+<a name="l00780"></a>00780 <span class="comment">        }</span>
+<a name="l00781"></a>00781 <span class="comment">        else{</span>
+<a name="l00782"></a>00782 <span class="comment">    #ifdef USE_CSA_CACHE</span>
+<a name="l00783"></a>00783 <span class="comment">                r = result-off;</span>
+<a name="l00784"></a>00784 <span class="comment">                return r;</span>
+<a name="l00785"></a>00785 <span class="comment">    #endif</span>
+<a name="l00786"></a>00786 <span class="comment">                return result-off;</span>
+<a name="l00787"></a>00787 <span class="comment">        }</span>
+<a name="l00788"></a>00788 <span class="comment">    */</span>
+<a name="l00789"></a>00789 }
+<a name="l00790"></a>00790 
+<a name="l00791"></a>00791 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
+<a name="l00792"></a><a class="code" href="classsdsl_1_1csa__wt.html#a10bc180696220eb2538a812813bd5f12">00792</a> <span class="keyword">inline</span> <span class="keyword">typename</span> csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::value_type <a class="code" href="classsdsl_1_1csa__wt.html#a10bc180696220eb2538a812813bd5f12" title="()-operator return inverse suffix array values">csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::operator()</a>(size_type i)<span class="keyword">const</span>
+<a name="l00793"></a>00793 <span class="keyword"></span>{
+<a name="l00794"></a>00794     size_type ii;
+<a name="l00795"></a>00795     value_type result = m_isa_sample[ ii = ((i+InvSampleDens-1)/InvSampleDens) ]; <span class="comment">// get the leftmost sampled isa value to the right of i</span>
+<a name="l00796"></a>00796     ii *= InvSampleDens;
+<a name="l00797"></a>00797     <span class="keywordflow">if</span> (ii &gt;= size()) {
+<a name="l00798"></a>00798         i = size() - 1 - i;
+<a name="l00799"></a>00799     } <span class="keywordflow">else</span> {
+<a name="l00800"></a>00800         i = ii - i;
+<a name="l00801"></a>00801     }
+<a name="l00802"></a>00802     <span class="keywordflow">while</span> (i--) {
+<a name="l00803"></a>00803         result = m_psi(result);
+<a name="l00804"></a>00804     }
+<a name="l00805"></a>00805     <span class="keywordflow">return</span> result;
+<a name="l00806"></a>00806 }
+<a name="l00807"></a>00807 
+<a name="l00808"></a>00808 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
+<a name="l00809"></a><a class="code" href="classsdsl_1_1csa__wt.html#a5141742d5235d742e3fbab6bc065ec80">00809</a> <a class="code" href="classsdsl_1_1csa__wt.html" title="A class for the Compressed Suffix Array (CSA) based on a Wavelet Tree (WT) of the Burrow Wheeler Tran...">csa_wt&lt;WaveletTree,SampleDens, InvSampleDens, fixedIntWidth, charType&gt;</a>&amp; <a class="code" href="classsdsl_1_1csa__wt.html#a5141742d5235d742e3fbab6bc065ec80" title="Assignment Operator.">csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::operator=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1csa__wt.html" title="A class for the Compressed Suffix Array (CSA) based on a Wavelet Tree (WT) of the Burrow Wheeler Tran...">csa_wt&lt;WaveletTree,SampleDens, InvSampleDens, fixedIntWidth, charType&gt;</a>&amp; csa)
+<a name="l00810"></a>00810 {
+<a name="l00811"></a>00811     <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;csa) {
+<a name="l00812"></a>00812         copy(csa);
+<a name="l00813"></a>00813     }
+<a name="l00814"></a>00814     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00815"></a>00815 }
+<a name="l00816"></a>00816 
+<a name="l00817"></a>00817 
+<a name="l00818"></a>00818 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
+<a name="l00819"></a><a class="code" href="classsdsl_1_1csa__wt.html#a54bb45c439e023bd35b82c38e0f1faca">00819</a> <span class="keyword">typename</span> csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::size_type <a class="code" href="classsdsl_1_1csa__wt.html#a54bb45c439e023bd35b82c38e0f1faca" title="Serialize to a stream.">csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::serialize</a>(std::ostream&amp; out)<span class="keyword">const</span>
+<a name="l00820"></a>00820 <span class="keyword"></span>{
+<a name="l00821"></a>00821     size_type written_bytes = 0;
+<a name="l00822"></a>00822     written_bytes += m_wavelet_tree.serialize(out);
+<a name="l00823"></a>00823     written_bytes += m_sa_sample.serialize(out);
+<a name="l00824"></a>00824     written_bytes += m_isa_sample.serialize(out);
+<a name="l00825"></a>00825     written_bytes += m_char2comp.serialize(out);
+<a name="l00826"></a>00826     written_bytes += m_comp2char.serialize(out);
+<a name="l00827"></a>00827     written_bytes += m_C.serialize(out);
+<a name="l00828"></a>00828     written_bytes += util::write_member(m_sigma, out);
+<a name="l00829"></a>00829     <span class="keywordflow">return</span> written_bytes;
 <a name="l00830"></a>00830 }
-<a name="l00831"></a>00831  
+<a name="l00831"></a>00831 
 <a name="l00832"></a>00832 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
-<a name="l00833"></a><a class="code" href="classsdsl_1_1csa__wt.html#a036e7733d38881f08081464815f8fad3">00833</a> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1csa__wt.html#a036e7733d38881f08081464815f8fad3" title="Swap method for csa_wt.">csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::swap</a>(<a class="code" href="classsdsl_1_1csa__wt.html" title="A class for the Compressed Suffix Array (CSA) based on a Wavelet Tree (WT) of the Burrow Wheeler Tran...">csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;</a> &amp;csa){
-<a name="l00834"></a>00834         <span class="keywordflow">if</span>(<span class="keyword">this</span> != &amp;csa){
-<a name="l00835"></a>00835                 m_wavelet_tree.swap(csa.m_wavelet_tree);
-<a name="l00836"></a>00836                 m_sa_sample.swap(csa.m_sa_sample);
-<a name="l00837"></a>00837                 m_isa_sample.swap(csa.m_isa_sample);
-<a name="l00838"></a>00838                 <span class="keywordflow">for</span>(uint16_t i=0;i&lt;256;++i){
-<a name="l00839"></a>00839                         std::swap(m_char2comp[i], csa.m_char2comp[i]);
-<a name="l00840"></a>00840                         std::swap(m_comp2char[i], csa.m_comp2char[i]);
-<a name="l00841"></a>00841                         std::swap(m_C[i], csa.m_C[i]);
-<a name="l00842"></a>00842                 }
-<a name="l00843"></a>00843                 std::swap(m_C[256], csa.m_C[256]);
-<a name="l00844"></a>00844                 std::swap(m_sigma, csa.m_sigma);
-<a name="l00845"></a>00845                 m_psi.swap(csa.m_psi);
-<a name="l00846"></a>00846                 m_bwt.swap(csa.m_bwt);
-<a name="l00847"></a>00847         }
-<a name="l00848"></a>00848 }
-<a name="l00849"></a>00849 
-<a name="l00850"></a>00850 <span class="comment">/* TODO</span>
-<a name="l00851"></a>00851 <span class="comment">template&lt;class WaveletTree, uint32_t SampleDens, uint32_t InvSampleDens, uint8_t fixedIntWidth&gt;</span>
-<a name="l00852"></a>00852 <span class="comment">bool csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth&gt;::operator==(const csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth&gt; &amp;csa)const{</span>
-<a name="l00853"></a>00853 <span class="comment">        for(uint16_t i=0;i&lt;256;++i)</span>
-<a name="l00854"></a>00854 <span class="comment">                if(m_char2comp[i] != csa.m_char2comp[i] or m_comp2char[i] != csa.m_comp2char[i] or m_C[i] != csa.m_C[i])</span>
-<a name="l00855"></a>00855 <span class="comment">                        return false;</span>
-<a name="l00856"></a>00856 <span class="comment">        return m_psi == csa.m_psi and m_sa_sample == csa.m_sa_sample and m_isa_sample == csa.m_isa_sample and m_C[256] == csa.m_C[256] and m_sigma == csa.m_sigma;</span>
-<a name="l00857"></a>00857 <span class="comment">}</span>
-<a name="l00858"></a>00858 <span class="comment"></span>
-<a name="l00859"></a>00859 <span class="comment">template&lt;class WaveletTree, uint32_t SampleDens, uint32_t InvSampleDens, uint8_t fixedIntWidth&gt;</span>
-<a name="l00860"></a>00860 <span class="comment">bool csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth&gt;::operator!=(const csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth&gt; &amp;csa)const{</span>
-<a name="l00861"></a>00861 <span class="comment">        return !(*this == csa); </span>
-<a name="l00862"></a>00862 <span class="comment">//      return m_psi != csa.m_psi or m_sa_sample != csa.m_sa_sample or m_isa_sample != csa.m_isa_sample;</span>
-<a name="l00863"></a>00863 <span class="comment">}</span>
-<a name="l00864"></a>00864 <span class="comment">*/</span>
-<a name="l00865"></a>00865 
-<a name="l00866"></a>00866 } <span class="comment">// end namespace sdsl</span>
-<a name="l00867"></a>00867 
-<a name="l00868"></a>00868 <span class="preprocessor">#endif</span>
+<a name="l00833"></a><a class="code" href="classsdsl_1_1csa__wt.html#a7ea024aa093debef6605971583898c34">00833</a> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1csa__wt.html#a7ea024aa093debef6605971583898c34" title="Load from a stream.">csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::load</a>(std::istream&amp; in)
+<a name="l00834"></a>00834 {
+<a name="l00835"></a>00835     m_wavelet_tree.load(in);
+<a name="l00836"></a>00836     m_sa_sample.load(in);
+<a name="l00837"></a>00837     m_isa_sample.load(in);
+<a name="l00838"></a>00838     m_char2comp.load(in);
+<a name="l00839"></a>00839     m_comp2char.load(in);
+<a name="l00840"></a>00840     m_C.load(in);
+<a name="l00841"></a>00841     util::read_member(m_sigma, in);
+<a name="l00842"></a>00842     m_psi = <a class="code" href="classsdsl_1_1psi__of__csa__wt.html">psi_type</a>(<span class="keyword">this</span>);
+<a name="l00843"></a>00843     m_bwt = <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html">bwt_type</a>(<span class="keyword">this</span>);
+<a name="l00844"></a>00844 }
+<a name="l00845"></a>00845 
+<a name="l00846"></a>00846 <span class="keyword">template</span>&lt;<span class="keyword">class</span> WaveletTree, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>32_t InvSampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">char</span>Type&gt;
+<a name="l00847"></a><a class="code" href="classsdsl_1_1csa__wt.html#a036e7733d38881f08081464815f8fad3">00847</a> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1csa__wt.html#a036e7733d38881f08081464815f8fad3" title="Swap method for csa_wt.">csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;::swap</a>(<a class="code" href="classsdsl_1_1csa__wt.html" title="A class for the Compressed Suffix Array (CSA) based on a Wavelet Tree (WT) of the Burrow Wheeler Tran...">csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType&gt;</a>&amp; csa)
+<a name="l00848"></a>00848 {
+<a name="l00849"></a>00849     <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;csa) {
+<a name="l00850"></a>00850         m_wavelet_tree.swap(csa.m_wavelet_tree);
+<a name="l00851"></a>00851         m_sa_sample.swap(csa.m_sa_sample);
+<a name="l00852"></a>00852         m_isa_sample.swap(csa.m_isa_sample);
+<a name="l00853"></a>00853         m_char2comp.swap(csa.m_char2comp);
+<a name="l00854"></a>00854         m_comp2char.swap(csa.m_comp2char);
+<a name="l00855"></a>00855         m_C.swap(csa.m_C);
+<a name="l00856"></a>00856         std::swap(m_sigma, csa.m_sigma);
+<a name="l00857"></a>00857 <span class="comment">//        m_psi.swap(csa.m_psi);</span>
+<a name="l00858"></a>00858         m_psi = <a class="code" href="classsdsl_1_1psi__of__csa__wt.html">psi_type</a>(<span class="keyword">this</span>);
+<a name="l00859"></a>00859         csa.m_psi = <a class="code" href="classsdsl_1_1psi__of__csa__wt.html">psi_type</a>(&amp;csa);
+<a name="l00860"></a>00860         m_bwt = <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html">bwt_type</a>(<span class="keyword">this</span>);
+<a name="l00861"></a>00861         csa.m_bwt = <a class="code" href="classsdsl_1_1bwt__of__csa__wt.html">bwt_type</a>(&amp;csa);
+<a name="l00862"></a>00862     }
+<a name="l00863"></a>00863 }
+<a name="l00864"></a>00864 
+<a name="l00865"></a>00865 <span class="comment">/* TODO</span>
+<a name="l00866"></a>00866 <span class="comment">template&lt;class WaveletTree, uint32_t SampleDens, uint32_t InvSampleDens, uint8_t fixedIntWidth&gt;</span>
+<a name="l00867"></a>00867 <span class="comment">bool csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth&gt;::operator==(const csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth&gt; &amp;csa)const{</span>
+<a name="l00868"></a>00868 <span class="comment">        for(uint16_t i=0;i&lt;256;++i)</span>
+<a name="l00869"></a>00869 <span class="comment">                if(m_char2comp[i] != csa.m_char2comp[i] or m_comp2char[i] != csa.m_comp2char[i] or m_C[i] != csa.m_C[i])</span>
+<a name="l00870"></a>00870 <span class="comment">                        return false;</span>
+<a name="l00871"></a>00871 <span class="comment">        return m_psi == csa.m_psi and m_sa_sample == csa.m_sa_sample and m_isa_sample == csa.m_isa_sample and m_C[256] == csa.m_C[256] and m_sigma == csa.m_sigma;</span>
+<a name="l00872"></a>00872 <span class="comment">}</span>
+<a name="l00873"></a>00873 <span class="comment"></span>
+<a name="l00874"></a>00874 <span class="comment">template&lt;class WaveletTree, uint32_t SampleDens, uint32_t InvSampleDens, uint8_t fixedIntWidth&gt;</span>
+<a name="l00875"></a>00875 <span class="comment">bool csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth&gt;::operator!=(const csa_wt&lt;WaveletTree, SampleDens, InvSampleDens, fixedIntWidth&gt; &amp;csa)const{</span>
+<a name="l00876"></a>00876 <span class="comment">        return !(*this == csa);</span>
+<a name="l00877"></a>00877 <span class="comment">//      return m_psi != csa.m_psi or m_sa_sample != csa.m_sa_sample or m_isa_sample != csa.m_isa_sample;</span>
+<a name="l00878"></a>00878 <span class="comment">}</span>
+<a name="l00879"></a>00879 <span class="comment">*/</span>
+<a name="l00880"></a>00880 
+<a name="l00881"></a>00881 } <span class="comment">// end namespace sdsl</span>
+<a name="l00882"></a>00882 
+<a name="l00883"></a>00883 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:33 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:25 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

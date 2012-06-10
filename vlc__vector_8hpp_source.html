@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -82,7 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -97,7 +98,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="vlc__vector_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/* sdsl - succinct data structures library</span>
-<a name="l00002"></a>00002 <span class="comment">    Copyright (C) 2008 Simon Gog </span>
+<a name="l00002"></a>00002 <span class="comment">    Copyright (C) 2008 Simon Gog</span>
 <a name="l00003"></a>00003 <span class="comment"></span>
 <a name="l00004"></a>00004 <span class="comment">    This program is free software: you can redistribute it and/or modify</span>
 <a name="l00005"></a>00005 <span class="comment">    it under the terms of the GNU General Public License as published by</span>
@@ -119,359 +120,380 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00025"></a>00025 <span class="preprocessor">#ifndef SDSL_VLC_VECTOR</span>
 <a name="l00026"></a>00026 <span class="preprocessor"></span><span class="preprocessor">#define SDSL_VLC_VECTOR</span>
 <a name="l00027"></a>00027 <span class="preprocessor"></span>
-<a name="l00029"></a>00029 <span class="keyword">namespace </span>sdsl{
-<a name="l00030"></a>00030 
-<a name="l00031"></a>00031 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
-<a name="l00032"></a><a class="code" href="structsdsl_1_1vlc__vector__trait.html">00032</a> <span class="keyword">struct </span><a class="code" href="structsdsl_1_1vlc__vector__trait.html">vlc_vector_trait</a>{
-<a name="l00033"></a>00033         <span class="keyword">typedef</span> int_vector&lt;0&gt; int_vector_type;
-<a name="l00034"></a>00034 };      
-<a name="l00035"></a>00035 
-<a name="l00036"></a>00036 <span class="keyword">template</span>&lt;&gt;
-<a name="l00037"></a><a class="code" href="structsdsl_1_1vlc__vector__trait_3_0132_01_4.html">00037</a> <span class="keyword">struct </span><a class="code" href="structsdsl_1_1vlc__vector__trait.html">vlc_vector_trait</a>&lt;32&gt;{
-<a name="l00038"></a>00038         <span class="keyword">typedef</span> int_vector&lt;32&gt; int_vector_type;
-<a name="l00039"></a>00039 };
-<a name="l00040"></a>00040 
-<a name="l00042"></a>00042 
-<a name="l00046"></a>00046 <span class="keyword">template</span>&lt;<span class="keyword">class </span>Coder=<a class="code" href="classsdsl_1_1coder_1_1elias__delta.html" title="A class to encode and decode between Elias-  and binary code.">coder::elias_delta</a>,
-<a name="l00047"></a>00047                  uint32_t SampleDens = 16, uint8_t fixedIntWidth=0&gt;
-<a name="l00048"></a><a class="code" href="classsdsl_1_1vlc__vector.html">00048</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1vlc__vector.html" title="A generic immutable space-saving vector class for unsigned positive integers.">vlc_vector</a>{
-<a name="l00049"></a>00049         <span class="keyword">public</span>:
-<a name="l00050"></a>00050         <span class="keyword">typedef</span> uint64_t                                                        value_type;     <span class="comment">// STL Container requirement</span>
-<a name="l00051"></a>00051         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">random_access_const_iterator&lt;vlc_vector&gt;</a> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">iterator</a>;<span class="comment">// STL Container requirement</span>
-<a name="l00052"></a>00052         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">iterator</a>                                                        <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>; <span class="comment">// STL Container requirement</span>
-<a name="l00053"></a>00053         <span class="keyword">typedef</span> <span class="keyword">const</span> value_type                                        reference;
-<a name="l00054"></a>00054         <span class="keyword">typedef</span> <span class="keyword">const</span> value_type                                        const_reference;
-<a name="l00055"></a>00055         <span class="keyword">typedef</span> <span class="keyword">const</span> value_type*                                       const_pointer;
-<a name="l00056"></a>00056         <span class="keyword">typedef</span> ptrdiff_t                                                       difference_type;<span class="comment">// STL Container requirement</span>
-<a name="l00057"></a>00057         <span class="keyword">typedef</span> int_vector&lt;&gt;::size_type                         size_type;              <span class="comment">// STL Container requirement</span>
-<a name="l00058"></a>00058         <span class="keyword">typedef</span> Coder                                                           coder;
-<a name="l00059"></a>00059         <span class="keyword">typedef</span> <span class="keyword">typename</span> vlc_vector_trait&lt;fixedIntWidth&gt;::int_vector_type int_vector_type;
-<a name="l00060"></a>00060         <span class="keyword">static</span>  <span class="keyword">const</span> uint32_t                                          sample_dens     = SampleDens;
-<a name="l00061"></a>00061 
-<a name="l00062"></a>00062         int_vector&lt;0&gt;   m_z;            <span class="comment">// compressed bit stream</span>
-<a name="l00063"></a>00063         <span class="keyword">private</span>:
-<a name="l00064"></a>00064         int_vector_type   m_sample_pointer;
-<a name="l00065"></a>00065         size_type               m_elements;    <span class="comment">// number of elements</span>
-<a name="l00066"></a>00066         uint32_t                m_sample_dens;
-<a name="l00067"></a>00067 
-<a name="l00068"></a>00068         <span class="comment">// workaround function for the constructor</span>
-<a name="l00069"></a>00069         <span class="keywordtype">void</span> construct(){
-<a name="l00070"></a>00070                 m_elements = 0;
-<a name="l00071"></a>00071                 m_sample_dens = 16;
-<a name="l00072"></a>00072         }
-<a name="l00073"></a>00073         <span class="keywordtype">void</span> copy(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1vlc__vector.html" title="A generic immutable space-saving vector class for unsigned positive integers.">vlc_vector</a> &amp;v);
-<a name="l00074"></a>00074 
-<a name="l00075"></a>00075         <span class="keywordtype">void</span> clear(){
-<a name="l00076"></a>00076                 m_z.resize(0);
-<a name="l00077"></a>00077                 m_elements = 0;
-<a name="l00078"></a>00078                 m_sample_pointer.resize(0);
-<a name="l00079"></a>00079         }
-<a name="l00080"></a>00080 
-<a name="l00081"></a>00081         <span class="keyword">public</span>:
-<a name="l00083"></a><a class="code" href="classsdsl_1_1vlc__vector.html#af11b309afbf02fad4b3661ad022714be">00083</a>                 <a class="code" href="classsdsl_1_1vlc__vector.html#af11b309afbf02fad4b3661ad022714be" title="Default Constuctor.">vlc_vector</a>(){
-<a name="l00084"></a>00084                         construct();
-<a name="l00085"></a>00085                 };
-<a name="l00087"></a>00087 
-<a name="l00090"></a>00090                 <a class="code" href="classsdsl_1_1vlc__vector.html#af11b309afbf02fad4b3661ad022714be" title="Default Constuctor.">vlc_vector</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1vlc__vector.html" title="A generic immutable space-saving vector class for unsigned positive integers.">vlc_vector</a> &amp;v);
-<a name="l00091"></a>00091 
+<a name="l00029"></a>00029 <span class="keyword">namespace </span>sdsl
+<a name="l00030"></a>00030 {
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
+<a name="l00033"></a><a class="code" href="structsdsl_1_1vlc__vector__trait.html">00033</a> <span class="keyword">struct </span><a class="code" href="structsdsl_1_1vlc__vector__trait.html">vlc_vector_trait</a> {
+<a name="l00034"></a>00034     <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;0&gt;</a> <a class="code" href="classsdsl_1_1int__vector.html">int_vector_type</a>;
+<a name="l00035"></a>00035 };
+<a name="l00036"></a>00036 
+<a name="l00037"></a>00037 <span class="keyword">template</span>&lt;&gt;
+<a name="l00038"></a><a class="code" href="structsdsl_1_1vlc__vector__trait_3_0132_01_4.html">00038</a> <span class="keyword">struct </span><a class="code" href="structsdsl_1_1vlc__vector__trait.html">vlc_vector_trait</a>&lt;32&gt; {
+<a name="l00039"></a>00039     <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;32&gt;</a> <a class="code" href="classsdsl_1_1int__vector.html">int_vector_type</a>;
+<a name="l00040"></a>00040 };
+<a name="l00041"></a>00041 
+<a name="l00043"></a>00043 
+<a name="l00047"></a>00047 <span class="keyword">template</span>&lt;<span class="keyword">class </span>Coder=<a class="code" href="classsdsl_1_1coder_1_1elias__delta.html" title="A class to encode and decode between Elias-  and binary code.">coder::elias_delta</a>,
+<a name="l00048"></a>00048          uint32_t SampleDens = 16, uint8_t fixedIntWidth=0&gt;
+<a name="l00049"></a><a class="code" href="classsdsl_1_1vlc__vector.html">00049</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1vlc__vector.html" title="A generic immutable space-saving vector class for unsigned positive integers.">vlc_vector</a>
+<a name="l00050"></a>00050 {
+<a name="l00051"></a>00051     <span class="keyword">public</span>:
+<a name="l00052"></a>00052         <span class="keyword">typedef</span> uint64_t                                                        value_type;     <span class="comment">// STL Container requirement</span>
+<a name="l00053"></a>00053         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">random_access_const_iterator&lt;vlc_vector&gt;</a> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">iterator</a>;<span class="comment">// STL Container requirement</span>
+<a name="l00054"></a>00054         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">iterator</a>                                                        <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>; <span class="comment">// STL Container requirement</span>
+<a name="l00055"></a>00055         <span class="keyword">typedef</span> <span class="keyword">const</span> value_type                                        reference;
+<a name="l00056"></a>00056         <span class="keyword">typedef</span> <span class="keyword">const</span> value_type                                        const_reference;
+<a name="l00057"></a>00057         <span class="keyword">typedef</span> <span class="keyword">const</span> value_type*                                       const_pointer;
+<a name="l00058"></a>00058         <span class="keyword">typedef</span> ptrdiff_t                                                       difference_type;<span class="comment">// STL Container requirement</span>
+<a name="l00059"></a>00059         <span class="keyword">typedef</span> int_vector&lt;&gt;::size_type                         size_type;              <span class="comment">// STL Container requirement</span>
+<a name="l00060"></a>00060         <span class="keyword">typedef</span> Coder                                                           coder;
+<a name="l00061"></a>00061         <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="classsdsl_1_1int__vector.html">vlc_vector_trait&lt;fixedIntWidth&gt;::int_vector_type</a> <a class="code" href="classsdsl_1_1int__vector.html">int_vector_type</a>;
+<a name="l00062"></a>00062         <span class="keyword">static</span>  <span class="keyword">const</span> uint32_t                                          sample_dens     = SampleDens;
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064         <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;0&gt;</a>   m_z;            <span class="comment">// compressed bit stream</span>
+<a name="l00065"></a>00065     <span class="keyword">private</span>:
+<a name="l00066"></a>00066         <a class="code" href="classsdsl_1_1int__vector.html">int_vector_type</a>   m_sample_pointer;
+<a name="l00067"></a>00067         size_type               m_elements;    <span class="comment">// number of elements</span>
+<a name="l00068"></a>00068         uint32_t                m_sample_dens;
+<a name="l00069"></a>00069 
+<a name="l00070"></a>00070         <span class="comment">// workaround function for the constructor</span>
+<a name="l00071"></a>00071         <span class="keywordtype">void</span> construct() {
+<a name="l00072"></a>00072             m_elements = 0;
+<a name="l00073"></a>00073             m_sample_dens = 16;
+<a name="l00074"></a>00074         }
+<a name="l00075"></a>00075         <span class="keywordtype">void</span> copy(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1vlc__vector.html" title="A generic immutable space-saving vector class for unsigned positive integers.">vlc_vector</a>&amp; v);
+<a name="l00076"></a>00076 
+<a name="l00077"></a>00077         <span class="keywordtype">void</span> clear() {
+<a name="l00078"></a>00078             m_z.<a class="code" href="classsdsl_1_1int__vector.html#a311439ddb68d63e4172457a4861affd9" title="Resize the int_vector in terms of elements.">resize</a>(0);
+<a name="l00079"></a>00079             m_elements = 0;
+<a name="l00080"></a>00080             m_sample_pointer.<a class="code" href="classsdsl_1_1int__vector.html#a311439ddb68d63e4172457a4861affd9" title="Resize the int_vector in terms of elements.">resize</a>(0);
+<a name="l00081"></a>00081         }
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083     <span class="keyword">public</span>:
+<a name="l00085"></a><a class="code" href="classsdsl_1_1vlc__vector.html#af11b309afbf02fad4b3661ad022714be">00085</a>         <a class="code" href="classsdsl_1_1vlc__vector.html#af11b309afbf02fad4b3661ad022714be" title="Default Constuctor.">vlc_vector</a>() {
+<a name="l00086"></a>00086             construct();
+<a name="l00087"></a>00087         };
+<a name="l00089"></a>00089 
+<a name="l00092"></a>00092         <a class="code" href="classsdsl_1_1vlc__vector.html#af11b309afbf02fad4b3661ad022714be" title="Default Constuctor.">vlc_vector</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1vlc__vector.html" title="A generic immutable space-saving vector class for unsigned positive integers.">vlc_vector</a>&amp; v);
 <a name="l00093"></a>00093 
-<a name="l00096"></a>00096                 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Container&gt;
-<a name="l00097"></a><a class="code" href="classsdsl_1_1vlc__vector.html#a6df64180fd0f349568ce61ac717e37a5">00097</a>                 <a class="code" href="classsdsl_1_1vlc__vector.html#a6df64180fd0f349568ce61ac717e37a5" title="Constructor for a Container of positive integers.">vlc_vector</a>(<span class="keyword">const</span> Container &amp;c){
-<a name="l00098"></a>00098                         construct();
-<a name="l00099"></a>00099                         init(c);
-<a name="l00100"></a>00100                 };
-<a name="l00101"></a>00101 
-<a name="l00103"></a>00103                 <span class="comment">/*</span>
-<a name="l00104"></a>00104 <span class="comment">                    \param v_buf A int_vector_file_buf.</span>
-<a name="l00105"></a>00105 <span class="comment">                        \pre No two adjacent values should be equal.     </span>
-<a name="l00106"></a>00106 <span class="comment">                */</span>      
-<a name="l00107"></a>00107                 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>&gt;
-<a name="l00108"></a><a class="code" href="classsdsl_1_1vlc__vector.html#a91a3559e38cfcc1851dd568f0e95e50e">00108</a>                 <a class="code" href="classsdsl_1_1vlc__vector.html#a91a3559e38cfcc1851dd568f0e95e50e" title="Constructor for an int_vector_file_buffer of positive integers.">vlc_vector</a>(int_vector_file_buffer&lt;int_width, size_type_class&gt; &amp;v_buf){
-<a name="l00109"></a>00109                         construct();
-<a name="l00110"></a>00110                         init(v_buf);
-<a name="l00111"></a>00111                 }
-<a name="l00112"></a>00112 
-<a name="l00113"></a>00113                 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Container&gt;
-<a name="l00114"></a>00114                 <span class="keywordtype">void</span> init(<span class="keyword">const</span> Container &amp;c);
-<a name="l00115"></a>00115 
-<a name="l00116"></a>00116                 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>&gt;
-<a name="l00117"></a>00117                 <span class="keywordtype">void</span> init(int_vector_file_buffer&lt;int_width, size_type_class&gt; &amp;v_buf);   
-<a name="l00118"></a>00118 
-<a name="l00120"></a><a class="code" href="classsdsl_1_1vlc__vector.html#a061f44634e9d0761e0a664b9a8ee353e">00120</a>                 <a class="code" href="classsdsl_1_1vlc__vector.html#a061f44634e9d0761e0a664b9a8ee353e" title="Default Destructor.">~vlc_vector</a>(){
-<a name="l00121"></a>00121                 };
-<a name="l00122"></a>00122 
+<a name="l00095"></a>00095 
+<a name="l00098"></a>00098         <span class="keyword">template</span>&lt;<span class="keyword">class</span> Container&gt;
+<a name="l00099"></a><a class="code" href="classsdsl_1_1vlc__vector.html#a6df64180fd0f349568ce61ac717e37a5">00099</a>         <a class="code" href="classsdsl_1_1vlc__vector.html#a6df64180fd0f349568ce61ac717e37a5" title="Constructor for a Container of positive integers.">vlc_vector</a>(<span class="keyword">const</span> Container&amp; c) {
+<a name="l00100"></a>00100             construct();
+<a name="l00101"></a>00101             init(c);
+<a name="l00102"></a>00102         };
+<a name="l00103"></a>00103 
+<a name="l00105"></a>00105         <span class="comment">/*</span>
+<a name="l00106"></a>00106 <span class="comment">            \param v_buf A int_vector_file_buf.</span>
+<a name="l00107"></a>00107 <span class="comment">                \pre No two adjacent values should be equal.</span>
+<a name="l00108"></a>00108 <span class="comment">        */</span>
+<a name="l00109"></a>00109         <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>&gt;
+<a name="l00110"></a><a class="code" href="classsdsl_1_1vlc__vector.html#a91a3559e38cfcc1851dd568f0e95e50e">00110</a>         <a class="code" href="classsdsl_1_1vlc__vector.html#a91a3559e38cfcc1851dd568f0e95e50e" title="Constructor for an int_vector_file_buffer of positive integers.">vlc_vector</a>(<a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;int_width, size_type_class&gt;</a>&amp; v_buf) {
+<a name="l00111"></a>00111             construct();
+<a name="l00112"></a>00112             init(v_buf);
+<a name="l00113"></a>00113         }
+<a name="l00114"></a>00114 
+<a name="l00115"></a>00115         <span class="keyword">template</span>&lt;<span class="keyword">class</span> Container&gt;
+<a name="l00116"></a>00116         <span class="keywordtype">void</span> init(<span class="keyword">const</span> Container&amp; c);
+<a name="l00117"></a>00117 
+<a name="l00118"></a>00118         <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>&gt;
+<a name="l00119"></a>00119         <span class="keywordtype">void</span> init(<a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;int_width, size_type_class&gt;</a>&amp; v_buf);
+<a name="l00120"></a>00120 
+<a name="l00122"></a><a class="code" href="classsdsl_1_1vlc__vector.html#a061f44634e9d0761e0a664b9a8ee353e">00122</a>         <a class="code" href="classsdsl_1_1vlc__vector.html#a061f44634e9d0761e0a664b9a8ee353e" title="Default Destructor.">~vlc_vector</a>() {
+<a name="l00123"></a>00123         };
 <a name="l00124"></a>00124 
-<a name="l00128"></a>00128                 size_type <a class="code" href="classsdsl_1_1vlc__vector.html#a43a282597d6f45237ae46502986711d1" title="The number of elements in the vlc_vector.">size</a>()<span class="keyword">const</span>;
-<a name="l00129"></a>00129 
+<a name="l00126"></a>00126 
+<a name="l00130"></a>00130         size_type <a class="code" href="classsdsl_1_1vlc__vector.html#a43a282597d6f45237ae46502986711d1" title="The number of elements in the vlc_vector.">size</a>()<span class="keyword">const</span>;
 <a name="l00131"></a>00131 
-<a name="l00133"></a>00133                 <span class="keyword">static</span> size_type <a class="code" href="classsdsl_1_1vlc__vector.html#a8906791039cb5c7b24da672c13c33262" title="Return the largest size that this container can ever have.">max_size</a>();
-<a name="l00134"></a>00134 
+<a name="l00133"></a>00133 
+<a name="l00135"></a>00135         <span class="keyword">static</span> size_type <a class="code" href="classsdsl_1_1vlc__vector.html#a8906791039cb5c7b24da672c13c33262" title="Return the largest size that this container can ever have.">max_size</a>();
 <a name="l00136"></a>00136 
-<a name="l00141"></a>00141                 <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1vlc__vector.html#a95f29fedc1f87e503078c043faf40a7d" title="Returns if the vlc_vector is empty.">empty</a>() <span class="keyword">const</span>;
-<a name="l00142"></a>00142 
+<a name="l00138"></a>00138 
+<a name="l00143"></a>00143         <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1vlc__vector.html#a95f29fedc1f87e503078c043faf40a7d" title="Returns if the vlc_vector is empty.">empty</a>() <span class="keyword">const</span>;
 <a name="l00144"></a>00144 
-<a name="l00152"></a>00152                 <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1vlc__vector.html#a8b32c91399a6d98dec3edfc18723b91c" title="Swap method for vlc_vector.">swap</a>(<a class="code" href="classsdsl_1_1vlc__vector.html" title="A generic immutable space-saving vector class for unsigned positive integers.">vlc_vector</a> &amp;v);
-<a name="l00153"></a>00153 
+<a name="l00146"></a>00146 
+<a name="l00154"></a>00154         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1vlc__vector.html#a8b32c91399a6d98dec3edfc18723b91c" title="Swap method for vlc_vector.">swap</a>(<a class="code" href="classsdsl_1_1vlc__vector.html" title="A generic immutable space-saving vector class for unsigned positive integers.">vlc_vector</a>&amp; v);
 <a name="l00155"></a>00155 
-<a name="l00159"></a>00159                 <span class="keyword">const</span> const_iterator <a class="code" href="classsdsl_1_1vlc__vector.html#a670561465ef080d5aecea78e6add6c42" title="Iterator that points to the first element of the vlc_vector.">begin</a>()<span class="keyword">const</span>;
-<a name="l00160"></a>00160 
+<a name="l00157"></a>00157 
+<a name="l00161"></a>00161         <span class="keyword">const</span> const_iterator <a class="code" href="classsdsl_1_1vlc__vector.html#a670561465ef080d5aecea78e6add6c42" title="Iterator that points to the first element of the vlc_vector.">begin</a>()<span class="keyword">const</span>;
 <a name="l00162"></a>00162 
-<a name="l00166"></a>00166                 <span class="keyword">const</span> const_iterator <a class="code" href="classsdsl_1_1vlc__vector.html#aefeed5adb7c06f675c55c34c83a78ef6" title="Iterator that points to the position after the last element of the vlc_vector.">end</a>()<span class="keyword">const</span>;
-<a name="l00167"></a>00167 
-<a name="l00168"></a>00168                 <span class="comment">// Iterator that points to the last element of the vlc_vector.</span>
-<a name="l00169"></a>00169                 <span class="comment">/*</span>
-<a name="l00170"></a>00170 <span class="comment">                 *      Required for the Container Concept of the STL.</span>
-<a name="l00171"></a>00171 <span class="comment">                 *  \sa rend()</span>
-<a name="l00172"></a>00172 <span class="comment">                 */</span>
-<a name="l00173"></a>00173 <span class="comment">//              reverse_iterator rbegin()const;</span>
-<a name="l00174"></a>00174 
-<a name="l00175"></a>00175                 <span class="comment">// Iterator that points to the position before the first element of the vlc_vector.</span>
-<a name="l00176"></a>00176                 <span class="comment">/*</span>
-<a name="l00177"></a>00177 <span class="comment">                 *      Required for the Container Concept of the STL</span>
-<a name="l00178"></a>00178 <span class="comment">                 *  \sa rbegin()</span>
-<a name="l00179"></a>00179 <span class="comment">             */</span>
-<a name="l00180"></a>00180 <span class="comment">//              reverse_iterator rend()const;</span>
-<a name="l00181"></a>00181 
+<a name="l00164"></a>00164 
+<a name="l00168"></a>00168         <span class="keyword">const</span> const_iterator <a class="code" href="classsdsl_1_1vlc__vector.html#aefeed5adb7c06f675c55c34c83a78ef6" title="Iterator that points to the position after the last element of the vlc_vector.">end</a>()<span class="keyword">const</span>;
+<a name="l00169"></a>00169 
+<a name="l00170"></a>00170         <span class="comment">// Iterator that points to the last element of the vlc_vector.</span>
+<a name="l00171"></a>00171         <span class="comment">/*</span>
+<a name="l00172"></a>00172 <span class="comment">         *      Required for the Container Concept of the STL.</span>
+<a name="l00173"></a>00173 <span class="comment">         *  \sa rend()</span>
+<a name="l00174"></a>00174 <span class="comment">         */</span>
+<a name="l00175"></a>00175 <span class="comment">//              reverse_iterator rbegin()const;</span>
+<a name="l00176"></a>00176 
+<a name="l00177"></a>00177         <span class="comment">// Iterator that points to the position before the first element of the vlc_vector.</span>
+<a name="l00178"></a>00178         <span class="comment">/*</span>
+<a name="l00179"></a>00179 <span class="comment">         *      Required for the Container Concept of the STL</span>
+<a name="l00180"></a>00180 <span class="comment">         *  \sa rbegin()</span>
+<a name="l00181"></a>00181 <span class="comment">         */</span>
+<a name="l00182"></a>00182 <span class="comment">//              reverse_iterator rend()const;</span>
 <a name="l00183"></a>00183 
-<a name="l00187"></a>00187                 value_type <a class="code" href="classsdsl_1_1vlc__vector.html#afd83510e1e3c0c29aeb143fdb95cd433" title="[]-operator">operator[]</a>(size_type i)<span class="keyword">const</span>;
-<a name="l00188"></a>00188 
+<a name="l00185"></a>00185 
+<a name="l00189"></a>00189         value_type <a class="code" href="classsdsl_1_1vlc__vector.html#afd83510e1e3c0c29aeb143fdb95cd433" title="[]-operator">operator[]</a>(size_type i)<span class="keyword">const</span>;
 <a name="l00190"></a>00190 
-<a name="l00193"></a>00193                 <a class="code" href="classsdsl_1_1vlc__vector.html" title="A generic immutable space-saving vector class for unsigned positive integers.">vlc_vector</a>&amp; <a class="code" href="classsdsl_1_1vlc__vector.html#a65c9a9ee6a55a9e94a04bbf1dd6ebe8b" title="Assignment Operator.">operator=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1vlc__vector.html" title="A generic immutable space-saving vector class for unsigned positive integers.">vlc_vector</a> &amp;v);
-<a name="l00194"></a>00194 
+<a name="l00192"></a>00192 
+<a name="l00195"></a>00195         <a class="code" href="classsdsl_1_1vlc__vector.html" title="A generic immutable space-saving vector class for unsigned positive integers.">vlc_vector</a>&amp; <a class="code" href="classsdsl_1_1vlc__vector.html#a65c9a9ee6a55a9e94a04bbf1dd6ebe8b" title="Assignment Operator.">operator=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1vlc__vector.html" title="A generic immutable space-saving vector class for unsigned positive integers.">vlc_vector</a>&amp; v);
 <a name="l00196"></a>00196 
-<a name="l00204"></a>00204                 <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1vlc__vector.html#a317b211747fc8fca4d7d278269edb542" title="Equality Operator.">operator==</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1vlc__vector.html" title="A generic immutable space-saving vector class for unsigned positive integers.">vlc_vector</a> &amp;v)<span class="keyword">const</span>;
-<a name="l00205"></a>00205 
+<a name="l00198"></a>00198 
+<a name="l00206"></a>00206         <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1vlc__vector.html#a317b211747fc8fca4d7d278269edb542" title="Equality Operator.">operator==</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1vlc__vector.html" title="A generic immutable space-saving vector class for unsigned positive integers.">vlc_vector</a>&amp; v)<span class="keyword">const</span>;
 <a name="l00207"></a>00207 
-<a name="l00215"></a>00215                 <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1vlc__vector.html#ada0c404296fb2256daa511fab7ad0d94" title="Unequality Operator.">operator!=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1vlc__vector.html" title="A generic immutable space-saving vector class for unsigned positive integers.">vlc_vector</a> &amp;v)<span class="keyword">const</span>;
-<a name="l00216"></a>00216 
+<a name="l00209"></a>00209 
+<a name="l00217"></a>00217         <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1vlc__vector.html#ada0c404296fb2256daa511fab7ad0d94" title="Unequality Operator.">operator!=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1vlc__vector.html" title="A generic immutable space-saving vector class for unsigned positive integers.">vlc_vector</a>&amp; v)<span class="keyword">const</span>;
 <a name="l00218"></a>00218 
-<a name="l00221"></a>00221                 size_type <a class="code" href="classsdsl_1_1vlc__vector.html#a5c742efdb231bdff8310e4e6f00bddbb" title="Serialzes the vlc_vector to a stream.">serialize</a>(std::ostream &amp;out) <span class="keyword">const</span>;
-<a name="l00222"></a>00222 
-<a name="l00224"></a>00224                 <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1vlc__vector.html#a845a9a832c609425aa2281e2f6d7296f" title="Load the vlc_vector from a stream.">load</a>(std::istream &amp;in);
-<a name="l00225"></a>00225         
+<a name="l00220"></a>00220 
+<a name="l00223"></a>00223         size_type <a class="code" href="classsdsl_1_1vlc__vector.html#a5c742efdb231bdff8310e4e6f00bddbb" title="Serialzes the vlc_vector to a stream.">serialize</a>(std::ostream&amp; out) <span class="keyword">const</span>;
+<a name="l00224"></a>00224 
+<a name="l00226"></a>00226         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1vlc__vector.html#a845a9a832c609425aa2281e2f6d7296f" title="Load the vlc_vector from a stream.">load</a>(std::istream&amp; in);
 <a name="l00227"></a>00227 
-<a name="l00230"></a>00230                 value_type <a class="code" href="classsdsl_1_1vlc__vector.html#af8f7619f74a973a96e40c0756237b27d" title="Returns the ith sample of vlc_vector.">sample</a>(<span class="keyword">const</span> size_type i) <span class="keyword">const</span>;
-<a name="l00231"></a>00231 
-<a name="l00232"></a>00232                 uint32_t get_sample_dens() <span class="keyword">const</span>;
-<a name="l00233"></a>00233                 <span class="keywordtype">void</span> set_sample_dens(<span class="keyword">const</span> uint32_t sample_dens);
-<a name="l00234"></a>00234 };
-<a name="l00235"></a>00235 
-<a name="l00236"></a>00236 
-<a name="l00237"></a>00237 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
-<a name="l00238"></a>00238 <span class="keyword">inline</span> uint32_t vlc_vector&lt;Coder, SampleDens, fixedIntWidth&gt;::get_sample_dens()<span class="keyword"> const</span>{
-<a name="l00239"></a>00239         <span class="keywordflow">if</span>(SampleDens == 0)
-<a name="l00240"></a>00240                 <span class="keywordflow">return</span> m_sample_dens;
-<a name="l00241"></a>00241         <span class="keywordflow">else</span>
-<a name="l00242"></a>00242                 <span class="keywordflow">return</span> SampleDens;
-<a name="l00243"></a>00243 }
-<a name="l00244"></a>00244 
-<a name="l00245"></a>00245 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
-<a name="l00246"></a>00246 <span class="keyword">inline</span> <span class="keywordtype">void</span> vlc_vector&lt;Coder, SampleDens, fixedIntWidth&gt;::set_sample_dens(<span class="keyword">const</span> uint32_t sample_dens){
-<a name="l00247"></a>00247         m_sample_dens = sample_dens;
-<a name="l00248"></a>00248 }
-<a name="l00249"></a>00249 
-<a name="l00250"></a>00250 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
-<a name="l00251"></a><a class="code" href="classsdsl_1_1vlc__vector.html#afd83510e1e3c0c29aeb143fdb95cd433">00251</a> <span class="keyword">inline</span> <span class="keyword">typename</span> vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;::value_type <a class="code" href="classsdsl_1_1vlc__vector.html#afd83510e1e3c0c29aeb143fdb95cd433" title="[]-operator">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;::operator[]</a>(<span class="keyword">const</span> size_type i)<span class="keyword">const </span>{
-<a name="l00252"></a>00252         assert( i+1 != 0 );
-<a name="l00253"></a>00253 <span class="preprocessor">#ifdef SDSL_DEBUG       </span>
-<a name="l00254"></a>00254 <span class="preprocessor"></span>        <span class="keywordflow">if</span>( i &gt;= m_elements  ){
-<a name="l00255"></a>00255                 <span class="keywordflow">throw</span> std::out_of_range(<span class="stringliteral">&quot;OUT_OF_RANGE_ERROR: vlc_vector::operator[](size_type); i &gt;= size()!&quot;</span>);
-<a name="l00256"></a>00256                 <span class="keywordflow">return</span> 0;
-<a name="l00257"></a>00257         }
-<a name="l00258"></a>00258 <span class="preprocessor">#endif  </span>
-<a name="l00259"></a>00259 <span class="preprocessor"></span>        size_type idx = i/get_sample_dens();
-<a name="l00260"></a>00260         <span class="keywordflow">return</span> (Coder::template decode&lt;false, false, int*&gt;(m_z.data(), m_sample_pointer[idx], i-SampleDens*idx+1 )) - 1;
-<a name="l00261"></a>00261 }
-<a name="l00262"></a>00262 
-<a name="l00263"></a>00263 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
-<a name="l00264"></a><a class="code" href="classsdsl_1_1vlc__vector.html#a43a282597d6f45237ae46502986711d1">00264</a> <span class="keyword">inline</span> vlc_vector&lt;&gt;::size_type <a class="code" href="classsdsl_1_1vlc__vector.html#a43a282597d6f45237ae46502986711d1" title="The number of elements in the vlc_vector.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;::size</a>()<span class="keyword">const</span>
-<a name="l00265"></a>00265 <span class="keyword"></span>{
-<a name="l00266"></a>00266         <span class="keywordflow">return</span> m_elements;
-<a name="l00267"></a>00267 }
-<a name="l00268"></a>00268 
-<a name="l00269"></a>00269 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
-<a name="l00270"></a><a class="code" href="classsdsl_1_1vlc__vector.html#a8906791039cb5c7b24da672c13c33262">00270</a> <span class="keyword">inline</span> vlc_vector&lt;&gt;::size_type <a class="code" href="classsdsl_1_1vlc__vector.html#a8906791039cb5c7b24da672c13c33262" title="Return the largest size that this container can ever have.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;::max_size</a>()
-<a name="l00271"></a>00271 {
-<a name="l00272"></a>00272         <span class="keywordflow">return</span> int_vector&lt;&gt;::max_size()/2; <span class="comment">// each element could possible occupy double space with selfdelimiting codes</span>
-<a name="l00273"></a>00273 }
-<a name="l00274"></a>00274 
-<a name="l00275"></a>00275 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
-<a name="l00276"></a><a class="code" href="classsdsl_1_1vlc__vector.html#a95f29fedc1f87e503078c043faf40a7d">00276</a> <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1vlc__vector.html#a95f29fedc1f87e503078c043faf40a7d" title="Returns if the vlc_vector is empty.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;::empty</a>()<span class="keyword">const</span>
-<a name="l00277"></a>00277 <span class="keyword"></span>{
-<a name="l00278"></a>00278         <span class="keywordflow">return</span> 0==m_elements;
-<a name="l00279"></a>00279 }
-<a name="l00280"></a>00280 
-<a name="l00281"></a>00281 
-<a name="l00282"></a>00282 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
-<a name="l00283"></a>00283 <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1vlc__vector.html" title="A generic immutable space-saving vector class for unsigned positive integers.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;::copy</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1vlc__vector.html" title="A generic immutable space-saving vector class for unsigned positive integers.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;</a> &amp;v){
-<a name="l00284"></a>00284         m_z                                     = v.m_z;                                <span class="comment">// copy compressed bit stream</span>
-<a name="l00285"></a>00285         m_sample_pointer                = v.m_sample_pointer;      <span class="comment">// copy sample values</span>
-<a name="l00286"></a>00286         m_elements                      = v.m_elements;                 <span class="comment">// copy number of stored elements</span>
-<a name="l00287"></a>00287 }
-<a name="l00288"></a>00288 
-<a name="l00289"></a>00289 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
-<a name="l00290"></a><a class="code" href="classsdsl_1_1vlc__vector.html#a1c56e4685107fa42324a2c825154429a">00290</a> <a class="code" href="classsdsl_1_1vlc__vector.html#af11b309afbf02fad4b3661ad022714be" title="Default Constuctor.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;::vlc_vector</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1vlc__vector.html" title="A generic immutable space-saving vector class for unsigned positive integers.">vlc_vector</a> &amp;v){
-<a name="l00291"></a>00291         copy(v);
-<a name="l00292"></a>00292 }
-<a name="l00293"></a>00293 
-<a name="l00294"></a>00294 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
-<a name="l00295"></a><a class="code" href="classsdsl_1_1vlc__vector.html#a65c9a9ee6a55a9e94a04bbf1dd6ebe8b">00295</a> <a class="code" href="classsdsl_1_1vlc__vector.html" title="A generic immutable space-saving vector class for unsigned positive integers.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;</a>&amp; <a class="code" href="classsdsl_1_1vlc__vector.html#a65c9a9ee6a55a9e94a04bbf1dd6ebe8b" title="Assignment Operator.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;::operator=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1vlc__vector.html" title="A generic immutable space-saving vector class for unsigned positive integers.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;</a> &amp;v){
-<a name="l00296"></a>00296         <span class="keywordflow">if</span>( <span class="keyword">this</span> != &amp;v ){<span class="comment">// if v and _this_ are not the same object</span>
-<a name="l00297"></a>00297                 copy(v);
-<a name="l00298"></a>00298         }
-<a name="l00299"></a>00299         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
-<a name="l00300"></a>00300 }
-<a name="l00301"></a>00301 
-<a name="l00302"></a>00302 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
-<a name="l00303"></a><a class="code" href="classsdsl_1_1vlc__vector.html#a317b211747fc8fca4d7d278269edb542">00303</a> <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1vlc__vector.html#a317b211747fc8fca4d7d278269edb542" title="Equality Operator.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;::operator==</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1vlc__vector.html" title="A generic immutable space-saving vector class for unsigned positive integers.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;</a> &amp;v)<span class="keyword">const</span>{
-<a name="l00304"></a>00304         <span class="keywordflow">if</span>(<span class="keyword">this</span> == &amp;v)
-<a name="l00305"></a>00305                 <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00306"></a>00306         <span class="keywordflow">return</span>          m_elements == v.m_elements
-<a name="l00307"></a>00307                  and    m_z == v.m_z
-<a name="l00308"></a>00308                  and    m_sample_pointer == v.m_sample_pointer;
-<a name="l00309"></a>00309 }
-<a name="l00310"></a>00310 
-<a name="l00311"></a>00311 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
-<a name="l00312"></a><a class="code" href="classsdsl_1_1vlc__vector.html#ada0c404296fb2256daa511fab7ad0d94">00312</a> <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1vlc__vector.html#ada0c404296fb2256daa511fab7ad0d94" title="Unequality Operator.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;::operator!=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1vlc__vector.html" title="A generic immutable space-saving vector class for unsigned positive integers.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;</a> &amp;v)<span class="keyword">const</span>{
-<a name="l00313"></a>00313         <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == v);
-<a name="l00314"></a>00314 }
-<a name="l00315"></a>00315 
-<a name="l00316"></a>00316 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
-<a name="l00317"></a><a class="code" href="classsdsl_1_1vlc__vector.html#a8b32c91399a6d98dec3edfc18723b91c">00317</a> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1vlc__vector.html#a8b32c91399a6d98dec3edfc18723b91c" title="Swap method for vlc_vector.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;::swap</a>(<a class="code" href="classsdsl_1_1vlc__vector.html" title="A generic immutable space-saving vector class for unsigned positive integers.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;</a> &amp;v){
-<a name="l00318"></a>00318         <span class="keywordflow">if</span>(<span class="keyword">this</span> != &amp;v){<span class="comment">// if v and _this_ are not the same object</span>
-<a name="l00319"></a>00319                 m_z.swap(v.m_z);                                        <span class="comment">// swap compressed bit streams</span>
-<a name="l00320"></a>00320                 m_sample_pointer.swap(v.m_sample_pointer);
-<a name="l00321"></a>00321                 std::swap(m_elements, v.m_elements);<span class="comment">// swap the number of elements</span>
-<a name="l00322"></a>00322         }
-<a name="l00323"></a>00323 }
-<a name="l00324"></a>00324 
+<a name="l00229"></a>00229 
+<a name="l00232"></a>00232         value_type <a class="code" href="classsdsl_1_1vlc__vector.html#af8f7619f74a973a96e40c0756237b27d" title="Returns the ith sample of vlc_vector.">sample</a>(<span class="keyword">const</span> size_type i) <span class="keyword">const</span>;
+<a name="l00233"></a>00233 
+<a name="l00234"></a>00234         uint32_t get_sample_dens() <span class="keyword">const</span>;
+<a name="l00235"></a>00235         <span class="keywordtype">void</span> set_sample_dens(<span class="keyword">const</span> uint32_t sample_dens);
+<a name="l00236"></a>00236 };
+<a name="l00237"></a>00237 
+<a name="l00238"></a>00238 
+<a name="l00239"></a>00239 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
+<a name="l00240"></a>00240 <span class="keyword">inline</span> uint32_t vlc_vector&lt;Coder, SampleDens, fixedIntWidth&gt;::get_sample_dens()<span class="keyword"> const</span>
+<a name="l00241"></a>00241 <span class="keyword"></span>{
+<a name="l00242"></a>00242     <span class="keywordflow">if</span> (SampleDens == 0)
+<a name="l00243"></a>00243         <span class="keywordflow">return</span> m_sample_dens;
+<a name="l00244"></a>00244     <span class="keywordflow">else</span>
+<a name="l00245"></a>00245         <span class="keywordflow">return</span> SampleDens;
+<a name="l00246"></a>00246 }
+<a name="l00247"></a>00247 
+<a name="l00248"></a>00248 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
+<a name="l00249"></a>00249 <span class="keyword">inline</span> <span class="keywordtype">void</span> vlc_vector&lt;Coder, SampleDens, fixedIntWidth&gt;::set_sample_dens(<span class="keyword">const</span> uint32_t sample_dens)
+<a name="l00250"></a>00250 {
+<a name="l00251"></a>00251     m_sample_dens = sample_dens;
+<a name="l00252"></a>00252 }
+<a name="l00253"></a>00253 
+<a name="l00254"></a>00254 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
+<a name="l00255"></a><a class="code" href="classsdsl_1_1vlc__vector.html#afd83510e1e3c0c29aeb143fdb95cd433">00255</a> <span class="keyword">inline</span> <span class="keyword">typename</span> vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;::value_type <a class="code" href="classsdsl_1_1vlc__vector.html#afd83510e1e3c0c29aeb143fdb95cd433" title="[]-operator">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;::operator[]</a>(<span class="keyword">const</span> size_type i)<span class="keyword">const</span>
+<a name="l00256"></a>00256 <span class="keyword"></span>{
+<a name="l00257"></a>00257     assert(i+1 != 0);
+<a name="l00258"></a>00258 <span class="preprocessor">#ifdef SDSL_DEBUG</span>
+<a name="l00259"></a>00259 <span class="preprocessor"></span>    <span class="keywordflow">if</span> (i &gt;= m_elements) {
+<a name="l00260"></a>00260         <span class="keywordflow">throw</span> std::out_of_range(<span class="stringliteral">&quot;OUT_OF_RANGE_ERROR: vlc_vector::operator[](size_type); i &gt;= size()!&quot;</span>);
+<a name="l00261"></a>00261         <span class="keywordflow">return</span> 0;
+<a name="l00262"></a>00262     }
+<a name="l00263"></a>00263 <span class="preprocessor">#endif</span>
+<a name="l00264"></a>00264 <span class="preprocessor"></span>    size_type idx = i/get_sample_dens();
+<a name="l00265"></a>00265     <span class="keywordflow">return</span> (Coder::template decode&lt;false, false, int*&gt;(m_z.data(), m_sample_pointer[idx], i-SampleDens*idx+1)) - 1;
+<a name="l00266"></a>00266 }
+<a name="l00267"></a>00267 
+<a name="l00268"></a>00268 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
+<a name="l00269"></a><a class="code" href="classsdsl_1_1vlc__vector.html#a43a282597d6f45237ae46502986711d1">00269</a> <span class="keyword">inline</span> vlc_vector&lt;&gt;::size_type <a class="code" href="classsdsl_1_1vlc__vector.html#a43a282597d6f45237ae46502986711d1" title="The number of elements in the vlc_vector.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;::size</a>()<span class="keyword">const</span>
+<a name="l00270"></a>00270 <span class="keyword"></span>{
+<a name="l00271"></a>00271     <span class="keywordflow">return</span> m_elements;
+<a name="l00272"></a>00272 }
+<a name="l00273"></a>00273 
+<a name="l00274"></a>00274 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
+<a name="l00275"></a><a class="code" href="classsdsl_1_1vlc__vector.html#a8906791039cb5c7b24da672c13c33262">00275</a> <span class="keyword">inline</span> vlc_vector&lt;&gt;::size_type <a class="code" href="classsdsl_1_1vlc__vector.html#a8906791039cb5c7b24da672c13c33262" title="Return the largest size that this container can ever have.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;::max_size</a>()
+<a name="l00276"></a>00276 {
+<a name="l00277"></a>00277     <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1int__vector.html#a6339702ca6a36f166c8d322d3d7d5174" title="Maximum size of the int_vector.">int_vector&lt;&gt;::max_size</a>()/2; <span class="comment">// each element could possible occupy double space with selfdelimiting codes</span>
+<a name="l00278"></a>00278 }
+<a name="l00279"></a>00279 
+<a name="l00280"></a>00280 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
+<a name="l00281"></a><a class="code" href="classsdsl_1_1vlc__vector.html#a95f29fedc1f87e503078c043faf40a7d">00281</a> <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1vlc__vector.html#a95f29fedc1f87e503078c043faf40a7d" title="Returns if the vlc_vector is empty.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;::empty</a>()<span class="keyword">const</span>
+<a name="l00282"></a>00282 <span class="keyword"></span>{
+<a name="l00283"></a>00283     <span class="keywordflow">return</span> 0==m_elements;
+<a name="l00284"></a>00284 }
+<a name="l00285"></a>00285 
+<a name="l00286"></a>00286 
+<a name="l00287"></a>00287 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
+<a name="l00288"></a>00288 <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1vlc__vector.html" title="A generic immutable space-saving vector class for unsigned positive integers.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;::copy</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1vlc__vector.html" title="A generic immutable space-saving vector class for unsigned positive integers.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;</a>&amp; v)
+<a name="l00289"></a>00289 {
+<a name="l00290"></a>00290     m_z                                 = v.m_z;                                <span class="comment">// copy compressed bit stream</span>
+<a name="l00291"></a>00291     m_sample_pointer            = v.m_sample_pointer;      <span class="comment">// copy sample values</span>
+<a name="l00292"></a>00292     m_elements                  = v.m_elements;                 <span class="comment">// copy number of stored elements</span>
+<a name="l00293"></a>00293 }
+<a name="l00294"></a>00294 
+<a name="l00295"></a>00295 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
+<a name="l00296"></a><a class="code" href="classsdsl_1_1vlc__vector.html#a1c56e4685107fa42324a2c825154429a">00296</a> <a class="code" href="classsdsl_1_1vlc__vector.html#af11b309afbf02fad4b3661ad022714be" title="Default Constuctor.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;::vlc_vector</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1vlc__vector.html" title="A generic immutable space-saving vector class for unsigned positive integers.">vlc_vector</a>&amp; v)
+<a name="l00297"></a>00297 {
+<a name="l00298"></a>00298     copy(v);
+<a name="l00299"></a>00299 }
+<a name="l00300"></a>00300 
+<a name="l00301"></a>00301 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
+<a name="l00302"></a><a class="code" href="classsdsl_1_1vlc__vector.html#a65c9a9ee6a55a9e94a04bbf1dd6ebe8b">00302</a> <a class="code" href="classsdsl_1_1vlc__vector.html" title="A generic immutable space-saving vector class for unsigned positive integers.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;</a>&amp; <a class="code" href="classsdsl_1_1vlc__vector.html#a65c9a9ee6a55a9e94a04bbf1dd6ebe8b" title="Assignment Operator.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;::operator=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1vlc__vector.html" title="A generic immutable space-saving vector class for unsigned positive integers.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;</a>&amp; v)
+<a name="l00303"></a>00303 {
+<a name="l00304"></a>00304     <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;v) {<span class="comment">// if v and _this_ are not the same object</span>
+<a name="l00305"></a>00305         copy(v);
+<a name="l00306"></a>00306     }
+<a name="l00307"></a>00307     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00308"></a>00308 }
+<a name="l00309"></a>00309 
+<a name="l00310"></a>00310 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
+<a name="l00311"></a><a class="code" href="classsdsl_1_1vlc__vector.html#a317b211747fc8fca4d7d278269edb542">00311</a> <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1vlc__vector.html#a317b211747fc8fca4d7d278269edb542" title="Equality Operator.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;::operator==</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1vlc__vector.html" title="A generic immutable space-saving vector class for unsigned positive integers.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;</a>&amp; v)<span class="keyword">const</span>
+<a name="l00312"></a>00312 <span class="keyword"></span>{
+<a name="l00313"></a>00313     <span class="keywordflow">if</span> (<span class="keyword">this</span> == &amp;v)
+<a name="l00314"></a>00314         <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00315"></a>00315     <span class="keywordflow">return</span>              m_elements == v.m_elements
+<a name="l00316"></a>00316                 and     m_z == v.m_z
+<a name="l00317"></a>00317                 and     m_sample_pointer == v.m_sample_pointer;
+<a name="l00318"></a>00318 }
+<a name="l00319"></a>00319 
+<a name="l00320"></a>00320 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
+<a name="l00321"></a><a class="code" href="classsdsl_1_1vlc__vector.html#ada0c404296fb2256daa511fab7ad0d94">00321</a> <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1vlc__vector.html#ada0c404296fb2256daa511fab7ad0d94" title="Unequality Operator.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;::operator!=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1vlc__vector.html" title="A generic immutable space-saving vector class for unsigned positive integers.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;</a>&amp; v)<span class="keyword">const</span>
+<a name="l00322"></a>00322 <span class="keyword"></span>{
+<a name="l00323"></a>00323     <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == v);
+<a name="l00324"></a>00324 }
 <a name="l00325"></a>00325 
 <a name="l00326"></a>00326 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
-<a name="l00327"></a>00327 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Container&gt;
-<a name="l00328"></a>00328 <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1vlc__vector.html" title="A generic immutable space-saving vector class for unsigned positive integers.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;::init</a>(<span class="keyword">const</span> Container &amp;c){
-<a name="l00329"></a>00329         <span class="comment">// clear bit_vectors</span>
-<a name="l00330"></a>00330         clear();
-<a name="l00331"></a>00331 
-<a name="l00332"></a>00332         <span class="keywordflow">if</span>( c.empty() ) <span class="comment">// if c is empty there is nothing to do...</span>
-<a name="l00333"></a>00333                 <span class="keywordflow">return</span>;
-<a name="l00334"></a>00334         size_type samples = 0, z_size = 0;
-<a name="l00335"></a>00335 <span class="comment">//  (1) Calculate size of z </span>
-<a name="l00336"></a>00336         <span class="keywordflow">for</span>(size_type i=0; i &lt; c.size(); ++i){
-<a name="l00337"></a>00337                 <span class="keywordflow">if</span>( c[i]+1&lt;1 ){ <span class="keywordflow">throw</span> std::logic_error(<span class="stringliteral">&quot;vlc_vector cannot decode values smaller than 1!&quot;</span>); }
-<a name="l00338"></a>00338                 z_size += Coder::encoding_length( c[i]+1 );
-<a name="l00339"></a>00339         }
-<a name="l00340"></a>00340         samples = (c.size()+get_sample_dens()-1)/get_sample_dens();
-<a name="l00341"></a>00341 <span class="comment">//      (2) Write z</span>
-<a name="l00342"></a>00342 
-<a name="l00343"></a>00343         m_sample_pointer.set_int_width( <a class="code" href="classsdsl_1_1bit__magic.html#add0a212c8b5f894223c49e95aaa2ae8e" title="Calculates the position of the leftmost 1-bit in the 64bit integer x if it exists.">bit_magic::l1BP</a>(z_size+1) + 1 );
-<a name="l00344"></a>00344         m_sample_pointer.resize(samples+1); <span class="comment">// add 1 for last entry</span>
-<a name="l00345"></a>00345 
-<a name="l00346"></a>00346         std::cout&lt;&lt;<span class="stringliteral">&quot;z_size=&quot;</span>&lt;&lt;z_size&lt;&lt;std::endl;
-<a name="l00347"></a>00347         std::cout&lt;&lt;<span class="stringliteral">&quot;int_width = &quot;</span>&lt;&lt;<a class="code" href="classsdsl_1_1bit__magic.html#add0a212c8b5f894223c49e95aaa2ae8e" title="Calculates the position of the leftmost 1-bit in the 64bit integer x if it exists.">bit_magic::l1BP</a>(z_size+1)+1&lt;&lt;std::endl;
-<a name="l00348"></a>00348         std::cout&lt;&lt;samples&lt;&lt;std::endl;
-<a name="l00349"></a>00349 
-<a name="l00350"></a>00350         m_z.bit_resize(z_size);
-<a name="l00351"></a>00351         z_size = 0;
-<a name="l00352"></a>00352         uint64_t *z_data = Coder::raw_data(m_z);
-<a name="l00353"></a>00353         uint8_t offset = 0;
-<a name="l00354"></a>00354         size_type no_sample = 0;
-<a name="l00355"></a>00355         <span class="keywordflow">for</span>(size_type i=0, sample_cnt=0; i &lt; c.size(); ++i, --no_sample){
-<a name="l00356"></a>00356                 <span class="keywordflow">if</span>(!no_sample){ <span class="comment">// add a sample pointer</span>
-<a name="l00357"></a>00357                         no_sample = get_sample_dens();
-<a name="l00358"></a>00358                         m_sample_pointer[sample_cnt++] = z_size;
-<a name="l00359"></a>00359                 }
-<a name="l00360"></a>00360                 Coder::encode(c[i]+1, z_data, offset);
-<a name="l00361"></a>00361                 z_size += Coder::encoding_length( c[i]+1 );
-<a name="l00362"></a>00362         }
-<a name="l00363"></a>00363         m_elements = c.size();
-<a name="l00364"></a>00364 }
-<a name="l00365"></a>00365 
-<a name="l00366"></a>00366 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
-<a name="l00367"></a>00367 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>&gt;
-<a name="l00368"></a>00368 <span class="keywordtype">void</span> vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;::init(int_vector_file_buffer&lt;int_width, size_type_class&gt; &amp;v_buf){
-<a name="l00369"></a>00369         <span class="comment">// clear bit_vectors</span>
-<a name="l00370"></a>00370         clear();
-<a name="l00371"></a>00371         size_type n = v_buf.int_vector_size;
-<a name="l00372"></a>00372         <span class="keywordflow">if</span>( n == 0 ) <span class="comment">// if c is empty there is nothing to do...</span>
-<a name="l00373"></a>00373                 <span class="keywordflow">return</span>;
-<a name="l00374"></a>00374         v_buf.reset();
-<a name="l00375"></a>00375         size_type samples=0, z_size=0;
-<a name="l00376"></a>00376 <span class="comment">//  (1) Calculate size of z </span>
-<a name="l00377"></a>00377         <span class="keywordflow">for</span>(size_type i=0, r_sum=0, r = v_buf.load_next_block(); r_sum &lt; n; ){
-<a name="l00378"></a>00378                 <span class="keywordflow">for</span>(; i &lt; r_sum+r; ++i){
-<a name="l00379"></a>00379                         size_type x = v_buf[i-r_sum]+1;
-<a name="l00380"></a>00380                         <span class="keywordflow">if</span>( x &lt; 1 ){ <span class="keywordflow">throw</span> std::logic_error(<span class="stringliteral">&quot;vlc_vector cannot decode values smaller than 1!&quot;</span>); }
-<a name="l00381"></a>00381                         z_size += Coder::encoding_length( x );
-<a name="l00382"></a>00382                 }
-<a name="l00383"></a>00383                 r_sum += r; r = v_buf.load_next_block();
-<a name="l00384"></a>00384         }
-<a name="l00385"></a>00385         samples = (n+get_sample_dens()-1)/get_sample_dens();
-<a name="l00386"></a>00386 <span class="comment">//      (2) Write z </span>
-<a name="l00387"></a>00387 
-<a name="l00388"></a>00388         m_sample_pointer.set_int_width( <a class="code" href="classsdsl_1_1bit__magic.html#add0a212c8b5f894223c49e95aaa2ae8e" title="Calculates the position of the leftmost 1-bit in the 64bit integer x if it exists.">bit_magic::l1BP</a>(z_size+1) + 1 );
-<a name="l00389"></a>00389         m_sample_pointer.resize(samples+1); <span class="comment">// add 1 for last entry</span>
-<a name="l00390"></a>00390           
-<a name="l00391"></a>00391 <span class="comment">//     (b) Initilize bit_vector for encoded data</span>
-<a name="l00392"></a>00392         m_z.bit_resize(z_size);
-<a name="l00393"></a>00393         z_size = 0;
-<a name="l00394"></a>00394         uint64_t *z_data = Coder::raw_data(m_z);
-<a name="l00395"></a>00395         uint8_t offset = 0;
-<a name="l00396"></a>00396 
-<a name="l00397"></a>00397 <span class="comment">//     (c) Write sample values and deltas</span>
-<a name="l00398"></a>00398         v_buf.reset();
-<a name="l00399"></a>00399         size_type no_sample = 0;
-<a name="l00400"></a>00400         <span class="keywordflow">for</span>(size_type i=0, sample_cnt = 0, r_sum=0, r = v_buf.load_next_block(); r_sum &lt; n; ){
-<a name="l00401"></a>00401                 <span class="keywordflow">for</span>(; i &lt; r_sum+r; ++i, --no_sample){
-<a name="l00402"></a>00402                         <span class="keywordflow">if</span>(!no_sample){ <span class="comment">// add a sample pointer</span>
-<a name="l00403"></a>00403                                 no_sample = get_sample_dens();
-<a name="l00404"></a>00404                                 m_sample_pointer[sample_cnt++] = z_size;
-<a name="l00405"></a>00405                         }
-<a name="l00406"></a>00406                         size_type x = v_buf[i-r_sum]+1;
-<a name="l00407"></a>00407                         Coder::encode(x, z_data, offset);   <span class="comment">// write encoded values</span>
-<a name="l00408"></a>00408                         z_size += Coder::encoding_length( x );
-<a name="l00409"></a>00409                 }
-<a name="l00410"></a>00410                 r_sum += r; r = v_buf.load_next_block();
-<a name="l00411"></a>00411         }
-<a name="l00412"></a>00412         m_elements = n;
-<a name="l00413"></a>00413 }
-<a name="l00414"></a>00414 
-<a name="l00415"></a>00415 
-<a name="l00416"></a>00416 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
-<a name="l00417"></a><a class="code" href="classsdsl_1_1vlc__vector.html#a5c742efdb231bdff8310e4e6f00bddbb">00417</a> vlc_vector&lt;&gt;::size_type <a class="code" href="classsdsl_1_1vlc__vector.html#a5c742efdb231bdff8310e4e6f00bddbb" title="Serialzes the vlc_vector to a stream.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;::serialize</a>(std::ostream &amp;out)<span class="keyword"> const</span>{
-<a name="l00418"></a>00418         size_type written_bytes = 0;
-<a name="l00419"></a>00419         out.write((<span class="keywordtype">char</span> *) &amp;m_elements, <span class="keyword">sizeof</span>(m_elements));
-<a name="l00420"></a>00420         written_bytes += <span class="keyword">sizeof</span>(m_elements);
-<a name="l00421"></a>00421         written_bytes += m_z.serialize(out);
-<a name="l00422"></a>00422         written_bytes += m_sample_pointer.serialize(out);
-<a name="l00423"></a>00423         <span class="keywordflow">return</span> written_bytes;
-<a name="l00424"></a>00424 }
-<a name="l00425"></a>00425 
-<a name="l00426"></a>00426 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
-<a name="l00427"></a><a class="code" href="classsdsl_1_1vlc__vector.html#a845a9a832c609425aa2281e2f6d7296f">00427</a> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1vlc__vector.html#a845a9a832c609425aa2281e2f6d7296f" title="Load the vlc_vector from a stream.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;::load</a>(std::istream &amp;in){
-<a name="l00428"></a>00428         in.read((<span class="keywordtype">char</span> *) &amp;m_elements, <span class="keyword">sizeof</span>(m_elements));
-<a name="l00429"></a>00429         m_z.load(in);
-<a name="l00430"></a>00430         m_sample_pointer.load(in);
-<a name="l00431"></a>00431 }
+<a name="l00327"></a><a class="code" href="classsdsl_1_1vlc__vector.html#a8b32c91399a6d98dec3edfc18723b91c">00327</a> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1vlc__vector.html#a8b32c91399a6d98dec3edfc18723b91c" title="Swap method for vlc_vector.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;::swap</a>(<a class="code" href="classsdsl_1_1vlc__vector.html" title="A generic immutable space-saving vector class for unsigned positive integers.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;</a>&amp; v)
+<a name="l00328"></a>00328 {
+<a name="l00329"></a>00329     <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;v) { <span class="comment">// if v and _this_ are not the same object</span>
+<a name="l00330"></a>00330         m_z.swap(v.m_z);                                        <span class="comment">// swap compressed bit streams</span>
+<a name="l00331"></a>00331         m_sample_pointer.swap(v.m_sample_pointer);
+<a name="l00332"></a>00332         std::swap(m_elements, v.m_elements);<span class="comment">// swap the number of elements</span>
+<a name="l00333"></a>00333     }
+<a name="l00334"></a>00334 }
+<a name="l00335"></a>00335 
+<a name="l00336"></a>00336 
+<a name="l00337"></a>00337 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
+<a name="l00338"></a>00338 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Container&gt;
+<a name="l00339"></a>00339 <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1vlc__vector.html" title="A generic immutable space-saving vector class for unsigned positive integers.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;::init</a>(<span class="keyword">const</span> Container&amp; c)
+<a name="l00340"></a>00340 {
+<a name="l00341"></a>00341     <span class="comment">// clear bit_vectors</span>
+<a name="l00342"></a>00342     <a class="code" href="namespacesdsl_1_1util.html#af2dfe4b7eacdc9e8fcc552c8972fa16d" title="clear the space used by x">clear</a>();
+<a name="l00343"></a>00343 
+<a name="l00344"></a>00344     <span class="keywordflow">if</span> (c.empty())  <span class="comment">// if c is empty there is nothing to do...</span>
+<a name="l00345"></a>00345         <span class="keywordflow">return</span>;
+<a name="l00346"></a>00346     size_type samples = 0, z_size = 0;
+<a name="l00347"></a>00347 <span class="comment">//  (1) Calculate size of z</span>
+<a name="l00348"></a>00348     <span class="keywordflow">for</span> (size_type i=0; i &lt; c.size(); ++i) {
+<a name="l00349"></a>00349         <span class="keywordflow">if</span> (c[i]+1&lt;1) {
+<a name="l00350"></a>00350             <span class="keywordflow">throw</span> std::logic_error(<span class="stringliteral">&quot;vlc_vector cannot decode values smaller than 1!&quot;</span>);
+<a name="l00351"></a>00351         }
+<a name="l00352"></a>00352         z_size += Coder::encoding_length(c[i]+1);
+<a name="l00353"></a>00353     }
+<a name="l00354"></a>00354     samples = (c.size()+get_sample_dens()-1)/get_sample_dens();
+<a name="l00355"></a>00355 <span class="comment">//      (2) Write z</span>
+<a name="l00356"></a>00356 
+<a name="l00357"></a>00357     m_sample_pointer.set_int_width(<a class="code" href="classsdsl_1_1bit__magic.html#a7e056c78ea2cea39ac49e552731c0c95" title="Calculates the position of the leftmost 1-bit in the 64bit integer x if it exists.">bit_magic::l1BP</a>(z_size+1) + 1);
+<a name="l00358"></a>00358     m_sample_pointer.resize(samples+1); <span class="comment">// add 1 for last entry</span>
+<a name="l00359"></a>00359 
+<a name="l00360"></a>00360     std::cout&lt;&lt;<span class="stringliteral">&quot;z_size=&quot;</span>&lt;&lt;z_size&lt;&lt;std::endl;
+<a name="l00361"></a>00361     std::cout&lt;&lt;<span class="stringliteral">&quot;int_width = &quot;</span>&lt;&lt;<a class="code" href="classsdsl_1_1bit__magic.html#a7e056c78ea2cea39ac49e552731c0c95" title="Calculates the position of the leftmost 1-bit in the 64bit integer x if it exists.">bit_magic::l1BP</a>(z_size+1)+1&lt;&lt;std::endl;
+<a name="l00362"></a>00362     std::cout&lt;&lt;samples&lt;&lt;std::endl;
+<a name="l00363"></a>00363 
+<a name="l00364"></a>00364     m_z.bit_resize(z_size);
+<a name="l00365"></a>00365     z_size = 0;
+<a name="l00366"></a>00366     uint64_t* z_data = Coder::raw_data(m_z);
+<a name="l00367"></a>00367     uint8_t offset = 0;
+<a name="l00368"></a>00368     size_type no_sample = 0;
+<a name="l00369"></a>00369     <span class="keywordflow">for</span> (size_type i=0, sample_cnt=0; i &lt; c.size(); ++i, --no_sample) {
+<a name="l00370"></a>00370         <span class="keywordflow">if</span> (!no_sample) { <span class="comment">// add a sample pointer</span>
+<a name="l00371"></a>00371             no_sample = get_sample_dens();
+<a name="l00372"></a>00372             m_sample_pointer[sample_cnt++] = z_size;
+<a name="l00373"></a>00373         }
+<a name="l00374"></a>00374         Coder::encode(c[i]+1, z_data, offset);
+<a name="l00375"></a>00375         z_size += Coder::encoding_length(c[i]+1);
+<a name="l00376"></a>00376     }
+<a name="l00377"></a>00377     m_elements = c.size();
+<a name="l00378"></a>00378 }
+<a name="l00379"></a>00379 
+<a name="l00380"></a>00380 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
+<a name="l00381"></a>00381 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>&gt;
+<a name="l00382"></a>00382 <span class="keywordtype">void</span> vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;::init(int_vector_file_buffer&lt;int_width, size_type_class&gt;&amp; v_buf)
+<a name="l00383"></a>00383 {
+<a name="l00384"></a>00384     <span class="comment">// clear bit_vectors</span>
+<a name="l00385"></a>00385     <a class="code" href="namespacesdsl_1_1util.html#af2dfe4b7eacdc9e8fcc552c8972fa16d" title="clear the space used by x">clear</a>();
+<a name="l00386"></a>00386     size_type n = v_buf.int_vector_size;
+<a name="l00387"></a>00387     <span class="keywordflow">if</span> (n == 0)  <span class="comment">// if c is empty there is nothing to do...</span>
+<a name="l00388"></a>00388         <span class="keywordflow">return</span>;
+<a name="l00389"></a>00389     v_buf.reset();
+<a name="l00390"></a>00390     size_type samples=0, z_size=0;
+<a name="l00391"></a>00391 <span class="comment">//  (1) Calculate size of z</span>
+<a name="l00392"></a>00392     <span class="keywordflow">for</span> (size_type i=0, r_sum=0, r = v_buf.load_next_block(); r_sum &lt; n;) {
+<a name="l00393"></a>00393         <span class="keywordflow">for</span> (; i &lt; r_sum+r; ++i) {
+<a name="l00394"></a>00394             size_type x = v_buf[i-r_sum]+1;
+<a name="l00395"></a>00395             <span class="keywordflow">if</span> (x &lt; 1) {
+<a name="l00396"></a>00396                 <span class="keywordflow">throw</span> std::logic_error(<span class="stringliteral">&quot;vlc_vector cannot decode values smaller than 1!&quot;</span>);
+<a name="l00397"></a>00397             }
+<a name="l00398"></a>00398             z_size += Coder::encoding_length(x);
+<a name="l00399"></a>00399         }
+<a name="l00400"></a>00400         r_sum += r; r = v_buf.load_next_block();
+<a name="l00401"></a>00401     }
+<a name="l00402"></a>00402     samples = (n+get_sample_dens()-1)/get_sample_dens();
+<a name="l00403"></a>00403 <span class="comment">//      (2) Write z</span>
+<a name="l00404"></a>00404 
+<a name="l00405"></a>00405     m_sample_pointer.set_int_width(<a class="code" href="classsdsl_1_1bit__magic.html#a7e056c78ea2cea39ac49e552731c0c95" title="Calculates the position of the leftmost 1-bit in the 64bit integer x if it exists.">bit_magic::l1BP</a>(z_size+1) + 1);
+<a name="l00406"></a>00406     m_sample_pointer.resize(samples+1); <span class="comment">// add 1 for last entry</span>
+<a name="l00407"></a>00407 
+<a name="l00408"></a>00408 <span class="comment">//     (b) Initilize bit_vector for encoded data</span>
+<a name="l00409"></a>00409     m_z.bit_resize(z_size);
+<a name="l00410"></a>00410     z_size = 0;
+<a name="l00411"></a>00411     uint64_t* z_data = Coder::raw_data(m_z);
+<a name="l00412"></a>00412     uint8_t offset = 0;
+<a name="l00413"></a>00413 
+<a name="l00414"></a>00414 <span class="comment">//     (c) Write sample values and deltas</span>
+<a name="l00415"></a>00415     v_buf.reset();
+<a name="l00416"></a>00416     size_type no_sample = 0;
+<a name="l00417"></a>00417     <span class="keywordflow">for</span> (size_type i=0, sample_cnt = 0, r_sum=0, r = v_buf.load_next_block(); r_sum &lt; n;) {
+<a name="l00418"></a>00418         <span class="keywordflow">for</span> (; i &lt; r_sum+r; ++i, --no_sample) {
+<a name="l00419"></a>00419             <span class="keywordflow">if</span> (!no_sample) { <span class="comment">// add a sample pointer</span>
+<a name="l00420"></a>00420                 no_sample = get_sample_dens();
+<a name="l00421"></a>00421                 m_sample_pointer[sample_cnt++] = z_size;
+<a name="l00422"></a>00422             }
+<a name="l00423"></a>00423             size_type x = v_buf[i-r_sum]+1;
+<a name="l00424"></a>00424             Coder::encode(x, z_data, offset);   <span class="comment">// write encoded values</span>
+<a name="l00425"></a>00425             z_size += Coder::encoding_length(x);
+<a name="l00426"></a>00426         }
+<a name="l00427"></a>00427         r_sum += r; r = v_buf.load_next_block();
+<a name="l00428"></a>00428     }
+<a name="l00429"></a>00429     m_elements = n;
+<a name="l00430"></a>00430 }
+<a name="l00431"></a>00431 
 <a name="l00432"></a>00432 
 <a name="l00433"></a>00433 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
-<a name="l00434"></a><a class="code" href="classsdsl_1_1vlc__vector.html#a670561465ef080d5aecea78e6add6c42">00434</a> <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">vlc_vector&lt;Coder,SampleDens,fixedIntWidth&gt;::const_iterator</a> <a class="code" href="classsdsl_1_1vlc__vector.html#a670561465ef080d5aecea78e6add6c42" title="Iterator that points to the first element of the vlc_vector.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;::begin</a>()<span class="keyword">const</span>{
-<a name="l00435"></a>00435         <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>(<span class="keyword">this</span>, 0);
-<a name="l00436"></a>00436 }
-<a name="l00437"></a>00437 
-<a name="l00438"></a>00438 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
-<a name="l00439"></a><a class="code" href="classsdsl_1_1vlc__vector.html#aefeed5adb7c06f675c55c34c83a78ef6">00439</a> <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">vlc_vector&lt;Coder,SampleDens,fixedIntWidth&gt;::const_iterator</a> <a class="code" href="classsdsl_1_1vlc__vector.html#aefeed5adb7c06f675c55c34c83a78ef6" title="Iterator that points to the position after the last element of the vlc_vector.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;::end</a>()<span class="keyword">const</span>{
-<a name="l00440"></a>00440         <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>(<span class="keyword">this</span>, this-&gt;m_elements);
-<a name="l00441"></a>00441 }
-<a name="l00442"></a>00442 
+<a name="l00434"></a><a class="code" href="classsdsl_1_1vlc__vector.html#a5c742efdb231bdff8310e4e6f00bddbb">00434</a> vlc_vector&lt;&gt;::size_type <a class="code" href="classsdsl_1_1vlc__vector.html#a5c742efdb231bdff8310e4e6f00bddbb" title="Serialzes the vlc_vector to a stream.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;::serialize</a>(std::ostream&amp; out)<span class="keyword"> const</span>
+<a name="l00435"></a>00435 <span class="keyword"></span>{
+<a name="l00436"></a>00436     size_type written_bytes = 0;
+<a name="l00437"></a>00437     out.write((<span class="keywordtype">char</span>*) &amp;m_elements, <span class="keyword">sizeof</span>(m_elements));
+<a name="l00438"></a>00438     written_bytes += <span class="keyword">sizeof</span>(m_elements);
+<a name="l00439"></a>00439     written_bytes += m_z.serialize(out);
+<a name="l00440"></a>00440     written_bytes += m_sample_pointer.serialize(out);
+<a name="l00441"></a>00441     <span class="keywordflow">return</span> written_bytes;
+<a name="l00442"></a>00442 }
 <a name="l00443"></a>00443 
-<a name="l00444"></a>00444 } <span class="comment">// end namespace sdsl</span>
-<a name="l00445"></a>00445 
-<a name="l00446"></a>00446 <span class="preprocessor">#endif</span>
+<a name="l00444"></a>00444 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
+<a name="l00445"></a><a class="code" href="classsdsl_1_1vlc__vector.html#a845a9a832c609425aa2281e2f6d7296f">00445</a> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1vlc__vector.html#a845a9a832c609425aa2281e2f6d7296f" title="Load the vlc_vector from a stream.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;::load</a>(std::istream&amp; in)
+<a name="l00446"></a>00446 {
+<a name="l00447"></a>00447     in.read((<span class="keywordtype">char</span>*) &amp;m_elements, <span class="keyword">sizeof</span>(m_elements));
+<a name="l00448"></a>00448     m_z.load(in);
+<a name="l00449"></a>00449     m_sample_pointer.load(in);
+<a name="l00450"></a>00450 }
+<a name="l00451"></a>00451 
+<a name="l00452"></a>00452 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
+<a name="l00453"></a><a class="code" href="classsdsl_1_1vlc__vector.html#a670561465ef080d5aecea78e6add6c42">00453</a> <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">vlc_vector&lt;Coder,SampleDens,fixedIntWidth&gt;::const_iterator</a> <a class="code" href="classsdsl_1_1vlc__vector.html#a670561465ef080d5aecea78e6add6c42" title="Iterator that points to the first element of the vlc_vector.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;::begin</a>()<span class="keyword">const</span>
+<a name="l00454"></a>00454 <span class="keyword"></span>{
+<a name="l00455"></a>00455     <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>(<span class="keyword">this</span>, 0);
+<a name="l00456"></a>00456 }
+<a name="l00457"></a>00457 
+<a name="l00458"></a>00458 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Coder, u<span class="keywordtype">int</span>32_t SampleDens, u<span class="keywordtype">int</span>8_t fixedIntW<span class="keywordtype">id</span>th&gt;
+<a name="l00459"></a><a class="code" href="classsdsl_1_1vlc__vector.html#aefeed5adb7c06f675c55c34c83a78ef6">00459</a> <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">vlc_vector&lt;Coder,SampleDens,fixedIntWidth&gt;::const_iterator</a> <a class="code" href="classsdsl_1_1vlc__vector.html#aefeed5adb7c06f675c55c34c83a78ef6" title="Iterator that points to the position after the last element of the vlc_vector.">vlc_vector&lt;Coder, SampleDens,fixedIntWidth&gt;::end</a>()<span class="keyword">const</span>
+<a name="l00460"></a>00460 <span class="keyword"></span>{
+<a name="l00461"></a>00461     <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>(<span class="keyword">this</span>, this-&gt;m_elements);
+<a name="l00462"></a>00462 }
+<a name="l00463"></a>00463 
+<a name="l00464"></a>00464 
+<a name="l00465"></a>00465 } <span class="comment">// end namespace sdsl</span>
+<a name="l00466"></a>00466 
+<a name="l00467"></a>00467 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:34 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:28 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

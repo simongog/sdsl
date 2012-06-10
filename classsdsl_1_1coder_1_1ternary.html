@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -134,16 +135,16 @@ static uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>decode_pre
 static uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>decode_prefix_sum</b> (const uint64_t *data, const size_type start_idx, const size_type end_idx, size_type n)</td></tr>
 <tr class="memitem:a9033c7e3791c7914f62f114c52e2852d"><td class="memTemplParams" colspan="2"><a class="anchor" id="a9033c7e3791c7914f62f114c52e2852d"></a>
 template&lt;class int_vector &gt; </td></tr>
-<tr class="memitem:a9033c7e3791c7914f62f114c52e2852d"><td class="memTemplItemLeft" align="right" valign="top">static bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>encode</b> (const int_vector &amp;v, int_vector &amp;z)</td></tr>
+<tr class="memitem:a9033c7e3791c7914f62f114c52e2852d"><td class="memTemplItemLeft" align="right" valign="top">static bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>encode</b> (const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a> &amp;v, <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a> &amp;z)</td></tr>
 <tr class="memitem:a81efb80ce5a15afae440ef653323b009"><td class="memTemplParams" colspan="2"><a class="anchor" id="a81efb80ce5a15afae440ef653323b009"></a>
 template&lt;class int_vector &gt; </td></tr>
-<tr class="memitem:a81efb80ce5a15afae440ef653323b009"><td class="memTemplItemLeft" align="right" valign="top">static bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>decode</b> (const int_vector &amp;z, int_vector &amp;v)</td></tr>
+<tr class="memitem:a81efb80ce5a15afae440ef653323b009"><td class="memTemplItemLeft" align="right" valign="top">static bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>decode</b> (const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a> &amp;z, <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a> &amp;v)</td></tr>
 <tr class="memitem:a6d8db6caf99fee558c754beb8476ce7f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6d8db6caf99fee558c754beb8476ce7f"></a>
 static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1coder_1_1ternary.html#a6d8db6caf99fee558c754beb8476ce7f">encode</a> (uint64_t x, uint64_t *&amp;z, uint8_t &amp;offset)</td></tr>
-<tr class="memdesc:a6d8db6caf99fee558c754beb8476ce7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encode one positive integer x to an int_vector at bit position start_idx. <br/></td></tr>
+<tr class="memdesc:a6d8db6caf99fee558c754beb8476ce7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encode one positive integer x to an <a class="el" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector</a> at bit position start_idx. <br/></td></tr>
 <tr class="memitem:a7fa22e47b9363f0110b2c307063dd34a"><td class="memTemplParams" colspan="2"><a class="anchor" id="a7fa22e47b9363f0110b2c307063dd34a"></a>
 template&lt;class int_vector &gt; </td></tr>
-<tr class="memitem:a7fa22e47b9363f0110b2c307063dd34a"><td class="memTemplItemLeft" align="right" valign="top">static uint64_t *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>raw_data</b> (int_vector &amp;v)</td></tr>
+<tr class="memitem:a7fa22e47b9363f0110b2c307063dd34a"><td class="memTemplItemLeft" align="right" valign="top">static uint64_t *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>raw_data</b> (<a class="el" href="classsdsl_1_1int__vector.html">int_vector</a> &amp;v)</td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:af4925d37f8d82bf4ebaf5f42b275cb8e"><td class="memItemLeft" align="right" valign="top">static const uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1coder_1_1ternary.html#af4925d37f8d82bf4ebaf5f42b275cb8e">Trny2bin_0_16</a> [1&lt;&lt; 16]</td></tr>
@@ -168,7 +169,7 @@ static const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>min_c
 <div class="memdoc">
 
 <p>Array contains precomputed values for the decoding of a number in the ternary code. </p>
-<p>The 3 most significant bits (call it hi) contain information about how far to shift to get to the next next encoded integer. If the value of the 13 least significant bits is greater than 2187 or <img class="formulaInl" alt="$ 2^{12}=4096 $" src="form_217.png"/> there is no complete complete decoding of an integer. So shift by 16 bits and decode the next word... otherwise shift by 2*(hi+1) to decode the next integer. </p>
+<p>The 3 most significant bits (call it hi) contain information about how far to shift to get to the next next encoded integer. If the value of the 13 least significant bits is greater than 2187 or <img class="formulaInl" alt="$ 2^{12}=4096 $" src="form_232.png"/> there is no complete complete decoding of an integer. So shift by 16 bits and decode the next word... otherwise shift by 2*(hi+1) to decode the next integer. </p>
 
 </div>
 </div>
@@ -179,7 +180,7 @@ static const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>min_c
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:36 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:33 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

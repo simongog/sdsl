@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -126,25 +127,25 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ae529c0ec536d1181e0395abfc3244fd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the elapsed system time in milliseconds between start and stop.  <a href="#ae529c0ec536d1181e0395abfc3244fd8"></a><br/></td></tr>
 <tr class="memitem:a2c82cb73358d0d77184db044858a03c1"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1stop__watch.html#a2c82cb73358d0d77184db044858a03c1">get_real_time</a> ()</td></tr>
 <tr class="memdesc:a2c82cb73358d0d77184db044858a03c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the elapsed real time in milliseconds between start and stop.  <a href="#a2c82cb73358d0d77184db044858a03c1"></a><br/></td></tr>
-<tr class="memitem:a349daa60f608b47111c766340e122b39"><td class="memItemLeft" align="right" valign="top">long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1stop__watch.html#a349daa60f608b47111c766340e122b39">get_abs_user_time</a> ()</td></tr>
-<tr class="memdesc:a349daa60f608b47111c766340e122b39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the elapsed user time in milliseconds since the first constuction of a <a class="el" href="classsdsl_1_1stop__watch.html" title="A helper class to meassure the time consumption of program pieces.">stop_watch</a> in the current process.  <a href="#a349daa60f608b47111c766340e122b39"></a><br/></td></tr>
-<tr class="memitem:aaa1d5c92c5f3ec05ca2c0994f64c9832"><td class="memItemLeft" align="right" valign="top">long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1stop__watch.html#aaa1d5c92c5f3ec05ca2c0994f64c9832">get_abs_sys_time</a> ()</td></tr>
-<tr class="memdesc:aaa1d5c92c5f3ec05ca2c0994f64c9832"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the elapsed system time in milliseconds since the first constuction of a <a class="el" href="classsdsl_1_1stop__watch.html" title="A helper class to meassure the time consumption of program pieces.">stop_watch</a> in the current process.  <a href="#aaa1d5c92c5f3ec05ca2c0994f64c9832"></a><br/></td></tr>
-<tr class="memitem:a480b6847f5a781c1c80f2eea0ea41cac"><td class="memItemLeft" align="right" valign="top">long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1stop__watch.html#a480b6847f5a781c1c80f2eea0ea41cac">get_abs_real_time</a> ()</td></tr>
-<tr class="memdesc:a480b6847f5a781c1c80f2eea0ea41cac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the elapsed real time in milliseconds since the first constuction of a <a class="el" href="classsdsl_1_1stop__watch.html" title="A helper class to meassure the time consumption of program pieces.">stop_watch</a> in the current process.  <a href="#a480b6847f5a781c1c80f2eea0ea41cac"></a><br/></td></tr>
-<tr class="memitem:aeffa7044dd66fc8d5b260993f1c98d58"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeffa7044dd66fc8d5b260993f1c98d58"></a>
-long long&#160;</td><td class="memItemRight" valign="bottom"><b>get_abs_page_faults</b> ()</td></tr>
+<tr class="memitem:aed50524578b6a931c93f33d6be8047e1"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1stop__watch.html#aed50524578b6a931c93f33d6be8047e1">get_abs_user_time</a> ()</td></tr>
+<tr class="memdesc:aed50524578b6a931c93f33d6be8047e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the elapsed user time in milliseconds since the first construction of a <a class="el" href="classsdsl_1_1stop__watch.html" title="A helper class to meassure the time consumption of program pieces.">stop_watch</a> in the current process.  <a href="#aed50524578b6a931c93f33d6be8047e1"></a><br/></td></tr>
+<tr class="memitem:ae2ac98e86dccef014f4fce716ddabacd"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1stop__watch.html#ae2ac98e86dccef014f4fce716ddabacd">get_abs_sys_time</a> ()</td></tr>
+<tr class="memdesc:ae2ac98e86dccef014f4fce716ddabacd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the elapsed system time in milliseconds since the first construction of a <a class="el" href="classsdsl_1_1stop__watch.html" title="A helper class to meassure the time consumption of program pieces.">stop_watch</a> in the current process.  <a href="#ae2ac98e86dccef014f4fce716ddabacd"></a><br/></td></tr>
+<tr class="memitem:abe041c1c5323c7b43cb163576b329131"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1stop__watch.html#abe041c1c5323c7b43cb163576b329131">get_abs_real_time</a> ()</td></tr>
+<tr class="memdesc:abe041c1c5323c7b43cb163576b329131"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the elapsed real time in milliseconds since the first construction of a <a class="el" href="classsdsl_1_1stop__watch.html" title="A helper class to meassure the time consumption of program pieces.">stop_watch</a> in the current process.  <a href="#abe041c1c5323c7b43cb163576b329131"></a><br/></td></tr>
+<tr class="memitem:a1b88474155fd5d27c36ec2a941ad5519"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1b88474155fd5d27c36ec2a941ad5519"></a>
+uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>get_abs_page_faults</b> ()</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>A helper class to meassure the time consumption of program pieces. </p>
 <p><a class="el" href="classsdsl_1_1stop__watch.html" title="A helper class to meassure the time consumption of program pieces.">stop_watch</a> is a stopwatch based on the commands getrusage and gettimeofday. Where getrusage is used to determine the user and system time and gettimeofday to determine the elapsed real time. </p>
 </div><hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a480b6847f5a781c1c80f2eea0ea41cac"></a>
+<a class="anchor" id="abe041c1c5323c7b43cb163576b329131"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">long long <a class="el" href="classsdsl_1_1stop__watch.html#a480b6847f5a781c1c80f2eea0ea41cac">sdsl::stop_watch::get_abs_real_time</a> </td>
+          <td class="memname">uint64_t <a class="el" href="classsdsl_1_1stop__watch.html#abe041c1c5323c7b43cb163576b329131">sdsl::stop_watch::get_abs_real_time</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -153,17 +154,17 @@ long long&#160;</td><td class="memItemRight" valign="bottom"><b>get_abs_page_fau
 </div>
 <div class="memdoc">
 
-<p>Get the elapsed real time in milliseconds since the first constuction of a <a class="el" href="classsdsl_1_1stop__watch.html" title="A helper class to meassure the time consumption of program pieces.">stop_watch</a> in the current process. </p>
+<p>Get the elapsed real time in milliseconds since the first construction of a <a class="el" href="classsdsl_1_1stop__watch.html" title="A helper class to meassure the time consumption of program pieces.">stop_watch</a> in the current process. </p>
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="classsdsl_1_1stop__watch.html#a2c82cb73358d0d77184db044858a03c1" title="Get the elapsed real time in milliseconds between start and stop.">get_real_time</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="aaa1d5c92c5f3ec05ca2c0994f64c9832"></a>
+<a class="anchor" id="ae2ac98e86dccef014f4fce716ddabacd"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">long long <a class="el" href="classsdsl_1_1stop__watch.html#aaa1d5c92c5f3ec05ca2c0994f64c9832">sdsl::stop_watch::get_abs_sys_time</a> </td>
+          <td class="memname">uint64_t <a class="el" href="classsdsl_1_1stop__watch.html#ae2ac98e86dccef014f4fce716ddabacd">sdsl::stop_watch::get_abs_sys_time</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -172,17 +173,17 @@ long long&#160;</td><td class="memItemRight" valign="bottom"><b>get_abs_page_fau
 </div>
 <div class="memdoc">
 
-<p>Get the elapsed system time in milliseconds since the first constuction of a <a class="el" href="classsdsl_1_1stop__watch.html" title="A helper class to meassure the time consumption of program pieces.">stop_watch</a> in the current process. </p>
+<p>Get the elapsed system time in milliseconds since the first construction of a <a class="el" href="classsdsl_1_1stop__watch.html" title="A helper class to meassure the time consumption of program pieces.">stop_watch</a> in the current process. </p>
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="classsdsl_1_1stop__watch.html#ae529c0ec536d1181e0395abfc3244fd8" title="Get the elapsed system time in milliseconds between start and stop.">get_sys_time</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a349daa60f608b47111c766340e122b39"></a>
+<a class="anchor" id="aed50524578b6a931c93f33d6be8047e1"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">long long <a class="el" href="classsdsl_1_1stop__watch.html#a349daa60f608b47111c766340e122b39">sdsl::stop_watch::get_abs_user_time</a> </td>
+          <td class="memname">uint64_t <a class="el" href="classsdsl_1_1stop__watch.html#aed50524578b6a931c93f33d6be8047e1">sdsl::stop_watch::get_abs_user_time</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -191,7 +192,7 @@ long long&#160;</td><td class="memItemRight" valign="bottom"><b>get_abs_page_fau
 </div>
 <div class="memdoc">
 
-<p>Get the elapsed user time in milliseconds since the first constuction of a <a class="el" href="classsdsl_1_1stop__watch.html" title="A helper class to meassure the time consumption of program pieces.">stop_watch</a> in the current process. </p>
+<p>Get the elapsed user time in milliseconds since the first construction of a <a class="el" href="classsdsl_1_1stop__watch.html" title="A helper class to meassure the time consumption of program pieces.">stop_watch</a> in the current process. </p>
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="classsdsl_1_1stop__watch.html#a63fbcca697bd885a124935f1ac21e095" title="Get the elapsed user time in milliseconds between start and stop.">get_user_time</a> </dd></dl>
 
 </div>
@@ -298,7 +299,7 @@ long long&#160;</td><td class="memItemRight" valign="bottom"><b>get_abs_page_fau
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:36 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:32 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

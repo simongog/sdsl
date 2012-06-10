@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -82,7 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -97,7 +98,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="csa__uncompressed_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/* sdsl - succinct data structures library</span>
-<a name="l00002"></a>00002 <span class="comment">    Copyright (C) 2009 Simon Gog </span>
+<a name="l00002"></a>00002 <span class="comment">    Copyright (C) 2009 Simon Gog</span>
 <a name="l00003"></a>00003 <span class="comment"></span>
 <a name="l00004"></a>00004 <span class="comment">    This program is free software: you can redistribute it and/or modify</span>
 <a name="l00005"></a>00005 <span class="comment">    it under the terms of the GNU General Public License as published by</span>
@@ -117,7 +118,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00023"></a>00023 <span class="preprocessor"></span>
 <a name="l00024"></a>00024 <span class="preprocessor">#include &quot;sdsl_concepts.hpp&quot;</span>
 <a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="suffixarray__helper_8hpp.html" title="suffixarray_helper.hpp contains some helper classes for (compressed suffix arrays)">suffixarray_helper.hpp</a>&quot;</span>
-<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;int_vector.hpp&quot;</span> 
+<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;int_vector.hpp&quot;</span>
 <a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="algorithms_8hpp.html" title="algorithms.hpp contains algorithms for suffixarrays.">algorithms.hpp</a>&quot;</span>
 <a name="l00028"></a>00028 <span class="preprocessor">#include &quot;<a class="code" href="iterators_8hpp.html" title="iterators.hpp contains an generic iterator for random access containers.">iterators.hpp</a>&quot;</span>
 <a name="l00029"></a>00029 <span class="preprocessor">#include &quot;<a class="code" href="util_8hpp.html" title="util.hpp contains some helper methods for int_vector and other stuff like demangle class names...">util.hpp</a>&quot;</span>
@@ -130,183 +131,199 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00036"></a>00036 <span class="preprocessor">#include &lt;iterator&gt;</span>
 <a name="l00037"></a>00037 
 <a name="l00038"></a>00038 
-<a name="l00039"></a>00039 <span class="keyword">namespace </span>sdsl{
-<a name="l00040"></a>00040 
-<a name="l00042"></a>00042 
-<a name="l00054"></a><a class="code" href="classsdsl_1_1csa__uncompressed.html">00054</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1csa__uncompressed.html" title="A class for the uncmpressed suffix array (SA).">csa_uncompressed</a>{
-<a name="l00055"></a>00055         <span class="keyword">public</span>:
-<a name="l00056"></a>00056         <span class="keyword">typedef</span> uint64_t                                                                                         value_type;    <span class="comment">// STL Container requirement</span>
-<a name="l00057"></a>00057         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">random_access_const_iterator&lt;csa_uncompressed&gt;</a>           <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>;<span class="comment">// STL Container requirement</span>
-<a name="l00058"></a>00058         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>                                                                           <a class="code" href="classsdsl_1_1random__access__const__iterator.html">iterator</a>;              <span class="comment">// STL Container requirement</span>
-<a name="l00059"></a>00059         <span class="keyword">typedef</span> <span class="keyword">const</span> value_type                                                                         const_reference;
-<a name="l00060"></a>00060         <span class="keyword">typedef</span> const_reference                                                                          reference;
-<a name="l00061"></a>00061         <span class="keyword">typedef</span> const_reference*                                                                         pointer;
-<a name="l00062"></a>00062         <span class="keyword">typedef</span> <span class="keyword">const</span> pointer                                                                            const_pointer;
-<a name="l00063"></a>00063         <span class="keyword">typedef</span> int_vector&lt;&gt;::size_type                                                          size_type;             <span class="comment">// STL Container requirement</span>
-<a name="l00064"></a>00064         <span class="keyword">typedef</span> size_type                                                                                        csa_size_type;         
-<a name="l00065"></a>00065         <span class="keyword">typedef</span> ptrdiff_t                                                                                        difference_type; <span class="comment">// STL Container requirement</span>
-<a name="l00066"></a>00066         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1psi__of__sa__and__isa.html">psi_of_sa_and_isa&lt;csa_uncompressed&gt;</a>                                      <a class="code" href="classsdsl_1_1psi__of__sa__and__isa.html">psi_type</a>;
-<a name="l00067"></a>00067         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1bwt__of__csa__psi.html">bwt_of_csa_psi&lt;csa_uncompressed&gt;</a>                                         <a class="code" href="classsdsl_1_1bwt__of__csa__psi.html">bwt_type</a>;
-<a name="l00068"></a>00068         <span class="keyword">typedef</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*                                                             pattern_type;
-<a name="l00069"></a>00069         <span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>                                                                            char_type;
-<a name="l00070"></a>00070         <span class="keyword">typedef</span> int_vector&lt;&gt;                                                                             sa_sample_type;
-<a name="l00071"></a>00071         <span class="keyword">typedef</span> int_vector&lt;&gt;                                                                             isa_sample_type;
-<a name="l00072"></a>00072 
-<a name="l00073"></a>00073         <span class="keyword">typedef</span> <a class="code" href="structsdsl_1_1csa__tag.html">csa_tag</a>                                                                                         <a class="code" href="structsdsl_1_1csa__tag.html">index_category</a>;
+<a name="l00039"></a>00039 <span class="keyword">namespace </span>sdsl
+<a name="l00040"></a>00040 {
+<a name="l00041"></a>00041 
+<a name="l00043"></a>00043 
+<a name="l00055"></a><a class="code" href="classsdsl_1_1csa__uncompressed.html">00055</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1csa__uncompressed.html" title="A class for the uncmpressed suffix array (SA).">csa_uncompressed</a>
+<a name="l00056"></a>00056 {
+<a name="l00057"></a>00057     <span class="keyword">public</span>:
+<a name="l00058"></a>00058         <span class="keyword">typedef</span> uint64_t                                                                                         value_type;    <span class="comment">// STL Container requirement</span>
+<a name="l00059"></a>00059         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">random_access_const_iterator&lt;csa_uncompressed&gt;</a>           <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>;<span class="comment">// STL Container requirement</span>
+<a name="l00060"></a>00060         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>                                                                           <a class="code" href="classsdsl_1_1random__access__const__iterator.html">iterator</a>;              <span class="comment">// STL Container requirement</span>
+<a name="l00061"></a>00061         <span class="keyword">typedef</span> <span class="keyword">const</span> value_type                                                                         const_reference;
+<a name="l00062"></a>00062         <span class="keyword">typedef</span> const_reference                                                                          reference;
+<a name="l00063"></a>00063         <span class="keyword">typedef</span> const_reference*                                                                         pointer;
+<a name="l00064"></a>00064         <span class="keyword">typedef</span> <span class="keyword">const</span> pointer                                                                            const_pointer;
+<a name="l00065"></a>00065         <span class="keyword">typedef</span> int_vector&lt;&gt;::size_type                                                          size_type;             <span class="comment">// STL Container requirement</span>
+<a name="l00066"></a>00066         <span class="keyword">typedef</span> size_type                                                                                        csa_size_type;
+<a name="l00067"></a>00067         <span class="keyword">typedef</span> ptrdiff_t                                                                                        difference_type; <span class="comment">// STL Container requirement</span>
+<a name="l00068"></a>00068         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1psi__of__sa__and__isa.html">psi_of_sa_and_isa&lt;csa_uncompressed&gt;</a>                                      <a class="code" href="classsdsl_1_1psi__of__sa__and__isa.html">psi_type</a>;
+<a name="l00069"></a>00069         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1bwt__of__csa__psi.html">bwt_of_csa_psi&lt;csa_uncompressed&gt;</a>                                         <a class="code" href="classsdsl_1_1bwt__of__csa__psi.html">bwt_type</a>;
+<a name="l00070"></a>00070         <span class="keyword">typedef</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*                                                             pattern_type;
+<a name="l00071"></a>00071         <span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>                                                                            char_type;
+<a name="l00072"></a>00072         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector&lt;&gt;</a>                                                                             <a class="code" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">sa_sample_type</a>;
+<a name="l00073"></a>00073         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector&lt;&gt;</a>                                                                             <a class="code" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">isa_sample_type</a>;
 <a name="l00074"></a>00074 
-<a name="l00075"></a>00075         <span class="keyword">enum</span> { sa_sample_dens = 1,
-<a name="l00076"></a>00076                    isa_sample_dens = 1  };
-<a name="l00077"></a>00077 
-<a name="l00078"></a>00078         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classsdsl_1_1psi__of__sa__and__isa.html" title="A helper class for the  function for (compressed) suffix arrays which provide also the inverse suffix...">psi_of_sa_and_isa</a>&lt;csa_uncompressed&gt;;
-<a name="l00079"></a>00079         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classsdsl_1_1bwt__of__csa__psi.html" title="A wrapper for the bwt of a compressed suffix array that is based on the  function.">bwt_of_csa_psi</a>&lt;csa_uncompressed&gt;;
-<a name="l00080"></a>00080         <span class="keyword">private</span>:
-<a name="l00081"></a>00081                 sa_sample_type  m_sa;  <span class="comment">// vector for suffix array values</span>
-<a name="l00082"></a>00082                 isa_sample_type m_isa; <span class="comment">// vector for inverse suffix array values</span>
-<a name="l00083"></a>00083                 <a class="code" href="classsdsl_1_1psi__of__sa__and__isa.html">psi_type</a>                m_psi; <span class="comment">// wrapper class for psi function values</span>
-<a name="l00084"></a>00084                 <a class="code" href="classsdsl_1_1bwt__of__csa__psi.html">bwt_type</a> m_bwt;
-<a name="l00085"></a>00085                 <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>   m_char2comp[256];
-<a name="l00086"></a>00086                 <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>   m_comp2char[256];
-<a name="l00087"></a>00087                 size_type       m_C[257];
-<a name="l00088"></a>00088                 uint8_t                 m_sigma;
-<a name="l00089"></a>00089 
-<a name="l00090"></a>00090                 <span class="keywordtype">void</span> construct();
-<a name="l00091"></a>00091                 <span class="keywordtype">void</span> copy(<span class="keyword">const</span> csa_uncompressed &amp;csa);
-<a name="l00092"></a>00092         <span class="keyword">public</span>:
-<a name="l00093"></a>00093                 <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *char2comp;
-<a name="l00094"></a>00094                 <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *comp2char;
-<a name="l00095"></a>00095                 <span class="keyword">const</span> size_type *C;
-<a name="l00096"></a>00096                 <span class="keyword">const</span> uint8_t &amp;sigma;
-<a name="l00097"></a>00097                 <span class="keyword">const</span> <a class="code" href="classsdsl_1_1psi__of__sa__and__isa.html">psi_type</a> &amp;psi;
-<a name="l00098"></a>00098                 <span class="keyword">const</span> <a class="code" href="classsdsl_1_1bwt__of__csa__psi.html">bwt_type</a> &amp;bwt;
-<a name="l00099"></a>00099                 <span class="keyword">const</span> sa_sample_type &amp;sa_sample;
-<a name="l00100"></a>00100                 <span class="keyword">const</span> isa_sample_type &amp;isa_sample;
-<a name="l00101"></a>00101 
-<a name="l00103"></a><a class="code" href="classsdsl_1_1csa__uncompressed.html#ac8fec8fa91001ff03facd33155456db2">00103</a>                 <a class="code" href="classsdsl_1_1csa__uncompressed.html#ac8fec8fa91001ff03facd33155456db2" title="Default Constructor.">csa_uncompressed</a>():char2comp(m_char2comp), comp2char(m_comp2char), C(m_C), sigma(m_sigma) ,psi(m_psi), bwt(m_bwt), sa_sample(m_sa), isa_sample(m_isa){}
-<a name="l00105"></a><a class="code" href="classsdsl_1_1csa__uncompressed.html#a4452dfb82c55fa0f5cde8fce1da092d0">00105</a>                 <a class="code" href="classsdsl_1_1csa__uncompressed.html#a4452dfb82c55fa0f5cde8fce1da092d0" title="Default Destructor.">~csa_uncompressed</a>(){}
-<a name="l00107"></a><a class="code" href="classsdsl_1_1csa__uncompressed.html#a40b09c5d84e52d2b3f5af0a26413a515">00107</a>                 <a class="code" href="classsdsl_1_1csa__uncompressed.html#ac8fec8fa91001ff03facd33155456db2" title="Default Constructor.">csa_uncompressed</a>(<span class="keyword">const</span> csa_uncompressed &amp;csa):char2comp(m_char2comp), comp2char(m_comp2char), C(m_C), sigma(m_sigma), psi(m_psi), bwt(m_bwt), sa_sample(m_sa), isa_sample(m_isa)
-<a name="l00108"></a>00108                 { 
-<a name="l00109"></a>00109                         copy(csa);
-<a name="l00110"></a>00110                 }
-<a name="l00111"></a>00111 
-<a name="l00113"></a>00113                 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> RandomAccessContainer&gt;
-<a name="l00114"></a>00114                 <a class="code" href="classsdsl_1_1csa__uncompressed.html#ac8fec8fa91001ff03facd33155456db2" title="Default Constructor.">csa_uncompressed</a>(<span class="keyword">const</span> RandomAccessContainer &amp;sa, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *str);
-<a name="l00115"></a>00115 
-<a name="l00116"></a>00116 
-<a name="l00118"></a>00118                 <a class="code" href="classsdsl_1_1csa__uncompressed.html#ac8fec8fa91001ff03facd33155456db2" title="Default Constructor.">csa_uncompressed</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *str);
-<a name="l00119"></a>00119 
-<a name="l00121"></a>00121                 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>_1&gt;
-<a name="l00122"></a><a class="code" href="classsdsl_1_1csa__uncompressed.html#a02ac83f7fbd338f6ea87f38e177b03f7">00122</a>                 <a class="code" href="classsdsl_1_1csa__uncompressed.html#ac8fec8fa91001ff03facd33155456db2" title="Default Constructor.">csa_uncompressed</a>(int_vector_file_buffer&lt;8, size_type_class&gt; &amp;text_buf, 
-<a name="l00123"></a>00123                                          int_vector_file_buffer&lt;int_width, size_type_class_1&gt; &amp;sa_buf):char2comp(m_char2comp), 
-<a name="l00124"></a>00124                                                                         comp2char(m_comp2char), C(m_C), sigma(m_sigma) ,psi(m_psi), bwt(m_bwt), sa_sample(m_sa), isa_sample(m_isa)
-<a name="l00125"></a>00125                 {
-<a name="l00126"></a>00126                         text_buf.reset(); sa_buf.reset();
-<a name="l00127"></a>00127                         size_type n = text_buf.int_vector_size;
-<a name="l00128"></a>00128                         algorithm::set_text&lt;csa_uncompressed&gt;(text_buf, n, m_C, m_char2comp, m_comp2char, m_sigma);
-<a name="l00129"></a>00129                         algorithm::set_sa_and_isa_samples&lt;csa_uncompressed&gt;(sa_buf, m_sa, m_isa);
-<a name="l00130"></a>00130                         m_psi = <a class="code" href="classsdsl_1_1psi__of__sa__and__isa.html">psi_type</a>(<span class="keyword">this</span>);
-<a name="l00131"></a>00131                         m_bwt = <a class="code" href="classsdsl_1_1bwt__of__csa__psi.html">bwt_type</a>(<span class="keyword">this</span>);
-<a name="l00132"></a>00132                 }
-<a name="l00133"></a>00133 
-<a name="l00134"></a>00134                 <a class="code" href="classsdsl_1_1csa__uncompressed.html#ac8fec8fa91001ff03facd33155456db2" title="Default Constructor.">csa_uncompressed</a>(tMSS &amp;file_map, <span class="keyword">const</span> std::string &amp;dir, <span class="keyword">const</span> std::string &amp;<span class="keywordtype">id</span>):char2comp(m_char2comp), 
-<a name="l00135"></a>00135                                                                         comp2char(m_comp2char), C(m_C), sigma(m_sigma), psi(m_psi), bwt(m_bwt), sa_sample(m_sa), isa_sample(m_isa)
-<a name="l00136"></a>00136                 {
-<a name="l00137"></a>00137                         construct(file_map, dir, <span class="keywordtype">id</span>);
-<a name="l00138"></a>00138                 }
-<a name="l00139"></a>00139 
-<a name="l00140"></a>00140 
-<a name="l00141"></a>00141                 <span class="keywordtype">void</span> construct(tMSS &amp;file_map, <span class="keyword">const</span> std::string &amp;dir, <span class="keyword">const</span> std::string &amp;<span class="keywordtype">id</span>)
-<a name="l00142"></a>00142                 {
-<a name="l00143"></a>00143                         int_vector_file_buffer&lt;8&gt; text_buf(file_map[<span class="stringliteral">&quot;text&quot;</span>].c_str());
-<a name="l00144"></a>00144                         int_vector_file_buffer&lt;&gt;  sa_buf(file_map[<span class="stringliteral">&quot;sa&quot;</span>].c_str());
-<a name="l00145"></a>00145                         size_type n = text_buf.int_vector_size;
-<a name="l00146"></a>00146                         algorithm::set_text&lt;csa_uncompressed&gt;(text_buf, n, m_C, m_char2comp, m_comp2char, m_sigma);
-<a name="l00147"></a>00147                         algorithm::set_sa_and_isa_samples&lt;csa_uncompressed&gt;(sa_buf, m_sa, m_isa);
-<a name="l00148"></a>00148                         m_psi = psi_type(<span class="keyword">this</span>);
-<a name="l00149"></a>00149                         m_bwt = bwt_type(<span class="keyword">this</span>);
-<a name="l00150"></a>00150                         <a class="code" href="namespacesdsl.html#a478f5f7db45f61644d75e6c664bd961e" title="Write stopwatch output in readable format.">write_R_output</a>(<span class="stringliteral">&quot;csa&quot;</span>, <span class="stringliteral">&quot;store ISA&quot;</span>,<span class="stringliteral">&quot;begin&quot;</span>,1,0);
-<a name="l00151"></a>00151                         <span class="keywordflow">if</span>( !<a class="code" href="namespacesdsl_1_1util.html#a7b338a462d03048f4a71b3e83b02be7f" title="Store a data structure to a file.">util::store_to_file</a>(m_isa, (dir+<span class="stringliteral">&quot;isa_&quot;</span>+<span class="keywordtype">id</span>).c_str(), <span class="keyword">true</span> ) ){
-<a name="l00152"></a>00152                                 <span class="keywordflow">throw</span> std::ios_base::failure( <span class="stringliteral">&quot;#csa_uncompressed: Cannot store ISA to file system!&quot;</span> );
-<a name="l00153"></a>00153                         }<span class="keywordflow">else</span>{
-<a name="l00154"></a>00154                                 file_map[<span class="stringliteral">&quot;isa&quot;</span>] = dir+<span class="stringliteral">&quot;isa_&quot;</span>+id;
-<a name="l00155"></a>00155                         }
-<a name="l00156"></a>00156                         <a class="code" href="namespacesdsl.html#a478f5f7db45f61644d75e6c664bd961e" title="Write stopwatch output in readable format.">write_R_output</a>(<span class="stringliteral">&quot;csa&quot;</span>, <span class="stringliteral">&quot;store ISA&quot;</span>,<span class="stringliteral">&quot;end&quot;</span>,1,0);
-<a name="l00157"></a>00157                 }
-<a name="l00158"></a>00158 
-<a name="l00159"></a>00159 
+<a name="l00075"></a>00075         <span class="keyword">typedef</span> <a class="code" href="structsdsl_1_1csa__tag.html">csa_tag</a>                                                                                         <a class="code" href="structsdsl_1_1csa__tag.html">index_category</a>;
+<a name="l00076"></a>00076 
+<a name="l00077"></a>00077         <span class="keyword">enum</span> { sa_sample_dens = 1,
+<a name="l00078"></a>00078                isa_sample_dens = 1
+<a name="l00079"></a>00079              };
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classsdsl_1_1psi__of__sa__and__isa.html" title="A helper class for the  function for (compressed) suffix arrays which provide also the inverse suffix...">psi_of_sa_and_isa</a>&lt;csa_uncompressed&gt;;
+<a name="l00082"></a>00082         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classsdsl_1_1bwt__of__csa__psi.html" title="A wrapper for the bwt of a compressed suffix array that is based on the  function.">bwt_of_csa_psi</a>&lt;csa_uncompressed&gt;;
+<a name="l00083"></a>00083     <span class="keyword">private</span>:
+<a name="l00084"></a>00084         <a class="code" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">sa_sample_type</a>  m_sa;  <span class="comment">// vector for suffix array values</span>
+<a name="l00085"></a>00085         <a class="code" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">isa_sample_type</a> m_isa; <span class="comment">// vector for inverse suffix array values</span>
+<a name="l00086"></a>00086         <a class="code" href="classsdsl_1_1psi__of__sa__and__isa.html">psi_type</a>                m_psi; <span class="comment">// wrapper class for psi function values</span>
+<a name="l00087"></a>00087         <a class="code" href="classsdsl_1_1bwt__of__csa__psi.html">bwt_type</a>                m_bwt; <span class="comment">// wrapper class for the BWT</span>
+<a name="l00088"></a>00088         <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;8&gt;</a>   m_char2comp;
+<a name="l00089"></a>00089         <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;8&gt;</a>   m_comp2char;
+<a name="l00090"></a>00090         <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;64&gt;</a>  m_C;
+<a name="l00091"></a>00091         uint16_t                m_sigma;
+<a name="l00092"></a>00092 
+<a name="l00093"></a>00093         <span class="keywordtype">void</span> construct();
+<a name="l00094"></a>00094         <span class="keywordtype">void</span> copy(<span class="keyword">const</span> csa_uncompressed&amp; csa);
+<a name="l00095"></a>00095     <span class="keyword">public</span>:
+<a name="l00096"></a>00096         <span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;8&gt;</a>&amp; char2comp;
+<a name="l00097"></a>00097         <span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;8&gt;</a>&amp; comp2char;
+<a name="l00098"></a>00098         <span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;64&gt;</a>&amp; C;
+<a name="l00099"></a>00099         <span class="keyword">const</span> uint16_t&amp; sigma;
+<a name="l00100"></a>00100         <span class="keyword">const</span> <a class="code" href="classsdsl_1_1psi__of__sa__and__isa.html">psi_type</a>&amp; psi;
+<a name="l00101"></a>00101         <span class="keyword">const</span> <a class="code" href="classsdsl_1_1bwt__of__csa__psi.html">bwt_type</a>&amp; bwt;
+<a name="l00102"></a>00102         <span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">sa_sample_type</a>&amp; sa_sample;
+<a name="l00103"></a>00103         <span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">isa_sample_type</a>&amp; isa_sample;
+<a name="l00104"></a>00104 
+<a name="l00106"></a><a class="code" href="classsdsl_1_1csa__uncompressed.html#ac8fec8fa91001ff03facd33155456db2">00106</a>         <a class="code" href="classsdsl_1_1csa__uncompressed.html#ac8fec8fa91001ff03facd33155456db2" title="Default Constructor.">csa_uncompressed</a>():char2comp(m_char2comp), comp2char(m_comp2char), C(m_C), sigma(m_sigma) ,psi(m_psi), bwt(m_bwt), sa_sample(m_sa), isa_sample(m_isa) {
+<a name="l00107"></a>00107             <a class="code" href="namespacesdsl_1_1util.html#aa945b4d1593f6bf0f5f2a913610e5bf5" title="Assigns the value x of type T to the value of y of type U.">util::assign</a>(m_C, <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;64&gt;</a>(257));
+<a name="l00108"></a>00108             <a class="code" href="namespacesdsl_1_1util.html#aa945b4d1593f6bf0f5f2a913610e5bf5" title="Assigns the value x of type T to the value of y of type U.">util::assign</a>(m_char2comp, <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;8&gt;</a>(256));
+<a name="l00109"></a>00109             <a class="code" href="namespacesdsl_1_1util.html#aa945b4d1593f6bf0f5f2a913610e5bf5" title="Assigns the value x of type T to the value of y of type U.">util::assign</a>(m_comp2char, <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;8&gt;</a>(256));
+<a name="l00110"></a>00110         }
+<a name="l00112"></a><a class="code" href="classsdsl_1_1csa__uncompressed.html#a4452dfb82c55fa0f5cde8fce1da092d0">00112</a>         <a class="code" href="classsdsl_1_1csa__uncompressed.html#a4452dfb82c55fa0f5cde8fce1da092d0" title="Default Destructor.">~csa_uncompressed</a>() {}
+<a name="l00114"></a><a class="code" href="classsdsl_1_1csa__uncompressed.html#a40b09c5d84e52d2b3f5af0a26413a515">00114</a>         <a class="code" href="classsdsl_1_1csa__uncompressed.html#a40b09c5d84e52d2b3f5af0a26413a515" title="Copy constructor.">csa_uncompressed</a>(<span class="keyword">const</span> csa_uncompressed&amp; csa):char2comp(m_char2comp), comp2char(m_comp2char), C(m_C), sigma(m_sigma), psi(m_psi), bwt(m_bwt), sa_sample(m_sa), isa_sample(m_isa) {
+<a name="l00115"></a>00115             copy(csa);
+<a name="l00116"></a>00116         }
+<a name="l00117"></a>00117 
+<a name="l00119"></a>00119         <span class="keyword">template</span>&lt;<span class="keyword">typename</span> RandomAccessContainer&gt;
+<a name="l00120"></a>00120         <a class="code" href="classsdsl_1_1csa__uncompressed.html#ac8fec8fa91001ff03facd33155456db2" title="Default Constructor.">csa_uncompressed</a>(<span class="keyword">const</span> RandomAccessContainer&amp; sa, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* str);
+<a name="l00121"></a>00121 
+<a name="l00122"></a>00122 
+<a name="l00124"></a>00124         <a class="code" href="classsdsl_1_1csa__uncompressed.html#ac8fec8fa91001ff03facd33155456db2" title="Default Constructor.">csa_uncompressed</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* str);
+<a name="l00125"></a>00125 
+<a name="l00127"></a>00127         <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>_1&gt;
+<a name="l00128"></a><a class="code" href="classsdsl_1_1csa__uncompressed.html#a02ac83f7fbd338f6ea87f38e177b03f7">00128</a>         <a class="code" href="classsdsl_1_1csa__uncompressed.html#ac8fec8fa91001ff03facd33155456db2" title="Default Constructor.">csa_uncompressed</a>(<a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;8, size_type_class&gt;</a>&amp; text_buf,
+<a name="l00129"></a>00129                          <a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;int_width, size_type_class_1&gt;</a>&amp; sa_buf):char2comp(m_char2comp),
+<a name="l00130"></a>00130             comp2char(m_comp2char), C(m_C), sigma(m_sigma) ,psi(m_psi), bwt(m_bwt), sa_sample(m_sa), isa_sample(m_isa) {
+<a name="l00131"></a>00131             text_buf.reset(); sa_buf.reset();
+<a name="l00132"></a>00132             size_type n = text_buf.int_vector_size;
+<a name="l00133"></a>00133             algorithm::set_text&lt;csa_uncompressed&gt;(text_buf, n, m_C, m_char2comp, m_comp2char, m_sigma);
+<a name="l00134"></a>00134             algorithm::set_sa_and_isa_samples&lt;csa_uncompressed&gt;(sa_buf, m_sa, m_isa);
+<a name="l00135"></a>00135             m_psi = <a class="code" href="classsdsl_1_1psi__of__sa__and__isa.html">psi_type</a>(<span class="keyword">this</span>);
+<a name="l00136"></a>00136             m_bwt = <a class="code" href="classsdsl_1_1bwt__of__csa__psi.html">bwt_type</a>(<span class="keyword">this</span>);
+<a name="l00137"></a>00137         }
+<a name="l00138"></a>00138 
+<a name="l00139"></a>00139         <a class="code" href="classsdsl_1_1csa__uncompressed.html#ac8fec8fa91001ff03facd33155456db2" title="Default Constructor.">csa_uncompressed</a>(tMSS&amp; file_map, <span class="keyword">const</span> std::string&amp; dir, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>):char2comp(m_char2comp),
+<a name="l00140"></a>00140             comp2char(m_comp2char), C(m_C), sigma(m_sigma), psi(m_psi), bwt(m_bwt), sa_sample(m_sa), isa_sample(m_isa) {
+<a name="l00141"></a>00141             construct(file_map, dir, <span class="keywordtype">id</span>);
+<a name="l00142"></a>00142         }
+<a name="l00143"></a>00143 
+<a name="l00144"></a>00144 
+<a name="l00145"></a>00145         <span class="keywordtype">void</span> construct(tMSS&amp; file_map, <span class="keyword">const</span> std::string&amp; dir, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>) {
+<a name="l00146"></a>00146             int_vector_file_buffer&lt;8&gt; text_buf(file_map[<span class="stringliteral">&quot;text&quot;</span>].c_str());
+<a name="l00147"></a>00147             int_vector_file_buffer&lt;&gt;  sa_buf(file_map[<span class="stringliteral">&quot;sa&quot;</span>].c_str());
+<a name="l00148"></a>00148             size_type n = text_buf.int_vector_size;
+<a name="l00149"></a>00149             algorithm::set_text&lt;csa_uncompressed&gt;(text_buf, n, m_C, m_char2comp, m_comp2char, m_sigma);
+<a name="l00150"></a>00150             algorithm::set_sa_and_isa_samples&lt;csa_uncompressed&gt;(sa_buf, m_sa, m_isa);
+<a name="l00151"></a>00151             m_psi = psi_type(<span class="keyword">this</span>);
+<a name="l00152"></a>00152             m_bwt = bwt_type(<span class="keyword">this</span>);
+<a name="l00153"></a>00153             <a class="code" href="namespacesdsl.html#a478f5f7db45f61644d75e6c664bd961e" title="Write stopwatch output in readable format.">write_R_output</a>(<span class="stringliteral">&quot;csa&quot;</span>, <span class="stringliteral">&quot;store ISA&quot;</span>,<span class="stringliteral">&quot;begin&quot;</span>,1,0);
+<a name="l00154"></a>00154             <span class="keywordflow">if</span> (!<a class="code" href="namespacesdsl_1_1util.html#a7b338a462d03048f4a71b3e83b02be7f" title="Store a data structure to a file.">util::store_to_file</a>(m_isa, (dir+<span class="stringliteral">&quot;isa_&quot;</span>+<span class="keywordtype">id</span>).c_str(), <span class="keyword">true</span>)) {
+<a name="l00155"></a>00155                 <span class="keywordflow">throw</span> std::ios_base::failure(<span class="stringliteral">&quot;#csa_uncompressed: Cannot store ISA to file system!&quot;</span>);
+<a name="l00156"></a>00156             } <span class="keywordflow">else</span> {
+<a name="l00157"></a>00157                 file_map[<span class="stringliteral">&quot;isa&quot;</span>] = dir+<span class="stringliteral">&quot;isa_&quot;</span>+id;
+<a name="l00158"></a>00158             }
+<a name="l00159"></a>00159             <a class="code" href="namespacesdsl.html#a478f5f7db45f61644d75e6c664bd961e" title="Write stopwatch output in readable format.">write_R_output</a>(<span class="stringliteral">&quot;csa&quot;</span>, <span class="stringliteral">&quot;store ISA&quot;</span>,<span class="stringliteral">&quot;end&quot;</span>,1,0);
+<a name="l00160"></a>00160         }
 <a name="l00161"></a>00161 
-<a name="l00164"></a><a class="code" href="classsdsl_1_1csa__uncompressed.html#a9bf96cb9b01edd0d79c0cab7f439eaa3">00164</a>                 size_type <a class="code" href="classsdsl_1_1csa__uncompressed.html#a9bf96cb9b01edd0d79c0cab7f439eaa3" title="Number of elements in the instance.">size</a>()<span class="keyword">const</span>{ <span class="keywordflow">return</span> m_sa.size();}
-<a name="l00165"></a>00165 
-<a name="l00167"></a>00167 
-<a name="l00170"></a><a class="code" href="classsdsl_1_1csa__uncompressed.html#a4144f300b3401cbf8766b62c6d67cf22">00170</a>                 <span class="keyword">static</span> size_type <a class="code" href="classsdsl_1_1csa__uncompressed.html#a4144f300b3401cbf8766b62c6d67cf22" title="Returns the largest size that csa_uncompressed can ever have.">max_size</a>(){ <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1csa__uncompressed.html#a4144f300b3401cbf8766b62c6d67cf22" title="Returns the largest size that csa_uncompressed can ever have.">int_vector&lt;&gt;::max_size</a>(); }
-<a name="l00171"></a>00171 
-<a name="l00173"></a>00173 
-<a name="l00176"></a><a class="code" href="classsdsl_1_1csa__uncompressed.html#a76ab9081d7c975d22cfe82227279a66c">00176</a>                 <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1csa__uncompressed.html#a76ab9081d7c975d22cfe82227279a66c" title="Returns if the data strucutre is empty.">empty</a>()<span class="keyword">const</span>{ <span class="keywordflow">return</span> m_sa.empty();}
-<a name="l00177"></a>00177 
-<a name="l00179"></a>00179 
-<a name="l00187"></a>00187                 <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1csa__uncompressed.html#aa27066160e27056dfa5c3859a667876e" title="Swap method for csa_uncompressed.">swap</a>(csa_uncompressed &amp;csa);
+<a name="l00162"></a>00162 
+<a name="l00164"></a>00164 
+<a name="l00167"></a><a class="code" href="classsdsl_1_1csa__uncompressed.html#a9bf96cb9b01edd0d79c0cab7f439eaa3">00167</a>         size_type <a class="code" href="classsdsl_1_1csa__uncompressed.html#a9bf96cb9b01edd0d79c0cab7f439eaa3" title="Number of elements in the instance.">size</a>()<span class="keyword">const </span>{
+<a name="l00168"></a>00168             <span class="keywordflow">return</span> m_sa.size();
+<a name="l00169"></a>00169         }
+<a name="l00170"></a>00170 
+<a name="l00172"></a>00172 
+<a name="l00175"></a><a class="code" href="classsdsl_1_1csa__uncompressed.html#a4144f300b3401cbf8766b62c6d67cf22">00175</a>         <span class="keyword">static</span> size_type <a class="code" href="classsdsl_1_1csa__uncompressed.html#a4144f300b3401cbf8766b62c6d67cf22" title="Returns the largest size that csa_uncompressed can ever have.">max_size</a>() {
+<a name="l00176"></a>00176             <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1csa__uncompressed.html#a4144f300b3401cbf8766b62c6d67cf22" title="Returns the largest size that csa_uncompressed can ever have.">int_vector&lt;&gt;::max_size</a>();
+<a name="l00177"></a>00177         }
+<a name="l00178"></a>00178 
+<a name="l00180"></a>00180 
+<a name="l00183"></a><a class="code" href="classsdsl_1_1csa__uncompressed.html#a76ab9081d7c975d22cfe82227279a66c">00183</a>         <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1csa__uncompressed.html#a76ab9081d7c975d22cfe82227279a66c" title="Returns if the data strucutre is empty.">empty</a>()<span class="keyword">const </span>{
+<a name="l00184"></a>00184             <span class="keywordflow">return</span> m_sa.empty();
+<a name="l00185"></a>00185         }
+<a name="l00186"></a>00186 
 <a name="l00188"></a>00188 
-<a name="l00190"></a>00190 
-<a name="l00193"></a>00193                 const_iterator <a class="code" href="classsdsl_1_1csa__uncompressed.html#a8a33d299636c3279f49bdfa112a20fb0" title="Returns a const_iterator to the first element.">begin</a>()<span class="keyword">const</span>;
-<a name="l00194"></a>00194 
-<a name="l00196"></a>00196 
-<a name="l00199"></a>00199                 const_iterator <a class="code" href="classsdsl_1_1csa__uncompressed.html#ac857fd5928da0e100862e54c78494bf7" title="Returns a const_iterator to the element after the last element.">end</a>()<span class="keyword">const</span>;
-<a name="l00200"></a>00200 
-<a name="l00202"></a>00202 
-<a name="l00206"></a><a class="code" href="classsdsl_1_1csa__uncompressed.html#ac0b9be5d0587b21fbd6b90f73c35b4d2">00206</a>                 <span class="keyword">inline</span> value_type <a class="code" href="classsdsl_1_1csa__uncompressed.html#ac0b9be5d0587b21fbd6b90f73c35b4d2" title="[]-operator">operator[]</a>(size_type i)<span class="keyword">const</span>{<span class="keywordflow">return</span> m_sa[i];}
-<a name="l00207"></a>00207 
+<a name="l00196"></a>00196         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1csa__uncompressed.html#aa27066160e27056dfa5c3859a667876e" title="Swap method for csa_uncompressed.">swap</a>(csa_uncompressed&amp; csa);
+<a name="l00197"></a>00197 
+<a name="l00199"></a>00199 
+<a name="l00202"></a>00202         const_iterator <a class="code" href="classsdsl_1_1csa__uncompressed.html#a8a33d299636c3279f49bdfa112a20fb0" title="Returns a const_iterator to the first element.">begin</a>()<span class="keyword">const</span>;
+<a name="l00203"></a>00203 
+<a name="l00205"></a>00205 
+<a name="l00208"></a>00208         const_iterator <a class="code" href="classsdsl_1_1csa__uncompressed.html#ac857fd5928da0e100862e54c78494bf7" title="Returns a const_iterator to the element after the last element.">end</a>()<span class="keyword">const</span>;
 <a name="l00209"></a>00209 
-<a name="l00211"></a><a class="code" href="classsdsl_1_1csa__uncompressed.html#ac4c12a1e14ff985560acaaf356dee6a2">00211</a>                 <span class="keyword">inline</span> value_type <a class="code" href="classsdsl_1_1csa__uncompressed.html#ac4c12a1e14ff985560acaaf356dee6a2" title="()-operator return inverse suffix array values">operator()</a>(size_type i)<span class="keyword">const</span>{<span class="keywordflow">return</span> m_isa[i];}
-<a name="l00212"></a>00212 
-<a name="l00214"></a>00214 
-<a name="l00217"></a>00217                 csa_uncompressed&amp; <a class="code" href="classsdsl_1_1csa__uncompressed.html#a728c7df40c0259c23c987049c9dc1b86" title="Assignment Operator.">operator=</a>(<span class="keyword">const</span> csa_uncompressed &amp;csa);
+<a name="l00211"></a>00211 
+<a name="l00215"></a><a class="code" href="classsdsl_1_1csa__uncompressed.html#ac0b9be5d0587b21fbd6b90f73c35b4d2">00215</a>         <span class="keyword">inline</span> value_type <a class="code" href="classsdsl_1_1csa__uncompressed.html#ac0b9be5d0587b21fbd6b90f73c35b4d2" title="[]-operator">operator[]</a>(size_type i)<span class="keyword">const </span>{
+<a name="l00216"></a>00216             <span class="keywordflow">return</span> m_sa[i];
+<a name="l00217"></a>00217         }
 <a name="l00218"></a>00218 
 <a name="l00220"></a>00220 
-<a name="l00225"></a>00225                 <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1csa__uncompressed.html#a8f21dd41a89502dee95dc73a5db7c365" title="Equality Operator.">operator==</a>(<span class="keyword">const</span> csa_uncompressed &amp;csa)<span class="keyword">const</span>;
-<a name="l00226"></a>00226 
-<a name="l00228"></a>00228 
-<a name="l00233"></a>00233                 <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1csa__uncompressed.html#aa550ae15cae7e91ae5dbdbf80141e011" title="Unequality Operator.">operator!=</a>(<span class="keyword">const</span> csa_uncompressed &amp;csa)<span class="keyword">const</span>;
-<a name="l00234"></a>00234 
-<a name="l00236"></a>00236 
-<a name="l00239"></a>00239                 size_type <a class="code" href="classsdsl_1_1csa__uncompressed.html#a0cf73f11214ea3b55df6e1d2f83ab4e9" title="Serialize to a stream.">serialize</a>(std::ostream &amp;out) <span class="keyword">const</span>;
-<a name="l00240"></a>00240 
-<a name="l00242"></a>00242 
-<a name="l00244"></a>00244                 <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1csa__uncompressed.html#a458c91403c254dec1341ee1422e1a057" title="Load from a stream.">load</a>(std::istream &amp;in);
-<a name="l00245"></a>00245 
-<a name="l00246"></a>00246                 size_type get_sample_dens()<span class="keyword">const</span>{<span class="keywordflow">return</span> 1;}
+<a name="l00222"></a><a class="code" href="classsdsl_1_1csa__uncompressed.html#ac4c12a1e14ff985560acaaf356dee6a2">00222</a>         <span class="keyword">inline</span> value_type <a class="code" href="classsdsl_1_1csa__uncompressed.html#ac4c12a1e14ff985560acaaf356dee6a2" title="()-operator return inverse suffix array values">operator()</a>(size_type i)<span class="keyword">const </span>{
+<a name="l00223"></a>00223             <span class="keywordflow">return</span> m_isa[i];
+<a name="l00224"></a>00224         }
+<a name="l00225"></a>00225 
+<a name="l00227"></a>00227 
+<a name="l00230"></a>00230         csa_uncompressed&amp; <a class="code" href="classsdsl_1_1csa__uncompressed.html#a728c7df40c0259c23c987049c9dc1b86" title="Assignment Operator.">operator=</a>(<span class="keyword">const</span> csa_uncompressed&amp; csa);
+<a name="l00231"></a>00231 
+<a name="l00233"></a>00233 
+<a name="l00238"></a>00238         <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1csa__uncompressed.html#a8f21dd41a89502dee95dc73a5db7c365" title="Equality Operator.">operator==</a>(<span class="keyword">const</span> csa_uncompressed&amp; csa)<span class="keyword">const</span>;
+<a name="l00239"></a>00239 
+<a name="l00241"></a>00241 
+<a name="l00246"></a>00246         <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1csa__uncompressed.html#aa550ae15cae7e91ae5dbdbf80141e011" title="Unequality Operator.">operator!=</a>(<span class="keyword">const</span> csa_uncompressed&amp; csa)<span class="keyword">const</span>;
 <a name="l00247"></a>00247 
 <a name="l00249"></a>00249 
-<a name="l00256"></a>00256                 size_type <a class="code" href="classsdsl_1_1csa__uncompressed.html#ad3a3221e5c054454585f340ce466cc9a" title="Calculates how many symbols c are in the prefix [0..i-1] of the BWT of the original text...">rank_bwt</a>(size_type i, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> c) <span class="keyword">const</span>;
-<a name="l00257"></a>00257 
-<a name="l00259"></a>00259 
-<a name="l00266"></a>00266                 size_type <a class="code" href="classsdsl_1_1csa__uncompressed.html#ace4ff58b6508ed0d7f3b8f8209a8b237" title="Calculates the ith occurence of symbol c in the BWT of the original text.">select_bwt</a>(size_type i, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> c) <span class="keyword">const</span>;
-<a name="l00267"></a>00267 };
-<a name="l00268"></a>00268 
-<a name="l00269"></a>00269 
-<a name="l00270"></a>00270 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> RandomAccessContainer&gt;
-<a name="l00271"></a><a class="code" href="classsdsl_1_1csa__uncompressed.html#a463803128deedcea8bf3fc7e50d30a08">00271</a> <a class="code" href="classsdsl_1_1csa__uncompressed.html#ac8fec8fa91001ff03facd33155456db2" title="Default Constructor.">csa_uncompressed::csa_uncompressed</a>(<span class="keyword">const</span> RandomAccessContainer &amp;sa, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *str):char2comp(m_char2comp), comp2char(m_comp2char),C(m_C), sigma(m_sigma), psi(m_psi), bwt(m_bwt), sa_sample(m_sa), isa_sample(m_isa){
-<a name="l00272"></a>00272         size_type n = 1;
-<a name="l00273"></a>00273         <span class="keywordflow">if</span>(str != NULL){
-<a name="l00274"></a>00274                 n = strlen((<span class="keyword">const</span> <span class="keywordtype">char</span>*)str);
-<a name="l00275"></a>00275         }
-<a name="l00276"></a>00276         algorithm::set_text&lt;csa_uncompressed&gt;(str, n+1, m_C, m_char2comp, m_comp2char, m_sigma);
-<a name="l00277"></a>00277 <span class="comment">//      assert(sa.size() == n+1);</span>
-<a name="l00278"></a>00278         m_sa = int_vector&lt;&gt;(n+1, 0, <a class="code" href="classsdsl_1_1bit__magic.html#add0a212c8b5f894223c49e95aaa2ae8e" title="Calculates the position of the leftmost 1-bit in the 64bit integer x if it exists.">bit_magic::l1BP</a>(n+1)+1);
-<a name="l00279"></a>00279         <span class="keywordflow">for</span>(size_type i=0; i&lt;n+1; ++i)
-<a name="l00280"></a>00280                 m_sa[i] = sa[i];
-<a name="l00281"></a>00281         construct();
-<a name="l00282"></a>00282         <span class="keywordflow">if</span>( n+1 &gt; 0 and n+1 != <a class="code" href="classsdsl_1_1csa__uncompressed.html#a9bf96cb9b01edd0d79c0cab7f439eaa3" title="Number of elements in the instance.">size</a>() )
-<a name="l00283"></a>00283                 <span class="keywordflow">throw</span> std::logic_error(<a class="code" href="namespacesdsl_1_1util.html#a5ac1913316c61c170cba986b98c27c90" title="Demangle the class name of typeid(...).name()">util::demangle</a>(<span class="keyword">typeid</span>(<span class="keyword">this</span>).name())+<span class="stringliteral">&quot;: text size differ with sa size!&quot;</span>);
-<a name="l00284"></a>00284 }
-<a name="l00285"></a>00285 
-<a name="l00286"></a>00286 
-<a name="l00287"></a>00287 } <span class="comment">// end namespace sdsl</span>
-<a name="l00288"></a>00288 
-<a name="l00289"></a>00289 <span class="preprocessor">#endif</span>
+<a name="l00252"></a>00252         size_type <a class="code" href="classsdsl_1_1csa__uncompressed.html#a0cf73f11214ea3b55df6e1d2f83ab4e9" title="Serialize to a stream.">serialize</a>(std::ostream&amp; out) <span class="keyword">const</span>;
+<a name="l00253"></a>00253 
+<a name="l00255"></a>00255 
+<a name="l00257"></a>00257         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1csa__uncompressed.html#a458c91403c254dec1341ee1422e1a057" title="Load from a stream.">load</a>(std::istream&amp; in);
+<a name="l00258"></a>00258 
+<a name="l00259"></a>00259         size_type get_sample_dens()<span class="keyword">const </span>{
+<a name="l00260"></a>00260             <span class="keywordflow">return</span> 1;
+<a name="l00261"></a>00261         }
+<a name="l00262"></a>00262 
+<a name="l00264"></a>00264 
+<a name="l00271"></a>00271         size_type <a class="code" href="classsdsl_1_1csa__uncompressed.html#ad3a3221e5c054454585f340ce466cc9a" title="Calculates how many symbols c are in the prefix [0..i-1] of the BWT of the original text...">rank_bwt</a>(size_type i, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> c) <span class="keyword">const</span>;
+<a name="l00272"></a>00272 
+<a name="l00274"></a>00274 
+<a name="l00281"></a>00281         size_type <a class="code" href="classsdsl_1_1csa__uncompressed.html#ace4ff58b6508ed0d7f3b8f8209a8b237" title="Calculates the ith occurence of symbol c in the BWT of the original text.">select_bwt</a>(size_type i, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> c) <span class="keyword">const</span>;
+<a name="l00282"></a>00282 };
+<a name="l00283"></a>00283 
+<a name="l00284"></a>00284 
+<a name="l00285"></a>00285 <span class="keyword">template</span>&lt;<span class="keyword">typename</span> RandomAccessContainer&gt;
+<a name="l00286"></a><a class="code" href="classsdsl_1_1csa__uncompressed.html#a463803128deedcea8bf3fc7e50d30a08">00286</a> <a class="code" href="classsdsl_1_1csa__uncompressed.html#ac8fec8fa91001ff03facd33155456db2" title="Default Constructor.">csa_uncompressed::csa_uncompressed</a>(<span class="keyword">const</span> RandomAccessContainer&amp; sa, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* str):char2comp(m_char2comp), comp2char(m_comp2char),C(m_C), sigma(m_sigma), psi(m_psi), bwt(m_bwt), sa_sample(m_sa), isa_sample(m_isa)
+<a name="l00287"></a>00287 {
+<a name="l00288"></a>00288     size_type n = 1;
+<a name="l00289"></a>00289     <span class="keywordflow">if</span> (str != NULL) {
+<a name="l00290"></a>00290         n = strlen((<span class="keyword">const</span> <span class="keywordtype">char</span>*)str);
+<a name="l00291"></a>00291     }
+<a name="l00292"></a>00292     algorithm::set_text&lt;csa_uncompressed&gt;(str, n+1, m_C, m_char2comp, m_comp2char, m_sigma);
+<a name="l00293"></a>00293 <span class="comment">//      assert(sa.size() == n+1);</span>
+<a name="l00294"></a>00294     m_sa = <a class="code" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector&lt;&gt;</a>(n+1, 0, <a class="code" href="classsdsl_1_1bit__magic.html#a7e056c78ea2cea39ac49e552731c0c95" title="Calculates the position of the leftmost 1-bit in the 64bit integer x if it exists.">bit_magic::l1BP</a>(n+1)+1);
+<a name="l00295"></a>00295     <span class="keywordflow">for</span> (size_type i=0; i&lt;n+1; ++i)
+<a name="l00296"></a>00296         m_sa[i] = sa[i];
+<a name="l00297"></a>00297     construct();
+<a name="l00298"></a>00298     <span class="keywordflow">if</span> (n+1 &gt; 0 and n+1 != <a class="code" href="classsdsl_1_1csa__uncompressed.html#a9bf96cb9b01edd0d79c0cab7f439eaa3" title="Number of elements in the instance.">size</a>())
+<a name="l00299"></a>00299         <span class="keywordflow">throw</span> std::logic_error(<a class="code" href="namespacesdsl_1_1util.html#a5ac1913316c61c170cba986b98c27c90" title="Demangle the class name of typeid(...).name()">util::demangle</a>(<span class="keyword">typeid</span>(<span class="keyword">this</span>).name())+<span class="stringliteral">&quot;: text size differ with sa size!&quot;</span>);
+<a name="l00300"></a>00300 }
+<a name="l00301"></a>00301 
+<a name="l00302"></a>00302 
+<a name="l00303"></a>00303 } <span class="comment">// end namespace sdsl</span>
+<a name="l00304"></a>00304 
+<a name="l00305"></a>00305 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:33 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:25 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -150,7 +151,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>load</b> (std::istrea
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:af4e1466413c5c15effaeba26eb5c5292"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af4e1466413c5c15effaeba26eb5c5292"></a>
-const bit_vector &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>sct_bp</b></td></tr>
+const <a class="el" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb">bit_vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>sct_bp</b></td></tr>
 <tr class="memitem:ad0a709c6259fc7946cd2f85407c14456"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad0a709c6259fc7946cd2f85407c14456"></a>
 const Bp_support &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>sct_bp_support</b></td></tr>
 </table>
@@ -163,8 +164,8 @@ class sdsl::rmq_support_sct&lt; RandomAccessContainer, Minimum, Bp_support &gt;<
 <ul>
 <li>RandomAccessContainer is the type of random access container, for which the range minimum/maximum support should be build,</li>
 <li>minumum specifies whether the data structure should answer range minimum queries (mimumum=true) of range maximum queries (maximum=false), and</li>
-<li>Bp_support is the support structure for the balanced parentheses sequence of the Super-Cartesian tree used internal in the class. <dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{1} $" src="form_90.png"/> for the range minimum/maximum queries if the balanced parentheses support structure supports constant time operations. </dd></dl>
-<dl class="section user"><dt>Space complexity:</b></dt><dd><img class="formulaInl" alt="$ \Order{2n}+o(n) $" src="form_204.png"/> bits for the data structure ( <img class="formulaInl" alt="$ n=size() $" src="form_199.png"/> ). </dd></dl>
+<li>Bp_support is the support structure for the balanced parentheses sequence of the Super-Cartesian tree used internal in the class. <dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{1} $" src="form_51.png"/> for the range minimum/maximum queries if the balanced parentheses support structure supports constant time operations. </dd></dl>
+<dl class="section user"><dt>Space complexity:</b></dt><dd><img class="formulaInl" alt="$ \Order{2n}+o(n) $" src="form_208.png"/> bits for the data structure ( <img class="formulaInl" alt="$ n=size() $" src="form_203.png"/> ). </dd></dl>
 </li>
 </ul>
 </div><hr/><h2>Member Function Documentation</h2>
@@ -203,13 +204,13 @@ template&lt;class RandomAccessContainer , bool Minimum, class Bp_support &gt; </
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns:</dt><dd>The minimal index i with <img class="formulaInl" alt="$\ell \leq i \leq r$" src="form_200.png"/> for which <img class="formulaInl" alt="$ v[i] $" src="form_201.png"/> is minimal/maximal. </dd></dl>
+<dl class="section return"><dt>Returns:</dt><dd>The minimal index i with <img class="formulaInl" alt="$\ell \leq i \leq r$" src="form_204.png"/> for which <img class="formulaInl" alt="$ v[i] $" src="form_205.png"/> is minimal/maximal. </dd></dl>
 <dl class="section pre"><dt>Precondition:</dt><dd><ul>
 <li>r &lt; size()</li>
-<li><img class="formulaInl" alt="$ \ell \leq r $" src="form_202.png"/> </li>
+<li><img class="formulaInl" alt="$ \ell \leq r $" src="form_206.png"/> </li>
 </ul>
 </dd></dl>
-<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{1} $" src="form_90.png"/> </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{1} $" src="form_51.png"/> </dd></dl>
 
 </div>
 </div>
@@ -220,7 +221,7 @@ template&lt;class RandomAccessContainer , bool Minimum, class Bp_support &gt; </
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:35 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:31 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -82,7 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -97,7 +98,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="rank__support_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/* sdsl - succinct data structures library</span>
-<a name="l00002"></a>00002 <span class="comment">    Copyright (C) 2008 Simon Gog </span>
+<a name="l00002"></a>00002 <span class="comment">    Copyright (C) 2008 Simon Gog</span>
 <a name="l00003"></a>00003 <span class="comment"></span>
 <a name="l00004"></a>00004 <span class="comment">    This program is free software: you can redistribute it and/or modify</span>
 <a name="l00005"></a>00005 <span class="comment">    it under the terms of the GNU General Public License as published by</span>
@@ -117,53 +118,57 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00023"></a>00023 <span class="preprocessor"></span>
 <a name="l00028"></a>00028 <span class="preprocessor">#include &quot;int_vector.hpp&quot;</span>
 <a name="l00029"></a>00029 
-<a name="l00031"></a>00031 <span class="keyword">namespace </span>sdsl{
-<a name="l00032"></a>00032 
-<a name="l00034"></a>00034 
-<a name="l00036"></a><a class="code" href="classsdsl_1_1rank__support.html">00036</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1rank__support.html" title="The base class of classes supporting rank_queries for a sdsl::bit_vector in constant time...">rank_support</a>{
-<a name="l00037"></a>00037         <span class="keyword">protected</span>:
-<a name="l00038"></a><a class="code" href="classsdsl_1_1rank__support.html#ac774d248f05ee99a6f33cb96b3db615c">00038</a>                 <span class="keyword">const</span> int_vector&lt;1&gt; *<a class="code" href="classsdsl_1_1rank__support.html#ac774d248f05ee99a6f33cb96b3db615c" title="Pointer to the rank supported bit_vector.">m_v</a>; 
-<a name="l00039"></a>00039         <span class="keyword">public</span>:
-<a name="l00040"></a>00040                 <span class="keyword">typedef</span> int_vector&lt;1&gt;::size_type size_type;
-<a name="l00041"></a>00041 
+<a name="l00031"></a>00031 <span class="keyword">namespace </span>sdsl
+<a name="l00032"></a>00032 {
+<a name="l00033"></a>00033 
+<a name="l00035"></a>00035 
+<a name="l00037"></a><a class="code" href="classsdsl_1_1rank__support.html">00037</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1rank__support.html" title="The base class of classes supporting rank_queries for a sdsl::bit_vector in constant time...">rank_support</a>
+<a name="l00038"></a>00038 {
+<a name="l00039"></a>00039     <span class="keyword">protected</span>:
+<a name="l00040"></a><a class="code" href="classsdsl_1_1rank__support.html#ac774d248f05ee99a6f33cb96b3db615c">00040</a>         <span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;1&gt;</a>* <a class="code" href="classsdsl_1_1rank__support.html#ac774d248f05ee99a6f33cb96b3db615c" title="Pointer to the rank supported bit_vector.">m_v</a>; 
+<a name="l00041"></a>00041     <span class="keyword">public</span>:
+<a name="l00042"></a>00042         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector&lt;1&gt;::size_type</a> size_type;
 <a name="l00043"></a>00043 
-<a name="l00045"></a>00045                 <a class="code" href="classsdsl_1_1rank__support.html#a9e02940f5de430db7ad48138bcf61cb7" title="Constructor.">rank_support</a>(<span class="keyword">const</span> int_vector&lt;1&gt; *v = NULL);
-<a name="l00047"></a>00047                 <a class="code" href="classsdsl_1_1rank__support.html#a9e02940f5de430db7ad48138bcf61cb7" title="Constructor.">rank_support</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1rank__support.html" title="The base class of classes supporting rank_queries for a sdsl::bit_vector in constant time...">rank_support</a> &amp;rs);
-<a name="l00049"></a><a class="code" href="classsdsl_1_1rank__support.html#a149823811c19947f14a2268e8e0203cf">00049</a>                 <span class="keyword">virtual</span> <a class="code" href="classsdsl_1_1rank__support.html#a149823811c19947f14a2268e8e0203cf" title="Destructor.">~rank_support</a>(){}
-<a name="l00051"></a>00051 
-<a name="l00056"></a>00056                 <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1rank__support.html#a547d8f733e3658d144d3e729ab59d161" title="Initializes the data structure.">init</a>(<span class="keyword">const</span> int_vector&lt;1&gt; *v=NULL) = 0;
-<a name="l00057"></a>00057                 
+<a name="l00045"></a>00045 
+<a name="l00047"></a>00047         <a class="code" href="classsdsl_1_1rank__support.html#a9e02940f5de430db7ad48138bcf61cb7" title="Constructor.">rank_support</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;1&gt;</a>* v = NULL);
+<a name="l00049"></a>00049         <a class="code" href="classsdsl_1_1rank__support.html#a9e02940f5de430db7ad48138bcf61cb7" title="Constructor.">rank_support</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1rank__support.html" title="The base class of classes supporting rank_queries for a sdsl::bit_vector in constant time...">rank_support</a>&amp; rs);
+<a name="l00051"></a><a class="code" href="classsdsl_1_1rank__support.html#a149823811c19947f14a2268e8e0203cf">00051</a>         <span class="keyword">virtual</span> <a class="code" href="classsdsl_1_1rank__support.html#a149823811c19947f14a2268e8e0203cf" title="Destructor.">~rank_support</a>() {}
+<a name="l00053"></a>00053 
+<a name="l00058"></a>00058         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1rank__support.html#a547d8f733e3658d144d3e729ab59d161" title="Initializes the data structure.">init</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;1&gt;</a>* v=NULL) = 0;
 <a name="l00059"></a>00059 
-<a name="l00064"></a>00064                 <span class="keyword">virtual</span> <span class="keyword">const</span> size_type <a class="code" href="classsdsl_1_1rank__support.html#a4cc8f6375488177a3c7d1320bcdeb721" title="Answers rank queries for the supported bit_vector if init() was called before.">rank</a>(size_type i) <span class="keyword">const</span> = 0;
-<a name="l00066"></a>00066                 <span class="keyword">virtual</span> <span class="keyword">const</span> size_type <a class="code" href="classsdsl_1_1rank__support.html#afc61a5e1ce5f5b525f07a84c194c14ca" title="Alias for rank(i)">operator()</a>(size_type idx) <span class="keyword">const</span> = 0;
-<a name="l00068"></a>00068 
-<a name="l00070"></a>00070                 <span class="keyword">virtual</span> size_type <a class="code" href="classsdsl_1_1rank__support.html#a3a32a079cc7e22ee54cb16e487da0603" title="Serializes rank_support.">serialize</a>(std::ostream &amp;out)<span class="keyword">const</span> = 0;
-<a name="l00072"></a>00072 
-<a name="l00075"></a>00075                 <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1rank__support.html#a0a1ac05b1786aeb789807566787c67a7" title="Loads the rank_support.">load</a>(std::istream &amp;in, <span class="keyword">const</span> int_vector&lt;1&gt; *v=NULL) = 0;
-<a name="l00077"></a>00077 
-<a name="l00081"></a>00081                 <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1rank__support.html#a969095a6e1cd8af9c3c363464da8ac22" title="Sets the supported bit_vector to the given pointer.">set_vector</a>(<span class="keyword">const</span> int_vector&lt;1&gt; *v=NULL) = 0;
-<a name="l00082"></a>00082 };
-<a name="l00083"></a>00083 
-<a name="l00084"></a><a class="code" href="classsdsl_1_1rank__support.html#a9e02940f5de430db7ad48138bcf61cb7">00084</a> <span class="keyword">inline</span> <a class="code" href="classsdsl_1_1rank__support.html#a9e02940f5de430db7ad48138bcf61cb7" title="Constructor.">rank_support::rank_support</a>(<span class="keyword">const</span> int_vector&lt;1&gt; *v){
-<a name="l00085"></a>00085         <a class="code" href="classsdsl_1_1rank__support.html#ac774d248f05ee99a6f33cb96b3db615c" title="Pointer to the rank supported bit_vector.">m_v</a> = v;
-<a name="l00086"></a>00086 }
-<a name="l00087"></a>00087 
-<a name="l00088"></a><a class="code" href="classsdsl_1_1rank__support.html#a1509cdccde0613cb938de431bcc11fa2">00088</a> <span class="keyword">inline</span> <a class="code" href="classsdsl_1_1rank__support.html#a9e02940f5de430db7ad48138bcf61cb7" title="Constructor.">rank_support::rank_support</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1rank__support.html" title="The base class of classes supporting rank_queries for a sdsl::bit_vector in constant time...">rank_support</a> &amp;rs){
-<a name="l00089"></a>00089         <a class="code" href="classsdsl_1_1rank__support.html#ac774d248f05ee99a6f33cb96b3db615c" title="Pointer to the rank supported bit_vector.">m_v</a> = rs.<a class="code" href="classsdsl_1_1rank__support.html#ac774d248f05ee99a6f33cb96b3db615c" title="Pointer to the rank supported bit_vector.">m_v</a>;
-<a name="l00090"></a>00090 }
-<a name="l00091"></a>00091 
-<a name="l00092"></a>00092 }<span class="comment">// end namespace sdsl</span>
-<a name="l00093"></a>00093 
-<a name="l00094"></a>00094 <span class="preprocessor">#include &quot;<a class="code" href="rank__support__v_8hpp.html" title="rank_support_v.hpp contains rank_support_v that support a sdsl::bit_vector with constant time rank in...">rank_support_v.hpp</a>&quot;</span>
-<a name="l00095"></a>00095 <span class="preprocessor">#include &quot;<a class="code" href="rank__support__v5_8hpp.html" title="rank_support_v5.hpp contains rank_support_v5 that support a sdsl::bit_vector with constant time rank ...">rank_support_v5.hpp</a>&quot;</span>
-<a name="l00096"></a>00096 <span class="preprocessor">#include &quot;<a class="code" href="rank__support__jmc_8hpp.html" title="rank_support_jmc.hpp contains classes that support a sdsl::bit_vector with constant time rank informa...">rank_support_jmc.hpp</a>&quot;</span>
+<a name="l00061"></a>00061 
+<a name="l00066"></a>00066         <span class="keyword">virtual</span> <span class="keyword">const</span> size_type <a class="code" href="classsdsl_1_1rank__support.html#a4cc8f6375488177a3c7d1320bcdeb721" title="Answers rank queries for the supported bit_vector if init() was called before.">rank</a>(size_type i) <span class="keyword">const</span> = 0;
+<a name="l00068"></a>00068         <span class="keyword">virtual</span> <span class="keyword">const</span> size_type <a class="code" href="classsdsl_1_1rank__support.html#afc61a5e1ce5f5b525f07a84c194c14ca" title="Alias for rank(i)">operator()</a>(size_type idx) <span class="keyword">const</span> = 0;
+<a name="l00070"></a>00070 
+<a name="l00072"></a>00072         <span class="keyword">virtual</span> size_type <a class="code" href="classsdsl_1_1rank__support.html#a3a32a079cc7e22ee54cb16e487da0603" title="Serializes rank_support.">serialize</a>(std::ostream&amp; out)<span class="keyword">const</span> = 0;
+<a name="l00074"></a>00074 
+<a name="l00077"></a>00077         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1rank__support.html#a0a1ac05b1786aeb789807566787c67a7" title="Loads the rank_support.">load</a>(std::istream&amp; in, <span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;1&gt;</a>* v=NULL) = 0;
+<a name="l00079"></a>00079 
+<a name="l00083"></a>00083         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1rank__support.html#a969095a6e1cd8af9c3c363464da8ac22" title="Sets the supported bit_vector to the given pointer.">set_vector</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;1&gt;</a>* v=NULL) = 0;
+<a name="l00084"></a>00084 };
+<a name="l00085"></a>00085 
+<a name="l00086"></a><a class="code" href="classsdsl_1_1rank__support.html#a9e02940f5de430db7ad48138bcf61cb7">00086</a> <span class="keyword">inline</span> <a class="code" href="classsdsl_1_1rank__support.html#a9e02940f5de430db7ad48138bcf61cb7" title="Constructor.">rank_support::rank_support</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;1&gt;</a>* v)
+<a name="l00087"></a>00087 {
+<a name="l00088"></a>00088     <a class="code" href="classsdsl_1_1rank__support.html#ac774d248f05ee99a6f33cb96b3db615c" title="Pointer to the rank supported bit_vector.">m_v</a> = v;
+<a name="l00089"></a>00089 }
+<a name="l00090"></a>00090 
+<a name="l00091"></a><a class="code" href="classsdsl_1_1rank__support.html#a1509cdccde0613cb938de431bcc11fa2">00091</a> <span class="keyword">inline</span> <a class="code" href="classsdsl_1_1rank__support.html#a9e02940f5de430db7ad48138bcf61cb7" title="Constructor.">rank_support::rank_support</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1rank__support.html" title="The base class of classes supporting rank_queries for a sdsl::bit_vector in constant time...">rank_support</a>&amp; rs)
+<a name="l00092"></a>00092 {
+<a name="l00093"></a>00093     <a class="code" href="classsdsl_1_1rank__support.html#ac774d248f05ee99a6f33cb96b3db615c" title="Pointer to the rank supported bit_vector.">m_v</a> = rs.<a class="code" href="classsdsl_1_1rank__support.html#ac774d248f05ee99a6f33cb96b3db615c" title="Pointer to the rank supported bit_vector.">m_v</a>;
+<a name="l00094"></a>00094 }
+<a name="l00095"></a>00095 
+<a name="l00096"></a>00096 }<span class="comment">// end namespace sdsl</span>
 <a name="l00097"></a>00097 
-<a name="l00098"></a>00098 <span class="preprocessor">#endif // end file </span>
+<a name="l00098"></a>00098 <span class="preprocessor">#include &quot;<a class="code" href="rank__support__v_8hpp.html" title="rank_support_v.hpp contains rank_support_v that support a sdsl::bit_vector with constant time rank in...">rank_support_v.hpp</a>&quot;</span>
+<a name="l00099"></a>00099 <span class="preprocessor">#include &quot;<a class="code" href="rank__support__v5_8hpp.html" title="rank_support_v5.hpp contains rank_support_v5 that support a sdsl::bit_vector with constant time rank ...">rank_support_v5.hpp</a>&quot;</span>
+<a name="l00100"></a>00100 <span class="preprocessor">#include &quot;<a class="code" href="rank__support__jmc_8hpp.html" title="rank_support_jmc.hpp contains classes that support a sdsl::bit_vector with constant time rank informa...">rank_support_jmc.hpp</a>&quot;</span>
+<a name="l00101"></a>00101 
+<a name="l00102"></a>00102 <span class="preprocessor">#endif // end file </span>
 </pre></div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:34 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:27 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

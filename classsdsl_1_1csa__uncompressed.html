@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -156,9 +157,9 @@ typedef const unsigned char *&#160;</td><td class="memItemRight" valign="bottom"
 <tr class="memitem:a77899b69af7c2e719011b7bd578f9fa8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a77899b69af7c2e719011b7bd578f9fa8"></a>
 typedef unsigned char&#160;</td><td class="memItemRight" valign="bottom"><b>char_type</b></td></tr>
 <tr class="memitem:a4d7ba415a252095424c66586a2cd7414"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4d7ba415a252095424c66586a2cd7414"></a>
-typedef int_vector&#160;</td><td class="memItemRight" valign="bottom"><b>sa_sample_type</b></td></tr>
+typedef <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sa_sample_type</b></td></tr>
 <tr class="memitem:ade97ec33cbf4510b91fa5a5e3080e444"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ade97ec33cbf4510b91fa5a5e3080e444"></a>
-typedef int_vector&#160;</td><td class="memItemRight" valign="bottom"><b>isa_sample_type</b></td></tr>
+typedef <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&#160;</td><td class="memItemRight" valign="bottom"><b>isa_sample_type</b></td></tr>
 <tr class="memitem:ae6433b504affb114fe2291fc2a4ddd57"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae6433b504affb114fe2291fc2a4ddd57"></a>
 typedef <a class="el" href="structsdsl_1_1csa__tag.html">csa_tag</a>&#160;</td><td class="memItemRight" valign="bottom"><b>index_category</b></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
@@ -181,8 +182,8 @@ template&lt;typename RandomAccessContainer &gt; </td></tr>
 <tr class="memdesc:a3c343ea03d8b2874f7d001b696f402d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the CSA taking a string for that the CSA should be calculated. <br/></td></tr>
 <tr class="memitem:a02ac83f7fbd338f6ea87f38e177b03f7"><td class="memTemplParams" colspan="2"><a class="anchor" id="a02ac83f7fbd338f6ea87f38e177b03f7"></a>
 template&lt;uint8_t int_width, class size_type_class , class size_type_class_1 &gt; </td></tr>
-<tr class="memitem:a02ac83f7fbd338f6ea87f38e177b03f7"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsdsl_1_1csa__uncompressed.html#a02ac83f7fbd338f6ea87f38e177b03f7">csa_uncompressed</a> (int_vector_file_buffer&lt; 8, size_type_class &gt; &amp;text_buf, int_vector_file_buffer&lt; int_width, size_type_class_1 &gt; &amp;sa_buf)</td></tr>
-<tr class="memdesc:a02ac83f7fbd338f6ea87f38e177b03f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the <a class="el" href="classsdsl_1_1csa__uncompressed.html" title="A class for the uncmpressed suffix array (SA).">csa_uncompressed</a> form a int_vector_file_buffer for the text and the SA. <br/></td></tr>
+<tr class="memitem:a02ac83f7fbd338f6ea87f38e177b03f7"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsdsl_1_1csa__uncompressed.html#a02ac83f7fbd338f6ea87f38e177b03f7">csa_uncompressed</a> (<a class="el" href="classsdsl_1_1int__vector__file__buffer.html">int_vector_file_buffer</a>&lt; 8, size_type_class &gt; &amp;text_buf, <a class="el" href="classsdsl_1_1int__vector__file__buffer.html">int_vector_file_buffer</a>&lt; int_width, size_type_class_1 &gt; &amp;sa_buf)</td></tr>
+<tr class="memdesc:a02ac83f7fbd338f6ea87f38e177b03f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the <a class="el" href="classsdsl_1_1csa__uncompressed.html" title="A class for the uncmpressed suffix array (SA).">csa_uncompressed</a> form a <a class="el" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer</a> for the text and the SA. <br/></td></tr>
 <tr class="memitem:ae3d2910d8d9a3a917449d9e6de30e432"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae3d2910d8d9a3a917449d9e6de30e432"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>csa_uncompressed</b> (tMSS &amp;file_map, const std::string &amp;dir, const std::string &amp;id)</td></tr>
 <tr class="memitem:a6815e823f3e8234edf6c4a105f8ad4ae"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6815e823f3e8234edf6c4a105f8ad4ae"></a>
@@ -223,22 +224,22 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memdesc:a4144f300b3401cbf8766b62c6d67cf22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the largest size that <a class="el" href="classsdsl_1_1csa__uncompressed.html" title="A class for the uncmpressed suffix array (SA).">csa_uncompressed</a> can ever have.  <a href="#a4144f300b3401cbf8766b62c6d67cf22"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:aa15f159381869d2961da7b4d3d6c8f53"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa15f159381869d2961da7b4d3d6c8f53"></a>
-const unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><b>char2comp</b></td></tr>
-<tr class="memitem:a96b51999c6b073b20e4eff0114508eda"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a96b51999c6b073b20e4eff0114508eda"></a>
-const unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><b>comp2char</b></td></tr>
-<tr class="memitem:a29389a867dac5a801f529e95e4b046a2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a29389a867dac5a801f529e95e4b046a2"></a>
-const size_type *&#160;</td><td class="memItemRight" valign="bottom"><b>C</b></td></tr>
-<tr class="memitem:ac62cdab8be174b7c1b613a096f73b535"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac62cdab8be174b7c1b613a096f73b535"></a>
-const uint8_t &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>sigma</b></td></tr>
+<tr class="memitem:ae37a4d3908204fb612cc037ce14f07f9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae37a4d3908204fb612cc037ce14f07f9"></a>
+const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 8 &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>char2comp</b></td></tr>
+<tr class="memitem:a8f7c78092ca4b9e0e425b446f2911540"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8f7c78092ca4b9e0e425b446f2911540"></a>
+const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 8 &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>comp2char</b></td></tr>
+<tr class="memitem:af46f587efc3d064491131b79fe79dc83"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af46f587efc3d064491131b79fe79dc83"></a>
+const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 64 &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>C</b></td></tr>
+<tr class="memitem:ad58fd30d2933894ce31c673cb7c1f3ff"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad58fd30d2933894ce31c673cb7c1f3ff"></a>
+const uint16_t &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>sigma</b></td></tr>
 <tr class="memitem:a120ee052df5f4b4f8214bd467119b97f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a120ee052df5f4b4f8214bd467119b97f"></a>
 const <a class="el" href="classsdsl_1_1psi__of__sa__and__isa.html">psi_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>psi</b></td></tr>
 <tr class="memitem:a025f1ebddc301417936135f81739acb9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a025f1ebddc301417936135f81739acb9"></a>
 const <a class="el" href="classsdsl_1_1bwt__of__csa__psi.html">bwt_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>bwt</b></td></tr>
 <tr class="memitem:a048e9db7dd252d4b8bad16c6d24bcb9a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a048e9db7dd252d4b8bad16c6d24bcb9a"></a>
-const sa_sample_type &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>sa_sample</b></td></tr>
+const <a class="el" href="classsdsl_1_1int__vector.html">sa_sample_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>sa_sample</b></td></tr>
 <tr class="memitem:a44f4892d6376c1b6c12e46f5d24da183"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a44f4892d6376c1b6c12e46f5d24da183"></a>
-const isa_sample_type &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>isa_sample</b></td></tr>
+const <a class="el" href="classsdsl_1_1int__vector.html">isa_sample_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>isa_sample</b></td></tr>
 <tr><td colspan="2"><h2><a name="friends"></a>
 Friends</h2></td></tr>
 <tr class="memitem:a1bac583ea3e8d6ee3570c56aff3ecab8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1bac583ea3e8d6ee3570c56aff3ecab8"></a>
@@ -250,7 +251,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>bwt_of_csa_psi&lt; c
 <div class="textblock"><p>A class for the uncmpressed suffix array (SA). </p>
 <p>This class stores the information of the suffix array and the inverse suffix array in uncompressed form. In contrast to this class, classes like <a class="el" href="classsdsl_1_1csa__sada__theo.html" title="A class for the Compressed Suffix Array (CSA) proposed by Sadakane. csa_sada_theo is the one to one i...">sdsl::csa_sada_theo</a>, <a class="el" href="classsdsl_1_1csa__sada.html" title="A class for the Compressed Suffix Array (CSA) proposed by Sadakane for practical implementation.">sdsl::csa_sada</a>, and <a class="el" href="classsdsl_1_1csa__wt.html" title="A class for the Compressed Suffix Array (CSA) based on a Wavelet Tree (WT) of the Burrow Wheeler Tran...">sdsl::csa_wt</a> store the suffix array and inverse suffix array data in compressed form.</p>
 <p>The interface of this class is exactly the same as for the compressed indexes. This is the reason why it is in the group of compressed suffix arrays.</p>
-<dl class="section user"><dt>Space complexity</b></dt><dd><img class="formulaInl" alt="$ 2n\cdot \log n$" src="form_101.png"/> bits, where <img class="formulaInl" alt="$n$" src="form_20.png"/> equals the <img class="formulaInl" alt="$size()$" src="form_102.png"/> of the suffix array. </dd></dl>
+<dl class="section user"><dt>Space complexity</b></dt><dd><img class="formulaInl" alt="$ 2n\cdot \log n$" src="form_102.png"/> bits, where <img class="formulaInl" alt="$n$" src="form_20.png"/> equals the <img class="formulaInl" alt="$size()$" src="form_103.png"/> of the suffix array. </dd></dl>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a8a33d299636c3279f49bdfa112a20fb0"></a>
 <div class="memitem">
@@ -397,7 +398,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>bwt_of_csa_psi&lt; c
 <p>()-operator return inverse suffix array values </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>Index of the value. <img class="formulaInl" alt="$ i \in [0..size()-1]$" src="form_91.png"/>. </td></tr>
+    <tr><td class="paramname">i</td><td>Index of the value. <img class="formulaInl" alt="$ i \in [0..size()-1]$" src="form_92.png"/>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -464,7 +465,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>bwt_of_csa_psi&lt; c
 <p>[]-operator </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>Index of the value. <img class="formulaInl" alt="$ i \in [0..size()-1]$" src="form_91.png"/>.</td></tr>
+    <tr><td class="paramname">i</td><td>Index of the value. <img class="formulaInl" alt="$ i \in [0..size()-1]$" src="form_92.png"/>.</td></tr>
   </table>
   </dd>
 </dl>
@@ -500,13 +501,13 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>bwt_of_csa_psi&lt; c
 <p>Calculates how many symbols c are in the prefix [0..i-1] of the BWT of the original text. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>The exclusive index of the prefix range [0..i-1], so <img class="formulaInl" alt="$i\in [0..size()]$" src="form_96.png"/>. </td></tr>
+    <tr><td class="paramname">i</td><td>The exclusive index of the prefix range [0..i-1], so <img class="formulaInl" alt="$i\in [0..size()]$" src="form_97.png"/>. </td></tr>
     <tr><td class="paramname">c</td><td>The symbol to count the occurences in the prefix. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>The number of occurences of symbol c in the prefix [0..i-1] of the BWT. </dd></dl>
-<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{\log n} $" src="form_103.png"/> </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{\log n} $" src="form_104.png"/> </dd></dl>
 
 </div>
 </div>
@@ -538,13 +539,13 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>bwt_of_csa_psi&lt; c
 <p>Calculates the ith occurence of symbol c in the BWT of the original text. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>The ith occurence. <img class="formulaInl" alt="$i\in [1..rank(size(),c)]$" src="form_98.png"/>. </td></tr>
+    <tr><td class="paramname">i</td><td>The ith occurence. <img class="formulaInl" alt="$i\in [1..rank(size(),c)]$" src="form_99.png"/>. </td></tr>
     <tr><td class="paramname">c</td><td>The symbol c. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>The ith occurence symbol c in the the BWT or <a class="el" href="classsdsl_1_1csa__uncompressed.html#a9bf96cb9b01edd0d79c0cab7f439eaa3" title="Number of elements in the instance.">size()</a> if no ith occurence of the symbol exists in the BWT. </dd></dl>
-<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{t_{\Psi}} $" src="form_99.png"/> </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{t_{\Psi}} $" src="form_100.png"/> </dd></dl>
 
 </div>
 </div>
@@ -628,7 +629,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>bwt_of_csa_psi&lt; c
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:35 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:30 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

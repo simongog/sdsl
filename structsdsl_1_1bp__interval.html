@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -127,10 +128,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (con
 Public Attributes</h2></td></tr>
 <tr class="memitem:a40c7ce8ad8e08357356d9ca2399f6e4c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a40c7ce8ad8e08357356d9ca2399f6e4c"></a>
 Int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdsl_1_1bp__interval.html#a40c7ce8ad8e08357356d9ca2399f6e4c">i</a></td></tr>
-<tr class="memdesc:a40c7ce8ad8e08357356d9ca2399f6e4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The left border of the lcp-interval <img class="formulaInl" alt="$\ell-[left..right]$" src="form_142.png"/>. <br/></td></tr>
+<tr class="memdesc:a40c7ce8ad8e08357356d9ca2399f6e4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The left border of the lcp-interval <img class="formulaInl" alt="$\ell-[left..right]$" src="form_144.png"/>. <br/></td></tr>
 <tr class="memitem:a141fb8dbd51918fccb3158150aa221ca"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a141fb8dbd51918fccb3158150aa221ca"></a>
 Int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdsl_1_1bp__interval.html#a141fb8dbd51918fccb3158150aa221ca">j</a></td></tr>
-<tr class="memdesc:a141fb8dbd51918fccb3158150aa221ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">The right border of the lcp-interval <img class="formulaInl" alt="$\ell-[left..right]$" src="form_142.png"/>. <br/></td></tr>
+<tr class="memdesc:a141fb8dbd51918fccb3158150aa221ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">The right border of the lcp-interval <img class="formulaInl" alt="$\ell-[left..right]$" src="form_144.png"/>. <br/></td></tr>
 <tr class="memitem:af2410a78454792185aa5db49b76a5f5a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af2410a78454792185aa5db49b76a5f5a"></a>
 Int&#160;</td><td class="memItemRight" valign="bottom"><b>ipos</b></td></tr>
 <tr class="memitem:a064087b9bb56538475ed20de24481de4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a064087b9bb56538475ed20de24481de4"></a>
@@ -160,7 +161,7 @@ template&lt;class Int  = int_vector&lt;&gt;::size_type&gt; </div>
 <div class="memdoc">
 
 <p>Inequality operator. </p>
-<p>Two lcp-intervals are not equal if and only if not all their corresponding memeber variables have the same values. </p>
+<p>Two lcp-intervals are not equal if and only if not all their corresponding member variables have the same values. </p>
 
 </div>
 </div>
@@ -220,7 +221,7 @@ template&lt;class Int  = int_vector&lt;&gt;::size_type&gt; </div>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:35 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:30 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

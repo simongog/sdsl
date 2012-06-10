@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -81,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -103,9 +104,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p><a class="el" href="wt_8hpp.html" title="wt.hpp contains a generic class for the wavelet tree proposed first by Grossi et al. 2003 and applied to the BWT in Foschini et al. 2004.">wt.hpp</a> contains a generic class for the wavelet tree proposed first by Grossi et al. 2003 and applied to the BWT in Foschini et al. 2004.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;int_vector.hpp&quot;</code><br/>
-<code>#include &quot;<a class="el" href="rank__support__v_8hpp_source.html">rank_support_v.hpp</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="select__support__mcl_8hpp_source.html">select_support_mcl.hpp</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="bitmagic_8hpp_source.html">bitmagic.hpp</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="util_8hpp_source.html">util.hpp</a>&quot;</code><br/>
 <code>#include &lt;set&gt;</code><br/>
 <code>#include &lt;map&gt;</code><br/>
 <code>#include &lt;algorithm&gt;</code><br/>
@@ -121,7 +121,7 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__trait_3_01character_01_5_01_4.html">sdsl::wt_trait&lt; character * &gt;</a></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__trait_3_01unsigned_01char_01_5_01_4.html">sdsl::wt_trait&lt; unsigned char * &gt;</a></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__trait_3_01int__vector__file__buffer_3_018_00_01size__type__class_01_4_01_4.html">sdsl::wt_trait&lt; int_vector_file_buffer&lt; 8, size_type_class &gt; &gt;</a></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt.html">sdsl::wt&lt; RandomAccessContainer, RankSupport, SelectSupport, SelectSupportZero &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt.html">sdsl::wt&lt; RandomAccessContainer, BitVector, RankSupport, SelectSupport, SelectSupportZero &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A wavelet tree class.  <a href="classsdsl_1_1wt.html#details">More...</a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -136,7 +136,7 @@ Namespaces</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:35 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:29 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

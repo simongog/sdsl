@@ -16,7 +16,7 @@ var searchData=
   ['test_5fcst_5fsibling_5foperation',['test_cst_sibling_operation',['../namespacesdsl.html#ad0b9442289b5561a858091faf7edeffc',1,'sdsl']]],
   ['test_5fcst_5fsl_5foperation',['test_cst_sl_operation',['../namespacesdsl.html#a9183e3976fd1d4fb34017b0ebf4f543d',1,'sdsl']]],
   ['test_5flcp_5frandom_5faccess',['test_lcp_random_access',['../namespacesdsl.html#a2f230731a5cde7f3a279dc96696d85ed',1,'sdsl']]],
-  ['test_5flcp_5frandom_5fsequential_5faccess',['test_lcp_random_sequential_access',['../namespacesdsl.html#a97cfc02477e1b8a4bbe36a6f244cd259',1,'sdsl']]],
+  ['test_5flcp_5frandom_5fsequential_5faccess',['test_lcp_random_sequential_access',['../namespacesdsl.html#ac5a4df7d86b576d54c32b81eb71da86b',1,'sdsl']]],
   ['test_5flcp_5fsequential_5faccess',['test_lcp_sequential_access',['../namespacesdsl.html#a828748493020c4ba4d22c1dddf0d86c2',1,'sdsl']]],
   ['test_5flf_5faccess',['test_lf_access',['../namespacesdsl.html#aed9720006709538064f16b07ef71e3c1',1,'sdsl']]],
   ['test_5fpattern_5fmatching',['test_pattern_matching',['../namespacesdsl.html#a2b06bf66dc5e9728ec22722ea8380d8e',1,'sdsl']]],

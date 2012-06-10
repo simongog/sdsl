@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -173,12 +174,12 @@ class sdsl::cst_dfs_const_forward_iterator&lt; Cst, cache_size &gt;</h3>
 </ul>
 <p>If the current node is a inner node, the method <a class="el" href="classsdsl_1_1cst__dfs__const__forward__iterator.html#a862c4601e7781645ff8e2d9e24a6d00e" title="Returns how often the current node was already visited.">visit()</a> returns 1 for the first visit and 2 for the second one. </p>
 <div class="fragment"><pre class="fragment">\par Time complexity
-</pre></div><p> <img class="formulaInl" alt="$\Order{1}$" src="form_120.png"/> for all methods </p>
-<dl class="section user"><dt>Space complexity</b></dt><dd><img class="formulaInl" alt="$\Order{1} $" src="form_132.png"/> <div class="fragment"><pre class="fragment">   This iterator is the standard iterator for the classes
-           - sdsl::cst_sada, 
+</pre></div><p> <img class="formulaInl" alt="$\Order{1}$" src="form_121.png"/> for all methods </p>
+<dl class="section user"><dt>Space complexity</b></dt><dd><img class="formulaInl" alt="$\Order{1} $" src="form_133.png"/> <div class="fragment"><pre class="fragment">   This iterator is the standard iterator for the classes
+           - sdsl::cst_sada,
            - sdsl::cst_sct,
            - sdsl::cst_sct2, and
-           - sdsl::cst_sct3        </pre></div> </dd></dl>
+           - sdsl::cst_sct3</pre></div> </dd></dl>
 </div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>sdsl/include/sdsl/<a class="el" href="cst__iterators_8hpp_source.html">cst_iterators.hpp</a></li>
 </ul>
@@ -186,7 +187,7 @@ class sdsl::cst_dfs_const_forward_iterator&lt; Cst, cache_size &gt;</h3>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:35 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:30 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

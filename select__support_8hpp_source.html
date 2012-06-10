@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -82,7 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -97,7 +98,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="select__support_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/* sdsl - succinct data structures library</span>
-<a name="l00002"></a>00002 <span class="comment">    Copyright (C) 2008 Simon Gog </span>
+<a name="l00002"></a>00002 <span class="comment">    Copyright (C) 2008 Simon Gog</span>
 <a name="l00003"></a>00003 <span class="comment"></span>
 <a name="l00004"></a>00004 <span class="comment">    This program is free software: you can redistribute it and/or modify</span>
 <a name="l00005"></a>00005 <span class="comment">    it under the terms of the GNU General Public License as published by</span>
@@ -118,49 +119,51 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00028"></a>00028 <span class="preprocessor">#include &quot;int_vector.hpp&quot;</span>
 <a name="l00029"></a>00029 <span class="preprocessor">#include &quot;<a class="code" href="rank__support_8hpp.html" title="rank_support.hpp contains classes that support a sdsl::bit_vector with constant time rank information...">rank_support.hpp</a>&quot;</span>
 <a name="l00030"></a>00030 
-<a name="l00032"></a>00032 <span class="keyword">namespace </span>sdsl{
-<a name="l00034"></a>00034 
-<a name="l00036"></a><a class="code" href="classsdsl_1_1select__support.html">00036</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1select__support.html" title="The base class of classes supporting select queries for a sdsl::bit_vector in constant time...">select_support</a>{
-<a name="l00037"></a>00037         <span class="keyword">protected</span>:
-<a name="l00038"></a><a class="code" href="classsdsl_1_1select__support.html#a18dc6f038e6749b9987f0847a5ea51a5">00038</a>                 <span class="keyword">const</span> int_vector&lt;1&gt; *<a class="code" href="classsdsl_1_1select__support.html#a18dc6f038e6749b9987f0847a5ea51a5" title="Pointer to the select supported sdsl::bit_vector.">m_v</a>; 
-<a name="l00039"></a>00039         <span class="keyword">public</span>:
-<a name="l00040"></a>00040                 <span class="keyword">typedef</span> int_vector&lt;1&gt;::size_type size_type;
-<a name="l00041"></a>00041                 <span class="keyword">const</span> bit_vector *v;
-<a name="l00042"></a>00042 
+<a name="l00032"></a>00032 <span class="keyword">namespace </span>sdsl
+<a name="l00033"></a>00033 {
+<a name="l00035"></a>00035 
+<a name="l00037"></a><a class="code" href="classsdsl_1_1select__support.html">00037</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1select__support.html" title="The base class of classes supporting select queries for a sdsl::bit_vector in constant time...">select_support</a>
+<a name="l00038"></a>00038 {
+<a name="l00039"></a>00039     <span class="keyword">protected</span>:
+<a name="l00040"></a><a class="code" href="classsdsl_1_1select__support.html#a18dc6f038e6749b9987f0847a5ea51a5">00040</a>         <span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;1&gt;</a>* <a class="code" href="classsdsl_1_1select__support.html#a18dc6f038e6749b9987f0847a5ea51a5" title="Pointer to the select supported sdsl::bit_vector.">m_v</a>; 
+<a name="l00041"></a>00041     <span class="keyword">public</span>:
+<a name="l00042"></a>00042         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector&lt;1&gt;::size_type</a> size_type;
+<a name="l00043"></a>00043         <span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">bit_vector</a>* v;
 <a name="l00044"></a>00044 
-<a name="l00046"></a><a class="code" href="classsdsl_1_1select__support.html#a30277da5fb5d372b4fe01fc4d45cb150">00046</a>                 <a class="code" href="classsdsl_1_1select__support.html#a30277da5fb5d372b4fe01fc4d45cb150" title="Constructor of select_support.">select_support</a>(<span class="keyword">const</span> int_vector&lt;1&gt; *f_v=NULL):v(f_v){
-<a name="l00047"></a>00047                         <a class="code" href="classsdsl_1_1select__support.html#a18dc6f038e6749b9987f0847a5ea51a5" title="Pointer to the select supported sdsl::bit_vector.">m_v</a> = f_v;
-<a name="l00048"></a>00048                 }
-<a name="l00050"></a>00050 
-<a name="l00053"></a>00053                 <a class="code" href="classsdsl_1_1select__support.html#a30277da5fb5d372b4fe01fc4d45cb150" title="Constructor of select_support.">select_support</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1select__support.html" title="The base class of classes supporting select queries for a sdsl::bit_vector in constant time...">select_support</a> &amp;f_v);
-<a name="l00055"></a><a class="code" href="classsdsl_1_1select__support.html#aea033a69cbadb524b532d00d82bad9c7">00055</a>                 <span class="keyword">virtual</span> <a class="code" href="classsdsl_1_1select__support.html#aea033a69cbadb524b532d00d82bad9c7" title="Destructor of select_support.">~select_support</a>(){};
-<a name="l00057"></a>00057 
-<a name="l00063"></a>00063                 <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1select__support.html#a555ceec6b71d50e1901c750b62dea087" title="Initalization method for select_support.">init</a>(<span class="keyword">const</span> int_vector&lt;1&gt; *v=NULL) = 0;
-<a name="l00065"></a>00065 
-<a name="l00070"></a>00070                 <span class="keyword">virtual</span> <span class="keyword">const</span> size_type <a class="code" href="classsdsl_1_1select__support.html#a6d9737aa32d821a5e1b4e6d2574bb365" title="Select returns the index of the i-th 1-bit in the supported bit_vector.">select</a>(size_type i) <span class="keyword">const</span> = 0;
-<a name="l00071"></a>00071 
-<a name="l00073"></a>00073                 <span class="keyword">virtual</span> <span class="keyword">const</span> size_type <a class="code" href="classsdsl_1_1select__support.html#a0aa0cd6c6e26bda3355d11e0d8c86d49" title="Alias for select.">operator()</a>(size_type i) <span class="keyword">const</span> = 0;
-<a name="l00075"></a>00075                 <span class="keyword">virtual</span> size_type <a class="code" href="classsdsl_1_1select__support.html#a7a56a44dfefe462ca1fe0bb9423bcabf" title="Serialize the select_support to an out file stream.">serialize</a>(std::ostream &amp;out)<span class="keyword">const</span> = 0;
-<a name="l00077"></a>00077 
-<a name="l00084"></a>00084                 <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1select__support.html#ac9e73e24d4a25903f1f29612b5758d93" title="Load the select_support from an in file stream.">load</a>(std::istream &amp;in, <span class="keyword">const</span> int_vector&lt;1&gt; *v=NULL) = 0;
-<a name="l00085"></a>00085 
+<a name="l00046"></a>00046 
+<a name="l00048"></a><a class="code" href="classsdsl_1_1select__support.html#a30277da5fb5d372b4fe01fc4d45cb150">00048</a>         <a class="code" href="classsdsl_1_1select__support.html#a30277da5fb5d372b4fe01fc4d45cb150" title="Constructor of select_support.">select_support</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;1&gt;</a>* f_v=NULL):v(f_v) {
+<a name="l00049"></a>00049             <a class="code" href="classsdsl_1_1select__support.html#a18dc6f038e6749b9987f0847a5ea51a5" title="Pointer to the select supported sdsl::bit_vector.">m_v</a> = f_v;
+<a name="l00050"></a>00050         }
+<a name="l00052"></a>00052 
+<a name="l00055"></a>00055         <a class="code" href="classsdsl_1_1select__support.html#a30277da5fb5d372b4fe01fc4d45cb150" title="Constructor of select_support.">select_support</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1select__support.html" title="The base class of classes supporting select queries for a sdsl::bit_vector in constant time...">select_support</a>&amp; f_v);
+<a name="l00057"></a><a class="code" href="classsdsl_1_1select__support.html#aea033a69cbadb524b532d00d82bad9c7">00057</a>         <span class="keyword">virtual</span> <a class="code" href="classsdsl_1_1select__support.html#aea033a69cbadb524b532d00d82bad9c7" title="Destructor of select_support.">~select_support</a>() {};
+<a name="l00059"></a>00059 
+<a name="l00065"></a>00065         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1select__support.html#a555ceec6b71d50e1901c750b62dea087" title="Initalization method for select_support.">init</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;1&gt;</a>* v=NULL) = 0;
+<a name="l00067"></a>00067 
+<a name="l00072"></a>00072         <span class="keyword">virtual</span> <span class="keyword">const</span> size_type <a class="code" href="classsdsl_1_1select__support.html#a6d9737aa32d821a5e1b4e6d2574bb365" title="Select returns the index of the i-th 1-bit in the supported bit_vector.">select</a>(size_type i) <span class="keyword">const</span> = 0;
+<a name="l00073"></a>00073 
+<a name="l00075"></a>00075         <span class="keyword">virtual</span> <span class="keyword">const</span> size_type <a class="code" href="classsdsl_1_1select__support.html#a0aa0cd6c6e26bda3355d11e0d8c86d49" title="Alias for select.">operator()</a>(size_type i) <span class="keyword">const</span> = 0;
+<a name="l00077"></a>00077         <span class="keyword">virtual</span> size_type <a class="code" href="classsdsl_1_1select__support.html#a7a56a44dfefe462ca1fe0bb9423bcabf" title="Serialize the select_support to an out file stream.">serialize</a>(std::ostream&amp; out)<span class="keyword">const</span> = 0;
+<a name="l00079"></a>00079 
+<a name="l00086"></a>00086         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1select__support.html#ac9e73e24d4a25903f1f29612b5758d93" title="Load the select_support from an in file stream.">load</a>(std::istream&amp; in, <span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;1&gt;</a>* v=NULL) = 0;
 <a name="l00087"></a>00087 
-<a name="l00090"></a>00090                 <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1select__support.html#ab6a2b4bb1e52b3664df7e4f8a647bc99" title="This method sets the supported bit_vector.">set_vector</a>(<span class="keyword">const</span> int_vector&lt;1&gt; *v=NULL) = 0;
-<a name="l00091"></a>00091 };
-<a name="l00092"></a>00092 
-<a name="l00093"></a>00093 
-<a name="l00094"></a>00094 } <span class="comment">// end namespace sdsl</span>
+<a name="l00089"></a>00089 
+<a name="l00092"></a>00092         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1select__support.html#ab6a2b4bb1e52b3664df7e4f8a647bc99" title="This method sets the supported bit_vector.">set_vector</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;1&gt;</a>* v=NULL) = 0;
+<a name="l00093"></a>00093 };
+<a name="l00094"></a>00094 
 <a name="l00095"></a>00095 
-<a name="l00096"></a>00096 <span class="preprocessor">#include &quot;<a class="code" href="select__support__bs_8hpp.html" title="select_support_bs.hpp contains the select_support_bs class that support a sdsl::bit_vector with const...">select_support_bs.hpp</a>&quot;</span>
-<a name="l00097"></a>00097 <span class="preprocessor">#include &quot;<a class="code" href="select__support__mcl_8hpp.html" title="select_support_mcl.hpp contains classes that support a sdsl::bit_vector with constant time select inf...">select_support_mcl.hpp</a>&quot;</span>
-<a name="l00098"></a>00098 <span class="preprocessor">#include &quot;<a class="code" href="select__support__dummy_8hpp.html" title="select_support_dummy.hpp contains classes that support a sdsl::bit_vector with constant time select i...">select_support_dummy.hpp</a>&quot;</span>
-<a name="l00099"></a>00099 
-<a name="l00100"></a>00100 <span class="preprocessor">#endif</span>
+<a name="l00096"></a>00096 } <span class="comment">// end namespace sdsl</span>
+<a name="l00097"></a>00097 
+<a name="l00098"></a>00098 <span class="preprocessor">#include &quot;<a class="code" href="select__support__bs_8hpp.html" title="select_support_bs.hpp contains the select_support_bs class that support a sdsl::bit_vector with const...">select_support_bs.hpp</a>&quot;</span>
+<a name="l00099"></a>00099 <span class="preprocessor">#include &quot;<a class="code" href="select__support__mcl_8hpp.html" title="select_support_mcl.hpp contains classes that support a sdsl::bit_vector with constant time select inf...">select_support_mcl.hpp</a>&quot;</span>
+<a name="l00100"></a>00100 <span class="preprocessor">#include &quot;<a class="code" href="select__support__dummy_8hpp.html" title="select_support_dummy.hpp contains classes that support a sdsl::bit_vector with constant time select i...">select_support_dummy.hpp</a>&quot;</span>
+<a name="l00101"></a>00101 
+<a name="l00102"></a>00102 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:34 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:27 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

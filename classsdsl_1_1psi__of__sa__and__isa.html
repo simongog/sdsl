@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -227,10 +228,10 @@ template&lt;class Csa&gt; </div>
 <div class="memdoc">
 
 <p>Calculate the LF mapping at position i. </p>
-<p>The LF mapping function is the inverse to the <img class="formulaInl" alt="$\Psi$" src="form_6.png"/> function. That is <img class="formulaInl" alt="$LF[\Psi(i)]=i$" src="form_107.png"/>. </p>
+<p>The LF mapping function is the inverse to the <img class="formulaInl" alt="$\Psi$" src="form_6.png"/> function. That is <img class="formulaInl" alt="$LF[\Psi(i)]=i$" src="form_108.png"/>. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>The index for which the LF value should be calculated, <img class="formulaInl" alt="$i\in [0..size()-1]$" src="form_104.png"/>. </td></tr>
+    <tr><td class="paramname">i</td><td>The index for which the LF value should be calculated, <img class="formulaInl" alt="$i\in [0..size()-1]$" src="form_105.png"/>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -277,9 +278,9 @@ template&lt;class Csa&gt; </div>
 <div class="memdoc">
 
 <p>Calculate the <img class="formulaInl" alt="$\Psi$" src="form_6.png"/> value at position i. </p>
-<div class="fragment"><pre class="fragment">   \param i The index for which the \form#6 value should be calculated, \form#104. 
+<div class="fragment"><pre class="fragment">   \param i The index for which the \form#6 value should be calculated, \form#105.
    \par Time complexity
-</pre></div><p> <img class="formulaInl" alt="$ \Order{\saaccess+\isaaccess} $" src="form_216.png"/> </p>
+</pre></div><p> <img class="formulaInl" alt="$ \Order{\saaccess+\isaaccess} $" src="form_231.png"/> </p>
 
 </div>
 </div>
@@ -290,7 +291,7 @@ template&lt;class Csa&gt; </div>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:36 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:32 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

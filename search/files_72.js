@@ -7,6 +7,5 @@ var searchData=
   ['rmq_5fsupport_2ehpp',['rmq_support.hpp',['../rmq__support_8hpp.html',1,'']]],
   ['rmq_5fsupport_5fsparse_5ftable_2ehpp',['rmq_support_sparse_table.hpp',['../rmq__support__sparse__table_8hpp.html',1,'']]],
   ['rrr_5fhelper_2ehpp',['rrr_helper.hpp',['../rrr__helper_8hpp.html',1,'']]],
-  ['rrr_5fvector_2ehpp',['rrr_vector.hpp',['../rrr__vector_8hpp.html',1,'']]],
-  ['rrr_5fvector_5fvar_2ehpp',['rrr_vector_var.hpp',['../rrr__vector__var_8hpp.html',1,'']]]
+  ['rrr_5fvector_2ehpp',['rrr_vector.hpp',['../rrr__vector_8hpp.html',1,'']]]
 ];

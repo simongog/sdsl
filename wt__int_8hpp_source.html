@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -82,7 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -97,7 +98,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="wt__int_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/* sdsl - succinct data structures library</span>
-<a name="l00002"></a>00002 <span class="comment">    Copyright (C) 2009 Simon Gog </span>
+<a name="l00002"></a>00002 <span class="comment">    Copyright (C) 2009 Simon Gog</span>
 <a name="l00003"></a>00003 <span class="comment"></span>
 <a name="l00004"></a>00004 <span class="comment">    This program is free software: you can redistribute it and/or modify</span>
 <a name="l00005"></a>00005 <span class="comment">    it under the terms of the GNU General Public License as published by</span>
@@ -121,468 +122,482 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00029"></a>00029 <span class="preprocessor">#include &quot;<a class="code" href="bitmagic_8hpp.html" title="bitmagic.hpp contains the sdsl::bit_magic class.">bitmagic.hpp</a>&quot;</span>
 <a name="l00030"></a>00030 <span class="preprocessor">#include &quot;<a class="code" href="testutils_8hpp.html" title="testutils.hpp contains a &quot;stopwatch&quot; class for performance meassurement of program pieces...">testutils.hpp</a>&quot;</span>
 <a name="l00031"></a>00031 <span class="preprocessor">#include &quot;<a class="code" href="temp__write__read__buffer_8hpp.html">temp_write_read_buffer.hpp</a>&quot;</span>
-<a name="l00032"></a>00032 <span class="preprocessor">#include &lt;set&gt;</span> <span class="comment">// for calculating the alphabet size</span>
-<a name="l00033"></a>00033 <span class="preprocessor">#include &lt;map&gt;</span> <span class="comment">// for mapping a symbol to its lexicographical index</span>
-<a name="l00034"></a>00034 <span class="preprocessor">#include &lt;algorithm&gt;</span> <span class="comment">// for std::swap</span>
-<a name="l00035"></a>00035 <span class="preprocessor">#include &lt;stdexcept&gt;</span>
-<a name="l00036"></a>00036 <span class="preprocessor">#include &lt;vector&gt;</span>
-<a name="l00037"></a>00037 
-<a name="l00039"></a>00039 <span class="keyword">namespace </span>sdsl{
-<a name="l00040"></a>00040 
+<a name="l00032"></a>00032 <span class="preprocessor">#include &quot;<a class="code" href="util_8hpp.html" title="util.hpp contains some helper methods for int_vector and other stuff like demangle class names...">util.hpp</a>&quot;</span>
+<a name="l00033"></a>00033 <span class="preprocessor">#include &lt;set&gt;</span> <span class="comment">// for calculating the alphabet size</span>
+<a name="l00034"></a>00034 <span class="preprocessor">#include &lt;map&gt;</span> <span class="comment">// for mapping a symbol to its lexicographical index</span>
+<a name="l00035"></a>00035 <span class="preprocessor">#include &lt;algorithm&gt;</span> <span class="comment">// for std::swap</span>
+<a name="l00036"></a>00036 <span class="preprocessor">#include &lt;stdexcept&gt;</span>
+<a name="l00037"></a>00037 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00038"></a>00038 
+<a name="l00040"></a>00040 <span class="keyword">namespace </span>sdsl
+<a name="l00041"></a>00041 {
 <a name="l00042"></a>00042 
-<a name="l00054"></a>00054 <span class="keyword">template</span>&lt;<span class="keyword">class</span> RandomAccessContainer=<span class="keywordtype">int</span>_vector&lt;&gt;, <span class="keyword">class</span> RankSupport = rank_support_v&lt;&gt;, <span class="keyword">class</span> SelectSupport=select_support_mcl&lt;&gt;, <span class="keyword">class</span> SelectSupportZero=select_support_mcl&lt;0&gt; &gt;
-<a name="l00055"></a><a class="code" href="classsdsl_1_1wt__int.html">00055</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1wt__int.html" title="A wavelet tree class for sequences of big alphabet size (like integer alphabet)">wt_int</a>{
-<a name="l00056"></a>00056         <span class="keyword">public</span>:
-<a name="l00057"></a>00057         <span class="keyword">typedef</span> <span class="keyword">typename</span> RandomAccessContainer::size_type               size_type;
-<a name="l00058"></a>00058         <span class="keyword">typedef</span> <span class="keyword">typename</span> RandomAccessContainer::value_type              value_type;
-<a name="l00059"></a>00059         <span class="keyword">private</span>:
-<a name="l00060"></a>00060                 size_type                       m_size;
-<a name="l00061"></a>00061                 size_type                       m_sigma;                <span class="comment">//&lt;- \f$ |\Sigma| \f$</span>
-<a name="l00062"></a>00062                 bit_vector                      m_tree;                 <span class="comment">// bit vector to store the wavelet tree</span>
-<a name="l00063"></a>00063                 RankSupport                     m_tree_rank;    <span class="comment">// rank support for the wavelet tree bit vector</span>
-<a name="l00064"></a>00064                 SelectSupport           m_tree_select1; <span class="comment">// select support for the wavelet tree bit vector</span>
-<a name="l00065"></a>00065                 SelectSupportZero       m_tree_select0; 
-<a name="l00066"></a>00066                 uint32_t                        m_logn;
-<a name="l00067"></a>00067 
-<a name="l00068"></a>00068                 <span class="keywordtype">void</span> copy(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1wt__int.html" title="A wavelet tree class for sequences of big alphabet size (like integer alphabet)">wt_int</a> &amp;<a class="code" href="classsdsl_1_1wt.html" title="A wavelet tree class.">wt</a>){
-<a name="l00069"></a>00069                         m_size                  = wt.m_size;
-<a name="l00070"></a>00070                         m_sigma                 = wt.m_sigma;
-<a name="l00071"></a>00071                         m_tree                  = wt.m_tree;
-<a name="l00072"></a>00072                         m_tree_rank     = wt.m_tree_rank;
-<a name="l00073"></a>00073                         m_tree_rank.set_vector(&amp;m_tree);
-<a name="l00074"></a>00074                         m_tree_select1  = wt.m_tree_select1;
-<a name="l00075"></a>00075                         m_tree_select1.set_vector(&amp;m_tree);
-<a name="l00076"></a>00076                         m_tree_select0  = wt.m_tree_select0;
-<a name="l00077"></a>00077                         m_tree_select0.set_vector(&amp;m_tree);
-<a name="l00078"></a>00078                         m_logn                  = wt.m_logn;
-<a name="l00079"></a>00079                 }       
-<a name="l00080"></a>00080 
-<a name="l00081"></a>00081         <span class="keyword">public</span>: 
-<a name="l00082"></a>00082         
-<a name="l00083"></a><a class="code" href="classsdsl_1_1wt__int.html#a43585943fc4c16aaf9f6a15b6d42a71a">00083</a>         <span class="keyword">const</span> size_type &amp;<a class="code" href="classsdsl_1_1wt__int.html#a43585943fc4c16aaf9f6a15b6d42a71a" title="Effective alphabet size of the wavelet tree.">sigma</a>; 
-<a name="l00084"></a><a class="code" href="classsdsl_1_1wt__int.html#a544a4d5581611021f2a71049b56cdfd9">00084</a>         <span class="keyword">const</span> bit_vector &amp;<a class="code" href="classsdsl_1_1wt__int.html#a544a4d5581611021f2a71049b56cdfd9" title="A concatenation of all bit vectors of the wavelet tree.">tree</a>; 
-<a name="l00085"></a>00085 
-<a name="l00087"></a><a class="code" href="classsdsl_1_1wt__int.html#a65e43078ef9e66a4fb270e7cae6b07b8">00087</a>         <a class="code" href="classsdsl_1_1wt__int.html#a65e43078ef9e66a4fb270e7cae6b07b8" title="Default constructor.">wt_int</a>():m_size(0),m_sigma(0), m_logn(0), <a class="code" href="classsdsl_1_1wt__int.html#a43585943fc4c16aaf9f6a15b6d42a71a" title="Effective alphabet size of the wavelet tree.">sigma</a>(m_sigma), <a class="code" href="classsdsl_1_1wt__int.html#a544a4d5581611021f2a71049b56cdfd9" title="A concatenation of all bit vectors of the wavelet tree.">tree</a>(m_tree){};
-<a name="l00088"></a>00088 
-<a name="l00089"></a>00089 
-<a name="l00091"></a>00091 
-<a name="l00100"></a><a class="code" href="classsdsl_1_1wt__int.html#a006280ea250228d475cc8bf12c7980e1">00100</a>         <a class="code" href="classsdsl_1_1wt__int.html#a006280ea250228d475cc8bf12c7980e1" title="Constructor.">wt_int</a>(<span class="keyword">const</span> RandomAccessContainer &amp;rac, uint32_t logn=0):m_size(rac.<a class="code" href="classsdsl_1_1wt__int.html#aef839979277476615deb56519538a8c6" title="Returns the size of the original vector.">size</a>()), m_sigma(0), <a class="code" href="classsdsl_1_1wt__int.html#a43585943fc4c16aaf9f6a15b6d42a71a" title="Effective alphabet size of the wavelet tree.">sigma</a>(m_sigma), <a class="code" href="classsdsl_1_1wt__int.html#a544a4d5581611021f2a71049b56cdfd9" title="A concatenation of all bit vectors of the wavelet tree.">tree</a>(m_tree){
-<a name="l00101"></a>00101 <span class="preprocessor">#ifdef SDSL_DEBUG_INT_WAVELET_TREE      </span>
-<a name="l00102"></a>00102 <span class="preprocessor"></span>                std::cerr&lt;&lt;<span class="stringliteral">&quot;wt_int construct: size=&quot;</span>&lt;&lt;m_size&lt;&lt;std::endl;
-<a name="l00103"></a>00103 <span class="preprocessor">#endif          </span>
-<a name="l00104"></a>00104 <span class="preprocessor"></span>                size_type n     =       m_size; 
-<a name="l00105"></a>00105                 <span class="keywordflow">if</span>( logn == 0 ){ <span class="comment">// detect the biggest value in rac and set logn properly</span>
-<a name="l00106"></a>00106                         value_type x = 1;
-<a name="l00107"></a>00107                         <span class="keywordflow">for</span>(size_type i=0; i &lt; n; ++i)
-<a name="l00108"></a>00108                                 <span class="keywordflow">if</span>( rac[i] &gt; x )
-<a name="l00109"></a>00109                                         x = rac[i];
-<a name="l00110"></a>00110                         m_logn  = <a class="code" href="classsdsl_1_1bit__magic.html#add0a212c8b5f894223c49e95aaa2ae8e" title="Calculates the position of the leftmost 1-bit in the 64bit integer x if it exists.">bit_magic::l1BP</a>(x)+1; <span class="comment">// we need logn bits to represent all values in the range [0..x]</span>
-<a name="l00111"></a>00111                 }<span class="keywordflow">else</span>{
-<a name="l00112"></a>00112                         m_logn = logn;
-<a name="l00113"></a>00113                 }
-<a name="l00114"></a>00114                 m_tree          =       bit_vector( n*m_logn, 0); <span class="comment">// initialize the tree</span>
-<a name="l00115"></a>00115 
-<a name="l00116"></a>00116                 int_vector&lt;&gt;    perms[2];
-<a name="l00117"></a>00117                 perms[0].set_int_width(m_logn); perms[1].set_int_width(m_logn);
-<a name="l00118"></a>00118                 perms[0].resize(n);     perms[1].resize(n);
-<a name="l00119"></a>00119 
-<a name="l00120"></a>00120                 <span class="keywordflow">for</span>(size_type i=0; i &lt; n; ++i){ <span class="comment">// copy original array to perms[0]</span>
-<a name="l00121"></a>00121                         perms[0][i] = rac[i];
-<a name="l00122"></a>00122                 }
-<a name="l00123"></a>00123                         
-<a name="l00124"></a>00124                 size_type tree_pos = 0;
-<a name="l00125"></a>00125 
-<a name="l00126"></a>00126                 uint64_t                mask_old = 1ULL&lt;&lt;(m_logn);
-<a name="l00127"></a>00127                 <span class="keywordflow">for</span>(uint32_t k=0; k&lt;m_logn; ++k){
-<a name="l00128"></a>00128                         int_vector&lt;&gt;&amp;   act_perm         = perms[k%2];
-<a name="l00129"></a>00129                         int_vector&lt;&gt;&amp;   next_perm        = perms[1-(k%2)];
-<a name="l00130"></a>00130                         size_type               start            = 0;
-<a name="l00131"></a>00131                         <span class="keyword">const</span> uint64_t          mask_new = 1ULL&lt;&lt;(m_logn-k-1);
-<a name="l00132"></a>00132                         <span class="keywordflow">do</span>{
-<a name="l00133"></a>00133                                 size_type       i               = start;
-<a name="l00134"></a>00134                                 size_type       cnt1    =       0;
-<a name="l00135"></a>00135                                 uint64_t        start_value = (act_perm[i]&amp;mask_old);   
-<a name="l00136"></a>00136                                 uint64_t        x;
-<a name="l00137"></a>00137                                 <span class="keywordflow">while</span>( i &lt; n and ((x=act_perm[i])&amp;mask_old)==start_value ){
-<a name="l00138"></a>00138                                         <span class="keywordflow">if</span>( x&amp;mask_new ){
-<a name="l00139"></a>00139                                                 ++cnt1; m_tree[tree_pos] = 1;
-<a name="l00140"></a>00140                                         }
-<a name="l00141"></a>00141                                         ++tree_pos;
-<a name="l00142"></a>00142                                         ++i;
-<a name="l00143"></a>00143                                 }
-<a name="l00144"></a>00144                                 size_type cnt0 = i-start-cnt1;
-<a name="l00145"></a>00145                                 <span class="keywordflow">if</span>( k+1 &lt; m_logn ){ <span class="comment">// inner node</span>
-<a name="l00146"></a>00146                                         size_type idxs[2] = {start, start+cnt0};
-<a name="l00147"></a>00147                                         <span class="keywordflow">for</span>(i=start, start = start+cnt0+cnt1; i &lt; start; ++i){
-<a name="l00148"></a>00148                                                 next_perm[idxs[ (act_perm[i]&amp;mask_new)&gt;0 ]++] = act_perm[i];
-<a name="l00149"></a>00149                                         }
-<a name="l00150"></a>00150                                 }<span class="keywordflow">else</span>{ <span class="comment">// leaf node</span>
-<a name="l00151"></a>00151                                         start += cnt0+cnt1;     
-<a name="l00152"></a>00152                                         ++m_sigma;  <span class="comment">// increase sigma for each leaf</span>
-<a name="l00153"></a>00153                                 }
-<a name="l00154"></a>00154                         }<span class="keywordflow">while</span>(start &lt; n);
-<a name="l00155"></a>00155                         mask_old += mask_new;
-<a name="l00156"></a>00156                 }
-<a name="l00157"></a>00157 <span class="preprocessor">#ifdef SDSL_DEBUG_INT_WAVELET_TREE              </span>
-<a name="l00158"></a>00158 <span class="preprocessor"></span>                <span class="keywordflow">if</span>(m_tree.size()&lt;100){
-<a name="l00159"></a>00159                         std::cerr&lt;&lt;<span class="stringliteral">&quot;tree=&quot;</span>&lt;&lt;m_tree&lt;&lt;std::endl;
-<a name="l00160"></a>00160                 }
-<a name="l00161"></a>00161 <span class="preprocessor">#endif          </span>
-<a name="l00162"></a>00162 <span class="preprocessor"></span>                m_tree_rank.init(&amp;m_tree);
-<a name="l00163"></a>00163                 m_tree_select0.init(&amp;m_tree);
-<a name="l00164"></a>00164                 m_tree_select1.init(&amp;m_tree);
-<a name="l00165"></a>00165         }
-<a name="l00166"></a>00166 
-<a name="l00168"></a>00168 
-<a name="l00177"></a>00177         <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th&gt;
-<a name="l00178"></a><a class="code" href="classsdsl_1_1wt__int.html#ab526bb44dc6cd40e78f8a40ee6813ed2">00178</a>         <a class="code" href="classsdsl_1_1wt__int.html#ab526bb44dc6cd40e78f8a40ee6813ed2" title="Semi-external constructor.">wt_int</a>(int_vector_file_buffer&lt;int_width&gt; &amp;buf, uint32_t logn=0, std::string dir=<span class="stringliteral">&quot;./&quot;</span>){
-<a name="l00179"></a>00179                 construct(buf, logn, dir);
-<a name="l00180"></a>00180         }
-<a name="l00181"></a>00181 
-<a name="l00182"></a>00182 
-<a name="l00183"></a>00183         <span class="comment">// TODO external construction method which occupies only additional constant memory</span>
-<a name="l00184"></a>00184         <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th&gt;
-<a name="l00185"></a>00185         <span class="keywordtype">void</span> construct(int_vector_file_buffer&lt;int_width&gt; &amp;buf, uint32_t logn=0, std::string dir=<span class="stringliteral">&quot;./&quot;</span>){
-<a name="l00186"></a>00186                 buf.reset();
-<a name="l00187"></a>00187                 size_type n = buf.int_vector_size;  <span class="comment">// set n</span>
-<a name="l00188"></a>00188                 m_size = n;                             <span class="comment">// set sigma and size</span>
-<a name="l00189"></a>00189                 m_sigma = 0;
-<a name="l00190"></a>00190                 <a class="code" href="classsdsl_1_1temp__write__read__buffer.html">temp_write_read_buffer&lt;&gt;</a> buf1(5000000, buf.int_width, dir);   <span class="comment">// buffer for elements in the rigth node</span>
-<a name="l00191"></a>00191                 int_vector&lt;int_width&gt; rac(n, 0, buf.int_width);                           <span class="comment">// initialze rac</span>
-<a name="l00192"></a>00192 
-<a name="l00193"></a>00193                 value_type x = 1;  <span class="comment">// variable for the biggest value in rac</span>
-<a name="l00194"></a>00194                 <span class="keywordflow">for</span>(size_type i=0,r=0,r_sum=0; i&lt;n; ){ <span class="comment">// detect the biggest value in rac </span>
-<a name="l00195"></a>00195                         <span class="keywordflow">for</span>(; i &lt; r+r_sum; ++i){
-<a name="l00196"></a>00196                                 <span class="keywordflow">if</span>( buf[i-r_sum] &gt; x )
-<a name="l00197"></a>00197                                         x = buf[i-r_sum];
-<a name="l00198"></a>00198                                 rac[i] = buf[i-r_sum];
-<a name="l00199"></a>00199                         }
-<a name="l00200"></a>00200                         r_sum += r; r = buf.load_next_block();  
-<a name="l00201"></a>00201                 }
-<a name="l00202"></a>00202 
-<a name="l00203"></a>00203                 <span class="keywordflow">if</span>( logn == 0  ){ 
-<a name="l00204"></a>00204                         m_logn  = <a class="code" href="classsdsl_1_1bit__magic.html#add0a212c8b5f894223c49e95aaa2ae8e" title="Calculates the position of the leftmost 1-bit in the 64bit integer x if it exists.">bit_magic::l1BP</a>(x)+1; <span class="comment">// we need logn bits to represent all values in the range [0..x]</span>
-<a name="l00205"></a>00205                 }
-<a name="l00206"></a>00206                 <span class="keywordflow">else</span>{
-<a name="l00207"></a>00207                         m_logn = logn;
-<a name="l00208"></a>00208                 }
-<a name="l00209"></a>00209                 std::string tree_out_buf_file_name = (dir+<span class="stringliteral">&quot;m_tree&quot;</span>+<a class="code" href="namespacesdsl_1_1util.html#a6d8c83ac15f316e914edff973d8d77b6" title="Convert type to string.">util::to_string</a>(<a class="code" href="namespacesdsl_1_1util.html#ad89157cf167352afc99fe41318990191" title="Get the process id of the current process.">util::get_pid</a>())+<span class="stringliteral">&quot;_&quot;</span>+<a class="code" href="namespacesdsl_1_1util.html#a6d8c83ac15f316e914edff973d8d77b6" title="Convert type to string.">util::to_string</a>(<a class="code" href="namespacesdsl_1_1util.html#a6d9b7c00544c815b561e2f1e8a04c486" title="Get a unique id inside the process.">util::get_id</a>()));
-<a name="l00210"></a>00210                 std::ofstream tree_out_buf( tree_out_buf_file_name.c_str(), 
-<a name="l00211"></a>00211                                                                         std::ios::binary | std::ios::trunc | std::ios::out );  <span class="comment">// open buffer for tree</span>
-<a name="l00212"></a>00212                 size_type bit_size = n*m_logn;
-<a name="l00213"></a>00213                 tree_out_buf.write( (<span class="keywordtype">char</span> *) &amp;bit_size, <span class="keyword">sizeof</span>(bit_size) ); <span class="comment">// write size of bit_vector</span>
-<a name="l00214"></a>00214 
-<a name="l00215"></a>00215                 size_type tree_pos = 0;
-<a name="l00216"></a>00216                 uint64_t tree_word = 0;
-<a name="l00217"></a>00217 
-<a name="l00218"></a>00218                 uint64_t                mask_old = 1ULL&lt;&lt;(m_logn);
-<a name="l00219"></a>00219                 <span class="keywordflow">for</span>(uint32_t k=0; k&lt;m_logn; ++k){
-<a name="l00220"></a>00220                         size_type               start            = 0;
-<a name="l00221"></a>00221                         <span class="keyword">const</span> uint64_t          mask_new = 1ULL&lt;&lt;(m_logn-k-1);
-<a name="l00222"></a>00222                         <span class="keywordflow">do</span>{
-<a name="l00223"></a>00223                                 buf1.reset();
-<a name="l00224"></a>00224                                 size_type       i               = start;
-<a name="l00225"></a>00225                                 size_type       cnt0    =       0;
-<a name="l00226"></a>00226                                 uint64_t        start_value = (rac[i]&amp;mask_old);
-<a name="l00227"></a>00227                                 uint64_t        x;
-<a name="l00228"></a>00228                                 <span class="keywordflow">while</span>( i &lt; n and ((x=rac[i])&amp;mask_old)==start_value ){
-<a name="l00229"></a>00229                                         <span class="keywordflow">if</span>( x&amp;mask_new ){
-<a name="l00230"></a>00230                                                 tree_word |= (1ULL &lt;&lt; (tree_pos&amp;0x3FULL) );
-<a name="l00231"></a>00231                                                 buf1 &lt;&lt; x;
-<a name="l00232"></a>00232                                         }<span class="keywordflow">else</span>{
-<a name="l00233"></a>00233                                                 rac[start + cnt0++ ] = x;
-<a name="l00234"></a>00234                                         }
-<a name="l00235"></a>00235                                         ++tree_pos;
-<a name="l00236"></a>00236                                         <span class="keywordflow">if</span>( (tree_pos &amp; 0x3FULL) == 0 ){ <span class="comment">// if tree_pos % 64 == 0 write old word</span>
-<a name="l00237"></a>00237                                                 tree_out_buf.write( (<span class="keywordtype">char</span>*) &amp;tree_word, <span class="keyword">sizeof</span>(tree_word) );
-<a name="l00238"></a>00238                                                 tree_word = 0;
-<a name="l00239"></a>00239                                         }
-<a name="l00240"></a>00240                                         ++i;
-<a name="l00241"></a>00241                                 }
-<a name="l00242"></a>00242                                 buf1.write_close();
-<a name="l00243"></a>00243                                 size_type cnt1 = i-start-cnt0;
-<a name="l00244"></a>00244                                 <span class="keywordflow">if</span>( k+1 &lt; m_logn ){ <span class="comment">// inner node</span>
-<a name="l00245"></a>00245                                         <span class="keywordflow">for</span>(i=start + cnt0, start = start+cnt0+cnt1; i &lt; start; ++i){
-<a name="l00246"></a>00246                                                 buf1 &gt;&gt; x;
-<a name="l00247"></a>00247                                                 rac[ i ] = x;
-<a name="l00248"></a>00248                                         }
-<a name="l00249"></a>00249                                 }<span class="keywordflow">else</span>{ <span class="comment">// leaf node</span>
-<a name="l00250"></a>00250                                         start += cnt0+cnt1;
-<a name="l00251"></a>00251                                         ++m_sigma; <span class="comment">// increase sigma for each leaf</span>
-<a name="l00252"></a>00252                                 }
-<a name="l00253"></a>00253                                 
-<a name="l00254"></a>00254                         }<span class="keywordflow">while</span>(start &lt; n);
-<a name="l00255"></a>00255                         mask_old += mask_new;
-<a name="l00256"></a>00256                 }
-<a name="l00257"></a>00257                 <span class="keywordflow">if</span>( (tree_pos &amp; 0x3FULL) != 0 ){ <span class="comment">// if tree_pos % 64 &gt; 0 =&gt; there are remaining entries we have to write</span>
-<a name="l00258"></a>00258                         tree_out_buf.write( (<span class="keywordtype">char</span>*) &amp;tree_word, <span class="keyword">sizeof</span>(tree_word) );
-<a name="l00259"></a>00259                 }
-<a name="l00260"></a>00260                 tree_out_buf.close();
-<a name="l00261"></a>00261                 rac.resize( 0 );
-<a name="l00262"></a>00262                 <a class="code" href="namespacesdsl_1_1util.html#a61645c49a282eb5bde5c9ca9d6dc94ff" title="Load a data structure from a file.">util::load_from_file</a>( m_tree, tree_out_buf_file_name.c_str() );
-<a name="l00263"></a>00263                 std::remove( tree_out_buf_file_name.c_str() );
-<a name="l00264"></a>00264 <span class="preprocessor">#ifdef SDSL_DEBUG_INT_WAVELET_TREE              </span>
-<a name="l00265"></a>00265 <span class="preprocessor"></span>                <span class="keywordflow">if</span>(m_tree.size()&lt;100){
-<a name="l00266"></a>00266                         std::cerr&lt;&lt;<span class="stringliteral">&quot;tree=&quot;</span>&lt;&lt;m_tree&lt;&lt;std::endl;
-<a name="l00267"></a>00267                 }
-<a name="l00268"></a>00268 <span class="preprocessor">#endif          </span>
-<a name="l00269"></a>00269 <span class="preprocessor"></span>                m_tree_rank.init(&amp;m_tree);
-<a name="l00270"></a>00270                 m_tree_select0.init(&amp;m_tree);
-<a name="l00271"></a>00271                 m_tree_select1.init(&amp;m_tree);
-<a name="l00272"></a>00272         }       
-<a name="l00273"></a>00273 
-<a name="l00275"></a><a class="code" href="classsdsl_1_1wt__int.html#a807e9474b0f220275bbf8e7ae82bbb98">00275</a>         <a class="code" href="classsdsl_1_1wt__int.html#a807e9474b0f220275bbf8e7ae82bbb98" title="Copy constructor.">wt_int</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1wt__int.html" title="A wavelet tree class for sequences of big alphabet size (like integer alphabet)">wt_int</a> &amp;wt):<a class="code" href="classsdsl_1_1wt__int.html#a43585943fc4c16aaf9f6a15b6d42a71a" title="Effective alphabet size of the wavelet tree.">sigma</a>(m_sigma){
-<a name="l00276"></a>00276                 copy(wt);
-<a name="l00277"></a>00277         }       
-<a name="l00278"></a>00278 
-<a name="l00280"></a><a class="code" href="classsdsl_1_1wt__int.html#a5d55e900871b5aec69d75c1ebce02a89">00280</a>         <a class="code" href="classsdsl_1_1wt__int.html" title="A wavelet tree class for sequences of big alphabet size (like integer alphabet)">wt_int</a>&amp; <a class="code" href="classsdsl_1_1wt__int.html#a5d55e900871b5aec69d75c1ebce02a89" title="Assignment operator.">operator=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1wt__int.html" title="A wavelet tree class for sequences of big alphabet size (like integer alphabet)">wt_int</a> &amp;wt){
-<a name="l00281"></a>00281                 <span class="keywordflow">if</span>( <span class="keyword">this</span> != &amp;wt ){
-<a name="l00282"></a>00282                         copy(wt);
-<a name="l00283"></a>00283                 }
-<a name="l00284"></a>00284                 <span class="keywordflow">return</span> *<span class="keyword">this</span>;
-<a name="l00285"></a>00285         }
-<a name="l00286"></a>00286 
-<a name="l00288"></a><a class="code" href="classsdsl_1_1wt__int.html#a3ebbdc1c29690293c7edbae6b25b0636">00288</a>         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1wt__int.html#a3ebbdc1c29690293c7edbae6b25b0636" title="Swap operator.">swap</a>(<a class="code" href="classsdsl_1_1wt__int.html" title="A wavelet tree class for sequences of big alphabet size (like integer alphabet)">wt_int</a> &amp;wt){
-<a name="l00289"></a>00289                 <span class="keywordflow">if</span>(<span class="keyword">this</span> != &amp;wt){
-<a name="l00290"></a>00290                         <a class="code" href="classsdsl_1_1wt__int.html#a3ebbdc1c29690293c7edbae6b25b0636" title="Swap operator.">std::swap</a>(m_size, wt.m_size);
-<a name="l00291"></a>00291                         <a class="code" href="classsdsl_1_1wt__int.html#a3ebbdc1c29690293c7edbae6b25b0636" title="Swap operator.">std::swap</a>(m_sigma,  wt.m_sigma);
-<a name="l00292"></a>00292                         m_tree.swap(wt.m_tree);
-<a name="l00293"></a>00293                         m_tree_rank.swap(wt.m_tree_rank); <span class="comment">// rank swap after the swap of the bit vector m_tree</span>
-<a name="l00294"></a>00294                         m_tree_select1.swap(wt.m_tree_select1); <span class="comment">// select1 swap after the swap of the bit vector m_tree</span>
-<a name="l00295"></a>00295                         m_tree_select0.swap(wt.m_tree_select0); <span class="comment">// select0 swap after the swap of the bit vector m_tree</span>
-<a name="l00296"></a>00296                         <a class="code" href="classsdsl_1_1wt__int.html#a3ebbdc1c29690293c7edbae6b25b0636" title="Swap operator.">std::swap</a>(m_logn,  wt.m_logn);
-<a name="l00297"></a>00297                 }
-<a name="l00298"></a>00298         }
-<a name="l00299"></a>00299 
-<a name="l00301"></a><a class="code" href="classsdsl_1_1wt__int.html#aef839979277476615deb56519538a8c6">00301</a>         size_type <a class="code" href="classsdsl_1_1wt__int.html#aef839979277476615deb56519538a8c6" title="Returns the size of the original vector.">size</a>()<span class="keyword">const</span>{
-<a name="l00302"></a>00302                 <span class="keywordflow">return</span> m_size;
-<a name="l00303"></a>00303         }
-<a name="l00304"></a>00304 
-<a name="l00306"></a><a class="code" href="classsdsl_1_1wt__int.html#a8248d3176f956f6d8ad6c110e257400d">00306</a>         <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1wt__int.html#a8248d3176f956f6d8ad6c110e257400d" title="Returns whether the wavelet tree contains no data.">empty</a>()<span class="keyword">const</span>{
-<a name="l00307"></a>00307                 <span class="keywordflow">return</span> m_size == 0;
-<a name="l00308"></a>00308         }
-<a name="l00309"></a>00309 
-<a name="l00311"></a>00311 
-<a name="l00314"></a><a class="code" href="classsdsl_1_1wt__int.html#acbd3a95d398b37d2176ff7de428e9db2">00314</a>         value_type <a class="code" href="classsdsl_1_1wt__int.html#acbd3a95d398b37d2176ff7de428e9db2" title="Recovers the ith symbol of the original vector.">operator[]</a>(size_type i)<span class="keyword">const</span>{
-<a name="l00315"></a>00315 <span class="comment">//              size_type zeros_left_of_pos = 0;</span>
-<a name="l00316"></a>00316                 size_type offset = 0;
-<a name="l00317"></a>00317                 value_type res = 0;
-<a name="l00318"></a>00318                 size_type node_size = m_size;
-<a name="l00319"></a>00319                 <span class="keywordflow">for</span>(uint32_t k=0; k &lt; m_logn; ++k){
-<a name="l00320"></a>00320                         res &lt;&lt;= 1;
-<a name="l00321"></a>00321                         size_type ones_before_o   = m_tree_rank( offset );
-<a name="l00322"></a>00322                         size_type ones_before_i   = m_tree_rank( offset + i ) - ones_before_o;
-<a name="l00323"></a>00323                         size_type ones_before_end = m_tree_rank( offset + node_size ) - ones_before_o;
-<a name="l00324"></a>00324 <span class="comment">//                      std::cerr&lt;&lt;&quot;k=&quot;&lt;&lt;k&lt;&lt;&quot; i=&quot;&lt;&lt;i&lt;&lt;&quot; offset=&quot;&lt;&lt;offset&lt;&lt;&quot; node_size=&quot;&lt;&lt;node_size&lt;&lt;&quot; obo=&quot;&lt;&lt;ones_before_o&lt;&lt;&quot; obi=&quot;&lt;&lt;ones_before_i&lt;&lt;&quot; obe=&quot;&lt;&lt;ones_before_end&lt;&lt;std::endl;</span>
-<a name="l00325"></a>00325                         <span class="keywordflow">if</span>( m_tree[offset+i] ){ <span class="comment">// one at position i =&gt; follow right child</span>
-<a name="l00326"></a>00326 <span class="comment">//                              zeros_left_of_pos += (node_size - ones_before_end);             </span>
-<a name="l00327"></a>00327                                 offset += (node_size - ones_before_end);
-<a name="l00328"></a>00328                                 node_size = ones_before_end;
-<a name="l00329"></a>00329                                 i = ones_before_i;
-<a name="l00330"></a>00330                                 res |= 1;
-<a name="l00331"></a>00331                         }<span class="keywordflow">else</span>{<span class="comment">// zero at position i =&gt; follow left child</span>
-<a name="l00332"></a>00332                                 node_size = (node_size - ones_before_end);
-<a name="l00333"></a>00333                                 i = (i-ones_before_i);
-<a name="l00334"></a>00334                         }       
-<a name="l00335"></a>00335                         <span class="comment">//offset = (k+1)*m_size + zeros_left_of_pos;</span>
-<a name="l00336"></a>00336                         offset += m_size;
-<a name="l00337"></a>00337                 }
-<a name="l00338"></a>00338 <span class="comment">//              std::cerr&lt;&lt;&quot; offset=&quot;&lt;&lt;offset&lt;&lt;&quot; node_size=&quot;&lt;&lt;node_size&lt;&lt;std::endl;</span>
-<a name="l00339"></a>00339                 <span class="keywordflow">return</span> res;
-<a name="l00340"></a>00340         };
-<a name="l00341"></a>00341 
-<a name="l00342"></a>00342         <span class="comment">//TODO: buchstaben, die nicht im orginaltext vorkommen behandeln!!! </span>
-<a name="l00344"></a>00344 <span class="comment"></span>
-<a name="l00351"></a><a class="code" href="classsdsl_1_1wt__int.html#ad74912f787e74a3f1d5773617d39ea8d">00351</a>         size_type <a class="code" href="classsdsl_1_1wt__int.html#ad74912f787e74a3f1d5773617d39ea8d" title="Calculates how many symbols c are in the prefix [0..i-1] of the supported vector.">rank</a>(size_type i, value_type c)<span class="keyword">const</span>{
-<a name="l00352"></a>00352                 size_type offset = 0;
-<a name="l00353"></a>00353                 uint64_t mask    = (1ULL) &lt;&lt; (m_logn-1);
-<a name="l00354"></a>00354                 size_type node_size = m_size;
-<a name="l00355"></a>00355                 <span class="keywordflow">for</span>(uint32_t k=0; k &lt; m_logn and i; ++k){
-<a name="l00356"></a>00356                         size_type ones_before_o   = m_tree_rank( offset );
-<a name="l00357"></a>00357                         size_type ones_before_i   = m_tree_rank( offset + i ) - ones_before_o;
-<a name="l00358"></a>00358                         size_type ones_before_end = m_tree_rank( offset + node_size ) - ones_before_o;                  
-<a name="l00359"></a>00359                         <span class="keywordflow">if</span>( c &amp; mask ){ <span class="comment">// search for a one at this level</span>
-<a name="l00360"></a>00360                                 offset += (node_size - ones_before_end);
-<a name="l00361"></a>00361                                 node_size = ones_before_end;
-<a name="l00362"></a>00362                                 i = ones_before_i;
-<a name="l00363"></a>00363                         }<span class="keywordflow">else</span>{ <span class="comment">// search for a zero at this level</span>
-<a name="l00364"></a>00364                                 node_size = (node_size - ones_before_end);
-<a name="l00365"></a>00365                                 i = (i-ones_before_i);          
-<a name="l00366"></a>00366                         }
-<a name="l00367"></a>00367                         offset += m_size;
-<a name="l00368"></a>00368                         mask &gt;&gt;= 1;
-<a name="l00369"></a>00369                 }
-<a name="l00370"></a>00370                 <span class="keywordflow">return</span> i;
-<a name="l00371"></a>00371         };
-<a name="l00372"></a>00372 
-<a name="l00374"></a>00374 
-<a name="l00380"></a>00380          <span class="comment">// TODO: was ist wenn c gar nicht vorkommt, oder es keine i Vorkommen gibt?</span>
-<a name="l00381"></a><a class="code" href="classsdsl_1_1wt__int.html#a896db8acc938e7e17ee3d2391f91b12d">00381</a>         size_type <a class="code" href="classsdsl_1_1wt__int.html#a896db8acc938e7e17ee3d2391f91b12d" title="Calculates the ith occurence of the symbol c in the supported vector.">select</a>(size_type i, value_type c)<span class="keyword">const</span>{
-<a name="l00382"></a>00382                 <span class="comment">// possible optimization: if the array is a permutation we can start at the bottom of the tree</span>
-<a name="l00383"></a>00383                 size_type offset = 0;
-<a name="l00384"></a>00384                 uint64_t mask    = (1ULL) &lt;&lt; (m_logn-1);
-<a name="l00385"></a>00385                 size_type node_size = m_size;
-<a name="l00386"></a>00386                 size_type offsets[m_logn+1];                    <span class="comment">// offsets down the path</span>
-<a name="l00387"></a>00387                 size_type ones_before_os[m_logn+1];   <span class="comment">// ones before the offsets</span>
-<a name="l00388"></a>00388                 offsets[0] = ones_before_os[0] = 0;
-<a name="l00389"></a>00389 
-<a name="l00390"></a>00390                 <span class="keywordflow">for</span>(uint32_t k=0; k &lt; m_logn and node_size; ++k){
-<a name="l00391"></a>00391                         size_type ones_before_o   = m_tree_rank( offset );
-<a name="l00392"></a>00392                         ones_before_os[k] = ones_before_o;
-<a name="l00393"></a>00393                         size_type ones_before_end = m_tree_rank( offset + node_size ) - ones_before_o;                  
-<a name="l00394"></a>00394                         <span class="keywordflow">if</span>( c &amp; mask ){ <span class="comment">// search for a one at this level</span>
-<a name="l00395"></a>00395                                 offset += (node_size - ones_before_end);
-<a name="l00396"></a>00396                                 node_size = ones_before_end;
-<a name="l00397"></a>00397                         }<span class="keywordflow">else</span>{ <span class="comment">// search for a zero at this level</span>
-<a name="l00398"></a>00398                                 node_size = (node_size - ones_before_end);
-<a name="l00399"></a>00399                         }
-<a name="l00400"></a>00400                         offset += m_size;
-<a name="l00401"></a>00401                         offsets[k+1] = offset;
-<a name="l00402"></a>00402                         mask &gt;&gt;= 1;
-<a name="l00403"></a>00403                 }
-<a name="l00404"></a>00404                 <span class="keywordflow">if</span>( node_size &lt; i ){
-<a name="l00405"></a>00405                         std::cerr&lt;&lt;<span class="stringliteral">&quot;c=&quot;</span>&lt;&lt;c&lt;&lt;<span class="stringliteral">&quot; does not occure &quot;</span>&lt;&lt;i&lt;&lt;<span class="stringliteral">&quot; times in the WT&quot;</span>&lt;&lt;std::endl;
-<a name="l00406"></a>00406                         <span class="keywordflow">return</span> m_size;
-<a name="l00407"></a>00407                 }
-<a name="l00408"></a>00408                 mask = 1ULL;
-<a name="l00409"></a>00409                 <span class="keywordflow">for</span>(uint32_t k=m_logn; k&gt;0; --k){
-<a name="l00410"></a>00410                         offset = offsets[k-1];
-<a name="l00411"></a>00411                         size_type ones_before_o = ones_before_os[k-1];
-<a name="l00412"></a>00412                         <span class="keywordflow">if</span>( c &amp; mask ){ <span class="comment">// right child =&gt; search i&#39;th </span>
-<a name="l00413"></a>00413                                 i = m_tree_select1( ones_before_o + i ) - offset + 1;
-<a name="l00414"></a>00414                         }<span class="keywordflow">else</span>{ <span class="comment">// left child =&gt; search i&#39;th zero</span>
-<a name="l00415"></a>00415                                 i = m_tree_select0( offset - ones_before_o + i ) - offset + 1;
-<a name="l00416"></a>00416                         }
-<a name="l00417"></a>00417                         mask &lt;&lt;= 1;
-<a name="l00418"></a>00418                 }
-<a name="l00419"></a>00419                 <span class="keywordflow">return</span> i-1;
-<a name="l00420"></a>00420         };
-<a name="l00421"></a>00421 
-<a name="l00423"></a>00423 
-<a name="l00430"></a><a class="code" href="classsdsl_1_1wt__int.html#a04732c3d28c0ef5e91657662c0d85b7a">00430</a>         size_type <a class="code" href="classsdsl_1_1wt__int.html#a04732c3d28c0ef5e91657662c0d85b7a" title="range_search_2d searches points in the index interval [lb..rb] and value interval [vlb...">range_search_2d</a>(size_type lb, size_type rb, value_type vlb, value_type vrb, 
-<a name="l00431"></a>00431                                                 std::vector&lt;size_type&gt; *idx_result=NULL,
-<a name="l00432"></a>00432                                                 std::vector&lt;value_type&gt; *val_result=NULL
-<a name="l00433"></a>00433                                                 )<span class="keyword"> const</span>{
-<a name="l00434"></a>00434                 size_type offsets[m_logn+1];
-<a name="l00435"></a>00435                 size_type ones_before_os[m_logn+1];
-<a name="l00436"></a>00436                 offsets[0] = 0;
-<a name="l00437"></a>00437                 <span class="keywordflow">if</span>( vrb &gt;  (1ULL &lt;&lt; m_logn) )
-<a name="l00438"></a>00438                         vrb = (1ULL &lt;&lt; m_logn);
-<a name="l00439"></a>00439                 <span class="keywordflow">if</span>( vlb &gt; vrb )
-<a name="l00440"></a>00440                         <span class="keywordflow">return</span> 0;
-<a name="l00441"></a>00441                 size_type cnt_answers = 0;
-<a name="l00442"></a>00442                 _range_search_2d(lb, rb, vlb, vrb, 0, 0, m_size, offsets, ones_before_os, 0, idx_result, val_result, cnt_answers);      
-<a name="l00443"></a>00443                 <span class="keywordflow">return</span> cnt_answers;
-<a name="l00444"></a>00444         }
-<a name="l00445"></a>00445 
-<a name="l00446"></a>00446         <span class="comment">// add parameter path</span>
-<a name="l00447"></a>00447         <span class="comment">// ilb interval left bound</span>
-<a name="l00448"></a>00448         <span class="comment">// irb interval right bound</span>
-<a name="l00449"></a>00449         <span class="keywordtype">void</span> _range_search_2d(size_type lb, size_type rb, value_type vlb, value_type vrb, size_type depth,
-<a name="l00450"></a>00450                                                   size_type ilb, size_type node_size, size_type offsets[], size_type ones_before_os[], size_type path,
-<a name="l00451"></a>00451                                                   std::vector&lt;size_type&gt; *idx_result, std::vector&lt;size_type&gt; *val_result, size_type &amp;cnt_answers)<span class="keyword"></span>
-<a name="l00452"></a>00452 <span class="keyword">                const</span>{
-<a name="l00453"></a>00453                 <span class="keywordflow">if</span>( lb &gt; rb )
-<a name="l00454"></a>00454                         <span class="keywordflow">return</span>;
-<a name="l00455"></a>00455                 <span class="keywordflow">if</span>( depth == m_logn ){
-<a name="l00456"></a>00456                         <span class="keywordflow">if</span>( idx_result != NULL ){
-<a name="l00457"></a>00457                                 <span class="keywordflow">for</span>(size_type j=1; j &lt;= node_size; ++j ){
-<a name="l00458"></a>00458                                         size_type i = j;
-<a name="l00459"></a>00459                                         size_type c = path;
-<a name="l00460"></a>00460                                         <span class="keywordflow">for</span>(uint32_t k=m_logn; k&gt;0; --k){
-<a name="l00461"></a>00461                                                 size_type offset = offsets[k-1];
-<a name="l00462"></a>00462                                                 size_type ones_before_o = ones_before_os[k-1];
-<a name="l00463"></a>00463                                                 <span class="keywordflow">if</span>( c&amp;1 ){
-<a name="l00464"></a>00464                                                         i = m_tree_select1( ones_before_o + i ) - offset + 1;
-<a name="l00465"></a>00465                                                 }<span class="keywordflow">else</span>{
-<a name="l00466"></a>00466                                                         i = m_tree_select0( offset - ones_before_o + i ) - offset + 1;
-<a name="l00467"></a>00467                                                 }
-<a name="l00468"></a>00468                                                 c &gt;&gt;= 1;        
-<a name="l00469"></a>00469                                         }
-<a name="l00470"></a>00470                                         idx_result-&gt;push_back(i-1); <span class="comment">// add resulting index; -1 cause of 0 based indexing</span>
-<a name="l00471"></a>00471                                 }
-<a name="l00472"></a>00472                         }
-<a name="l00473"></a>00473                         <span class="keywordflow">if</span>( val_result != NULL ){
-<a name="l00474"></a>00474                                 <span class="keywordflow">for</span>(size_type j=1; j &lt;= node_size; ++j ){
-<a name="l00475"></a>00475                                         val_result-&gt;push_back(path);
-<a name="l00476"></a>00476                                 }
-<a name="l00477"></a>00477                         }
-<a name="l00478"></a>00478                         cnt_answers += node_size;
-<a name="l00479"></a>00479                         <span class="keywordflow">return</span>;
-<a name="l00480"></a>00480                 }
-<a name="l00481"></a>00481                 size_type irb = ilb + (1ULL &lt;&lt; (m_logn-depth) );
-<a name="l00482"></a>00482                 size_type mid = (irb + ilb)&gt;&gt;1;
-<a name="l00483"></a>00483 
-<a name="l00484"></a>00484                 size_type offset = offsets[depth]; 
-<a name="l00485"></a>00485 
-<a name="l00486"></a>00486                 size_type ones_before_o         = m_tree_rank( offset ); 
-<a name="l00487"></a>00487                 ones_before_os[depth]           = ones_before_o;
-<a name="l00488"></a>00488                 size_type ones_before_lb        = m_tree_rank( offset + lb );
-<a name="l00489"></a>00489                 size_type ones_before_rb        = m_tree_rank( offset + rb + 1 );
-<a name="l00490"></a>00490                 size_type ones_before_end       = m_tree_rank( offset + node_size );
-<a name="l00491"></a>00491                 size_type zeros_before_o        = offset - ones_before_o;
-<a name="l00492"></a>00492                 size_type zeros_before_lb       = offset + lb - ones_before_lb;
-<a name="l00493"></a>00493                 size_type zeros_before_rb       = offset + rb + 1 - ones_before_rb;
-<a name="l00494"></a>00494                 size_type zeros_before_end      = offset + node_size - ones_before_end;
-<a name="l00495"></a>00495                 <span class="keywordflow">if</span>( vlb &lt; mid and mid ){
-<a name="l00496"></a>00496                         size_type nlb                   = zeros_before_lb - zeros_before_o;
-<a name="l00497"></a>00497                         size_type nrb                   = zeros_before_rb - zeros_before_o;
-<a name="l00498"></a>00498                         offsets[depth+1]                = offset + m_size;
-<a name="l00499"></a>00499                         <span class="keywordflow">if</span>( nrb )
-<a name="l00500"></a>00500                                 _range_search_2d(nlb, nrb-1, vlb, std::min(vrb,mid-1), depth+1, ilb, zeros_before_end - zeros_before_o, offsets, ones_before_os, path&lt;&lt;1, idx_result, val_result, cnt_answers);
-<a name="l00501"></a>00501                 }
-<a name="l00502"></a>00502                 <span class="keywordflow">if</span>( vrb &gt;= mid ){
-<a name="l00503"></a>00503                         size_type nlb                   = ones_before_lb - ones_before_o;       
-<a name="l00504"></a>00504                         size_type nrb                   = ones_before_rb - ones_before_o;
-<a name="l00505"></a>00505                         offsets[depth+1]                = offset + m_size + (zeros_before_end - zeros_before_o);
-<a name="l00506"></a>00506                         <span class="keywordflow">if</span>( nrb )
-<a name="l00507"></a>00507                                 _range_search_2d(nlb, nrb-1, std::max(mid, vlb), vrb, depth+1, mid, ones_before_end - ones_before_o, offsets, ones_before_os, (path&lt;&lt;1)+1 ,idx_result, val_result, cnt_answers);
-<a name="l00508"></a>00508                 }
-<a name="l00509"></a>00509         }
-<a name="l00510"></a>00510 
-<a name="l00512"></a><a class="code" href="classsdsl_1_1wt__int.html#a51b925effb79aac6d8147b9c1f6d53d8">00512</a>         size_type <a class="code" href="classsdsl_1_1wt__int.html#a51b925effb79aac6d8147b9c1f6d53d8" title="Serializes the data structure into the given ostream.">serialize</a>(std::ostream &amp;out)<span class="keyword">const</span>{
-<a name="l00513"></a>00513                 size_type written_bytes = 0;
-<a name="l00514"></a>00514                 out.write((<span class="keywordtype">char</span>*)&amp;m_size, <span class="keyword">sizeof</span>(m_size));
-<a name="l00515"></a>00515                 written_bytes += <span class="keyword">sizeof</span>(m_size);
-<a name="l00516"></a>00516                 out.write((<span class="keywordtype">char</span>*)&amp;m_sigma, <span class="keyword">sizeof</span>(m_sigma));
-<a name="l00517"></a>00517                 written_bytes += <span class="keyword">sizeof</span>(m_sigma);
-<a name="l00518"></a>00518                 written_bytes += m_tree.serialize(out);
-<a name="l00519"></a>00519                 written_bytes += m_tree_rank.serialize(out);
-<a name="l00520"></a>00520                 written_bytes += m_tree_select1.serialize(out);
-<a name="l00521"></a>00521                 written_bytes += m_tree_select0.serialize(out);
-<a name="l00522"></a>00522                 written_bytes += <span class="keyword">sizeof</span>(m_logn);
-<a name="l00523"></a>00523                 out.write((<span class="keywordtype">char</span>*)&amp;m_logn, <span class="keyword">sizeof</span>(m_logn));
-<a name="l00524"></a>00524                 <span class="keywordflow">return</span> written_bytes;
-<a name="l00525"></a>00525         }
-<a name="l00526"></a>00526 
-<a name="l00528"></a><a class="code" href="classsdsl_1_1wt__int.html#ae769f9fb30f78e03cf2ffb3d183689fc">00528</a>         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1wt__int.html#ae769f9fb30f78e03cf2ffb3d183689fc" title="Loads the data structure from the given istream.">load</a>(std::istream &amp;in){
-<a name="l00529"></a>00529                 in.read((<span class="keywordtype">char</span>*) &amp;m_size, <span class="keyword">sizeof</span>(m_size));
-<a name="l00530"></a>00530                 in.read((<span class="keywordtype">char</span>*) &amp;m_sigma, <span class="keyword">sizeof</span>(m_sigma));
-<a name="l00531"></a>00531                 m_tree.load(in);
-<a name="l00532"></a>00532                 m_tree_rank.load(in, &amp;m_tree);
-<a name="l00533"></a>00533                 m_tree_select1.load(in, &amp;m_tree);
-<a name="l00534"></a>00534                 m_tree_select0.load(in, &amp;m_tree);
-<a name="l00535"></a>00535                 in.read((<span class="keywordtype">char</span>*) &amp;m_logn, <span class="keyword">sizeof</span>(m_logn));
-<a name="l00536"></a>00536         }
-<a name="l00537"></a>00537 <span class="comment">/*</span>
-<a name="l00538"></a>00538 <span class="comment">        void print_info()const{</span>
-<a name="l00539"></a>00539 <span class="comment">                size_type rle_ed = 0;</span>
-<a name="l00540"></a>00540 <span class="comment">                for(size_type i=0; i &lt; m_tree.size(); ++i){</span>
-<a name="l00541"></a>00541 <span class="comment">                        </span>
-<a name="l00542"></a>00542 <span class="comment">                }</span>
-<a name="l00543"></a>00543 <span class="comment">        }</span>
-<a name="l00544"></a>00544 <span class="comment">*/</span>      
-<a name="l00545"></a>00545         
-<a name="l00546"></a>00546 };      
-<a name="l00547"></a>00547 
-<a name="l00548"></a>00548 }<span class="comment">// end namespace sds</span>
-<a name="l00549"></a>00549 
-<a name="l00550"></a>00550 <span class="preprocessor">#endif // end file </span>
+<a name="l00044"></a>00044 
+<a name="l00062"></a>00062 <span class="keyword">template</span>&lt;<span class="keyword">class</span> RandomAccessContainer=<span class="keywordtype">int</span>_vector&lt;&gt;,
+<a name="l00063"></a>00063          <span class="keyword">class</span> BitVector                 = bit_vector,
+<a name="l00064"></a>00064          <span class="keyword">class</span> RankSupport               = <span class="keyword">typename</span> BitVector::rank_1_type,
+<a name="l00065"></a>00065          <span class="keyword">class</span> SelectSupport     = <span class="keyword">typename</span> BitVector::select_1_type,
+<a name="l00066"></a>00066          <span class="keyword">class</span> SelectSupportZero = <span class="keyword">typename</span> BitVector::select_0_type&gt;
+<a name="l00067"></a><a class="code" href="classsdsl_1_1wt__int.html">00067</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1wt__int.html" title="A wavelet tree class for sequences of big alphabet size (like integer alphabet)">wt_int</a>
+<a name="l00068"></a>00068 {
+<a name="l00069"></a>00069     <span class="keyword">public</span>:
+<a name="l00070"></a>00070         <span class="keyword">typedef</span> <span class="keyword">typename</span> RandomAccessContainer::size_type               size_type;
+<a name="l00071"></a>00071         <span class="keyword">typedef</span> <span class="keyword">typename</span> RandomAccessContainer::value_type              value_type;
+<a name="l00072"></a>00072         <span class="keyword">typedef</span> BitVector                                                                               bit_vector_type;
+<a name="l00073"></a>00073         <span class="keyword">typedef</span> RankSupport                                                                             rank_1_type;
+<a name="l00074"></a>00074         <span class="keyword">typedef</span> SelectSupport                                                                   select_1_type;
+<a name="l00075"></a>00075         <span class="keyword">typedef</span> SelectSupportZero                                                               select_0_type;
+<a name="l00076"></a>00076     <span class="keyword">protected</span>:
+<a name="l00077"></a>00077         size_type                       m_size;
+<a name="l00078"></a>00078         size_type                       m_sigma;                <span class="comment">//&lt;- \f$ |\Sigma| \f$</span>
+<a name="l00079"></a>00079         bit_vector_type         m_tree;                 <span class="comment">// bit vector to store the wavelet tree</span>
+<a name="l00080"></a>00080         rank_1_type                     m_tree_rank;    <span class="comment">// rank support for the wavelet tree bit vector</span>
+<a name="l00081"></a>00081         select_1_type           m_tree_select1; <span class="comment">// select support for the wavelet tree bit vector</span>
+<a name="l00082"></a>00082         select_0_type           m_tree_select0;
+<a name="l00083"></a>00083         uint32_t                        m_logn;
+<a name="l00084"></a>00084 
+<a name="l00085"></a>00085         <span class="keywordtype">void</span> copy(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1wt__int.html" title="A wavelet tree class for sequences of big alphabet size (like integer alphabet)">wt_int</a>&amp; <a class="code" href="classsdsl_1_1wt.html" title="A wavelet tree class.">wt</a>) {
+<a name="l00086"></a>00086             m_size                      = wt.m_size;
+<a name="l00087"></a>00087             m_sigma             = wt.m_sigma;
+<a name="l00088"></a>00088             m_tree                      = wt.m_tree;
+<a name="l00089"></a>00089             m_tree_rank         = wt.m_tree_rank;
+<a name="l00090"></a>00090             m_tree_rank.set_vector(&amp;m_tree);
+<a name="l00091"></a>00091             m_tree_select1      = wt.m_tree_select1;
+<a name="l00092"></a>00092             m_tree_select1.set_vector(&amp;m_tree);
+<a name="l00093"></a>00093             m_tree_select0      = wt.m_tree_select0;
+<a name="l00094"></a>00094             m_tree_select0.set_vector(&amp;m_tree);
+<a name="l00095"></a>00095             m_logn                      = wt.m_logn;
+<a name="l00096"></a>00096         }
+<a name="l00097"></a>00097 
+<a name="l00098"></a>00098     <span class="keyword">public</span>:
+<a name="l00099"></a>00099 
+<a name="l00100"></a><a class="code" href="classsdsl_1_1wt__int.html#a262a5ba26691f66db2d13ee70f3f3e09">00100</a>         <span class="keyword">const</span> size_type&amp; <a class="code" href="classsdsl_1_1wt__int.html#a262a5ba26691f66db2d13ee70f3f3e09" title="Effective alphabet size of the wavelet tree.">sigma</a>; 
+<a name="l00101"></a><a class="code" href="classsdsl_1_1wt__int.html#a3fe3d84d817ba4221ff42dc5c818c701">00101</a>         <span class="keyword">const</span> bit_vector_type&amp; <a class="code" href="classsdsl_1_1wt__int.html#a3fe3d84d817ba4221ff42dc5c818c701" title="A concatenation of all bit vectors of the wavelet tree.">tree</a>; 
+<a name="l00102"></a>00102 
+<a name="l00104"></a><a class="code" href="classsdsl_1_1wt__int.html#aceddb285d21048dae2dba47aa2076dfb">00104</a>         <a class="code" href="classsdsl_1_1wt__int.html#aceddb285d21048dae2dba47aa2076dfb" title="Default constructor.">wt_int</a>():m_size(0),m_sigma(0), m_logn(0), <a class="code" href="classsdsl_1_1wt__int.html#a262a5ba26691f66db2d13ee70f3f3e09" title="Effective alphabet size of the wavelet tree.">sigma</a>(m_sigma), <a class="code" href="classsdsl_1_1wt__int.html#a3fe3d84d817ba4221ff42dc5c818c701" title="A concatenation of all bit vectors of the wavelet tree.">tree</a>(m_tree) {};
+<a name="l00105"></a>00105 
+<a name="l00106"></a>00106 
+<a name="l00108"></a>00108 
+<a name="l00117"></a><a class="code" href="classsdsl_1_1wt__int.html#a621b676293b7db7733e71ea3d31a745e">00117</a>         <a class="code" href="classsdsl_1_1wt__int.html#a621b676293b7db7733e71ea3d31a745e" title="Constructor.">wt_int</a>(<span class="keyword">const</span> RandomAccessContainer&amp; rac, uint32_t logn=0):m_size(rac.<a class="code" href="classsdsl_1_1wt__int.html#a3b6fc5215a237db7486dd17d1b788acc" title="Returns the size of the original vector.">size</a>()), m_sigma(0), <a class="code" href="classsdsl_1_1wt__int.html#a262a5ba26691f66db2d13ee70f3f3e09" title="Effective alphabet size of the wavelet tree.">sigma</a>(m_sigma), <a class="code" href="classsdsl_1_1wt__int.html#a3fe3d84d817ba4221ff42dc5c818c701" title="A concatenation of all bit vectors of the wavelet tree.">tree</a>(m_tree) {
+<a name="l00118"></a>00118 <span class="preprocessor">#ifdef SDSL_DEBUG_INT_WAVELET_TREE</span>
+<a name="l00119"></a>00119 <span class="preprocessor"></span>            std::cerr&lt;&lt;<span class="stringliteral">&quot;wt_int construct: size=&quot;</span>&lt;&lt;m_size&lt;&lt;std::endl;
+<a name="l00120"></a>00120 <span class="preprocessor">#endif</span>
+<a name="l00121"></a>00121 <span class="preprocessor"></span>            size_type n =       m_size;
+<a name="l00122"></a>00122             <span class="keywordflow">if</span> (logn == 0) { <span class="comment">// detect the biggest value in rac and set logn properly</span>
+<a name="l00123"></a>00123                 value_type x = 1;
+<a name="l00124"></a>00124                 <span class="keywordflow">for</span> (size_type i=0; i &lt; n; ++i)
+<a name="l00125"></a>00125                     <span class="keywordflow">if</span> (rac[i] &gt; x)
+<a name="l00126"></a>00126                         x = rac[i];
+<a name="l00127"></a>00127                 m_logn  = <a class="code" href="classsdsl_1_1bit__magic.html#a7e056c78ea2cea39ac49e552731c0c95" title="Calculates the position of the leftmost 1-bit in the 64bit integer x if it exists.">bit_magic::l1BP</a>(x)+1; <span class="comment">// we need logn bits to represent all values in the range [0..x]</span>
+<a name="l00128"></a>00128             } <span class="keywordflow">else</span> {
+<a name="l00129"></a>00129                 m_logn = logn;
+<a name="l00130"></a>00130             }
+<a name="l00131"></a>00131             <a class="code" href="classsdsl_1_1int__vector.html">bit_vector</a> <a class="code" href="classsdsl_1_1wt__int.html#a3fe3d84d817ba4221ff42dc5c818c701" title="A concatenation of all bit vectors of the wavelet tree.">tree</a>(n*m_logn, 0);  <span class="comment">// initialize the tree</span>
+<a name="l00132"></a>00132 
+<a name="l00133"></a>00133             <a class="code" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector&lt;&gt;</a>        perms[2];
+<a name="l00134"></a>00134             perms[0].<a class="code" href="classsdsl_1_1int__vector.html#a698a8fecd8c41cc5c69623b5099e29bf" title="Sets the width of the integers which are accessed via the [] operator, if fixedIntWidth equals 0...">set_int_width</a>(m_logn); perms[1].<a class="code" href="classsdsl_1_1int__vector.html#a698a8fecd8c41cc5c69623b5099e29bf" title="Sets the width of the integers which are accessed via the [] operator, if fixedIntWidth equals 0...">set_int_width</a>(m_logn);
+<a name="l00135"></a>00135             perms[0].<a class="code" href="classsdsl_1_1int__vector.html#a311439ddb68d63e4172457a4861affd9" title="Resize the int_vector in terms of elements.">resize</a>(n); perms[1].<a class="code" href="classsdsl_1_1int__vector.html#a311439ddb68d63e4172457a4861affd9" title="Resize the int_vector in terms of elements.">resize</a>(n);
+<a name="l00136"></a>00136 
+<a name="l00137"></a>00137             <span class="keywordflow">for</span> (size_type i=0; i &lt; n; ++i) { <span class="comment">// copy original array to perms[0]</span>
+<a name="l00138"></a>00138                 perms[0][i] = rac[i];
+<a name="l00139"></a>00139             }
+<a name="l00140"></a>00140 
+<a name="l00141"></a>00141             size_type tree_pos = 0;
+<a name="l00142"></a>00142 
+<a name="l00143"></a>00143             uint64_t            mask_old = 1ULL&lt;&lt;(m_logn);
+<a name="l00144"></a>00144             <span class="keywordflow">for</span> (uint32_t k=0; k&lt;m_logn; ++k) {
+<a name="l00145"></a>00145                 <a class="code" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector&lt;&gt;</a>&amp;   act_perm         = perms[k%2];
+<a name="l00146"></a>00146                 <a class="code" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector&lt;&gt;</a>&amp;   next_perm        = perms[1-(k%2)];
+<a name="l00147"></a>00147                 size_type               start            = 0;
+<a name="l00148"></a>00148                 <span class="keyword">const</span> uint64_t          mask_new = 1ULL&lt;&lt;(m_logn-k-1);
+<a name="l00149"></a>00149                 <span class="keywordflow">do</span> {
+<a name="l00150"></a>00150                     size_type   i               = start;
+<a name="l00151"></a>00151                     size_type   cnt1    =       0;
+<a name="l00152"></a>00152                     uint64_t    start_value = (act_perm[i]&amp;mask_old);
+<a name="l00153"></a>00153                     uint64_t    x;
+<a name="l00154"></a>00154                     <span class="keywordflow">while</span> (i &lt; n and((x=act_perm[i])&amp;mask_old)==start_value) {
+<a name="l00155"></a>00155                         <span class="keywordflow">if</span> (x&amp;mask_new) {
+<a name="l00156"></a>00156                             ++cnt1; tree[tree_pos] = 1;
+<a name="l00157"></a>00157                         }
+<a name="l00158"></a>00158                         ++tree_pos;
+<a name="l00159"></a>00159                         ++i;
+<a name="l00160"></a>00160                     }
+<a name="l00161"></a>00161                     size_type cnt0 = i-start-cnt1;
+<a name="l00162"></a>00162                     <span class="keywordflow">if</span> (k+1 &lt; m_logn) { <span class="comment">// inner node</span>
+<a name="l00163"></a>00163                         size_type idxs[2] = {start, start+cnt0};
+<a name="l00164"></a>00164                         <span class="keywordflow">for</span> (i=start, start = start+cnt0+cnt1; i &lt; start; ++i) {
+<a name="l00165"></a>00165                             next_perm[idxs[(act_perm[i]&amp;mask_new)&gt;0 ]++] = act_perm[i];
+<a name="l00166"></a>00166                         }
+<a name="l00167"></a>00167                     } <span class="keywordflow">else</span> { <span class="comment">// leaf node</span>
+<a name="l00168"></a>00168                         start += cnt0+cnt1;
+<a name="l00169"></a>00169                         ++m_sigma;  <span class="comment">// increase sigma for each leaf</span>
+<a name="l00170"></a>00170                     }
+<a name="l00171"></a>00171                 } <span class="keywordflow">while</span> (start &lt; n);
+<a name="l00172"></a>00172                 mask_old += mask_new;
+<a name="l00173"></a>00173             }
+<a name="l00174"></a>00174 <span class="preprocessor">#ifdef SDSL_DEBUG_INT_WAVELET_TREE</span>
+<a name="l00175"></a>00175 <span class="preprocessor"></span>            <span class="keywordflow">if</span> (tree.<a class="code" href="classsdsl_1_1int__vector.html#aea4fcbbab7fbef9c1cc4a4c89f4b1520" title="The number of elements in the int_vector.">size</a>()&lt;100) {
+<a name="l00176"></a>00176                 std::cerr&lt;&lt;<span class="stringliteral">&quot;tree=&quot;</span>&lt;&lt;tree&lt;&lt;std::endl;
+<a name="l00177"></a>00177             }
+<a name="l00178"></a>00178 <span class="preprocessor">#endif</span>
+<a name="l00179"></a>00179 <span class="preprocessor"></span>            <a class="code" href="namespacesdsl_1_1util.html#aa945b4d1593f6bf0f5f2a913610e5bf5" title="Assigns the value x of type T to the value of y of type U.">util::assign</a>(m_tree, tree);
+<a name="l00180"></a>00180             <a class="code" href="namespacesdsl_1_1util.html#a261681cbaa98ab77a78dddb6f21b1f6e" title="Initialise support data structure with.">util::init_support</a>(m_tree_rank, &amp;m_tree);
+<a name="l00181"></a>00181             <a class="code" href="namespacesdsl_1_1util.html#a261681cbaa98ab77a78dddb6f21b1f6e" title="Initialise support data structure with.">util::init_support</a>(m_tree_select0, &amp;m_tree);
+<a name="l00182"></a>00182             <a class="code" href="namespacesdsl_1_1util.html#a261681cbaa98ab77a78dddb6f21b1f6e" title="Initialise support data structure with.">util::init_support</a>(m_tree_select1, &amp;m_tree);
+<a name="l00183"></a>00183         }
+<a name="l00184"></a>00184 
+<a name="l00186"></a>00186 
+<a name="l00195"></a>00195         <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th&gt;
+<a name="l00196"></a><a class="code" href="classsdsl_1_1wt__int.html#a9c0490de51596206de3f2a27dbd09d27">00196</a>         <a class="code" href="classsdsl_1_1wt__int.html#aceddb285d21048dae2dba47aa2076dfb" title="Default constructor.">wt_int</a>(<a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;int_width&gt;</a>&amp; buf, uint32_t logn=0, std::string dir=<span class="stringliteral">&quot;./&quot;</span>)
+<a name="l00197"></a>00197             : m_size(0),m_sigma(0), m_logn(0), <a class="code" href="classsdsl_1_1wt__int.html#a262a5ba26691f66db2d13ee70f3f3e09" title="Effective alphabet size of the wavelet tree.">sigma</a>(m_sigma), <a class="code" href="classsdsl_1_1wt__int.html#a3fe3d84d817ba4221ff42dc5c818c701" title="A concatenation of all bit vectors of the wavelet tree.">tree</a>(m_tree) {
+<a name="l00198"></a>00198             construct(buf, logn, dir);
+<a name="l00199"></a>00199         }
+<a name="l00200"></a>00200 
+<a name="l00201"></a>00201 
+<a name="l00202"></a>00202         <span class="comment">// TODO external construction method which occupies only additional constant memory</span>
+<a name="l00203"></a>00203         <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th&gt;
+<a name="l00204"></a>00204         <span class="keywordtype">void</span> construct(<a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;int_width&gt;</a>&amp; buf, uint32_t logn=0, std::string dir=<span class="stringliteral">&quot;./&quot;</span>) {
+<a name="l00205"></a>00205             buf.reset();
+<a name="l00206"></a>00206             size_type n = buf.int_vector_size;  <span class="comment">// set n</span>
+<a name="l00207"></a>00207             m_size = n;                         <span class="comment">// set sigma and size</span>
+<a name="l00208"></a>00208             m_sigma = 0;
+<a name="l00209"></a>00209             <a class="code" href="classsdsl_1_1temp__write__read__buffer.html">temp_write_read_buffer&lt;&gt;</a> buf1(5000000, buf.int_width, dir);   <span class="comment">// buffer for elements in the rigth node</span>
+<a name="l00210"></a>00210             <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;int_width&gt;</a> rac(n, 0, buf.int_width);                               <span class="comment">// initialze rac</span>
+<a name="l00211"></a>00211 
+<a name="l00212"></a>00212             value_type x = 1;  <span class="comment">// variable for the biggest value in rac</span>
+<a name="l00213"></a>00213             <span class="keywordflow">for</span> (size_type i=0,r=0,r_sum=0; i&lt;n;) { <span class="comment">// detect the biggest value in rac</span>
+<a name="l00214"></a>00214                 <span class="keywordflow">for</span> (; i &lt; r+r_sum; ++i) {
+<a name="l00215"></a>00215                     <span class="keywordflow">if</span> (buf[i-r_sum] &gt; x)
+<a name="l00216"></a>00216                         x = buf[i-r_sum];
+<a name="l00217"></a>00217                     rac[i] = buf[i-r_sum];
+<a name="l00218"></a>00218                 }
+<a name="l00219"></a>00219                 r_sum += r; r = buf.load_next_block();
+<a name="l00220"></a>00220             }
+<a name="l00221"></a>00221 
+<a name="l00222"></a>00222             <span class="keywordflow">if</span> (logn == 0) {
+<a name="l00223"></a>00223                 m_logn  = <a class="code" href="classsdsl_1_1bit__magic.html#a7e056c78ea2cea39ac49e552731c0c95" title="Calculates the position of the leftmost 1-bit in the 64bit integer x if it exists.">bit_magic::l1BP</a>(x)+1; <span class="comment">// we need logn bits to represent all values in the range [0..x]</span>
+<a name="l00224"></a>00224             } <span class="keywordflow">else</span> {
+<a name="l00225"></a>00225                 m_logn = logn;
+<a name="l00226"></a>00226             }
+<a name="l00227"></a>00227             std::string tree_out_buf_file_name = (dir+<span class="stringliteral">&quot;m_tree&quot;</span>+<a class="code" href="namespacesdsl_1_1util.html#a6d8c83ac15f316e914edff973d8d77b6" title="Convert type to string.">util::to_string</a>(<a class="code" href="namespacesdsl_1_1util.html#ad89157cf167352afc99fe41318990191" title="Get the process id of the current process.">util::get_pid</a>())+<span class="stringliteral">&quot;_&quot;</span>+<a class="code" href="namespacesdsl_1_1util.html#a6d8c83ac15f316e914edff973d8d77b6" title="Convert type to string.">util::to_string</a>(<a class="code" href="namespacesdsl_1_1util.html#a6d9b7c00544c815b561e2f1e8a04c486" title="Get a unique id inside the process.">util::get_id</a>()));
+<a name="l00228"></a>00228             std::ofstream tree_out_buf(tree_out_buf_file_name.c_str(),
+<a name="l00229"></a>00229                                        std::ios::binary | std::ios::trunc | std::ios::out);   <span class="comment">// open buffer for tree</span>
+<a name="l00230"></a>00230             size_type bit_size = n*m_logn;
+<a name="l00231"></a>00231             tree_out_buf.write((<span class="keywordtype">char</span>*) &amp;bit_size, <span class="keyword">sizeof</span>(bit_size));    <span class="comment">// write size of bit_vector</span>
+<a name="l00232"></a>00232 
+<a name="l00233"></a>00233             size_type tree_pos = 0;
+<a name="l00234"></a>00234             uint64_t tree_word = 0;
+<a name="l00235"></a>00235 
+<a name="l00236"></a>00236             uint64_t            mask_old = 1ULL&lt;&lt;(m_logn);
+<a name="l00237"></a>00237             <span class="keywordflow">for</span> (uint32_t k=0; k&lt;m_logn; ++k) {
+<a name="l00238"></a>00238                 size_type               start            = 0;
+<a name="l00239"></a>00239                 <span class="keyword">const</span> uint64_t          mask_new = 1ULL&lt;&lt;(m_logn-k-1);
+<a name="l00240"></a>00240                 <span class="keywordflow">do</span> {
+<a name="l00241"></a>00241                     buf1.reset();
+<a name="l00242"></a>00242                     size_type   i               = start;
+<a name="l00243"></a>00243                     size_type   cnt0    =       0;
+<a name="l00244"></a>00244                     uint64_t    start_value = (rac[i]&amp;mask_old);
+<a name="l00245"></a>00245                     uint64_t    x;
+<a name="l00246"></a>00246                     <span class="keywordflow">while</span> (i &lt; n and((x=rac[i])&amp;mask_old)==start_value) {
+<a name="l00247"></a>00247                         <span class="keywordflow">if</span> (x&amp;mask_new) {
+<a name="l00248"></a>00248                             tree_word |= (1ULL &lt;&lt; (tree_pos&amp;0x3FULL));
+<a name="l00249"></a>00249                             buf1 &lt;&lt; x;
+<a name="l00250"></a>00250                         } <span class="keywordflow">else</span> {
+<a name="l00251"></a>00251                             rac[start + cnt0++ ] = x;
+<a name="l00252"></a>00252                         }
+<a name="l00253"></a>00253                         ++tree_pos;
+<a name="l00254"></a>00254                         <span class="keywordflow">if</span> ((tree_pos &amp; 0x3FULL) == 0) { <span class="comment">// if tree_pos % 64 == 0 write old word</span>
+<a name="l00255"></a>00255                             tree_out_buf.write((<span class="keywordtype">char</span>*) &amp;tree_word, <span class="keyword">sizeof</span>(tree_word));
+<a name="l00256"></a>00256                             tree_word = 0;
+<a name="l00257"></a>00257                         }
+<a name="l00258"></a>00258                         ++i;
+<a name="l00259"></a>00259                     }
+<a name="l00260"></a>00260                     buf1.write_close();
+<a name="l00261"></a>00261                     size_type cnt1 = i-start-cnt0;
+<a name="l00262"></a>00262                     <span class="keywordflow">if</span> (k+1 &lt; m_logn) { <span class="comment">// inner node</span>
+<a name="l00263"></a>00263                         <span class="keywordflow">for</span> (i=start + cnt0, start = start+cnt0+cnt1; i &lt; start; ++i) {
+<a name="l00264"></a>00264                             buf1 &gt;&gt; x;
+<a name="l00265"></a>00265                             rac[ i ] = x;
+<a name="l00266"></a>00266                         }
+<a name="l00267"></a>00267                     } <span class="keywordflow">else</span> { <span class="comment">// leaf node</span>
+<a name="l00268"></a>00268                         start += cnt0+cnt1;
+<a name="l00269"></a>00269                         ++m_sigma; <span class="comment">// increase sigma for each leaf</span>
+<a name="l00270"></a>00270                     }
+<a name="l00271"></a>00271 
+<a name="l00272"></a>00272                 } <span class="keywordflow">while</span> (start &lt; n);
+<a name="l00273"></a>00273                 mask_old += mask_new;
+<a name="l00274"></a>00274             }
+<a name="l00275"></a>00275             <span class="keywordflow">if</span> ((tree_pos &amp; 0x3FULL) != 0) { <span class="comment">// if tree_pos % 64 &gt; 0 =&gt; there are remaining entries we have to write</span>
+<a name="l00276"></a>00276                 tree_out_buf.write((<span class="keywordtype">char</span>*) &amp;tree_word, <span class="keyword">sizeof</span>(tree_word));
+<a name="l00277"></a>00277             }
+<a name="l00278"></a>00278             tree_out_buf.close();
+<a name="l00279"></a>00279             rac.resize(0);
+<a name="l00280"></a>00280             <a class="code" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb" title="bit_vector is a specialization of the int_vector.">bit_vector</a> <a class="code" href="classsdsl_1_1wt__int.html#a3fe3d84d817ba4221ff42dc5c818c701" title="A concatenation of all bit vectors of the wavelet tree.">tree</a>;
+<a name="l00281"></a>00281             <a class="code" href="namespacesdsl_1_1util.html#a61645c49a282eb5bde5c9ca9d6dc94ff" title="Load a data structure from a file.">util::load_from_file</a>(tree, tree_out_buf_file_name.c_str());
+<a name="l00282"></a>00282             std::remove(tree_out_buf_file_name.c_str());
+<a name="l00283"></a>00283 <span class="preprocessor">#ifdef SDSL_DEBUG_INT_WAVELET_TREE</span>
+<a name="l00284"></a>00284 <span class="preprocessor"></span>            <span class="keywordflow">if</span> (tree.size()&lt;100) {
+<a name="l00285"></a>00285                 std::cerr&lt;&lt;<span class="stringliteral">&quot;tree=&quot;</span>&lt;&lt;tree&lt;&lt;std::endl;
+<a name="l00286"></a>00286             }
+<a name="l00287"></a>00287 <span class="preprocessor">#endif</span>
+<a name="l00288"></a>00288 <span class="preprocessor"></span>            <a class="code" href="namespacesdsl_1_1util.html#aa945b4d1593f6bf0f5f2a913610e5bf5" title="Assigns the value x of type T to the value of y of type U.">util::assign</a>(m_tree, tree);
+<a name="l00289"></a>00289             <a class="code" href="namespacesdsl_1_1util.html#a261681cbaa98ab77a78dddb6f21b1f6e" title="Initialise support data structure with.">util::init_support</a>(m_tree_rank, &amp;m_tree);
+<a name="l00290"></a>00290             <a class="code" href="namespacesdsl_1_1util.html#a261681cbaa98ab77a78dddb6f21b1f6e" title="Initialise support data structure with.">util::init_support</a>(m_tree_select0, &amp;m_tree);
+<a name="l00291"></a>00291             <a class="code" href="namespacesdsl_1_1util.html#a261681cbaa98ab77a78dddb6f21b1f6e" title="Initialise support data structure with.">util::init_support</a>(m_tree_select1, &amp;m_tree);
+<a name="l00292"></a>00292         }
+<a name="l00293"></a>00293 
+<a name="l00295"></a><a class="code" href="classsdsl_1_1wt__int.html#ac07375747005627e3718741f67f8a177">00295</a>         <a class="code" href="classsdsl_1_1wt__int.html#ac07375747005627e3718741f67f8a177" title="Copy constructor.">wt_int</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1wt__int.html" title="A wavelet tree class for sequences of big alphabet size (like integer alphabet)">wt_int</a>&amp; wt):<a class="code" href="classsdsl_1_1wt__int.html#a262a5ba26691f66db2d13ee70f3f3e09" title="Effective alphabet size of the wavelet tree.">sigma</a>(m_sigma) {
+<a name="l00296"></a>00296             copy(wt);
+<a name="l00297"></a>00297         }
+<a name="l00298"></a>00298 
+<a name="l00300"></a><a class="code" href="classsdsl_1_1wt__int.html#a3a9b934ffd6408d9f777e207ae0a31f6">00300</a>         <a class="code" href="classsdsl_1_1wt__int.html" title="A wavelet tree class for sequences of big alphabet size (like integer alphabet)">wt_int</a>&amp; <a class="code" href="classsdsl_1_1wt__int.html#a3a9b934ffd6408d9f777e207ae0a31f6" title="Assignment operator.">operator=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1wt__int.html" title="A wavelet tree class for sequences of big alphabet size (like integer alphabet)">wt_int</a>&amp; wt) {
+<a name="l00301"></a>00301             <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;wt) {
+<a name="l00302"></a>00302                 copy(wt);
+<a name="l00303"></a>00303             }
+<a name="l00304"></a>00304             <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00305"></a>00305         }
+<a name="l00306"></a>00306 
+<a name="l00308"></a><a class="code" href="classsdsl_1_1wt__int.html#a6cc59a7c44fc4c7fe64ddde29d738c3c">00308</a>         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1wt__int.html#a6cc59a7c44fc4c7fe64ddde29d738c3c" title="Swap operator.">swap</a>(<a class="code" href="classsdsl_1_1wt__int.html" title="A wavelet tree class for sequences of big alphabet size (like integer alphabet)">wt_int</a>&amp; wt) {
+<a name="l00309"></a>00309             <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;wt) {
+<a name="l00310"></a>00310                 <a class="code" href="classsdsl_1_1wt__int.html#a6cc59a7c44fc4c7fe64ddde29d738c3c" title="Swap operator.">std::swap</a>(m_size, wt.m_size);
+<a name="l00311"></a>00311                 <a class="code" href="classsdsl_1_1wt__int.html#a6cc59a7c44fc4c7fe64ddde29d738c3c" title="Swap operator.">std::swap</a>(m_sigma,  wt.m_sigma);
+<a name="l00312"></a>00312                 m_tree.swap(wt.m_tree);
+<a name="l00313"></a>00313                 m_tree_rank.swap(wt.m_tree_rank); <span class="comment">// rank swap after the swap of the bit vector m_tree</span>
+<a name="l00314"></a>00314                 m_tree_rank.set_vector(&amp;m_tree);
+<a name="l00315"></a>00315                 m_tree_select1.swap(wt.m_tree_select1); <span class="comment">// select1 swap after the swap of the bit vector m_tree</span>
+<a name="l00316"></a>00316                 m_tree_select1.set_vector(&amp;m_tree);
+<a name="l00317"></a>00317                 m_tree_select0.swap(wt.m_tree_select0); <span class="comment">// select0 swap after the swap of the bit vector m_tree</span>
+<a name="l00318"></a>00318                 m_tree_select0.set_vector(&amp;m_tree);
+<a name="l00319"></a>00319                 <a class="code" href="classsdsl_1_1wt__int.html#a6cc59a7c44fc4c7fe64ddde29d738c3c" title="Swap operator.">std::swap</a>(m_logn,  wt.m_logn);
+<a name="l00320"></a>00320             }
+<a name="l00321"></a>00321         }
+<a name="l00322"></a>00322 
+<a name="l00324"></a><a class="code" href="classsdsl_1_1wt__int.html#a3b6fc5215a237db7486dd17d1b788acc">00324</a>         size_type <a class="code" href="classsdsl_1_1wt__int.html#a3b6fc5215a237db7486dd17d1b788acc" title="Returns the size of the original vector.">size</a>()<span class="keyword">const </span>{
+<a name="l00325"></a>00325             <span class="keywordflow">return</span> m_size;
+<a name="l00326"></a>00326         }
+<a name="l00327"></a>00327 
+<a name="l00329"></a><a class="code" href="classsdsl_1_1wt__int.html#ab757739cbc5e9372e589856435e990db">00329</a>         <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1wt__int.html#ab757739cbc5e9372e589856435e990db" title="Returns whether the wavelet tree contains no data.">empty</a>()<span class="keyword">const </span>{
+<a name="l00330"></a>00330             <span class="keywordflow">return</span> m_size == 0;
+<a name="l00331"></a>00331         }
+<a name="l00332"></a>00332 
+<a name="l00334"></a>00334 
+<a name="l00337"></a><a class="code" href="classsdsl_1_1wt__int.html#a2bf48dc8cfeeef4b16cb207d589eaf26">00337</a>         value_type <a class="code" href="classsdsl_1_1wt__int.html#a2bf48dc8cfeeef4b16cb207d589eaf26" title="Recovers the ith symbol of the original vector.">operator[]</a>(size_type i)<span class="keyword">const </span>{
+<a name="l00338"></a>00338 <span class="comment">//              size_type zeros_left_of_pos = 0;</span>
+<a name="l00339"></a>00339             size_type offset = 0;
+<a name="l00340"></a>00340             value_type res = 0;
+<a name="l00341"></a>00341             size_type node_size = m_size;
+<a name="l00342"></a>00342             <span class="keywordflow">for</span> (uint32_t k=0; k &lt; m_logn; ++k) {
+<a name="l00343"></a>00343                 res &lt;&lt;= 1;
+<a name="l00344"></a>00344                 size_type ones_before_o   = m_tree_rank(offset);
+<a name="l00345"></a>00345                 size_type ones_before_i   = m_tree_rank(offset + i) - ones_before_o;
+<a name="l00346"></a>00346                 size_type ones_before_end = m_tree_rank(offset + node_size) - ones_before_o;
+<a name="l00347"></a>00347 <span class="comment">//                      std::cerr&lt;&lt;&quot;k=&quot;&lt;&lt;k&lt;&lt;&quot; i=&quot;&lt;&lt;i&lt;&lt;&quot; offset=&quot;&lt;&lt;offset&lt;&lt;&quot; node_size=&quot;&lt;&lt;node_size&lt;&lt;&quot; obo=&quot;&lt;&lt;ones_before_o&lt;&lt;&quot; obi=&quot;&lt;&lt;ones_before_i&lt;&lt;&quot; obe=&quot;&lt;&lt;ones_before_end&lt;&lt;std::endl;</span>
+<a name="l00348"></a>00348                 <span class="keywordflow">if</span> (m_tree[offset+i]) { <span class="comment">// one at position i =&gt; follow right child</span>
+<a name="l00349"></a>00349 <span class="comment">//                              zeros_left_of_pos += (node_size - ones_before_end);</span>
+<a name="l00350"></a>00350                     offset += (node_size - ones_before_end);
+<a name="l00351"></a>00351                     node_size = ones_before_end;
+<a name="l00352"></a>00352                     i = ones_before_i;
+<a name="l00353"></a>00353                     res |= 1;
+<a name="l00354"></a>00354                 } <span class="keywordflow">else</span> { <span class="comment">// zero at position i =&gt; follow left child</span>
+<a name="l00355"></a>00355                     node_size = (node_size - ones_before_end);
+<a name="l00356"></a>00356                     i = (i-ones_before_i);
+<a name="l00357"></a>00357                 }
+<a name="l00358"></a>00358                 <span class="comment">//offset = (k+1)*m_size + zeros_left_of_pos;</span>
+<a name="l00359"></a>00359                 offset += m_size;
+<a name="l00360"></a>00360             }
+<a name="l00361"></a>00361 <span class="comment">//              std::cerr&lt;&lt;&quot; offset=&quot;&lt;&lt;offset&lt;&lt;&quot; node_size=&quot;&lt;&lt;node_size&lt;&lt;std::endl;</span>
+<a name="l00362"></a>00362             <span class="keywordflow">return</span> res;
+<a name="l00363"></a>00363         };
+<a name="l00364"></a>00364 
+<a name="l00365"></a>00365         <span class="comment">//TODO: buchstaben, die nicht im orginaltext vorkommen behandeln!!!</span>
+<a name="l00367"></a>00367 <span class="comment"></span>
+<a name="l00374"></a><a class="code" href="classsdsl_1_1wt__int.html#a52139baa1030ab5e9ae4f93874c1c541">00374</a>         size_type <a class="code" href="classsdsl_1_1wt__int.html#a52139baa1030ab5e9ae4f93874c1c541" title="Calculates how many symbols c are in the prefix [0..i-1] of the supported vector.">rank</a>(size_type i, value_type c)<span class="keyword">const </span>{
+<a name="l00375"></a>00375             size_type offset = 0;
+<a name="l00376"></a>00376             uint64_t mask        = (1ULL) &lt;&lt; (m_logn-1);
+<a name="l00377"></a>00377             size_type node_size = m_size;
+<a name="l00378"></a>00378             <span class="keywordflow">for</span> (uint32_t k=0; k &lt; m_logn and i; ++k) {
+<a name="l00379"></a>00379                 size_type ones_before_o   = m_tree_rank(offset);
+<a name="l00380"></a>00380                 size_type ones_before_i   = m_tree_rank(offset + i) - ones_before_o;
+<a name="l00381"></a>00381                 size_type ones_before_end = m_tree_rank(offset + node_size) - ones_before_o;
+<a name="l00382"></a>00382                 <span class="keywordflow">if</span> (c &amp; mask) { <span class="comment">// search for a one at this level</span>
+<a name="l00383"></a>00383                     offset += (node_size - ones_before_end);
+<a name="l00384"></a>00384                     node_size = ones_before_end;
+<a name="l00385"></a>00385                     i = ones_before_i;
+<a name="l00386"></a>00386                 } <span class="keywordflow">else</span> { <span class="comment">// search for a zero at this level</span>
+<a name="l00387"></a>00387                     node_size = (node_size - ones_before_end);
+<a name="l00388"></a>00388                     i = (i-ones_before_i);
+<a name="l00389"></a>00389                 }
+<a name="l00390"></a>00390                 offset += m_size;
+<a name="l00391"></a>00391                 mask &gt;&gt;= 1;
+<a name="l00392"></a>00392             }
+<a name="l00393"></a>00393             <span class="keywordflow">return</span> i;
+<a name="l00394"></a>00394         };
+<a name="l00395"></a>00395 
+<a name="l00397"></a>00397 
+<a name="l00403"></a>00403         <span class="comment">// TODO: was ist wenn c gar nicht vorkommt, oder es keine i Vorkommen gibt?</span>
+<a name="l00404"></a><a class="code" href="classsdsl_1_1wt__int.html#aab0b33f24150096a1ef285a11068e572">00404</a>         size_type <a class="code" href="classsdsl_1_1wt__int.html#aab0b33f24150096a1ef285a11068e572" title="Calculates the ith occurence of the symbol c in the supported vector.">select</a>(size_type i, value_type c)<span class="keyword">const </span>{
+<a name="l00405"></a>00405             <span class="comment">// possible optimization: if the array is a permutation we can start at the bottom of the tree</span>
+<a name="l00406"></a>00406             size_type offset = 0;
+<a name="l00407"></a>00407             uint64_t mask        = (1ULL) &lt;&lt; (m_logn-1);
+<a name="l00408"></a>00408             size_type node_size = m_size;
+<a name="l00409"></a>00409             size_type offsets[m_logn+1];                        <span class="comment">// offsets down the path</span>
+<a name="l00410"></a>00410             size_type ones_before_os[m_logn+1];   <span class="comment">// ones before the offsets</span>
+<a name="l00411"></a>00411             offsets[0] = ones_before_os[0] = 0;
+<a name="l00412"></a>00412 
+<a name="l00413"></a>00413             <span class="keywordflow">for</span> (uint32_t k=0; k &lt; m_logn and node_size; ++k) {
+<a name="l00414"></a>00414                 size_type ones_before_o   = m_tree_rank(offset);
+<a name="l00415"></a>00415                 ones_before_os[k] = ones_before_o;
+<a name="l00416"></a>00416                 size_type ones_before_end = m_tree_rank(offset + node_size) - ones_before_o;
+<a name="l00417"></a>00417                 <span class="keywordflow">if</span> (c &amp; mask) { <span class="comment">// search for a one at this level</span>
+<a name="l00418"></a>00418                     offset += (node_size - ones_before_end);
+<a name="l00419"></a>00419                     node_size = ones_before_end;
+<a name="l00420"></a>00420                 } <span class="keywordflow">else</span> { <span class="comment">// search for a zero at this level</span>
+<a name="l00421"></a>00421                     node_size = (node_size - ones_before_end);
+<a name="l00422"></a>00422                 }
+<a name="l00423"></a>00423                 offset += m_size;
+<a name="l00424"></a>00424                 offsets[k+1] = offset;
+<a name="l00425"></a>00425                 mask &gt;&gt;= 1;
+<a name="l00426"></a>00426             }
+<a name="l00427"></a>00427             <span class="keywordflow">if</span> (node_size &lt; i) {
+<a name="l00428"></a>00428                 std::cerr&lt;&lt;<span class="stringliteral">&quot;c=&quot;</span>&lt;&lt;c&lt;&lt;<span class="stringliteral">&quot; does not occure &quot;</span>&lt;&lt;i&lt;&lt;<span class="stringliteral">&quot; times in the WT&quot;</span>&lt;&lt;std::endl;
+<a name="l00429"></a>00429                 <span class="keywordflow">return</span> m_size;
+<a name="l00430"></a>00430             }
+<a name="l00431"></a>00431             mask = 1ULL;
+<a name="l00432"></a>00432             <span class="keywordflow">for</span> (uint32_t k=m_logn; k&gt;0; --k) {
+<a name="l00433"></a>00433                 offset = offsets[k-1];
+<a name="l00434"></a>00434                 size_type ones_before_o = ones_before_os[k-1];
+<a name="l00435"></a>00435                 <span class="keywordflow">if</span> (c &amp; mask) { <span class="comment">// right child =&gt; search i&#39;th</span>
+<a name="l00436"></a>00436                     i = m_tree_select1(ones_before_o + i) - offset + 1;
+<a name="l00437"></a>00437                 } <span class="keywordflow">else</span> { <span class="comment">// left child =&gt; search i&#39;th zero</span>
+<a name="l00438"></a>00438                     i = m_tree_select0(offset - ones_before_o + i) - offset + 1;
+<a name="l00439"></a>00439                 }
+<a name="l00440"></a>00440                 mask &lt;&lt;= 1;
+<a name="l00441"></a>00441             }
+<a name="l00442"></a>00442             <span class="keywordflow">return</span> i-1;
+<a name="l00443"></a>00443         };
+<a name="l00444"></a>00444 
+<a name="l00446"></a>00446 
+<a name="l00453"></a><a class="code" href="classsdsl_1_1wt__int.html#a218e7227f932daee7bed61bf72f5308d">00453</a>         size_type <a class="code" href="classsdsl_1_1wt__int.html#a218e7227f932daee7bed61bf72f5308d" title="range_search_2d searches points in the index interval [lb..rb] and value interval [vlb...">range_search_2d</a>(size_type lb, size_type rb, value_type vlb, value_type vrb,
+<a name="l00454"></a>00454                                   std::vector&lt;size_type&gt;* idx_result=NULL,
+<a name="l00455"></a>00455                                   std::vector&lt;value_type&gt;* val_result=NULL
+<a name="l00456"></a>00456                                  )<span class="keyword"> const </span>{
+<a name="l00457"></a>00457             size_type offsets[m_logn+1];
+<a name="l00458"></a>00458             size_type ones_before_os[m_logn+1];
+<a name="l00459"></a>00459             offsets[0] = 0;
+<a name="l00460"></a>00460             <span class="keywordflow">if</span> (vrb &gt; (1ULL &lt;&lt; m_logn))
+<a name="l00461"></a>00461                 vrb = (1ULL &lt;&lt; m_logn);
+<a name="l00462"></a>00462             <span class="keywordflow">if</span> (vlb &gt; vrb)
+<a name="l00463"></a>00463                 <span class="keywordflow">return</span> 0;
+<a name="l00464"></a>00464             size_type cnt_answers = 0;
+<a name="l00465"></a>00465             _range_search_2d(lb, rb, vlb, vrb, 0, 0, m_size, offsets, ones_before_os, 0, idx_result, val_result, cnt_answers);
+<a name="l00466"></a>00466             <span class="keywordflow">return</span> cnt_answers;
+<a name="l00467"></a>00467         }
+<a name="l00468"></a>00468 
+<a name="l00469"></a>00469         <span class="comment">// add parameter path</span>
+<a name="l00470"></a>00470         <span class="comment">// ilb interval left bound</span>
+<a name="l00471"></a>00471         <span class="comment">// irb interval right bound</span>
+<a name="l00472"></a>00472         <span class="keywordtype">void</span> _range_search_2d(size_type lb, size_type rb, value_type vlb, value_type vrb, size_type depth,
+<a name="l00473"></a>00473                               size_type ilb, size_type node_size, size_type offsets[], size_type ones_before_os[], size_type path,
+<a name="l00474"></a>00474                               std::vector&lt;size_type&gt;* idx_result, std::vector&lt;size_type&gt;* val_result, size_type&amp; cnt_answers)<span class="keyword"></span>
+<a name="l00475"></a>00475 <span class="keyword">        const </span>{
+<a name="l00476"></a>00476             <span class="keywordflow">if</span> (lb &gt; rb)
+<a name="l00477"></a>00477                 <span class="keywordflow">return</span>;
+<a name="l00478"></a>00478             <span class="keywordflow">if</span> (depth == m_logn) {
+<a name="l00479"></a>00479                 <span class="keywordflow">if</span> (idx_result != NULL) {
+<a name="l00480"></a>00480                     <span class="keywordflow">for</span> (size_type j=1; j &lt;= node_size; ++j) {
+<a name="l00481"></a>00481                         size_type i = j;
+<a name="l00482"></a>00482                         size_type c = path;
+<a name="l00483"></a>00483                         <span class="keywordflow">for</span> (uint32_t k=m_logn; k&gt;0; --k) {
+<a name="l00484"></a>00484                             size_type offset = offsets[k-1];
+<a name="l00485"></a>00485                             size_type ones_before_o = ones_before_os[k-1];
+<a name="l00486"></a>00486                             <span class="keywordflow">if</span> (c&amp;1) {
+<a name="l00487"></a>00487                                 i = m_tree_select1(ones_before_o + i) - offset + 1;
+<a name="l00488"></a>00488                             } <span class="keywordflow">else</span> {
+<a name="l00489"></a>00489                                 i = m_tree_select0(offset - ones_before_o + i) - offset + 1;
+<a name="l00490"></a>00490                             }
+<a name="l00491"></a>00491                             c &gt;&gt;= 1;
+<a name="l00492"></a>00492                         }
+<a name="l00493"></a>00493                         idx_result-&gt;push_back(i-1); <span class="comment">// add resulting index; -1 cause of 0 based indexing</span>
+<a name="l00494"></a>00494                     }
+<a name="l00495"></a>00495                 }
+<a name="l00496"></a>00496                 <span class="keywordflow">if</span> (val_result != NULL) {
+<a name="l00497"></a>00497                     <span class="keywordflow">for</span> (size_type j=1; j &lt;= node_size; ++j) {
+<a name="l00498"></a>00498                         val_result-&gt;push_back(path);
+<a name="l00499"></a>00499                     }
+<a name="l00500"></a>00500                 }
+<a name="l00501"></a>00501                 cnt_answers += node_size;
+<a name="l00502"></a>00502                 <span class="keywordflow">return</span>;
+<a name="l00503"></a>00503             }
+<a name="l00504"></a>00504             size_type irb = ilb + (1ULL &lt;&lt; (m_logn-depth));
+<a name="l00505"></a>00505             size_type mid = (irb + ilb)&gt;&gt;1;
+<a name="l00506"></a>00506 
+<a name="l00507"></a>00507             size_type offset = offsets[depth];
+<a name="l00508"></a>00508 
+<a name="l00509"></a>00509             size_type ones_before_o             = m_tree_rank(offset);
+<a name="l00510"></a>00510             ones_before_os[depth]               = ones_before_o;
+<a name="l00511"></a>00511             size_type ones_before_lb    = m_tree_rank(offset + lb);
+<a name="l00512"></a>00512             size_type ones_before_rb    = m_tree_rank(offset + rb + 1);
+<a name="l00513"></a>00513             size_type ones_before_end   = m_tree_rank(offset + node_size);
+<a name="l00514"></a>00514             size_type zeros_before_o    = offset - ones_before_o;
+<a name="l00515"></a>00515             size_type zeros_before_lb   = offset + lb - ones_before_lb;
+<a name="l00516"></a>00516             size_type zeros_before_rb   = offset + rb + 1 - ones_before_rb;
+<a name="l00517"></a>00517             size_type zeros_before_end  = offset + node_size - ones_before_end;
+<a name="l00518"></a>00518             <span class="keywordflow">if</span> (vlb &lt; mid and mid) {
+<a name="l00519"></a>00519                 size_type nlb                   = zeros_before_lb - zeros_before_o;
+<a name="l00520"></a>00520                 size_type nrb                   = zeros_before_rb - zeros_before_o;
+<a name="l00521"></a>00521                 offsets[depth+1]                = offset + m_size;
+<a name="l00522"></a>00522                 <span class="keywordflow">if</span> (nrb)
+<a name="l00523"></a>00523                     _range_search_2d(nlb, nrb-1, vlb, std::min(vrb,mid-1), depth+1, ilb, zeros_before_end - zeros_before_o, offsets, ones_before_os, path&lt;&lt;1, idx_result, val_result, cnt_answers);
+<a name="l00524"></a>00524             }
+<a name="l00525"></a>00525             <span class="keywordflow">if</span> (vrb &gt;= mid) {
+<a name="l00526"></a>00526                 size_type nlb                   = ones_before_lb - ones_before_o;
+<a name="l00527"></a>00527                 size_type nrb                   = ones_before_rb - ones_before_o;
+<a name="l00528"></a>00528                 offsets[depth+1]                = offset + m_size + (zeros_before_end - zeros_before_o);
+<a name="l00529"></a>00529                 <span class="keywordflow">if</span> (nrb)
+<a name="l00530"></a>00530                     _range_search_2d(nlb, nrb-1, std::max(mid, vlb), vrb, depth+1, mid, ones_before_end - ones_before_o, offsets, ones_before_os, (path&lt;&lt;1)+1 ,idx_result, val_result, cnt_answers);
+<a name="l00531"></a>00531             }
+<a name="l00532"></a>00532         }
+<a name="l00533"></a>00533 
+<a name="l00535"></a><a class="code" href="classsdsl_1_1wt__int.html#a717e7153f44602da085bb616b0a6b8df">00535</a>         size_type <a class="code" href="classsdsl_1_1wt__int.html#a717e7153f44602da085bb616b0a6b8df" title="Serializes the data structure into the given ostream.">serialize</a>(std::ostream&amp; out)<span class="keyword">const </span>{
+<a name="l00536"></a>00536             size_type written_bytes = 0;
+<a name="l00537"></a>00537             written_bytes += util::write_member(m_size, out);
+<a name="l00538"></a>00538             written_bytes += util::write_member(m_sigma, out);
+<a name="l00539"></a>00539             written_bytes += m_tree.serialize(out);
+<a name="l00540"></a>00540             written_bytes += m_tree_rank.serialize(out);
+<a name="l00541"></a>00541             written_bytes += m_tree_select1.serialize(out);
+<a name="l00542"></a>00542             written_bytes += m_tree_select0.serialize(out);
+<a name="l00543"></a>00543             written_bytes += util::write_member(m_logn, out);
+<a name="l00544"></a>00544             <span class="keywordflow">return</span> written_bytes;
+<a name="l00545"></a>00545         }
+<a name="l00546"></a>00546 
+<a name="l00548"></a><a class="code" href="classsdsl_1_1wt__int.html#aebd22798d4b6a54bfb556232be79cefa">00548</a>         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1wt__int.html#aebd22798d4b6a54bfb556232be79cefa" title="Loads the data structure from the given istream.">load</a>(std::istream&amp; in) {
+<a name="l00549"></a>00549             util::read_member(m_size, in);
+<a name="l00550"></a>00550             util::read_member(m_sigma, in);
+<a name="l00551"></a>00551             m_tree.load(in);
+<a name="l00552"></a>00552             m_tree_rank.load(in, &amp;m_tree);
+<a name="l00553"></a>00553             m_tree_select1.load(in, &amp;m_tree);
+<a name="l00554"></a>00554             m_tree_select0.load(in, &amp;m_tree);
+<a name="l00555"></a>00555             util::read_member(m_logn, in);
+<a name="l00556"></a>00556         }
+<a name="l00557"></a>00557         <span class="comment">/*</span>
+<a name="l00558"></a>00558 <span class="comment">                void print_info()const{</span>
+<a name="l00559"></a>00559 <span class="comment">                        size_type rle_ed = 0;</span>
+<a name="l00560"></a>00560 <span class="comment">                        for(size_type i=0; i &lt; m_tree.size(); ++i){</span>
+<a name="l00561"></a>00561 <span class="comment"></span>
+<a name="l00562"></a>00562 <span class="comment">                        }</span>
+<a name="l00563"></a>00563 <span class="comment">                }</span>
+<a name="l00564"></a>00564 <span class="comment">        */</span>
+<a name="l00565"></a>00565 
+<a name="l00566"></a>00566 };
+<a name="l00567"></a>00567 
+<a name="l00568"></a>00568 }<span class="comment">// end namespace sds</span>
+<a name="l00569"></a>00569 
+<a name="l00570"></a>00570 <span class="preprocessor">#endif // end file </span>
 </pre></div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:34 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:28 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

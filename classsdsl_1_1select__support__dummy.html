@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -119,10 +120,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a5c157fe162ed5d8854653b4e61f16351"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5c157fe162ed5d8854653b4e61f16351"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>select_support_dummy</b> (const int_vector&lt; 1 &gt; *v=NULL)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>select_support_dummy</b> (const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 1 &gt; *v=NULL)</td></tr>
 <tr class="memitem:a84c2817b310fc896a06b6a4c97e86b3c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a84c2817b310fc896a06b6a4c97e86b3c"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>select_support_dummy</b> (const <a class="el" href="classsdsl_1_1select__support__dummy.html">select_support_dummy</a> &amp;ss)</td></tr>
-<tr class="memitem:a74aed99fb8bbba5bf3261eeb5bc6615a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1select__support__dummy.html#a74aed99fb8bbba5bf3261eeb5bc6615a">init</a> (const int_vector&lt; 1 &gt; *v=NULL)</td></tr>
+<tr class="memitem:a74aed99fb8bbba5bf3261eeb5bc6615a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1select__support__dummy.html#a74aed99fb8bbba5bf3261eeb5bc6615a">init</a> (const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 1 &gt; *v=NULL)</td></tr>
 <tr class="memdesc:a74aed99fb8bbba5bf3261eeb5bc6615a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initalization method for <a class="el" href="classsdsl_1_1select__support.html" title="The base class of classes supporting select queries for a sdsl::bit_vector in constant time...">select_support</a>.  <a href="#a74aed99fb8bbba5bf3261eeb5bc6615a"></a><br/></td></tr>
 <tr class="memitem:ac4cca9b47639835255c3c719cc58b230"><td class="memItemLeft" align="right" valign="top">const size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1select__support__dummy.html#ac4cca9b47639835255c3c719cc58b230">select</a> (size_type i) const </td></tr>
 <tr class="memdesc:ac4cca9b47639835255c3c719cc58b230"><td class="mdescLeft">&#160;</td><td class="mdescRight">Select function.  <a href="#ac4cca9b47639835255c3c719cc58b230"></a><br/></td></tr>
@@ -132,18 +133,20 @@ const size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el"
 <tr class="memitem:ac27eaa8eb6b5c8d3b280c526e420e689"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac27eaa8eb6b5c8d3b280c526e420e689"></a>
 size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1select__support__dummy.html#ac27eaa8eb6b5c8d3b280c526e420e689">serialize</a> (std::ostream &amp;out) const </td></tr>
 <tr class="memdesc:ac27eaa8eb6b5c8d3b280c526e420e689"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize the <a class="el" href="classsdsl_1_1select__support.html" title="The base class of classes supporting select queries for a sdsl::bit_vector in constant time...">select_support</a> to an out file stream. <br/></td></tr>
-<tr class="memitem:a690f5a5d1a16fd7d2c147b22bcb3996a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1select__support__dummy.html#a690f5a5d1a16fd7d2c147b22bcb3996a">load</a> (std::istream &amp;in, const int_vector&lt; 1 &gt; *v=NULL)</td></tr>
+<tr class="memitem:a690f5a5d1a16fd7d2c147b22bcb3996a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1select__support__dummy.html#a690f5a5d1a16fd7d2c147b22bcb3996a">load</a> (std::istream &amp;in, const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 1 &gt; *v=NULL)</td></tr>
 <tr class="memdesc:a690f5a5d1a16fd7d2c147b22bcb3996a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load the <a class="el" href="classsdsl_1_1select__support.html" title="The base class of classes supporting select queries for a sdsl::bit_vector in constant time...">select_support</a> from an in file stream.  <a href="#a690f5a5d1a16fd7d2c147b22bcb3996a"></a><br/></td></tr>
-<tr class="memitem:a92bba4ef1294523ac53616ccb3d1ee13"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1select__support__dummy.html#a92bba4ef1294523ac53616ccb3d1ee13">set_vector</a> (const int_vector&lt; 1 &gt; *v=NULL)</td></tr>
+<tr class="memitem:a92bba4ef1294523ac53616ccb3d1ee13"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1select__support__dummy.html#a92bba4ef1294523ac53616ccb3d1ee13">set_vector</a> (const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 1 &gt; *v=NULL)</td></tr>
 <tr class="memdesc:a92bba4ef1294523ac53616ccb3d1ee13"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method sets the supported bit_vector.  <a href="#a92bba4ef1294523ac53616ccb3d1ee13"></a><br/></td></tr>
 <tr class="memitem:ab4879788524dddce982f2f28544f9e56"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab4879788524dddce982f2f28544f9e56"></a>
 <a class="el" href="classsdsl_1_1select__support__dummy.html">select_support_dummy</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classsdsl_1_1select__support__dummy.html">select_support_dummy</a> &amp;ss)</td></tr>
-<tr class="memitem:aac3cd40ba191b0951af57193e77520cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1select__support__dummy.html#aac3cd40ba191b0951af57193e77520cb">swap</a> (<a class="el" href="classsdsl_1_1select__support__dummy.html">select_support_dummy</a> &amp;ss)</td></tr>
-<tr class="memdesc:aac3cd40ba191b0951af57193e77520cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swap operator.  <a href="#aac3cd40ba191b0951af57193e77520cb"></a><br/></td></tr>
+<tr class="memitem:aac3cd40ba191b0951af57193e77520cb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aac3cd40ba191b0951af57193e77520cb"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1select__support__dummy.html#aac3cd40ba191b0951af57193e77520cb">swap</a> (<a class="el" href="classsdsl_1_1select__support__dummy.html">select_support_dummy</a> &amp;ss)</td></tr>
+<tr class="memdesc:aac3cd40ba191b0951af57193e77520cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swap operator. <br/></td></tr>
 <tr class="memitem:a6c170196b4841297497393ab131ec221"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1select__support__dummy.html#a6c170196b4841297497393ab131ec221">operator==</a> (const <a class="el" href="classsdsl_1_1select__support__dummy.html">select_support_dummy</a> &amp;ss) const </td></tr>
 <tr class="memdesc:a6c170196b4841297497393ab131ec221"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality Operator.  <a href="#a6c170196b4841297497393ab131ec221"></a><br/></td></tr>
-<tr class="memitem:a61871891945c61717b4510aeb97593b5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1select__support__dummy.html#a61871891945c61717b4510aeb97593b5">operator!=</a> (const <a class="el" href="classsdsl_1_1select__support__dummy.html">select_support_dummy</a> &amp;ss) const </td></tr>
-<tr class="memdesc:a61871891945c61717b4510aeb97593b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unequality Operator.  <a href="#a61871891945c61717b4510aeb97593b5"></a><br/></td></tr>
+<tr class="memitem:a61871891945c61717b4510aeb97593b5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a61871891945c61717b4510aeb97593b5"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1select__support__dummy.html#a61871891945c61717b4510aeb97593b5">operator!=</a> (const <a class="el" href="classsdsl_1_1select__support__dummy.html">select_support_dummy</a> &amp;ss) const </td></tr>
+<tr class="memdesc:a61871891945c61717b4510aeb97593b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unequality Operator. <br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>A dummy class for select. </p>
@@ -155,7 +158,7 @@ size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
         <tr>
           <td class="memname">void <a class="el" href="classsdsl_1_1select__support__dummy.html#a74aed99fb8bbba5bf3261eeb5bc6615a">sdsl::select_support_dummy::init</a> </td>
           <td>(</td>
-          <td class="paramtype">const int_vector&lt; 1 &gt; *&#160;</td>
+          <td class="paramtype">const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 1 &gt; *&#160;</td>
           <td class="paramname"><em>v</em> = <code>NULL</code></td><td>)</td>
           <td><code> [virtual]</code></td>
         </tr>
@@ -188,7 +191,7 @@ size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const int_vector&lt; 1 &gt; *&#160;</td>
+          <td class="paramtype">const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 1 &gt; *&#160;</td>
           <td class="paramname"><em>v</em> = <code>NULL</code>&#160;</td>
         </tr>
         <tr>
@@ -212,27 +215,6 @@ size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="classsdsl_1_1select__support__dummy.html#a74aed99fb8bbba5bf3261eeb5bc6615a" title="Initalization method for select_support.">init</a>, <a class="el" href="classsdsl_1_1select__support__dummy.html#ac4cca9b47639835255c3c719cc58b230" title="Select function.">select</a>. </dd></dl>
 
 <p>Implements <a class="el" href="classsdsl_1_1select__support.html#ac9e73e24d4a25903f1f29612b5758d93">sdsl::select_support</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a61871891945c61717b4510aeb97593b5"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool sdsl::select_support_dummy::operator!= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classsdsl_1_1select__support__dummy.html">select_support_dummy</a> &amp;&#160;</td>
-          <td class="paramname"><em>ss</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Unequality Operator. </p>
-<p>Two select_support_dummys are not equal if any member variable are not equal. Required for the Equality Comparable Concept of the STL. </p>
-<dl class="section see"><dt>See also:</dt><dd>operator== </dd></dl>
 
 </div>
 </div>
@@ -286,7 +268,7 @@ size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
         <tr>
           <td class="memname">void <a class="el" href="classsdsl_1_1select__support__dummy.html#a92bba4ef1294523ac53616ccb3d1ee13">sdsl::select_support_dummy::set_vector</a> </td>
           <td>(</td>
-          <td class="paramtype">const int_vector&lt; 1 &gt; *&#160;</td>
+          <td class="paramtype">const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 1 &gt; *&#160;</td>
           <td class="paramname"><em>v</em> = <code>NULL</code></td><td>)</td>
           <td><code> [virtual]</code></td>
         </tr>
@@ -301,26 +283,6 @@ size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
 
 </div>
 </div>
-<a class="anchor" id="aac3cd40ba191b0951af57193e77520cb"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classsdsl_1_1select__support__dummy.html#aac3cd40ba191b0951af57193e77520cb">sdsl::select_support_dummy::swap</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classsdsl_1_1select__support__dummy.html">select_support_dummy</a> &amp;&#160;</td>
-          <td class="paramname"><em>ss</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Swap operator. </p>
-<p>This swap Operator swaps two select_support_dummys in constant time. All members (excluded the pointer to the supported SDSBitVector) are swapped. </p>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>sdsl/include/sdsl/<a class="el" href="select__support__dummy_8hpp_source.html">select_support_dummy.hpp</a></li>
 </ul>
@@ -328,7 +290,7 @@ size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:35 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:32 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

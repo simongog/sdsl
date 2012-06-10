@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -108,7 +109,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>A stack class which can contain integers from <img class="formulaInl" alt="$0$" src="form_213.png"/> to <img class="formulaInl" alt="$n-1$" src="form_214.png"/> in sorted order.  
+<p>A stack class which can contain integers from <img class="formulaInl" alt="$0$" src="form_228.png"/> to <img class="formulaInl" alt="$n-1$" src="form_229.png"/> in sorted order.  
  <a href="classsdsl_1_1sorted__int__stack.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="sorted__int__stack_8hpp_source.html">sorted_int_stack.hpp</a>&gt;</code></p>
@@ -118,7 +119,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr><td colspan="2"><h2><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a051c82e5428446b77fc2904976042c84"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a051c82e5428446b77fc2904976042c84"></a>
-typedef int_vector&lt; 64 &gt;::size_type&#160;</td><td class="memItemRight" valign="bottom"><b>size_type</b></td></tr>
+typedef <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 64 &gt;::size_type&#160;</td><td class="memItemRight" valign="bottom"><b>size_type</b></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ab600645d43bea6997246d998c562a841"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab600645d43bea6997246d998c562a841"></a>
@@ -142,7 +143,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>load</b> (std::istrea
 <tr class="memdesc:ae823975216bf05b6f5e4facf8d014fdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unequality Operator.  <a href="#ae823975216bf05b6f5e4facf8d014fdc"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>A stack class which can contain integers from <img class="formulaInl" alt="$0$" src="form_213.png"/> to <img class="formulaInl" alt="$n-1$" src="form_214.png"/> in sorted order. </p>
+<div class="textblock"><p>A stack class which can contain integers from <img class="formulaInl" alt="$0$" src="form_228.png"/> to <img class="formulaInl" alt="$n-1$" src="form_229.png"/> in sorted order. </p>
 <dl class="section user"><dt>Space complexity</b></dt><dd><img class="formulaInl" alt="$n$" src="form_20.png"/> bits </dd></dl>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a8b4e01fbdd229d699a28196086440987"></a>
@@ -258,7 +259,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>load</b> (std::istrea
 </div>
 <div class="memdoc">
 <p>Push value x on the stack. </p>
-<dl class="section user"><dt>x Value which should be pushed onto the stack. </b></dt><dd></dd></dl>
+<dl class="section user"><dt>x Value which should be pushed onto the stack.</b></dt><dd></dd></dl>
 <dl class="section pre"><dt>Precondition:</dt><dd><a class="el" href="classsdsl_1_1sorted__int__stack.html#a2451fe9ed3feb0e1805faf5a5b35e09a">top()</a> &lt; x </dd></dl>
 
 </div>
@@ -305,7 +306,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>load</b> (std::istrea
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:36 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:32 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

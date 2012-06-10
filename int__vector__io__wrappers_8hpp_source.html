@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -82,7 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -105,119 +106,124 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00018"></a>00018 
 <a name="l00019"></a>00019 <span class="preprocessor">#include &lt;iostream&gt;</span>
 <a name="l00020"></a>00020 
-<a name="l00021"></a>00021 <span class="keyword">namespace </span>sdsl{
-<a name="l00022"></a>00022 
-<a name="l00023"></a>00023 template&lt;uint8_t fixedIntWidth=0, class size_type_class=int_vector&lt;0&gt;::size_type&gt;
-<a name="l00024"></a><a class="code" href="classsdsl_1_1int__vector__serialize__vbyte__wrapper.html">00024</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1int__vector__serialize__vbyte__wrapper.html">int_vector_serialize_vbyte_wrapper</a>{
-<a name="l00025"></a>00025         <span class="keyword">public</span>:
-<a name="l00026"></a>00026                 <span class="keyword">typedef</span> int_vector&lt;fixedIntWidth, size_type_class&gt; int_vector_type;
-<a name="l00027"></a>00027                 <span class="keyword">typedef</span> <span class="keyword">typename</span> int_vector_type::size_type size_type;
-<a name="l00028"></a>00028                 <span class="keyword">typedef</span> <span class="keyword">typename</span> int_vector_type::value_type value_type;
-<a name="l00029"></a>00029 
-<a name="l00030"></a>00030         <span class="keyword">private</span>:
-<a name="l00031"></a>00031                 <span class="keyword">const</span> int_vector_type &amp;m_vec;
-<a name="l00032"></a>00032 
-<a name="l00033"></a>00033         <span class="keyword">public</span>: 
-<a name="l00034"></a>00034                 <a class="code" href="classsdsl_1_1int__vector__serialize__vbyte__wrapper.html">int_vector_serialize_vbyte_wrapper</a>(<span class="keyword">const</span> int_vector_type &amp;vec):m_vec(vec){}
-<a name="l00035"></a>00035 
-<a name="l00036"></a>00036                 size_type serialize(std::ostream &amp;out)<span class="keyword">const</span>{
-<a name="l00037"></a>00037                         size_type written_bytes = 0;
-<a name="l00038"></a>00038                         <span class="comment">// (1) write size and int_width</span>
-<a name="l00039"></a>00039                         written_bytes += _sdsl_serialize_size_and_int_width(out, fixedIntWidth, m_vec.get_int_width(), m_vec.bit_size() );
-<a name="l00040"></a>00040                         <span class="comment">// (2) write entries in vbyte coding</span>
-<a name="l00041"></a>00041                         <span class="keywordflow">for</span> (size_type i=0; i &lt; m_vec.size(); ++i){
-<a name="l00042"></a>00042                                 value_type ww = m_vec[i];
-<a name="l00043"></a>00043                                 uint8_t w = ww &amp; 0x7F;
-<a name="l00044"></a>00044                                 ww &gt;&gt;= 7;
-<a name="l00045"></a>00045                                 <span class="keywordflow">while</span> ( ww &gt; 0 ){
-<a name="l00046"></a>00046                                         w |= 0x80; <span class="comment">// mark overflow bit</span>
-<a name="l00047"></a>00047                                         out.write((<span class="keyword">const</span> <span class="keywordtype">char</span>*)&amp;w, <span class="keyword">sizeof</span>(uint8_t) ); <span class="comment">// write byte</span>
-<a name="l00048"></a>00048                                         w = ww &amp; 0x7F;
-<a name="l00049"></a>00049                                         ww &gt;&gt;= 7;
-<a name="l00050"></a>00050                                         ++written_bytes;
-<a name="l00051"></a>00051                                 } 
-<a name="l00052"></a>00052                                 out.write((<span class="keyword">const</span> <span class="keywordtype">char</span>*)&amp;w, <span class="keyword">sizeof</span>(uint8_t) ); <span class="comment">// write without overflow bit</span>
-<a name="l00053"></a>00053                                 ++written_bytes;
-<a name="l00054"></a>00054                         }
-<a name="l00055"></a>00055                         <span class="keywordflow">return</span> written_bytes;
-<a name="l00056"></a>00056                 }
-<a name="l00057"></a>00057 };
-<a name="l00058"></a>00058 
-<a name="l00059"></a>00059 template&lt;uint8_t fixedIntWidth=0, class size_type_class=int_vector&lt;0&gt;::size_type&gt;
-<a name="l00060"></a><a class="code" href="classsdsl_1_1int__vector__load__vbyte__wrapper.html">00060</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1int__vector__load__vbyte__wrapper.html">int_vector_load_vbyte_wrapper</a>{
-<a name="l00061"></a>00061         <span class="keyword">public</span>:
-<a name="l00062"></a>00062                 <span class="keyword">typedef</span> int_vector&lt;fixedIntWidth, size_type_class&gt; int_vector_type;
-<a name="l00063"></a>00063                 <span class="keyword">typedef</span> <span class="keyword">typename</span> int_vector_type::size_type size_type;
-<a name="l00064"></a>00064                 <span class="keyword">typedef</span> <span class="keyword">typename</span> int_vector_type::value_type value_type;
-<a name="l00065"></a>00065 
-<a name="l00066"></a>00066         <span class="keyword">private</span>:
-<a name="l00067"></a>00067                 int_vector_type &amp;m_vec;
+<a name="l00021"></a>00021 <span class="keyword">namespace </span>sdsl
+<a name="l00022"></a>00022 {
+<a name="l00023"></a>00023 
+<a name="l00024"></a>00024 template&lt;uint8_t fixedIntWidth=0, class size_type_class=int_vector&lt;0&gt;::size_type&gt;
+<a name="l00025"></a><a class="code" href="classsdsl_1_1int__vector__serialize__vbyte__wrapper.html">00025</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1int__vector__serialize__vbyte__wrapper.html">int_vector_serialize_vbyte_wrapper</a>
+<a name="l00026"></a>00026 {
+<a name="l00027"></a>00027     <span class="keyword">public</span>:
+<a name="l00028"></a>00028         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector&lt;fixedIntWidth, size_type_class&gt;</a> <a class="code" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector_type</a>;
+<a name="l00029"></a>00029         <span class="keyword">typedef</span> <span class="keyword">typename</span> int_vector_type::size_type size_type;
+<a name="l00030"></a>00030         <span class="keyword">typedef</span> <span class="keyword">typename</span> int_vector_type::value_type value_type;
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032     <span class="keyword">private</span>:
+<a name="l00033"></a>00033         <span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector_type</a>&amp; m_vec;
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035     <span class="keyword">public</span>:
+<a name="l00036"></a>00036         <a class="code" href="classsdsl_1_1int__vector__serialize__vbyte__wrapper.html">int_vector_serialize_vbyte_wrapper</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector_type</a>&amp; vec):m_vec(vec) {}
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038         size_type serialize(std::ostream&amp; out)<span class="keyword">const </span>{
+<a name="l00039"></a>00039             size_type written_bytes = 0;
+<a name="l00040"></a>00040             <span class="comment">// (1) write size and int_width</span>
+<a name="l00041"></a>00041             written_bytes += _sdsl_serialize_size_and_int_width(out, fixedIntWidth, m_vec.<a class="code" href="classsdsl_1_1int__vector.html#aec50abb63e22116b5dd45157925fca52" title="Returns the width of the integers which are accessed via the [] operator.">get_int_width</a>(), m_vec.<a class="code" href="classsdsl_1_1int__vector.html#aa5c657a926b1b4c03dac96520484af67" title="The number of bits in the int_vector.">bit_size</a>());
+<a name="l00042"></a>00042             <span class="comment">// (2) write entries in vbyte coding</span>
+<a name="l00043"></a>00043             <span class="keywordflow">for</span> (size_type i=0; i &lt; m_vec.<a class="code" href="classsdsl_1_1int__vector.html#aea4fcbbab7fbef9c1cc4a4c89f4b1520" title="The number of elements in the int_vector.">size</a>(); ++i) {
+<a name="l00044"></a>00044                 value_type ww = m_vec[i];
+<a name="l00045"></a>00045                 uint8_t w = ww &amp; 0x7F;
+<a name="l00046"></a>00046                 ww &gt;&gt;= 7;
+<a name="l00047"></a>00047                 <span class="keywordflow">while</span> (ww &gt; 0) {
+<a name="l00048"></a>00048                     w |= 0x80; <span class="comment">// mark overflow bit</span>
+<a name="l00049"></a>00049                     out.write((<span class="keyword">const</span> <span class="keywordtype">char</span>*)&amp;w, <span class="keyword">sizeof</span>(uint8_t));  <span class="comment">// write byte</span>
+<a name="l00050"></a>00050                     w = ww &amp; 0x7F;
+<a name="l00051"></a>00051                     ww &gt;&gt;= 7;
+<a name="l00052"></a>00052                     ++written_bytes;
+<a name="l00053"></a>00053                 }
+<a name="l00054"></a>00054                 out.write((<span class="keyword">const</span> <span class="keywordtype">char</span>*)&amp;w, <span class="keyword">sizeof</span>(uint8_t));  <span class="comment">// write without overflow bit</span>
+<a name="l00055"></a>00055                 ++written_bytes;
+<a name="l00056"></a>00056             }
+<a name="l00057"></a>00057             <span class="keywordflow">return</span> written_bytes;
+<a name="l00058"></a>00058         }
+<a name="l00059"></a>00059 };
+<a name="l00060"></a>00060 
+<a name="l00061"></a>00061 template&lt;uint8_t fixedIntWidth=0, class size_type_class=int_vector&lt;0&gt;::size_type&gt;
+<a name="l00062"></a><a class="code" href="classsdsl_1_1int__vector__load__vbyte__wrapper.html">00062</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1int__vector__load__vbyte__wrapper.html">int_vector_load_vbyte_wrapper</a>
+<a name="l00063"></a>00063 {
+<a name="l00064"></a>00064     <span class="keyword">public</span>:
+<a name="l00065"></a>00065         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector&lt;fixedIntWidth, size_type_class&gt;</a> <a class="code" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector_type</a>;
+<a name="l00066"></a>00066         <span class="keyword">typedef</span> <span class="keyword">typename</span> int_vector_type::size_type size_type;
+<a name="l00067"></a>00067         <span class="keyword">typedef</span> <span class="keyword">typename</span> int_vector_type::value_type value_type;
 <a name="l00068"></a>00068 
-<a name="l00069"></a>00069         <span class="keyword">public</span>: 
-<a name="l00070"></a>00070                 <a class="code" href="classsdsl_1_1int__vector__load__vbyte__wrapper.html">int_vector_load_vbyte_wrapper</a>(int_vector_type &amp;vec):m_vec(vec){}
+<a name="l00069"></a>00069     <span class="keyword">private</span>:
+<a name="l00070"></a>00070         <a class="code" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector_type</a>&amp; m_vec;
 <a name="l00071"></a>00071 
-<a name="l00072"></a>00072                 <span class="keywordtype">void</span> load(std::istream &amp;in){
-<a name="l00073"></a>00073                         size_type size;
-<a name="l00074"></a>00074                         <span class="keyword">typename</span> int_vector_type::int_width_type int_width;
-<a name="l00075"></a>00075                         <span class="comment">// (1) read size and int_width</span>
-<a name="l00076"></a>00076                         int_vector_trait&lt;fixedIntWidth, size_type_class&gt;::read_header(size, int_width, in);
-<a name="l00077"></a>00077                         <span class="comment">// (2) resize the vector </span>
-<a name="l00078"></a>00078                         m_vec.set_int_width(int_width);
-<a name="l00079"></a>00079                         m_vec.bit_resize(size);
-<a name="l00080"></a>00080                         <span class="comment">// (3) read vbyte encoded entries an put them into the vector</span>
-<a name="l00081"></a>00081                         size_type i = 0;
-<a name="l00082"></a>00082                         <span class="keywordflow">while</span> ( i &lt; m_vec.size() ){
-<a name="l00083"></a>00083                                 value_type ww=0;
-<a name="l00084"></a>00084                                 uint8_t w=0;
-<a name="l00085"></a>00085                                 value_type shift=0;
-<a name="l00086"></a>00086                                 <span class="keywordflow">do</span>{
-<a name="l00087"></a>00087                                         in.read((<span class="keywordtype">char</span>*)&amp;w, <span class="keyword">sizeof</span>(uint8_t));
-<a name="l00088"></a>00088                                         ww |= (((value_type)(w&amp;0x7F))&lt;&lt;shift);
-<a name="l00089"></a>00089                                         shift += 7;
-<a name="l00090"></a>00090                                 }<span class="keywordflow">while</span>( (w&amp;0x80) &gt; 0 );
-<a name="l00091"></a>00091                                 m_vec[ i++ ] = ww;
-<a name="l00092"></a>00092                         }
-<a name="l00093"></a>00093                 }
-<a name="l00094"></a>00094 };
-<a name="l00095"></a>00095 
-<a name="l00096"></a>00096 <span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="keywordtype">int</span>_vector_type=<span class="keywordtype">int</span>_vector&lt;&gt; &gt;
-<a name="l00097"></a><a class="code" href="classsdsl_1_1int__vector__serialize__wrapper.html">00097</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1int__vector__serialize__wrapper.html">int_vector_serialize_wrapper</a>{
-<a name="l00098"></a>00098         <span class="keyword">public</span>:
-<a name="l00099"></a>00099                 <span class="keyword">typedef</span> <span class="keyword">typename</span> int_vector_type::size_type size_type;
-<a name="l00100"></a>00100 
-<a name="l00101"></a>00101         <span class="keyword">private</span>:
-<a name="l00102"></a>00102                 <span class="keyword">const</span> int_vector_type &amp;m_vec;
-<a name="l00103"></a>00103 
-<a name="l00104"></a>00104         <span class="keyword">public</span>: 
-<a name="l00105"></a>00105                 <a class="code" href="classsdsl_1_1int__vector__serialize__wrapper.html">int_vector_serialize_wrapper</a>(<span class="keyword">const</span> int_vector_type &amp;vec):m_vec(vec){}
-<a name="l00106"></a>00106 
-<a name="l00107"></a>00107                 size_type serialize(std::ostream &amp;out)<span class="keyword">const</span>{
-<a name="l00108"></a>00108                         <span class="keywordflow">return</span> m_vec.serialize(out);    
-<a name="l00109"></a>00109                 }
-<a name="l00110"></a>00110 };
-<a name="l00111"></a>00111 
-<a name="l00112"></a>00112 <span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="keywordtype">int</span>_vector_type=<span class="keywordtype">int</span>_vector&lt;&gt; &gt;
-<a name="l00113"></a><a class="code" href="classsdsl_1_1int__vector__load__wrapper.html">00113</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1int__vector__load__wrapper.html">int_vector_load_wrapper</a>{
-<a name="l00114"></a>00114         <span class="keyword">public</span>:
-<a name="l00115"></a>00115                 <span class="keyword">typedef</span> <span class="keyword">typename</span> int_vector_type::size_type size_type;
-<a name="l00116"></a>00116         <span class="keyword">private</span>:
-<a name="l00117"></a>00117                 int_vector_type &amp;m_vec;
-<a name="l00118"></a>00118 
-<a name="l00119"></a>00119         <span class="keyword">public</span>: 
-<a name="l00120"></a>00120                 <a class="code" href="classsdsl_1_1int__vector__load__wrapper.html">int_vector_load_wrapper</a>(int_vector_type &amp;vec):m_vec(vec){}
-<a name="l00121"></a>00121                 <span class="keywordtype">void</span> load(std::istream &amp;in){
-<a name="l00122"></a>00122                         m_vec.load(in);
-<a name="l00123"></a>00123                 }
-<a name="l00124"></a>00124 };
-<a name="l00125"></a>00125 
-<a name="l00126"></a>00126 } <span class="comment">// end namespace</span>
-<a name="l00127"></a>00127 
-<a name="l00128"></a>00128 <span class="preprocessor">#endif // end include guard</span>
+<a name="l00072"></a>00072     <span class="keyword">public</span>:
+<a name="l00073"></a>00073         <a class="code" href="classsdsl_1_1int__vector__load__vbyte__wrapper.html">int_vector_load_vbyte_wrapper</a>(<a class="code" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector_type</a>&amp; vec):m_vec(vec) {}
+<a name="l00074"></a>00074 
+<a name="l00075"></a>00075         <span class="keywordtype">void</span> load(std::istream&amp; in) {
+<a name="l00076"></a>00076             size_type size;
+<a name="l00077"></a>00077             <span class="keyword">typename</span> int_vector_type::int_width_type int_width;
+<a name="l00078"></a>00078             <span class="comment">// (1) read size and int_width</span>
+<a name="l00079"></a>00079             <a class="code" href="structsdsl_1_1int__vector__trait.html">int_vector_trait&lt;fixedIntWidth, size_type_class&gt;::read_header</a>(size, int_width, in);
+<a name="l00080"></a>00080             <span class="comment">// (2) resize the vector</span>
+<a name="l00081"></a>00081             m_vec.<a class="code" href="classsdsl_1_1int__vector.html#a698a8fecd8c41cc5c69623b5099e29bf" title="Sets the width of the integers which are accessed via the [] operator, if fixedIntWidth equals 0...">set_int_width</a>(int_width);
+<a name="l00082"></a>00082             m_vec.<a class="code" href="classsdsl_1_1int__vector.html#a9f4283ef6076246b59d36fc918623f90" title="Resize the int_vector in terms of bits.">bit_resize</a>(size);
+<a name="l00083"></a>00083             <span class="comment">// (3) read vbyte encoded entries an put them into the vector</span>
+<a name="l00084"></a>00084             size_type i = 0;
+<a name="l00085"></a>00085             <span class="keywordflow">while</span> (i &lt; m_vec.<a class="code" href="classsdsl_1_1int__vector.html#aea4fcbbab7fbef9c1cc4a4c89f4b1520" title="The number of elements in the int_vector.">size</a>()) {
+<a name="l00086"></a>00086                 value_type ww=0;
+<a name="l00087"></a>00087                 uint8_t w=0;
+<a name="l00088"></a>00088                 value_type shift=0;
+<a name="l00089"></a>00089                 <span class="keywordflow">do</span> {
+<a name="l00090"></a>00090                     in.read((<span class="keywordtype">char</span>*)&amp;w, <span class="keyword">sizeof</span>(uint8_t));
+<a name="l00091"></a>00091                     ww |= (((value_type)(w&amp;0x7F))&lt;&lt;shift);
+<a name="l00092"></a>00092                     shift += 7;
+<a name="l00093"></a>00093                 } <span class="keywordflow">while</span> ((w&amp;0x80) &gt; 0);
+<a name="l00094"></a>00094                 m_vec[ i++ ] = ww;
+<a name="l00095"></a>00095             }
+<a name="l00096"></a>00096         }
+<a name="l00097"></a>00097 };
+<a name="l00098"></a>00098 
+<a name="l00099"></a>00099 <span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="keywordtype">int</span>_vector_type=<span class="keywordtype">int</span>_vector&lt;&gt; &gt;
+<a name="l00100"></a><a class="code" href="classsdsl_1_1int__vector__serialize__wrapper.html">00100</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1int__vector__serialize__wrapper.html">int_vector_serialize_wrapper</a>
+<a name="l00101"></a>00101 {
+<a name="l00102"></a>00102     <span class="keyword">public</span>:
+<a name="l00103"></a>00103         <span class="keyword">typedef</span> <span class="keyword">typename</span> int_vector_type::size_type size_type;
+<a name="l00104"></a>00104 
+<a name="l00105"></a>00105     <span class="keyword">private</span>:
+<a name="l00106"></a>00106         <span class="keyword">const</span> int_vector_type&amp; m_vec;
+<a name="l00107"></a>00107 
+<a name="l00108"></a>00108     <span class="keyword">public</span>:
+<a name="l00109"></a>00109         <a class="code" href="classsdsl_1_1int__vector__serialize__wrapper.html">int_vector_serialize_wrapper</a>(<span class="keyword">const</span> int_vector_type&amp; vec):m_vec(vec) {}
+<a name="l00110"></a>00110 
+<a name="l00111"></a>00111         size_type serialize(std::ostream&amp; out)<span class="keyword">const </span>{
+<a name="l00112"></a>00112             <span class="keywordflow">return</span> m_vec.serialize(out);
+<a name="l00113"></a>00113         }
+<a name="l00114"></a>00114 };
+<a name="l00115"></a>00115 
+<a name="l00116"></a>00116 <span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="keywordtype">int</span>_vector_type=<span class="keywordtype">int</span>_vector&lt;&gt; &gt;
+<a name="l00117"></a><a class="code" href="classsdsl_1_1int__vector__load__wrapper.html">00117</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1int__vector__load__wrapper.html">int_vector_load_wrapper</a>
+<a name="l00118"></a>00118 {
+<a name="l00119"></a>00119     <span class="keyword">public</span>:
+<a name="l00120"></a>00120         <span class="keyword">typedef</span> <span class="keyword">typename</span> int_vector_type::size_type size_type;
+<a name="l00121"></a>00121     <span class="keyword">private</span>:
+<a name="l00122"></a>00122         int_vector_type&amp; m_vec;
+<a name="l00123"></a>00123 
+<a name="l00124"></a>00124     <span class="keyword">public</span>:
+<a name="l00125"></a>00125         <a class="code" href="classsdsl_1_1int__vector__load__wrapper.html">int_vector_load_wrapper</a>(int_vector_type&amp; vec):m_vec(vec) {}
+<a name="l00126"></a>00126         <span class="keywordtype">void</span> load(std::istream&amp; in) {
+<a name="l00127"></a>00127             m_vec.load(in);
+<a name="l00128"></a>00128         }
+<a name="l00129"></a>00129 };
+<a name="l00130"></a>00130 
+<a name="l00131"></a>00131 } <span class="comment">// end namespace</span>
+<a name="l00132"></a>00132 
+<a name="l00133"></a>00133 <span class="preprocessor">#endif // end include guard</span>
 </pre></div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:33 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:26 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

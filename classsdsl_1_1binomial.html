@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -102,6 +103,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a>  </div>
   <div class="headertitle">
 <div class="title">sdsl::binomial&lt; n &gt; Class Template Reference</div>  </div>
@@ -113,6 +115,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><b>impl</b></td></tr>
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a29f721b53f695ac4fe53f19dae1af526"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a29f721b53f695ac4fe53f19dae1af526"></a>
+typedef uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>number_type</b></td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ac18e208c4c9755528fe68f7cd38ce53a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac18e208c4c9755528fe68f7cd38ce53a"></a>
@@ -123,18 +129,33 @@ static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>nr_to_bin<
 static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>bin_to_nr</b> (uint32_t bin)</td></tr>
 <tr class="memitem:a9f7eb880d3b935be10d24384e48a05a1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9f7eb880d3b935be10d24384e48a05a1"></a>
 static uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>space_for_bt_pair</b> (uint8_t x)</td></tr>
+<tr class="memitem:a3b1937635eb108adbad7a2366dd80b0d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3b1937635eb108adbad7a2366dd80b0d"></a>
+static uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>popcount</b> (number_type x)</td></tr>
+<tr class="memitem:afff29859f60f4d1c7958150abd81fa26"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afff29859f60f4d1c7958150abd81fa26"></a>
+static uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>select</b> (number_type x, uint32_t i)</td></tr>
+<tr class="memitem:ade7e0bbcd92cac8edcbfdc2980c9b685"><td class="memTemplParams" colspan="2"><a class="anchor" id="ade7e0bbcd92cac8edcbfdc2980c9b685"></a>
+template&lt;class bit_vector_type &gt; </td></tr>
+<tr class="memitem:ade7e0bbcd92cac8edcbfdc2980c9b685"><td class="memTemplItemLeft" align="right" valign="top">static number_type&#160;</td><td class="memTemplItemRight" valign="bottom"><b>decode_btnr</b> (const bit_vector_type &amp;bv, typename bit_vector_type::size_type btnrp, uint8_t btnrlen)</td></tr>
+<tr class="memitem:afd4ab959748deeec1f2ba0c0389154df"><td class="memTemplParams" colspan="2"><a class="anchor" id="afd4ab959748deeec1f2ba0c0389154df"></a>
+template&lt;class bit_vector_type &gt; </td></tr>
+<tr class="memitem:afd4ab959748deeec1f2ba0c0389154df"><td class="memTemplItemLeft" align="right" valign="top">static uint8_t&#160;</td><td class="memTemplItemRight" valign="bottom"><b>get_bt</b> (const bit_vector_type &amp;bv, typename bit_vector_type::size_type pos, uint8_t block_size)</td></tr>
+<tr class="memitem:a2eaa3686dad923e109ab7870eefaf190"><td class="memTemplParams" colspan="2"><a class="anchor" id="a2eaa3686dad923e109ab7870eefaf190"></a>
+template&lt;class bit_vector_type &gt; </td></tr>
+<tr class="memitem:a2eaa3686dad923e109ab7870eefaf190"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>set_bt</b> (bit_vector_type &amp;bv, typename bit_vector_type::size_type pos, number_type bt, uint8_t space_for_bt)</td></tr>
+<tr class="memitem:ae8e88b8b64a4eb8fc4185c60ec576433"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae8e88b8b64a4eb8fc4185c60ec576433"></a>
+static number_type&#160;</td><td class="memItemRight" valign="bottom"><b>Li1Mask</b> (uint8_t off)</td></tr>
 </table>
 <h3>template&lt;uint8_t n&gt;<br/>
  class sdsl::binomial&lt; n &gt;</h3>
 
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>sdsl/include/sdsl/<a class="el" href="rrr__helper_8hpp_source.html">rrr_helper.hpp</a></li>
+<li>sdsl/include/sdsl/<a class="el" href="rrr__vector__15_8hpp_source.html">rrr_vector_15.hpp</a></li>
 </ul>
 </div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:35 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:32 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

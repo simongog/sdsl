@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -82,7 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -97,7 +98,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/* sdsl - succinct data structures library</span>
-<a name="l00002"></a>00002 <span class="comment">    Copyright (C) 2010 Simon Gog </span>
+<a name="l00002"></a>00002 <span class="comment">    Copyright (C) 2010 Simon Gog</span>
 <a name="l00003"></a>00003 <span class="comment"></span>
 <a name="l00004"></a>00004 <span class="comment">    This program is free software: you can redistribute it and/or modify</span>
 <a name="l00005"></a>00005 <span class="comment">    it under the terms of the GNU General Public License as published by</span>
@@ -115,25 +116,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00021"></a>00021 <span class="preprocessor">#ifndef INCLUDED_SDSL_CONCEPTS</span>
 <a name="l00022"></a>00022 <span class="preprocessor"></span><span class="preprocessor">#define INCLUDED_SDSL_CONCEPTS</span>
 <a name="l00023"></a>00023 <span class="preprocessor"></span>
-<a name="l00024"></a>00024 <span class="keyword">namespace </span>sdsl{
-<a name="l00025"></a>00025 
-<a name="l00026"></a><a class="code" href="structsdsl_1_1csa__tag.html">00026</a> <span class="keyword">struct </span><a class="code" href="structsdsl_1_1csa__tag.html">csa_tag</a>{};
-<a name="l00027"></a>00027 
-<a name="l00028"></a><a class="code" href="structsdsl_1_1cst__tag.html">00028</a> <span class="keyword">struct </span><a class="code" href="structsdsl_1_1cst__tag.html">cst_tag</a>{};
-<a name="l00029"></a>00029 
-<a name="l00030"></a><a class="code" href="structsdsl_1_1lcp__plain__tag.html">00030</a> <span class="keyword">struct </span><a class="code" href="structsdsl_1_1lcp__plain__tag.html">lcp_plain_tag</a>{};
-<a name="l00031"></a><a class="code" href="structsdsl_1_1lcp__permuted__tag.html">00031</a> <span class="keyword">struct </span><a class="code" href="structsdsl_1_1lcp__permuted__tag.html">lcp_permuted_tag</a>{};
-<a name="l00032"></a><a class="code" href="structsdsl_1_1lcp__tree__compressed__tag.html">00032</a> <span class="keyword">struct </span><a class="code" href="structsdsl_1_1lcp__tree__compressed__tag.html">lcp_tree_compressed_tag</a>{};
-<a name="l00033"></a><a class="code" href="structsdsl_1_1lcp__tree__and__lf__compressed__tag.html">00033</a> <span class="keyword">struct </span><a class="code" href="structsdsl_1_1lcp__tree__and__lf__compressed__tag.html">lcp_tree_and_lf_compressed_tag</a>{};
-<a name="l00034"></a>00034 
-<a name="l00035"></a>00035 } <span class="comment">// end namespace sdsl</span>
-<a name="l00036"></a>00036 
-<a name="l00037"></a>00037 <span class="preprocessor">#endif</span>
+<a name="l00024"></a>00024 <span class="keyword">namespace </span>sdsl
+<a name="l00025"></a>00025 {
+<a name="l00026"></a>00026 
+<a name="l00027"></a><a class="code" href="structsdsl_1_1csa__tag.html">00027</a> <span class="keyword">struct </span><a class="code" href="structsdsl_1_1csa__tag.html">csa_tag</a> {};
+<a name="l00028"></a>00028 
+<a name="l00029"></a><a class="code" href="structsdsl_1_1cst__tag.html">00029</a> <span class="keyword">struct </span><a class="code" href="structsdsl_1_1cst__tag.html">cst_tag</a> {};
+<a name="l00030"></a>00030 
+<a name="l00031"></a><a class="code" href="structsdsl_1_1lcp__plain__tag.html">00031</a> <span class="keyword">struct </span><a class="code" href="structsdsl_1_1lcp__plain__tag.html">lcp_plain_tag</a> {};
+<a name="l00032"></a><a class="code" href="structsdsl_1_1lcp__permuted__tag.html">00032</a> <span class="keyword">struct </span><a class="code" href="structsdsl_1_1lcp__permuted__tag.html">lcp_permuted_tag</a> {};
+<a name="l00033"></a><a class="code" href="structsdsl_1_1lcp__tree__compressed__tag.html">00033</a> <span class="keyword">struct </span><a class="code" href="structsdsl_1_1lcp__tree__compressed__tag.html">lcp_tree_compressed_tag</a> {};
+<a name="l00034"></a><a class="code" href="structsdsl_1_1lcp__tree__and__lf__compressed__tag.html">00034</a> <span class="keyword">struct </span><a class="code" href="structsdsl_1_1lcp__tree__and__lf__compressed__tag.html">lcp_tree_and_lf_compressed_tag</a> {};
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036 } <span class="comment">// end namespace sdsl</span>
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:34 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:27 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

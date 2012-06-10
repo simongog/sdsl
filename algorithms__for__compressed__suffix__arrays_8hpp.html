@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -81,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -115,12 +116,12 @@ Namespaces</h2></td></tr>
 <tr class="memdesc:namespacesdsl_1_1algorithm"><td class="mdescLeft">&#160;</td><td class="mdescRight">A helper class containing algorithms for succinct data structures. <br/></td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a55ed5e8cf8cc75cb28ababba66d1bb32"><td class="memTemplParams" colspan="2"><a class="anchor" id="a55ed5e8cf8cc75cb28ababba66d1bb32"></a>
+<tr class="memitem:afae6127ee2e472108d9294465de9a818"><td class="memTemplParams" colspan="2"><a class="anchor" id="afae6127ee2e472108d9294465de9a818"></a>
 template&lt;class Csa &gt; </td></tr>
-<tr class="memitem:a55ed5e8cf8cc75cb28ababba66d1bb32"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>sdsl::algorithm::set_text</b> (const unsigned char *str, typename Csa::size_type len, typename Csa::size_type *C, unsigned char *char2comp, unsigned char *comp2char, uint8_t &amp;sigma)</td></tr>
-<tr class="memitem:ac75005a14eaefd66c49e84c98fe3151d"><td class="memTemplParams" colspan="2"><a class="anchor" id="ac75005a14eaefd66c49e84c98fe3151d"></a>
+<tr class="memitem:afae6127ee2e472108d9294465de9a818"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>sdsl::algorithm::set_text</b> (const unsigned char *str, typename Csa::size_type len, int_vector&lt; 64 &gt; &amp;C, int_vector&lt; 8 &gt; &amp;char2comp, int_vector&lt; 8 &gt; &amp;comp2char, uint16_t &amp;sigma)</td></tr>
+<tr class="memitem:aeef0e09312b22a0188b77c432823ffdc"><td class="memTemplParams" colspan="2"><a class="anchor" id="aeef0e09312b22a0188b77c432823ffdc"></a>
 template&lt;class Csa , class size_type_class &gt; </td></tr>
-<tr class="memitem:ac75005a14eaefd66c49e84c98fe3151d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>sdsl::algorithm::set_text</b> (int_vector_file_buffer&lt; 8, size_type_class &gt; &amp;str_buf, typename Csa::size_type len, typename Csa::size_type *C, unsigned char *char2comp, unsigned char *comp2char, uint8_t &amp;sigma)</td></tr>
+<tr class="memitem:aeef0e09312b22a0188b77c432823ffdc"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>sdsl::algorithm::set_text</b> (int_vector_file_buffer&lt; 8, size_type_class &gt; &amp;str_buf, typename Csa::size_type len, int_vector&lt; 64 &gt; &amp;C, int_vector&lt; 8 &gt; &amp;char2comp, int_vector&lt; 8 &gt; &amp;comp2char, uint16_t &amp;sigma)</td></tr>
 <tr class="memitem:a1f5a7d23431a51b11b1aa1d726d97e09"><td class="memTemplParams" colspan="2">template&lt;class Csa &gt; </td></tr>
 <tr class="memitem:a1f5a7d23431a51b11b1aa1d726d97e09"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1algorithm.html#a1f5a7d23431a51b11b1aa1d726d97e09">sdsl::algorithm::char_occures_in_text_of_csa</a> (const Csa &amp;csa, typename Csa::char_type c)</td></tr>
 <tr class="memdesc:a1f5a7d23431a51b11b1aa1d726d97e09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates if a character c occures in the text of the compressed suffix array c.  <a href="#a1f5a7d23431a51b11b1aa1d726d97e09"></a><br/></td></tr>
@@ -138,7 +139,7 @@ template&lt;class Csa &gt; </td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:34 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:28 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

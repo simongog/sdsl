@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -82,7 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -97,7 +98,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="nearest__neighbour__dictionary_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/* sdsl - succinct data structures library</span>
-<a name="l00002"></a>00002 <span class="comment">    Copyright (C) 2009 Simon Gog </span>
+<a name="l00002"></a>00002 <span class="comment">    Copyright (C) 2009 Simon Gog</span>
 <a name="l00003"></a>00003 <span class="comment"></span>
 <a name="l00004"></a>00004 <span class="comment">    This program is free software: you can redistribute it and/or modify</span>
 <a name="l00005"></a>00005 <span class="comment">    it under the terms of the GNU General Public License as published by</span>
@@ -121,193 +122,206 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="util_8hpp.html" title="util.hpp contains some helper methods for int_vector and other stuff like demangle class names...">util.hpp</a>&quot;</span>
 <a name="l00028"></a>00028 <span class="preprocessor">#include &lt;stdexcept&gt;</span>
 <a name="l00029"></a>00029 
-<a name="l00031"></a>00031 <span class="keyword">namespace </span>sdsl{
-<a name="l00032"></a>00032 
-<a name="l00034"></a>00034 
-<a name="l00045"></a>00045 <span class="comment">// TODO: implement an iterator for the ones in the nearest neighbour dictionary!!! used in the construction of the balanced parentheses support</span>
-<a name="l00046"></a>00046 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t sample_dens&gt;           
-<a name="l00047"></a><a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html">00047</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html" title="Nearest neighbour dictionary for sparse uniform sets (described in Geary et al., A Simple Optimal Rep...">nearest_neighbour_dictionary</a>{
-<a name="l00048"></a>00048         <span class="keyword">public</span>:
-<a name="l00049"></a>00049                 <span class="keyword">typedef</span> bit_vector::size_type size_type;
-<a name="l00050"></a>00050         <span class="keyword">private</span>:
-<a name="l00051"></a>00051                 int_vector&lt;&gt; m_abs_samples; <span class="comment">// absolute samples array corresponds to array \f$ A_1 \f$ in the paper</span>
-<a name="l00052"></a>00052                 int_vector&lt;&gt; m_differences; <span class="comment">// vector for the differences in between the samples; corresponds to array \f$ A_2 \f$ in the paper</span>
-<a name="l00053"></a>00053                 size_type    m_ones; <span class="comment">// corresponds to N in the paper </span>
-<a name="l00054"></a>00054                 size_type    m_size; <span class="comment">// corresponds to M in the paper</span>
-<a name="l00055"></a>00055                 bit_vector   m_contains_abs_sample; <span class="comment">// vector which stores for every block of length sample_dens of the original bit_vector if an absolute sample lies in this block. </span>
-<a name="l00056"></a>00056                                                     <span class="comment">// Corresponds to array \f$ A_3 \f$ in the paper.</span>
-<a name="l00057"></a>00057                 <a class="code" href="classsdsl_1_1rank__support__v.html">rank_support_v&lt;&gt;</a>  m_rank_contains_abs_sample; <span class="comment">// rank support for m_contains_abs_sample. Corresponds to array \f$ A_4 \f$ in the paper.</span>
-<a name="l00058"></a>00058                 <span class="comment">// NOTE: A faster version should store the absolute samples and the differences interleaved</span>
-<a name="l00059"></a>00059 
-<a name="l00060"></a>00060                 <span class="keywordtype">void</span> copy(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html" title="Nearest neighbour dictionary for sparse uniform sets (described in Geary et al., A Simple Optimal Rep...">nearest_neighbour_dictionary</a> &amp;nnd){
-<a name="l00061"></a>00061                         <span class="comment">// copy all members of the data structure</span>
-<a name="l00062"></a>00062                         m_abs_samples   =               nnd.m_abs_samples;
-<a name="l00063"></a>00063                         m_differences   =               nnd.m_differences;
-<a name="l00064"></a>00064                         m_ones                  =               nnd.m_ones;
-<a name="l00065"></a>00065                         m_size                  =               nnd.m_size;
-<a name="l00066"></a>00066                         m_contains_abs_sample = nnd.m_contains_abs_sample;
-<a name="l00067"></a>00067                         m_rank_contains_abs_sample = nnd.m_rank_contains_abs_sample;
-<a name="l00068"></a>00068                         m_rank_contains_abs_sample.set_vector(&amp;m_contains_abs_sample);
-<a name="l00069"></a>00069                 }
-<a name="l00070"></a>00070 
-<a name="l00071"></a>00071         <span class="keyword">public</span>:
+<a name="l00031"></a>00031 <span class="keyword">namespace </span>sdsl
+<a name="l00032"></a>00032 {
+<a name="l00033"></a>00033 
+<a name="l00035"></a>00035 
+<a name="l00046"></a>00046 <span class="comment">// TODO: implement an iterator for the ones in the nearest neighbour dictionary!!! used in the construction of the balanced parentheses support</span>
+<a name="l00047"></a>00047 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t sample_dens&gt;
+<a name="l00048"></a><a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html">00048</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html" title="Nearest neighbour dictionary for sparse uniform sets (described in Geary et al., A Simple Optimal Rep...">nearest_neighbour_dictionary</a>
+<a name="l00049"></a>00049 {
+<a name="l00050"></a>00050     <span class="keyword">public</span>:
+<a name="l00051"></a>00051         <span class="keyword">typedef</span> bit_vector::size_type size_type;
+<a name="l00052"></a>00052     <span class="keyword">private</span>:
+<a name="l00053"></a>00053         <a class="code" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector&lt;&gt;</a> m_abs_samples; <span class="comment">// absolute samples array corresponds to array \f$ A_1 \f$ in the paper</span>
+<a name="l00054"></a>00054         <a class="code" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector&lt;&gt;</a> m_differences; <span class="comment">// vector for the differences in between the samples; corresponds to array \f$ A_2 \f$ in the paper</span>
+<a name="l00055"></a>00055         size_type    m_ones; <span class="comment">// corresponds to N in the paper</span>
+<a name="l00056"></a>00056         size_type    m_size; <span class="comment">// corresponds to M in the paper</span>
+<a name="l00057"></a>00057         <a class="code" href="classsdsl_1_1int__vector.html">bit_vector</a>   m_contains_abs_sample; <span class="comment">// vector which stores for every block of length sample_dens of the original bit_vector if an absolute sample lies in this block.</span>
+<a name="l00058"></a>00058         <span class="comment">// Corresponds to array \f$ A_3 \f$ in the paper.</span>
+<a name="l00059"></a>00059         <a class="code" href="classsdsl_1_1rank__support__v.html">rank_support_v&lt;&gt;</a>  m_rank_contains_abs_sample; <span class="comment">// rank support for m_contains_abs_sample. Corresponds to array \f$ A_4 \f$ in the paper.</span>
+<a name="l00060"></a>00060         <span class="comment">// NOTE: A faster version should store the absolute samples and the differences interleaved</span>
+<a name="l00061"></a>00061 
+<a name="l00062"></a>00062         <span class="keywordtype">void</span> copy(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html" title="Nearest neighbour dictionary for sparse uniform sets (described in Geary et al., A Simple Optimal Rep...">nearest_neighbour_dictionary</a>&amp; nnd) {
+<a name="l00063"></a>00063             <span class="comment">// copy all members of the data structure</span>
+<a name="l00064"></a>00064             m_abs_samples       =               nnd.m_abs_samples;
+<a name="l00065"></a>00065             m_differences       =               nnd.m_differences;
+<a name="l00066"></a>00066             m_ones                      =               nnd.m_ones;
+<a name="l00067"></a>00067             m_size                      =               nnd.m_size;
+<a name="l00068"></a>00068             m_contains_abs_sample =     nnd.m_contains_abs_sample;
+<a name="l00069"></a>00069             m_rank_contains_abs_sample = nnd.m_rank_contains_abs_sample;
+<a name="l00070"></a>00070             m_rank_contains_abs_sample.<a class="code" href="classsdsl_1_1rank__support__v.html#a41ef56b81127cb8784d3cb1877e6f266" title="Sets the supported bit_vector to the given pointer.">set_vector</a>(&amp;m_contains_abs_sample);
+<a name="l00071"></a>00071         }
 <a name="l00072"></a>00072 
-<a name="l00074"></a><a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#a243593ad15927cf569b3c3e5106fe8da">00074</a>                 <a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#a243593ad15927cf569b3c3e5106fe8da" title="Default constructor.">nearest_neighbour_dictionary</a>():m_ones(0),m_size(0){
-<a name="l00075"></a>00075                 }
-<a name="l00076"></a>00076 
+<a name="l00073"></a>00073     <span class="keyword">public</span>:
+<a name="l00074"></a>00074 
+<a name="l00076"></a><a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#a243593ad15927cf569b3c3e5106fe8da">00076</a>         <a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#a243593ad15927cf569b3c3e5106fe8da" title="Default constructor.">nearest_neighbour_dictionary</a>():m_ones(0),m_size(0) {
+<a name="l00077"></a>00077         }
 <a name="l00078"></a>00078 
-<a name="l00080"></a><a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#ae7d5b0c128f81534d23b86386c0924d8">00080</a>                 <a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#ae7d5b0c128f81534d23b86386c0924d8" title="Constructor.">nearest_neighbour_dictionary</a>(<span class="keyword">const</span> bit_vector &amp;v):m_ones(0), m_size(0){
-<a name="l00081"></a>00081                         <span class="keywordflow">if</span>(sample_dens==0){ <span class="comment">// first logical error check</span>
-<a name="l00082"></a>00082                                 <span class="keywordflow">throw</span> std::logic_error( <a class="code" href="namespacesdsl_1_1util.html#a5ac1913316c61c170cba986b98c27c90" title="Demangle the class name of typeid(...).name()">util::demangle</a>(<span class="keyword">typeid</span>(<span class="keyword">this</span>).name())+<span class="stringliteral">&quot;: sample_dens should not be equal 0!&quot;</span> );
-<a name="l00083"></a>00083                         }
-<a name="l00084"></a>00084                         size_type max_distance_between_two_ones = 0;
-<a name="l00085"></a>00085                         size_type ones = 0; <span class="comment">// counter for the ones in v</span>
-<a name="l00086"></a>00086                         
-<a name="l00087"></a>00087                         <span class="comment">// get maximal distance between to ones in the bit vector</span>
-<a name="l00088"></a>00088                         <span class="comment">// speed this up by broadword computing</span>
-<a name="l00089"></a>00089                         <span class="keywordflow">for</span>(size_type i=0, last_one_pos_plus_1=0; i &lt; v.size(); ++i){
-<a name="l00090"></a>00090                                 <span class="keywordflow">if</span>(v[i]){
-<a name="l00091"></a>00091                                         <span class="keywordflow">if</span>( i+1-last_one_pos_plus_1 &gt; max_distance_between_two_ones )
-<a name="l00092"></a>00092                                                 max_distance_between_two_ones = i+1-last_one_pos_plus_1;
-<a name="l00093"></a>00093                                         last_one_pos_plus_1 = i+1;
-<a name="l00094"></a>00094                                         ++ones;
-<a name="l00095"></a>00095 
-<a name="l00096"></a>00096                                 }               
-<a name="l00097"></a>00097                         }       
-<a name="l00098"></a>00098                         m_ones = ones;
-<a name="l00099"></a>00099                         m_size = v.size();
-<a name="l00100"></a>00100 <span class="comment">//                      std::cerr&lt;&lt;ones&lt;&lt;std::endl;</span>
-<a name="l00101"></a>00101                         <span class="comment">// initialize absolute samples m_abs_samples[0]=0</span>
-<a name="l00102"></a>00102                         m_abs_samples = int_vector&lt;&gt;(m_ones/sample_dens + 1, 0,  <a class="code" href="classsdsl_1_1bit__magic.html#add0a212c8b5f894223c49e95aaa2ae8e" title="Calculates the position of the leftmost 1-bit in the 64bit integer x if it exists.">bit_magic::l1BP</a>(v.size())+1 );
-<a name="l00103"></a>00103                         <span class="comment">// initialize different values </span>
-<a name="l00104"></a>00104                         m_differences = int_vector&lt;&gt;(m_ones - m_ones/sample_dens, 0, <a class="code" href="classsdsl_1_1bit__magic.html#add0a212c8b5f894223c49e95aaa2ae8e" title="Calculates the position of the leftmost 1-bit in the 64bit integer x if it exists.">bit_magic::l1BP</a>(max_distance_between_two_ones)+1 );
-<a name="l00105"></a>00105                         <span class="comment">// initialize m_contains_abs_sample     </span>
-<a name="l00106"></a>00106                         m_contains_abs_sample = bit_vector((v.size()+sample_dens-1)/sample_dens, 0);    
-<a name="l00107"></a>00107                         ones = 0;
-<a name="l00108"></a>00108                         <span class="keywordflow">for</span>(size_type i=0, last_one_pos=0; i &lt; v.size(); ++i){
-<a name="l00109"></a>00109                                 <span class="keywordflow">if</span>(v[i]){
-<a name="l00110"></a>00110                                         ++ones;
-<a name="l00111"></a>00111                                         <span class="keywordflow">if</span>(  (ones % sample_dens) == 0 ){ <span class="comment">// insert absolute samples</span>
-<a name="l00112"></a>00112                                                 m_abs_samples[ones/sample_dens] = i; 
-<a name="l00113"></a>00113                                                 m_contains_abs_sample[i/sample_dens] = 1;
-<a name="l00114"></a>00114                                         }<span class="keywordflow">else</span>{
-<a name="l00115"></a>00115                                                 m_differences[ones - ones/sample_dens - 1] = i - last_one_pos;
-<a name="l00116"></a>00116                                         }
-<a name="l00117"></a>00117                                         last_one_pos = i;
-<a name="l00118"></a>00118                                 }
-<a name="l00119"></a>00119                         }       
-<a name="l00120"></a>00120                         m_rank_contains_abs_sample.init(&amp;m_contains_abs_sample);
-<a name="l00121"></a>00121                 }
-<a name="l00122"></a>00122 
-<a name="l00124"></a><a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#ad627c384a65c555eac3fbda41eea6b89">00124</a>                 <a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#ad627c384a65c555eac3fbda41eea6b89" title="Copy constructor.">nearest_neighbour_dictionary</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html" title="Nearest neighbour dictionary for sparse uniform sets (described in Geary et al., A Simple Optimal Rep...">nearest_neighbour_dictionary</a> &amp;nnd){
-<a name="l00125"></a>00125                         <span class="comment">// copy all members of the data structure</span>
-<a name="l00126"></a>00126                         copy(nnd);
-<a name="l00127"></a>00127                 }
-<a name="l00128"></a>00128 
-<a name="l00130"></a><a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#a70156f2e0c76c5f81c84945d0cb80063">00130</a>                 <a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#a70156f2e0c76c5f81c84945d0cb80063" title="Destructor.">~nearest_neighbour_dictionary</a>(){}
-<a name="l00131"></a>00131 
-<a name="l00132"></a>00132                 <a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html" title="Nearest neighbour dictionary for sparse uniform sets (described in Geary et al., A Simple Optimal Rep...">nearest_neighbour_dictionary</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html" title="Nearest neighbour dictionary for sparse uniform sets (described in Geary et al., A Simple Optimal Rep...">nearest_neighbour_dictionary</a>&amp; nnd){
-<a name="l00133"></a>00133                         <span class="keywordflow">if</span>( <span class="keyword">this</span> != &amp;nnd){
-<a name="l00134"></a>00134                                 copy(nnd);      
-<a name="l00135"></a>00135                         }       
-<a name="l00136"></a>00136                         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
-<a name="l00137"></a>00137                 }
-<a name="l00138"></a>00138 
+<a name="l00080"></a>00080 
+<a name="l00082"></a><a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#ae7d5b0c128f81534d23b86386c0924d8">00082</a>         <a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#ae7d5b0c128f81534d23b86386c0924d8" title="Constructor.">nearest_neighbour_dictionary</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">bit_vector</a>&amp; v):m_ones(0), m_size(0) {
+<a name="l00083"></a>00083             <span class="keywordflow">if</span> (sample_dens==0) { <span class="comment">// first logical error check</span>
+<a name="l00084"></a>00084                 <span class="keywordflow">throw</span> std::logic_error(<a class="code" href="namespacesdsl_1_1util.html#a5ac1913316c61c170cba986b98c27c90" title="Demangle the class name of typeid(...).name()">util::demangle</a>(<span class="keyword">typeid</span>(<span class="keyword">this</span>).name())+<span class="stringliteral">&quot;: sample_dens should not be equal 0!&quot;</span>);
+<a name="l00085"></a>00085             }
+<a name="l00086"></a>00086             size_type max_distance_between_two_ones = 0;
+<a name="l00087"></a>00087             size_type ones = 0; <span class="comment">// counter for the ones in v</span>
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089             <span class="comment">// get maximal distance between to ones in the bit vector</span>
+<a name="l00090"></a>00090             <span class="comment">// speed this up by broadword computing</span>
+<a name="l00091"></a>00091             <span class="keywordflow">for</span> (size_type i=0, last_one_pos_plus_1=0; i &lt; v.<a class="code" href="classsdsl_1_1int__vector.html#aea4fcbbab7fbef9c1cc4a4c89f4b1520" title="The number of elements in the int_vector.">size</a>(); ++i) {
+<a name="l00092"></a>00092                 <span class="keywordflow">if</span> (v[i]) {
+<a name="l00093"></a>00093                     <span class="keywordflow">if</span> (i+1-last_one_pos_plus_1 &gt; max_distance_between_two_ones)
+<a name="l00094"></a>00094                         max_distance_between_two_ones = i+1-last_one_pos_plus_1;
+<a name="l00095"></a>00095                     last_one_pos_plus_1 = i+1;
+<a name="l00096"></a>00096                     ++ones;
+<a name="l00097"></a>00097 
+<a name="l00098"></a>00098                 }
+<a name="l00099"></a>00099             }
+<a name="l00100"></a>00100             m_ones = ones;
+<a name="l00101"></a>00101             m_size = v.<a class="code" href="classsdsl_1_1int__vector.html#aea4fcbbab7fbef9c1cc4a4c89f4b1520" title="The number of elements in the int_vector.">size</a>();
+<a name="l00102"></a>00102 <span class="comment">//                      std::cerr&lt;&lt;ones&lt;&lt;std::endl;</span>
+<a name="l00103"></a>00103             <span class="comment">// initialize absolute samples m_abs_samples[0]=0</span>
+<a name="l00104"></a>00104             m_abs_samples = <a class="code" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector&lt;&gt;</a>(m_ones/sample_dens + 1, 0,  <a class="code" href="classsdsl_1_1bit__magic.html#a7e056c78ea2cea39ac49e552731c0c95" title="Calculates the position of the leftmost 1-bit in the 64bit integer x if it exists.">bit_magic::l1BP</a>(v.<a class="code" href="classsdsl_1_1int__vector.html#aea4fcbbab7fbef9c1cc4a4c89f4b1520" title="The number of elements in the int_vector.">size</a>())+1);
+<a name="l00105"></a>00105             <span class="comment">// initialize different values</span>
+<a name="l00106"></a>00106             m_differences = <a class="code" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector&lt;&gt;</a>(m_ones - m_ones/sample_dens, 0, <a class="code" href="classsdsl_1_1bit__magic.html#a7e056c78ea2cea39ac49e552731c0c95" title="Calculates the position of the leftmost 1-bit in the 64bit integer x if it exists.">bit_magic::l1BP</a>(max_distance_between_two_ones)+1);
+<a name="l00107"></a>00107             <span class="comment">// initialize m_contains_abs_sample</span>
+<a name="l00108"></a>00108             m_contains_abs_sample = <a class="code" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb" title="bit_vector is a specialization of the int_vector.">bit_vector</a>((v.<a class="code" href="classsdsl_1_1int__vector.html#aea4fcbbab7fbef9c1cc4a4c89f4b1520" title="The number of elements in the int_vector.">size</a>()+sample_dens-1)/sample_dens, 0);
+<a name="l00109"></a>00109             ones = 0;
+<a name="l00110"></a>00110             <span class="keywordflow">for</span> (size_type i=0, last_one_pos=0; i &lt; v.<a class="code" href="classsdsl_1_1int__vector.html#aea4fcbbab7fbef9c1cc4a4c89f4b1520" title="The number of elements in the int_vector.">size</a>(); ++i) {
+<a name="l00111"></a>00111                 <span class="keywordflow">if</span> (v[i]) {
+<a name="l00112"></a>00112                     ++ones;
+<a name="l00113"></a>00113                     <span class="keywordflow">if</span> ((ones % sample_dens) == 0) {  <span class="comment">// insert absolute samples</span>
+<a name="l00114"></a>00114                         m_abs_samples[ones/sample_dens] = i;
+<a name="l00115"></a>00115                         m_contains_abs_sample[i/sample_dens] = 1;
+<a name="l00116"></a>00116                     } <span class="keywordflow">else</span> {
+<a name="l00117"></a>00117                         m_differences[ones - ones/sample_dens - 1] = i - last_one_pos;
+<a name="l00118"></a>00118                     }
+<a name="l00119"></a>00119                     last_one_pos = i;
+<a name="l00120"></a>00120                 }
+<a name="l00121"></a>00121             }
+<a name="l00122"></a>00122             <a class="code" href="namespacesdsl_1_1util.html#a261681cbaa98ab77a78dddb6f21b1f6e" title="Initialise support data structure with.">util::init_support</a>(m_rank_contains_abs_sample, &amp;m_contains_abs_sample);
+<a name="l00123"></a>00123         }
+<a name="l00124"></a>00124 
+<a name="l00126"></a><a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#ad627c384a65c555eac3fbda41eea6b89">00126</a>         <a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#ad627c384a65c555eac3fbda41eea6b89" title="Copy constructor.">nearest_neighbour_dictionary</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html" title="Nearest neighbour dictionary for sparse uniform sets (described in Geary et al., A Simple Optimal Rep...">nearest_neighbour_dictionary</a>&amp; nnd) {
+<a name="l00127"></a>00127             <span class="comment">// copy all members of the data structure</span>
+<a name="l00128"></a>00128             copy(nnd);
+<a name="l00129"></a>00129         }
+<a name="l00130"></a>00130 
+<a name="l00132"></a><a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#a70156f2e0c76c5f81c84945d0cb80063">00132</a>         <a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#a70156f2e0c76c5f81c84945d0cb80063" title="Destructor.">~nearest_neighbour_dictionary</a>() {}
+<a name="l00133"></a>00133 
+<a name="l00134"></a>00134         <a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html" title="Nearest neighbour dictionary for sparse uniform sets (described in Geary et al., A Simple Optimal Rep...">nearest_neighbour_dictionary</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html" title="Nearest neighbour dictionary for sparse uniform sets (described in Geary et al., A Simple Optimal Rep...">nearest_neighbour_dictionary</a>&amp; nnd) {
+<a name="l00135"></a>00135             <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;nnd) {
+<a name="l00136"></a>00136                 copy(nnd);
+<a name="l00137"></a>00137             }
+<a name="l00138"></a>00138             <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00139"></a>00139         }
 <a name="l00140"></a>00140 
-<a name="l00144"></a><a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#abe212c079d877f8161ca3f0dd62e5208">00144</a>                 size_type <a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#abe212c079d877f8161ca3f0dd62e5208" title="Answers rank queries for the supported bit_vector.">rank</a>(size_type idx)<span class="keyword">const</span>{
-<a name="l00145"></a>00145                         assert(idx &lt;= m_size);
-<a name="l00146"></a>00146                         size_type r = m_rank_contains_abs_sample.<a class="code" href="classsdsl_1_1rank__support__v.html#ad82a0703f21ceeb194633f3dc75bd1c3" title="Answers rank queries for the supported bit_vector if init() was called before.">rank</a>(idx/sample_dens); <span class="comment">// </span>
-<a name="l00147"></a>00147                         size_type result = r*sample_dens;
-<a name="l00148"></a>00148                         size_type i = m_abs_samples[r];
-<a name="l00149"></a>00149                         <span class="keywordflow">while</span>( ++result &lt;= m_ones ){
-<a name="l00150"></a>00150                                 <span class="keywordflow">if</span>( (result % sample_dens) == 0  ){
-<a name="l00151"></a>00151                                         i = m_abs_samples[result/sample_dens];
-<a name="l00152"></a>00152                                 }<span class="keywordflow">else</span>{
-<a name="l00153"></a>00153                                         i = i+m_differences[result - result/sample_dens-1];
-<a name="l00154"></a>00154                                 }
-<a name="l00155"></a>00155                                 <span class="keywordflow">if</span>(i &gt;= idx)
-<a name="l00156"></a>00156                                         <span class="keywordflow">return</span> result-1;
-<a name="l00157"></a>00157                         }
-<a name="l00158"></a>00158                         <span class="keywordflow">return</span> result-1;
-<a name="l00159"></a>00159                 };
-<a name="l00160"></a>00160 
-<a name="l00162"></a>00162 
-<a name="l00166"></a><a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#a02fa6f618327d4e181fa95603e33f435">00166</a>                 size_type <a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#a02fa6f618327d4e181fa95603e33f435" title="Answers select queries for the supported bit_vector.">select</a>(size_type i)<span class="keyword">const</span>{
-<a name="l00167"></a>00167                         assert(i &gt; 0 and i &lt;= m_ones);
-<a name="l00168"></a>00168                         size_type j = i/sample_dens;
-<a name="l00169"></a>00169                         size_type result = m_abs_samples[j];
-<a name="l00170"></a>00170                         j = j*sample_dens - j;
-<a name="l00171"></a>00171                         <span class="keywordflow">for</span>(size_type end = j + (i%sample_dens); j &lt; end; ++j){
-<a name="l00172"></a>00172                                 result += m_differences[j];
-<a name="l00173"></a>00173                         }
-<a name="l00174"></a>00174                         <span class="keywordflow">return</span> result;
-<a name="l00175"></a>00175                 }
-<a name="l00176"></a>00176 
-<a name="l00178"></a>00178 
-<a name="l00183"></a><a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#a856ee1ce4e3b247bdd4b9f3787b42190">00183</a>                 size_type <a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#a856ee1ce4e3b247bdd4b9f3787b42190" title="Answers &quot;previous occurence of one&quot; queries for the supported bit_vector.">prev</a>(size_type i)<span class="keyword">const</span>{
-<a name="l00184"></a>00184                         size_type r = <a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#abe212c079d877f8161ca3f0dd62e5208" title="Answers rank queries for the supported bit_vector.">rank</a>(i+1);
-<a name="l00185"></a>00185                         assert(r&gt;0);
-<a name="l00186"></a>00186                         <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#a02fa6f618327d4e181fa95603e33f435" title="Answers select queries for the supported bit_vector.">select</a>(r);
-<a name="l00187"></a>00187                 }
-<a name="l00194"></a><a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#a0fb5b351b1aff3efda578147027e7e74">00194</a>                 size_type <a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#a0fb5b351b1aff3efda578147027e7e74">next</a>(size_type i)<span class="keyword">const</span>{
-<a name="l00195"></a>00195                         size_type r = <a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#abe212c079d877f8161ca3f0dd62e5208" title="Answers rank queries for the supported bit_vector.">rank</a>(i);
-<a name="l00196"></a>00196                         assert(r &lt; m_ones);
-<a name="l00197"></a>00197                         <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#a02fa6f618327d4e181fa95603e33f435" title="Answers select queries for the supported bit_vector.">select</a>(r+1);
-<a name="l00198"></a>00198                 }
-<a name="l00199"></a>00199 
-<a name="l00200"></a>00200                 size_type size()<span class="keyword">const</span>{
-<a name="l00201"></a>00201                         <span class="keywordflow">return</span> m_size;
-<a name="l00202"></a>00202                 }
-<a name="l00203"></a>00203 
-<a name="l00204"></a>00204                 size_type ones()<span class="keyword">const</span>{
-<a name="l00205"></a>00205                         <span class="keywordflow">return</span> m_ones;
-<a name="l00206"></a>00206                 }
-<a name="l00207"></a>00207                 
-<a name="l00209"></a>00209 
-<a name="l00211"></a><a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#a6fbb59b514737d6a825175dc9210a8ab">00211</a>                 size_type <a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#a6fbb59b514737d6a825175dc9210a8ab" title="Serializes the nearest_neighbour_dictionary.">serialize</a>(std::ostream &amp;out)<span class="keyword">const</span>{
-<a name="l00212"></a>00212                         size_type written_bytes = 0;
-<a name="l00213"></a>00213                         written_bytes += m_abs_samples.serialize(out);
-<a name="l00214"></a>00214                         written_bytes += m_differences.serialize(out);  
-<a name="l00215"></a>00215                         out.write((<span class="keywordtype">char</span>*)&amp;m_ones, <span class="keyword">sizeof</span>(m_ones));
-<a name="l00216"></a>00216                         written_bytes += <span class="keyword">sizeof</span>(m_ones);
-<a name="l00217"></a>00217                         out.write((<span class="keywordtype">char</span>*)&amp;m_size, <span class="keyword">sizeof</span>(m_size));
-<a name="l00218"></a>00218                         written_bytes += <span class="keyword">sizeof</span>(m_ones);
-<a name="l00219"></a>00219                         written_bytes += m_contains_abs_sample.serialize(out);
-<a name="l00220"></a>00220                         written_bytes += m_rank_contains_abs_sample.<a class="code" href="classsdsl_1_1rank__support__v.html#af5233ee941ee8ac6ae8523ff408a952c" title="Serializes rank_support.">serialize</a>(out);
-<a name="l00221"></a>00221                         <span class="keywordflow">return</span> written_bytes;
-<a name="l00222"></a>00222                 }
-<a name="l00223"></a>00223 
-<a name="l00225"></a>00225 
-<a name="l00227"></a><a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#ac23051de47ead6630f8519d923518e80">00227</a>                 <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#ac23051de47ead6630f8519d923518e80" title="Loads the nearest_neighbour_dictionary.">load</a>(std::istream &amp;in){
-<a name="l00228"></a>00228                         m_abs_samples.load(in);
-<a name="l00229"></a>00229                         m_differences.load(in); 
-<a name="l00230"></a>00230                         in.read((<span class="keywordtype">char</span>*)&amp;m_ones, <span class="keyword">sizeof</span>(m_ones));
-<a name="l00231"></a>00231                         in.read((<span class="keywordtype">char</span>*)&amp;m_size, <span class="keyword">sizeof</span>(m_size));
-<a name="l00232"></a>00232                         m_contains_abs_sample.load(in); 
-<a name="l00233"></a>00233                         m_rank_contains_abs_sample.<a class="code" href="classsdsl_1_1rank__support__v.html#aa025f3b217e686022adc9a47a029311a" title="Loads the rank_support.">load</a>(in, &amp;m_contains_abs_sample);
-<a name="l00234"></a>00234                 }
-<a name="l00235"></a>00235 
-<a name="l00236"></a>00236 <span class="preprocessor">#ifdef MEM_INFO</span>
-<a name="l00237"></a>00237 <span class="preprocessor"></span>
-<a name="l00238"></a>00238                 <span class="keywordtype">void</span> mem_info(std::string label=<span class="stringliteral">&quot;&quot;</span>)<span class="keyword">const</span>{
-<a name="l00239"></a>00239                         <span class="keywordflow">if</span>(label==<span class="stringliteral">&quot;&quot;</span>)
-<a name="l00240"></a>00240                                 label = <span class="stringliteral">&quot;nnd&quot;</span>;
-<a name="l00241"></a>00241                         size_type bytes = <a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(*<span class="keyword">this</span>);
-<a name="l00242"></a>00242                         std::cout &lt;&lt; <span class="stringliteral">&quot;list(label = \&quot;&quot;</span>&lt;&lt;label&lt;&lt;<span class="stringliteral">&quot;\&quot;, size = &quot;</span>&lt;&lt; bytes/(1024.0*1024.0) &lt;&lt; <span class="stringliteral">&quot;)\n&quot;</span>;
-<a name="l00243"></a>00243                 }
-<a name="l00244"></a>00244 <span class="preprocessor">#endif</span>
-<a name="l00245"></a>00245 <span class="preprocessor"></span>};
-<a name="l00246"></a>00246 
-<a name="l00247"></a>00247 
-<a name="l00248"></a>00248 }<span class="comment">// end namespace sdsl</span>
-<a name="l00249"></a>00249 
-<a name="l00250"></a>00250 
-<a name="l00251"></a>00251 <span class="preprocessor">#endif // end file </span>
+<a name="l00141"></a>00141         <span class="keywordtype">void</span> swap(<a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#a243593ad15927cf569b3c3e5106fe8da" title="Default constructor.">nearest_neighbour_dictionary</a>&amp; nnd) {
+<a name="l00142"></a>00142             <span class="comment">// copy all members of the data structure</span>
+<a name="l00143"></a>00143             m_abs_samples.<a class="code" href="classsdsl_1_1int__vector.html#ae042b894c07ed66c8f2c245b12bf0661" title="Swap method for int_vector.">swap</a>(nnd.m_abs_samples);
+<a name="l00144"></a>00144             m_differences.<a class="code" href="classsdsl_1_1int__vector.html#ae042b894c07ed66c8f2c245b12bf0661" title="Swap method for int_vector.">swap</a>(nnd.m_differences);
+<a name="l00145"></a>00145             std::swap(m_ones, nnd.m_ones);
+<a name="l00146"></a>00146             std::swap(m_size, nnd.m_size);
+<a name="l00147"></a>00147             m_contains_abs_sample.<a class="code" href="classsdsl_1_1int__vector.html#ae042b894c07ed66c8f2c245b12bf0661" title="Swap method for int_vector.">swap</a>(nnd.m_contains_abs_sample);
+<a name="l00148"></a>00148             <a class="code" href="namespacesdsl_1_1util.html#aa60ad1bcd3cc5099fbf22ac1ee3764ef" title="Swap support data structure and assign to new vector.">util::swap_support</a>(m_rank_contains_abs_sample, nnd.m_rank_contains_abs_sample,
+<a name="l00149"></a>00149                                &amp;m_contains_abs_sample, &amp;(nnd.m_contains_abs_sample));
+<a name="l00150"></a>00150         }
+<a name="l00151"></a>00151 
+<a name="l00153"></a>00153 
+<a name="l00157"></a><a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#abe212c079d877f8161ca3f0dd62e5208">00157</a>         size_type <a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#abe212c079d877f8161ca3f0dd62e5208" title="Answers rank queries for the supported bit_vector.">rank</a>(size_type idx)<span class="keyword">const </span>{
+<a name="l00158"></a>00158             assert(idx &lt;= m_size);
+<a name="l00159"></a>00159             size_type r = m_rank_contains_abs_sample.<a class="code" href="classsdsl_1_1rank__support__v.html#ad82a0703f21ceeb194633f3dc75bd1c3" title="Answers rank queries for the supported bit_vector if init() was called before.">rank</a>(idx/sample_dens); <span class="comment">//</span>
+<a name="l00160"></a>00160             size_type result = r*sample_dens;
+<a name="l00161"></a>00161             size_type i = m_abs_samples[r];
+<a name="l00162"></a>00162             <span class="keywordflow">while</span> (++result &lt;= m_ones) {
+<a name="l00163"></a>00163                 <span class="keywordflow">if</span> ((result % sample_dens) == 0) {
+<a name="l00164"></a>00164                     i = m_abs_samples[result/sample_dens];
+<a name="l00165"></a>00165                 } <span class="keywordflow">else</span> {
+<a name="l00166"></a>00166                     i = i+m_differences[result - result/sample_dens-1];
+<a name="l00167"></a>00167                 }
+<a name="l00168"></a>00168                 <span class="keywordflow">if</span> (i &gt;= idx)
+<a name="l00169"></a>00169                     <span class="keywordflow">return</span> result-1;
+<a name="l00170"></a>00170             }
+<a name="l00171"></a>00171             <span class="keywordflow">return</span> result-1;
+<a name="l00172"></a>00172         };
+<a name="l00173"></a>00173 
+<a name="l00175"></a>00175 
+<a name="l00179"></a><a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#a02fa6f618327d4e181fa95603e33f435">00179</a>         size_type <a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#a02fa6f618327d4e181fa95603e33f435" title="Answers select queries for the supported bit_vector.">select</a>(size_type i)<span class="keyword">const </span>{
+<a name="l00180"></a>00180             assert(i &gt; 0 and i &lt;= m_ones);
+<a name="l00181"></a>00181             size_type j = i/sample_dens;
+<a name="l00182"></a>00182             size_type result = m_abs_samples[j];
+<a name="l00183"></a>00183             j = j*sample_dens - j;
+<a name="l00184"></a>00184             <span class="keywordflow">for</span> (size_type end = j + (i%sample_dens); j &lt; end; ++j) {
+<a name="l00185"></a>00185                 result += m_differences[j];
+<a name="l00186"></a>00186             }
+<a name="l00187"></a>00187             <span class="keywordflow">return</span> result;
+<a name="l00188"></a>00188         }
+<a name="l00189"></a>00189 
+<a name="l00191"></a>00191 
+<a name="l00196"></a><a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#a856ee1ce4e3b247bdd4b9f3787b42190">00196</a>         size_type <a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#a856ee1ce4e3b247bdd4b9f3787b42190" title="Answers &quot;previous occurence of one&quot; queries for the supported bit_vector.">prev</a>(size_type i)<span class="keyword">const </span>{
+<a name="l00197"></a>00197             size_type r = <a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#abe212c079d877f8161ca3f0dd62e5208" title="Answers rank queries for the supported bit_vector.">rank</a>(i+1);
+<a name="l00198"></a>00198             assert(r&gt;0);
+<a name="l00199"></a>00199             <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#a02fa6f618327d4e181fa95603e33f435" title="Answers select queries for the supported bit_vector.">select</a>(r);
+<a name="l00200"></a>00200         }
+<a name="l00207"></a><a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#a0fb5b351b1aff3efda578147027e7e74">00207</a>         size_type <a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#a0fb5b351b1aff3efda578147027e7e74">next</a>(size_type i)<span class="keyword">const </span>{
+<a name="l00208"></a>00208             size_type r = <a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#abe212c079d877f8161ca3f0dd62e5208" title="Answers rank queries for the supported bit_vector.">rank</a>(i);
+<a name="l00209"></a>00209             assert(r &lt; m_ones);
+<a name="l00210"></a>00210             <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#a02fa6f618327d4e181fa95603e33f435" title="Answers select queries for the supported bit_vector.">select</a>(r+1);
+<a name="l00211"></a>00211         }
+<a name="l00212"></a>00212 
+<a name="l00213"></a>00213         size_type size()<span class="keyword">const </span>{
+<a name="l00214"></a>00214             <span class="keywordflow">return</span> m_size;
+<a name="l00215"></a>00215         }
+<a name="l00216"></a>00216 
+<a name="l00217"></a>00217         size_type ones()<span class="keyword">const </span>{
+<a name="l00218"></a>00218             <span class="keywordflow">return</span> m_ones;
+<a name="l00219"></a>00219         }
+<a name="l00220"></a>00220 
+<a name="l00222"></a>00222 
+<a name="l00224"></a><a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#a6fbb59b514737d6a825175dc9210a8ab">00224</a>         size_type <a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#a6fbb59b514737d6a825175dc9210a8ab" title="Serializes the nearest_neighbour_dictionary.">serialize</a>(std::ostream&amp; out)<span class="keyword">const </span>{
+<a name="l00225"></a>00225             size_type written_bytes = 0;
+<a name="l00226"></a>00226             written_bytes += m_abs_samples.<a class="code" href="classsdsl_1_1int__vector.html#a32bfb973d19b10c8e9d32107805bbab0" title="Serializes the int_vector to a stream.">serialize</a>(out);
+<a name="l00227"></a>00227             written_bytes += m_differences.<a class="code" href="classsdsl_1_1int__vector.html#a32bfb973d19b10c8e9d32107805bbab0" title="Serializes the int_vector to a stream.">serialize</a>(out);
+<a name="l00228"></a>00228             out.write((<span class="keywordtype">char</span>*)&amp;m_ones, <span class="keyword">sizeof</span>(m_ones));
+<a name="l00229"></a>00229             written_bytes += <span class="keyword">sizeof</span>(m_ones);
+<a name="l00230"></a>00230             out.write((<span class="keywordtype">char</span>*)&amp;m_size, <span class="keyword">sizeof</span>(m_size));
+<a name="l00231"></a>00231             written_bytes += <span class="keyword">sizeof</span>(m_ones);
+<a name="l00232"></a>00232             written_bytes += m_contains_abs_sample.<a class="code" href="classsdsl_1_1int__vector.html#a32bfb973d19b10c8e9d32107805bbab0" title="Serializes the int_vector to a stream.">serialize</a>(out);
+<a name="l00233"></a>00233             written_bytes += m_rank_contains_abs_sample.<a class="code" href="classsdsl_1_1rank__support__v.html#af5233ee941ee8ac6ae8523ff408a952c" title="Serializes rank_support.">serialize</a>(out);
+<a name="l00234"></a>00234             <span class="keywordflow">return</span> written_bytes;
+<a name="l00235"></a>00235         }
+<a name="l00236"></a>00236 
+<a name="l00238"></a>00238 
+<a name="l00240"></a><a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#ac23051de47ead6630f8519d923518e80">00240</a>         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1nearest__neighbour__dictionary.html#ac23051de47ead6630f8519d923518e80" title="Loads the nearest_neighbour_dictionary.">load</a>(std::istream&amp; in) {
+<a name="l00241"></a>00241             m_abs_samples.<a class="code" href="classsdsl_1_1int__vector.html#a57c9fc2fdc93eeaa477a49389e7a47ac" title="Load the int_vector for a stream.">load</a>(in);
+<a name="l00242"></a>00242             m_differences.<a class="code" href="classsdsl_1_1int__vector.html#a57c9fc2fdc93eeaa477a49389e7a47ac" title="Load the int_vector for a stream.">load</a>(in);
+<a name="l00243"></a>00243             in.read((<span class="keywordtype">char</span>*)&amp;m_ones, <span class="keyword">sizeof</span>(m_ones));
+<a name="l00244"></a>00244             in.read((<span class="keywordtype">char</span>*)&amp;m_size, <span class="keyword">sizeof</span>(m_size));
+<a name="l00245"></a>00245             m_contains_abs_sample.<a class="code" href="classsdsl_1_1int__vector.html#a57c9fc2fdc93eeaa477a49389e7a47ac" title="Load the int_vector for a stream.">load</a>(in);
+<a name="l00246"></a>00246             m_rank_contains_abs_sample.<a class="code" href="classsdsl_1_1rank__support__v.html#aa025f3b217e686022adc9a47a029311a" title="Loads the rank_support.">load</a>(in, &amp;m_contains_abs_sample);
+<a name="l00247"></a>00247         }
+<a name="l00248"></a>00248 
+<a name="l00249"></a>00249 <span class="preprocessor">#ifdef MEM_INFO</span>
+<a name="l00250"></a>00250 <span class="preprocessor"></span>
+<a name="l00251"></a>00251         <span class="keywordtype">void</span> mem_info(std::string label=<span class="stringliteral">&quot;&quot;</span>)<span class="keyword">const </span>{
+<a name="l00252"></a>00252             <span class="keywordflow">if</span> (label==<span class="stringliteral">&quot;&quot;</span>)
+<a name="l00253"></a>00253                 label = <span class="stringliteral">&quot;nnd&quot;</span>;
+<a name="l00254"></a>00254             size_type bytes = <a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(*<span class="keyword">this</span>);
+<a name="l00255"></a>00255             std::cout &lt;&lt; <span class="stringliteral">&quot;list(label = \&quot;&quot;</span>&lt;&lt;label&lt;&lt;<span class="stringliteral">&quot;\&quot;, size = &quot;</span>&lt;&lt; bytes/(1024.0*1024.0) &lt;&lt; <span class="stringliteral">&quot;)\n&quot;</span>;
+<a name="l00256"></a>00256         }
+<a name="l00257"></a>00257 <span class="preprocessor">#endif</span>
+<a name="l00258"></a>00258 <span class="preprocessor"></span>};
+<a name="l00259"></a>00259 
+<a name="l00260"></a>00260 
+<a name="l00261"></a>00261 }<span class="comment">// end namespace sdsl</span>
+<a name="l00262"></a>00262 
+<a name="l00263"></a>00263 
+<a name="l00264"></a>00264 <span class="preprocessor">#endif // end file </span>
 </pre></div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:34 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:27 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

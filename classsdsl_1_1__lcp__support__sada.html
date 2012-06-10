@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -168,14 +169,14 @@ template&lt;class Text , class Sa &gt; </td></tr>
 <tr class="memdesc:ac15637faf7d723a0ad67e2901d3b5964"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the compressed lcp from a suffix array and a text. <br/></td></tr>
 <tr class="memitem:a3dd18fa07b8e0c0b253aaf5045c32824"><td class="memTemplParams" colspan="2"><a class="anchor" id="a3dd18fa07b8e0c0b253aaf5045c32824"></a>
 template&lt;uint8_t int_width, class size_type_class , uint8_t int_width_1, class size_type_class_1 &gt; </td></tr>
-<tr class="memitem:a3dd18fa07b8e0c0b253aaf5045c32824"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsdsl_1_1__lcp__support__sada.html#a3dd18fa07b8e0c0b253aaf5045c32824">_lcp_support_sada</a> (int_vector_file_buffer&lt; int_width, size_type_class &gt; &amp;lcp_buf, int_vector_file_buffer&lt; int_width_1, size_type_class_1 &gt; &amp;isa_buf, const Csa *f_csa)</td></tr>
-<tr class="memdesc:a3dd18fa07b8e0c0b253aaf5045c32824"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the lcp array from an lcp array and an int_vector_file_buffer of the inverse suffix array. <br/></td></tr>
+<tr class="memitem:a3dd18fa07b8e0c0b253aaf5045c32824"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsdsl_1_1__lcp__support__sada.html#a3dd18fa07b8e0c0b253aaf5045c32824">_lcp_support_sada</a> (<a class="el" href="classsdsl_1_1int__vector__file__buffer.html">int_vector_file_buffer</a>&lt; int_width, size_type_class &gt; &amp;lcp_buf, <a class="el" href="classsdsl_1_1int__vector__file__buffer.html">int_vector_file_buffer</a>&lt; int_width_1, size_type_class_1 &gt; &amp;isa_buf, const Csa *f_csa)</td></tr>
+<tr class="memdesc:a3dd18fa07b8e0c0b253aaf5045c32824"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the lcp array from an lcp array and an <a class="el" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer</a> of the inverse suffix array. <br/></td></tr>
 <tr class="memitem:a7a8c43ec1c155bb5b9eedf1e63dc705b"><td class="memTemplParams" colspan="2"><a class="anchor" id="a7a8c43ec1c155bb5b9eedf1e63dc705b"></a>
 template&lt;class Text , class Sa &gt; </td></tr>
 <tr class="memitem:a7a8c43ec1c155bb5b9eedf1e63dc705b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>construct</b> (const Text &amp;text, const Sa &amp;sa, const Csa *csa)</td></tr>
 <tr class="memitem:ac4915f03285b4ee7aa4b8e89a8785f18"><td class="memTemplParams" colspan="2"><a class="anchor" id="ac4915f03285b4ee7aa4b8e89a8785f18"></a>
 template&lt;uint8_t int_width, class size_type_class , uint8_t int_width_1, class size_type_class_1 &gt; </td></tr>
-<tr class="memitem:ac4915f03285b4ee7aa4b8e89a8785f18"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>construct</b> (int_vector_file_buffer&lt; int_width, size_type_class &gt; &amp;lcp_buf, int_vector_file_buffer&lt; int_width_1, size_type_class_1 &gt; &amp;isa_buf, const Csa *f_csa)</td></tr>
+<tr class="memitem:ac4915f03285b4ee7aa4b8e89a8785f18"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>construct</b> (<a class="el" href="classsdsl_1_1int__vector__file__buffer.html">int_vector_file_buffer</a>&lt; int_width, size_type_class &gt; &amp;lcp_buf, <a class="el" href="classsdsl_1_1int__vector__file__buffer.html">int_vector_file_buffer</a>&lt; int_width_1, size_type_class_1 &gt; &amp;isa_buf, const Csa *f_csa)</td></tr>
 <tr class="memitem:af5a8b67e9cc4f176adbc2cb3f7ec02cd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af5a8b67e9cc4f176adbc2cb3f7ec02cd"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>set_csa</b> (const Csa *f_csa)</td></tr>
 <tr class="memitem:ad84e5127cde5030e947a26bf8cdebb76"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1__lcp__support__sada.html#ad84e5127cde5030e947a26bf8cdebb76">size</a> () const </td></tr>
@@ -218,7 +219,7 @@ class sdsl::_lcp_support_sada&lt; Csa, SelectSupport &gt;</h3>
 <ul>
 <li><em>Csa</em> is the (compressed) suffix array for which the lcp information should by provided.</li>
 <li><p class="startli"><em>SelectSupport</em> is the SelectSupport class which is used in the data structure to calculate the select queries.</p>
-<dl class="section user"><dt>Space complexity</b></dt><dd><img class="formulaInl" alt="$ 2n+o(n) $" src="form_183.png"/> bits, where 2n is the maximal size of the bitvector for the differences of the PLCP array and o(n) for the select support data structure.</dd></dl>
+<dl class="section user"><dt>Space complexity</b></dt><dd><img class="formulaInl" alt="$ 2n+o(n) $" src="form_186.png"/> bits, where 2n is the maximal size of the bitvector for the differences of the PLCP array and o(n) for the select support data structure.</dd></dl>
 <p>The representation of the lcp information corresponds to the concept of an imutable random access container of the STL. </p>
 </li>
 </ul>
@@ -439,7 +440,7 @@ template&lt;class Csa , class SelectSupport &gt; </div>
 <p>[]-operator </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>Index of the value. <img class="formulaInl" alt="$ i \in [0..size()-1]$" src="form_91.png"/>. Time complexity: O(suffix array access) Required for the STL Random Access Container Concept. </td></tr>
+    <tr><td class="paramname">i</td><td>Index of the value. <img class="formulaInl" alt="$ i \in [0..size()-1]$" src="form_92.png"/>. Time complexity: O(suffix array access) Required for the STL Random Access Container Concept. </td></tr>
   </table>
   </dd>
 </dl>
@@ -532,7 +533,7 @@ template&lt;class Csa , class SelectSupport &gt; </div>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:35 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:31 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

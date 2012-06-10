@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -81,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -103,15 +104,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p><a class="el" href="rrr__helper_8hpp.html" title="rrr_helper.hpp contains the sdsl::binomial class, a class which contains informations about the binom...">rrr_helper.hpp</a> contains the <a class="el" href="classsdsl_1_1binomial.html">sdsl::binomial</a> class, a class which contains informations about the binomial coefficients  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;algorithm&gt;</code><br/>
+<code>#include &lt;iostream&gt;</code><br/>
+<code>#include &quot;<a class="el" href="bitmagic_8hpp_source.html">bitmagic.hpp</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="uint128__t_8hpp_source.html">uint128_t.hpp</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="uint256__t_8hpp_source.html">uint256_t.hpp</a>&quot;</code><br/>
 </div>
 <p><a href="rrr__helper_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1binomial.html">sdsl::binomial&lt; n &gt;</a></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><b>sdsl::binomial&lt; n &gt;::impl</b></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1binomial2.html">sdsl::binomial2&lt; n &gt;</a></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><b>sdsl::binomial2&lt; n &gt;::impl</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdsl_1_1binomial__coefficients__trait.html">sdsl::binomial_coefficients_trait&lt; log_n &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trait class for the binomial coefficient class to handle different type of intergers.  <a href="structsdsl_1_1binomial__coefficients__trait.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdsl_1_1binomial__coefficients__trait_3_017_01_4.html">sdsl::binomial_coefficients_trait&lt; 7 &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialization of <a class="el" href="structsdsl_1_1binomial__coefficients__trait.html" title="Trait class for the binomial coefficient class to handle different type of intergers.">binomial_coefficients_trait</a> for 128-bit integers.  <a href="structsdsl_1_1binomial__coefficients__trait_3_017_01_4.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdsl_1_1binomial__coefficients__trait_3_018_01_4.html">sdsl::binomial_coefficients_trait&lt; 8 &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialization of <a class="el" href="structsdsl_1_1binomial__coefficients__trait.html" title="Trait class for the binomial coefficient class to handle different type of intergers.">binomial_coefficients_trait</a> for 256-bit integers.  <a href="structsdsl_1_1binomial__coefficients__trait_3_018_01_4.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1binomial__coefficients.html">sdsl::binomial_coefficients&lt; n &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class for the binomial coefficients up to n.  <a href="classsdsl_1_1binomial__coefficients.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><b>sdsl::binomial_coefficients&lt; n &gt;::impl</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rrr__helper.html">sdsl::rrr_helper&lt; n &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class to encode and decode binomial coefficients on the fly.  <a href="classsdsl_1_1rrr__helper.html#details">More...</a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacesdsl"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesdsl.html">sdsl</a></td></tr>
@@ -119,12 +131,12 @@ Namespaces</h2></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="rrr__helper_8hpp.html" title="rrr_helper.hpp contains the sdsl::binomial class, a class which contains informations about the binom...">rrr_helper.hpp</a> contains the <a class="el" href="classsdsl_1_1binomial.html">sdsl::binomial</a> class, a class which contains informations about the binomial coefficients </p>
-<dl class="section author"><dt>Author:</dt><dd>Simon Gog, Stefan Arnold </dd></dl>
+<dl class="section author"><dt>Author:</dt><dd>Simon Gog, Matthias Petri, Stefan Arnold </dd></dl>
 </div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:35 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:29 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -109,7 +110,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>The base class of classes supporting rank_queries for a sdsl::bit_vector in constant time.  
+<p>The base class of classes supporting rank_queries for a <a class="el" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb" title="bit_vector is a specialization of the int_vector.">sdsl::bit_vector</a> in constant time.  
  <a href="classsdsl_1_1rank__support.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="rank__support_8hpp_source.html">rank_support.hpp</a>&gt;</code></p>
@@ -121,10 +122,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr><td colspan="2"><h2><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:ae3c6e902bf09e5d2c7d39443ab953f5b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae3c6e902bf09e5d2c7d39443ab953f5b"></a>
-typedef int_vector&lt; 1 &gt;::size_type&#160;</td><td class="memItemRight" valign="bottom"><b>size_type</b></td></tr>
+typedef <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 1 &gt;::size_type&#160;</td><td class="memItemRight" valign="bottom"><b>size_type</b></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9e02940f5de430db7ad48138bcf61cb7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rank__support.html#a9e02940f5de430db7ad48138bcf61cb7">rank_support</a> (const int_vector&lt; 1 &gt; *v=NULL)</td></tr>
+<tr class="memitem:a9e02940f5de430db7ad48138bcf61cb7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rank__support.html#a9e02940f5de430db7ad48138bcf61cb7">rank_support</a> (const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 1 &gt; *v=NULL)</td></tr>
 <tr class="memdesc:a9e02940f5de430db7ad48138bcf61cb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a9e02940f5de430db7ad48138bcf61cb7"></a><br/></td></tr>
 <tr class="memitem:a1509cdccde0613cb938de431bcc11fa2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1509cdccde0613cb938de431bcc11fa2"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rank__support.html#a1509cdccde0613cb938de431bcc11fa2">rank_support</a> (const <a class="el" href="classsdsl_1_1rank__support.html">rank_support</a> &amp;rs)</td></tr>
@@ -132,7 +133,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a149823811c19947f14a2268e8e0203cf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a149823811c19947f14a2268e8e0203cf"></a>
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rank__support.html#a149823811c19947f14a2268e8e0203cf">~rank_support</a> ()</td></tr>
 <tr class="memdesc:a149823811c19947f14a2268e8e0203cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
-<tr class="memitem:a547d8f733e3658d144d3e729ab59d161"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rank__support.html#a547d8f733e3658d144d3e729ab59d161">init</a> (const int_vector&lt; 1 &gt; *v=NULL)=0</td></tr>
+<tr class="memitem:a547d8f733e3658d144d3e729ab59d161"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rank__support.html#a547d8f733e3658d144d3e729ab59d161">init</a> (const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 1 &gt; *v=NULL)=0</td></tr>
 <tr class="memdesc:a547d8f733e3658d144d3e729ab59d161"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the data structure.  <a href="#a547d8f733e3658d144d3e729ab59d161"></a><br/></td></tr>
 <tr class="memitem:a4cc8f6375488177a3c7d1320bcdeb721"><td class="memItemLeft" align="right" valign="top">virtual const size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rank__support.html#a4cc8f6375488177a3c7d1320bcdeb721">rank</a> (size_type i) const =0</td></tr>
 <tr class="memdesc:a4cc8f6375488177a3c7d1320bcdeb721"><td class="mdescLeft">&#160;</td><td class="mdescRight">Answers rank queries for the supported bit_vector if <a class="el" href="classsdsl_1_1rank__support.html#a547d8f733e3658d144d3e729ab59d161" title="Initializes the data structure.">init()</a> was called before.  <a href="#a4cc8f6375488177a3c7d1320bcdeb721"></a><br/></td></tr>
@@ -141,18 +142,18 @@ virtual const size_type&#160;</td><td class="memItemRight" valign="bottom"><a cl
 <tr class="memdesc:afc61a5e1ce5f5b525f07a84c194c14ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for rank(i) <br/></td></tr>
 <tr class="memitem:a3a32a079cc7e22ee54cb16e487da0603"><td class="memItemLeft" align="right" valign="top">virtual size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rank__support.html#a3a32a079cc7e22ee54cb16e487da0603">serialize</a> (std::ostream &amp;out) const =0</td></tr>
 <tr class="memdesc:a3a32a079cc7e22ee54cb16e487da0603"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes <a class="el" href="classsdsl_1_1rank__support.html" title="The base class of classes supporting rank_queries for a sdsl::bit_vector in constant time...">rank_support</a>.  <a href="#a3a32a079cc7e22ee54cb16e487da0603"></a><br/></td></tr>
-<tr class="memitem:a0a1ac05b1786aeb789807566787c67a7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rank__support.html#a0a1ac05b1786aeb789807566787c67a7">load</a> (std::istream &amp;in, const int_vector&lt; 1 &gt; *v=NULL)=0</td></tr>
+<tr class="memitem:a0a1ac05b1786aeb789807566787c67a7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rank__support.html#a0a1ac05b1786aeb789807566787c67a7">load</a> (std::istream &amp;in, const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 1 &gt; *v=NULL)=0</td></tr>
 <tr class="memdesc:a0a1ac05b1786aeb789807566787c67a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the <a class="el" href="classsdsl_1_1rank__support.html" title="The base class of classes supporting rank_queries for a sdsl::bit_vector in constant time...">rank_support</a>.  <a href="#a0a1ac05b1786aeb789807566787c67a7"></a><br/></td></tr>
-<tr class="memitem:a969095a6e1cd8af9c3c363464da8ac22"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rank__support.html#a969095a6e1cd8af9c3c363464da8ac22">set_vector</a> (const int_vector&lt; 1 &gt; *v=NULL)=0</td></tr>
+<tr class="memitem:a969095a6e1cd8af9c3c363464da8ac22"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rank__support.html#a969095a6e1cd8af9c3c363464da8ac22">set_vector</a> (const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 1 &gt; *v=NULL)=0</td></tr>
 <tr class="memdesc:a969095a6e1cd8af9c3c363464da8ac22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the supported bit_vector to the given pointer.  <a href="#a969095a6e1cd8af9c3c363464da8ac22"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:ac774d248f05ee99a6f33cb96b3db615c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac774d248f05ee99a6f33cb96b3db615c"></a>
-const int_vector&lt; 1 &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rank__support.html#ac774d248f05ee99a6f33cb96b3db615c">m_v</a></td></tr>
+const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 1 &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rank__support.html#ac774d248f05ee99a6f33cb96b3db615c">m_v</a></td></tr>
 <tr class="memdesc:ac774d248f05ee99a6f33cb96b3db615c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the rank supported bit_vector. <br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>The base class of classes supporting rank_queries for a sdsl::bit_vector in constant time. </p>
+<div class="textblock"><p>The base class of classes supporting rank_queries for a <a class="el" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb" title="bit_vector is a specialization of the int_vector.">sdsl::bit_vector</a> in constant time. </p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a9e02940f5de430db7ad48138bcf61cb7"></a>
 <div class="memitem">
@@ -161,7 +162,7 @@ const int_vector&lt; 1 &gt; *&#160;</td><td class="memItemRight" valign="bottom"
         <tr>
           <td class="memname"><a class="el" href="classsdsl_1_1rank__support.html#a9e02940f5de430db7ad48138bcf61cb7">sdsl::rank_support::rank_support</a> </td>
           <td>(</td>
-          <td class="paramtype">const int_vector&lt; 1 &gt; *&#160;</td>
+          <td class="paramtype">const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 1 &gt; *&#160;</td>
           <td class="paramname"><em>v</em> = <code>NULL</code></td><td>)</td>
           <td><code> [inline]</code></td>
         </tr>
@@ -187,7 +188,7 @@ const int_vector&lt; 1 &gt; *&#160;</td><td class="memItemRight" valign="bottom"
         <tr>
           <td class="memname">virtual void <a class="el" href="classsdsl_1_1rank__support.html#a547d8f733e3658d144d3e729ab59d161">sdsl::rank_support::init</a> </td>
           <td>(</td>
-          <td class="paramtype">const int_vector&lt; 1 &gt; *&#160;</td>
+          <td class="paramtype">const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 1 &gt; *&#160;</td>
           <td class="paramname"><em>v</em> = <code>NULL</code></td><td>)</td>
           <td><code> [pure virtual]</code></td>
         </tr>
@@ -205,7 +206,7 @@ const int_vector&lt; 1 &gt; *&#160;</td><td class="memItemRight" valign="bottom"
 <dl class="section note"><dt>Note:</dt><dd>Call this function before the first call of rank. </dd></dl>
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="classsdsl_1_1rank__support.html#a4cc8f6375488177a3c7d1320bcdeb721" title="Answers rank queries for the supported bit_vector if init() was called before.">rank</a> </dd></dl>
 
-<p>Implemented in <a class="el" href="classsdsl_1_1rank__support__jmc.html#a93f140c52460c53f4ce5b2ffd42288d1">sdsl::rank_support_jmc</a>.</p>
+<p>Implemented in <a class="el" href="classsdsl_1_1rank__support__v.html#aa131b1763d81106a8e73af88e4377d1f">sdsl::rank_support_v&lt; b, pattern_len &gt;</a>, <a class="el" href="classsdsl_1_1rank__support__v.html#aa131b1763d81106a8e73af88e4377d1f">sdsl::rank_support_v&lt;&gt;</a>, <a class="el" href="classsdsl_1_1rank__support__v5.html#aabd6957ad30b777c90bef9fa6833a3cb">sdsl::rank_support_v5&lt; b, pattern_len &gt;</a>, <a class="el" href="classsdsl_1_1rank__support__v5.html#aabd6957ad30b777c90bef9fa6833a3cb">sdsl::rank_support_v5&lt;&gt;</a>, and <a class="el" href="classsdsl_1_1rank__support__jmc.html#a93f140c52460c53f4ce5b2ffd42288d1">sdsl::rank_support_jmc</a>.</p>
 
 </div>
 </div>
@@ -222,7 +223,7 @@ const int_vector&lt; 1 &gt; *&#160;</td><td class="memItemRight" valign="bottom"
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const int_vector&lt; 1 &gt; *&#160;</td>
+          <td class="paramtype">const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 1 &gt; *&#160;</td>
           <td class="paramname"><em>v</em> = <code>NULL</code>&#160;</td>
         </tr>
         <tr>
@@ -243,7 +244,7 @@ const int_vector&lt; 1 &gt; *&#160;</td><td class="memItemRight" valign="bottom"
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="classsdsl_1_1rank__support__v.html#aa025f3b217e686022adc9a47a029311a">sdsl::rank_support_v&lt; b, pattern_len &gt;</a>, <a class="el" href="classsdsl_1_1rank__support__v.html#aa025f3b217e686022adc9a47a029311a">sdsl::rank_support_v&lt;&gt;</a>, and <a class="el" href="classsdsl_1_1rank__support__jmc.html#aed3d1f95ed0a9e702da8cdf15aa45395">sdsl::rank_support_jmc</a>.</p>
+<p>Implemented in <a class="el" href="classsdsl_1_1rank__support__v.html#aa025f3b217e686022adc9a47a029311a">sdsl::rank_support_v&lt; b, pattern_len &gt;</a>, <a class="el" href="classsdsl_1_1rank__support__v.html#aa025f3b217e686022adc9a47a029311a">sdsl::rank_support_v&lt;&gt;</a>, <a class="el" href="classsdsl_1_1rank__support__v5.html#a583e782e1c0dd0a39a56eddc24e5266b">sdsl::rank_support_v5&lt; b, pattern_len &gt;</a>, <a class="el" href="classsdsl_1_1rank__support__v5.html#a583e782e1c0dd0a39a56eddc24e5266b">sdsl::rank_support_v5&lt;&gt;</a>, and <a class="el" href="classsdsl_1_1rank__support__jmc.html#aed3d1f95ed0a9e702da8cdf15aa45395">sdsl::rank_support_jmc</a>.</p>
 
 </div>
 </div>
@@ -311,7 +312,7 @@ const int_vector&lt; 1 &gt; *&#160;</td><td class="memItemRight" valign="bottom"
         <tr>
           <td class="memname">virtual void <a class="el" href="classsdsl_1_1rank__support.html#a969095a6e1cd8af9c3c363464da8ac22">sdsl::rank_support::set_vector</a> </td>
           <td>(</td>
-          <td class="paramtype">const int_vector&lt; 1 &gt; *&#160;</td>
+          <td class="paramtype">const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 1 &gt; *&#160;</td>
           <td class="paramname"><em>v</em> = <code>NULL</code></td><td>)</td>
           <td><code> [pure virtual]</code></td>
         </tr>
@@ -329,7 +330,7 @@ const int_vector&lt; 1 &gt; *&#160;</td><td class="memItemRight" valign="bottom"
 <dl class="section note"><dt>Note:</dt><dd>Method init has to be called before the next call of rank. </dd></dl>
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="classsdsl_1_1rank__support.html#a547d8f733e3658d144d3e729ab59d161" title="Initializes the data structure.">init</a>, <a class="el" href="classsdsl_1_1rank__support.html#a4cc8f6375488177a3c7d1320bcdeb721" title="Answers rank queries for the supported bit_vector if init() was called before.">rank</a> </dd></dl>
 
-<p>Implemented in <a class="el" href="classsdsl_1_1rank__support__jmc.html#af7bf7d06971ca11f750cc3dcf5dabce9">sdsl::rank_support_jmc</a>.</p>
+<p>Implemented in <a class="el" href="classsdsl_1_1rank__support__v.html#a41ef56b81127cb8784d3cb1877e6f266">sdsl::rank_support_v&lt; b, pattern_len &gt;</a>, <a class="el" href="classsdsl_1_1rank__support__v.html#a41ef56b81127cb8784d3cb1877e6f266">sdsl::rank_support_v&lt;&gt;</a>, <a class="el" href="classsdsl_1_1rank__support__v5.html#a03d04165c0f952b3ba315dd13ad756ca">sdsl::rank_support_v5&lt; b, pattern_len &gt;</a>, <a class="el" href="classsdsl_1_1rank__support__v5.html#a03d04165c0f952b3ba315dd13ad756ca">sdsl::rank_support_v5&lt;&gt;</a>, and <a class="el" href="classsdsl_1_1rank__support__jmc.html#af7bf7d06971ca11f750cc3dcf5dabce9">sdsl::rank_support_jmc</a>.</p>
 
 </div>
 </div>
@@ -340,7 +341,7 @@ const int_vector&lt; 1 &gt; *&#160;</td><td class="memItemRight" valign="bottom"
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:35 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:31 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

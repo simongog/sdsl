@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -82,7 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -97,7 +98,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="lcp__construct_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/* sdsl - succinct data structures library</span>
-<a name="l00002"></a>00002 <span class="comment">    Copyright (C) 2010 Simon Gog </span>
+<a name="l00002"></a>00002 <span class="comment">    Copyright (C) 2010 Simon Gog</span>
 <a name="l00003"></a>00003 <span class="comment"></span>
 <a name="l00004"></a>00004 <span class="comment">    This program is free software: you can redistribute it and/or modify</span>
 <a name="l00005"></a>00005 <span class="comment">    it under the terms of the GNU General Public License as published by</span>
@@ -116,7 +117,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00022"></a>00022 <span class="preprocessor"></span><span class="preprocessor">#define INCLUDED_SDSL_LCP_CONSTRUCT</span>
 <a name="l00023"></a>00023 <span class="preprocessor"></span>
 <a name="l00024"></a>00024 <span class="preprocessor">#include &quot;<a class="code" href="typedefs_8hpp.html">typedefs.hpp</a>&quot;</span>  <span class="comment">// includes definition of tMSS</span>
-<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;int_vector.hpp&quot;</span> 
+<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;int_vector.hpp&quot;</span>
 <a name="l00026"></a>00026 <span class="preprocessor">#include &quot;<a class="code" href="rank__support__v_8hpp.html" title="rank_support_v.hpp contains rank_support_v that support a sdsl::bit_vector with constant time rank in...">rank_support_v.hpp</a>&quot;</span>
 <a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="util_8hpp.html" title="util.hpp contains some helper methods for int_vector and other stuff like demangle class names...">util.hpp</a>&quot;</span>
 <a name="l00028"></a>00028 <span class="preprocessor">#include &quot;<a class="code" href="testutils_8hpp.html" title="testutils.hpp contains a &quot;stopwatch&quot; class for performance meassurement of program pieces...">testutils.hpp</a>&quot;</span>
@@ -133,90 +134,94 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00039"></a>00039 
 <a name="l00040"></a>00040 <span class="comment">//#define STUDY_INFORMATIONS</span>
 <a name="l00041"></a>00041 
-<a name="l00042"></a>00042 <span class="keyword">namespace </span>sdsl{
-<a name="l00043"></a>00043 
-<a name="l00045"></a>00045 
-<a name="l00052"></a>00052         <span class="keywordtype">bool</span> <a class="code" href="namespacesdsl.html#a3daccd09d4dbb93edd609e31377228de" title="5n byte variant of the algorithm of Kasai et al. (CPM 2001, &quot;Linear-Time Longest-Common-Prefix Comput...">construct_lcp_kasai</a>(tMSS &amp;file_map, <span class="keyword">const</span> std::string &amp;dir, <span class="keyword">const</span> std::string &amp;<span class="keywordtype">id</span>);
-<a name="l00053"></a>00053 
-<a name="l00054"></a>00054         <span class="comment">// semi extern PHI algorithm of Karkainen, Manzini and Puglisi CPM 2009</span>
-<a name="l00055"></a>00055         <span class="keywordtype">bool</span> construct_lcp_semi_extern_PHI(tMSS &amp;file_map, <span class="keyword">const</span> std::string &amp;dir, <span class="keyword">const</span> std::string &amp;<span class="keywordtype">id</span>);
-<a name="l00056"></a>00056 
-<a name="l00058"></a>00058 
-<a name="l00066"></a>00066         <span class="keywordtype">bool</span> <a class="code" href="namespacesdsl.html#a34d793ed42593dc3d878662668c57b14" title="5n byte variant of the algorithm of Kaerkkaeinen et al. (CPM 2009, &quot;Permuted Longest Common Prefix Ar...">construct_lcp_PHI</a>(tMSS &amp;file_map, <span class="keyword">const</span> std::string &amp;dir, <span class="keyword">const</span> std::string &amp;<span class="keywordtype">id</span>, <span class="keywordtype">bool</span> semi_external=<span class="keyword">false</span>);
-<a name="l00067"></a>00067 
-<a name="l00068"></a><a class="code" href="classsdsl_1_1buffered__char__queue.html">00068</a>         <span class="keyword">class </span><a class="code" href="classsdsl_1_1buffered__char__queue.html">buffered_char_queue</a>{
-<a name="l00069"></a>00069                 <span class="keyword">typedef</span> bit_vector::size_type size_type;
-<a name="l00070"></a>00070                 <span class="keyword">typedef</span> std::queue&lt;uint8_t&gt; tQ;
-<a name="l00071"></a>00071                 <span class="keyword">private</span>:
-<a name="l00072"></a>00072                 <span class="keyword">static</span> <span class="keyword">const</span> uint32_t m_buffer_size =  10000;<span class="comment">//409600;</span>
-<a name="l00073"></a>00073                 uint8_t m_write_buf[m_buffer_size];
-<a name="l00074"></a>00074                 uint8_t m_read_buf[m_buffer_size];
-<a name="l00075"></a>00075                 size_type       m_widx; <span class="comment">// write index</span>
-<a name="l00076"></a>00076                 size_type       m_ridx; <span class="comment">// read index</span>
-<a name="l00077"></a>00077                 <span class="keywordtype">bool</span>            m_sync; <span class="comment">// are read and write buffer the same?</span>
-<a name="l00078"></a>00078                 size_type       m_disk_buffered_blocks; <span class="comment">// number of blocks written to disk and not read again yet</span>
-<a name="l00079"></a>00079                 <span class="keywordtype">char</span>            m_c;
-<a name="l00080"></a>00080                 size_type       m_rb; <span class="comment">// read blocks</span>
-<a name="l00081"></a>00081                 size_type       m_wb; <span class="comment">// written blocks</span>
-<a name="l00082"></a>00082 
-<a name="l00083"></a>00083                 std::string m_file_name;
+<a name="l00042"></a>00042 <span class="keyword">namespace </span>sdsl
+<a name="l00043"></a>00043 {
+<a name="l00044"></a>00044 
+<a name="l00046"></a>00046 
+<a name="l00053"></a>00053 <span class="keywordtype">bool</span> <a class="code" href="namespacesdsl.html#a3daccd09d4dbb93edd609e31377228de" title="5n byte variant of the algorithm of Kasai et al. (CPM 2001, &quot;Linear-Time Longest-Common-Prefix Comput...">construct_lcp_kasai</a>(tMSS&amp; file_map, <span class="keyword">const</span> std::string&amp; dir, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>);
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055 <span class="comment">// semi extern PHI algorithm of Karkainen, Manzini and Puglisi CPM 2009</span>
+<a name="l00056"></a>00056 <span class="keywordtype">bool</span> construct_lcp_semi_extern_PHI(tMSS&amp; file_map, <span class="keyword">const</span> std::string&amp; dir, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>);
+<a name="l00057"></a>00057 
+<a name="l00059"></a>00059 
+<a name="l00067"></a>00067 <span class="keywordtype">bool</span> <a class="code" href="namespacesdsl.html#a34d793ed42593dc3d878662668c57b14" title="5n byte variant of the algorithm of Kaerkkaeinen et al. (CPM 2009, &quot;Permuted Longest Common Prefix Ar...">construct_lcp_PHI</a>(tMSS&amp; file_map, <span class="keyword">const</span> std::string&amp; dir, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>, <span class="keywordtype">bool</span> semi_external=<span class="keyword">false</span>);
+<a name="l00068"></a>00068 
+<a name="l00069"></a><a class="code" href="classsdsl_1_1buffered__char__queue.html">00069</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1buffered__char__queue.html">buffered_char_queue</a>
+<a name="l00070"></a>00070 {
+<a name="l00071"></a>00071         <span class="keyword">typedef</span> bit_vector::size_type size_type;
+<a name="l00072"></a>00072         <span class="keyword">typedef</span> std::queue&lt;uint8_t&gt; tQ;
+<a name="l00073"></a>00073     <span class="keyword">private</span>:
+<a name="l00074"></a>00074         <span class="keyword">static</span> <span class="keyword">const</span> uint32_t m_buffer_size =  10000;<span class="comment">//409600;</span>
+<a name="l00075"></a>00075         uint8_t m_write_buf[m_buffer_size];
+<a name="l00076"></a>00076         uint8_t m_read_buf[m_buffer_size];
+<a name="l00077"></a>00077         size_type       m_widx; <span class="comment">// write index</span>
+<a name="l00078"></a>00078         size_type       m_ridx; <span class="comment">// read index</span>
+<a name="l00079"></a>00079         <span class="keywordtype">bool</span>            m_sync; <span class="comment">// are read and write buffer the same?</span>
+<a name="l00080"></a>00080         size_type       m_disk_buffered_blocks; <span class="comment">// number of blocks written to disk and not read again yet</span>
+<a name="l00081"></a>00081         <span class="keywordtype">char</span>            m_c;
+<a name="l00082"></a>00082         size_type       m_rb; <span class="comment">// read blocks</span>
+<a name="l00083"></a>00083         size_type       m_wb; <span class="comment">// written blocks</span>
 <a name="l00084"></a>00084 
-<a name="l00085"></a>00085                 std::fstream    m_stream;
+<a name="l00085"></a>00085         std::string m_file_name;
 <a name="l00086"></a>00086 
-<a name="l00087"></a>00087                 <span class="keyword">public</span>:
+<a name="l00087"></a>00087         std::fstream    m_stream;
 <a name="l00088"></a>00088 
-<a name="l00089"></a>00089                 <a class="code" href="classsdsl_1_1buffered__char__queue.html">buffered_char_queue</a>();
-<a name="l00090"></a>00090                 <span class="keywordtype">void</span> init(<span class="keyword">const</span> std::string &amp;dir, <span class="keywordtype">char</span> c);
-<a name="l00091"></a>00091                 ~<a class="code" href="classsdsl_1_1buffered__char__queue.html">buffered_char_queue</a>();
-<a name="l00092"></a>00092                 <span class="keywordtype">void</span> push_back(uint8_t x);
-<a name="l00093"></a>00093                 uint8_t pop_front();
-<a name="l00094"></a>00094         };
-<a name="l00095"></a>00095 
-<a name="l00096"></a>00096         <span class="keyword">typedef</span> std::list&lt;int_vector&lt;&gt;::size_type&gt; tLI;
-<a name="l00097"></a>00097         <span class="keyword">typedef</span> std::vector&lt;int_vector&lt;&gt;::size_type&gt; tVI;
-<a name="l00098"></a>00098 
-<a name="l00099"></a>00099         <span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>&gt;
-<a name="l00100"></a>00100         <span class="keywordtype">void</span> push_front_m_index(size_type_class i, uint8_t c, tLI (&amp;m_list)[256], uint8_t (&amp;m_chars)[256], size_type_class &amp;m_char_count){
-<a name="l00101"></a>00101                 <span class="keywordflow">if</span>( m_list[c].empty() ){
-<a name="l00102"></a>00102                         m_chars[m_char_count++] = c;
-<a name="l00103"></a>00103                 }
-<a name="l00104"></a>00104                 m_list[c].push_front(i);
-<a name="l00105"></a>00105         }
-<a name="l00106"></a>00106 
-<a name="l00107"></a>00107         <span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>&gt;
-<a name="l00108"></a>00108         <span class="keywordtype">void</span> push_back_m_index(size_type_class i, uint8_t c, tLI (&amp;m_list)[256], uint8_t (&amp;m_chars)[256], size_type_class &amp;m_char_count){
-<a name="l00109"></a>00109                 <span class="keywordflow">if</span>( m_list[c].empty() ){
-<a name="l00110"></a>00110                         m_chars[m_char_count++] = c;
-<a name="l00111"></a>00111                 }
-<a name="l00112"></a>00112                 m_list[c].push_back(i);
-<a name="l00113"></a>00113         }
-<a name="l00114"></a>00114 
-<a name="l00115"></a>00115         <span class="comment">// only phase 1 of the new algorithm</span>
-<a name="l00116"></a>00116         <span class="keywordtype">bool</span> construct_lcp_simple_5n(tMSS &amp;file_map, <span class="keyword">const</span> std::string &amp;dir, <span class="keyword">const</span> std::string &amp;<span class="keywordtype">id</span>);
-<a name="l00117"></a>00117 
-<a name="l00118"></a>00118         <span class="comment">// only phase 2 of the new algorithm</span>
-<a name="l00119"></a>00119         <span class="comment">// TODO: assert n &gt; 0</span>
-<a name="l00120"></a>00120         <span class="keywordtype">bool</span> construct_lcp_simple2_9n(tMSS &amp;file_map, <span class="keyword">const</span> std::string &amp;dir, <span class="keyword">const</span> std::string &amp;<span class="keywordtype">id</span>);
+<a name="l00089"></a>00089     <span class="keyword">public</span>:
+<a name="l00090"></a>00090 
+<a name="l00091"></a>00091         <a class="code" href="classsdsl_1_1buffered__char__queue.html">buffered_char_queue</a>();
+<a name="l00092"></a>00092         <span class="keywordtype">void</span> init(<span class="keyword">const</span> std::string&amp; dir, <span class="keywordtype">char</span> c);
+<a name="l00093"></a>00093         ~<a class="code" href="classsdsl_1_1buffered__char__queue.html">buffered_char_queue</a>();
+<a name="l00094"></a>00094         <span class="keywordtype">void</span> push_back(uint8_t x);
+<a name="l00095"></a>00095         uint8_t pop_front();
+<a name="l00096"></a>00096 };
+<a name="l00097"></a>00097 
+<a name="l00098"></a>00098 <span class="keyword">typedef</span> std::list&lt;int_vector&lt;&gt;::size_type&gt; tLI;
+<a name="l00099"></a>00099 <span class="keyword">typedef</span> std::vector&lt;int_vector&lt;&gt;::size_type&gt; tVI;
+<a name="l00100"></a>00100 
+<a name="l00101"></a>00101 <span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>&gt;
+<a name="l00102"></a>00102 <span class="keywordtype">void</span> push_front_m_index(size_type_class i, uint8_t c, tLI(&amp;m_list)[256], uint8_t (&amp;m_chars)[256], size_type_class&amp; m_char_count)
+<a name="l00103"></a>00103 {
+<a name="l00104"></a>00104     <span class="keywordflow">if</span> (m_list[c].empty()) {
+<a name="l00105"></a>00105         m_chars[m_char_count++] = c;
+<a name="l00106"></a>00106     }
+<a name="l00107"></a>00107     m_list[c].push_front(i);
+<a name="l00108"></a>00108 }
+<a name="l00109"></a>00109 
+<a name="l00110"></a>00110 <span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>&gt;
+<a name="l00111"></a>00111 <span class="keywordtype">void</span> push_back_m_index(size_type_class i, uint8_t c, tLI(&amp;m_list)[256], uint8_t (&amp;m_chars)[256], size_type_class&amp; m_char_count)
+<a name="l00112"></a>00112 {
+<a name="l00113"></a>00113     <span class="keywordflow">if</span> (m_list[c].empty()) {
+<a name="l00114"></a>00114         m_chars[m_char_count++] = c;
+<a name="l00115"></a>00115     }
+<a name="l00116"></a>00116     m_list[c].push_back(i);
+<a name="l00117"></a>00117 }
+<a name="l00118"></a>00118 
+<a name="l00119"></a>00119 <span class="comment">// only phase 1 of the new algorithm</span>
+<a name="l00120"></a>00120 <span class="keywordtype">bool</span> construct_lcp_simple_5n(tMSS&amp; file_map, <span class="keyword">const</span> std::string&amp; dir, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>);
 <a name="l00121"></a>00121 
-<a name="l00123"></a>00123 
-<a name="l00130"></a>00130         <span class="keywordtype">bool</span> <a class="code" href="namespacesdsl.html#aab2eca3099c5d212934bcfddd54261a4" title="Our new 2 phases lcp algorithm using usually 2n bytes.">construct_lcp_go</a>(tMSS &amp;file_map, <span class="keyword">const</span> std::string &amp;dir, <span class="keyword">const</span> std::string &amp;<span class="keywordtype">id</span>);
-<a name="l00131"></a>00131 
-<a name="l00133"></a>00133 
-<a name="l00140"></a>00140         <span class="keywordtype">bool</span> <a class="code" href="namespacesdsl.html#a0c672fbb78beb8b55ec3bfd763f7365a" title="Our new 2 phases lcp algorithm using usually 2n bytes.">construct_lcp_goPHI</a>(tMSS &amp;file_map, <span class="keyword">const</span> std::string &amp;dir, <span class="keyword">const</span> std::string &amp;<span class="keywordtype">id</span>);
-<a name="l00141"></a>00141 
-<a name="l00143"></a>00143 
-<a name="l00150"></a>00150         <span class="keywordtype">bool</span> <a class="code" href="namespacesdsl.html#aa99d7a193bf9889994ef8bc1cb3da646" title="Our new 2 phases lcp algorithm using usually 1 n bytes.">construct_lcp_go2</a>(tMSS &amp;file_map, <span class="keyword">const</span> std::string &amp;dir, <span class="keyword">const</span> std::string &amp;<span class="keywordtype">id</span>);
-<a name="l00151"></a>00151 
-<a name="l00152"></a>00152         <span class="keywordtype">void</span> lcp_info(tMSS &amp;file_map);
-<a name="l00153"></a>00153 
-<a name="l00154"></a>00154 }<span class="comment">// end namespace</span>
+<a name="l00122"></a>00122 <span class="comment">// only phase 2 of the new algorithm</span>
+<a name="l00123"></a>00123 <span class="comment">// TODO: assert n &gt; 0</span>
+<a name="l00124"></a>00124 <span class="keywordtype">bool</span> construct_lcp_simple2_9n(tMSS&amp; file_map, <span class="keyword">const</span> std::string&amp; dir, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>);
+<a name="l00125"></a>00125 
+<a name="l00127"></a>00127 
+<a name="l00134"></a>00134 <span class="keywordtype">bool</span> <a class="code" href="namespacesdsl.html#aab2eca3099c5d212934bcfddd54261a4" title="Our new 2 phases lcp algorithm using usually 2n bytes.">construct_lcp_go</a>(tMSS&amp; file_map, <span class="keyword">const</span> std::string&amp; dir, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>);
+<a name="l00135"></a>00135 
+<a name="l00137"></a>00137 
+<a name="l00144"></a>00144 <span class="keywordtype">bool</span> <a class="code" href="namespacesdsl.html#a0c672fbb78beb8b55ec3bfd763f7365a" title="Our new 2 phases lcp algorithm using usually 2n bytes.">construct_lcp_goPHI</a>(tMSS&amp; file_map, <span class="keyword">const</span> std::string&amp; dir, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>);
+<a name="l00145"></a>00145 
+<a name="l00147"></a>00147 
+<a name="l00154"></a>00154 <span class="keywordtype">bool</span> <a class="code" href="namespacesdsl.html#aa99d7a193bf9889994ef8bc1cb3da646" title="Our new 2 phases lcp algorithm using usually 1 n bytes.">construct_lcp_go2</a>(tMSS&amp; file_map, <span class="keyword">const</span> std::string&amp; dir, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>);
 <a name="l00155"></a>00155 
-<a name="l00156"></a>00156 <span class="preprocessor">#endif</span>
+<a name="l00156"></a>00156 <span class="keywordtype">void</span> lcp_info(tMSS&amp; file_map);
+<a name="l00157"></a>00157 
+<a name="l00158"></a>00158 }<span class="comment">// end namespace</span>
+<a name="l00159"></a>00159 
+<a name="l00160"></a>00160 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:33 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:26 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

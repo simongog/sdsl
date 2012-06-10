@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -82,7 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -97,7 +98,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="bwt__construct_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/* sdsl - succinct data structures library</span>
-<a name="l00002"></a>00002 <span class="comment">    Copyright (C) 2010 Simon Gog </span>
+<a name="l00002"></a>00002 <span class="comment">    Copyright (C) 2010 Simon Gog</span>
 <a name="l00003"></a>00003 <span class="comment"></span>
 <a name="l00004"></a>00004 <span class="comment">    This program is free software: you can redistribute it and/or modify</span>
 <a name="l00005"></a>00005 <span class="comment">    it under the terms of the GNU General Public License as published by</span>
@@ -125,62 +126,63 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00031"></a>00031 <span class="preprocessor">#include &lt;stdexcept&gt;</span>
 <a name="l00032"></a>00032 <span class="preprocessor">#include &lt;list&gt;</span>
 <a name="l00033"></a>00033 
-<a name="l00034"></a>00034 <span class="keyword">namespace </span>sdsl{
-<a name="l00035"></a>00035         
-<a name="l00043"></a>00043         <span class="keywordtype">bool</span> <a class="code" href="namespacesdsl.html#a396b6b833af2ec71736f28b65b23e605">construct_bwt</a>( tMSS &amp;file_map, <span class="keyword">const</span> std::string &amp;dir, <span class="keyword">const</span> std::string &amp;<span class="keywordtype">id</span>);
-<a name="l00044"></a>00044 
-<a name="l00045"></a>00045         <span class="comment">/* Constructs the Burrows and Wheeler Transform (BWT) from text and suffix array</span>
-<a name="l00046"></a>00046 <span class="comment">         * \param file_map A map, which contains the paths of the precalculated files like suffix array or text</span>
-<a name="l00047"></a>00047 <span class="comment">         * \param dir      Directory in which the result should be written on disk. </span>
-<a name="l00048"></a>00048 <span class="comment">         * \param id       Id which should be used to build a file name for the calculated BWT.</span>
-<a name="l00049"></a>00049 <span class="comment">         * \par Space complexity: </span>
-<a name="l00050"></a>00050 <span class="comment">         *        \f$2n\f$ bytes</span>
-<a name="l00051"></a>00051 <span class="comment">         */</span>
-<a name="l00052"></a>00052         <span class="keywordtype">bool</span> construct_bwt2( tMSS &amp;file_map, <span class="keyword">const</span> std::string &amp;dir, <span class="keyword">const</span> std::string &amp;<span class="keywordtype">id</span>);
-<a name="l00053"></a>00053         
-<a name="l00054"></a>00054         
-<a name="l00055"></a>00055 <span class="comment">/*</span>
-<a name="l00056"></a>00056 <span class="comment">        bool construct_bwt( tMSS &amp;file_map, const std::string &amp;dir, const std::string &amp;id){</span>
-<a name="l00057"></a>00057 <span class="comment">                typedef int_vector&lt;&gt;::size_type size_type;</span>
-<a name="l00058"></a>00058 <span class="comment">                write_R_output(&quot;csa&quot;, &quot;construct BWT&quot;, &quot;begin&quot;, 1, 0);</span>
-<a name="l00059"></a>00059 <span class="comment">                if( file_map.find(&quot;bwt&quot;) == file_map.end() ){ // if bwt is not already on disk =&gt; calculate it</span>
-<a name="l00060"></a>00060 <span class="comment">                        int_vector_file_buffer&lt;8&gt; text_buf( file_map[&quot;text&quot;].c_str() );</span>
-<a name="l00061"></a>00061 <span class="comment">                        size_type n = text_buf.int_vector_size;</span>
-<a name="l00062"></a>00062 <span class="comment">                        int_vector_file_buffer&lt;&gt; sa_buf(file_map[&quot;sa&quot;].c_str());</span>
-<a name="l00063"></a>00063 <span class="comment">                        unsigned char *bwt = new unsigned char[n+1];</span>
-<a name="l00064"></a>00064 <span class="comment">                        unsigned char *text = NULL;</span>
-<a name="l00065"></a>00065 <span class="comment">                        util::load_from_int_vector_buffer(text, text_buf);              </span>
-<a name="l00066"></a>00066 <span class="comment">                        for(size_type i=0, r_sum=0, r = sa_buf.load_next_block(); r_sum &lt; n; ){</span>
-<a name="l00067"></a>00067 <span class="comment">                                for(; i&lt;r_sum+r; ++i){</span>
-<a name="l00068"></a>00068 <span class="comment">                                        bwt[i] = text[ (sa_buf[i-r_sum]+n-1)%n ];</span>
-<a name="l00069"></a>00069 <span class="comment">                                }</span>
-<a name="l00070"></a>00070 <span class="comment">                                r_sum += r; r = sa_buf.load_next_block();</span>
-<a name="l00071"></a>00071 <span class="comment">                        }</span>
-<a name="l00072"></a>00072 <span class="comment">                        delete [] text; text = NULL;</span>
-<a name="l00073"></a>00073 <span class="comment">                        write_R_output(&quot;csa&quot;, &quot;store BWT&quot;, &quot;begin&quot;, 1, 0);</span>
-<a name="l00074"></a>00074 <span class="comment"></span>
-<a name="l00075"></a>00075 <span class="comment">                        if( !util::store_to_file(char_array_serialize_wrapper&lt;&gt;(bwt,n), (dir+&quot;bwt_&quot;+id).c_str() ) ){</span>
-<a name="l00076"></a>00076 <span class="comment">                                throw std::ios_base::failure( &quot;#csa_construct: Cannot store bwt to file system!&quot; );</span>
-<a name="l00077"></a>00077 <span class="comment">                                return false;</span>
-<a name="l00078"></a>00078 <span class="comment">                        }else{</span>
-<a name="l00079"></a>00079 <span class="comment">                                file_map[&quot;bwt&quot;] = dir+&quot;bwt_&quot;+id;</span>
-<a name="l00080"></a>00080 <span class="comment">                        }</span>
-<a name="l00081"></a>00081 <span class="comment">                        delete [] bwt; bwt = NULL;</span>
-<a name="l00082"></a>00082 <span class="comment">                        write_R_output(&quot;csa&quot;, &quot;store BWT&quot;, &quot;end&quot;, 1, 0);</span>
-<a name="l00083"></a>00083 <span class="comment">                }</span>
-<a name="l00084"></a>00084 <span class="comment">                write_R_output(&quot;csa&quot;, &quot;construct BWT&quot;, &quot;end&quot;, 1, 0);</span>
-<a name="l00085"></a>00085 <span class="comment">                return true;</span>
-<a name="l00086"></a>00086 <span class="comment">        }       </span>
-<a name="l00087"></a>00087 <span class="comment">*/</span>      
-<a name="l00088"></a>00088 
-<a name="l00089"></a>00089 }<span class="comment">// end namespace</span>
-<a name="l00090"></a>00090 
-<a name="l00091"></a>00091 <span class="preprocessor">#endif</span>
+<a name="l00034"></a>00034 <span class="keyword">namespace </span>sdsl
+<a name="l00035"></a>00035 {
+<a name="l00036"></a>00036 
+<a name="l00044"></a>00044 <span class="keywordtype">bool</span> <a class="code" href="namespacesdsl.html#a396b6b833af2ec71736f28b65b23e605">construct_bwt</a>(tMSS&amp; file_map, <span class="keyword">const</span> std::string&amp; dir, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>);
+<a name="l00045"></a>00045 
+<a name="l00046"></a>00046 <span class="comment">/* Constructs the Burrows and Wheeler Transform (BWT) from text and suffix array</span>
+<a name="l00047"></a>00047 <span class="comment"> * \param file_map A map, which contains the paths of the precalculated files like suffix array or text</span>
+<a name="l00048"></a>00048 <span class="comment"> * \param dir      Directory in which the result should be written on disk.</span>
+<a name="l00049"></a>00049 <span class="comment"> * \param id       Id which should be used to build a file name for the calculated BWT.</span>
+<a name="l00050"></a>00050 <span class="comment"> * \par Space complexity:</span>
+<a name="l00051"></a>00051 <span class="comment"> *        \f$2n\f$ bytes</span>
+<a name="l00052"></a>00052 <span class="comment"> */</span>
+<a name="l00053"></a>00053 <span class="keywordtype">bool</span> construct_bwt2(tMSS&amp; file_map, <span class="keyword">const</span> std::string&amp; dir, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>);
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056 <span class="comment">/*</span>
+<a name="l00057"></a>00057 <span class="comment">        bool construct_bwt( tMSS &amp;file_map, const std::string &amp;dir, const std::string &amp;id){</span>
+<a name="l00058"></a>00058 <span class="comment">                typedef int_vector&lt;&gt;::size_type size_type;</span>
+<a name="l00059"></a>00059 <span class="comment">                write_R_output(&quot;csa&quot;, &quot;construct BWT&quot;, &quot;begin&quot;, 1, 0);</span>
+<a name="l00060"></a>00060 <span class="comment">                if( file_map.find(&quot;bwt&quot;) == file_map.end() ){ // if bwt is not already on disk =&gt; calculate it</span>
+<a name="l00061"></a>00061 <span class="comment">                        int_vector_file_buffer&lt;8&gt; text_buf( file_map[&quot;text&quot;].c_str() );</span>
+<a name="l00062"></a>00062 <span class="comment">                        size_type n = text_buf.int_vector_size;</span>
+<a name="l00063"></a>00063 <span class="comment">                        int_vector_file_buffer&lt;&gt; sa_buf(file_map[&quot;sa&quot;].c_str());</span>
+<a name="l00064"></a>00064 <span class="comment">                        unsigned char *bwt = new unsigned char[n+1];</span>
+<a name="l00065"></a>00065 <span class="comment">                        unsigned char *text = NULL;</span>
+<a name="l00066"></a>00066 <span class="comment">                        util::load_from_int_vector_buffer(text, text_buf);</span>
+<a name="l00067"></a>00067 <span class="comment">                        for(size_type i=0, r_sum=0, r = sa_buf.load_next_block(); r_sum &lt; n; ){</span>
+<a name="l00068"></a>00068 <span class="comment">                                for(; i&lt;r_sum+r; ++i){</span>
+<a name="l00069"></a>00069 <span class="comment">                                        bwt[i] = text[ (sa_buf[i-r_sum]+n-1)%n ];</span>
+<a name="l00070"></a>00070 <span class="comment">                                }</span>
+<a name="l00071"></a>00071 <span class="comment">                                r_sum += r; r = sa_buf.load_next_block();</span>
+<a name="l00072"></a>00072 <span class="comment">                        }</span>
+<a name="l00073"></a>00073 <span class="comment">                        delete [] text; text = NULL;</span>
+<a name="l00074"></a>00074 <span class="comment">                        write_R_output(&quot;csa&quot;, &quot;store BWT&quot;, &quot;begin&quot;, 1, 0);</span>
+<a name="l00075"></a>00075 <span class="comment"></span>
+<a name="l00076"></a>00076 <span class="comment">                        if( !util::store_to_file(char_array_serialize_wrapper&lt;&gt;(bwt,n), (dir+&quot;bwt_&quot;+id).c_str() ) ){</span>
+<a name="l00077"></a>00077 <span class="comment">                                throw std::ios_base::failure( &quot;#csa_construct: Cannot store bwt to file system!&quot; );</span>
+<a name="l00078"></a>00078 <span class="comment">                                return false;</span>
+<a name="l00079"></a>00079 <span class="comment">                        }else{</span>
+<a name="l00080"></a>00080 <span class="comment">                                file_map[&quot;bwt&quot;] = dir+&quot;bwt_&quot;+id;</span>
+<a name="l00081"></a>00081 <span class="comment">                        }</span>
+<a name="l00082"></a>00082 <span class="comment">                        delete [] bwt; bwt = NULL;</span>
+<a name="l00083"></a>00083 <span class="comment">                        write_R_output(&quot;csa&quot;, &quot;store BWT&quot;, &quot;end&quot;, 1, 0);</span>
+<a name="l00084"></a>00084 <span class="comment">                }</span>
+<a name="l00085"></a>00085 <span class="comment">                write_R_output(&quot;csa&quot;, &quot;construct BWT&quot;, &quot;end&quot;, 1, 0);</span>
+<a name="l00086"></a>00086 <span class="comment">                return true;</span>
+<a name="l00087"></a>00087 <span class="comment">        }</span>
+<a name="l00088"></a>00088 <span class="comment">*/</span>
+<a name="l00089"></a>00089 
+<a name="l00090"></a>00090 }<span class="comment">// end namespace</span>
+<a name="l00091"></a>00091 
+<a name="l00092"></a>00092 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:33 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:25 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

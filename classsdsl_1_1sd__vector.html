@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Succinct Data Structure Library (sdsl): sdsl::sd_vector&lt; Select1Support, Select0Support &gt; Class Template Reference</title>
+<title>Succinct Data Structure Library (sdsl): sdsl::sd_vector&lt; hi_bit_vector_type, hi_select_1, hi_select_0 &gt; Class Template Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -106,7 +107,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#friends">Friends</a>  </div>
   <div class="headertitle">
-<div class="title">sdsl::sd_vector&lt; Select1Support, Select0Support &gt; Class Template Reference</div>  </div>
+<div class="title">sdsl::sd_vector&lt; hi_bit_vector_type, hi_select_1, hi_select_0 &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -119,53 +120,64 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a62717d76193d24b12d9008be2db6c79e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a62717d76193d24b12d9008be2db6c79e"></a>
+<tr class="memitem:a6ecf16c5d73a382a0585ab17c130bad7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6ecf16c5d73a382a0585ab17c130bad7"></a>
 typedef bit_vector::size_type&#160;</td><td class="memItemRight" valign="bottom"><b>size_type</b></td></tr>
-<tr class="memitem:a6f1aa09627d59d63b7e7fddcb9bc4049"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6f1aa09627d59d63b7e7fddcb9bc4049"></a>
+<tr class="memitem:a83fe9bfc758d3a6c38bd240b18776d52"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a83fe9bfc758d3a6c38bd240b18776d52"></a>
 typedef size_type&#160;</td><td class="memItemRight" valign="bottom"><b>value_type</b></td></tr>
-<tr class="memitem:a264477b1d8d5fc44cfa433812be76130"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a264477b1d8d5fc44cfa433812be76130"></a>
-typedef Select0Support&#160;</td><td class="memItemRight" valign="bottom"><b>select_0_support_type</b></td></tr>
-<tr class="memitem:a0334e26cbb4173e354509adc1ca4f389"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0334e26cbb4173e354509adc1ca4f389"></a>
-typedef Select1Support&#160;</td><td class="memItemRight" valign="bottom"><b>select_1_support_type</b></td></tr>
-<tr class="memitem:a697f4d616ede19dae21b458e8f080c1c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a697f4d616ede19dae21b458e8f080c1c"></a>
+<tr class="memitem:a11969f81390ad90270f5652b94358454"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a11969f81390ad90270f5652b94358454"></a>
+typedef hi_select_0&#160;</td><td class="memItemRight" valign="bottom"><b>select_0_support_type</b></td></tr>
+<tr class="memitem:aaae3f3d926ec788c1e80f1a65f0ce7f4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaae3f3d926ec788c1e80f1a65f0ce7f4"></a>
+typedef hi_select_1&#160;</td><td class="memItemRight" valign="bottom"><b>select_1_support_type</b></td></tr>
+<tr class="memitem:ae0539a9bab919d48367d75de8e32ce81"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae0539a9bab919d48367d75de8e32ce81"></a>
 typedef <a class="el" href="classsdsl_1_1sd__rank__support.html">sd_rank_support</a><br class="typebreak"/>
-&lt; select_1_support_type, <br class="typebreak"/>
+&lt; hi_bit_vector_type, <br class="typebreak"/>
+select_1_support_type, <br class="typebreak"/>
 select_0_support_type &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>rank_1_type</b></td></tr>
-<tr class="memitem:a36423b5843761f8e71cdad48ab42f0e5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a36423b5843761f8e71cdad48ab42f0e5"></a>
+<tr class="memitem:a252d7206ec61e58371e2df03ee2037a7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a252d7206ec61e58371e2df03ee2037a7"></a>
 typedef <a class="el" href="classsdsl_1_1sd__select__support.html">sd_select_support</a><br class="typebreak"/>
-&lt; select_1_support_type, <br class="typebreak"/>
+&lt; hi_bit_vector_type, <br class="typebreak"/>
+select_1_support_type, <br class="typebreak"/>
 select_0_support_type &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>select_1_type</b></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:abd3a8292c4faf149d1d341deb2eb549b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abd3a8292c4faf149d1d341deb2eb549b"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>sd_vector</b> (const bit_vector &amp;bv)</td></tr>
-<tr class="memitem:a6e37aaeab586a1e2990c90a07f734f74"><td class="memItemLeft" align="right" valign="top">value_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1sd__vector.html#a6e37aaeab586a1e2990c90a07f734f74">operator[]</a> (size_type i) const </td></tr>
-<tr class="memdesc:a6e37aaeab586a1e2990c90a07f734f74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accessing the i-th element of the original bit_vector.  <a href="#a6e37aaeab586a1e2990c90a07f734f74"></a><br/></td></tr>
-<tr class="memitem:ad279d4a8b836300de08105b2291e1aa3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad279d4a8b836300de08105b2291e1aa3"></a>
-size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1sd__vector.html#ad279d4a8b836300de08105b2291e1aa3">size</a> () const </td></tr>
-<tr class="memdesc:ad279d4a8b836300de08105b2291e1aa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the size of the original bit vector. <br/></td></tr>
-<tr class="memitem:a77a38d886e86ac959b1048f37b18ea38"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a77a38d886e86ac959b1048f37b18ea38"></a>
+<tr class="memitem:afed5f4e54a1d3d4e0ee74589e616bc6b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afed5f4e54a1d3d4e0ee74589e616bc6b"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>sd_vector</b> (const <a class="el" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb">bit_vector</a> &amp;bv)</td></tr>
+<tr class="memitem:ae58f46d3022b7ad401cc84449b634896"><td class="memItemLeft" align="right" valign="top">value_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1sd__vector.html#ae58f46d3022b7ad401cc84449b634896">operator[]</a> (size_type i) const </td></tr>
+<tr class="memdesc:ae58f46d3022b7ad401cc84449b634896"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accessing the i-th element of the original bit_vector.  <a href="#ae58f46d3022b7ad401cc84449b634896"></a><br/></td></tr>
+<tr class="memitem:a3302d9777f65c67c817d1fdb647a65ad"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3302d9777f65c67c817d1fdb647a65ad"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1sd__vector.html#a3302d9777f65c67c817d1fdb647a65ad">swap</a> (<a class="el" href="classsdsl_1_1sd__vector.html">sd_vector</a> &amp;v)</td></tr>
+<tr class="memdesc:a3302d9777f65c67c817d1fdb647a65ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swap method. <br/></td></tr>
+<tr class="memitem:a8c4b53483db23c6c65399fa9d1c62a71"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8c4b53483db23c6c65399fa9d1c62a71"></a>
+size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1sd__vector.html#a8c4b53483db23c6c65399fa9d1c62a71">size</a> () const </td></tr>
+<tr class="memdesc:a8c4b53483db23c6c65399fa9d1c62a71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the size of the original bit vector. <br/></td></tr>
+<tr class="memitem:aa9e1e98c72b1e337ad01bc9364719ba9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa9e1e98c72b1e337ad01bc9364719ba9"></a>
 <a class="el" href="classsdsl_1_1sd__vector.html">sd_vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classsdsl_1_1sd__vector.html">sd_vector</a> &amp;v)</td></tr>
-<tr class="memitem:a7aab28d2c910a89295bbb82c0f7a709b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7aab28d2c910a89295bbb82c0f7a709b"></a>
-size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1sd__vector.html#a7aab28d2c910a89295bbb82c0f7a709b">serialize</a> (std::ostream &amp;out) const </td></tr>
-<tr class="memdesc:a7aab28d2c910a89295bbb82c0f7a709b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes the data structure into the given ostream. <br/></td></tr>
-<tr class="memitem:a6775461b5ac6c115829f842a0be96936"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6775461b5ac6c115829f842a0be96936"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1sd__vector.html#a6775461b5ac6c115829f842a0be96936">load</a> (std::istream &amp;in)</td></tr>
-<tr class="memdesc:a6775461b5ac6c115829f842a0be96936"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the data structure from the given istream. <br/></td></tr>
+<tr class="memitem:ac82e630d2bcbc644d8d1b989d1d9f353"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac82e630d2bcbc644d8d1b989d1d9f353"></a>
+size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1sd__vector.html#ac82e630d2bcbc644d8d1b989d1d9f353">serialize</a> (std::ostream &amp;out) const </td></tr>
+<tr class="memdesc:ac82e630d2bcbc644d8d1b989d1d9f353"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes the data structure into the given ostream. <br/></td></tr>
+<tr class="memitem:a7019df40fb6e5db6fe241da1bf7b01e2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7019df40fb6e5db6fe241da1bf7b01e2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1sd__vector.html#a7019df40fb6e5db6fe241da1bf7b01e2">load</a> (std::istream &amp;in)</td></tr>
+<tr class="memdesc:a7019df40fb6e5db6fe241da1bf7b01e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the data structure from the given istream. <br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:aefd431f3470694113bcb0b54dc4b85f1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aefd431f3470694113bcb0b54dc4b85f1"></a>
-const bit_vector &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>high</b></td></tr>
+<tr class="memitem:a0f543a2c2baba068f001325a26bdb297"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0f543a2c2baba068f001325a26bdb297"></a>
+const hi_bit_vector_type &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>high</b></td></tr>
+<tr class="memitem:aa0e38040bdfd53eaddf5b2435eae8cad"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa0e38040bdfd53eaddf5b2435eae8cad"></a>
+const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>low</b></td></tr>
+<tr class="memitem:a8c8a0eeddc3ef3eb664713545a1e0919"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8c8a0eeddc3ef3eb664713545a1e0919"></a>
+const select_1_support_type &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>high_1_select</b></td></tr>
+<tr class="memitem:a028ec2458fd273246727ffeab6cdbf06"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a028ec2458fd273246727ffeab6cdbf06"></a>
+const select_0_support_type &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>high_0_select</b></td></tr>
 <tr><td colspan="2"><h2><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:abd374be7c903d15080b1f2c6809d5ccd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abd374be7c903d15080b1f2c6809d5ccd"></a>
-class&#160;</td><td class="memItemRight" valign="bottom"><b>sd_rank_support&lt; select_1_support_type, select_0_support_type &gt;</b></td></tr>
-<tr class="memitem:a41a5a3a23117ce5893b8ff38e9ac5351"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a41a5a3a23117ce5893b8ff38e9ac5351"></a>
-class&#160;</td><td class="memItemRight" valign="bottom"><b>sd_select_support&lt; select_1_support_type, select_0_support_type &gt;</b></td></tr>
+<tr class="memitem:a2f3441c18d60457b8b940c910508aa2a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2f3441c18d60457b8b940c910508aa2a"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>sd_rank_support&lt; hi_bit_vector_type, select_1_support_type, select_0_support_type &gt;</b></td></tr>
+<tr class="memitem:a2d0efd8b2e97fb3fbf63b3543cd9dc99"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2d0efd8b2e97fb3fbf63b3543cd9dc99"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>sd_select_support&lt; hi_bit_vector_type, select_1_support_type, select_0_support_type &gt;</b></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><h3>template&lt;class Select1Support = select_support_mcl&lt;1&gt;, class Select0Support = select_support_mcl&lt;0&gt;&gt;<br/>
-class sdsl::sd_vector&lt; Select1Support, Select0Support &gt;</h3>
+<div class="textblock"><h3>template&lt;class hi_bit_vector_type = bit_vector, class hi_select_1 = typename hi_bit_vector_type::select_1_type, class hi_select_0 = typename hi_bit_vector_type::select_0_type&gt;<br/>
+class sdsl::sd_vector&lt; hi_bit_vector_type, hi_select_1, hi_select_0 &gt;</h3>
 
 <p>A bit vector which compresses very sparse populated bit vectors by. </p>
 <dl class="section user"><dt>Other implementations of this data structure:</b></dt><dd><ul>
@@ -176,18 +188,26 @@ class sdsl::sd_vector&lt; Select1Support, Select0Support &gt;</h3>
 <dl class="section user"><dt>References</b></dt><dd><ul>
 <li>P. Elias: ,,Efficient storage and retrieval by content and address of static files'', Journal of the ACM, 1974</li>
 <li>R. Fano: ,,On the number of bits required to implement an associative memory''. Memorandum 61. Computer Structures Group, Project MAC, MIT, 1971</li>
-<li>D. Okanohara, K. Sadakane: ,,Practical Entropy-Compressed Rank/Select Dictionary'', Proceedings of ALENEX 2007. </li>
+<li>D. Okanohara, K. Sadakane: ,,Practical Entropy-Compressed Rank/Select Dictionary'', Proceedings of ALENEX 2007.</li>
 </ul>
 </dd></dl>
+<dl class=""><dt><b>Template Parameters:</b></dt><dd>
+  <table class="">
+    <tr><td class="paramname">hi_bit_vector_type</td><td>Type of the bitvector HI used for representing the high part of the positions of the 1s. </td></tr>
+    <tr><td class="paramname">hi_select_1</td><td>Type of the select support data structure which is used to select ones in HI. </td></tr>
+    <tr><td class="paramname">hi_select_0</td><td>Type of the select support data structure which is used to select zeros in HI. </td></tr>
+  </table>
+  </dd>
+</dl>
 </div><hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a6e37aaeab586a1e2990c90a07f734f74"></a>
+<a class="anchor" id="ae58f46d3022b7ad401cc84449b634896"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Select1Support  = select_support_mcl&lt;1&gt;, class Select0Support  = select_support_mcl&lt;0&gt;&gt; </div>
+template&lt;class hi_bit_vector_type  = bit_vector, class hi_select_1  = typename hi_bit_vector_type::select_1_type, class hi_select_0  = typename hi_bit_vector_type::select_0_type&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">value_type <a class="el" href="classsdsl_1_1sd__vector.html">sdsl::sd_vector</a>&lt; Select1Support, Select0Support &gt;::operator[] </td>
+          <td class="memname">value_type <a class="el" href="classsdsl_1_1sd__vector.html">sdsl::sd_vector</a>&lt; hi_bit_vector_type, hi_select_1, hi_select_0 &gt;::operator[] </td>
           <td>(</td>
           <td class="paramtype">size_type&#160;</td>
           <td class="paramname"><em>i</em></td><td>)</td>
@@ -200,13 +220,13 @@ template&lt;class Select1Support  = select_support_mcl&lt;1&gt;, class Select0Su
 <p>Accessing the i-th element of the original bit_vector. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>An index i with <img class="formulaInl" alt="$ 0 \leq i < size() $" src="form_169.png"/>. </td></tr>
+    <tr><td class="paramname">i</td><td>An index i with <img class="formulaInl" alt="$ 0 \leq i < size() $" src="form_50.png"/>. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>The i-th bit of the original bit_vector </dd></dl>
-<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{t_{select0} + n/m} $" src="form_210.png"/>, where m equals the number of zeros </dd></dl>
-<dl class="section user"><dt>Remark</b></dt><dd>The time complexity can be easily improved to <img class="formulaInl" alt="$\Order{t_{select0}+\log(n/m)}$" src="form_211.png"/> by using binary search in the second step. </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{t_{select0} + n/m} $" src="form_221.png"/>, where m equals the number of zeros </dd></dl>
+<dl class="section user"><dt>Remark</b></dt><dd>The time complexity can be easily improved to <img class="formulaInl" alt="$\Order{t_{select0}+\log(n/m)}$" src="form_222.png"/> by using binary search in the second step. </dd></dl>
 
 </div>
 </div>
@@ -217,7 +237,7 @@ template&lt;class Select1Support  = select_support_mcl&lt;1&gt;, class Select0Su
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:35 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:32 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

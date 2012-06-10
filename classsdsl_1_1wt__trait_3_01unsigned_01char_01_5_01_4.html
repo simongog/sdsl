@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -112,7 +113,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ad82e2c02af6537b20cbf19c41c75fcd5"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>char_node_map_size</b> = 256
+<tr class="memitem:af92a136fd1cdc0df1e655466db5ef76b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>char_node_map_size</b> = 256
  }</td></tr>
 <tr class="memitem:a789e54b92053951d90c1838f3e3e0f7d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a789e54b92053951d90c1838f3e3e0f7d"></a>
 typedef bit_vector::size_type&#160;</td><td class="memItemRight" valign="bottom"><b>size_type</b></td></tr>
@@ -128,8 +129,8 @@ typedef <a class="el" href="structsdsl_1_1unsigned__char__map.html">unsigned_cha
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:aff681fe79bb4e1c707a16318510fa9e0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aff681fe79bb4e1c707a16318510fa9e0"></a>
 static size_type&#160;</td><td class="memItemRight" valign="bottom"><b>alphabet_size_and_map</b> (const reference_type rac, size_type n, <a class="el" href="structsdsl_1_1unsigned__char__map.html">map_type</a> &amp;map, <a class="el" href="structsdsl_1_1unsigned__char__map.html">inv_map_type</a> &amp;inv_map, value_type &amp;first_symbol)</td></tr>
-<tr class="memitem:a4c212ebb0dff2b6431e992fced8ed48f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4c212ebb0dff2b6431e992fced8ed48f"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>symbol_available</b> (const <a class="el" href="structsdsl_1_1unsigned__char__map.html">map_type</a> &amp;map, const value_type c, const value_type first_symbol)</td></tr>
+<tr class="memitem:ad8fc7846394483e9f7a0f13d505fc208"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad8fc7846394483e9f7a0f13d505fc208"></a>
+static bool&#160;</td><td class="memItemRight" valign="bottom"><b>symbol_available</b> (const <a class="el" href="structsdsl_1_1unsigned__char__map.html">map_type</a> &amp;map, const value_type c, const value_type first_symbol, const size_type sigma)</td></tr>
 <tr class="memitem:abaacf5003b58ff3978a34093edb7cb1b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abaacf5003b58ff3978a34093edb7cb1b"></a>
 static size_type&#160;</td><td class="memItemRight" valign="bottom"><b>serialize_maps</b> (std::ostream &amp;out, const <a class="el" href="structsdsl_1_1unsigned__char__map.html">map_type</a> &amp;map, const <a class="el" href="structsdsl_1_1unsigned__char__map.html">inv_map_type</a> &amp;inv_map)</td></tr>
 <tr class="memitem:aa2b5d032e0cc82acdeb8d65a10375745"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa2b5d032e0cc82acdeb8d65a10375745"></a>
@@ -145,7 +146,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>load_maps</b> 
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:36 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:32 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

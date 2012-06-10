@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Succinct Data Structure Library (sdsl): sdsl::wt_int&lt; RandomAccessContainer, RankSupport, SelectSupport, SelectSupportZero &gt; Class Template Reference</title>
+<title>Succinct Data Structure Library (sdsl): sdsl::wt_int&lt; RandomAccessContainer, BitVector, RankSupport, SelectSupport, SelectSupportZero &gt; Class Template Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -103,9 +104,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a>  </div>
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">sdsl::wt_int&lt; RandomAccessContainer, RankSupport, SelectSupport, SelectSupportZero &gt; Class Template Reference<div class="ingroups"><a class="el" href="group__wt.html">Wavelet Trees (WT)</a></div></div>  </div>
+<div class="title">sdsl::wt_int&lt; RandomAccessContainer, BitVector, RankSupport, SelectSupport, SelectSupportZero &gt; Class Template Reference<div class="ingroups"><a class="el" href="group__wt.html">Wavelet Trees (WT)</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -118,87 +121,125 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a6818dcc74132ddd621c3f6c42aa1894a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6818dcc74132ddd621c3f6c42aa1894a"></a>
+<tr class="memitem:a6d14707564fca47d69923561b133e765"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6d14707564fca47d69923561b133e765"></a>
 typedef <br class="typebreak"/>
 RandomAccessContainer::size_type&#160;</td><td class="memItemRight" valign="bottom"><b>size_type</b></td></tr>
-<tr class="memitem:a76f638a8482e25a4ff11cb84da243f38"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a76f638a8482e25a4ff11cb84da243f38"></a>
+<tr class="memitem:a57d70650d6db58f0e93a560db5b450de"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a57d70650d6db58f0e93a560db5b450de"></a>
 typedef <br class="typebreak"/>
 RandomAccessContainer::value_type&#160;</td><td class="memItemRight" valign="bottom"><b>value_type</b></td></tr>
+<tr class="memitem:a353d8a4fa7f8bf63ead500dc6b8f2b42"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a353d8a4fa7f8bf63ead500dc6b8f2b42"></a>
+typedef BitVector&#160;</td><td class="memItemRight" valign="bottom"><b>bit_vector_type</b></td></tr>
+<tr class="memitem:ac3ceb2e36148a23f5fdaa139de2448f9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac3ceb2e36148a23f5fdaa139de2448f9"></a>
+typedef RankSupport&#160;</td><td class="memItemRight" valign="bottom"><b>rank_1_type</b></td></tr>
+<tr class="memitem:a2a42e6ed353b223d21b9ce51216c2f30"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2a42e6ed353b223d21b9ce51216c2f30"></a>
+typedef SelectSupport&#160;</td><td class="memItemRight" valign="bottom"><b>select_1_type</b></td></tr>
+<tr class="memitem:aa6be5d1077d93f2f0d7200dc43e670c7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa6be5d1077d93f2f0d7200dc43e670c7"></a>
+typedef SelectSupportZero&#160;</td><td class="memItemRight" valign="bottom"><b>select_0_type</b></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a65e43078ef9e66a4fb270e7cae6b07b8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a65e43078ef9e66a4fb270e7cae6b07b8"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__int.html#a65e43078ef9e66a4fb270e7cae6b07b8">wt_int</a> ()</td></tr>
-<tr class="memdesc:a65e43078ef9e66a4fb270e7cae6b07b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. <br/></td></tr>
-<tr class="memitem:a006280ea250228d475cc8bf12c7980e1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__int.html#a006280ea250228d475cc8bf12c7980e1">wt_int</a> (const RandomAccessContainer &amp;rac, uint32_t logn=0)</td></tr>
-<tr class="memdesc:a006280ea250228d475cc8bf12c7980e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a006280ea250228d475cc8bf12c7980e1"></a><br/></td></tr>
-<tr class="memitem:ab526bb44dc6cd40e78f8a40ee6813ed2"><td class="memTemplParams" colspan="2">template&lt;uint8_t int_width&gt; </td></tr>
-<tr class="memitem:ab526bb44dc6cd40e78f8a40ee6813ed2"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__int.html#ab526bb44dc6cd40e78f8a40ee6813ed2">wt_int</a> (int_vector_file_buffer&lt; int_width &gt; &amp;buf, uint32_t logn=0, std::string dir=&quot;./&quot;)</td></tr>
-<tr class="memdesc:ab526bb44dc6cd40e78f8a40ee6813ed2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Semi-external constructor.  <a href="#ab526bb44dc6cd40e78f8a40ee6813ed2"></a><br/></td></tr>
-<tr class="memitem:a4b96bd20d2e64728e70f675e42101ef2"><td class="memTemplParams" colspan="2"><a class="anchor" id="a4b96bd20d2e64728e70f675e42101ef2"></a>
+<tr class="memitem:aceddb285d21048dae2dba47aa2076dfb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aceddb285d21048dae2dba47aa2076dfb"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__int.html#aceddb285d21048dae2dba47aa2076dfb">wt_int</a> ()</td></tr>
+<tr class="memdesc:aceddb285d21048dae2dba47aa2076dfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. <br/></td></tr>
+<tr class="memitem:a621b676293b7db7733e71ea3d31a745e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__int.html#a621b676293b7db7733e71ea3d31a745e">wt_int</a> (const RandomAccessContainer &amp;rac, uint32_t logn=0)</td></tr>
+<tr class="memdesc:a621b676293b7db7733e71ea3d31a745e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a621b676293b7db7733e71ea3d31a745e"></a><br/></td></tr>
+<tr class="memitem:a9c0490de51596206de3f2a27dbd09d27"><td class="memTemplParams" colspan="2">template&lt;uint8_t int_width&gt; </td></tr>
+<tr class="memitem:a9c0490de51596206de3f2a27dbd09d27"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__int.html#a9c0490de51596206de3f2a27dbd09d27">wt_int</a> (<a class="el" href="classsdsl_1_1int__vector__file__buffer.html">int_vector_file_buffer</a>&lt; int_width &gt; &amp;buf, uint32_t logn=0, std::string dir=&quot;./&quot;)</td></tr>
+<tr class="memdesc:a9c0490de51596206de3f2a27dbd09d27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Semi-external constructor.  <a href="#a9c0490de51596206de3f2a27dbd09d27"></a><br/></td></tr>
+<tr class="memitem:a8612d18c87a3c916b182d1ed2c567ff2"><td class="memTemplParams" colspan="2"><a class="anchor" id="a8612d18c87a3c916b182d1ed2c567ff2"></a>
 template&lt;uint8_t int_width&gt; </td></tr>
-<tr class="memitem:a4b96bd20d2e64728e70f675e42101ef2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>construct</b> (int_vector_file_buffer&lt; int_width &gt; &amp;buf, uint32_t logn=0, std::string dir=&quot;./&quot;)</td></tr>
-<tr class="memitem:a807e9474b0f220275bbf8e7ae82bbb98"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a807e9474b0f220275bbf8e7ae82bbb98"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__int.html#a807e9474b0f220275bbf8e7ae82bbb98">wt_int</a> (const <a class="el" href="classsdsl_1_1wt__int.html">wt_int</a> &amp;<a class="el" href="classsdsl_1_1wt.html">wt</a>)</td></tr>
-<tr class="memdesc:a807e9474b0f220275bbf8e7ae82bbb98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor. <br/></td></tr>
-<tr class="memitem:a5d55e900871b5aec69d75c1ebce02a89"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5d55e900871b5aec69d75c1ebce02a89"></a>
-<a class="el" href="classsdsl_1_1wt__int.html">wt_int</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__int.html#a5d55e900871b5aec69d75c1ebce02a89">operator=</a> (const <a class="el" href="classsdsl_1_1wt__int.html">wt_int</a> &amp;<a class="el" href="classsdsl_1_1wt.html">wt</a>)</td></tr>
-<tr class="memdesc:a5d55e900871b5aec69d75c1ebce02a89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment operator. <br/></td></tr>
-<tr class="memitem:a3ebbdc1c29690293c7edbae6b25b0636"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3ebbdc1c29690293c7edbae6b25b0636"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__int.html#a3ebbdc1c29690293c7edbae6b25b0636">swap</a> (<a class="el" href="classsdsl_1_1wt__int.html">wt_int</a> &amp;<a class="el" href="classsdsl_1_1wt.html">wt</a>)</td></tr>
-<tr class="memdesc:a3ebbdc1c29690293c7edbae6b25b0636"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swap operator. <br/></td></tr>
-<tr class="memitem:aef839979277476615deb56519538a8c6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aef839979277476615deb56519538a8c6"></a>
-size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__int.html#aef839979277476615deb56519538a8c6">size</a> () const </td></tr>
-<tr class="memdesc:aef839979277476615deb56519538a8c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the size of the original vector. <br/></td></tr>
-<tr class="memitem:a8248d3176f956f6d8ad6c110e257400d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8248d3176f956f6d8ad6c110e257400d"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__int.html#a8248d3176f956f6d8ad6c110e257400d">empty</a> () const </td></tr>
-<tr class="memdesc:a8248d3176f956f6d8ad6c110e257400d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the wavelet tree contains no data. <br/></td></tr>
-<tr class="memitem:acbd3a95d398b37d2176ff7de428e9db2"><td class="memItemLeft" align="right" valign="top">value_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__int.html#acbd3a95d398b37d2176ff7de428e9db2">operator[]</a> (size_type i) const </td></tr>
-<tr class="memdesc:acbd3a95d398b37d2176ff7de428e9db2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recovers the ith symbol of the original vector.  <a href="#acbd3a95d398b37d2176ff7de428e9db2"></a><br/></td></tr>
-<tr class="memitem:ad74912f787e74a3f1d5773617d39ea8d"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__int.html#ad74912f787e74a3f1d5773617d39ea8d">rank</a> (size_type i, value_type c) const </td></tr>
-<tr class="memdesc:ad74912f787e74a3f1d5773617d39ea8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates how many symbols c are in the prefix [0..i-1] of the supported vector.  <a href="#ad74912f787e74a3f1d5773617d39ea8d"></a><br/></td></tr>
-<tr class="memitem:a896db8acc938e7e17ee3d2391f91b12d"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__int.html#a896db8acc938e7e17ee3d2391f91b12d">select</a> (size_type i, value_type c) const </td></tr>
-<tr class="memdesc:a896db8acc938e7e17ee3d2391f91b12d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the ith occurence of the symbol c in the supported vector.  <a href="#a896db8acc938e7e17ee3d2391f91b12d"></a><br/></td></tr>
-<tr class="memitem:a04732c3d28c0ef5e91657662c0d85b7a"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__int.html#a04732c3d28c0ef5e91657662c0d85b7a">range_search_2d</a> (size_type lb, size_type rb, value_type vlb, value_type vrb, std::vector&lt; size_type &gt; *idx_result=NULL, std::vector&lt; value_type &gt; *val_result=NULL) const </td></tr>
-<tr class="memdesc:a04732c3d28c0ef5e91657662c0d85b7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">range_search_2d searches points in the index interval [lb..rb] and value interval [vlb..vrb].  <a href="#a04732c3d28c0ef5e91657662c0d85b7a"></a><br/></td></tr>
-<tr class="memitem:a999e7a38521d478d457d268a9649feef"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a999e7a38521d478d457d268a9649feef"></a>
+<tr class="memitem:a8612d18c87a3c916b182d1ed2c567ff2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>construct</b> (<a class="el" href="classsdsl_1_1int__vector__file__buffer.html">int_vector_file_buffer</a>&lt; int_width &gt; &amp;buf, uint32_t logn=0, std::string dir=&quot;./&quot;)</td></tr>
+<tr class="memitem:ac07375747005627e3718741f67f8a177"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac07375747005627e3718741f67f8a177"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__int.html#ac07375747005627e3718741f67f8a177">wt_int</a> (const <a class="el" href="classsdsl_1_1wt__int.html">wt_int</a> &amp;<a class="el" href="classsdsl_1_1wt.html">wt</a>)</td></tr>
+<tr class="memdesc:ac07375747005627e3718741f67f8a177"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor. <br/></td></tr>
+<tr class="memitem:a3a9b934ffd6408d9f777e207ae0a31f6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3a9b934ffd6408d9f777e207ae0a31f6"></a>
+<a class="el" href="classsdsl_1_1wt__int.html">wt_int</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__int.html#a3a9b934ffd6408d9f777e207ae0a31f6">operator=</a> (const <a class="el" href="classsdsl_1_1wt__int.html">wt_int</a> &amp;<a class="el" href="classsdsl_1_1wt.html">wt</a>)</td></tr>
+<tr class="memdesc:a3a9b934ffd6408d9f777e207ae0a31f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment operator. <br/></td></tr>
+<tr class="memitem:a6cc59a7c44fc4c7fe64ddde29d738c3c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6cc59a7c44fc4c7fe64ddde29d738c3c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__int.html#a6cc59a7c44fc4c7fe64ddde29d738c3c">swap</a> (<a class="el" href="classsdsl_1_1wt__int.html">wt_int</a> &amp;<a class="el" href="classsdsl_1_1wt.html">wt</a>)</td></tr>
+<tr class="memdesc:a6cc59a7c44fc4c7fe64ddde29d738c3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swap operator. <br/></td></tr>
+<tr class="memitem:a3b6fc5215a237db7486dd17d1b788acc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3b6fc5215a237db7486dd17d1b788acc"></a>
+size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__int.html#a3b6fc5215a237db7486dd17d1b788acc">size</a> () const </td></tr>
+<tr class="memdesc:a3b6fc5215a237db7486dd17d1b788acc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the size of the original vector. <br/></td></tr>
+<tr class="memitem:ab757739cbc5e9372e589856435e990db"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab757739cbc5e9372e589856435e990db"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__int.html#ab757739cbc5e9372e589856435e990db">empty</a> () const </td></tr>
+<tr class="memdesc:ab757739cbc5e9372e589856435e990db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the wavelet tree contains no data. <br/></td></tr>
+<tr class="memitem:a2bf48dc8cfeeef4b16cb207d589eaf26"><td class="memItemLeft" align="right" valign="top">value_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__int.html#a2bf48dc8cfeeef4b16cb207d589eaf26">operator[]</a> (size_type i) const </td></tr>
+<tr class="memdesc:a2bf48dc8cfeeef4b16cb207d589eaf26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recovers the ith symbol of the original vector.  <a href="#a2bf48dc8cfeeef4b16cb207d589eaf26"></a><br/></td></tr>
+<tr class="memitem:a52139baa1030ab5e9ae4f93874c1c541"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__int.html#a52139baa1030ab5e9ae4f93874c1c541">rank</a> (size_type i, value_type c) const </td></tr>
+<tr class="memdesc:a52139baa1030ab5e9ae4f93874c1c541"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates how many symbols c are in the prefix [0..i-1] of the supported vector.  <a href="#a52139baa1030ab5e9ae4f93874c1c541"></a><br/></td></tr>
+<tr class="memitem:aab0b33f24150096a1ef285a11068e572"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__int.html#aab0b33f24150096a1ef285a11068e572">select</a> (size_type i, value_type c) const </td></tr>
+<tr class="memdesc:aab0b33f24150096a1ef285a11068e572"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the ith occurence of the symbol c in the supported vector.  <a href="#aab0b33f24150096a1ef285a11068e572"></a><br/></td></tr>
+<tr class="memitem:a218e7227f932daee7bed61bf72f5308d"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__int.html#a218e7227f932daee7bed61bf72f5308d">range_search_2d</a> (size_type lb, size_type rb, value_type vlb, value_type vrb, std::vector&lt; size_type &gt; *idx_result=NULL, std::vector&lt; value_type &gt; *val_result=NULL) const </td></tr>
+<tr class="memdesc:a218e7227f932daee7bed61bf72f5308d"><td class="mdescLeft">&#160;</td><td class="mdescRight">range_search_2d searches points in the index interval [lb..rb] and value interval [vlb..vrb].  <a href="#a218e7227f932daee7bed61bf72f5308d"></a><br/></td></tr>
+<tr class="memitem:a086155b3ba58cc63fbf6653e065e8af0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a086155b3ba58cc63fbf6653e065e8af0"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>_range_search_2d</b> (size_type lb, size_type rb, value_type vlb, value_type vrb, size_type depth, size_type ilb, size_type node_size, size_type offsets[], size_type ones_before_os[], size_type path, std::vector&lt; size_type &gt; *idx_result, std::vector&lt; size_type &gt; *val_result, size_type &amp;cnt_answers) const </td></tr>
-<tr class="memitem:a51b925effb79aac6d8147b9c1f6d53d8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a51b925effb79aac6d8147b9c1f6d53d8"></a>
-size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__int.html#a51b925effb79aac6d8147b9c1f6d53d8">serialize</a> (std::ostream &amp;out) const </td></tr>
-<tr class="memdesc:a51b925effb79aac6d8147b9c1f6d53d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes the data structure into the given ostream. <br/></td></tr>
-<tr class="memitem:ae769f9fb30f78e03cf2ffb3d183689fc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae769f9fb30f78e03cf2ffb3d183689fc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__int.html#ae769f9fb30f78e03cf2ffb3d183689fc">load</a> (std::istream &amp;in)</td></tr>
-<tr class="memdesc:ae769f9fb30f78e03cf2ffb3d183689fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the data structure from the given istream. <br/></td></tr>
+<tr class="memitem:a717e7153f44602da085bb616b0a6b8df"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a717e7153f44602da085bb616b0a6b8df"></a>
+size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__int.html#a717e7153f44602da085bb616b0a6b8df">serialize</a> (std::ostream &amp;out) const </td></tr>
+<tr class="memdesc:a717e7153f44602da085bb616b0a6b8df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes the data structure into the given ostream. <br/></td></tr>
+<tr class="memitem:aebd22798d4b6a54bfb556232be79cefa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aebd22798d4b6a54bfb556232be79cefa"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__int.html#aebd22798d4b6a54bfb556232be79cefa">load</a> (std::istream &amp;in)</td></tr>
+<tr class="memdesc:aebd22798d4b6a54bfb556232be79cefa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the data structure from the given istream. <br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a43585943fc4c16aaf9f6a15b6d42a71a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a43585943fc4c16aaf9f6a15b6d42a71a"></a>
-const size_type &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__int.html#a43585943fc4c16aaf9f6a15b6d42a71a">sigma</a></td></tr>
-<tr class="memdesc:a43585943fc4c16aaf9f6a15b6d42a71a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Effective alphabet size of the wavelet tree. <br/></td></tr>
-<tr class="memitem:a544a4d5581611021f2a71049b56cdfd9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a544a4d5581611021f2a71049b56cdfd9"></a>
-const bit_vector &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__int.html#a544a4d5581611021f2a71049b56cdfd9">tree</a></td></tr>
-<tr class="memdesc:a544a4d5581611021f2a71049b56cdfd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">A concatenation of all bit vectors of the wavelet tree. <br/></td></tr>
+<tr class="memitem:a262a5ba26691f66db2d13ee70f3f3e09"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a262a5ba26691f66db2d13ee70f3f3e09"></a>
+const size_type &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__int.html#a262a5ba26691f66db2d13ee70f3f3e09">sigma</a></td></tr>
+<tr class="memdesc:a262a5ba26691f66db2d13ee70f3f3e09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Effective alphabet size of the wavelet tree. <br/></td></tr>
+<tr class="memitem:a3fe3d84d817ba4221ff42dc5c818c701"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3fe3d84d817ba4221ff42dc5c818c701"></a>
+const bit_vector_type &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__int.html#a3fe3d84d817ba4221ff42dc5c818c701">tree</a></td></tr>
+<tr class="memdesc:a3fe3d84d817ba4221ff42dc5c818c701"><td class="mdescLeft">&#160;</td><td class="mdescRight">A concatenation of all bit vectors of the wavelet tree. <br/></td></tr>
+<tr><td colspan="2"><h2><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:aa95fab8e3215e28ede27e50fff2351f2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa95fab8e3215e28ede27e50fff2351f2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>copy</b> (const <a class="el" href="classsdsl_1_1wt__int.html">wt_int</a> &amp;<a class="el" href="classsdsl_1_1wt.html">wt</a>)</td></tr>
+<tr><td colspan="2"><h2><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:aa1080bb44bec0df85e284d5e9fdef052"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa1080bb44bec0df85e284d5e9fdef052"></a>
+size_type&#160;</td><td class="memItemRight" valign="bottom"><b>m_size</b></td></tr>
+<tr class="memitem:ae8a31bcb0f8386a482ab1b6c7fa950f3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae8a31bcb0f8386a482ab1b6c7fa950f3"></a>
+size_type&#160;</td><td class="memItemRight" valign="bottom"><b>m_sigma</b></td></tr>
+<tr class="memitem:a7927a232a5e012d8c370c835b4735fc0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7927a232a5e012d8c370c835b4735fc0"></a>
+bit_vector_type&#160;</td><td class="memItemRight" valign="bottom"><b>m_tree</b></td></tr>
+<tr class="memitem:acf3a767fa970fdf68c893b26fe693fb5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acf3a767fa970fdf68c893b26fe693fb5"></a>
+rank_1_type&#160;</td><td class="memItemRight" valign="bottom"><b>m_tree_rank</b></td></tr>
+<tr class="memitem:a2bd592051d2ab8c0ca5550090ee47d4a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2bd592051d2ab8c0ca5550090ee47d4a"></a>
+select_1_type&#160;</td><td class="memItemRight" valign="bottom"><b>m_tree_select1</b></td></tr>
+<tr class="memitem:a8fed5fb9cf65028339e503c4885d3620"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8fed5fb9cf65028339e503c4885d3620"></a>
+select_0_type&#160;</td><td class="memItemRight" valign="bottom"><b>m_tree_select0</b></td></tr>
+<tr class="memitem:a27559f9386d9d8dedc5f50ea25118a6f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a27559f9386d9d8dedc5f50ea25118a6f"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_logn</b></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><h3>template&lt;class RandomAccessContainer = int_vector&lt;&gt;, class RankSupport = rank_support_v&lt;&gt;, class SelectSupport = select_support_mcl&lt;&gt;, class SelectSupportZero = select_support_mcl&lt;0&gt;&gt;<br/>
-class sdsl::wt_int&lt; RandomAccessContainer, RankSupport, SelectSupport, SelectSupportZero &gt;</h3>
+<div class="textblock"><h3>template&lt;class RandomAccessContainer = int_vector&lt;&gt;, class BitVector = bit_vector, class RankSupport = typename BitVector::rank_1_type, class SelectSupport = typename BitVector::select_1_type, class SelectSupportZero = typename BitVector::select_0_type&gt;<br/>
+class sdsl::wt_int&lt; RandomAccessContainer, BitVector, RankSupport, SelectSupport, SelectSupportZero &gt;</h3>
 
 <p>A wavelet tree class for sequences of big alphabet size (like integer alphabet) </p>
-<p>A wavelet tree is build for a vector of characters over the alphabet <img class="formulaInl" alt="$\Sigma$" src="form_219.png"/>. The wavelet tree <img class="formulaInl" alt="$wt$" src="form_221.png"/> consits of a tree of bit vector and provides three efficient methods:</p>
+<p>A wavelet tree is build for a vector of characters over the alphabet <img class="formulaInl" alt="$\Sigma$" src="form_234.png"/>. The wavelet tree <img class="formulaInl" alt="$wt$" src="form_236.png"/> consits of a tree of bit vector and provides three efficient methods:</p>
 <ul>
-<li>The "[]"-operator: <img class="formulaInl" alt="$wt[i]$" src="form_222.png"/> returns the ith symbol of vector for which the wavelet tree was build for.</li>
-<li>The rank method: <img class="formulaInl" alt="$wt.rank(i,c)$" src="form_223.png"/> returns the number of occurences of symbol <img class="formulaInl" alt="$c$" src="form_224.png"/> in the prefix [0..i-1] in the vector for which the wavelet tree was build for.</li>
-<li><p class="startli">The select method: <img class="formulaInl" alt="$wt.select(j,c)$" src="form_225.png"/> returns the index <img class="formulaInl" alt="$i\in [0..size()-1]$" src="form_104.png"/> of the jth occurence of symbol <img class="formulaInl" alt="$c$" src="form_224.png"/>.</p>
-<dl class="section user"><dt>Space complexity</b></dt><dd><img class="formulaInl" alt="$\Order{n\log|\Sigma|}$" src="form_241.png"/> bits, where <img class="formulaInl" alt="$n$" src="form_20.png"/> is the size of the vector the wavelet tree was build for. </dd></dl>
+<li>The "[]"-operator: <img class="formulaInl" alt="$wt[i]$" src="form_237.png"/> returns the ith symbol of vector for which the wavelet tree was build for.</li>
+<li>The rank method: <img class="formulaInl" alt="$wt.rank(i,c)$" src="form_238.png"/> returns the number of occurences of symbol <img class="formulaInl" alt="$c$" src="form_239.png"/> in the prefix [0..i-1] in the vector for which the wavelet tree was build for.</li>
+<li><p class="startli">The select method: <img class="formulaInl" alt="$wt.select(j,c)$" src="form_240.png"/> returns the index <img class="formulaInl" alt="$i\in [0..size()-1]$" src="form_105.png"/> of the jth occurence of symbol <img class="formulaInl" alt="$c$" src="form_239.png"/>.</p>
+<dl class="section user"><dt>Space complexity</b></dt><dd><img class="formulaInl" alt="$\Order{n\log|\Sigma|}$" src="form_256.png"/> bits, where <img class="formulaInl" alt="$n$" src="form_20.png"/> is the size of the vector the wavelet tree was build for.</dd></dl>
+<dl class=""><dt><b>Template Parameters:</b></dt><dd>
+  <table class="">
+    <tr><td class="paramname">RandomAccessContainer</td><td>Type of the input sequence. </td></tr>
+    <tr><td class="paramname">BitVector</td><td>Type of the bitvector used for representing the wavelet tree. </td></tr>
+    <tr><td class="paramname">RankSupport</td><td>Type of the support structure for rank on ones. </td></tr>
+    <tr><td class="paramname">SelectSupport</td><td>Type of the support structure for select on ones. </td></tr>
+    <tr><td class="paramname">SelectSupport</td><td>Type of the support structure for select on ones. </td></tr>
+  </table>
+  </dd>
+</dl>
 </li>
 </ul>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a006280ea250228d475cc8bf12c7980e1"></a>
+<a class="anchor" id="a621b676293b7db7733e71ea3d31a745e"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RandomAccessContainer  = int_vector&lt;&gt;, class RankSupport  = rank_support_v&lt;&gt;, class SelectSupport  = select_support_mcl&lt;&gt;, class SelectSupportZero  = select_support_mcl&lt;0&gt;&gt; </div>
+template&lt;class RandomAccessContainer  = int_vector&lt;&gt;, class BitVector  = bit_vector, class RankSupport  = typename BitVector::rank_1_type, class SelectSupport  = typename BitVector::select_1_type, class SelectSupportZero  = typename BitVector::select_0_type&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classsdsl_1_1wt__int.html">sdsl::wt_int</a>&lt; RandomAccessContainer, RankSupport, SelectSupport, SelectSupportZero &gt;::<a class="el" href="classsdsl_1_1wt__int.html">wt_int</a> </td>
+          <td class="memname"><a class="el" href="classsdsl_1_1wt__int.html">sdsl::wt_int</a>&lt; RandomAccessContainer, BitVector, RankSupport, SelectSupport, SelectSupportZero &gt;::<a class="el" href="classsdsl_1_1wt__int.html">wt_int</a> </td>
           <td>(</td>
           <td class="paramtype">const RandomAccessContainer &amp;&#160;</td>
           <td class="paramname"><em>rac</em>, </td>
@@ -219,26 +260,26 @@ template&lt;class RandomAccessContainer  = int_vector&lt;&gt;, class RankSupport
 <div class="memdoc">
 
 <p>Constructor. </p>
-<div class="fragment"><pre class="fragment">   \param rac Reference a random access container of integer values for which the wavelet tree should be build.  
+<div class="fragment"><pre class="fragment">   \param rac Reference a random access container of integer values for which the wavelet tree should be build.
    \param logn Let x &gt; 0 be the biggest value in rac. logn should be bit_magic::l1BP(x-1)+1 to represent all values of rac.
    \par Time complexity
-</pre></div><p> <img class="formulaInl" alt="$ \Order{n\log|\Sigma|}$" src="form_227.png"/>, where <img class="formulaInl" alt="$n=size$" src="form_228.png"/> I.e. we nee {n n} if rac is a permutation of 0..n-1. </p>
-<dl class="section user"><dt>Space complexity</b></dt><dd><img class="formulaInl" alt="$ 3n\log|\Sigma| $" src="form_242.png"/> bits, where <img class="formulaInl" alt="$n=size$" src="form_228.png"/>. I.e. we need <img class="formulaInl" alt="$3n\log n $" src="form_243.png"/> if rac is a permutation of 0..n-1. </dd></dl>
+</pre></div><p> <img class="formulaInl" alt="$ \Order{n\log|\Sigma|}$" src="form_242.png"/>, where <img class="formulaInl" alt="$n=size$" src="form_243.png"/> I.e. we nee {n n} if rac is a permutation of 0..n-1. </p>
+<dl class="section user"><dt>Space complexity</b></dt><dd><img class="formulaInl" alt="$ 3n\log|\Sigma| $" src="form_257.png"/> bits, where <img class="formulaInl" alt="$n=size$" src="form_243.png"/>. I.e. we need <img class="formulaInl" alt="$3n\log n $" src="form_258.png"/> if rac is a permutation of 0..n-1. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ab526bb44dc6cd40e78f8a40ee6813ed2"></a>
+<a class="anchor" id="a9c0490de51596206de3f2a27dbd09d27"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RandomAccessContainer  = int_vector&lt;&gt;, class RankSupport  = rank_support_v&lt;&gt;, class SelectSupport  = select_support_mcl&lt;&gt;, class SelectSupportZero  = select_support_mcl&lt;0&gt;&gt; </div>
+template&lt;class RandomAccessContainer  = int_vector&lt;&gt;, class BitVector  = bit_vector, class RankSupport  = typename BitVector::rank_1_type, class SelectSupport  = typename BitVector::select_1_type, class SelectSupportZero  = typename BitVector::select_0_type&gt; </div>
 <div class="memtemplate">
 template&lt;uint8_t int_width&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classsdsl_1_1wt__int.html">sdsl::wt_int</a>&lt; RandomAccessContainer, RankSupport, SelectSupport, SelectSupportZero &gt;::<a class="el" href="classsdsl_1_1wt__int.html">wt_int</a> </td>
+          <td class="memname"><a class="el" href="classsdsl_1_1wt__int.html">sdsl::wt_int</a>&lt; RandomAccessContainer, BitVector, RankSupport, SelectSupport, SelectSupportZero &gt;::<a class="el" href="classsdsl_1_1wt__int.html">wt_int</a> </td>
           <td>(</td>
-          <td class="paramtype">int_vector_file_buffer&lt; int_width &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classsdsl_1_1int__vector__file__buffer.html">int_vector_file_buffer</a>&lt; int_width &gt; &amp;&#160;</td>
           <td class="paramname"><em>buf</em>, </td>
         </tr>
         <tr>
@@ -267,20 +308,20 @@ template&lt;uint8_t int_width&gt; </div>
    \param logn Let x &gt; 0 be the biggest value in v. logn should be bit_magic::l1BP(x-1)+1 to represent all values of v.
    \param dir      Derectory in which temporary files should be stored during the construction.
    \par Time complexity
-</pre></div><p> <img class="formulaInl" alt="$ \Order{n\log|\Sigma|}$" src="form_227.png"/>, where <img class="formulaInl" alt="$n=size$" src="form_228.png"/> I.e. we nee {n n} if rac is a permutation of 0..n-1. </p>
-<dl class="section user"><dt>Space complexity</b></dt><dd><img class="formulaInl" alt="$ n\log|\Sigma| + O(1)$" src="form_244.png"/> bits, where <img class="formulaInl" alt="$n=size$" src="form_228.png"/>. </dd></dl>
+</pre></div><p> <img class="formulaInl" alt="$ \Order{n\log|\Sigma|}$" src="form_242.png"/>, where <img class="formulaInl" alt="$n=size$" src="form_243.png"/> I.e. we nee {n n} if rac is a permutation of 0..n-1. </p>
+<dl class="section user"><dt>Space complexity</b></dt><dd><img class="formulaInl" alt="$ n\log|\Sigma| + O(1)$" src="form_259.png"/> bits, where <img class="formulaInl" alt="$n=size$" src="form_243.png"/>. </dd></dl>
 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="acbd3a95d398b37d2176ff7de428e9db2"></a>
+<a class="anchor" id="a2bf48dc8cfeeef4b16cb207d589eaf26"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RandomAccessContainer  = int_vector&lt;&gt;, class RankSupport  = rank_support_v&lt;&gt;, class SelectSupport  = select_support_mcl&lt;&gt;, class SelectSupportZero  = select_support_mcl&lt;0&gt;&gt; </div>
+template&lt;class RandomAccessContainer  = int_vector&lt;&gt;, class BitVector  = bit_vector, class RankSupport  = typename BitVector::rank_1_type, class SelectSupport  = typename BitVector::select_1_type, class SelectSupportZero  = typename BitVector::select_0_type&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">value_type <a class="el" href="classsdsl_1_1wt__int.html">sdsl::wt_int</a>&lt; RandomAccessContainer, RankSupport, SelectSupport, SelectSupportZero &gt;::operator[] </td>
+          <td class="memname">value_type <a class="el" href="classsdsl_1_1wt__int.html">sdsl::wt_int</a>&lt; RandomAccessContainer, BitVector, RankSupport, SelectSupport, SelectSupportZero &gt;::operator[] </td>
           <td>(</td>
           <td class="paramtype">size_type&#160;</td>
           <td class="paramname"><em>i</em></td><td>)</td>
@@ -293,7 +334,7 @@ template&lt;class RandomAccessContainer  = int_vector&lt;&gt;, class RankSupport
 <p>Recovers the ith symbol of the original vector. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>The index of the symbol in the original vector. <img class="formulaInl" alt="$i \in [0..size()-1]$" src="form_229.png"/> </td></tr>
+    <tr><td class="paramname">i</td><td>The index of the symbol in the original vector. <img class="formulaInl" alt="$i \in [0..size()-1]$" src="form_244.png"/> </td></tr>
   </table>
   </dd>
 </dl>
@@ -301,14 +342,14 @@ template&lt;class RandomAccessContainer  = int_vector&lt;&gt;, class RankSupport
 
 </div>
 </div>
-<a class="anchor" id="a04732c3d28c0ef5e91657662c0d85b7a"></a>
+<a class="anchor" id="a218e7227f932daee7bed61bf72f5308d"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RandomAccessContainer  = int_vector&lt;&gt;, class RankSupport  = rank_support_v&lt;&gt;, class SelectSupport  = select_support_mcl&lt;&gt;, class SelectSupportZero  = select_support_mcl&lt;0&gt;&gt; </div>
+template&lt;class RandomAccessContainer  = int_vector&lt;&gt;, class BitVector  = bit_vector, class RankSupport  = typename BitVector::rank_1_type, class SelectSupport  = typename BitVector::select_1_type, class SelectSupportZero  = typename BitVector::select_0_type&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">size_type <a class="el" href="classsdsl_1_1wt__int.html">sdsl::wt_int</a>&lt; RandomAccessContainer, RankSupport, SelectSupport, SelectSupportZero &gt;::<a class="el" href="classsdsl_1_1wt__int.html#a04732c3d28c0ef5e91657662c0d85b7a">range_search_2d</a> </td>
+          <td class="memname">size_type <a class="el" href="classsdsl_1_1wt__int.html">sdsl::wt_int</a>&lt; RandomAccessContainer, BitVector, RankSupport, SelectSupport, SelectSupportZero &gt;::<a class="el" href="classsdsl_1_1wt__int.html#a218e7227f932daee7bed61bf72f5308d">range_search_2d</a> </td>
           <td>(</td>
           <td class="paramtype">size_type&#160;</td>
           <td class="paramname"><em>lb</em>, </td>
@@ -367,14 +408,14 @@ template&lt;class RandomAccessContainer  = int_vector&lt;&gt;, class RankSupport
 
 </div>
 </div>
-<a class="anchor" id="ad74912f787e74a3f1d5773617d39ea8d"></a>
+<a class="anchor" id="a52139baa1030ab5e9ae4f93874c1c541"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RandomAccessContainer  = int_vector&lt;&gt;, class RankSupport  = rank_support_v&lt;&gt;, class SelectSupport  = select_support_mcl&lt;&gt;, class SelectSupportZero  = select_support_mcl&lt;0&gt;&gt; </div>
+template&lt;class RandomAccessContainer  = int_vector&lt;&gt;, class BitVector  = bit_vector, class RankSupport  = typename BitVector::rank_1_type, class SelectSupport  = typename BitVector::select_1_type, class SelectSupportZero  = typename BitVector::select_0_type&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">size_type <a class="el" href="classsdsl_1_1wt__int.html">sdsl::wt_int</a>&lt; RandomAccessContainer, RankSupport, SelectSupport, SelectSupportZero &gt;::<a class="el" href="classsdsl_1_1wt__int.html#ad74912f787e74a3f1d5773617d39ea8d">rank</a> </td>
+          <td class="memname">size_type <a class="el" href="classsdsl_1_1wt__int.html">sdsl::wt_int</a>&lt; RandomAccessContainer, BitVector, RankSupport, SelectSupport, SelectSupportZero &gt;::<a class="el" href="classsdsl_1_1wt__int.html#a52139baa1030ab5e9ae4f93874c1c541">rank</a> </td>
           <td>(</td>
           <td class="paramtype">size_type&#160;</td>
           <td class="paramname"><em>i</em>, </td>
@@ -397,24 +438,24 @@ template&lt;class RandomAccessContainer  = int_vector&lt;&gt;, class RankSupport
 <p>Calculates how many symbols c are in the prefix [0..i-1] of the supported vector. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>The exclusive index of the prefix range [0..i-1], so <img class="formulaInl" alt="$i\in[0..size()]$" src="form_230.png"/>. </td></tr>
+    <tr><td class="paramname">i</td><td>The exclusive index of the prefix range [0..i-1], so <img class="formulaInl" alt="$i\in[0..size()]$" src="form_245.png"/>. </td></tr>
     <tr><td class="paramname">c</td><td>The symbol to count the occurences in the prefix. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>The number of occurences of symbol c in the prefix [0..i-1] of the supported vector. </dd></dl>
-<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{\log |\Sigma|} $" src="form_105.png"/> </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{\log |\Sigma|} $" src="form_106.png"/> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a896db8acc938e7e17ee3d2391f91b12d"></a>
+<a class="anchor" id="aab0b33f24150096a1ef285a11068e572"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RandomAccessContainer  = int_vector&lt;&gt;, class RankSupport  = rank_support_v&lt;&gt;, class SelectSupport  = select_support_mcl&lt;&gt;, class SelectSupportZero  = select_support_mcl&lt;0&gt;&gt; </div>
+template&lt;class RandomAccessContainer  = int_vector&lt;&gt;, class BitVector  = bit_vector, class RankSupport  = typename BitVector::rank_1_type, class SelectSupport  = typename BitVector::select_1_type, class SelectSupportZero  = typename BitVector::select_0_type&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">size_type <a class="el" href="classsdsl_1_1wt__int.html">sdsl::wt_int</a>&lt; RandomAccessContainer, RankSupport, SelectSupport, SelectSupportZero &gt;::<a class="el" href="classsdsl_1_1wt__int.html#a896db8acc938e7e17ee3d2391f91b12d">select</a> </td>
+          <td class="memname">size_type <a class="el" href="classsdsl_1_1wt__int.html">sdsl::wt_int</a>&lt; RandomAccessContainer, BitVector, RankSupport, SelectSupport, SelectSupportZero &gt;::<a class="el" href="classsdsl_1_1wt__int.html#aab0b33f24150096a1ef285a11068e572">select</a> </td>
           <td>(</td>
           <td class="paramtype">size_type&#160;</td>
           <td class="paramname"><em>i</em>, </td>
@@ -437,12 +478,12 @@ template&lt;class RandomAccessContainer  = int_vector&lt;&gt;, class RankSupport
 <p>Calculates the ith occurence of the symbol c in the supported vector. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>The ith occurence. <img class="formulaInl" alt="$i\in [1..rank(size(),c)]$" src="form_98.png"/>. </td></tr>
+    <tr><td class="paramname">i</td><td>The ith occurence. <img class="formulaInl" alt="$i\in [1..rank(size(),c)]$" src="form_99.png"/>. </td></tr>
     <tr><td class="paramname">c</td><td>The symbol c. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{\log |\Sigma|} $" src="form_105.png"/> </dd></dl>
+<dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{\log |\Sigma|} $" src="form_106.png"/> </dd></dl>
 
 </div>
 </div>
@@ -453,7 +494,7 @@ template&lt;class RandomAccessContainer  = int_vector&lt;&gt;, class RankSupport
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:36 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:32 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

@@ -52,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -81,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -119,9 +120,9 @@ Namespaces</h2></td></tr>
 <tr class="memdesc:namespacesdsl"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the succinct data structure library. <br/></td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a5f6a02e4b904f1593cdf44ac0626da30"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5f6a02e4b904f1593cdf44ac0626da30"></a>
-int_vector&lt; 32 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesdsl.html#a5f6a02e4b904f1593cdf44ac0626da30">sdsl::get_rnd_positions</a> (uint8_t log_s, uint64_t &amp;mask, uint64_t m=0, uint64_t x=17)</td></tr>
-<tr class="memdesc:a5f6a02e4b904f1593cdf44ac0626da30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create 1^{log_s} random intergers mod m with seed x. <br/></td></tr>
+<tr class="memitem:a2cf94834fbf70b7144b0db7c9d73a5da"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2cf94834fbf70b7144b0db7c9d73a5da"></a>
+int_vector&lt; 64 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesdsl.html#a2cf94834fbf70b7144b0db7c9d73a5da">sdsl::get_rnd_positions</a> (uint8_t log_s, uint64_t &amp;mask, uint64_t m=0, uint64_t x=17)</td></tr>
+<tr class="memdesc:a2cf94834fbf70b7144b0db7c9d73a5da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create 1^{log_s} random intergers mod m with seed x. <br/></td></tr>
 <tr class="memitem:a0539789b0c02c92136f49bdb04529bb4"><td class="memTemplParams" colspan="2"><a class="anchor" id="a0539789b0c02c92136f49bdb04529bb4"></a>
 template&lt;class Vector &gt; </td></tr>
 <tr class="memitem:a0539789b0c02c92136f49bdb04529bb4"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>sdsl::test_int_vector_random_access</b> (const Vector &amp;v, bit_vector::size_type times=100000000)</td></tr>
@@ -193,15 +194,15 @@ template&lt;class Lcp &gt; </td></tr>
 <tr class="memitem:a828748493020c4ba4d22c1dddf0d86c2"><td class="memTemplParams" colspan="2">template&lt;class Lcp &gt; </td></tr>
 <tr class="memitem:a828748493020c4ba4d22c1dddf0d86c2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl.html#a828748493020c4ba4d22c1dddf0d86c2">sdsl::test_lcp_sequential_access</a> (Lcp &amp;lcp, typename Lcp::size_type times=10000000)</td></tr>
 <tr class="memdesc:a828748493020c4ba4d22c1dddf0d86c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make sequential accesses to an LCP array.  <a href="#a828748493020c4ba4d22c1dddf0d86c2"></a><br/></td></tr>
-<tr class="memitem:a97cfc02477e1b8a4bbe36a6f244cd259"><td class="memTemplParams" colspan="2">template&lt;class Lcp &gt; </td></tr>
-<tr class="memitem:a97cfc02477e1b8a4bbe36a6f244cd259"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl.html#a97cfc02477e1b8a4bbe36a6f244cd259">sdsl::test_lcp_random_sequential_access</a> (Lcp &amp;lcp, typename Lcp::size_type times=1000000, typename Lcp::size_type seq_len=32)</td></tr>
-<tr class="memdesc:a97cfc02477e1b8a4bbe36a6f244cd259"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make random sequential accesse to an LCP array.  <a href="#a97cfc02477e1b8a4bbe36a6f244cd259"></a><br/></td></tr>
+<tr class="memitem:ac5a4df7d86b576d54c32b81eb71da86b"><td class="memTemplParams" colspan="2">template&lt;class Lcp &gt; </td></tr>
+<tr class="memitem:ac5a4df7d86b576d54c32b81eb71da86b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl.html#ac5a4df7d86b576d54c32b81eb71da86b">sdsl::test_lcp_random_sequential_access</a> (Lcp &amp;lcp, typename Lcp::size_type times=1000000, typename Lcp::size_type seq_len=64)</td></tr>
+<tr class="memdesc:ac5a4df7d86b576d54c32b81eb71da86b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make random sequential accesse to an LCP array.  <a href="#ac5a4df7d86b576d54c32b81eb71da86b"></a><br/></td></tr>
 <tr class="memitem:a91911d2c2a0edcc1a49625fcb0f50040"><td class="memTemplParams" colspan="2">template&lt;class Cst &gt; </td></tr>
 <tr class="memitem:a91911d2c2a0edcc1a49625fcb0f50040"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl.html#a91911d2c2a0edcc1a49625fcb0f50040">sdsl::test_cst_parent_operation</a> (const Cst &amp;cst, typename Cst::size_type times=100000, uint64_t x=17)</td></tr>
 <tr class="memdesc:a91911d2c2a0edcc1a49625fcb0f50040"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test the speed of the parent operation.  <a href="#a91911d2c2a0edcc1a49625fcb0f50040"></a><br/></td></tr>
 <tr class="memitem:a02ad999788274a8e73f4e3a1807912cf"><td class="memTemplParams" colspan="2">template&lt;class Cst &gt; </td></tr>
 <tr class="memitem:a02ad999788274a8e73f4e3a1807912cf"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl.html#a02ad999788274a8e73f4e3a1807912cf">sdsl::generate_nodes_from_random_leaves</a> (const Cst &amp;cst, typename Cst::size_type times, std::vector&lt; typename Cst::node_type &gt; &amp;nodes, uint64_t x=17)</td></tr>
-<tr class="memdesc:a02ad999788274a8e73f4e3a1807912cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate nodes of a cst by applying the child operation to each of <img class="formulaInl" alt="$times$" src="form_218.png"/> random leaves until we get to the root.  <a href="#a02ad999788274a8e73f4e3a1807912cf"></a><br/></td></tr>
+<tr class="memdesc:a02ad999788274a8e73f4e3a1807912cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate nodes of a cst by applying the child operation to each of <img class="formulaInl" alt="$times$" src="form_233.png"/> random leaves until we get to the root.  <a href="#a02ad999788274a8e73f4e3a1807912cf"></a><br/></td></tr>
 <tr class="memitem:a0604c9f7ef1bac0ae4281e6a76266f0d"><td class="memTemplParams" colspan="2">template&lt;class Cst &gt; </td></tr>
 <tr class="memitem:a0604c9f7ef1bac0ae4281e6a76266f0d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl.html#a0604c9f7ef1bac0ae4281e6a76266f0d">sdsl::test_cst_child_operation</a> (const Cst &amp;cst, typename Cst::size_type times=5000, uint64_t x=17)</td></tr>
 <tr class="memdesc:a0604c9f7ef1bac0ae4281e6a76266f0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test the speed of the child operation.  <a href="#a0604c9f7ef1bac0ae4281e6a76266f0d"></a><br/></td></tr>
@@ -251,7 +252,7 @@ template&lt;class Bps &gt; </td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 30 2012 16:04:35 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 10 2012 18:54:29 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>
