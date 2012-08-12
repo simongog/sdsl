@@ -21,6 +21,11 @@
 #ifndef INCLUDED_SDSL_INT_VECTOR
 #define INCLUDED_SDSL_INT_VECTOR
 
+#include <sys/mman.h>
+
+#define HUGE_PROTECTION (PROT_READ | PROT_WRITE)
+#define HUGE_FLAGS (MAP_HUGETLB | MAP_ANONYMOUS | MAP_PRIVATE)
+
 #include "compatibility.hpp"
 #include "bitmagic.hpp"
 #include "util.hpp"
@@ -40,6 +45,8 @@
 #include <ostream>
 #include <istream>
 #include <string>
+
+
 
 
 
@@ -1125,7 +1132,17 @@ template<uint8_t fixedIntWidth, class size_type_class>
 int_vector<fixedIntWidth,size_type_class>::~int_vector()
 {
     if (m_data != NULL) {
-        free(m_data); //fixed delete
+		if (  util::verbose ){
+			std::cerr<<"unmap int_vector of size "<<  (((m_size+64)>>6)<<3) <<std::endl;
+			std::cerr<<"m_data="<<m_data<<std::endl;
+		}
+//		int ret = munmap((void*)m_data, (((m_size+64)>>6)<<3));
+		int ret = munmap((void*)m_data, ((size_t)1)<<30);
+		if ( util::verbose ){
+			if ( ret == -1 ){
+				perror("Unmap failed");
+			}
+		}
     }
 }
 
@@ -1155,21 +1172,44 @@ void int_vector<fixedIntWidth,size_type_class>::resize(const size_type size)
 template<uint8_t fixedIntWidth, class size_type_class>
 void int_vector<fixedIntWidth,size_type_class>::bit_resize(const size_type size)
 {
-    bool do_realloc = ((size+63)>>6) != ((m_size+63)>>6);
+    bool do_realloc = ((size+64)>>6) != ((m_size+64)>>6);
     const size_type old_size = m_size;
     m_size = size;                       // set new size
     // special case: bitvector of size 0
     if (do_realloc or m_data==NULL) { // or (fixedIntWidth==1 and m_size==0) ) {
         uint64_t* data = NULL;
-        // Note that we allocate 8 additional bytes if m_size % 64 == 0.
-        // We need this padding since rank data structures do a memory
-        // access to this padding to answer rank(size()) if size()%64 ==0.
-        // Note that this padding is not counted in the serialize method!
-        data = (uint64_t*)realloc(m_data, (((m_size+64)>>6)<<3)); // if m_data == NULL realloc
-        // Method realloc is equivalent to malloc if m_data == NULL.
-        // If size is zero and ptr is not NULL, a new, minimum sized object is allocated and the original object is freed.
-        // The allocated memory is aligned such that it can be used for any data type, including AltiVec- and SSE-related types.
+		uint64_t* tmp_data = NULL;
+		size_type tmp_size = std::min(old_size, m_size);
+		size_type tmp_len  = (((tmp_size+64)>>6)<<3);
+		if ( m_data != NULL and tmp_len > 0 ){ // if there is old data, we have to copy it
+			size_type old_len = (((old_size+64)>>6)<<3);
+			tmp_data = (uint64_t*)malloc(tmp_len); // get temporary memory
+			memcpy(tmp_data, m_data, tmp_len);
+			if (  util::verbose ){
+				std::cerr<<"2: unmap int_vector of size "<<old_len<<std::endl;
+			}
+			munmap(m_data, old_len);
+		}
+
+		size_type len = (((m_size+64)>>6)<<3);
+		if ( len > 0 ){
+			if (  util::verbose ){
+				std::cerr<<"map int_vector of size "<<len<<std::endl;
+			}
+			data = (uint64_t*)mmap(NULL, len, HUGE_PROTECTION, HUGE_FLAGS, 0, 0);
+			if (data == MAP_FAILED) {
+				std::cout << "mmap was not successful" << std::endl;
+				return;
+			}
+			if ( m_data != NULL and tmp_len > 0 ){
+				memcpy(data, tmp_data, tmp_size);
+				free(tmp_data);
+			}
+		}
         m_data = data;
+		if ( util::verbose ){
+			std::cerr<<"m_data="<<data<<std::endl;
+		}
         // initialize unreachable bits to 0
         if (m_size > old_size and bit_size() < capacity()) {//m_size>0
             bit_magic::write_int(m_data+(bit_size()>>6), 0, bit_size()&0x3F, capacity()-bit_size());

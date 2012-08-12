@@ -89,14 +89,16 @@ TEST_F(IntVectorTest, DefaultConstruct)
 //! Test the parametrized constructor
 TEST_F(IntVectorTest, Constructor)
 {
-    for (size_type i=0; i < vec_sizes.size(); ++i) {
+ //   for (size_type i=0; i < vec_sizes.size(); ++i) {
+    for (size_type i= vec_sizes.size()-1; i+1 != 0 ; --i) {
         sdsl::int_vector<> iv(vec_sizes[i]);
         ASSERT_EQ(iv.size(), vec_sizes[i]);
         for (size_type j=0; j < iv.size(); ++j) { // should be initialized with 0s
             EXPECT_EQ((size_type)0, iv[j]);
         }
     }
-    for (size_type i=0; i < vec_sizes.size(); ++i) {
+//    for (size_type i=0; i < vec_sizes.size(); ++i) {
+    for (size_type i= vec_sizes.size()-1; i+1 != 0 ; --i) {
         const size_type val = rand();
         sdsl::int_vector<> iv(vec_sizes[i], val);
         ASSERT_EQ(iv.size(), vec_sizes[i]);
@@ -167,6 +169,7 @@ TEST_F(IntVectorTest, SerializeAndLoad)
 
 int main(int argc, char** argv)
 {
+//	sdsl::util::verbose = true;
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
