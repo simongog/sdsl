@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Succinct Data Structure Library (sdsl): sdsl/include/sdsl/rmq_succinct_sada.hpp Source File</title>
+<title>SDSL: Succinct Data Structure Library: sdsl/include/sdsl/rmq_succinct_sada.hpp Source File</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -27,7 +27,7 @@
   
   
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Succinct Data Structure Library (sdsl)
+   <div id="projectname">SDSL: Succinct Data Structure Library
    
    </div>
    <div id="projectbrief">A C++ template library for succinct data structures</div>
@@ -97,7 +97,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">sdsl/include/sdsl/rmq_succinct_sada.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/* sdsl - succinct data structures library</span>
+<a href="rmq__succinct__sada_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/* sdsl - succinct data structures library</span>
 <a name="l00002"></a>00002 <span class="comment">    Copyright (C) 2009 Simon Gog</span>
 <a name="l00003"></a>00003 <span class="comment"></span>
 <a name="l00004"></a>00004 <span class="comment">    This program is free software: you can redistribute it and/or modify</span>
@@ -113,8 +113,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00014"></a>00014 <span class="comment">    You should have received a copy of the GNU General Public License</span>
 <a name="l00015"></a>00015 <span class="comment">    along with this program.  If not, see http://www.gnu.org/licenses/ .</span>
 <a name="l00016"></a>00016 <span class="comment">*/</span>
-<a name="l00021"></a>00021 <span class="preprocessor">#ifndef INCLUDED_SDSL_RMQ_SUPPORT_SADA</span>
-<a name="l00022"></a>00022 <span class="preprocessor"></span><span class="preprocessor">#define INCLUDED_SDSL_RMQ_SUPPORT_SADA</span>
+<a name="l00021"></a>00021 <span class="preprocessor">#ifndef INCLUDED_SDSL_RMQ_SUCCINCT_SADA</span>
+<a name="l00022"></a>00022 <span class="preprocessor"></span><span class="preprocessor">#define INCLUDED_SDSL_RMQ_SUCCINCT_SADA</span>
 <a name="l00023"></a>00023 <span class="preprocessor"></span>
 <a name="l00024"></a>00024 <span class="preprocessor">#include &quot;<a class="code" href="rmq__support_8hpp.html" title="rmq_support.hpp contains different range minimum support data structures.">rmq_support.hpp</a>&quot;</span>
 <a name="l00025"></a>00025 <span class="preprocessor">#include &quot;int_vector.hpp&quot;</span>
@@ -122,155 +122,166 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="bp__support__sada_8hpp.html" title="bp_support_sada.hpp contains an implementation of a balanced parentheses support data structure propo...">bp_support_sada.hpp</a>&quot;</span>
 <a name="l00028"></a>00028 <span class="preprocessor">#include &quot;<a class="code" href="rank__support__v_8hpp.html" title="rank_support_v.hpp contains rank_support_v that support a sdsl::bit_vector with constant time rank in...">rank_support_v.hpp</a>&quot;</span>
 <a name="l00029"></a>00029 <span class="preprocessor">#include &quot;<a class="code" href="select__support__mcl_8hpp.html" title="select_support_mcl.hpp contains classes that support a sdsl::bit_vector with constant time select inf...">select_support_mcl.hpp</a>&quot;</span>
-<a name="l00030"></a>00030 
-<a name="l00032"></a>00032 <span class="keyword">namespace </span>sdsl
-<a name="l00033"></a>00033 {
-<a name="l00034"></a>00034 
+<a name="l00030"></a>00030 <span class="preprocessor">#include &quot;<a class="code" href="util_8hpp.html" title="util.hpp contains some helper methods for int_vector and other stuff like demangle class names...">util.hpp</a>&quot;</span>
+<a name="l00031"></a>00031 
+<a name="l00033"></a>00033 <span class="keyword">namespace </span>sdsl
+<a name="l00034"></a>00034 {
 <a name="l00035"></a>00035 
-<a name="l00036"></a>00036 <span class="keyword">template</span>&lt;<span class="keyword">class</span> RandomAccessContainer = <span class="keywordtype">int</span>_vector&lt;&gt;, <span class="keywordtype">bool</span> Minimum = true, <span class="keyword">class</span> Bp_support = bp_support_sada&lt;&gt;, <span class="keyword">class</span> Rank_support10 = rank_support_v&lt;10,2&gt;, <span class="keyword">class</span> Select_support10 = select_support_mcl&lt;10,2&gt; &gt;
-<a name="l00037"></a>00037 <span class="keyword">class </span>rmq_support_sada;
-<a name="l00038"></a>00038 
-<a name="l00039"></a>00039 <span class="keyword">template</span>&lt;<span class="keyword">class</span> RandomAccessContainer = <span class="keywordtype">int</span>_vector&lt;&gt;, <span class="keyword">class</span> Bp_support = bp_support_sada&lt;&gt;, <span class="keyword">class</span> Rank_support10 = rank_support_v&lt;10,2&gt;, <span class="keyword">class</span> Select_support10 = select_support_mcl&lt;10,2&gt; &gt;
-<a name="l00040"></a><a class="code" href="structsdsl_1_1range__maximum__support__sada.html">00040</a> <span class="keyword">struct </span><a class="code" href="structsdsl_1_1range__maximum__support__sada.html">range_maximum_support_sada</a> {
-<a name="l00041"></a>00041     <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1rmq__support__sada.html" title="A class to support range minimum or range maximum queries on a random access container.">rmq_support_sada&lt;RandomAccessContainer, false, Bp_support, Rank_support10, Select_support10&gt;</a> <a class="code" href="classsdsl_1_1rmq__support__sada.html" title="A class to support range minimum or range maximum queries on a random access container.">type</a>;
-<a name="l00042"></a>00042 };
-<a name="l00043"></a>00043 
-<a name="l00045"></a>00045 
-<a name="l00058"></a>00058 <span class="keyword">template</span>&lt;<span class="keyword">class</span> RandomAccessContainer, <span class="keywordtype">bool</span> Minimum, <span class="keyword">class</span> Bp_support, <span class="keyword">class</span> Rank_support10, <span class="keyword">class</span> Select_support10&gt;
-<a name="l00059"></a><a class="code" href="classsdsl_1_1rmq__support__sada.html">00059</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1rmq__support__sada.html" title="A class to support range minimum or range maximum queries on a random access container.">rmq_support_sada</a>
-<a name="l00060"></a>00060 {
-<a name="l00061"></a>00061         <span class="keyword">const</span> RandomAccessContainer* m_v;
-<a name="l00062"></a>00062         <a class="code" href="classsdsl_1_1int__vector.html">bit_vector</a>                                      m_ect_bp;                       
-<a name="l00063"></a>00063         Bp_support                                      m_ect_bp_support;       
-<a name="l00064"></a>00064         Rank_support10                          m_ect_bp_rank10;                
-<a name="l00065"></a>00065         Select_support10                        m_ect_bp_select10;      
-<a name="l00066"></a>00066 
-<a name="l00067"></a>00067     <span class="keyword">public</span>:
-<a name="l00068"></a>00068         <span class="keyword">typedef</span> <span class="keyword">typename</span> RandomAccessContainer::size_type size_type;
-<a name="l00069"></a>00069         <span class="keyword">typedef</span> <span class="keyword">typename</span> RandomAccessContainer::size_type value_type;
-<a name="l00070"></a>00070 
-<a name="l00071"></a>00071         <span class="keyword">typedef</span> Bp_support                      bp_support_type;
-<a name="l00072"></a>00072         <span class="keyword">typedef</span> Rank_support10          rank_support10_type;
-<a name="l00073"></a>00073         <span class="keyword">typedef</span> Select_support10        select_support10_type;
-<a name="l00074"></a>00074 
-<a name="l00075"></a>00075         <span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">bit_vector</a>&amp;                ect_bp;
-<a name="l00076"></a>00076         <span class="keyword">const</span> Bp_support&amp;                ect_bp_support;
-<a name="l00077"></a>00077         <span class="keyword">const</span> Rank_support10&amp;   ect_bp_rank10;
-<a name="l00078"></a>00078         <span class="keyword">const</span> Select_support10&amp; ect_bp_select10;
-<a name="l00079"></a>00079 
-<a name="l00080"></a>00080     <span class="keyword">private</span>:
+<a name="l00036"></a>00036 
+<a name="l00037"></a>00037 <span class="keyword">template</span>&lt;<span class="keywordtype">bool</span> Minimum = true, <span class="keyword">class</span> Bp_support = bp_support_sada&lt;256, 32, rank_support_v5&lt;&gt;, select_support_dummy&gt;, 
+<a name="l00038"></a>00038              <span class="keyword">class</span> Rank_support10 = rank_support_v&lt;10,2&gt;, <span class="keyword">class</span> Select_support10 = select_support_mcl&lt;10,2&gt; &gt;
+<a name="l00039"></a>00039 <span class="keyword">class </span>rmq_succinct_sada;
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Bp_support = bp_support_sada&lt;256, 32, rank_support_v5&lt;&gt;, select_support_dummy&gt;, 
+<a name="l00042"></a>00042              <span class="keyword">class</span> Rank_support10 = rank_support_v&lt;10,2&gt;, <span class="keyword">class</span> Select_support10 = select_support_mcl&lt;10,2&gt; &gt;
+<a name="l00043"></a><a class="code" href="structsdsl_1_1range__maximum__support__sada.html">00043</a> <span class="keyword">struct </span><a class="code" href="structsdsl_1_1range__maximum__support__sada.html">range_maximum_support_sada</a> {
+<a name="l00044"></a>00044     <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1rmq__succinct__sada.html" title="A class to support range minimum or range maximum queries on a random access container.">rmq_succinct_sada&lt;false, Bp_support, Rank_support10, Select_support10&gt;</a> <a class="code" href="classsdsl_1_1rmq__succinct__sada.html" title="A class to support range minimum or range maximum queries on a random access container.">type</a>;
+<a name="l00045"></a>00045 };
+<a name="l00046"></a>00046 
+<a name="l00048"></a>00048 
+<a name="l00061"></a>00061 <span class="keyword">template</span>&lt;<span class="keywordtype">bool</span> Minimum, <span class="keyword">class</span> Bp_support, <span class="keyword">class</span> Rank_support10, <span class="keyword">class</span> Select_support10&gt;
+<a name="l00062"></a><a class="code" href="classsdsl_1_1rmq__succinct__sada.html">00062</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1rmq__succinct__sada.html" title="A class to support range minimum or range maximum queries on a random access container.">rmq_succinct_sada</a>
+<a name="l00063"></a>00063 {
+<a name="l00064"></a>00064         <a class="code" href="classsdsl_1_1int__vector.html">bit_vector</a>                                      m_ect_bp;                       
+<a name="l00065"></a>00065         Bp_support                                      m_ect_bp_support;       
+<a name="l00066"></a>00066         Rank_support10                          m_ect_bp_rank10;                
+<a name="l00067"></a>00067         Select_support10                        m_ect_bp_select10;      
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069     <span class="keyword">public</span>:
+<a name="l00070"></a>00070         <span class="keyword">typedef</span> <span class="keyword">typename</span> bit_vector::size_type size_type;
+<a name="l00071"></a>00071         <span class="keyword">typedef</span> <span class="keyword">typename</span> bit_vector::size_type value_type;
+<a name="l00072"></a>00072 
+<a name="l00073"></a>00073         <span class="keyword">typedef</span> Bp_support                      bp_support_type;
+<a name="l00074"></a>00074         <span class="keyword">typedef</span> Rank_support10          rank_support10_type;
+<a name="l00075"></a>00075         <span class="keyword">typedef</span> Select_support10        select_support10_type;
+<a name="l00076"></a>00076 
+<a name="l00077"></a>00077         <span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">bit_vector</a>&amp;                ect_bp;
+<a name="l00078"></a>00078         <span class="keyword">const</span> Bp_support&amp;                ect_bp_support;
+<a name="l00079"></a>00079         <span class="keyword">const</span> Rank_support10&amp;   ect_bp_rank10;
+<a name="l00080"></a>00080         <span class="keyword">const</span> Select_support10&amp; ect_bp_select10;
 <a name="l00081"></a>00081 
-<a name="l00082"></a>00082         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1rmq__support__sct.html" title="A class to support range minimum or range maximum queries on a random access container.">rmq_support_sct&lt;RandomAccessContainer, Minimum&gt;</a> <a class="code" href="classsdsl_1_1rmq__support__sct.html" title="A class to support range minimum or range maximum queries on a random access container.">rmq_construct_helper_type</a>;
+<a name="l00082"></a>00082     <span class="keyword">private</span>:
 <a name="l00083"></a>00083 
-<a name="l00084"></a>00084         <span class="keywordtype">void</span> _construct_bp_of_extended_cartesian_tree(size_type l, size_type r, size_type&amp; bp_cnt, <span class="keyword">const</span> <a class="code" href="classsdsl_1_1rmq__support__sct.html" title="A class to support range minimum or range maximum queries on a random access container.">rmq_construct_helper_type</a>&amp; rmq_helper) {
-<a name="l00085"></a>00085             <span class="keywordflow">if</span> (r==(size_type)-1 or l &gt; r)
-<a name="l00086"></a>00086                 <span class="keywordflow">return</span>;
-<a name="l00087"></a>00087             m_ect_bp[bp_cnt++] = 1; <span class="comment">// write beginning of inner node</span>
-<a name="l00088"></a>00088             size_type m = rmq_helper(l, r);
-<a name="l00089"></a>00089             _construct_bp_of_extended_cartesian_tree(l, m-1, bp_cnt, rmq_helper);
-<a name="l00090"></a>00090             m_ect_bp[bp_cnt++] = 1; <span class="comment">// write leaf</span>
-<a name="l00091"></a>00091             m_ect_bp[bp_cnt++] = 0;
-<a name="l00092"></a>00092             _construct_bp_of_extended_cartesian_tree(m+1, r, bp_cnt, rmq_helper);
-<a name="l00093"></a>00093             m_ect_bp[bp_cnt++] = 0; <span class="comment">// write end of inner node</span>
-<a name="l00094"></a>00094             assert(bp_cnt &lt;= m_ect_bp.<a class="code" href="classsdsl_1_1int__vector.html#aea4fcbbab7fbef9c1cc4a4c89f4b1520" title="The number of elements in the int_vector.">size</a>());
-<a name="l00095"></a>00095         }
-<a name="l00096"></a>00096 
-<a name="l00097"></a>00097         <span class="keywordtype">void</span> construct() {
-<a name="l00098"></a>00098             <span class="keywordflow">if</span> (m_v == NULL) {
-<a name="l00099"></a>00099                 m_ect_bp = <a class="code" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb" title="bit_vector is a specialization of the int_vector.">bit_vector</a>(0); m_ect_bp_support = Bp_support();
-<a name="l00100"></a>00100                 m_ect_bp_rank10 = Rank_support10(); m_ect_bp_select10 = Select_support10();
-<a name="l00101"></a>00101             } <span class="keywordflow">else</span> {
-<a name="l00102"></a>00102                 <a class="code" href="classsdsl_1_1rmq__support__sct.html" title="A class to support range minimum or range maximum queries on a random access container.">rmq_construct_helper_type</a> rmq_helper(m_v);
-<a name="l00103"></a>00103                 m_ect_bp.<a class="code" href="classsdsl_1_1int__vector.html#a311439ddb68d63e4172457a4861affd9" title="Resize the int_vector in terms of elements.">resize</a>(4*m_v-&gt;size());
-<a name="l00104"></a>00104                 size_type bp_cnt=0;
-<a name="l00105"></a>00105                 _construct_bp_of_extended_cartesian_tree((size_type)0, m_v-&gt;size()-1, bp_cnt, rmq_helper);
-<a name="l00106"></a>00106                 assert(bp_cnt == 4*m_v-&gt;size());
-<a name="l00107"></a>00107                 m_ect_bp_support = Bp_support(&amp;m_ect_bp);
-<a name="l00108"></a>00108                 <a class="code" href="namespacesdsl_1_1util.html#a261681cbaa98ab77a78dddb6f21b1f6e" title="Initialise support data structure with.">util::init_support</a>(m_ect_bp_rank10, &amp;m_ect_bp);
-<a name="l00109"></a>00109                 <a class="code" href="namespacesdsl_1_1util.html#a261681cbaa98ab77a78dddb6f21b1f6e" title="Initialise support data structure with.">util::init_support</a>(m_ect_bp_select10, &amp;m_ect_bp);
-<a name="l00110"></a>00110             }
-<a name="l00111"></a>00111         }
-<a name="l00112"></a>00112 
-<a name="l00113"></a>00113         <span class="keywordtype">void</span> copy(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1rmq__support__sada.html" title="A class to support range minimum or range maximum queries on a random access container.">rmq_support_sada</a>&amp; rm) {
-<a name="l00114"></a>00114             m_v = rm.m_v;
-<a name="l00115"></a>00115             m_ect_bp = rm.m_ect_bp;
-<a name="l00116"></a>00116             m_ect_bp_support = rm.m_ect_bp_support;
-<a name="l00117"></a>00117             m_ect_bp_support.set_vector(&amp;m_ect_bp);
-<a name="l00118"></a>00118             m_ect_bp_rank10 = rm.m_ect_bp_rank10;
-<a name="l00119"></a>00119             m_ect_bp_rank10.set_vector(&amp;m_ect_bp);
-<a name="l00120"></a>00120             m_ect_bp_select10 = rm.m_ect_bp_select10;
-<a name="l00121"></a>00121             m_ect_bp_select10.set_vector(&amp;m_ect_bp);
-<a name="l00122"></a>00122         }
-<a name="l00123"></a>00123 
-<a name="l00124"></a>00124     <span class="keyword">public</span>:
+<a name="l00084"></a>00084         <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1rmq__succinct__sct.html" title="A class to support range minimum or range maximum queries on a random access container.">rmq_succinct_sct&lt;Minimum&gt;</a> <a class="code" href="classsdsl_1_1rmq__succinct__sct.html" title="A class to support range minimum or range maximum queries on a random access container.">rmq_construct_helper_type</a>;
+<a name="l00085"></a>00085 
+<a name="l00086"></a>00086         <span class="keywordtype">void</span> _construct_bp_of_extended_cartesian_tree(size_type l, size_type r, size_type&amp; bp_cnt, <span class="keyword">const</span> <a class="code" href="classsdsl_1_1rmq__succinct__sct.html" title="A class to support range minimum or range maximum queries on a random access container.">rmq_construct_helper_type</a>&amp; rmq_helper) {
+<a name="l00087"></a>00087             <span class="keywordflow">if</span> (r==(size_type)-1 or l &gt; r)
+<a name="l00088"></a>00088                 <span class="keywordflow">return</span>;
+<a name="l00089"></a>00089             m_ect_bp[bp_cnt++] = 1; <span class="comment">// write beginning of inner node</span>
+<a name="l00090"></a>00090             size_type m = rmq_helper(l, r);
+<a name="l00091"></a>00091             _construct_bp_of_extended_cartesian_tree(l, m-1, bp_cnt, rmq_helper);
+<a name="l00092"></a>00092             m_ect_bp[bp_cnt++] = 1; <span class="comment">// write leaf</span>
+<a name="l00093"></a>00093             m_ect_bp[bp_cnt++] = 0;
+<a name="l00094"></a>00094             _construct_bp_of_extended_cartesian_tree(m+1, r, bp_cnt, rmq_helper);
+<a name="l00095"></a>00095             m_ect_bp[bp_cnt++] = 0; <span class="comment">// write end of inner node</span>
+<a name="l00096"></a>00096             assert(bp_cnt &lt;= m_ect_bp.<a class="code" href="classsdsl_1_1int__vector.html#aea4fcbbab7fbef9c1cc4a4c89f4b1520" title="The number of elements in the int_vector.">size</a>());
+<a name="l00097"></a>00097         }
+<a name="l00098"></a>00098 
+<a name="l00099"></a>00099                 <span class="keyword">template</span>&lt;<span class="keyword">class</span> RandomAccessContainer&gt;
+<a name="l00100"></a>00100         <span class="keywordtype">void</span> construct(<span class="keyword">const</span> RandomAccessContainer* v) {
+<a name="l00101"></a>00101             <span class="keywordflow">if</span> (v == NULL) {
+<a name="l00102"></a>00102                 m_ect_bp = <a class="code" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb" title="bit_vector is a specialization of the int_vector.">bit_vector</a>(0); m_ect_bp_support = Bp_support();
+<a name="l00103"></a>00103                 m_ect_bp_rank10 = Rank_support10(); m_ect_bp_select10 = Select_support10();
+<a name="l00104"></a>00104             } <span class="keywordflow">else</span> {
+<a name="l00105"></a>00105                 <a class="code" href="classsdsl_1_1rmq__succinct__sct.html" title="A class to support range minimum or range maximum queries on a random access container.">rmq_construct_helper_type</a> rmq_helper(v);
+<a name="l00106"></a>00106                 m_ect_bp.<a class="code" href="classsdsl_1_1int__vector.html#a311439ddb68d63e4172457a4861affd9" title="Resize the int_vector in terms of elements.">resize</a>(4*v-&gt;size());
+<a name="l00107"></a>00107                 size_type bp_cnt=0;
+<a name="l00108"></a>00108                 _construct_bp_of_extended_cartesian_tree((size_type)0, v-&gt;size()-1, bp_cnt, rmq_helper);
+<a name="l00109"></a>00109                 assert(bp_cnt == 4*v-&gt;size());
+<a name="l00110"></a>00110                 m_ect_bp_support = Bp_support(&amp;m_ect_bp);
+<a name="l00111"></a>00111                 <a class="code" href="namespacesdsl_1_1util.html#a261681cbaa98ab77a78dddb6f21b1f6e" title="Initialise support data structure with.">util::init_support</a>(m_ect_bp_rank10, &amp;m_ect_bp);
+<a name="l00112"></a>00112                 <a class="code" href="namespacesdsl_1_1util.html#a261681cbaa98ab77a78dddb6f21b1f6e" title="Initialise support data structure with.">util::init_support</a>(m_ect_bp_select10, &amp;m_ect_bp);
+<a name="l00113"></a>00113             }
+<a name="l00114"></a>00114         }
+<a name="l00115"></a>00115 
+<a name="l00116"></a>00116         <span class="keywordtype">void</span> copy(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1rmq__succinct__sada.html" title="A class to support range minimum or range maximum queries on a random access container.">rmq_succinct_sada</a>&amp; rm) {
+<a name="l00117"></a>00117             m_ect_bp = rm.m_ect_bp;
+<a name="l00118"></a>00118             m_ect_bp_support = rm.m_ect_bp_support;
+<a name="l00119"></a>00119             m_ect_bp_support.set_vector(&amp;m_ect_bp);
+<a name="l00120"></a>00120             m_ect_bp_rank10 = rm.m_ect_bp_rank10;
+<a name="l00121"></a>00121             m_ect_bp_rank10.set_vector(&amp;m_ect_bp);
+<a name="l00122"></a>00122             m_ect_bp_select10 = rm.m_ect_bp_select10;
+<a name="l00123"></a>00123             m_ect_bp_select10.set_vector(&amp;m_ect_bp);
+<a name="l00124"></a>00124         }
 <a name="l00125"></a>00125 
-<a name="l00127"></a><a class="code" href="classsdsl_1_1rmq__support__sada.html#acf857e37c50787989717fe220e27293d">00127</a>         <a class="code" href="classsdsl_1_1rmq__support__sada.html#acf857e37c50787989717fe220e27293d" title="Constructor.">rmq_support_sada</a>(<span class="keyword">const</span> RandomAccessContainer* v=NULL):m_v(v), ect_bp(m_ect_bp), ect_bp_support(m_ect_bp_support), ect_bp_rank10(m_ect_bp_rank10), ect_bp_select10(m_ect_bp_select10) {
-<a name="l00128"></a>00128             construct();
-<a name="l00129"></a>00129         }
-<a name="l00130"></a>00130 
-<a name="l00132"></a><a class="code" href="classsdsl_1_1rmq__support__sada.html#aeece3afd0816f49de4f9b96a26e01506">00132</a>         <a class="code" href="classsdsl_1_1rmq__support__sada.html#aeece3afd0816f49de4f9b96a26e01506" title="Copy constructor.">rmq_support_sada</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1rmq__support__sada.html" title="A class to support range minimum or range maximum queries on a random access container.">rmq_support_sada</a>&amp; rm) {
-<a name="l00133"></a>00133             <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;rm) { <span class="comment">// if v is not the same object</span>
-<a name="l00134"></a>00134                 copy(rm);
-<a name="l00135"></a>00135             }
-<a name="l00136"></a>00136         }
-<a name="l00137"></a>00137 
-<a name="l00139"></a><a class="code" href="classsdsl_1_1rmq__support__sada.html#a3ef85c7c87ea3a0ecd45375df8e55305">00139</a>         <a class="code" href="classsdsl_1_1rmq__support__sada.html#a3ef85c7c87ea3a0ecd45375df8e55305" title="Destructor.">~rmq_support_sada</a>() { }
-<a name="l00140"></a>00140 
-<a name="l00141"></a>00141         <a class="code" href="classsdsl_1_1rmq__support__sada.html" title="A class to support range minimum or range maximum queries on a random access container.">rmq_support_sada</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1rmq__support__sada.html" title="A class to support range minimum or range maximum queries on a random access container.">rmq_support_sada</a>&amp; rm) {
-<a name="l00142"></a>00142             <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;rm) {
-<a name="l00143"></a>00143                 copy(rm);
-<a name="l00144"></a>00144             }
-<a name="l00145"></a>00145             <span class="keywordflow">return</span> *<span class="keyword">this</span>;
-<a name="l00146"></a>00146         }
-<a name="l00147"></a>00147 
-<a name="l00148"></a>00148         <span class="keywordtype">void</span> set_vector(<span class="keyword">const</span> RandomAccessContainer* v) {
-<a name="l00149"></a>00149             m_v = v;
-<a name="l00150"></a>00150         }
-<a name="l00151"></a>00151 
-<a name="l00153"></a>00153 
-<a name="l00163"></a><a class="code" href="classsdsl_1_1rmq__support__sada.html#a11cb2b46c703aa060b2c8acdeb24d107">00163</a>         size_type <a class="code" href="classsdsl_1_1rmq__support__sada.html#a11cb2b46c703aa060b2c8acdeb24d107" title="Range minimum/maximum query for the supported random access container v.">operator()</a>(<span class="keyword">const</span> size_type l, <span class="keyword">const</span> size_type r)<span class="keyword">const </span>{
-<a name="l00164"></a>00164             assert(l &lt;= r); assert(r &lt; size());
-<a name="l00165"></a>00165             <span class="keywordflow">if</span> (l==r)
-<a name="l00166"></a>00166                 <span class="keywordflow">return</span> l;
-<a name="l00167"></a>00167             size_type x         = m_ect_bp_select10(l+1);
-<a name="l00168"></a>00168             size_type y         = m_ect_bp_select10(r+1);
-<a name="l00169"></a>00169             size_type z         = m_ect_bp_support.rmq(x, y);
-<a name="l00170"></a>00170             size_type f         = z + 1 - 2*(m_ect_bp[z]);
-<a name="l00171"></a>00171             <span class="keywordflow">return</span> m_ect_bp_rank10(f-1);
-<a name="l00172"></a>00172         }
-<a name="l00173"></a>00173 
-<a name="l00174"></a>00174         size_type size()<span class="keyword">const </span>{
-<a name="l00175"></a>00175             <span class="keywordflow">return</span> m_ect_bp.<a class="code" href="classsdsl_1_1int__vector.html#aea4fcbbab7fbef9c1cc4a4c89f4b1520" title="The number of elements in the int_vector.">size</a>()/4;
-<a name="l00176"></a>00176         }
-<a name="l00177"></a>00177 
-<a name="l00178"></a>00178         size_type serialize(std::ostream&amp; out)<span class="keyword">const </span>{
-<a name="l00179"></a>00179             size_type written_bytes = 0;
-<a name="l00180"></a>00180             written_bytes += m_ect_bp.<a class="code" href="classsdsl_1_1int__vector.html#a32bfb973d19b10c8e9d32107805bbab0" title="Serializes the int_vector to a stream.">serialize</a>(out);
-<a name="l00181"></a>00181             written_bytes += m_ect_bp_support.serialize(out);
-<a name="l00182"></a>00182             written_bytes -= m_ect_bp_support.bp_select.serialize(out); <span class="comment">// rmq_support_sada does not use the select support of bp_support</span>
-<a name="l00183"></a>00183             written_bytes += m_ect_bp_rank10.serialize(out);
-<a name="l00184"></a>00184             written_bytes += m_ect_bp_select10.serialize(out);
-<a name="l00185"></a>00185             <span class="keywordflow">return</span> written_bytes;
-<a name="l00186"></a>00186         }
-<a name="l00187"></a>00187 
-<a name="l00188"></a>00188         <span class="keywordtype">void</span> load(std::istream&amp; in, <span class="keyword">const</span> RandomAccessContainer* v) {
-<a name="l00189"></a>00189             m_ect_bp.<a class="code" href="classsdsl_1_1int__vector.html#a57c9fc2fdc93eeaa477a49389e7a47ac" title="Load the int_vector for a stream.">load</a>(in);
-<a name="l00190"></a>00190             m_ect_bp_support.load(in, &amp;m_ect_bp);
-<a name="l00191"></a>00191             m_ect_bp_rank10.load(in, &amp;m_ect_bp);
-<a name="l00192"></a>00192             m_ect_bp_select10.load(in, &amp;m_ect_bp);
-<a name="l00193"></a>00193         }
-<a name="l00194"></a>00194 };
-<a name="l00195"></a>00195 
-<a name="l00196"></a>00196 
-<a name="l00197"></a>00197 }
-<a name="l00198"></a>00198 
-<a name="l00199"></a>00199 
-<a name="l00200"></a>00200 <span class="preprocessor">#endif</span>
+<a name="l00126"></a>00126     <span class="keyword">public</span>:
+<a name="l00128"></a><a class="code" href="classsdsl_1_1rmq__succinct__sada.html#ab45a8e1bf93dafb15e823bcc506b1b96">00128</a>         <a class="code" href="classsdsl_1_1rmq__succinct__sada.html#ab45a8e1bf93dafb15e823bcc506b1b96" title="Default Constructor.">rmq_succinct_sada</a>():ect_bp(m_ect_bp), ect_bp_support(m_ect_bp_support), ect_bp_rank10(m_ect_bp_rank10), ect_bp_select10(m_ect_bp_select10) {}
+<a name="l00129"></a>00129 
+<a name="l00131"></a>00131                 <span class="keyword">template</span>&lt;<span class="keyword">class</span> RandomAccessContainer&gt;
+<a name="l00132"></a><a class="code" href="classsdsl_1_1rmq__succinct__sada.html#ab57015f387cc186e93476c4721422849">00132</a>         <a class="code" href="classsdsl_1_1rmq__succinct__sada.html#ab57015f387cc186e93476c4721422849" title="Constructor.">rmq_succinct_sada</a>(<span class="keyword">const</span> RandomAccessContainer* v=NULL):ect_bp(m_ect_bp), ect_bp_support(m_ect_bp_support), ect_bp_rank10(m_ect_bp_rank10), ect_bp_select10(m_ect_bp_select10) {
+<a name="l00133"></a>00133             construct(v);
+<a name="l00134"></a>00134         }
+<a name="l00135"></a>00135 
+<a name="l00137"></a><a class="code" href="classsdsl_1_1rmq__succinct__sada.html#a4b82358f90b917f67ef289cf41d43b06">00137</a>         <a class="code" href="classsdsl_1_1rmq__succinct__sada.html#a4b82358f90b917f67ef289cf41d43b06" title="Copy constructor.">rmq_succinct_sada</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1rmq__succinct__sada.html" title="A class to support range minimum or range maximum queries on a random access container.">rmq_succinct_sada</a>&amp; rm):ect_bp(m_ect_bp), ect_bp_support(m_ect_bp_support), ect_bp_rank10(m_ect_bp_rank10), ect_bp_select10(m_ect_bp_select10) {
+<a name="l00138"></a>00138             <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;rm) { <span class="comment">// if v is not the same object</span>
+<a name="l00139"></a>00139                 copy(rm);
+<a name="l00140"></a>00140             }
+<a name="l00141"></a>00141         }
+<a name="l00142"></a>00142 
+<a name="l00144"></a><a class="code" href="classsdsl_1_1rmq__succinct__sada.html#a4bfebe75cb9ce5e86b7a8647a88e8e72">00144</a>         <a class="code" href="classsdsl_1_1rmq__succinct__sada.html#a4bfebe75cb9ce5e86b7a8647a88e8e72" title="Destructor.">~rmq_succinct_sada</a>() { }
+<a name="l00145"></a>00145 
+<a name="l00146"></a>00146         <a class="code" href="classsdsl_1_1rmq__succinct__sada.html" title="A class to support range minimum or range maximum queries on a random access container.">rmq_succinct_sada</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1rmq__succinct__sada.html" title="A class to support range minimum or range maximum queries on a random access container.">rmq_succinct_sada</a>&amp; rm) {
+<a name="l00147"></a>00147             <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;rm) {
+<a name="l00148"></a>00148                 copy(rm);
+<a name="l00149"></a>00149             }
+<a name="l00150"></a>00150             <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00151"></a>00151         }
+<a name="l00152"></a>00152 
+<a name="l00154"></a><a class="code" href="classsdsl_1_1rmq__succinct__sada.html#aac9294869129a30779899ad6bd0161a1">00154</a>         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1rmq__succinct__sada.html#aac9294869129a30779899ad6bd0161a1" title="Swap operator.">swap</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1rmq__succinct__sada.html" title="A class to support range minimum or range maximum queries on a random access container.">rmq_succinct_sada</a>&amp; rm) {
+<a name="l00155"></a>00155             m_ect_bp.<a class="code" href="classsdsl_1_1int__vector.html#ae042b894c07ed66c8f2c245b12bf0661" title="Swap method for int_vector.">swap</a>(rm.m_ect_bp);
+<a name="l00156"></a>00156                         <a class="code" href="namespacesdsl_1_1util.html#aa60ad1bcd3cc5099fbf22ac1ee3764ef" title="Swap support data structure and assign to new vector.">util::swap_support</a>(m_ect_bp_support, rm.m_ect_bp_support, 
+<a name="l00157"></a>00157                                                   &amp;m_ect_bp, &amp;(rm.m_ect_bp));
+<a name="l00158"></a>00158                         <a class="code" href="namespacesdsl_1_1util.html#aa60ad1bcd3cc5099fbf22ac1ee3764ef" title="Swap support data structure and assign to new vector.">util::swap_support</a>(m_ect_bp_rank10, rm.m_ect_bp_rank10, 
+<a name="l00159"></a>00159                                                   &amp;m_ect_bp, &amp;(rm.m_ect_bp));
+<a name="l00160"></a>00160                         <a class="code" href="namespacesdsl_1_1util.html#aa60ad1bcd3cc5099fbf22ac1ee3764ef" title="Swap support data structure and assign to new vector.">util::swap_support</a>(m_ect_bp_select10, rm.m_ect_bp_select10,
+<a name="l00161"></a>00161                                                   &amp;m_ect_bp, &amp;(rm.m_ect_bp));
+<a name="l00162"></a>00162         }
+<a name="l00163"></a>00163 
+<a name="l00165"></a>00165 
+<a name="l00175"></a><a class="code" href="classsdsl_1_1rmq__succinct__sada.html#aabec60102d2d6e0afaa1a8053901eeb1">00175</a>         size_type <a class="code" href="classsdsl_1_1rmq__succinct__sada.html#aabec60102d2d6e0afaa1a8053901eeb1" title="Range minimum/maximum query for the supported random access container v.">operator()</a>(<span class="keyword">const</span> size_type l, <span class="keyword">const</span> size_type r)<span class="keyword">const </span>{
+<a name="l00176"></a>00176             assert(l &lt;= r); assert(r &lt; size());
+<a name="l00177"></a>00177             <span class="keywordflow">if</span> (l==r)
+<a name="l00178"></a>00178                 <span class="keywordflow">return</span> l;
+<a name="l00179"></a>00179             size_type x         = m_ect_bp_select10(l+1);
+<a name="l00180"></a>00180             size_type y         = m_ect_bp_select10(r+1);
+<a name="l00181"></a>00181             size_type z         = m_ect_bp_support.rmq(x, y);
+<a name="l00182"></a>00182             size_type f         = z + 1 - 2*(m_ect_bp[z]);
+<a name="l00183"></a>00183             <span class="keywordflow">return</span> m_ect_bp_rank10(f-1);
+<a name="l00184"></a>00184         }
+<a name="l00185"></a>00185 
+<a name="l00186"></a>00186         size_type size()<span class="keyword">const </span>{
+<a name="l00187"></a>00187             <span class="keywordflow">return</span> m_ect_bp.<a class="code" href="classsdsl_1_1int__vector.html#aea4fcbbab7fbef9c1cc4a4c89f4b1520" title="The number of elements in the int_vector.">size</a>()/4;
+<a name="l00188"></a>00188         }
+<a name="l00189"></a>00189 
+<a name="l00190"></a>00190         size_type serialize(std::ostream&amp; out, structure_tree_node* v=NULL, std::string name=<span class="stringliteral">&quot;&quot;</span>)<span class="keyword">const </span>{
+<a name="l00191"></a>00191                 structure_tree_node* child = structure_tree::add_child(v, name, util::class_name(*<span class="keyword">this</span>));
+<a name="l00192"></a>00192             size_type written_bytes = 0;
+<a name="l00193"></a>00193             written_bytes += m_ect_bp.<a class="code" href="classsdsl_1_1int__vector.html#a54bb26e2d6f6932b41ab12e52746e86a" title="Serializes the int_vector to a stream.">serialize</a>(out, child, <span class="stringliteral">&quot;ect_bp&quot;</span>);
+<a name="l00194"></a>00194             written_bytes += m_ect_bp_support.serialize(out, child, <span class="stringliteral">&quot;ect_bp_support&quot;</span>);
+<a name="l00195"></a>00195             written_bytes += m_ect_bp_rank10.serialize(out, child, <span class="stringliteral">&quot;ect_bp_rank10&quot;</span>);
+<a name="l00196"></a>00196             written_bytes += m_ect_bp_select10.serialize(out, child, <span class="stringliteral">&quot;ect_bp_select10&quot;</span>);
+<a name="l00197"></a>00197                 structure_tree::add_size(child, written_bytes);
+<a name="l00198"></a>00198             <span class="keywordflow">return</span> written_bytes;
+<a name="l00199"></a>00199         }
+<a name="l00200"></a>00200 
+<a name="l00201"></a>00201         <span class="keywordtype">void</span> load(std::istream&amp; in) {
+<a name="l00202"></a>00202             m_ect_bp.<a class="code" href="classsdsl_1_1int__vector.html#a57c9fc2fdc93eeaa477a49389e7a47ac" title="Load the int_vector for a stream.">load</a>(in);
+<a name="l00203"></a>00203             m_ect_bp_support.load(in, &amp;m_ect_bp);
+<a name="l00204"></a>00204             m_ect_bp_rank10.load(in, &amp;m_ect_bp);
+<a name="l00205"></a>00205             m_ect_bp_select10.load(in, &amp;m_ect_bp);
+<a name="l00206"></a>00206         }
+<a name="l00207"></a>00207 };
+<a name="l00208"></a>00208 
+<a name="l00209"></a>00209 
+<a name="l00210"></a>00210 }
+<a name="l00211"></a>00211 
+<a name="l00212"></a>00212 
+<a name="l00213"></a>00213 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 10 2012 18:54:27 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 13 2012 14:05:47 for SDSL: Succinct Data Structure Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

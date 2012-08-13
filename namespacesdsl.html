@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Succinct Data Structure Library (sdsl): sdsl Namespace Reference</title>
+<title>SDSL: Succinct Data Structure Library: sdsl Namespace Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -27,7 +27,7 @@
   
   
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Succinct Data Structure Library (sdsl)
+   <div id="projectname">SDSL: Succinct Data Structure Library
    
    </div>
    <div id="projectbrief">A C++ template library for succinct data structures</div>
@@ -97,6 +97,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -171,7 +172,7 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdsl_1_1enc__vector__trait.html">enc_vector_trait</a></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdsl_1_1enc__vector__trait_3_0132_01_4.html">enc_vector_trait&lt; 32 &gt;</a></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1enc__vector.html">enc_vector</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A generic immutable space-saving vector class for unsigned positiv integers. It encodes each integer with its self-delimiting code and still provides constant time access.  <a href="classsdsl_1_1enc__vector.html#details">More...</a><br/></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A generic immutable space-saving vector class for unsigned integers. It encodes each integer with its self-delimiting code and still provides constant time access.  <a href="classsdsl_1_1enc__vector.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdsl_1_1enc__vector__dna__trait.html">enc_vector_dna_trait</a></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdsl_1_1enc__vector__dna__trait_3_0132_01_4.html">enc_vector_dna_trait&lt; 32 &gt;</a></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1enc__vector__dna.html">enc_vector_dna</a></td></tr>
@@ -209,16 +210,21 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class for reading an <a class="el" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector</a> buffered from a file.  <a href="classsdsl_1_1int__vector__file__buffer.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1int__vector__serialize__vbyte__wrapper.html">int_vector_serialize_vbyte_wrapper</a></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1int__vector__load__vbyte__wrapper.html">int_vector_load_vbyte_wrapper</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1int__vector__serialize__vlen__wrapper.html">int_vector_serialize_vlen_wrapper</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1int__vector__load__vlen__wrapper.html">int_vector_load_vlen_wrapper</a></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1int__vector__serialize__wrapper.html">int_vector_serialize_wrapper</a></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1int__vector__load__wrapper.html">int_vector_load_wrapper</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1int__vector__serialize__min__overhead.html">int_vector_serialize_min_overhead</a></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1random__access__const__iterator.html">random_access_const_iterator</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1lcp__bitcompressed.html">lcp_bitcompressed</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class which stores the lcp array uncompressed.  <a href="classsdsl_1_1lcp__bitcompressed.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1buffered__char__queue.html">buffered_char_queue</a></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1lcp__dac.html">lcp_dac</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class for the compressed version of lcp information of an suffix array.  <a href="classsdsl_1_1lcp__dac.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1lcp__kurtz.html">lcp_kurtz</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class for the compressed version of lcp information of an suffix array proposed by Stefan Kurtz in the paper "Reducing the Space Requirement of Suffix Trees".  <a href="classsdsl_1_1lcp__kurtz.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1__lcp__support__sada.html">_lcp_support_sada</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sadakane in the paper "Succinct Representation of lcp Information and Imporvements in the Compressed Suffix Arrays".  <a href="classsdsl_1_1__lcp__support__sada.html#details">More...</a><br/></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sadakane in the paper "Succinct Representation of lcp Information and Improvements in the Compressed Suffix Arrays".  <a href="classsdsl_1_1__lcp__support__sada.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1lcp__support__sada.html">lcp_support_sada</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper class which provides <a class="el" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">_lcp_support_sada</a> the context of a CSA.  <a href="classsdsl_1_1lcp__support__sada.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1__lcp__support__tree.html">_lcp_support_tree</a></td></tr>
@@ -227,8 +233,6 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1__lcp__support__tree2.html">_lcp_support_tree2</a></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1lcp__support__tree2.html">lcp_support_tree2</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper class which provides <a class="el" href="classsdsl_1_1__lcp__support__tree2.html">_lcp_support_tree2</a> the context of a CST.  <a href="classsdsl_1_1lcp__support__tree2.html#details">More...</a><br/></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1lcp__uncompressed.html">lcp_uncompressed</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class which stores the lcp array uncompressed.  <a href="classsdsl_1_1lcp__uncompressed.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1lcp__vlc.html">lcp_vlc</a></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1lcp__wt.html">lcp_wt</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class for the compressed version of lcp information of an suffix array.  <a href="classsdsl_1_1lcp__wt.html#details">More...</a><br/></td></tr>
@@ -254,11 +258,11 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rank__support__v5.html">rank_support_v5</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class supporting rank queries in constant time. The implementation is a space saving version of the data structure proposed by Vigna (WEA 2008).  <a href="classsdsl_1_1rank__support__v5.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdsl_1_1range__maximum__support__sada.html">range_maximum_support_sada</a></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rmq__support__sada.html">rmq_support_sada</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class to support range minimum or range maximum queries on a random access container.  <a href="classsdsl_1_1rmq__support__sada.html#details">More...</a><br/></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdsl_1_1range__maximum__support__sct.html">range_maximum_support_sct</a></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rmq__support__sct.html">rmq_support_sct</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class to support range minimum or range maximum queries on a random access container.  <a href="classsdsl_1_1rmq__support__sct.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rmq__succinct__sada.html">rmq_succinct_sada</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class to support range minimum or range maximum queries on a random access container.  <a href="classsdsl_1_1rmq__succinct__sada.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdsl_1_1range__maximum__sct.html">range_maximum_sct</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rmq__succinct__sct.html">rmq_succinct_sct</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class to support range minimum or range maximum queries on a random access container.  <a href="classsdsl_1_1rmq__succinct__sct.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdsl_1_1range__maximum__support__sparse__table.html">range_maximum_support_sparse_table</a></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rmq__support__sparse__table.html">rmq_support_sparse_table</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class to support range minimum or range maximum queries on a random access container.  <a href="classsdsl_1_1rmq__support__sparse__table.html#details">More...</a><br/></td></tr>
@@ -318,6 +322,9 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A stack class which contains ...  <a href="classsdsl_1_1sorted__multi__stack__support.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1sorted__stack__support.html">sorted_stack_support</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A stack class which contains indices of elements from an random access container and the elements are in sorted order on the stack.  <a href="classsdsl_1_1sorted__stack__support.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1structure__tree__node.html">structure_tree_node</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class for a node of the structure tree.  <a href="classsdsl_1_1structure__tree__node.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1structure__tree.html">structure_tree</a></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1psi__of__csa__psi.html">psi_of_csa_psi</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A helper class for the <img class="formulaInl" alt="$\Psi$" src="form_6.png"/> and LF function for (compressed) suffix arrays that are based on the compressed <img class="formulaInl" alt="$\Psi$" src="form_6.png"/> function.  <a href="classsdsl_1_1psi__of__csa__psi.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1psi__of__sa__and__isa.html">psi_of_sa_and_isa</a></td></tr>
@@ -325,6 +332,8 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1bwt__of__csa__psi.html">bwt_of_csa_psi</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A wrapper for the bwt of a compressed suffix array that is based on the <img class="formulaInl" alt="$\psi$" src="form_230.png"/> function.  <a href="classsdsl_1_1bwt__of__csa__psi.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1temp__write__read__buffer.html">temp_write_read_buffer</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1template__class.html">template_class</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Short description for what <a class="el" href="classsdsl_1_1template__class.html" title="Short description for what template_class is used here.">template_class</a> is used here.  <a href="classsdsl_1_1template__class.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1stop__watch.html">stop_watch</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A helper class to meassure the time consumption of program pieces.  <a href="classsdsl_1_1stop__watch.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1clock.html">clock</a></td></tr>
@@ -384,6 +393,11 @@ typedef <a class="el" href="classsdsl_1_1wt__huff.html">wt_huff</a>&lt; <a class
 <a class="el" href="classsdsl_1_1rank__support__v5.html">rank_support_v5</a><br class="typebreak"/>
 &lt;&gt;, <a class="el" href="classsdsl_1_1select__support__bs.html">select_support_bs</a><br class="typebreak"/>
 &lt;&gt;, <a class="el" href="classsdsl_1_1select__support__bs.html">select_support_bs</a>&lt;&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>wt_without_select</b></td></tr>
+<tr><td colspan="2"><h2><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:acfcb92cdb3212158a254eaa4e1183666"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><b>format_type</b> { <b>JSON_FORMAT</b>, 
+<b>R_FORMAT</b>
+ }</td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a396b6b833af2ec71736f28b65b23e605"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesdsl.html#a396b6b833af2ec71736f28b65b23e605">construct_bwt</a> (tMSS &amp;file_map, const std::string &amp;dir, const std::string &amp;id)</td></tr>
@@ -534,6 +548,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>construct_lcp_simple2
 void&#160;</td><td class="memItemRight" valign="bottom"><b>lcp_info</b> (tMSS &amp;file_map)</td></tr>
 <tr class="memitem:a1e7223b0ea6e774d0c549e3fb8a16d59"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1e7223b0ea6e774d0c549e3fb8a16d59"></a>
 std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;os, const <a class="el" href="classsdsl_1_1louds__node.html">louds_node</a> &amp;v)</td></tr>
+<tr class="memitem:a2c02c5b1e93fe4ae85af5082ec5c247c"><td class="memTemplParams" colspan="2"><a class="anchor" id="a2c02c5b1e93fe4ae85af5082ec5c247c"></a>
+template&lt;format_type F&gt; </td></tr>
+<tr class="memitem:a2c02c5b1e93fe4ae85af5082ec5c247c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>write_structure_tree</b> (const <a class="el" href="classsdsl_1_1structure__tree__node.html">structure_tree_node</a> *v, std::ostream &amp;out)</td></tr>
 <tr class="memitem:ac80054ed6a03880ca9d4065ffe3f6c0a"><td class="memTemplParams" colspan="2">template&lt;class tCst &gt; </td></tr>
 <tr class="memitem:ac80054ed6a03880ca9d4065ffe3f6c0a"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl.html#ac80054ed6a03880ca9d4065ffe3f6c0a">H0</a> (const typename tCst::node_type &amp;v, const tCst &amp;cst)</td></tr>
 <tr class="memdesc:ac80054ed6a03880ca9d4065ffe3f6c0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the zeroth order entropy of the text that follows a certain substring s.  <a href="#ac80054ed6a03880ca9d4065ffe3f6c0a"></a><br/></td></tr>
@@ -1762,7 +1779,7 @@ template&lt;class Csa &gt; </div>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 10 2012 18:54:29 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 13 2012 14:05:49 for SDSL: Succinct Data Structure Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

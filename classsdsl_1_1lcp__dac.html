@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Succinct Data Structure Library (sdsl): sdsl::lcp_dac&lt; b, rank_support_type &gt; Class Template Reference</title>
+<title>SDSL: Succinct Data Structure Library: sdsl::lcp_dac&lt; b, rank_support_type &gt; Class Template Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -27,7 +27,7 @@
   
   
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Succinct Data Structure Library (sdsl)
+   <div id="projectname">SDSL: Succinct Data Structure Library
    
    </div>
    <div id="projectbrief">A C++ template library for succinct data structures</div>
@@ -123,7 +123,7 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1lcp__dac_1_1type.html">type</a></td></tr>
 <tr><td colspan="2"><h2><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ae9ad55019c9d3ed8fbeeff1de2b654ca"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>fast_access</b> =  0, 
+<tr class="memitem:a7fdc7463a4617607fd9b6d3bfb102be9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>fast_access</b> =  0, 
 <b>text_order</b> =  0, 
 <b>sa_order</b> =  1
  }</td></tr>
@@ -185,8 +185,8 @@ template&lt;uint8_t int_width, class size_type_class &gt; </td></tr>
 <tr class="memdesc:a8053ce4c57e97337f31799815bfbd0e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality Operator.  <a href="#a8053ce4c57e97337f31799815bfbd0e7"></a><br/></td></tr>
 <tr class="memitem:aedc02c927c18584474598d219c48e690"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1lcp__dac.html#aedc02c927c18584474598d219c48e690">operator!=</a> (const <a class="el" href="classsdsl_1_1lcp__dac.html">lcp_dac</a> &amp;lcp_c) const </td></tr>
 <tr class="memdesc:aedc02c927c18584474598d219c48e690"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unequality Operator.  <a href="#aedc02c927c18584474598d219c48e690"></a><br/></td></tr>
-<tr class="memitem:ac50b789e4197cd21084cea86a76236f0"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1lcp__dac.html#ac50b789e4197cd21084cea86a76236f0">serialize</a> (std::ostream &amp;out) const </td></tr>
-<tr class="memdesc:ac50b789e4197cd21084cea86a76236f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize to a stream.  <a href="#ac50b789e4197cd21084cea86a76236f0"></a><br/></td></tr>
+<tr class="memitem:a8ce7c84857cbc1409a77ea534ed5b956"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1lcp__dac.html#a8ce7c84857cbc1409a77ea534ed5b956">serialize</a> (std::ostream &amp;out, <a class="el" href="classsdsl_1_1structure__tree__node.html">structure_tree_node</a> *v=NULL, std::string name=&quot;&quot;) const </td></tr>
+<tr class="memdesc:a8ce7c84857cbc1409a77ea534ed5b956"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize to a stream.  <a href="#a8ce7c84857cbc1409a77ea534ed5b956"></a><br/></td></tr>
 <tr class="memitem:adb932dfea233852902d41a6d2bbab43b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1lcp__dac.html#adb932dfea233852902d41a6d2bbab43b">load</a> (std::istream &amp;in)</td></tr>
 <tr class="memdesc:adb932dfea233852902d41a6d2bbab43b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load from a stream.  <a href="#adb932dfea233852902d41a6d2bbab43b"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-methods"></a>
@@ -418,18 +418,34 @@ template&lt;uint8_t b, class rank_support_type &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="ac50b789e4197cd21084cea86a76236f0"></a>
+<a class="anchor" id="a8ce7c84857cbc1409a77ea534ed5b956"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;uint8_t b, class rank_support_type &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classsdsl_1_1lcp__dac.html">lcp_dac</a>&lt; b, rank_support_type &gt;::size_type <a class="el" href="classsdsl_1_1lcp__dac.html">sdsl::lcp_dac</a>&lt; b, rank_support_type &gt;::<a class="el" href="classsdsl_1_1lcp__dac.html#ac50b789e4197cd21084cea86a76236f0">serialize</a> </td>
+          <td class="memname"><a class="el" href="classsdsl_1_1lcp__dac.html">lcp_dac</a>&lt; b, rank_support_type &gt;::size_type <a class="el" href="classsdsl_1_1lcp__dac.html">sdsl::lcp_dac</a>&lt; b, rank_support_type &gt;::<a class="el" href="classsdsl_1_1lcp__dac.html#a8ce7c84857cbc1409a77ea534ed5b956">serialize</a> </td>
           <td>(</td>
           <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>out</em></td><td>)</td>
-          <td> const</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsdsl_1_1structure__tree__node.html">structure_tree_node</a> *&#160;</td>
+          <td class="paramname"><em>v</em> = <code>NULL</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
         </tr>
       </table>
 </div>
@@ -504,7 +520,7 @@ template&lt;uint8_t b, class rank_support_type &gt; </div>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 10 2012 18:54:31 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 13 2012 14:05:50 for SDSL: Succinct Data Structure Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

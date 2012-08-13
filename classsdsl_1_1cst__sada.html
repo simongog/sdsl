@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Succinct Data Structure Library (sdsl): sdsl::cst_sada&lt; Csa, Lcp, Bp_support, Rank_support10, Select_support10 &gt; Class Template Reference</title>
+<title>SDSL: Succinct Data Structure Library: sdsl::cst_sada&lt; Csa, Lcp, Bp_support, Rank_support10, Select_support10 &gt; Class Template Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -27,7 +27,7 @@
   
   
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Succinct Data Structure Library (sdsl)
+   <div id="projectname">SDSL: Succinct Data Structure Library
    
    </div>
    <div id="projectbrief">A C++ template library for succinct data structures</div>
@@ -200,8 +200,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>construct</b> (tMSS &
 <tr class="memdesc:a12b8c90ed794dfe109e893ad006ccc69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality Operator.  <a href="#a12b8c90ed794dfe109e893ad006ccc69"></a><br/></td></tr>
 <tr class="memitem:aa391f17d6c941175f19cd27914fdfc58"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1cst__sada.html#aa391f17d6c941175f19cd27914fdfc58">operator!=</a> (const <a class="el" href="classsdsl_1_1cst__sada.html">cst_sada</a> &amp;<a class="el" href="classsdsl_1_1cst__sada.html#a44464284d176dd95bbc1a5be4a3fe7e6">csa</a>) const </td></tr>
 <tr class="memdesc:aa391f17d6c941175f19cd27914fdfc58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unequality Operator.  <a href="#aa391f17d6c941175f19cd27914fdfc58"></a><br/></td></tr>
-<tr class="memitem:aa4ac3c5b3e84d95fba2e0227f909f5e7"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1cst__sada.html#aa4ac3c5b3e84d95fba2e0227f909f5e7">serialize</a> (std::ostream &amp;out) const </td></tr>
-<tr class="memdesc:aa4ac3c5b3e84d95fba2e0227f909f5e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize to a stream.  <a href="#aa4ac3c5b3e84d95fba2e0227f909f5e7"></a><br/></td></tr>
+<tr class="memitem:a3830fc3dd143d037c040bb0e37d098ce"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1cst__sada.html#a3830fc3dd143d037c040bb0e37d098ce">serialize</a> (std::ostream &amp;out, <a class="el" href="classsdsl_1_1structure__tree__node.html">structure_tree_node</a> *v=NULL, std::string name=&quot;&quot;) const </td></tr>
+<tr class="memdesc:a3830fc3dd143d037c040bb0e37d098ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize to a stream.  <a href="#a3830fc3dd143d037c040bb0e37d098ce"></a><br/></td></tr>
 <tr class="memitem:a6da906663ec0cf0d09275af2f6c13682"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1cst__sada.html#a6da906663ec0cf0d09275af2f6c13682">load</a> (std::istream &amp;in)</td></tr>
 <tr class="memdesc:a6da906663ec0cf0d09275af2f6c13682"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load from a stream.  <a href="#a6da906663ec0cf0d09275af2f6c13682"></a><br/></td></tr>
 <tr class="memitem:gae50ef2a5efd91d2a22630c02e99c9ad7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8">node_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7">root</a> () const </td></tr>
@@ -495,18 +495,34 @@ template&lt;class Csa  = csa_sada&lt;&gt;, class Lcp  = lcp_support_sada&lt;&gt;
 
 </div>
 </div>
-<a class="anchor" id="aa4ac3c5b3e84d95fba2e0227f909f5e7"></a>
+<a class="anchor" id="a3830fc3dd143d037c040bb0e37d098ce"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class Csa  = csa_sada&lt;&gt;, class Lcp  = lcp_support_sada&lt;&gt;, class Bp_support  = bp_support_sada&lt;&gt;, class Rank_support10  = rank_support_v&lt;10,2&gt;, class Select_support10  = select_support_mcl&lt;10,2&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">size_type <a class="el" href="classsdsl_1_1cst__sada.html">sdsl::cst_sada</a>&lt; Csa, Lcp, Bp_support, Rank_support10, Select_support10 &gt;::<a class="el" href="classsdsl_1_1cst__sada.html#aa4ac3c5b3e84d95fba2e0227f909f5e7">serialize</a> </td>
+          <td class="memname">size_type <a class="el" href="classsdsl_1_1cst__sada.html">sdsl::cst_sada</a>&lt; Csa, Lcp, Bp_support, Rank_support10, Select_support10 &gt;::<a class="el" href="classsdsl_1_1cst__sada.html#a3830fc3dd143d037c040bb0e37d098ce">serialize</a> </td>
           <td>(</td>
           <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>out</em></td><td>)</td>
-          <td> const<code> [inline]</code></td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsdsl_1_1structure__tree__node.html">structure_tree_node</a> *&#160;</td>
+          <td class="paramname"><em>v</em> = <code>NULL</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const<code> [inline]</code></td>
         </tr>
       </table>
 </div>
@@ -581,7 +597,7 @@ template&lt;class Csa  = csa_sada&lt;&gt;, class Lcp  = lcp_support_sada&lt;&gt;
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 10 2012 18:54:30 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 13 2012 14:05:49 for SDSL: Succinct Data Structure Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

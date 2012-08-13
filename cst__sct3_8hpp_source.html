@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Succinct Data Structure Library (sdsl): sdsl/include/sdsl/cst_sct3.hpp Source File</title>
+<title>SDSL: Succinct Data Structure Library: sdsl/include/sdsl/cst_sct3.hpp Source File</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -27,7 +27,7 @@
   
   
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Succinct Data Structure Library (sdsl)
+   <div id="projectname">SDSL: Succinct Data Structure Library
    
    </div>
    <div id="projectbrief">A C++ template library for succinct data structures</div>
@@ -348,7 +348,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00281"></a>00281 <span class="comment">         *    \f$ \Order{\frac{\sigma}{w}} \f$, where w=64 is the word size, can be implemented in \f$\Order{1}\f$ with rank and select</span>
 <a name="l00282"></a>00282 <span class="comment">         */</span>
 <a name="l00283"></a>00283         <span class="keyword">inline</span> size_type psv(size_type i, size_type ipos, size_type cipos, size_type&amp; psvpos, size_type&amp; psvcpos)<span class="keyword">const </span>{
-<a name="l00284"></a>00284             <span class="keywordflow">if</span> (cipos &gt;= m_bp.<a class="code" href="classsdsl_1_1int__vector.html#aea4fcbbab7fbef9c1cc4a4c89f4b1520" title="The number of elements in the int_vector.">size</a>() - m_sigma) { <span class="comment">// if lcp[i]==0 =&gt; psv is the 0th index by definition</span>
+<a name="l00284"></a>00284             <span class="keywordflow">if</span> (cipos + m_sigma &gt;= m_bp.<a class="code" href="classsdsl_1_1int__vector.html#aea4fcbbab7fbef9c1cc4a4c89f4b1520" title="The number of elements in the int_vector.">size</a>()) {  <span class="comment">// if lcp[i]==0 =&gt; psv is the 0th index by definition</span>
 <a name="l00285"></a>00285                 psvpos = 0;
 <a name="l00286"></a>00286                 psvcpos = m_bp.<a class="code" href="classsdsl_1_1int__vector.html#aea4fcbbab7fbef9c1cc4a4c89f4b1520" title="The number of elements in the int_vector.">size</a>()-1;
 <a name="l00287"></a>00287                 <span class="keywordflow">return</span> 0;
@@ -437,10 +437,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00372"></a>00372                  <a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;int_width, size_type_class&gt;</a>&amp; lcp_buf,
 <a name="l00373"></a>00373                  <a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;int_width_1, size_type_class_1&gt;</a>&amp; sa_buf,
 <a name="l00374"></a>00374                  <a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;int_width_2, size_type_class_2&gt;</a>&amp; isa_buf,
-<a name="l00375"></a>00375                  std::string dir,
-<a name="l00376"></a>00376                  <span class="keywordtype">bool</span> build_ony_bps);
+<a name="l00375"></a>00375                  std::string dir=<span class="stringliteral">&quot;./&quot;</span>,
+<a name="l00376"></a>00376                  <span class="keywordtype">bool</span> build_ony_bps=<span class="keyword">false</span>);
 <a name="l00377"></a>00377 
-<a name="l00378"></a>00378         <a class="code" href="group__cst__sct3__constructors.html#gab89dec2e2366ebc6b8d7c23354c7f5ad" title="Default Constructor.">cst_sct3</a>(tMSS&amp; file_map, <span class="keyword">const</span> std::string&amp; dir, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>, <span class="keywordtype">bool</span> build_only_bps);
+<a name="l00378"></a>00378         <a class="code" href="group__cst__sct3__constructors.html#gab89dec2e2366ebc6b8d7c23354c7f5ad" title="Default Constructor.">cst_sct3</a>(tMSS&amp; file_map, <span class="keyword">const</span> std::string&amp; dir, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>, <span class="keywordtype">bool</span> build_only_bps=<span class="keyword">false</span>);
 <a name="l00379"></a>00379 
 <a name="l00381"></a>00381 
 <a name="l00386"></a><a class="code" href="group__cst__sct3__constructors.html#gaf6be0ba2e2a0ee1dc1301181a3df518c">00386</a>         <a class="code" href="group__cst__sct3__constructors.html#gab89dec2e2366ebc6b8d7c23354c7f5ad" title="Default Constructor.">cst_sct3</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1cst__sct3.html" title="A class for the Compressed Suffix Tree (CST) proposed by Ohlebusch and Gog.">cst_sct3</a>&amp; cst):<a class="code" href="classsdsl_1_1cst__sct3.html#afa8e2cd3d4b038bfed57d6f637936ab4" title="The compressed suffix array the suffix tree is based on.">csa</a>(m_csa),<a class="code" href="classsdsl_1_1cst__sct3.html#ab85dac24f2dd023fa18ba802ceb3c19a" title="The lcp array the suffix tree is based on.">lcp</a>(m_lcp),<a class="code" href="classsdsl_1_1cst__sct3.html#a930e270fdb5d857a3335872fa0c94ec5" title="The balanced parentheses sequence of the Super-Cartesian tree the suffix tree is based on...">bp</a>(m_bp),<a class="code" href="classsdsl_1_1cst__sct3.html#aa9384e34d14efbdce32bc27ddd143d7b" title="The balanced parentheses sequence support for member bp.">bp_support</a>(m_bp_support),first_child_bv(m_first_child),
@@ -452,7 +452,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00392"></a>00392 
 <a name="l00394"></a><a class="code" href="classsdsl_1_1cst__sct3.html#a7fbe4f5eaec1f267ac59427587e093d1">00394</a>         <a class="code" href="classsdsl_1_1cst__sct3.html#a7fbe4f5eaec1f267ac59427587e093d1" title="Default Destructor.">~cst_sct3</a>() {}
 <a name="l00395"></a>00395 
-<a name="l00396"></a>00396         <span class="keywordtype">void</span> construct(tMSS&amp; file_map, <span class="keyword">const</span> std::string&amp; dir, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>, <span class="keywordtype">bool</span> build_only_bps);
+<a name="l00396"></a>00396         <span class="keywordtype">void</span> construct(tMSS&amp; file_map, <span class="keyword">const</span> std::string&amp; dir, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>, <span class="keywordtype">bool</span> build_only_bps=<span class="keyword">false</span>);
 <a name="l00397"></a>00397 
 <a name="l00399"></a>00399 
 <a name="l00402"></a><a class="code" href="classsdsl_1_1cst__sct3.html#a1ebc92789be36da7dc8fdfcd0f786518">00402</a>         size_type <a class="code" href="classsdsl_1_1cst__sct3.html#a1ebc92789be36da7dc8fdfcd0f786518" title="Number of leaves of the suffix tree.">size</a>()<span class="keyword">const </span>{
@@ -520,7 +520,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00499"></a>00499         <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1cst__sct3.html#ae000d5bdd58dcf081bd7ac7405e57b7d" title="Unequality Operator.">operator!=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1cst__sct3.html" title="A class for the Compressed Suffix Tree (CST) proposed by Ohlebusch and Gog.">cst_sct3</a>&amp; cst)<span class="keyword">const</span>;
 <a name="l00500"></a>00500 
 <a name="l00502"></a>00502 
-<a name="l00505"></a>00505         size_type <a class="code" href="classsdsl_1_1cst__sct3.html#a27ae7c554f1b26fe4c7ae43e20a5d15b" title="Serialize to a stream.">serialize</a>(std::ostream&amp; out) <span class="keyword">const</span>;
+<a name="l00505"></a>00505         size_type <a class="code" href="classsdsl_1_1cst__sct3.html#a8add5b7ca0bf7f79b63205f747c763f1" title="Serialize to a stream.">serialize</a>(std::ostream&amp; out, <a class="code" href="classsdsl_1_1structure__tree__node.html" title="Class for a node of the structure tree.">structure_tree_node</a>* v=NULL, std::string name=<span class="stringliteral">&quot;&quot;</span>)<span class="keyword">const</span>;
 <a name="l00506"></a>00506 
 <a name="l00508"></a>00508 
 <a name="l00510"></a>00510         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1cst__sct3.html#abc04ebee93099b8c82410ce55851f982" title="Load from a stream.">load</a>(std::istream&amp; in);
@@ -1045,154 +1045,129 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l01171"></a>01171             size_type cipos = m_bp_support.find_close(ipos);
 <a name="l01172"></a>01172             <span class="keywordflow">return</span> m_first_child_rank.rank(((ipos+cipos-1)&gt;&gt;1)-i);
 <a name="l01173"></a>01173         }
-<a name="l01174"></a>01174 
-<a name="l01175"></a>01175 <span class="preprocessor">#ifdef MEM_INFO</span>
-<a name="l01176"></a>01176 <span class="preprocessor"></span>
-<a name="l01177"></a>01177         <span class="keywordtype">void</span> mem_info(std::string label=<span class="stringliteral">&quot;&quot;</span>)<span class="keyword">const </span>{
-<a name="l01178"></a>01178             <span class="keywordflow">if</span> (label==<span class="stringliteral">&quot;&quot;</span>)
-<a name="l01179"></a>01179                 label = <span class="stringliteral">&quot;cst&quot;</span>;
-<a name="l01180"></a>01180             size_type bytes = <a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(*<span class="keyword">this</span>);
-<a name="l01181"></a>01181             std::cout &lt;&lt; <span class="stringliteral">&quot;list(label = \&quot;&quot;</span>&lt;&lt;label&lt;&lt;<span class="stringliteral">&quot;\&quot;, size = &quot;</span>&lt;&lt; bytes/(1024.0*1024.0) &lt;&lt;<span class="stringliteral">&quot;\n,&quot;</span>;
-<a name="l01182"></a>01182             <a class="code" href="classsdsl_1_1cst__sct3.html#afa8e2cd3d4b038bfed57d6f637936ab4" title="The compressed suffix array the suffix tree is based on.">csa</a>.mem_info(<span class="stringliteral">&quot;csa&quot;</span>);
-<a name="l01183"></a>01183             std::cout&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>;
-<a name="l01184"></a>01184             <a class="code" href="classsdsl_1_1cst__sct3.html#ab85dac24f2dd023fa18ba802ceb3c19a" title="The lcp array the suffix tree is based on.">lcp</a>.mem_info(<span class="stringliteral">&quot;lcp&quot;</span>);
-<a name="l01185"></a>01185             std::cout&lt;&lt;<span class="stringliteral">&quot;,list(label = \&quot;nav\&quot;, size = &quot;</span>&lt;&lt;
-<a name="l01186"></a>01186                      (<a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(<a class="code" href="classsdsl_1_1cst__sct3.html#a930e270fdb5d857a3335872fa0c94ec5" title="The balanced parentheses sequence of the Super-Cartesian tree the suffix tree is based on...">bp</a>)+
-<a name="l01187"></a>01187                       <a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(<a class="code" href="classsdsl_1_1cst__sct3.html#aa9384e34d14efbdce32bc27ddd143d7b" title="The balanced parentheses sequence support for member bp.">bp_support</a>)+
-<a name="l01188"></a>01188                       <a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(m_first_child)) / (1024.0*1024.0)
-<a name="l01189"></a>01189                      &lt;&lt;<span class="stringliteral">&quot;, &quot;</span>;
-<a name="l01190"></a>01190             <a class="code" href="classsdsl_1_1cst__sct3.html#a930e270fdb5d857a3335872fa0c94ec5" title="The balanced parentheses sequence of the Super-Cartesian tree the suffix tree is based on...">bp</a>.mem_info(<span class="stringliteral">&quot;bp&quot;</span>);
-<a name="l01191"></a>01191             std::cout&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>;
-<a name="l01192"></a>01192             <a class="code" href="classsdsl_1_1cst__sct3.html#aa9384e34d14efbdce32bc27ddd143d7b" title="The balanced parentheses sequence support for member bp.">bp_support</a>.mem_info(<span class="stringliteral">&quot;bp_support&quot;</span>);
-<a name="l01193"></a>01193             std::cout&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>;
-<a name="l01194"></a>01194             m_first_child.mem_info(<span class="stringliteral">&quot;first_visit&quot;</span>);
-<a name="l01195"></a>01195             std::cout&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>;
-<a name="l01196"></a>01196             m_first_child_rank.mem_info(<span class="stringliteral">&quot;first_visit_rank&quot;</span>);
-<a name="l01197"></a>01197             std::cout &lt;&lt; <span class="stringliteral">&quot;) )\n&quot;</span>;
-<a name="l01198"></a>01198         }
-<a name="l01199"></a>01199 <span class="preprocessor">#endif</span>
-<a name="l01200"></a>01200 <span class="preprocessor"></span>        <span class="comment">/* @} */</span>
-<a name="l01201"></a>01201 
-<a name="l01202"></a>01202 };
-<a name="l01203"></a>01203 
-<a name="l01204"></a>01204 <span class="comment">// == template functions ==</span>
-<a name="l01205"></a>01205 
-<a name="l01206"></a>01206 
-<a name="l01207"></a>01207 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> Lcp, <span class="keyword">class</span> Bp_support, <span class="keyword">class</span> Rank_support&gt;
-<a name="l01208"></a>01208 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>, u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th_1, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>_1, u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th_2, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>_2&gt;
-<a name="l01209"></a>01209 <a class="code" href="group__cst__sct3__constructors.html#gab89dec2e2366ebc6b8d7c23354c7f5ad" title="Default Constructor.">cst_sct3&lt;Csa, Lcp, Bp_support, Rank_support&gt;::cst_sct3</a>(<span class="keyword">const</span> std::string&amp; csa_file_name,
-<a name="l01210"></a>01210         int_vector_file_buffer&lt;int_width, size_type_class&gt;&amp; lcp_buf,
-<a name="l01211"></a>01211         int_vector_file_buffer&lt;int_width_1, size_type_class_1&gt;&amp; sa_buf,
-<a name="l01212"></a>01212         int_vector_file_buffer&lt;int_width_2, size_type_class_2&gt;&amp; isa_buf,
-<a name="l01213"></a>01213         std::string dir=<span class="stringliteral">&quot;./&quot;</span>,
-<a name="l01214"></a>01214         <span class="keywordtype">bool</span> build_only_bps=<span class="keyword">false</span>
-<a name="l01215"></a>01215                                                       ):csa(m_csa), lcp(m_lcp), bp(m_bp), bp_support(m_bp_support), first_child_bv(m_first_child), first_child_rank(m_first_child_rank)
-<a name="l01216"></a>01216 {
-<a name="l01217"></a>01217     std::string <span class="keywordtype">id</span> =  <a class="code" href="namespacesdsl_1_1util.html#a6d8c83ac15f316e914edff973d8d77b6" title="Convert type to string.">util::to_string</a>(<a class="code" href="namespacesdsl_1_1util.html#ad89157cf167352afc99fe41318990191" title="Get the process id of the current process.">util::get_pid</a>())+<span class="stringliteral">&quot;_&quot;</span>+<a class="code" href="namespacesdsl_1_1util.html#a6d8c83ac15f316e914edff973d8d77b6" title="Convert type to string.">util::to_string</a>(<a class="code" href="namespacesdsl_1_1util.html#a6d9b7c00544c815b561e2f1e8a04c486" title="Get a unique id inside the process.">util::get_id</a>()).c_str();
-<a name="l01218"></a>01218 
-<a name="l01219"></a>01219     <a class="code" href="namespacesdsl.html#a478f5f7db45f61644d75e6c664bd961e" title="Write stopwatch output in readable format.">write_R_output</a>(<span class="stringliteral">&quot;cst&quot;</span>, <span class="stringliteral">&quot;construct BPS&quot;</span>, <span class="stringliteral">&quot;begin&quot;</span>, 1, 0);
-<a name="l01220"></a>01220     m_nodes = <a class="code" href="namespacesdsl_1_1algorithm.html#adccd0bbfc994289857964dddb81e37b5" title="Calculate the balanced parentheses of the Super-Cartesian tree, described in Ohlebusch and Gog (SPIRE...">algorithm::construct_supercartesian_tree_bp_succinct_and_first_child</a>(lcp_buf, m_bp, m_first_child) + m_bp.<a class="code" href="classsdsl_1_1int__vector.html#aea4fcbbab7fbef9c1cc4a4c89f4b1520" title="The number of elements in the int_vector.">size</a>()/2;
-<a name="l01221"></a>01221     <a class="code" href="namespacesdsl.html#a478f5f7db45f61644d75e6c664bd961e" title="Write stopwatch output in readable format.">write_R_output</a>(<span class="stringliteral">&quot;cst&quot;</span>, <span class="stringliteral">&quot;construct BPS&quot;</span>, <span class="stringliteral">&quot;end&quot;</span>, 1, 0);
-<a name="l01222"></a>01222 
-<a name="l01223"></a>01223     <span class="keywordflow">if</span> (!build_only_bps) {
-<a name="l01224"></a>01224         <a class="code" href="namespacesdsl_1_1util.html#a61645c49a282eb5bde5c9ca9d6dc94ff" title="Load a data structure from a file.">util::load_from_file</a>(m_csa, csa_file_name.c_str());
-<a name="l01225"></a>01225 
-<a name="l01226"></a>01226         <a class="code" href="namespacesdsl.html#a478f5f7db45f61644d75e6c664bd961e" title="Write stopwatch output in readable format.">write_R_output</a>(<span class="stringliteral">&quot;cst&quot;</span>, <span class="stringliteral">&quot;construct CLCP&quot;</span>, <span class="stringliteral">&quot;begin&quot;</span>, 1, 0);
-<a name="l01227"></a>01227         construct_lcp(m_lcp, *<span class="keyword">this</span>, lcp_buf, isa_buf);
-<a name="l01228"></a>01228         <a class="code" href="namespacesdsl.html#a478f5f7db45f61644d75e6c664bd961e" title="Write stopwatch output in readable format.">write_R_output</a>(<span class="stringliteral">&quot;cst&quot;</span>, <span class="stringliteral">&quot;construct CLCP&quot;</span>, <span class="stringliteral">&quot;end&quot;</span>, 1, 0);
-<a name="l01229"></a>01229     }
-<a name="l01230"></a>01230     <a class="code" href="namespacesdsl.html#a478f5f7db45f61644d75e6c664bd961e" title="Write stopwatch output in readable format.">write_R_output</a>(<span class="stringliteral">&quot;cst&quot;</span>, <span class="stringliteral">&quot;construct BPSS&quot;</span>, <span class="stringliteral">&quot;begin&quot;</span>, 1, 0);
-<a name="l01231"></a>01231     <a class="code" href="namespacesdsl_1_1util.html#a261681cbaa98ab77a78dddb6f21b1f6e" title="Initialise support data structure with.">util::init_support</a>(m_bp_support, &amp;m_bp);
-<a name="l01232"></a>01232     <a class="code" href="namespacesdsl_1_1util.html#a261681cbaa98ab77a78dddb6f21b1f6e" title="Initialise support data structure with.">util::init_support</a>(m_first_child_rank, &amp;m_first_child);
-<a name="l01233"></a>01233     <a class="code" href="namespacesdsl.html#a478f5f7db45f61644d75e6c664bd961e" title="Write stopwatch output in readable format.">write_R_output</a>(<span class="stringliteral">&quot;cst&quot;</span>, <span class="stringliteral">&quot;construct BPSS&quot;</span>, <span class="stringliteral">&quot;end&quot;</span>, 1, 0);
-<a name="l01234"></a>01234     m_sigma = <a class="code" href="group__cst__sct3__tree__methods.html#ga8e97ba35e77ac43ae1d243dbd0fbe707" title="Get the number of children of a node v.">degree</a>(<a class="code" href="group__cst__sct3__tree__methods.html#gaeee744147cdc9093af5877eb0a2352e8" title="Return the root of the suffix tree.">root</a>());
-<a name="l01235"></a>01235 }
-<a name="l01236"></a>01236 
-<a name="l01237"></a>01237 
-<a name="l01238"></a>01238 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> Lcp, <span class="keyword">class</span> Bp_support, <span class="keyword">class</span> Rank_support&gt;
-<a name="l01239"></a>01239 <a class="code" href="group__cst__sct3__constructors.html#gab89dec2e2366ebc6b8d7c23354c7f5ad" title="Default Constructor.">cst_sct3&lt;Csa, Lcp, Bp_support, Rank_support&gt;::cst_sct3</a>(tMSS&amp; file_map, <span class="keyword">const</span> std::string&amp; dir, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>, <span class="keywordtype">bool</span> build_only_bps = <span class="keyword">false</span>):csa(m_csa), lcp(m_lcp), bp(m_bp), bp_support(m_bp_support), first_child_bv(m_first_child), first_child_rank(m_first_child_rank)
-<a name="l01240"></a>01240 {
-<a name="l01241"></a>01241     construct(file_map, dir, <span class="keywordtype">id</span>, build_only_bps);
-<a name="l01242"></a>01242 }
-<a name="l01243"></a>01243 
-<a name="l01244"></a>01244 
-<a name="l01245"></a>01245 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> Lcp, <span class="keyword">class</span> Bp_support, <span class="keyword">class</span> Rank_support&gt;
-<a name="l01246"></a>01246 <span class="keywordtype">void</span> cst_sct3&lt;Csa, Lcp, Bp_support, Rank_support&gt;::construct(tMSS&amp; file_map, <span class="keyword">const</span> std::string&amp; dir, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>, <span class="keywordtype">bool</span> build_only_bps = <span class="keyword">false</span>)
-<a name="l01247"></a>01247 {
-<a name="l01248"></a>01248     <a class="code" href="namespacesdsl.html#a478f5f7db45f61644d75e6c664bd961e" title="Write stopwatch output in readable format.">write_R_output</a>(<span class="stringliteral">&quot;cst&quot;</span>, <span class="stringliteral">&quot;construct BPS&quot;</span>, <span class="stringliteral">&quot;begin&quot;</span>, 1, 0);
-<a name="l01249"></a>01249     int_vector_file_buffer&lt;&gt; lcp_buf(file_map[<span class="stringliteral">&quot;lcp&quot;</span>].c_str());
-<a name="l01250"></a>01250     m_nodes = <a class="code" href="namespacesdsl_1_1algorithm.html#adccd0bbfc994289857964dddb81e37b5" title="Calculate the balanced parentheses of the Super-Cartesian tree, described in Ohlebusch and Gog (SPIRE...">algorithm::construct_supercartesian_tree_bp_succinct_and_first_child</a>(lcp_buf, m_bp, m_first_child) + m_bp.size()/2;
-<a name="l01251"></a>01251     <a class="code" href="namespacesdsl.html#a478f5f7db45f61644d75e6c664bd961e" title="Write stopwatch output in readable format.">write_R_output</a>(<span class="stringliteral">&quot;cst&quot;</span>, <span class="stringliteral">&quot;construct BPS&quot;</span>, <span class="stringliteral">&quot;end&quot;</span>, 1, 0);
-<a name="l01252"></a>01252     <a class="code" href="namespacesdsl.html#a478f5f7db45f61644d75e6c664bd961e" title="Write stopwatch output in readable format.">write_R_output</a>(<span class="stringliteral">&quot;cst&quot;</span>, <span class="stringliteral">&quot;construct BPSS&quot;</span>, <span class="stringliteral">&quot;begin&quot;</span>, 1, 0);
-<a name="l01253"></a>01253     <a class="code" href="namespacesdsl_1_1util.html#a261681cbaa98ab77a78dddb6f21b1f6e" title="Initialise support data structure with.">util::init_support</a>(m_bp_support, &amp;m_bp);
-<a name="l01254"></a>01254     <a class="code" href="namespacesdsl_1_1util.html#a261681cbaa98ab77a78dddb6f21b1f6e" title="Initialise support data structure with.">util::init_support</a>(m_first_child_rank, &amp;m_first_child);
-<a name="l01255"></a>01255     <a class="code" href="namespacesdsl.html#a478f5f7db45f61644d75e6c664bd961e" title="Write stopwatch output in readable format.">write_R_output</a>(<span class="stringliteral">&quot;cst&quot;</span>, <span class="stringliteral">&quot;construct BPSS&quot;</span>, <span class="stringliteral">&quot;end&quot;</span>, 1, 0);
-<a name="l01256"></a>01256 
-<a name="l01257"></a>01257     <span class="keywordflow">if</span> (!build_only_bps) {
-<a name="l01258"></a>01258         <a class="code" href="namespacesdsl.html#a478f5f7db45f61644d75e6c664bd961e" title="Write stopwatch output in readable format.">write_R_output</a>(<span class="stringliteral">&quot;cst&quot;</span>, <span class="stringliteral">&quot;construct CLCP&quot;</span>, <span class="stringliteral">&quot;begin&quot;</span>, 1, 0);
-<a name="l01259"></a>01259         construct_lcp(m_lcp, *<span class="keyword">this</span>, file_map, dir, <span class="keywordtype">id</span>);
-<a name="l01260"></a>01260         <a class="code" href="namespacesdsl.html#a478f5f7db45f61644d75e6c664bd961e" title="Write stopwatch output in readable format.">write_R_output</a>(<span class="stringliteral">&quot;cst&quot;</span>, <span class="stringliteral">&quot;construct CLCP&quot;</span>, <span class="stringliteral">&quot;end&quot;</span>, 1, 0);
-<a name="l01261"></a>01261     }
-<a name="l01262"></a>01262     <span class="keywordflow">if</span> (!build_only_bps) {
-<a name="l01263"></a>01263         <a class="code" href="namespacesdsl_1_1util.html#a61645c49a282eb5bde5c9ca9d6dc94ff" title="Load a data structure from a file.">util::load_from_file</a>(m_csa, file_map[<span class="stringliteral">&quot;csa&quot;</span>].c_str());
-<a name="l01264"></a>01264     }
-<a name="l01265"></a>01265     m_sigma = degree(root());
-<a name="l01266"></a>01266 }
-<a name="l01267"></a>01267 
-<a name="l01268"></a>01268 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> Lcp, <span class="keyword">class</span> Bp_support, <span class="keyword">class</span> Rank_support&gt;
-<a name="l01269"></a><a class="code" href="classsdsl_1_1cst__sct3.html#a27ae7c554f1b26fe4c7ae43e20a5d15b">01269</a> <span class="keyword">typename</span> cst_sct3&lt;Csa, Lcp, Bp_support, Rank_support&gt;::size_type <a class="code" href="classsdsl_1_1cst__sct3.html#a27ae7c554f1b26fe4c7ae43e20a5d15b" title="Serialize to a stream.">cst_sct3&lt;Csa, Lcp, Bp_support, Rank_support&gt;::serialize</a>(std::ostream&amp; out)<span class="keyword"> const</span>
-<a name="l01270"></a>01270 <span class="keyword"></span>{
-<a name="l01271"></a>01271     size_type written_bytes = 0;
-<a name="l01272"></a>01272     written_bytes += m_csa.serialize(out);
-<a name="l01273"></a>01273     written_bytes += m_lcp.serialize(out);
-<a name="l01274"></a>01274     written_bytes += m_bp.serialize(out);
-<a name="l01275"></a>01275     written_bytes += m_bp_support.serialize(out);
-<a name="l01276"></a>01276     written_bytes += m_first_child.serialize(out);
-<a name="l01277"></a>01277     written_bytes += m_first_child_rank.serialize(out);
-<a name="l01278"></a>01278     written_bytes += util::write_member(m_sigma, out);
-<a name="l01279"></a>01279     written_bytes += util::write_member(m_nodes, out);
-<a name="l01280"></a>01280     <span class="keywordflow">return</span> written_bytes;
-<a name="l01281"></a>01281 }
-<a name="l01282"></a>01282 
-<a name="l01283"></a>01283 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> Lcp, <span class="keyword">class</span> Bp_support, <span class="keyword">class</span> Rank_support&gt;
-<a name="l01284"></a><a class="code" href="classsdsl_1_1cst__sct3.html#abc04ebee93099b8c82410ce55851f982">01284</a> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1cst__sct3.html#abc04ebee93099b8c82410ce55851f982" title="Load from a stream.">cst_sct3&lt;Csa, Lcp, Bp_support, Rank_support&gt;::load</a>(std::istream&amp; in)
-<a name="l01285"></a>01285 {
-<a name="l01286"></a>01286     m_csa.load(in);
-<a name="l01287"></a>01287     load_lcp(m_lcp, in, *<span class="keyword">this</span>);
-<a name="l01288"></a>01288     m_bp.load(in);
-<a name="l01289"></a>01289     m_bp_support.load(in, &amp;m_bp);
-<a name="l01290"></a>01290     m_first_child.load(in);
-<a name="l01291"></a>01291     m_first_child_rank.load(in, &amp;m_first_child);
-<a name="l01292"></a>01292     util::read_member(m_sigma, in);
-<a name="l01293"></a>01293     util::read_member(m_nodes, in);
-<a name="l01294"></a>01294 <span class="preprocessor">#ifdef SDSL_DEBUG</span>
-<a name="l01295"></a>01295 <span class="preprocessor"></span>    assert(algorithm::check_bp_support(m_bp, m_bp_support));
-<a name="l01296"></a>01296     std::cerr&lt;&lt;<span class="stringliteral">&quot;checked bp_support&quot;</span>&lt;&lt;std::endl;
-<a name="l01297"></a>01297 <span class="preprocessor">#endif</span>
-<a name="l01298"></a>01298 <span class="preprocessor"></span>}
-<a name="l01299"></a>01299 
-<a name="l01300"></a>01300 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> Lcp, <span class="keyword">class</span> Bp_support, <span class="keyword">class</span> Rank_support&gt;
-<a name="l01301"></a><a class="code" href="classsdsl_1_1cst__sct3.html#a83fd8a573004f884f935c53db5dd2e86">01301</a> <a class="code" href="classsdsl_1_1cst__sct3.html" title="A class for the Compressed Suffix Tree (CST) proposed by Ohlebusch and Gog.">cst_sct3&lt;Csa, Lcp, Bp_support, Rank_support&gt;</a>&amp; <a class="code" href="classsdsl_1_1cst__sct3.html#a83fd8a573004f884f935c53db5dd2e86" title="Assignment Operator.">cst_sct3&lt;Csa, Lcp, Bp_support, Rank_support&gt;::operator=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1cst__sct3.html" title="A class for the Compressed Suffix Tree (CST) proposed by Ohlebusch and Gog.">cst_sct3</a>&amp; cst)
-<a name="l01302"></a>01302 {
-<a name="l01303"></a>01303     <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;cst) {
-<a name="l01304"></a>01304         copy(cst);
-<a name="l01305"></a>01305     }
-<a name="l01306"></a>01306     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
-<a name="l01307"></a>01307 }
-<a name="l01308"></a>01308 
-<a name="l01309"></a>01309 
-<a name="l01310"></a>01310 
-<a name="l01311"></a>01311 
-<a name="l01312"></a>01312 
-<a name="l01313"></a>01313 } <span class="comment">// end namespace sdsl</span>
-<a name="l01314"></a>01314 
-<a name="l01315"></a>01315 
-<a name="l01316"></a>01316 <span class="preprocessor">#endif</span>
+<a name="l01174"></a>01174         <span class="comment">/* @} */</span>
+<a name="l01175"></a>01175 };
+<a name="l01176"></a>01176 
+<a name="l01177"></a>01177 <span class="comment">// == template functions ==</span>
+<a name="l01178"></a>01178 
+<a name="l01179"></a>01179 
+<a name="l01180"></a>01180 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> Lcp, <span class="keyword">class</span> Bp_support, <span class="keyword">class</span> Rank_support&gt;
+<a name="l01181"></a>01181 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>, u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th_1, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>_1, u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th_2, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>_2&gt;
+<a name="l01182"></a>01182 <a class="code" href="group__cst__sct3__constructors.html#gab89dec2e2366ebc6b8d7c23354c7f5ad" title="Default Constructor.">cst_sct3&lt;Csa, Lcp, Bp_support, Rank_support&gt;::cst_sct3</a>(<span class="keyword">const</span> std::string&amp; csa_file_name,
+<a name="l01183"></a>01183         int_vector_file_buffer&lt;int_width, size_type_class&gt;&amp; lcp_buf,
+<a name="l01184"></a>01184         int_vector_file_buffer&lt;int_width_1, size_type_class_1&gt;&amp; sa_buf,
+<a name="l01185"></a>01185         int_vector_file_buffer&lt;int_width_2, size_type_class_2&gt;&amp; isa_buf,
+<a name="l01186"></a>01186         std::string dir,
+<a name="l01187"></a>01187         <span class="keywordtype">bool</span> build_only_bps
+<a name="l01188"></a>01188                                                       ):csa(m_csa), lcp(m_lcp), bp(m_bp), bp_support(m_bp_support), first_child_bv(m_first_child), first_child_rank(m_first_child_rank)
+<a name="l01189"></a>01189 {
+<a name="l01190"></a>01190     std::string <span class="keywordtype">id</span> =  <a class="code" href="namespacesdsl_1_1util.html#a6d8c83ac15f316e914edff973d8d77b6" title="Convert type to string.">util::to_string</a>(<a class="code" href="namespacesdsl_1_1util.html#ad89157cf167352afc99fe41318990191" title="Get the process id of the current process.">util::get_pid</a>())+<span class="stringliteral">&quot;_&quot;</span>+<a class="code" href="namespacesdsl_1_1util.html#a6d8c83ac15f316e914edff973d8d77b6" title="Convert type to string.">util::to_string</a>(<a class="code" href="namespacesdsl_1_1util.html#a6d9b7c00544c815b561e2f1e8a04c486" title="Get a unique id inside the process.">util::get_id</a>()).c_str();
+<a name="l01191"></a>01191 
+<a name="l01192"></a>01192     <a class="code" href="namespacesdsl.html#a478f5f7db45f61644d75e6c664bd961e" title="Write stopwatch output in readable format.">write_R_output</a>(<span class="stringliteral">&quot;cst&quot;</span>, <span class="stringliteral">&quot;construct BPS&quot;</span>, <span class="stringliteral">&quot;begin&quot;</span>, 1, 0);
+<a name="l01193"></a>01193     m_nodes = <a class="code" href="namespacesdsl_1_1algorithm.html#adccd0bbfc994289857964dddb81e37b5" title="Calculate the balanced parentheses of the Super-Cartesian tree, described in Ohlebusch and Gog (SPIRE...">algorithm::construct_supercartesian_tree_bp_succinct_and_first_child</a>(lcp_buf, m_bp, m_first_child) + m_bp.<a class="code" href="classsdsl_1_1int__vector.html#aea4fcbbab7fbef9c1cc4a4c89f4b1520" title="The number of elements in the int_vector.">size</a>()/2;
+<a name="l01194"></a>01194     <a class="code" href="namespacesdsl.html#a478f5f7db45f61644d75e6c664bd961e" title="Write stopwatch output in readable format.">write_R_output</a>(<span class="stringliteral">&quot;cst&quot;</span>, <span class="stringliteral">&quot;construct BPS&quot;</span>, <span class="stringliteral">&quot;end&quot;</span>, 1, 0);
+<a name="l01195"></a>01195 
+<a name="l01196"></a>01196     <span class="keywordflow">if</span> (!build_only_bps) {
+<a name="l01197"></a>01197         <a class="code" href="namespacesdsl_1_1util.html#a61645c49a282eb5bde5c9ca9d6dc94ff" title="Load a data structure from a file.">util::load_from_file</a>(m_csa, csa_file_name.c_str());
+<a name="l01198"></a>01198 
+<a name="l01199"></a>01199         <a class="code" href="namespacesdsl.html#a478f5f7db45f61644d75e6c664bd961e" title="Write stopwatch output in readable format.">write_R_output</a>(<span class="stringliteral">&quot;cst&quot;</span>, <span class="stringliteral">&quot;construct CLCP&quot;</span>, <span class="stringliteral">&quot;begin&quot;</span>, 1, 0);
+<a name="l01200"></a>01200         construct_lcp(m_lcp, *<span class="keyword">this</span>, lcp_buf, isa_buf);
+<a name="l01201"></a>01201         <a class="code" href="namespacesdsl.html#a478f5f7db45f61644d75e6c664bd961e" title="Write stopwatch output in readable format.">write_R_output</a>(<span class="stringliteral">&quot;cst&quot;</span>, <span class="stringliteral">&quot;construct CLCP&quot;</span>, <span class="stringliteral">&quot;end&quot;</span>, 1, 0);
+<a name="l01202"></a>01202     }
+<a name="l01203"></a>01203     <a class="code" href="namespacesdsl.html#a478f5f7db45f61644d75e6c664bd961e" title="Write stopwatch output in readable format.">write_R_output</a>(<span class="stringliteral">&quot;cst&quot;</span>, <span class="stringliteral">&quot;construct BPSS&quot;</span>, <span class="stringliteral">&quot;begin&quot;</span>, 1, 0);
+<a name="l01204"></a>01204     <a class="code" href="namespacesdsl_1_1util.html#a261681cbaa98ab77a78dddb6f21b1f6e" title="Initialise support data structure with.">util::init_support</a>(m_bp_support, &amp;m_bp);
+<a name="l01205"></a>01205     <a class="code" href="namespacesdsl_1_1util.html#a261681cbaa98ab77a78dddb6f21b1f6e" title="Initialise support data structure with.">util::init_support</a>(m_first_child_rank, &amp;m_first_child);
+<a name="l01206"></a>01206     <a class="code" href="namespacesdsl.html#a478f5f7db45f61644d75e6c664bd961e" title="Write stopwatch output in readable format.">write_R_output</a>(<span class="stringliteral">&quot;cst&quot;</span>, <span class="stringliteral">&quot;construct BPSS&quot;</span>, <span class="stringliteral">&quot;end&quot;</span>, 1, 0);
+<a name="l01207"></a>01207     m_sigma = <a class="code" href="group__cst__sct3__tree__methods.html#ga8e97ba35e77ac43ae1d243dbd0fbe707" title="Get the number of children of a node v.">degree</a>(<a class="code" href="group__cst__sct3__tree__methods.html#gaeee744147cdc9093af5877eb0a2352e8" title="Return the root of the suffix tree.">root</a>());
+<a name="l01208"></a>01208 }
+<a name="l01209"></a>01209 
+<a name="l01210"></a>01210 
+<a name="l01211"></a>01211 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> Lcp, <span class="keyword">class</span> Bp_support, <span class="keyword">class</span> Rank_support&gt;
+<a name="l01212"></a>01212 <a class="code" href="group__cst__sct3__constructors.html#gab89dec2e2366ebc6b8d7c23354c7f5ad" title="Default Constructor.">cst_sct3&lt;Csa, Lcp, Bp_support, Rank_support&gt;::cst_sct3</a>(tMSS&amp; file_map, <span class="keyword">const</span> std::string&amp; dir, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>, <span class="keywordtype">bool</span> build_only_bps):csa(m_csa), lcp(m_lcp), bp(m_bp), bp_support(m_bp_support), first_child_bv(m_first_child), first_child_rank(m_first_child_rank)
+<a name="l01213"></a>01213 {
+<a name="l01214"></a>01214     construct(file_map, dir, <span class="keywordtype">id</span>, build_only_bps);
+<a name="l01215"></a>01215 }
+<a name="l01216"></a>01216 
+<a name="l01217"></a>01217 
+<a name="l01218"></a>01218 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> Lcp, <span class="keyword">class</span> Bp_support, <span class="keyword">class</span> Rank_support&gt;
+<a name="l01219"></a>01219 <span class="keywordtype">void</span> cst_sct3&lt;Csa, Lcp, Bp_support, Rank_support&gt;::construct(tMSS&amp; file_map, <span class="keyword">const</span> std::string&amp; dir, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>, <span class="keywordtype">bool</span> build_only_bps)
+<a name="l01220"></a>01220 {
+<a name="l01221"></a>01221     <a class="code" href="namespacesdsl.html#a478f5f7db45f61644d75e6c664bd961e" title="Write stopwatch output in readable format.">write_R_output</a>(<span class="stringliteral">&quot;cst&quot;</span>, <span class="stringliteral">&quot;construct BPS&quot;</span>, <span class="stringliteral">&quot;begin&quot;</span>, 1, 0);
+<a name="l01222"></a>01222     int_vector_file_buffer&lt;&gt; lcp_buf(file_map[<span class="stringliteral">&quot;lcp&quot;</span>].c_str());
+<a name="l01223"></a>01223     m_nodes = <a class="code" href="namespacesdsl_1_1algorithm.html#adccd0bbfc994289857964dddb81e37b5" title="Calculate the balanced parentheses of the Super-Cartesian tree, described in Ohlebusch and Gog (SPIRE...">algorithm::construct_supercartesian_tree_bp_succinct_and_first_child</a>(lcp_buf, m_bp, m_first_child) + m_bp.size()/2;
+<a name="l01224"></a>01224     <a class="code" href="namespacesdsl.html#a478f5f7db45f61644d75e6c664bd961e" title="Write stopwatch output in readable format.">write_R_output</a>(<span class="stringliteral">&quot;cst&quot;</span>, <span class="stringliteral">&quot;construct BPS&quot;</span>, <span class="stringliteral">&quot;end&quot;</span>, 1, 0);
+<a name="l01225"></a>01225     <a class="code" href="namespacesdsl.html#a478f5f7db45f61644d75e6c664bd961e" title="Write stopwatch output in readable format.">write_R_output</a>(<span class="stringliteral">&quot;cst&quot;</span>, <span class="stringliteral">&quot;construct BPSS&quot;</span>, <span class="stringliteral">&quot;begin&quot;</span>, 1, 0);
+<a name="l01226"></a>01226     <a class="code" href="namespacesdsl_1_1util.html#a261681cbaa98ab77a78dddb6f21b1f6e" title="Initialise support data structure with.">util::init_support</a>(m_bp_support, &amp;m_bp);
+<a name="l01227"></a>01227     <a class="code" href="namespacesdsl_1_1util.html#a261681cbaa98ab77a78dddb6f21b1f6e" title="Initialise support data structure with.">util::init_support</a>(m_first_child_rank, &amp;m_first_child);
+<a name="l01228"></a>01228     <a class="code" href="namespacesdsl.html#a478f5f7db45f61644d75e6c664bd961e" title="Write stopwatch output in readable format.">write_R_output</a>(<span class="stringliteral">&quot;cst&quot;</span>, <span class="stringliteral">&quot;construct BPSS&quot;</span>, <span class="stringliteral">&quot;end&quot;</span>, 1, 0);
+<a name="l01229"></a>01229 
+<a name="l01230"></a>01230     <span class="keywordflow">if</span> (!build_only_bps) {
+<a name="l01231"></a>01231         <a class="code" href="namespacesdsl.html#a478f5f7db45f61644d75e6c664bd961e" title="Write stopwatch output in readable format.">write_R_output</a>(<span class="stringliteral">&quot;cst&quot;</span>, <span class="stringliteral">&quot;construct CLCP&quot;</span>, <span class="stringliteral">&quot;begin&quot;</span>, 1, 0);
+<a name="l01232"></a>01232         construct_lcp(m_lcp, *<span class="keyword">this</span>, file_map, dir, <span class="keywordtype">id</span>);
+<a name="l01233"></a>01233         <a class="code" href="namespacesdsl.html#a478f5f7db45f61644d75e6c664bd961e" title="Write stopwatch output in readable format.">write_R_output</a>(<span class="stringliteral">&quot;cst&quot;</span>, <span class="stringliteral">&quot;construct CLCP&quot;</span>, <span class="stringliteral">&quot;end&quot;</span>, 1, 0);
+<a name="l01234"></a>01234     }
+<a name="l01235"></a>01235     <span class="keywordflow">if</span> (!build_only_bps) {
+<a name="l01236"></a>01236         <a class="code" href="namespacesdsl_1_1util.html#a61645c49a282eb5bde5c9ca9d6dc94ff" title="Load a data structure from a file.">util::load_from_file</a>(m_csa, file_map[<span class="stringliteral">&quot;csa&quot;</span>].c_str());
+<a name="l01237"></a>01237     }
+<a name="l01238"></a>01238     m_sigma = degree(root());
+<a name="l01239"></a>01239 }
+<a name="l01240"></a>01240 
+<a name="l01241"></a>01241 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> Lcp, <span class="keyword">class</span> Bp_support, <span class="keyword">class</span> Rank_support&gt;
+<a name="l01242"></a><a class="code" href="classsdsl_1_1cst__sct3.html#a8add5b7ca0bf7f79b63205f747c763f1">01242</a> <span class="keyword">typename</span> cst_sct3&lt;Csa, Lcp, Bp_support, Rank_support&gt;::size_type <a class="code" href="classsdsl_1_1cst__sct3.html#a8add5b7ca0bf7f79b63205f747c763f1" title="Serialize to a stream.">cst_sct3&lt;Csa, Lcp, Bp_support, Rank_support&gt;::serialize</a>(std::ostream&amp; out, <a class="code" href="classsdsl_1_1structure__tree__node.html" title="Class for a node of the structure tree.">structure_tree_node</a>* v, std::string name)<span class="keyword">const</span>
+<a name="l01243"></a>01243 <span class="keyword"></span>{
+<a name="l01244"></a>01244     <a class="code" href="classsdsl_1_1structure__tree__node.html" title="Class for a node of the structure tree.">structure_tree_node</a>* child = structure_tree::add_child(v, name, util::class_name(*<span class="keyword">this</span>));
+<a name="l01245"></a>01245     size_type written_bytes = 0;
+<a name="l01246"></a>01246     written_bytes += m_csa.serialize(out, child, <span class="stringliteral">&quot;csa&quot;</span>);
+<a name="l01247"></a>01247     written_bytes += m_lcp.serialize(out, child, <span class="stringliteral">&quot;lcp&quot;</span>);
+<a name="l01248"></a>01248     written_bytes += m_bp.serialize(out, child, <span class="stringliteral">&quot;bp&quot;</span>);
+<a name="l01249"></a>01249     written_bytes += m_bp_support.serialize(out, child, <span class="stringliteral">&quot;bp_support&quot;</span>);
+<a name="l01250"></a>01250     written_bytes += m_first_child.serialize(out, child, <span class="stringliteral">&quot;mark_child&quot;</span>);
+<a name="l01251"></a>01251     written_bytes += m_first_child_rank.serialize(out, child, <span class="stringliteral">&quot;mark_child_rank&quot;</span>);
+<a name="l01252"></a>01252     written_bytes += util::write_member(m_sigma, out, child, <span class="stringliteral">&quot;sigma&quot;</span>);
+<a name="l01253"></a>01253     written_bytes += util::write_member(m_nodes, out, child, <span class="stringliteral">&quot;node_cnt&quot;</span>);
+<a name="l01254"></a>01254     structure_tree::add_size(child, written_bytes);
+<a name="l01255"></a>01255     <span class="keywordflow">return</span> written_bytes;
+<a name="l01256"></a>01256 }
+<a name="l01257"></a>01257 
+<a name="l01258"></a>01258 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> Lcp, <span class="keyword">class</span> Bp_support, <span class="keyword">class</span> Rank_support&gt;
+<a name="l01259"></a><a class="code" href="classsdsl_1_1cst__sct3.html#abc04ebee93099b8c82410ce55851f982">01259</a> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1cst__sct3.html#abc04ebee93099b8c82410ce55851f982" title="Load from a stream.">cst_sct3&lt;Csa, Lcp, Bp_support, Rank_support&gt;::load</a>(std::istream&amp; in)
+<a name="l01260"></a>01260 {
+<a name="l01261"></a>01261     m_csa.load(in);
+<a name="l01262"></a>01262     load_lcp(m_lcp, in, *<span class="keyword">this</span>);
+<a name="l01263"></a>01263     m_bp.load(in);
+<a name="l01264"></a>01264     m_bp_support.load(in, &amp;m_bp);
+<a name="l01265"></a>01265     m_first_child.load(in);
+<a name="l01266"></a>01266     m_first_child_rank.load(in, &amp;m_first_child);
+<a name="l01267"></a>01267     util::read_member(m_sigma, in);
+<a name="l01268"></a>01268     util::read_member(m_nodes, in);
+<a name="l01269"></a>01269 <span class="preprocessor">#ifdef SDSL_DEBUG</span>
+<a name="l01270"></a>01270 <span class="preprocessor"></span>    assert(algorithm::check_bp_support(m_bp, m_bp_support));
+<a name="l01271"></a>01271     std::cerr&lt;&lt;<span class="stringliteral">&quot;checked bp_support&quot;</span>&lt;&lt;std::endl;
+<a name="l01272"></a>01272 <span class="preprocessor">#endif</span>
+<a name="l01273"></a>01273 <span class="preprocessor"></span>}
+<a name="l01274"></a>01274 
+<a name="l01275"></a>01275 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> Lcp, <span class="keyword">class</span> Bp_support, <span class="keyword">class</span> Rank_support&gt;
+<a name="l01276"></a><a class="code" href="classsdsl_1_1cst__sct3.html#a83fd8a573004f884f935c53db5dd2e86">01276</a> <a class="code" href="classsdsl_1_1cst__sct3.html" title="A class for the Compressed Suffix Tree (CST) proposed by Ohlebusch and Gog.">cst_sct3&lt;Csa, Lcp, Bp_support, Rank_support&gt;</a>&amp; <a class="code" href="classsdsl_1_1cst__sct3.html#a83fd8a573004f884f935c53db5dd2e86" title="Assignment Operator.">cst_sct3&lt;Csa, Lcp, Bp_support, Rank_support&gt;::operator=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1cst__sct3.html" title="A class for the Compressed Suffix Tree (CST) proposed by Ohlebusch and Gog.">cst_sct3</a>&amp; cst)
+<a name="l01277"></a>01277 {
+<a name="l01278"></a>01278     <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;cst) {
+<a name="l01279"></a>01279         copy(cst);
+<a name="l01280"></a>01280     }
+<a name="l01281"></a>01281     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l01282"></a>01282 }
+<a name="l01283"></a>01283 
+<a name="l01284"></a>01284 
+<a name="l01285"></a>01285 
+<a name="l01286"></a>01286 
+<a name="l01287"></a>01287 
+<a name="l01288"></a>01288 } <span class="comment">// end namespace sdsl</span>
+<a name="l01289"></a>01289 
+<a name="l01290"></a>01290 
+<a name="l01291"></a>01291 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 10 2012 18:54:26 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 13 2012 14:05:46 for SDSL: Succinct Data Structure Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

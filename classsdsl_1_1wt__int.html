@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Succinct Data Structure Library (sdsl): sdsl::wt_int&lt; RandomAccessContainer, BitVector, RankSupport, SelectSupport, SelectSupportZero &gt; Class Template Reference</title>
+<title>SDSL: Succinct Data Structure Library: sdsl::wt_int&lt; RandomAccessContainer, BitVector, RankSupport, SelectSupport, SelectSupportZero &gt; Class Template Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -27,7 +27,7 @@
   
   
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Succinct Data Structure Library (sdsl)
+   <div id="projectname">SDSL: Succinct Data Structure Library
    
    </div>
    <div id="projectbrief">A C++ template library for succinct data structures</div>
@@ -173,9 +173,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memdesc:a218e7227f932daee7bed61bf72f5308d"><td class="mdescLeft">&#160;</td><td class="mdescRight">range_search_2d searches points in the index interval [lb..rb] and value interval [vlb..vrb].  <a href="#a218e7227f932daee7bed61bf72f5308d"></a><br/></td></tr>
 <tr class="memitem:a086155b3ba58cc63fbf6653e065e8af0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a086155b3ba58cc63fbf6653e065e8af0"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>_range_search_2d</b> (size_type lb, size_type rb, value_type vlb, value_type vrb, size_type depth, size_type ilb, size_type node_size, size_type offsets[], size_type ones_before_os[], size_type path, std::vector&lt; size_type &gt; *idx_result, std::vector&lt; size_type &gt; *val_result, size_type &amp;cnt_answers) const </td></tr>
-<tr class="memitem:a717e7153f44602da085bb616b0a6b8df"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a717e7153f44602da085bb616b0a6b8df"></a>
-size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__int.html#a717e7153f44602da085bb616b0a6b8df">serialize</a> (std::ostream &amp;out) const </td></tr>
-<tr class="memdesc:a717e7153f44602da085bb616b0a6b8df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes the data structure into the given ostream. <br/></td></tr>
+<tr class="memitem:a60263ff1b044de0a51f7a21dec899de5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a60263ff1b044de0a51f7a21dec899de5"></a>
+size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__int.html#a60263ff1b044de0a51f7a21dec899de5">serialize</a> (std::ostream &amp;out, <a class="el" href="classsdsl_1_1structure__tree__node.html">structure_tree_node</a> *v=NULL, std::string name=&quot;&quot;) const </td></tr>
+<tr class="memdesc:a60263ff1b044de0a51f7a21dec899de5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes the data structure into the given ostream. <br/></td></tr>
 <tr class="memitem:aebd22798d4b6a54bfb556232be79cefa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aebd22798d4b6a54bfb556232be79cefa"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1wt__int.html#aebd22798d4b6a54bfb556232be79cefa">load</a> (std::istream &amp;in)</td></tr>
 <tr class="memdesc:aebd22798d4b6a54bfb556232be79cefa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the data structure from the given istream. <br/></td></tr>
@@ -213,7 +213,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_logn</b></td></
 class sdsl::wt_int&lt; RandomAccessContainer, BitVector, RankSupport, SelectSupport, SelectSupportZero &gt;</h3>
 
 <p>A wavelet tree class for sequences of big alphabet size (like integer alphabet) </p>
-<p>A wavelet tree is build for a vector of characters over the alphabet <img class="formulaInl" alt="$\Sigma$" src="form_234.png"/>. The wavelet tree <img class="formulaInl" alt="$wt$" src="form_236.png"/> consits of a tree of bit vector and provides three efficient methods:</p>
+<p>A wavelet tree is build for a vector of characters over the alphabet <img class="formulaInl" alt="$\Sigma$" src="form_234.png"/>. The wavelet tree <img class="formulaInl" alt="$wt$" src="form_236.png"/> consists of a tree of bit vector and provides three efficient methods:</p>
 <ul>
 <li>The "[]"-operator: <img class="formulaInl" alt="$wt[i]$" src="form_237.png"/> returns the ith symbol of vector for which the wavelet tree was build for.</li>
 <li>The rank method: <img class="formulaInl" alt="$wt.rank(i,c)$" src="form_238.png"/> returns the number of occurences of symbol <img class="formulaInl" alt="$c$" src="form_239.png"/> in the prefix [0..i-1] in the vector for which the wavelet tree was build for.</li>
@@ -304,9 +304,9 @@ template&lt;uint8_t int_width&gt; </div>
 <div class="memdoc">
 
 <p>Semi-external constructor. </p>
-<div class="fragment"><pre class="fragment">   \param buf      int_vector_file_buffer which contains the vector v for which a wt_int should be bould.
+<div class="fragment"><pre class="fragment">   \param buf      int_vector_file_buffer which contains the vector v for which a wt_int should be build.
    \param logn Let x &gt; 0 be the biggest value in v. logn should be bit_magic::l1BP(x-1)+1 to represent all values of v.
-   \param dir      Derectory in which temporary files should be stored during the construction.
+   \param dir      Directory in which temporary files should be stored during the construction.
    \par Time complexity
 </pre></div><p> <img class="formulaInl" alt="$ \Order{n\log|\Sigma|}$" src="form_242.png"/>, where <img class="formulaInl" alt="$n=size$" src="form_243.png"/> I.e. we nee {n n} if rac is a permutation of 0..n-1. </p>
 <dl class="section user"><dt>Space complexity</b></dt><dd><img class="formulaInl" alt="$ n\log|\Sigma| + O(1)$" src="form_259.png"/> bits, where <img class="formulaInl" alt="$n=size$" src="form_243.png"/>. </dd></dl>
@@ -494,7 +494,7 @@ template&lt;class RandomAccessContainer  = int_vector&lt;&gt;, class BitVector  
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 10 2012 18:54:32 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 13 2012 14:05:51 for SDSL: Succinct Data Structure Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

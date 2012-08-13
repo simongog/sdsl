@@ -1,0 +1,1957 @@
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2011.7.3)  13 AUG 2012 15:12
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**\documentclass{article}
+
+*\usepackage{epsfig}
+(/usr/local/texlive/2011/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2011/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+*\usepackage{/Users/simon.gog/sdsl/sdsl_definitions}
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/epsfig.sty
+Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: dvips.def on input line 91.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/dvips.def
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+\epsfxsize=\dimen105
+\epsfysize=\dimen106
+)
+*\pagestyle{empty}
+(/Users/simon.gog/sdsl/sdsl_definitions.sty)
+*\begin{document}
+No file texput.aux.
+\openout1 = `texput.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 0.
+LaTeX Font Info:    ... okay on input line 0.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 0.
+LaTeX Font Info:    ... okay on input line 0.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 0.
+LaTeX Font Info:    ... okay on input line 0.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 0.
+LaTeX Font Info:    ... okay on input line 0.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 0.
+LaTeX Font Info:    ... okay on input line 0.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 0.
+LaTeX Font Info:    ... okay on input line 0.
+
+*$ O( sa.size() ) $
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 0.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 0.
+
+*\pagebreak
+
+*
+[1
+
+]
+(Please type a command or say `\end')
+*$0..sa.size()-1$
+
+*\pagebreak
+
+*
+[2]
+(Please type a command or say `\end')
+*$ \Order{sa.size()}, i.e. linear time complexity $
+
+*\pagebreak
+
+*
+[3]
+(Please type a command or say `\end')
+*\[ psv[i] = \begin{array}{rl} a.size() &\mbox{ if} \min\{ a[j] \mid j<i \} \ge
+q a[i] \\ max\{j\mid a[j] < a[i] \wedge j<i\} &\mbox{ otherwise.}\end{array} \]
+
+
+*\pagebreak
+
+*
+[4]
+(Please type a command or say `\end')
+*\[ nsv[i] = \begin{array}{rl} 0 &\mbox{ if} \min\{ a[j] \mid j>i \} \geq a[i] 
+\\ min\{j\mid a[j] < a[i] \wedge j>i\} &\mbox{ otherwise.}\end{array} \]
+
+*\pagebreak
+
+*
+[5]
+(Please type a command or say `\end')
+*$ \Order{ 2*SA.size() }$
+
+*\pagebreak
+
+*
+[6]
+(Please type a command or say `\end')
+*$\Psi$
+
+*\pagebreak
+
+*
+[7]
+(Please type a command or say `\end')
+*$ \Order{3*SA.size() }$
+
+*\pagebreak
+
+*
+[8]
+(Please type a command or say `\end')
+*$ sa.size() \cdot \log(RandomAccessContainer::size_type)$
+
+*\pagebreak
+
+*
+[9]
+(Please type a command or say `\end')
+*$ \Order{ SA.size() } $
+
+*\pagebreak
+
+*
+[10]
+(Please type a command or say `\end')
+*$ SA^{-1}[0]$
+
+*\pagebreak
+
+*
+[11]
+(Please type a command or say `\end')
+*$\Psi-$
+
+*\pagebreak
+
+*
+[12]
+(Please type a command or say `\end')
+*$ SA^{-1}[0] $
+
+*\pagebreak
+
+*
+[13]
+(Please type a command or say `\end')
+*$ SA^{-1}[0]=\Psi(0) $
+
+*\pagebreak
+
+*
+[14]
+(Please type a command or say `\end')
+*$\Order{psi.size()}$
+
+*\pagebreak
+
+*
+[15]
+(Please type a command or say `\end')
+*$ \Order{n \log n} $
+
+*\pagebreak
+
+*
+[16]
+(Please type a command or say `\end')
+*$ n=$
+
+*\pagebreak
+
+*
+[17]
+(Please type a command or say `\end')
+*$ \Order{2n + min(block\_size, \frac{n}{block\_size} )\cdot \log n } $
+
+*\pagebreak
+
+*
+[18]
+(Please type a command or say `\end')
+*$ \Order{n} $
+
+*\pagebreak
+
+*
+[19]
+(Please type a command or say `\end')
+*$ \Order{2n + n} $
+
+*\pagebreak
+
+*
+[20]
+(Please type a command or say `\end')
+*$n$
+
+*\pagebreak
+
+*
+[21]
+(Please type a command or say `\end')
+*$ \Order{n + 2n\log n } $
+
+*\pagebreak
+
+*
+[22]
+(Please type a command or say `\end')
+*$ bp[i]=1 $
+
+*\pagebreak
+
+*
+[23]
+(Please type a command or say `\end')
+*$ j\leq i $
+
+*\pagebreak
+
+*
+[24]
+(Please type a command or say `\end')
+*$ excess(j) = excess(i+1)+rel $
+
+*\pagebreak
+
+*
+[25]
+(Please type a command or say `\end')
+*$ bp[i]=0 $
+
+*\pagebreak
+
+*
+[26]
+(Please type a command or say `\end')
+*$ csa.size()>0 $
+
+*\pagebreak
+
+*
+[27]
+(Please type a command or say `\end')
+*$ \Order{2n} $
+
+*\pagebreak
+
+*
+[28]
+(Please type a command or say `\end')
+*$ \Order{n \cdot \log n } $
+
+*\pagebreak
+
+*
+[29]
+(Please type a command or say `\end')
+*$\Order{n}$
+
+*\pagebreak
+
+*
+[30]
+(Please type a command or say `\end')
+*$\Order{2n}$
+
+*\pagebreak
+
+*
+[31]
+(Please type a command or say `\end')
+*$[\ell..r]$
+
+*\pagebreak
+
+*
+[32]
+(Please type a command or say `\end')
+*$ [\ell..r]$
+
+*\pagebreak
+
+*
+[33]
+(Please type a command or say `\end')
+*$ [\ell_{new}..r_{new}] $
+
+*\pagebreak
+
+*
+[34]
+(Please type a command or say `\end')
+*$ 0 \leq \ell \leq r < csa.size() $
+
+*\pagebreak
+
+*
+[35]
+(Please type a command or say `\end')
+*$ \Order{ t_{rank\_bwt} } $
+
+*\pagebreak
+
+*
+[36]
+(Please type a command or say `\end')
+*$ \Order{ len \cdot t_{rank\_bwt} } $
+
+*\pagebreak
+
+*
+[37]
+(Please type a command or say `\end')
+*$ \Order{ t_{backward\_search} } $
+
+*\pagebreak
+
+*
+[38]
+(Please type a command or say `\end')
+*$ \Order{ t_{backward\_search} + z \cdot t_{SA} } $
+
+*\pagebreak
+
+*
+[39]
+(Please type a command or say `\end')
+*$z$
+
+*\pagebreak
+
+*
+[40]
+(Please type a command or say `\end')
+*$begin <= end$
+
+*\pagebreak
+
+*
+[41]
+(Please type a command or say `\end')
+*$ end < csa.size() $
+
+*\pagebreak
+
+*
+[42]
+(Please type a command or say `\end')
+*$ \Order{ (end-begin+1) \cdot t_{\Psi} + t_{SA^{-1}} } $
+
+*\pagebreak
+
+*
+[43]
+(Please type a command or say `\end')
+*$begin$
+
+*\pagebreak
+
+*
+[44]
+(Please type a command or say `\end')
+*$end$
+
+*\pagebreak
+
+*
+[45]
+(Please type a command or say `\end')
+*$d$
+
+*\pagebreak
+
+*
+[46]
+(Please type a command or say `\end')
+*$v$
+
+*\pagebreak
+
+*
+[47]
+(Please type a command or say `\end')
+*$ \Order{ t_{\Psi} } $
+
+*\pagebreak
+
+*
+[48]
+(Please type a command or say `\end')
+*$ \Order{t_{cst.child}} $
+
+*\pagebreak
+
+*
+[49]
+(Please type a command or say `\end')
+*$ cst.depth(v)+1$
+
+*\pagebreak
+
+*
+[50]
+(Please type a command or say `\end')
+*$ 0 \leq i < size() $
+
+*\pagebreak
+
+*
+[51]
+(Please type a command or say `\end')
+*$ \Order{1} $
+
+*\pagebreak
+
+*
+[52]
+(Please type a command or say `\end')
+*$2^64$
+
+*\pagebreak
+
+*
+[53]
+(Please type a command or say `\end')
+*$[0..7]$
+
+*\pagebreak
+
+*
+[54]
+(Please type a command or say `\end')
+*$i\in \{1,3,5,7\}$
+
+*\pagebreak
+
+*
+[55]
+(Please type a command or say `\end')
+*$[1..b1Cnt(x)]$
+
+*\pagebreak
+
+*
+[56]
+(Please type a command or say `\end')
+*$i \in [1..b11Cnt(x)]$
+
+*\pagebreak
+
+*
+[57]
+(Please type a command or say `\end')
+*$ len \in [0..64] $
+
+*\pagebreak
+
+*
+[58]
+(Please type a command or say `\end')
+*$[idx..\infty )$
+
+*\pagebreak
+
+*
+[59]
+(Please type a command or say `\end')
+*$[0..idx]$
+
+*\pagebreak
+
+*
+[60]
+(Please type a command or say `\end')
+*$0<excess\_val \leq 64 $
+
+*\pagebreak
+
+*
+[61]
+(Please type a command or say `\end')
+*$ 0\leq i < size() $
+
+*\pagebreak
+
+*
+[62]
+(Please type a command or say `\end')
+*$1\leq i < rank(size())$
+
+*\pagebreak
+
+*
+[63]
+(Please type a command or say `\end')
+*$ 0\leq select(i) < size() $
+
+*\pagebreak
+
+*
+[64]
+(Please type a command or say `\end')
+*$ i<j \wedge findclose(i) < j $
+
+*\pagebreak
+
+*
+[65]
+(Please type a command or say `\end')
+*$ \Order{block\_size} $
+
+*\pagebreak
+
+*
+[66]
+(Please type a command or say `\end')
+*$ \ell \leq i < r $
+
+*\pagebreak
+
+*
+[67]
+(Please type a command or say `\end')
+*$ find_close(i) \geq r $
+
+*\pagebreak
+
+*
+[68]
+(Please type a command or say `\end')
+*$[l..r]$
+
+*\pagebreak
+
+*
+[69]
+(Please type a command or say `\end')
+*$l\leq r$
+
+*\pagebreak
+
+*
+[70]
+(Please type a command or say `\end')
+*$l \leq r$
+
+*\pagebreak
+
+*
+[71]
+(Please type a command or say `\end')
+*$ k<j \wedge k>findclose(j) $
+
+*\pagebreak
+
+*
+[72]
+(Please type a command or say `\end')
+*$(i,\mu(i))$
+
+*\pagebreak
+
+*
+[73]
+(Please type a command or say `\end')
+*$(j,\mu(j))$
+
+*\pagebreak
+
+*
+[74]
+(Please type a command or say `\end')
+*$ findclose(i) < k < j$
+
+*\pagebreak
+
+*
+[75]
+(Please type a command or say `\end')
+*$ \Order{size()}$
+
+*\pagebreak
+
+*
+[76]
+(Please type a command or say `\end')
+*$ j>i $
+
+*\pagebreak
+
+*
+[77]
+(Please type a command or say `\end')
+*$ excess(j) = excess(i)+rel $
+
+*\pagebreak
+
+*
+[78]
+(Please type a command or say `\end')
+*$i$
+
+*\pagebreak
+
+*
+[79]
+(Please type a command or say `\end')
+*$ j>i$
+
+*\pagebreak
+
+*
+[80]
+(Please type a command or say `\end')
+*$j$
+
+*\pagebreak
+
+*
+[81]
+(Please type a command or say `\end')
+*$ j<i $
+
+*\pagebreak
+
+*
+[82]
+(Please type a command or say `\end')
+*$i<j$
+
+*\pagebreak
+
+*
+[83]
+(Please type a command or say `\end')
+*$ excess(j) = excess(i)+rel$
+
+*\pagebreak
+
+*
+[84]
+(Please type a command or say `\end')
+*$ j \leq sml_block_idx\cdot SmlBlkSize+(SmlBlkSize-1) $
+
+*\pagebreak
+
+*
+[85]
+(Please type a command or say `\end')
+*$ excess(j)=desired\_excess $
+
+*\pagebreak
+
+*
+[86]
+(Please type a command or say `\end')
+*$ j \geq sml_block_idx\cdot SmlBlkSize $
+
+*\pagebreak
+
+*
+[87]
+(Please type a command or say `\end')
+*$s_{SA}$
+
+*\pagebreak
+
+*
+[88]
+(Please type a command or say `\end')
+*$s_{SA}th$
+
+*\pagebreak
+
+*
+[89]
+(Please type a command or say `\end')
+*$\log n$
+
+*\pagebreak
+
+*
+[90]
+(Please type a command or say `\end')
+*$s_{\Psi}$
+
+*\pagebreak
+
+*
+[91]
+(Please type a command or say `\end')
+*$\CSA$
+
+*\pagebreak
+
+*
+[92]
+(Please type a command or say `\end')
+*$ i \in [0..size()-1]$
+
+*\pagebreak
+
+*
+[93]
+(Please type a command or say `\end')
+*$ \Order{s_{SA}\cdot t_{\Psi}} $
+
+*\pagebreak
+
+*
+[94]
+(Please type a command or say `\end')
+*$t_{\Psi}$
+
+*\pagebreak
+
+*
+[95]
+(Please type a command or say `\end')
+*$ \Order{s_{SA^{-1}}\cdot t_{\Psi}} $
+
+*\pagebreak
+
+*
+[96]
+(Please type a command or say `\end')
+*$s_{SA^{-1}}$
+
+*\pagebreak
+
+*
+[97]
+(Please type a command or say `\end')
+*$i\in [0..size()]$
+
+*\pagebreak
+
+*
+[98]
+(Please type a command or say `\end')
+*$ \Order{\log n t_{\Psi}} $
+
+*\pagebreak
+
+*
+[99]
+(Please type a command or say `\end')
+*$i\in [1..rank(size(),c)]$
+
+*\pagebreak
+
+*
+[100]
+(Please type a command or say `\end')
+*$ \Order{t_{\Psi}} $
+
+*\pagebreak
+
+*
+[101]
+(Please type a command or say `\end')
+*$O(\log\log n)$
+
+*\pagebreak
+
+*
+[102]
+(Please type a command or say `\end')
+*$ 2n\cdot \log n$
+
+*\pagebreak
+
+*
+[103]
+(Please type a command or say `\end')
+*$size()$
+
+*\pagebreak
+
+*
+[104]
+(Please type a command or say `\end')
+*$ \Order{\log n} $
+
+*\pagebreak
+
+*
+[105]
+(Please type a command or say `\end')
+*$i\in [0..size()-1]$
+
+*\pagebreak
+
+*
+[106]
+(Please type a command or say `\end')
+*$ \Order{\log |\Sigma|} $
+
+*\pagebreak
+
+*
+[107]
+(Please type a command or say `\end')
+*$ \Order{\min\{k\cdot \log |\Sigma|, (s_{\SUF}+s_{\ISA})\log|\Sigma|\}} $
+
+*\pagebreak
+
+*
+[108]
+(Please type a command or say `\end')
+*$LF[\Psi(i)]=i$
+
+*\pagebreak
+
+*
+[109]
+(Please type a command or say `\end')
+*$csa$
+
+*\pagebreak
+
+*
+[110]
+(Please type a command or say `\end')
+*$lcp$
+
+*\pagebreak
+
+*
+[111]
+(Please type a command or say `\end')
+*$bp\_support$
+
+*\pagebreak
+
+*
+[112]
+(Please type a command or say `\end')
+*$bp$
+
+*\pagebreak
+
+*
+[113]
+(Please type a command or say `\end')
+*$2n+n=3n$
+
+*\pagebreak
+
+*
+[114]
+(Please type a command or say `\end')
+*$4n$
+
+*\pagebreak
+
+*
+[115]
+(Please type a command or say `\end')
+*$n=$
+
+*\pagebreak
+
+*
+[116]
+(Please type a command or say `\end')
+*$1\leq i\leq size()$
+
+*\pagebreak
+
+*
+[117]
+(Please type a command or say `\end')
+*$ 1 \leq i \leq size() $
+
+*\pagebreak
+
+*
+[118]
+(Please type a command or say `\end')
+*$ \Order{1}$
+
+*\pagebreak
+
+*
+[119]
+(Please type a command or say `\end')
+*$i \geq 1$
+
+*\pagebreak
+
+*
+[120]
+(Please type a command or say `\end')
+*$ \Order{\frac{\sigma}{w}} $
+
+*\pagebreak
+
+*
+[121]
+(Please type a command or say `\end')
+*$\Order{1}$
+
+*\pagebreak
+
+*
+[122]
+(Please type a command or say `\end')
+*$ 1 \leq i \leq degree(v) $
+
+*\pagebreak
+
+*
+[123]
+(Please type a command or say `\end')
+*$ \Order{(\saaccess+\isaaccess) \cdot \log\sigma + \lcpaccess} $
+
+*\pagebreak
+
+*
+[124]
+(Please type a command or say `\end')
+*$ d > 0 \wedge d < depth(v) $
+
+*\pagebreak
+
+*
+[125]
+(Please type a command or say `\end')
+*$ \Order{ \log\sigma + (\saaccess+\isaaccess) } $
+
+*\pagebreak
+
+*
+[126]
+(Please type a command or say `\end')
+*$ 1 \leq d \leq depth(v) $
+
+*\pagebreak
+
+*
+[127]
+(Please type a command or say `\end')
+*$ \Order{\rrenclose}\ $
+
+*\pagebreak
+
+*
+[128]
+(Please type a command or say `\end')
+*$\Order{t_{SA}}$
+
+*\pagebreak
+
+*
+[129]
+(Please type a command or say `\end')
+*$ \Order{z} $
+
+*\pagebreak
+
+*
+[130]
+(Please type a command or say `\end')
+*$ \Order{ \rrenclose } $
+
+*\pagebreak
+
+*
+[131]
+(Please type a command or say `\end')
+*$ \Order{ \saaccess } $
+
+*\pagebreak
+
+*
+[132]
+(Please type a command or say `\end')
+*$5n$
+
+*\pagebreak
+
+*
+[133]
+(Please type a command or say `\end')
+*$\Order{1} $
+
+*\pagebreak
+
+*
+[134]
+(Please type a command or say `\end')
+*$bp\_rank\_10$
+
+*\pagebreak
+
+*
+[135]
+(Please type a command or say `\end')
+*$bp\_select\_10$
+
+*\pagebreak
+
+*
+[136]
+(Please type a command or say `\end')
+*$1\leq i\leq csa.size()$
+
+*\pagebreak
+
+*
+[137]
+(Please type a command or say `\end')
+*$ 1 \leq i \leq csa.size() $
+
+*\pagebreak
+
+*
+[138]
+(Please type a command or say `\end')
+*$ \Order{\lcpaccess \vee \saaccess} $
+
+*\pagebreak
+
+*
+[139]
+(Please type a command or say `\end')
+*$ \Order{i} $
+
+*\pagebreak
+
+*
+[140]
+(Please type a command or say `\end')
+*$ i \leq \sigma $
+
+*\pagebreak
+
+*
+[141]
+(Please type a command or say `\end')
+*$ \Order{ 1 } $
+
+*\pagebreak
+
+*
+[142]
+(Please type a command or say `\end')
+*$ \log n $
+
+*\pagebreak
+
+*
+[143]
+(Please type a command or say `\end')
+*$ \Order{\sigma} $
+
+*\pagebreak
+
+*
+[144]
+(Please type a command or say `\end')
+*$\ell-[left..right]$
+
+*\pagebreak
+
+*
+[145]
+(Please type a command or say `\end')
+*$LCP$
+
+*\pagebreak
+
+*
+[146]
+(Please type a command or say `\end')
+*$[left..right]$
+
+*\pagebreak
+
+*
+[147]
+(Please type a command or say `\end')
+*$1\leq i<j\leq n$
+
+*\pagebreak
+
+*
+[148]
+(Please type a command or say `\end')
+*$\ell$
+
+*\pagebreak
+
+*
+[149]
+(Please type a command or say `\end')
+*$LCP[left]<\ell$
+
+*\pagebreak
+
+*
+[150]
+(Please type a command or say `\end')
+*$LCP[k]\geq \ell$
+
+*\pagebreak
+
+*
+[151]
+(Please type a command or say `\end')
+*$k$
+
+*\pagebreak
+
+*
+[152]
+(Please type a command or say `\end')
+*$left+1\leq k \leq right$
+
+*\pagebreak
+
+*
+[153]
+(Please type a command or say `\end')
+*$LCP[k] = \ell$
+
+*\pagebreak
+
+*
+[154]
+(Please type a command or say `\end')
+*$LCP[right+1]<\ell$
+
+*\pagebreak
+
+*
+[155]
+(Please type a command or say `\end')
+*$left=right$
+
+*\pagebreak
+
+*
+[156]
+(Please type a command or say `\end')
+*$\ell=LCP[left]$
+
+*\pagebreak
+
+*
+[157]
+(Please type a command or say `\end')
+*$2n$
+
+*\pagebreak
+
+*
+[158]
+(Please type a command or say `\end')
+*$ \Order{\saaccess} $
+
+*\pagebreak
+
+*
+[159]
+(Please type a command or say `\end')
+*$ \Order{\lcpaccess \cdot \log\sigma}$
+
+*\pagebreak
+
+*
+[160]
+(Please type a command or say `\end')
+*$ \Order{i \cdot \lcpaccess}$
+
+*\pagebreak
+
+*
+[161]
+(Please type a command or say `\end')
+*$\Order{\log i \cdot \lcpaccess}$
+
+*\pagebreak
+
+*
+[162]
+(Please type a command or say `\end')
+*$ \Order{\lcpaccess \cdot \log\sigma} $
+
+*\pagebreak
+
+*
+[163]
+(Please type a command or say `\end')
+*$ \Order{\lcpaccess} $
+
+*\pagebreak
+
+*
+[164]
+(Please type a command or say `\end')
+*$ \Order{ \sigma \cdot (\saaccess+\isaaccess+\lcpaccess) } $
+
+*\pagebreak
+
+*
+[165]
+(Please type a command or say `\end')
+*$ \Order{(\lcpaccess+\saaccess+\isaaccess) \cdot \log\sigma} $
+
+*\pagebreak
+
+*
+[166]
+(Please type a command or say `\end')
+*$ \Order{ \rrenclose + \lcpaccess \cdot \log\sigma} $
+
+*\pagebreak
+
+*
+[167]
+(Please type a command or say `\end')
+*$ \Order{\lcpaccess}$
+
+*\pagebreak
+
+*
+[168]
+(Please type a command or say `\end')
+*$ \Order{\log size()} $
+
+*\pagebreak
+
+*
+[169]
+(Please type a command or say `\end')
+*$\delta$
+
+*\pagebreak
+
+*
+[170]
+(Please type a command or say `\end')
+*$idx\in [0..v->size()]$
+
+*\pagebreak
+
+*
+[171]
+(Please type a command or say `\end')
+*$0\leq offset< 64$
+
+*\pagebreak
+
+*
+[172]
+(Please type a command or say `\end')
+*$ \Order{\log m} $
+
+*\pagebreak
+
+*
+[173]
+(Please type a command or say `\end')
+*$w\in [1..64]$
+
+*\pagebreak
+
+*
+[174]
+(Please type a command or say `\end')
+*$ 5n $
+
+*\pagebreak
+
+*
+[175]
+(Please type a command or say `\end')
+*$ 4n $
+
+*\pagebreak
+
+*
+[176]
+(Please type a command or say `\end')
+*$ 2n $
+
+*\pagebreak
+
+*
+[177]
+(Please type a command or say `\end')
+*$5n bytes$
+
+*\pagebreak
+
+*
+[178]
+(Please type a command or say `\end')
+*$ n+\Order{1} $
+
+*\pagebreak
+
+*
+[179]
+(Please type a command or say `\end')
+*$K=\lceil k/(b-1)\rceil$
+
+*\pagebreak
+
+*
+[180]
+(Please type a command or say `\end')
+*$K$
+
+*\pagebreak
+
+*
+[181]
+(Please type a command or say `\end')
+*$ b $
+
+*\pagebreak
+
+*
+[182]
+(Please type a command or say `\end')
+*$\Order{\log n/b}$
+
+*\pagebreak
+
+*
+[183]
+(Please type a command or say `\end')
+*$ log n $
+
+*\pagebreak
+
+*
+[184]
+(Please type a command or say `\end')
+*$\Order{\log n}$
+
+*\pagebreak
+
+*
+[185]
+(Please type a command or say `\end')
+*$n=size()$
+
+*\pagebreak
+
+*
+[186]
+(Please type a command or say `\end')
+*$ 2n+o(n) $
+
+*\pagebreak
+
+*
+[187]
+(Please type a command or say `\end')
+*$ \Order{t_{find\_close} + t_{rank}} $
+
+*\pagebreak
+
+*
+[188]
+(Please type a command or say `\end')
+*$H_0$
+
+*\pagebreak
+
+*
+[189]
+(Please type a command or say `\end')
+*$ i \in [1..degree(v)] $
+
+*\pagebreak
+
+*
+[190]
+(Please type a command or say `\end')
+*$i\in [1..ones()]$
+
+*\pagebreak
+
+*
+[191]
+(Please type a command or say `\end')
+*$ i \in [0..size()-1] $
+
+*\pagebreak
+
+*
+[192]
+(Please type a command or say `\end')
+*$j \leq i$
+
+*\pagebreak
+
+*
+[193]
+(Please type a command or say `\end')
+*$ j \geq i $
+
+*\pagebreak
+
+*
+[194]
+(Please type a command or say `\end')
+*$ 0 \leq idx < size() $
+
+*\pagebreak
+
+*
+[195]
+(Please type a command or say `\end')
+*$i\geq idx$
+
+*\pagebreak
+
+*
+[196]
+(Please type a command or say `\end')
+*$ 0\leq idx < size()$
+
+*\pagebreak
+
+*
+[197]
+(Please type a command or say `\end')
+*$i \leq idx$
+
+*\pagebreak
+
+*
+[198]
+(Please type a command or say `\end')
+*$ 0 \leq idx < size()$
+
+*\pagebreak
+
+*
+[199]
+(Please type a command or say `\end')
+*$ 0.25n$
+
+*\pagebreak
+
+*
+[200]
+(Please type a command or say `\end')
+*$ 0.0625n$
+
+*\pagebreak
+
+*
+[201]
+(Please type a command or say `\end')
+*$4 n+o(n) bits$
+
+*\pagebreak
+
+*
+[202]
+(Please type a command or say `\end')
+*$ 4n+o(n) $
+
+*\pagebreak
+
+*
+[203]
+(Please type a command or say `\end')
+*$ n=size() $
+
+*\pagebreak
+
+*
+[204]
+(Please type a command or say `\end')
+*$\ell \leq i \leq r$
+
+*\pagebreak
+
+*
+[205]
+(Please type a command or say `\end')
+*$ v[i] $
+
+*\pagebreak
+
+*
+[206]
+(Please type a command or say `\end')
+*$ \ell \leq r $
+
+*\pagebreak
+
+*
+[207]
+(Please type a command or say `\end')
+*$2 n+o(n) bits$
+
+*\pagebreak
+
+*
+[208]
+(Please type a command or say `\end')
+*$ \Order{2n}+o(n) $
+
+*\pagebreak
+
+*
+[209]
+(Please type a command or say `\end')
+*$\Order{n\log^2 n} bits$
+
+*\pagebreak
+
+*
+[210]
+(Please type a command or say `\end')
+*$ \Order{n\log^2 n} $
+
+*\pagebreak
+
+*
+[211]
+(Please type a command or say `\end')
+*${m \choose k}$
+
+*\pagebreak
+
+*
+[212]
+(Please type a command or say `\end')
+*$ k\leq m\leq \leq n$
+
+*\pagebreak
+
+*
+[213]
+(Please type a command or say `\end')
+*$ n/\lceil\log{n+1}\rceil $
+
+*\pagebreak
+
+*
+[214]
+(Please type a command or say `\end')
+*$ k<n\log(n) $
+
+*\pagebreak
+
+*
+[215]
+(Please type a command or say `\end')
+*$len$
+
+*\pagebreak
+
+*
+[216]
+(Please type a command or say `\end')
+*${n \choose k}$
+
+*\pagebreak
+
+*
+[217]
+(Please type a command or say `\end')
+*$ off $
+
+*\pagebreak
+
+*
+[218]
+(Please type a command or say `\end')
+*$ block\_size \in \{1,...,23\} $
+
+*\pagebreak
+
+*
+[219]
+(Please type a command or say `\end')
+*$0\leq i \leq size()$
+
+*\pagebreak
+
+*
+[220]
+(Please type a command or say `\end')
+*$ \Order{ sample\_rate of the rrr\_vector} $
+
+*\pagebreak
+
+*
+[221]
+(Please type a command or say `\end')
+*$ \Order{t_{select0} + n/m} $
+
+*\pagebreak
+
+*
+[222]
+(Please type a command or say `\end')
+*$\Order{t_{select0}+\log(n/m)}$
+
+*\pagebreak
+
+*
+[223]
+(Please type a command or say `\end')
+*$\in [0..v.size()-1]$
+
+*\pagebreak
+
+*
+[224]
+(Please type a command or say `\end')
+*$ m $
+
+*\pagebreak
+
+*
+[225]
+(Please type a command or say `\end')
+*$\frac{m}{4096} \log{n} \leq \frac{64}{n}$
+
+*\pagebreak
+
+*
+[226]
+(Please type a command or say `\end')
+*$ \log n = 35 $
+
+*\pagebreak
+
+*
+[227]
+(Please type a command or say `\end')
+*$ \frac{4\log\log n}{64} \leq \frac{24}{64} = 0.375$
+
+*\pagebreak
+
+*
+[228]
+(Please type a command or say `\end')
+*$0$
+
+*\pagebreak
+
+*
+[229]
+(Please type a command or say `\end')
+*$n-1$
+
+*\pagebreak
+
+*
+[230]
+(Please type a command or say `\end')
+*$\psi$
+
+*\pagebreak
+
+*
+[231]
+(Please type a command or say `\end')
+*$ \Order{\saaccess+\isaaccess} $
+
+*\pagebreak
+
+*
+[232]
+(Please type a command or say `\end')
+*$ 2^{12}=4096 $
+
+*\pagebreak
+
+*
+[233]
+(Please type a command or say `\end')
+*$times$
+
+*\pagebreak
+
+*
+[234]
+(Please type a command or say `\end')
+*$\Sigma$
+
+*\pagebreak
+
+*
+[235]
+(Please type a command or say `\end')
+*$\Sigma << n$
+
+*\pagebreak
+
+*
+[236]
+(Please type a command or say `\end')
+*$wt$
+
+*\pagebreak
+
+*
+[237]
+(Please type a command or say `\end')
+*$wt[i]$
+
+*\pagebreak
+
+*
+[238]
+(Please type a command or say `\end')
+*$wt.rank(i,c)$
+
+*\pagebreak
+
+*
+[239]
+(Please type a command or say `\end')
+*$c$
+
+*\pagebreak
+
+*
+[240]
+(Please type a command or say `\end')
+*$wt.select(j,c)$
+
+*\pagebreak
+
+*
+[241]
+(Please type a command or say `\end')
+*$\Order{n\log|\Sigma| + 2|\Sigma|\log n}$
+
+*\pagebreak
+
+*
+[242]
+(Please type a command or say `\end')
+*$ \Order{n\log|\Sigma|}$
+
+*\pagebreak
+
+*
+[243]
+(Please type a command or say `\end')
+*$n=size$
+
+*\pagebreak
+
+*
+[244]
+(Please type a command or say `\end')
+*$i \in [0..size()-1]$
+
+*\pagebreak
+
+*
+[245]
+(Please type a command or say `\end')
+*$i\in[0..size()]$
+
+*\pagebreak
+
+*
+[246]
+(Please type a command or say `\end')
+*$ 0 \leq p < k $
+
+*\pagebreak
+
+*
+[247]
+(Please type a command or say `\end')
+*$ \Order{\min{\sigma, k \log \sigma}} $
+
+*\pagebreak
+
+*
+[248]
+(Please type a command or say `\end')
+*$ i\leq j $
+
+*\pagebreak
+
+*
+[249]
+(Please type a command or say `\end')
+*$ cs.size() \geq \sigma $
+
+*\pagebreak
+
+*
+[250]
+(Please type a command or say `\end')
+*$ rank_{c_i}.size() \geq \sigma $
+
+*\pagebreak
+
+*
+[251]
+(Please type a command or say `\end')
+*$ rank_{c_j}.size() \geq \sigma $
+
+*\pagebreak
+
+*
+[252]
+(Please type a command or say `\end')
+*$\Sigma \ll n$
+
+*\pagebreak
+
+*
+[253]
+(Please type a command or say `\end')
+*$\Order{n H_0 + 2|\Sigma|\log n}$
+
+*\pagebreak
+
+*
+[254]
+(Please type a command or say `\end')
+*$ \Order{H_0} $
+
+*\pagebreak
+
+*
+[255]
+(Please type a command or say `\end')
+*$ H_0 $
+
+*\pagebreak
+
+*
+[256]
+(Please type a command or say `\end')
+*$\Order{n\log|\Sigma|}$
+
+*\pagebreak
+
+*
+[257]
+(Please type a command or say `\end')
+*$ 3n\log|\Sigma| $
+
+*\pagebreak
+
+*
+[258]
+(Please type a command or say `\end')
+*$3n\log n $
+
+*\pagebreak
+
+*
+[259]
+(Please type a command or say `\end')
+*$ n\log|\Sigma| + O(1)$
+
+*\pagebreak
+
+*
+[260]
+(Please type a command or say `\end')
+*$ L $
+
+*\pagebreak
+
+*
+[261]
+(Please type a command or say `\end')
+*$ \Order{H_0 + \log L} $
+
+*\pagebreak
+
+*
+[262]
+(Please type a command or say `\end')
+*$L$
+
+*\pagebreak
+
+*
+[263]
+(Please type a command or say `\end')
+*$ \Order{H_0 \log L} $
+
+*\pagebreak
+
+*
+[264]
+(Please type a command or say `\end')
+*$ \Order{\log n H_0 \log L} $
+
+*\pagebreak
+
+*
+[265]
+(Please type a command or say `\end')
+*$ nH_0 + 2|\Sigma|\log n + 2n + o(n) $
+
+*\pagebreak
+
+*
+[266]
+(Please type a command or say `\end')
+*\end{document}
+(./texput.aux) 
+Here is how much of TeX's memory you used:
+ 559 strings out of 493634
+ 6954 string characters out of 3143401
+ 54311 words of memory out of 3000000
+ 3923 multiletter control sequences out of 15000+200000
+ 4684 words of font info for 17 fonts, out of 3000000 for 9000
+ 831 hyphenation exceptions out of 8191
+ 31i,6n,21p,238b,100s stack positions out of 5000i,500n,10000p,200000b,50000s
+
+Output written on texput.dvi (266 pages, 28932 bytes).

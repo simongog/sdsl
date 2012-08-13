@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Succinct Data Structure Library (sdsl): sdsl/include/sdsl/wt_int.hpp Source File</title>
+<title>SDSL: Succinct Data Structure Library: sdsl/include/sdsl/wt_int.hpp Source File</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -27,7 +27,7 @@
   
   
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Succinct Data Structure Library (sdsl)
+   <div id="projectname">SDSL: Succinct Data Structure Library
    
    </div>
    <div id="projectbrief">A C++ template library for succinct data structures</div>
@@ -558,46 +558,48 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00531"></a>00531             }
 <a name="l00532"></a>00532         }
 <a name="l00533"></a>00533 
-<a name="l00535"></a><a class="code" href="classsdsl_1_1wt__int.html#a717e7153f44602da085bb616b0a6b8df">00535</a>         size_type <a class="code" href="classsdsl_1_1wt__int.html#a717e7153f44602da085bb616b0a6b8df" title="Serializes the data structure into the given ostream.">serialize</a>(std::ostream&amp; out)<span class="keyword">const </span>{
-<a name="l00536"></a>00536             size_type written_bytes = 0;
-<a name="l00537"></a>00537             written_bytes += util::write_member(m_size, out);
-<a name="l00538"></a>00538             written_bytes += util::write_member(m_sigma, out);
-<a name="l00539"></a>00539             written_bytes += m_tree.serialize(out);
-<a name="l00540"></a>00540             written_bytes += m_tree_rank.serialize(out);
-<a name="l00541"></a>00541             written_bytes += m_tree_select1.serialize(out);
-<a name="l00542"></a>00542             written_bytes += m_tree_select0.serialize(out);
-<a name="l00543"></a>00543             written_bytes += util::write_member(m_logn, out);
-<a name="l00544"></a>00544             <span class="keywordflow">return</span> written_bytes;
-<a name="l00545"></a>00545         }
-<a name="l00546"></a>00546 
-<a name="l00548"></a><a class="code" href="classsdsl_1_1wt__int.html#aebd22798d4b6a54bfb556232be79cefa">00548</a>         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1wt__int.html#aebd22798d4b6a54bfb556232be79cefa" title="Loads the data structure from the given istream.">load</a>(std::istream&amp; in) {
-<a name="l00549"></a>00549             util::read_member(m_size, in);
-<a name="l00550"></a>00550             util::read_member(m_sigma, in);
-<a name="l00551"></a>00551             m_tree.load(in);
-<a name="l00552"></a>00552             m_tree_rank.load(in, &amp;m_tree);
-<a name="l00553"></a>00553             m_tree_select1.load(in, &amp;m_tree);
-<a name="l00554"></a>00554             m_tree_select0.load(in, &amp;m_tree);
-<a name="l00555"></a>00555             util::read_member(m_logn, in);
-<a name="l00556"></a>00556         }
-<a name="l00557"></a>00557         <span class="comment">/*</span>
-<a name="l00558"></a>00558 <span class="comment">                void print_info()const{</span>
-<a name="l00559"></a>00559 <span class="comment">                        size_type rle_ed = 0;</span>
-<a name="l00560"></a>00560 <span class="comment">                        for(size_type i=0; i &lt; m_tree.size(); ++i){</span>
-<a name="l00561"></a>00561 <span class="comment"></span>
-<a name="l00562"></a>00562 <span class="comment">                        }</span>
-<a name="l00563"></a>00563 <span class="comment">                }</span>
-<a name="l00564"></a>00564 <span class="comment">        */</span>
-<a name="l00565"></a>00565 
-<a name="l00566"></a>00566 };
+<a name="l00535"></a><a class="code" href="classsdsl_1_1wt__int.html#a60263ff1b044de0a51f7a21dec899de5">00535</a>         size_type <a class="code" href="classsdsl_1_1wt__int.html#a60263ff1b044de0a51f7a21dec899de5" title="Serializes the data structure into the given ostream.">serialize</a>(std::ostream&amp; out, <a class="code" href="classsdsl_1_1structure__tree__node.html" title="Class for a node of the structure tree.">structure_tree_node</a>* v=NULL, std::string name=<span class="stringliteral">&quot;&quot;</span>)<span class="keyword">const </span>{
+<a name="l00536"></a>00536             <a class="code" href="classsdsl_1_1structure__tree__node.html" title="Class for a node of the structure tree.">structure_tree_node</a>* child = structure_tree::add_child(v, name, util::class_name(*<span class="keyword">this</span>));
+<a name="l00537"></a>00537             size_type written_bytes = 0;
+<a name="l00538"></a>00538             written_bytes += util::write_member(m_size, out, child, <span class="stringliteral">&quot;size&quot;</span>);
+<a name="l00539"></a>00539             written_bytes += util::write_member(m_sigma, out, child, <span class="stringliteral">&quot;sigma&quot;</span>);
+<a name="l00540"></a>00540             written_bytes += m_tree.serialize(out, child, <span class="stringliteral">&quot;tree&quot;</span>);
+<a name="l00541"></a>00541             written_bytes += m_tree_rank.serialize(out, child, <span class="stringliteral">&quot;tree_rank&quot;</span>);
+<a name="l00542"></a>00542             written_bytes += m_tree_select1.serialize(out, child, <span class="stringliteral">&quot;tree_select_1&quot;</span>);
+<a name="l00543"></a>00543             written_bytes += m_tree_select0.serialize(out, child, <span class="stringliteral">&quot;tree_select_0&quot;</span>);
+<a name="l00544"></a>00544             written_bytes += util::write_member(m_logn, out, child, <span class="stringliteral">&quot;log_n&quot;</span>);
+<a name="l00545"></a>00545             structure_tree::add_size(child, written_bytes);
+<a name="l00546"></a>00546             <span class="keywordflow">return</span> written_bytes;
+<a name="l00547"></a>00547         }
+<a name="l00548"></a>00548 
+<a name="l00550"></a><a class="code" href="classsdsl_1_1wt__int.html#aebd22798d4b6a54bfb556232be79cefa">00550</a>         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1wt__int.html#aebd22798d4b6a54bfb556232be79cefa" title="Loads the data structure from the given istream.">load</a>(std::istream&amp; in) {
+<a name="l00551"></a>00551             util::read_member(m_size, in);
+<a name="l00552"></a>00552             util::read_member(m_sigma, in);
+<a name="l00553"></a>00553             m_tree.load(in);
+<a name="l00554"></a>00554             m_tree_rank.load(in, &amp;m_tree);
+<a name="l00555"></a>00555             m_tree_select1.load(in, &amp;m_tree);
+<a name="l00556"></a>00556             m_tree_select0.load(in, &amp;m_tree);
+<a name="l00557"></a>00557             util::read_member(m_logn, in);
+<a name="l00558"></a>00558         }
+<a name="l00559"></a>00559         <span class="comment">/*</span>
+<a name="l00560"></a>00560 <span class="comment">                void print_info()const{</span>
+<a name="l00561"></a>00561 <span class="comment">                        size_type rle_ed = 0;</span>
+<a name="l00562"></a>00562 <span class="comment">                        for(size_type i=0; i &lt; m_tree.size(); ++i){</span>
+<a name="l00563"></a>00563 <span class="comment"></span>
+<a name="l00564"></a>00564 <span class="comment">                        }</span>
+<a name="l00565"></a>00565 <span class="comment">                }</span>
+<a name="l00566"></a>00566 <span class="comment">        */</span>
 <a name="l00567"></a>00567 
-<a name="l00568"></a>00568 }<span class="comment">// end namespace sds</span>
+<a name="l00568"></a>00568 };
 <a name="l00569"></a>00569 
-<a name="l00570"></a>00570 <span class="preprocessor">#endif // end file </span>
+<a name="l00570"></a>00570 }<span class="comment">// end namespace sds</span>
+<a name="l00571"></a>00571 
+<a name="l00572"></a>00572 <span class="preprocessor">#endif // end file </span>
 </pre></div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 10 2012 18:54:28 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 13 2012 14:05:49 for SDSL: Succinct Data Structure Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

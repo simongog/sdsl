@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Succinct Data Structure Library (sdsl): sdsl::bp_support_g&lt; NearestNeighbourDictionary, RankSupport, SelectSupport, RangeMaxSupport &gt; Class Template Reference</title>
+<title>SDSL: Succinct Data Structure Library: sdsl::bp_support_g&lt; NearestNeighbourDictionary, RankSupport, SelectSupport, RangeMaxSupport &gt; Class Template Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -27,7 +27,7 @@
   
   
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Succinct Data Structure Library (sdsl)
+   <div id="projectname">SDSL: Succinct Data Structure Library
    
    </div>
    <div id="projectbrief">A C++ template library for succinct data structures</div>
@@ -158,8 +158,8 @@ size_type&#160;</td><td class="memItemRight" valign="bottom"><b>find_open_in_pio
 <tr class="memitem:a5a570ed11fe8daaece7384a45ebdcd01"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1bp__support__g.html#a5a570ed11fe8daaece7384a45ebdcd01">preceding_closing_parentheses</a> (size_type i) const </td></tr>
 <tr class="memdesc:a5a570ed11fe8daaece7384a45ebdcd01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the number of zeros which procede position i in the balanced parentheses sequence.  <a href="#a5a570ed11fe8daaece7384a45ebdcd01"></a><br/></td></tr>
 <tr class="memitem:aa387e2e1d5fe68a6c7f28fc1906ab993"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1bp__support__g.html#aa387e2e1d5fe68a6c7f28fc1906ab993">size</a> () const </td></tr>
-<tr class="memitem:a63ac0debe059747f1de2d10330406fdf"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1bp__support__g.html#a63ac0debe059747f1de2d10330406fdf">serialize</a> (std::ostream &amp;out) const </td></tr>
-<tr class="memdesc:a63ac0debe059747f1de2d10330406fdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes the <a class="el" href="classsdsl_1_1bp__support__g.html" title="A class that provides support for bit_vectors that represent a balanced parentheses sequence...">bp_support_g</a> to a stream.  <a href="#a63ac0debe059747f1de2d10330406fdf"></a><br/></td></tr>
+<tr class="memitem:a59872c5d91f5d3f72b93b0cba65168c4"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1bp__support__g.html#a59872c5d91f5d3f72b93b0cba65168c4">serialize</a> (std::ostream &amp;out, <a class="el" href="classsdsl_1_1structure__tree__node.html">structure_tree_node</a> *v=NULL, std::string name=&quot;&quot;) const </td></tr>
+<tr class="memdesc:a59872c5d91f5d3f72b93b0cba65168c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes the <a class="el" href="classsdsl_1_1bp__support__g.html" title="A class that provides support for bit_vectors that represent a balanced parentheses sequence...">bp_support_g</a> to a stream.  <a href="#a59872c5d91f5d3f72b93b0cba65168c4"></a><br/></td></tr>
 <tr class="memitem:a338c7635e8fa40b2f4b58172ffec973f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1bp__support__g.html#a338c7635e8fa40b2f4b58172ffec973f">load</a> (std::istream &amp;in, const <a class="el" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb">bit_vector</a> *bp)</td></tr>
 <tr class="memdesc:a338c7635e8fa40b2f4b58172ffec973f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load the <a class="el" href="classsdsl_1_1bp__support__g.html" title="A class that provides support for bit_vectors that represent a balanced parentheses sequence...">bp_support_g</a> for a bit_vector v.  <a href="#a338c7635e8fa40b2f4b58172ffec973f"></a><br/></td></tr>
 <tr class="memitem:a24147ac62bfdb5ba391fb64c1ee74720"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a24147ac62bfdb5ba391fb64c1ee74720"></a>
@@ -625,18 +625,34 @@ template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;
 
 </div>
 </div>
-<a class="anchor" id="a63ac0debe059747f1de2d10330406fdf"></a>
+<a class="anchor" id="a59872c5d91f5d3f72b93b0cba65168c4"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;30&gt;, class RankSupport  = rank_support_v&lt;&gt;, class SelectSupport  = select_support_mcl&lt;&gt;, class RangeMaxSupport  = range_maximum_support_sparse_table&lt;int_vector&lt;&gt; &gt;::type&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">size_type <a class="el" href="classsdsl_1_1bp__support__g.html">sdsl::bp_support_g</a>&lt; NearestNeighbourDictionary, RankSupport, SelectSupport, RangeMaxSupport &gt;::<a class="el" href="classsdsl_1_1bp__support__g.html#a63ac0debe059747f1de2d10330406fdf">serialize</a> </td>
+          <td class="memname">size_type <a class="el" href="classsdsl_1_1bp__support__g.html">sdsl::bp_support_g</a>&lt; NearestNeighbourDictionary, RankSupport, SelectSupport, RangeMaxSupport &gt;::<a class="el" href="classsdsl_1_1bp__support__g.html#a59872c5d91f5d3f72b93b0cba65168c4">serialize</a> </td>
           <td>(</td>
           <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>out</em></td><td>)</td>
-          <td> const<code> [inline]</code></td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsdsl_1_1structure__tree__node.html">structure_tree_node</a> *&#160;</td>
+          <td class="paramname"><em>v</em> = <code>NULL</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const<code> [inline]</code></td>
         </tr>
       </table>
 </div>
@@ -680,7 +696,7 @@ template&lt;class NearestNeighbourDictionary  = nearest_neighbour_dictionary&lt;
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 10 2012 18:54:30 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 13 2012 14:05:49 for SDSL: Succinct Data Structure Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

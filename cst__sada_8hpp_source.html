@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Succinct Data Structure Library (sdsl): sdsl/include/sdsl/cst_sada.hpp Source File</title>
+<title>SDSL: Succinct Data Structure Library: sdsl/include/sdsl/cst_sada.hpp Source File</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -27,7 +27,7 @@
   
   
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Succinct Data Structure Library (sdsl)
+   <div id="projectname">SDSL: Succinct Data Structure Library
    
    </div>
    <div id="projectbrief">A C++ template library for succinct data structures</div>
@@ -389,407 +389,382 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00355"></a>00355         <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1cst__sada.html#aa391f17d6c941175f19cd27914fdfc58" title="Unequality Operator.">operator!=</a>(<span class="keyword">const</span> cst_sada&amp; <a class="code" href="classsdsl_1_1cst__sada.html#a44464284d176dd95bbc1a5be4a3fe7e6" title="The compressed suffix array the suffix tree is based on.">csa</a>)<span class="keyword">const</span>;
 <a name="l00356"></a>00356 
 <a name="l00358"></a>00358 
-<a name="l00361"></a><a class="code" href="classsdsl_1_1cst__sada.html#aa4ac3c5b3e84d95fba2e0227f909f5e7">00361</a>         size_type <a class="code" href="classsdsl_1_1cst__sada.html#aa4ac3c5b3e84d95fba2e0227f909f5e7" title="Serialize to a stream.">serialize</a>(std::ostream&amp; out)<span class="keyword"> const </span>{
-<a name="l00362"></a>00362             size_type written_bytes = 0;
-<a name="l00363"></a>00363             written_bytes += m_csa.serialize(out);
-<a name="l00364"></a>00364             written_bytes += m_lcp.serialize(out);
-<a name="l00365"></a>00365             written_bytes += m_bp.<a class="code" href="classsdsl_1_1int__vector.html#a32bfb973d19b10c8e9d32107805bbab0" title="Serializes the int_vector to a stream.">serialize</a>(out);
-<a name="l00366"></a>00366             written_bytes += m_bp_support.serialize(out);
-<a name="l00367"></a>00367             written_bytes += m_bp_rank10.serialize(out);
-<a name="l00368"></a>00368             written_bytes += m_bp_select10.serialize(out);
-<a name="l00369"></a>00369             <span class="keywordflow">return</span> written_bytes;
-<a name="l00370"></a>00370         }
-<a name="l00371"></a>00371 
+<a name="l00361"></a><a class="code" href="classsdsl_1_1cst__sada.html#a3830fc3dd143d037c040bb0e37d098ce">00361</a>         size_type <a class="code" href="classsdsl_1_1cst__sada.html#a3830fc3dd143d037c040bb0e37d098ce" title="Serialize to a stream.">serialize</a>(std::ostream&amp; out, <a class="code" href="classsdsl_1_1structure__tree__node.html" title="Class for a node of the structure tree.">structure_tree_node</a>* v=NULL, std::string name=<span class="stringliteral">&quot;&quot;</span>)<span class="keyword">const </span>{
+<a name="l00362"></a>00362             <a class="code" href="classsdsl_1_1structure__tree__node.html" title="Class for a node of the structure tree.">structure_tree_node</a>* child = structure_tree::add_child(v, name, util::class_name(*<span class="keyword">this</span>));
+<a name="l00363"></a>00363             size_type written_bytes = 0;
+<a name="l00364"></a>00364             written_bytes += m_csa.serialize(out, child, <span class="stringliteral">&quot;csa&quot;</span>);
+<a name="l00365"></a>00365             written_bytes += m_lcp.serialize(out, child, <span class="stringliteral">&quot;lcp&quot;</span>);
+<a name="l00366"></a>00366             written_bytes += m_bp.<a class="code" href="classsdsl_1_1int__vector.html#a54bb26e2d6f6932b41ab12e52746e86a" title="Serializes the int_vector to a stream.">serialize</a>(out, child, <span class="stringliteral">&quot;bp&quot;</span>);
+<a name="l00367"></a>00367             written_bytes += m_bp_support.serialize(out, child, <span class="stringliteral">&quot;bp_support&quot;</span>);
+<a name="l00368"></a>00368             written_bytes += m_bp_rank10.serialize(out, child, <span class="stringliteral">&quot;bp_rank_10&quot;</span>);
+<a name="l00369"></a>00369             written_bytes += m_bp_select10.serialize(out, child, <span class="stringliteral">&quot;bp_select_10&quot;</span>);
+<a name="l00370"></a>00370             structure_tree::add_size(child, written_bytes);
+<a name="l00371"></a>00371             <span class="keywordflow">return</span> written_bytes;
+<a name="l00372"></a>00372         }
 <a name="l00373"></a>00373 
-<a name="l00375"></a><a class="code" href="classsdsl_1_1cst__sada.html#a6da906663ec0cf0d09275af2f6c13682">00375</a>         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1cst__sada.html#a6da906663ec0cf0d09275af2f6c13682" title="Load from a stream.">load</a>(std::istream&amp; in) {
-<a name="l00376"></a>00376             m_csa.load(in);
-<a name="l00377"></a>00377             load_lcp(m_lcp, in, *<span class="keyword">this</span>);
-<a name="l00378"></a>00378             m_bp.<a class="code" href="classsdsl_1_1int__vector.html#a57c9fc2fdc93eeaa477a49389e7a47ac" title="Load the int_vector for a stream.">load</a>(in);
-<a name="l00379"></a>00379             m_bp_support.load(in, &amp;m_bp);
-<a name="l00380"></a>00380             m_bp_rank10.load(in, &amp;m_bp);
-<a name="l00381"></a>00381             m_bp_select10.load(in, &amp;m_bp);
-<a name="l00382"></a>00382         }
-<a name="l00383"></a>00383 
-<a name="l00384"></a>00384 <span class="preprocessor">#ifdef MEM_INFO</span>
-<a name="l00385"></a>00385 <span class="preprocessor"></span>
-<a name="l00386"></a>00386         <span class="keywordtype">void</span> mem_info(std::string label=<span class="stringliteral">&quot;&quot;</span>)<span class="keyword">const </span>{
-<a name="l00387"></a>00387             <span class="keywordflow">if</span> (label==<span class="stringliteral">&quot;&quot;</span>)
-<a name="l00388"></a>00388                 label=<span class="stringliteral">&quot;cst&quot;</span>;
-<a name="l00389"></a>00389             size_type bytes = <a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(*<span class="keyword">this</span>);
-<a name="l00390"></a>00390             std::cout &lt;&lt; <span class="stringliteral">&quot;list(label = \&quot;&quot;</span>&lt;&lt;label&lt;&lt;<span class="stringliteral">&quot;\&quot;, size = &quot;</span>&lt;&lt; bytes/(1024.0*1024.0) &lt;&lt;<span class="stringliteral">&quot;\n,&quot;</span>;
-<a name="l00391"></a>00391             <a class="code" href="classsdsl_1_1cst__sada.html#a44464284d176dd95bbc1a5be4a3fe7e6" title="The compressed suffix array the suffix tree is based on.">csa</a>.mem_info(<span class="stringliteral">&quot;\\CSA ({\\\\tt csa\\_sada})&quot;</span>);
-<a name="l00392"></a>00392             std::cout&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>;
-<a name="l00393"></a>00393             <a class="code" href="classsdsl_1_1cst__sada.html#a3acc21d46abdac9861fc41a66b57aa29" title="The lcp array the suffix tree is based on.">lcp</a>.mem_info();
-<a name="l00394"></a>00394             std::cout&lt;&lt;<span class="stringliteral">&quot;,list(label = \&quot;nav\&quot;, size = &quot;</span> &lt;&lt;
-<a name="l00395"></a>00395                      (<a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(<a class="code" href="classsdsl_1_1cst__sada.html#ae25541428336ad697b9ceefffccea100" title="The balanced parentheses sequence of the suffix tree.">bp</a>)+
-<a name="l00396"></a>00396                       <a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(<a class="code" href="classsdsl_1_1cst__sada.html#ae6a021c0152e18b70e0e6eff161f82ec" title="The balanced parentheses sequence support for member bp.">bp_support</a>)+
-<a name="l00397"></a>00397                       <a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(m_bp_rank10)+
-<a name="l00398"></a>00398                       <a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(m_bp_select10)) / (1024.0*1024.0)
-<a name="l00399"></a>00399                      &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>;
-<a name="l00400"></a>00400             <a class="code" href="classsdsl_1_1cst__sada.html#ae25541428336ad697b9ceefffccea100" title="The balanced parentheses sequence of the suffix tree.">bp</a>.mem_info(<span class="stringliteral">&quot;\\BPSDFS ({\\\\tt bit\\_vector})&quot;</span>);
-<a name="l00401"></a>00401             std::cout&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>;
-<a name="l00402"></a>00402             <a class="code" href="classsdsl_1_1cst__sada.html#ae6a021c0152e18b70e0e6eff161f82ec" title="The balanced parentheses sequence support for member bp.">bp_support</a>.mem_info(<span class="stringliteral">&quot;bp_support&quot;</span>);
-<a name="l00403"></a>00403             std::cout&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>;
-<a name="l00404"></a>00404             m_bp_rank10.mem_info(<span class="stringliteral">&quot;rank_support10&quot;</span>);
-<a name="l00405"></a>00405             std::cout&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>;
-<a name="l00406"></a>00406             m_bp_select10.mem_info(<span class="stringliteral">&quot;select_support10&quot;</span>);
-<a name="l00407"></a>00407             std::cout &lt;&lt; <span class="stringliteral">&quot;))\n&quot;</span>;
-<a name="l00408"></a>00408         }
-<a name="l00409"></a>00409 <span class="preprocessor">#endif</span>
-<a name="l00410"></a>00410 <span class="preprocessor"></span>
-<a name="l00412"></a>00412         <span class="comment">/* @{ */</span>
-<a name="l00413"></a>00413 
-<a name="l00415"></a>00415 
-<a name="l00419"></a><a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7">00419</a>         <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> <a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7" title="Return the root of the suffix tree.">root</a>()<span class="keyword"> const </span>{
-<a name="l00420"></a>00420             <span class="keywordflow">return</span> 0;
-<a name="l00421"></a>00421         }
-<a name="l00422"></a>00422 
+<a name="l00375"></a>00375 
+<a name="l00377"></a><a class="code" href="classsdsl_1_1cst__sada.html#a6da906663ec0cf0d09275af2f6c13682">00377</a>         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1cst__sada.html#a6da906663ec0cf0d09275af2f6c13682" title="Load from a stream.">load</a>(std::istream&amp; in) {
+<a name="l00378"></a>00378             m_csa.load(in);
+<a name="l00379"></a>00379             load_lcp(m_lcp, in, *<span class="keyword">this</span>);
+<a name="l00380"></a>00380             m_bp.<a class="code" href="classsdsl_1_1int__vector.html#a57c9fc2fdc93eeaa477a49389e7a47ac" title="Load the int_vector for a stream.">load</a>(in);
+<a name="l00381"></a>00381             m_bp_support.load(in, &amp;m_bp);
+<a name="l00382"></a>00382             m_bp_rank10.load(in, &amp;m_bp);
+<a name="l00383"></a>00383             m_bp_select10.load(in, &amp;m_bp);
+<a name="l00384"></a>00384         }
+<a name="l00385"></a>00385 
+<a name="l00387"></a>00387         <span class="comment">/* @{ */</span>
+<a name="l00388"></a>00388 
+<a name="l00390"></a>00390 
+<a name="l00394"></a><a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7">00394</a>         <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> <a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7" title="Return the root of the suffix tree.">root</a>()<span class="keyword"> const </span>{
+<a name="l00395"></a>00395             <span class="keywordflow">return</span> 0;
+<a name="l00396"></a>00396         }
+<a name="l00397"></a>00397 
+<a name="l00399"></a>00399 
+<a name="l00405"></a><a class="code" href="group__cst__sada__tree__methods.html#ga57c8d06102aebe2ca2b6a0e4b57fe134">00405</a>         <span class="keywordtype">bool</span> <a class="code" href="group__cst__sada__tree__methods.html#ga57c8d06102aebe2ca2b6a0e4b57fe134" title="Decide if a node is a leaf in the suffix tree.">is_leaf</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> v)<span class="keyword">const </span>{
+<a name="l00406"></a>00406             assert(m_bp[v]==1);  <span class="comment">// assert that v is a valid node of the suffix tree</span>
+<a name="l00407"></a>00407             <span class="comment">// if there is a closing parenthesis at position v+1, the node is a leaf</span>
+<a name="l00408"></a>00408             <span class="keywordflow">return</span> !m_bp[v+1];
+<a name="l00409"></a>00409         }
+<a name="l00410"></a>00410 
+<a name="l00412"></a>00412 
+<a name="l00419"></a><a class="code" href="group__cst__sada__tree__methods.html#ga7da51e5c2ad0329df3e2edaf415de3e5">00419</a>         <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> <a class="code" href="group__cst__sada__tree__methods.html#ga7da51e5c2ad0329df3e2edaf415de3e5" title="Return the i-th leaf (1-based from left to right) of the suffix tree.">ith_leaf</a>(size_type i)<span class="keyword">const </span>{
+<a name="l00420"></a>00420             assert(i &gt; 0 and i &lt;= m_csa.size());
+<a name="l00421"></a>00421             <span class="comment">// -1 as select(i) returns the postion of the 0 of pattern 10</span>
+<a name="l00422"></a>00422             <span class="keywordflow">return</span> m_bp_select10.select(i)-1;
+<a name="l00423"></a>00423         }
 <a name="l00424"></a>00424 
-<a name="l00430"></a><a class="code" href="group__cst__sada__tree__methods.html#ga57c8d06102aebe2ca2b6a0e4b57fe134">00430</a>         <span class="keywordtype">bool</span> <a class="code" href="group__cst__sada__tree__methods.html#ga57c8d06102aebe2ca2b6a0e4b57fe134" title="Decide if a node is a leaf in the suffix tree.">is_leaf</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> v)<span class="keyword">const </span>{
-<a name="l00431"></a>00431             assert(m_bp[v]==1);  <span class="comment">// assert that v is a valid node of the suffix tree</span>
-<a name="l00432"></a>00432             <span class="comment">// if there is a closing parenthesis at position v+1, the node is a leaf</span>
-<a name="l00433"></a>00433             <span class="keywordflow">return</span> !m_bp[v+1];
-<a name="l00434"></a>00434         }
+<a name="l00426"></a>00426 
+<a name="l00432"></a><a class="code" href="group__cst__sada__tree__methods.html#gac92d4d641c6fba4d4a234d06e00df6a8">00432</a>         size_type <a class="code" href="group__cst__sada__tree__methods.html#gac92d4d641c6fba4d4a234d06e00df6a8" title="Returns the depth of node v.">depth</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> v)<span class="keyword">const </span>{
+<a name="l00433"></a>00433             <span class="keywordflow">if</span> (v == <a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7" title="Return the root of the suffix tree.">root</a>())  <span class="comment">// if v is the root</span>
+<a name="l00434"></a>00434                 <span class="keywordflow">return</span> 0;
 <a name="l00435"></a>00435 
-<a name="l00437"></a>00437 
-<a name="l00444"></a><a class="code" href="group__cst__sada__tree__methods.html#ga7da51e5c2ad0329df3e2edaf415de3e5">00444</a>         <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> <a class="code" href="group__cst__sada__tree__methods.html#ga7da51e5c2ad0329df3e2edaf415de3e5" title="Return the i-th leaf (1-based from left to right) of the suffix tree.">ith_leaf</a>(size_type i)<span class="keyword">const </span>{
-<a name="l00445"></a>00445             assert(i &gt; 0 and i &lt;= m_csa.size());
-<a name="l00446"></a>00446             <span class="comment">// -1 as select(i) returns the postion of the 0 of pattern 10</span>
-<a name="l00447"></a>00447             <span class="keywordflow">return</span> m_bp_select10.select(i)-1;
-<a name="l00448"></a>00448         }
-<a name="l00449"></a>00449 
-<a name="l00451"></a>00451 
-<a name="l00457"></a><a class="code" href="group__cst__sada__tree__methods.html#gac92d4d641c6fba4d4a234d06e00df6a8">00457</a>         size_type <a class="code" href="group__cst__sada__tree__methods.html#gac92d4d641c6fba4d4a234d06e00df6a8" title="Returns the depth of node v.">depth</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> v)<span class="keyword">const </span>{
-<a name="l00458"></a>00458             <span class="keywordflow">if</span> (v == <a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7" title="Return the root of the suffix tree.">root</a>())  <span class="comment">// if v is the root</span>
-<a name="l00459"></a>00459                 <span class="keywordflow">return</span> 0;
-<a name="l00460"></a>00460 
-<a name="l00461"></a>00461             <span class="keywordflow">if</span> (<a class="code" href="group__cst__sada__tree__methods.html#ga57c8d06102aebe2ca2b6a0e4b57fe134" title="Decide if a node is a leaf in the suffix tree.">is_leaf</a>(v)) { <span class="comment">// if v is a leave</span>
-<a name="l00462"></a>00462                 size_type i = m_bp_rank10(v); <span class="comment">// get the index in the suffix array</span>
-<a name="l00463"></a>00463                 <span class="keywordflow">return</span> m_csa.size() - m_csa[i];
-<a name="l00464"></a>00464             }
-<a name="l00465"></a>00465             assert(inorder(v)&gt;0);
-<a name="l00466"></a>00466             <span class="keywordflow">return</span> m_lcp[inorder(v)]; <span class="comment">// da ist es gut wenn lcp[0]=0. inorder-0 darf aber nicht auftretten, weil die wurzel bei leerem Baum entweder ein Blatt ist oder immer mindestens zwei Kinder hat...</span>
+<a name="l00436"></a>00436             <span class="keywordflow">if</span> (<a class="code" href="group__cst__sada__tree__methods.html#ga57c8d06102aebe2ca2b6a0e4b57fe134" title="Decide if a node is a leaf in the suffix tree.">is_leaf</a>(v)) { <span class="comment">// if v is a leave</span>
+<a name="l00437"></a>00437                 size_type i = m_bp_rank10(v); <span class="comment">// get the index in the suffix array</span>
+<a name="l00438"></a>00438                 <span class="keywordflow">return</span> m_csa.size() - m_csa[i];
+<a name="l00439"></a>00439             }
+<a name="l00440"></a>00440             assert(inorder(v)&gt;0);
+<a name="l00441"></a>00441             <span class="keywordflow">return</span> m_lcp[inorder(v)]; <span class="comment">// da ist es gut wenn lcp[0]=0. inorder-0 darf aber nicht auftretten, weil die wurzel bei leerem Baum entweder ein Blatt ist oder immer mindestens zwei Kinder hat...</span>
+<a name="l00442"></a>00442         }
+<a name="l00443"></a>00443 
+<a name="l00445"></a>00445 
+<a name="l00451"></a><a class="code" href="group__cst__sada__tree__methods.html#ga54b84ea7d2ccb96d7d11d696a8aaf017">00451</a>         size_type <a class="code" href="group__cst__sada__tree__methods.html#ga54b84ea7d2ccb96d7d11d696a8aaf017" title="Returns the node depth of node v.">node_depth</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> v)<span class="keyword">const </span>{
+<a name="l00452"></a>00452             <span class="comment">// -2 as the root() we assign depth=0 to the root</span>
+<a name="l00453"></a>00453             <span class="keywordflow">return</span> (m_bp_support.rank(v)&lt;&lt;1)-v-2;
+<a name="l00454"></a>00454         }
+<a name="l00455"></a>00455 
+<a name="l00457"></a>00457 
+<a name="l00464"></a><a class="code" href="group__cst__sada__tree__methods.html#gaccd3dc49e8bcef8b4e8e1f957d28cd1d">00464</a>         size_type <a class="code" href="group__cst__sada__tree__methods.html#gaccd3dc49e8bcef8b4e8e1f957d28cd1d" title="Calculate the number of leaves in the subtree rooted at node v.">leaves_in_the_subtree</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> v)<span class="keyword">const </span>{
+<a name="l00465"></a>00465             size_type r = m_bp_support.find_close(v);
+<a name="l00466"></a>00466             <span class="keywordflow">return</span> m_bp_rank10(r+1) - m_bp_rank10(v);
 <a name="l00467"></a>00467         }
 <a name="l00468"></a>00468 
 <a name="l00470"></a>00470 
-<a name="l00476"></a><a class="code" href="group__cst__sada__tree__methods.html#ga54b84ea7d2ccb96d7d11d696a8aaf017">00476</a>         size_type <a class="code" href="group__cst__sada__tree__methods.html#ga54b84ea7d2ccb96d7d11d696a8aaf017" title="Returns the node depth of node v.">node_depth</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> v)<span class="keyword">const </span>{
-<a name="l00477"></a>00477             <span class="comment">// -2 as the root() we assign depth=0 to the root</span>
-<a name="l00478"></a>00478             <span class="keywordflow">return</span> (m_bp_support.rank(v)&lt;&lt;1)-v-2;
-<a name="l00479"></a>00479         }
-<a name="l00480"></a>00480 
-<a name="l00482"></a>00482 
-<a name="l00489"></a><a class="code" href="group__cst__sada__tree__methods.html#gaccd3dc49e8bcef8b4e8e1f957d28cd1d">00489</a>         size_type <a class="code" href="group__cst__sada__tree__methods.html#gaccd3dc49e8bcef8b4e8e1f957d28cd1d" title="Calculate the number of leaves in the subtree rooted at node v.">leaves_in_the_subtree</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> v)<span class="keyword">const </span>{
-<a name="l00490"></a>00490             size_type r = m_bp_support.find_close(v);
-<a name="l00491"></a>00491             <span class="keywordflow">return</span> m_bp_rank10(r+1) - m_bp_rank10(v);
-<a name="l00492"></a>00492         }
+<a name="l00475"></a>00475         <span class="comment">// 2010-12-08: Fixed method.</span>
+<a name="l00476"></a><a class="code" href="group__cst__sada__tree__methods.html#ga504f85741a3878e455ec02ff481265cb">00476</a>         <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> <a class="code" href="group__cst__sada__tree__methods.html#ga504f85741a3878e455ec02ff481265cb" title="Calculates the leftmost leaf in the subtree rooted at node v.">leftmost_leaf_in_the_subtree</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a>&amp; v)<span class="keyword">const </span>{
+<a name="l00477"></a>00477             <span class="keywordflow">return</span> m_bp_select10(m_bp_rank10(v)+1)-1;
+<a name="l00478"></a>00478         }
+<a name="l00479"></a>00479 
+<a name="l00481"></a>00481 
+<a name="l00486"></a>00486         <span class="comment">// 2010-12-08: Fixed method.</span>
+<a name="l00487"></a><a class="code" href="group__cst__sada__tree__methods.html#ga95b962b0021a9ad822dea77c46cbeb47">00487</a>         <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> <a class="code" href="group__cst__sada__tree__methods.html#ga95b962b0021a9ad822dea77c46cbeb47" title="Calculates the rightmost leaf in the subtree rooted at node v.">rightmost_leaf_in_the_subtree</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a>&amp; v)<span class="keyword">const </span>{
+<a name="l00488"></a>00488             size_type r = m_bp_support.find_close(v);
+<a name="l00489"></a>00489             <span class="keywordflow">return</span> m_bp_select10(m_bp_rank10(r+1))-1;
+<a name="l00490"></a>00490         }
+<a name="l00491"></a>00491 
 <a name="l00493"></a>00493 
-<a name="l00495"></a>00495 
-<a name="l00500"></a>00500         <span class="comment">// 2010-12-08: Fixed method.</span>
-<a name="l00501"></a><a class="code" href="group__cst__sada__tree__methods.html#ga504f85741a3878e455ec02ff481265cb">00501</a>         <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> <a class="code" href="group__cst__sada__tree__methods.html#ga504f85741a3878e455ec02ff481265cb" title="Calculates the leftmost leaf in the subtree rooted at node v.">leftmost_leaf_in_the_subtree</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a>&amp; v)<span class="keyword">const </span>{
-<a name="l00502"></a>00502             <span class="keywordflow">return</span> m_bp_select10(m_bp_rank10(v)+1)-1;
-<a name="l00503"></a>00503         }
-<a name="l00504"></a>00504 
-<a name="l00506"></a>00506 
-<a name="l00511"></a>00511         <span class="comment">// 2010-12-08: Fixed method.</span>
-<a name="l00512"></a><a class="code" href="group__cst__sada__tree__methods.html#ga95b962b0021a9ad822dea77c46cbeb47">00512</a>         <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> <a class="code" href="group__cst__sada__tree__methods.html#ga95b962b0021a9ad822dea77c46cbeb47" title="Calculates the rightmost leaf in the subtree rooted at node v.">rightmost_leaf_in_the_subtree</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a>&amp; v)<span class="keyword">const </span>{
+<a name="l00500"></a><a class="code" href="group__cst__sada__tree__methods.html#ga1a0cbc8d46af7a9c24e9546ff2438066">00500</a>         size_type <a class="code" href="group__cst__sada__tree__methods.html#ga1a0cbc8d46af7a9c24e9546ff2438066" title="Calculates the index of the leftmost leaf in the corresponding suffix array.">lb</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a>&amp; v)<span class="keyword">const </span>{
+<a name="l00501"></a>00501             <span class="keywordflow">return</span> m_bp_rank10(v);
+<a name="l00502"></a>00502         }
+<a name="l00503"></a>00503 
+<a name="l00505"></a>00505 
+<a name="l00512"></a><a class="code" href="group__cst__sada__tree__methods.html#ga487fb21b2825a26c5f825b73df63f8ce">00512</a>         size_type <a class="code" href="group__cst__sada__tree__methods.html#ga487fb21b2825a26c5f825b73df63f8ce" title="Calculates the index of the rightmost leaf in the corresponding suffix array.">rb</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a>&amp; v)<span class="keyword">const </span>{
 <a name="l00513"></a>00513             size_type r = m_bp_support.find_close(v);
-<a name="l00514"></a>00514             <span class="keywordflow">return</span> m_bp_select10(m_bp_rank10(r+1))-1;
+<a name="l00514"></a>00514             <span class="keywordflow">return</span> m_bp_rank10(r+1)-1;
 <a name="l00515"></a>00515         }
 <a name="l00516"></a>00516 
 <a name="l00518"></a>00518 
-<a name="l00525"></a><a class="code" href="group__cst__sada__tree__methods.html#ga1a0cbc8d46af7a9c24e9546ff2438066">00525</a>         size_type <a class="code" href="group__cst__sada__tree__methods.html#ga1a0cbc8d46af7a9c24e9546ff2438066" title="Calculates the index of the leftmost leaf in the corresponding suffix array.">lb</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a>&amp; v)<span class="keyword">const </span>{
-<a name="l00526"></a>00526             <span class="keywordflow">return</span> m_bp_rank10(v);
-<a name="l00527"></a>00527         }
-<a name="l00528"></a>00528 
-<a name="l00530"></a>00530 
-<a name="l00537"></a><a class="code" href="group__cst__sada__tree__methods.html#ga487fb21b2825a26c5f825b73df63f8ce">00537</a>         size_type <a class="code" href="group__cst__sada__tree__methods.html#ga487fb21b2825a26c5f825b73df63f8ce" title="Calculates the index of the rightmost leaf in the corresponding suffix array.">rb</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a>&amp; v)<span class="keyword">const </span>{
-<a name="l00538"></a>00538             size_type r = m_bp_support.find_close(v);
-<a name="l00539"></a>00539             <span class="keywordflow">return</span> m_bp_rank10(r+1)-1;
-<a name="l00540"></a>00540         }
-<a name="l00541"></a>00541 
-<a name="l00543"></a>00543 
-<a name="l00548"></a><a class="code" href="group__cst__sada__tree__methods.html#gaa363e9111bf19ba6c2b4c7b59663ccf5">00548</a>         <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> <a class="code" href="group__cst__sada__tree__methods.html#gaa363e9111bf19ba6c2b4c7b59663ccf5" title="Calculate the parent node of a node v.">parent</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> v)<span class="keyword"> const </span>{
-<a name="l00549"></a>00549             assert(m_bp[v]==1); <span class="comment">// assert a valid node</span>
-<a name="l00550"></a>00550             <span class="keywordflow">if</span> (v == <a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7" title="Return the root of the suffix tree.">root</a>())
-<a name="l00551"></a>00551                 <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7" title="Return the root of the suffix tree.">root</a>();
-<a name="l00552"></a>00552             <span class="keywordflow">else</span> {
-<a name="l00553"></a>00553                 <span class="keywordflow">return</span> m_bp_support.enclose(v);
-<a name="l00554"></a>00554             }
-<a name="l00555"></a>00555         }
-<a name="l00556"></a>00556 
-<a name="l00558"></a>00558 
-<a name="l00564"></a><a class="code" href="group__cst__sada__tree__methods.html#ga1173b7e7fc9f4c08e7b9f99c3ab22d25">00564</a>         <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> <a class="code" href="group__cst__sada__tree__methods.html#ga1173b7e7fc9f4c08e7b9f99c3ab22d25" title="Returns the next sibling of node v.">sibling</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> v)<span class="keyword">const </span>{
-<a name="l00565"></a>00565             <span class="keywordflow">if</span> (v==<a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7" title="Return the root of the suffix tree.">root</a>())
-<a name="l00566"></a>00566                 <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7" title="Return the root of the suffix tree.">root</a>();
-<a name="l00567"></a>00567             <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> sib = m_bp_support.find_close(v)+1;
-<a name="l00568"></a>00568             <span class="keywordflow">if</span> (m_bp[sib])
-<a name="l00569"></a>00569                 <span class="keywordflow">return</span> sib;
-<a name="l00570"></a>00570             <span class="keywordflow">else</span>
-<a name="l00571"></a>00571                 <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7" title="Return the root of the suffix tree.">root</a>();
-<a name="l00572"></a>00572         }
-<a name="l00573"></a>00573 
-<a name="l00575"></a>00575         <span class="comment">/*</span>
-<a name="l00576"></a>00576 <span class="comment">         *      \param v A valid tree node of the cst.</span>
-<a name="l00577"></a>00577 <span class="comment">         *  \param c First character of the edge label from v to the desired child.</span>
-<a name="l00578"></a>00578 <span class="comment">         *  \param char_pos Reference which will hold the position (0-based) of the matching char c in the sorted text/suffix array.</span>
-<a name="l00579"></a>00579 <span class="comment">         *  \return The child node w which edge label (v,w) starts with c or root() if it does not exist.</span>
-<a name="l00580"></a>00580 <span class="comment">         *  \par Time complexity</span>
-<a name="l00581"></a>00581 <span class="comment">         *       \f$ \Order( (\saaccess+\isaaccess) \cdot \sigma + \lcpaccess) \f$</span>
-<a name="l00582"></a>00582 <span class="comment">         *   \par Note</span>
-<a name="l00583"></a>00583 <span class="comment">         *              With range median mimimum queries (RMMQ) one can code this operation in \f$\log \sigma \f$ time</span>
-<a name="l00584"></a>00584 <span class="comment">         */</span>
-<a name="l00585"></a>00585         <span class="comment">// TODO: const unsigned char durch char type ersetzen</span>
-<a name="l00586"></a><a class="code" href="group__cst__sada__tree__methods.html#ga961869e617157715ed9a4c73812c199d">00586</a>         <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> <a class="code" href="group__cst__sada__tree__methods.html#ga961869e617157715ed9a4c73812c199d" title="Get the child w of node v which edge label (v,w) starts with character c.">child</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> v, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> c, size_type&amp; char_pos)<span class="keyword">const </span>{
-<a name="l00587"></a>00587             <span class="keywordflow">if</span> (<a class="code" href="group__cst__sada__tree__methods.html#ga57c8d06102aebe2ca2b6a0e4b57fe134" title="Decide if a node is a leaf in the suffix tree.">is_leaf</a>(v))  <span class="comment">// if v is a leaf = (), v has no child</span>
-<a name="l00588"></a>00588                 <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7" title="Return the root of the suffix tree.">root</a>();
-<a name="l00589"></a>00589             <span class="comment">// else v = ( (     ))</span>
-<a name="l00590"></a>00590             uint16_t cc = m_csa.char2comp[c];
-<a name="l00591"></a>00591             <span class="keywordflow">if</span> (cc==0 and c!=0) <span class="comment">// TODO: aendere char2comp so ab, dass man diesen sonderfall nicht braucht</span>
-<a name="l00592"></a>00592                 <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7" title="Return the root of the suffix tree.">root</a>();
-<a name="l00593"></a>00593             size_type char_ex_max_pos = m_csa.C[cc+1], char_inc_min_pos = m_csa.C[cc];
-<a name="l00594"></a>00594 
-<a name="l00595"></a>00595             size_type d = <a class="code" href="group__cst__sada__tree__methods.html#gac92d4d641c6fba4d4a234d06e00df6a8" title="Returns the depth of node v.">depth</a>(v);  <span class="comment">// time complexity: \lcpaccess</span>
-<a name="l00596"></a>00596             size_type res = v+1;
-<a name="l00597"></a>00597             <span class="keywordflow">while</span> (<span class="keyword">true</span>) {
-<a name="l00598"></a>00598                 <span class="keywordflow">if</span> (<a class="code" href="group__cst__sada__tree__methods.html#ga57c8d06102aebe2ca2b6a0e4b57fe134" title="Decide if a node is a leaf in the suffix tree.">is_leaf</a>(res)) {
-<a name="l00599"></a>00599 <span class="comment">//                                      char_pos = m_csa( m_csa[ m_bp_rank10(res) ]+d );// replaced by the following line</span>
-<a name="l00600"></a>00600                     char_pos = get_char_pos(m_bp_rank10(res), d, m_csa);
-<a name="l00601"></a>00601                 } <span class="keywordflow">else</span> {
-<a name="l00602"></a>00602 <span class="comment">//                                      char_pos = m_csa( m_csa[ inorder(res) ]+d );// replaced by the following line</span>
-<a name="l00603"></a>00603                     char_pos = get_char_pos(inorder(res), d, m_csa);
-<a name="l00604"></a>00604                 }
-<a name="l00605"></a>00605 <span class="comment">//                              std::cerr&lt;&lt;&quot;char_pos=&quot;&lt;&lt;char_pos&lt;&lt;std::endl;</span>
-<a name="l00606"></a>00606                 <span class="keywordflow">if</span> (char_pos &gt;= char_ex_max_pos)  <span class="comment">// if the current char is lex. greater than the searched char: exit</span>
-<a name="l00607"></a>00607                     <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7" title="Return the root of the suffix tree.">root</a>();
-<a name="l00608"></a>00608                 <span class="keywordflow">if</span> (char_pos &gt;= char_inc_min_pos)  <span class="comment">// if the current char is lex. equal with the</span>
-<a name="l00609"></a>00609                     <span class="keywordflow">return</span> res;
-<a name="l00610"></a>00610                 res = m_bp_support.find_close(res)+1;
-<a name="l00611"></a>00611                 <span class="keywordflow">if</span> (!m_bp[res]) <span class="comment">// closing parenthesis: there exists no next child</span>
-<a name="l00612"></a>00612                     <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7" title="Return the root of the suffix tree.">root</a>();
-<a name="l00613"></a>00613             }
-<a name="l00614"></a>00614         }
-<a name="l00615"></a>00615 
-<a name="l00617"></a>00617         <span class="comment">// \sa child(node_type v, const unsigned char c, size_type &amp;char_pos)</span>
-<a name="l00618"></a><a class="code" href="group__cst__sada__tree__methods.html#ga811ca871040f714d6c8f7f6a76b67ba8">00618</a>         <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> <a class="code" href="group__cst__sada__tree__methods.html#ga811ca871040f714d6c8f7f6a76b67ba8" title="Get the child w of node v which edge label (v,w) starts with character c.">child</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> v, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> c) {
-<a name="l00619"></a>00619             size_type char_pos;
-<a name="l00620"></a>00620             <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#ga961869e617157715ed9a4c73812c199d" title="Get the child w of node v which edge label (v,w) starts with character c.">child</a>(v, c, char_pos);
-<a name="l00621"></a>00621         }
+<a name="l00523"></a><a class="code" href="group__cst__sada__tree__methods.html#gaa363e9111bf19ba6c2b4c7b59663ccf5">00523</a>         <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> <a class="code" href="group__cst__sada__tree__methods.html#gaa363e9111bf19ba6c2b4c7b59663ccf5" title="Calculate the parent node of a node v.">parent</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> v)<span class="keyword"> const </span>{
+<a name="l00524"></a>00524             assert(m_bp[v]==1); <span class="comment">// assert a valid node</span>
+<a name="l00525"></a>00525             <span class="keywordflow">if</span> (v == <a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7" title="Return the root of the suffix tree.">root</a>())
+<a name="l00526"></a>00526                 <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7" title="Return the root of the suffix tree.">root</a>();
+<a name="l00527"></a>00527             <span class="keywordflow">else</span> {
+<a name="l00528"></a>00528                 <span class="keywordflow">return</span> m_bp_support.enclose(v);
+<a name="l00529"></a>00529             }
+<a name="l00530"></a>00530         }
+<a name="l00531"></a>00531 
+<a name="l00533"></a>00533 
+<a name="l00539"></a><a class="code" href="group__cst__sada__tree__methods.html#ga1173b7e7fc9f4c08e7b9f99c3ab22d25">00539</a>         <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> <a class="code" href="group__cst__sada__tree__methods.html#ga1173b7e7fc9f4c08e7b9f99c3ab22d25" title="Returns the next sibling of node v.">sibling</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> v)<span class="keyword">const </span>{
+<a name="l00540"></a>00540             <span class="keywordflow">if</span> (v==<a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7" title="Return the root of the suffix tree.">root</a>())
+<a name="l00541"></a>00541                 <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7" title="Return the root of the suffix tree.">root</a>();
+<a name="l00542"></a>00542             <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> sib = m_bp_support.find_close(v)+1;
+<a name="l00543"></a>00543             <span class="keywordflow">if</span> (m_bp[sib])
+<a name="l00544"></a>00544                 <span class="keywordflow">return</span> sib;
+<a name="l00545"></a>00545             <span class="keywordflow">else</span>
+<a name="l00546"></a>00546                 <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7" title="Return the root of the suffix tree.">root</a>();
+<a name="l00547"></a>00547         }
+<a name="l00548"></a>00548 
+<a name="l00550"></a>00550         <span class="comment">/*</span>
+<a name="l00551"></a>00551 <span class="comment">         *      \param v A valid tree node of the cst.</span>
+<a name="l00552"></a>00552 <span class="comment">         *  \param c First character of the edge label from v to the desired child.</span>
+<a name="l00553"></a>00553 <span class="comment">         *  \param char_pos Reference which will hold the position (0-based) of the matching char c in the sorted text/suffix array.</span>
+<a name="l00554"></a>00554 <span class="comment">         *  \return The child node w which edge label (v,w) starts with c or root() if it does not exist.</span>
+<a name="l00555"></a>00555 <span class="comment">         *  \par Time complexity</span>
+<a name="l00556"></a>00556 <span class="comment">         *       \f$ \Order( (\saaccess+\isaaccess) \cdot \sigma + \lcpaccess) \f$</span>
+<a name="l00557"></a>00557 <span class="comment">         *   \par Note</span>
+<a name="l00558"></a>00558 <span class="comment">         *              With range median mimimum queries (RMMQ) one can code this operation in \f$\log \sigma \f$ time</span>
+<a name="l00559"></a>00559 <span class="comment">         */</span>
+<a name="l00560"></a>00560         <span class="comment">// TODO: const unsigned char durch char type ersetzen</span>
+<a name="l00561"></a><a class="code" href="group__cst__sada__tree__methods.html#ga961869e617157715ed9a4c73812c199d">00561</a>         <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> <a class="code" href="group__cst__sada__tree__methods.html#ga961869e617157715ed9a4c73812c199d" title="Get the child w of node v which edge label (v,w) starts with character c.">child</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> v, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> c, size_type&amp; char_pos)<span class="keyword">const </span>{
+<a name="l00562"></a>00562             <span class="keywordflow">if</span> (<a class="code" href="group__cst__sada__tree__methods.html#ga57c8d06102aebe2ca2b6a0e4b57fe134" title="Decide if a node is a leaf in the suffix tree.">is_leaf</a>(v))  <span class="comment">// if v is a leaf = (), v has no child</span>
+<a name="l00563"></a>00563                 <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7" title="Return the root of the suffix tree.">root</a>();
+<a name="l00564"></a>00564             <span class="comment">// else v = ( (     ))</span>
+<a name="l00565"></a>00565             uint16_t cc = m_csa.char2comp[c];
+<a name="l00566"></a>00566             <span class="keywordflow">if</span> (cc==0 and c!=0) <span class="comment">// TODO: aendere char2comp so ab, dass man diesen sonderfall nicht braucht</span>
+<a name="l00567"></a>00567                 <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7" title="Return the root of the suffix tree.">root</a>();
+<a name="l00568"></a>00568             size_type char_ex_max_pos = m_csa.C[cc+1], char_inc_min_pos = m_csa.C[cc];
+<a name="l00569"></a>00569 
+<a name="l00570"></a>00570             size_type d = <a class="code" href="group__cst__sada__tree__methods.html#gac92d4d641c6fba4d4a234d06e00df6a8" title="Returns the depth of node v.">depth</a>(v);  <span class="comment">// time complexity: \lcpaccess</span>
+<a name="l00571"></a>00571             size_type res = v+1;
+<a name="l00572"></a>00572             <span class="keywordflow">while</span> (<span class="keyword">true</span>) {
+<a name="l00573"></a>00573                 <span class="keywordflow">if</span> (<a class="code" href="group__cst__sada__tree__methods.html#ga57c8d06102aebe2ca2b6a0e4b57fe134" title="Decide if a node is a leaf in the suffix tree.">is_leaf</a>(res)) {
+<a name="l00574"></a>00574 <span class="comment">//                                      char_pos = m_csa( m_csa[ m_bp_rank10(res) ]+d );// replaced by the following line</span>
+<a name="l00575"></a>00575                     char_pos = get_char_pos(m_bp_rank10(res), d, m_csa);
+<a name="l00576"></a>00576                 } <span class="keywordflow">else</span> {
+<a name="l00577"></a>00577 <span class="comment">//                                      char_pos = m_csa( m_csa[ inorder(res) ]+d );// replaced by the following line</span>
+<a name="l00578"></a>00578                     char_pos = get_char_pos(inorder(res), d, m_csa);
+<a name="l00579"></a>00579                 }
+<a name="l00580"></a>00580 <span class="comment">//                              std::cerr&lt;&lt;&quot;char_pos=&quot;&lt;&lt;char_pos&lt;&lt;std::endl;</span>
+<a name="l00581"></a>00581                 <span class="keywordflow">if</span> (char_pos &gt;= char_ex_max_pos)  <span class="comment">// if the current char is lex. greater than the searched char: exit</span>
+<a name="l00582"></a>00582                     <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7" title="Return the root of the suffix tree.">root</a>();
+<a name="l00583"></a>00583                 <span class="keywordflow">if</span> (char_pos &gt;= char_inc_min_pos)  <span class="comment">// if the current char is lex. equal with the</span>
+<a name="l00584"></a>00584                     <span class="keywordflow">return</span> res;
+<a name="l00585"></a>00585                 res = m_bp_support.find_close(res)+1;
+<a name="l00586"></a>00586                 <span class="keywordflow">if</span> (!m_bp[res]) <span class="comment">// closing parenthesis: there exists no next child</span>
+<a name="l00587"></a>00587                     <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7" title="Return the root of the suffix tree.">root</a>();
+<a name="l00588"></a>00588             }
+<a name="l00589"></a>00589         }
+<a name="l00590"></a>00590 
+<a name="l00592"></a>00592         <span class="comment">// \sa child(node_type v, const unsigned char c, size_type &amp;char_pos)</span>
+<a name="l00593"></a><a class="code" href="group__cst__sada__tree__methods.html#ga811ca871040f714d6c8f7f6a76b67ba8">00593</a>         <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> <a class="code" href="group__cst__sada__tree__methods.html#ga811ca871040f714d6c8f7f6a76b67ba8" title="Get the child w of node v which edge label (v,w) starts with character c.">child</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> v, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> c) {
+<a name="l00594"></a>00594             size_type char_pos;
+<a name="l00595"></a>00595             <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#ga961869e617157715ed9a4c73812c199d" title="Get the child w of node v which edge label (v,w) starts with character c.">child</a>(v, c, char_pos);
+<a name="l00596"></a>00596         }
+<a name="l00597"></a>00597 
+<a name="l00599"></a>00599 
+<a name="l00607"></a><a class="code" href="group__cst__sada__tree__methods.html#ga9e7cfa63f99c417e7722bd8db64bcef7">00607</a>         <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> <a class="code" href="group__cst__sada__tree__methods.html#ga9e7cfa63f99c417e7722bd8db64bcef7" title="Get the ith child of a node v.">ith_child</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> v, size_type i)<span class="keyword">const </span>{
+<a name="l00608"></a>00608             <span class="keywordflow">if</span> (<a class="code" href="group__cst__sada__tree__methods.html#ga57c8d06102aebe2ca2b6a0e4b57fe134" title="Decide if a node is a leaf in the suffix tree.">is_leaf</a>(v))  <span class="comment">// if v is a leave, v has no child</span>
+<a name="l00609"></a>00609                 <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7" title="Return the root of the suffix tree.">root</a>();
+<a name="l00610"></a>00610             size_type res = v+1;
+<a name="l00611"></a>00611             <span class="keywordflow">while</span> (i &gt; 1) {
+<a name="l00612"></a>00612                 res = m_bp_support.find_close(res)+1;
+<a name="l00613"></a>00613                 <span class="keywordflow">if</span> (!m_bp[res]) {<span class="comment">// closing parenthesis: there exists no next child</span>
+<a name="l00614"></a>00614                     <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7" title="Return the root of the suffix tree.">root</a>();
+<a name="l00615"></a>00615                 }
+<a name="l00616"></a>00616                 --i;
+<a name="l00617"></a>00617             }
+<a name="l00618"></a>00618             <span class="keywordflow">return</span> res;
+<a name="l00619"></a>00619         }
+<a name="l00620"></a>00620 
 <a name="l00622"></a>00622 
-<a name="l00624"></a>00624 
-<a name="l00632"></a><a class="code" href="group__cst__sada__tree__methods.html#ga9e7cfa63f99c417e7722bd8db64bcef7">00632</a>         <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> <a class="code" href="group__cst__sada__tree__methods.html#ga9e7cfa63f99c417e7722bd8db64bcef7" title="Get the ith child of a node v.">ith_child</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> v, size_type i)<span class="keyword">const </span>{
-<a name="l00633"></a>00633             <span class="keywordflow">if</span> (<a class="code" href="group__cst__sada__tree__methods.html#ga57c8d06102aebe2ca2b6a0e4b57fe134" title="Decide if a node is a leaf in the suffix tree.">is_leaf</a>(v))  <span class="comment">// if v is a leave, v has no child</span>
-<a name="l00634"></a>00634                 <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7" title="Return the root of the suffix tree.">root</a>();
-<a name="l00635"></a>00635             size_type res = v+1;
-<a name="l00636"></a>00636             <span class="keywordflow">while</span> (i &gt; 1) {
-<a name="l00637"></a>00637                 res = m_bp_support.find_close(res)+1;
-<a name="l00638"></a>00638                 <span class="keywordflow">if</span> (!m_bp[res]) {<span class="comment">// closing parenthesis: there exists no next child</span>
-<a name="l00639"></a>00639                     <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7" title="Return the root of the suffix tree.">root</a>();
-<a name="l00640"></a>00640                 }
-<a name="l00641"></a>00641                 --i;
-<a name="l00642"></a>00642             }
-<a name="l00643"></a>00643             <span class="keywordflow">return</span> res;
-<a name="l00644"></a>00644         }
-<a name="l00645"></a>00645 
-<a name="l00647"></a>00647 
-<a name="l00654"></a><a class="code" href="group__cst__sada__tree__methods.html#ga68fc8ccd8a629362d972ba1e6b718698">00654</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="group__cst__sada__tree__methods.html#ga68fc8ccd8a629362d972ba1e6b718698" title="Returns the d-th character (1-based indexing) of the edge-label pointing to v.">edge</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> v, size_type d)<span class="keyword">const </span>{
-<a name="l00655"></a>00655             <span class="keywordflow">if</span> (d &lt; 1 or d &gt; <a class="code" href="group__cst__sada__tree__methods.html#gac92d4d641c6fba4d4a234d06e00df6a8" title="Returns the depth of node v.">depth</a>(v)) {
-<a name="l00656"></a>00656                 <span class="keywordflow">throw</span> std::out_of_range(<span class="stringliteral">&quot;OUT_OF_RANGE_ERROR: &quot;</span>+<a class="code" href="namespacesdsl_1_1util.html#a5ac1913316c61c170cba986b98c27c90" title="Demangle the class name of typeid(...).name()">util::demangle</a>(<span class="keyword">typeid</span>(<span class="keyword">this</span>).name())+<span class="stringliteral">&quot; cst_sada&lt;&gt;::edge(node_type v, size_type d). d == 0 or d &gt; depth(v)!&quot;</span>);
-<a name="l00657"></a>00657             }
-<a name="l00658"></a>00658 
-<a name="l00659"></a>00659             size_type i = 0;<span class="comment">// index of the first suffix in the subtree of v</span>
-<a name="l00660"></a>00660             <span class="keywordflow">if</span> (<a class="code" href="group__cst__sada__tree__methods.html#ga57c8d06102aebe2ca2b6a0e4b57fe134" title="Decide if a node is a leaf in the suffix tree.">is_leaf</a>(v)) { <span class="comment">// if v is a leave</span>
-<a name="l00661"></a>00661                 i = m_bp_rank10(v); <span class="comment">// get the index in the suffix array</span>
-<a name="l00662"></a>00662             } <span class="keywordflow">else</span> {
-<a name="l00663"></a>00663                 i = inorder(v);
-<a name="l00664"></a>00664             }
-<a name="l00665"></a>00665 <span class="comment">//                      size_type order = m_csa(m_csa[i]+d-1); // replaced by the following line</span>
-<a name="l00666"></a>00666             size_type order = get_char_pos(i, d-1, m_csa);
-<a name="l00667"></a>00667             uint16_t c_begin = 1, c_end = m_csa.sigma+1, mid;
-<a name="l00668"></a>00668             <span class="keywordflow">while</span> (c_begin &lt; c_end) {
-<a name="l00669"></a>00669                 mid = (c_begin+c_end)&gt;&gt;1;
-<a name="l00670"></a>00670                 <span class="keywordflow">if</span> (m_csa.C[mid] &lt;= order) {
-<a name="l00671"></a>00671                     c_begin = mid+1;
-<a name="l00672"></a>00672                 } <span class="keywordflow">else</span> {
-<a name="l00673"></a>00673                     c_end = mid;
-<a name="l00674"></a>00674                 }
-<a name="l00675"></a>00675             }
-<a name="l00676"></a>00676             <span class="keywordflow">return</span> m_csa.comp2char[c_begin-1];
-<a name="l00677"></a>00677         }
-<a name="l00678"></a>00678 
-<a name="l00680"></a>00680 
-<a name="l00687"></a><a class="code" href="group__cst__sada__tree__methods.html#ga5cd3e5cd2dde30d5c281c6ee29e9e4ef">00687</a>         <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> <a class="code" href="group__cst__sada__tree__methods.html#ga5cd3e5cd2dde30d5c281c6ee29e9e4ef" title="Calculate the lowest common ancestor (lca) of two nodes v and w of the suffix tree.">lca</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> v, <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> w)<span class="keyword">const </span>{
-<a name="l00688"></a>00688             assert(m_bp[v] == 1 and m_bp[w] == 1);
-<a name="l00689"></a>00689             <span class="keywordflow">if</span> (v &gt; w) {
-<a name="l00690"></a>00690                 <a class="code" href="classsdsl_1_1cst__sada.html#aab0107fa1782344dd5bd8c8db8c99f4d" title="Swap method for cst_sada.">std::swap</a>(v,w);
-<a name="l00691"></a>00691             } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (v==w) {
-<a name="l00692"></a>00692                 <span class="keywordflow">return</span> v;
-<a name="l00693"></a>00693             }
-<a name="l00694"></a>00694             <span class="keywordflow">if</span> (v == <a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7" title="Return the root of the suffix tree.">root</a>())
-<a name="l00695"></a>00695                 <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7" title="Return the root of the suffix tree.">root</a>();
-<a name="l00696"></a>00696             <span class="keywordflow">return</span> m_bp_support.double_enclose(v, w);
-<a name="l00697"></a>00697         }
-<a name="l00698"></a>00698 
-<a name="l00700"></a>00700 
-<a name="l00706"></a><a class="code" href="group__cst__sada__tree__methods.html#ga92f93a4f14a8e89465de1e33fc4a27cf">00706</a>         <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> <a class="code" href="group__cst__sada__tree__methods.html#ga92f93a4f14a8e89465de1e33fc4a27cf" title="Compute the suffix link of node v.">sl</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> v)<span class="keyword">const </span>{
-<a name="l00707"></a>00707             <span class="keywordflow">if</span> (v == <a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7" title="Return the root of the suffix tree.">root</a>())
-<a name="l00708"></a>00708                 <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7" title="Return the root of the suffix tree.">root</a>();
-<a name="l00709"></a>00709             <span class="comment">// get leftmost leaf in the tree rooted at v</span>
-<a name="l00710"></a>00710             size_type left              = m_bp_rank10(v);
-<a name="l00711"></a>00711             <span class="keywordflow">if</span> (<a class="code" href="group__cst__sada__tree__methods.html#ga57c8d06102aebe2ca2b6a0e4b57fe134" title="Decide if a node is a leaf in the suffix tree.">is_leaf</a>(v)) {
-<a name="l00712"></a>00712                 <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#ga7da51e5c2ad0329df3e2edaf415de3e5" title="Return the i-th leaf (1-based from left to right) of the suffix tree.">ith_leaf</a>(m_csa.psi[left]+1);
-<a name="l00713"></a>00713             }
-<a name="l00714"></a>00714             <span class="comment">// get the rightmost leaf in the tree rooted at v</span>
-<a name="l00715"></a>00715             size_type right             = m_bp_rank10(m_bp_support.find_close(v))-1;
-<a name="l00716"></a>00716             assert(left &lt; right);
-<a name="l00717"></a>00717             <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> left_leaf = <a class="code" href="group__cst__sada__tree__methods.html#ga7da51e5c2ad0329df3e2edaf415de3e5" title="Return the i-th leaf (1-based from left to right) of the suffix tree.">ith_leaf</a>(m_csa.psi[left]+1);
-<a name="l00718"></a>00718             <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> right_leaf= <a class="code" href="group__cst__sada__tree__methods.html#ga7da51e5c2ad0329df3e2edaf415de3e5" title="Return the i-th leaf (1-based from left to right) of the suffix tree.">ith_leaf</a>(m_csa.psi[right]+1);
-<a name="l00719"></a>00719             <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#ga5cd3e5cd2dde30d5c281c6ee29e9e4ef" title="Calculate the lowest common ancestor (lca) of two nodes v and w of the suffix tree.">lca</a>(left_leaf, right_leaf);
-<a name="l00720"></a>00720         }
-<a name="l00721"></a>00721 
-<a name="l00723"></a>00723         <span class="comment">/*</span>
-<a name="l00724"></a>00724 <span class="comment">         *  \param v A valid not of a cst_sada.</span>
-<a name="l00725"></a>00725 <span class="comment">         *  \param c The character which should be prepended to the string of the current node.</span>
-<a name="l00726"></a>00726 <span class="comment">         *      \return root() if the Weiner link of (v, c) does not exist, otherwise the Weiner link is returned.</span>
-<a name="l00727"></a>00727 <span class="comment">         *  \par Time complexity</span>
-<a name="l00728"></a>00728 <span class="comment">         *              \f$ \Order{ t_{rank\_bwt} + t_{lca}}\f$</span>
-<a name="l00729"></a>00729 <span class="comment">         */</span>
-<a name="l00730"></a><a class="code" href="group__cst__sada__tree__methods.html#ga8cf9dea22b2626aca3023861ccde2fda">00730</a>         <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> <a class="code" href="group__cst__sada__tree__methods.html#ga8cf9dea22b2626aca3023861ccde2fda" title="Compute the Weiner link of node v and character c.">wl</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> v, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> c)<span class="keyword"> const </span>{
-<a name="l00731"></a>00731             <span class="comment">// get leftmost leaf in the tree rooted at v</span>
-<a name="l00732"></a>00732             size_type left              = m_bp_rank10(v);
-<a name="l00733"></a>00733             <span class="comment">// get the rightmost leaf in the tree rooted at v</span>
-<a name="l00734"></a>00734             size_type right = <a class="code" href="group__cst__sada__tree__methods.html#ga57c8d06102aebe2ca2b6a0e4b57fe134" title="Decide if a node is a leaf in the suffix tree.">is_leaf</a>(v) ? left : m_bp_rank10(m_bp_support.find_close(v))-1;
-<a name="l00735"></a>00735 
-<a name="l00736"></a>00736             size_type c_left    = m_csa.rank_bwt(left, c);
-<a name="l00737"></a>00737             size_type c_right   = m_csa.rank_bwt(right+1, c);
-<a name="l00738"></a>00738 
-<a name="l00739"></a>00739             <span class="keywordflow">if</span> (c_left == c_right)  <span class="comment">// there exists no Weiner link</span>
-<a name="l00740"></a>00740                 <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7" title="Return the root of the suffix tree.">root</a>();
-<a name="l00741"></a>00741             <span class="keywordflow">if</span> (c_left+1 == c_right)
-<a name="l00742"></a>00742                 <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#ga7da51e5c2ad0329df3e2edaf415de3e5" title="Return the i-th leaf (1-based from left to right) of the suffix tree.">ith_leaf</a>(m_csa.C[m_csa.char2comp[c]] + c_left + 1);
-<a name="l00743"></a>00743             <span class="keywordflow">else</span> {
-<a name="l00744"></a>00744                 size_type left  = m_csa.C[m_csa.char2comp[c]] + c_left;
-<a name="l00745"></a>00745                 size_type right = m_csa.C[m_csa.char2comp[c]] + c_right - 1;
-<a name="l00746"></a>00746                 assert(left &lt; right);
-<a name="l00747"></a>00747                 <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> left_leaf = <a class="code" href="group__cst__sada__tree__methods.html#ga7da51e5c2ad0329df3e2edaf415de3e5" title="Return the i-th leaf (1-based from left to right) of the suffix tree.">ith_leaf</a>(left+1);
-<a name="l00748"></a>00748                 <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> right_leaf= <a class="code" href="group__cst__sada__tree__methods.html#ga7da51e5c2ad0329df3e2edaf415de3e5" title="Return the i-th leaf (1-based from left to right) of the suffix tree.">ith_leaf</a>(right+1);
-<a name="l00749"></a>00749                 <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#ga5cd3e5cd2dde30d5c281c6ee29e9e4ef" title="Calculate the lowest common ancestor (lca) of two nodes v and w of the suffix tree.">lca</a>(left_leaf, right_leaf);
-<a name="l00750"></a>00750             }
-<a name="l00751"></a>00751         }
-<a name="l00752"></a>00752 
-<a name="l00754"></a>00754 
-<a name="l00759"></a><a class="code" href="group__cst__sada__tree__methods.html#ga84df60eb3e3d5ea3a92592c7287158be">00759</a>         size_type <a class="code" href="group__cst__sada__tree__methods.html#ga84df60eb3e3d5ea3a92592c7287158be" title="Compute the suffix number of a leaf node v.">sn</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> v)<span class="keyword">const </span>{
-<a name="l00760"></a>00760             assert(<a class="code" href="group__cst__sada__tree__methods.html#ga57c8d06102aebe2ca2b6a0e4b57fe134" title="Decide if a node is a leaf in the suffix tree.">is_leaf</a>(v));
-<a name="l00761"></a>00761             <span class="comment">// count the leaves left to leaf v</span>
-<a name="l00762"></a>00762             <span class="keywordflow">return</span> m_csa[m_bp_rank10(v)];
-<a name="l00763"></a>00763         }
-<a name="l00764"></a>00764 
-<a name="l00766"></a>00766 
-<a name="l00773"></a><a class="code" href="group__cst__sada__tree__methods.html#ga6a61b2b1a473ba53b532a338adf08ca5">00773</a>         size_type <a class="code" href="group__cst__sada__tree__methods.html#ga6a61b2b1a473ba53b532a338adf08ca5" title="Computes a unique identification number for a node of the suffix tree in the range [0...">id</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> v)<span class="keyword">const </span>{
-<a name="l00774"></a>00774             <span class="comment">// v+1 is &lt; m_bp.size(), as v is the position of an open parenthesis</span>
-<a name="l00775"></a>00775             <span class="keywordflow">if</span> (m_bp[v+1]) {    <span class="comment">// case (a) inner node</span>
-<a name="l00776"></a>00776                 <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1cst__sada.html#a1ed08bccecd1b747d81ce203c47d55e1" title="Number of leaves in the suffix tree.">size</a>() + (m_bp_support.rank(v) - 1) - m_bp_rank10(v);
-<a name="l00777"></a>00777             } <span class="keywordflow">else</span> {            <span class="comment">// case (b) leaf</span>
-<a name="l00778"></a>00778                 <span class="keywordflow">return</span> m_bp_rank10(v);
-<a name="l00779"></a>00779             }
-<a name="l00780"></a>00780             <span class="comment">// each node has a unique opening parenthesis -&gt; results in an integer between [0..2n-1]</span>
-<a name="l00781"></a>00781             <span class="comment">//  return m_bp_support.rank(v)-1;</span>
-<a name="l00782"></a>00782         }
-<a name="l00783"></a>00783 
-<a name="l00785"></a>00785 
-<a name="l00792"></a><a class="code" href="group__cst__sada__tree__methods.html#ga63616dcebb8f34023a1ba31752e6901a">00792</a>         size_type <a class="code" href="group__cst__sada__tree__methods.html#ga63616dcebb8f34023a1ba31752e6901a" title="Computes the node for such that id(v)=id.">inv_id</a>(size_type <span class="keywordtype">id</span>) {
-<a name="l00793"></a>00793             <span class="keywordflow">if</span> (<span class="keywordtype">id</span> &lt; <a class="code" href="classsdsl_1_1cst__sada.html#a1ed08bccecd1b747d81ce203c47d55e1" title="Number of leaves in the suffix tree.">size</a>()) {  <span class="comment">// the corresponding node is a leaf</span>
-<a name="l00794"></a>00794                 <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#ga7da51e5c2ad0329df3e2edaf415de3e5" title="Return the i-th leaf (1-based from left to right) of the suffix tree.">ith_leaf</a>(<span class="keywordtype">id</span>+1);
-<a name="l00795"></a>00795             } <span class="keywordflow">else</span> { <span class="comment">// the corresponding node is a inner node</span>
-<a name="l00796"></a>00796                 <span class="keywordtype">id</span> = <span class="keywordtype">id</span> + 1 - <a class="code" href="classsdsl_1_1cst__sada.html#a1ed08bccecd1b747d81ce203c47d55e1" title="Number of leaves in the suffix tree.">size</a>();
-<a name="l00797"></a>00797                 <span class="comment">// solved by binary search; TODO: can be done in constant time by using a select structure on the bitpattern 11</span>
-<a name="l00798"></a>00798                 size_type <a class="code" href="group__cst__sada__tree__methods.html#ga1a0cbc8d46af7a9c24e9546ff2438066" title="Calculates the index of the leftmost leaf in the corresponding suffix array.">lb</a> = 0, <a class="code" href="group__cst__sada__tree__methods.html#ga487fb21b2825a26c5f825b73df63f8ce" title="Calculates the index of the rightmost leaf in the corresponding suffix array.">rb</a> = m_bp.<a class="code" href="classsdsl_1_1int__vector.html#aea4fcbbab7fbef9c1cc4a4c89f4b1520" title="The number of elements in the int_vector.">size</a>(); <span class="comment">// lb inclusive, rb exclusive</span>
-<a name="l00799"></a>00799                 <span class="comment">// invariant: arg(lb) &lt; id, arg(rb)&gt;= id</span>
-<a name="l00800"></a>00800                 <span class="keywordflow">while</span> (<a class="code" href="group__cst__sada__tree__methods.html#ga487fb21b2825a26c5f825b73df63f8ce" title="Calculates the index of the rightmost leaf in the corresponding suffix array.">rb</a>-lb &gt; 1) {
-<a name="l00801"></a>00801                     size_type mid = lb + (<a class="code" href="group__cst__sada__tree__methods.html#ga487fb21b2825a26c5f825b73df63f8ce" title="Calculates the index of the rightmost leaf in the corresponding suffix array.">rb</a>-<a class="code" href="group__cst__sada__tree__methods.html#ga1a0cbc8d46af7a9c24e9546ff2438066" title="Calculates the index of the leftmost leaf in the corresponding suffix array.">lb</a>)/2; <span class="comment">// mid \in [0..m_bp.size()-1]</span>
-<a name="l00802"></a>00802                     <span class="keywordflow">if</span> (m_bp[mid] == 0 and m_bp[mid-1] == 1) {  <span class="comment">// if we are ``half on a leaf&#39;&#39;</span>
-<a name="l00803"></a>00803                         ++mid; <span class="comment">//we step one to the right to include it</span>
-<a name="l00804"></a>00804                     }
-<a name="l00805"></a>00805                     <span class="comment">// get the number of open inner nodes before position mid, i.e. arg(mid)</span>
-<a name="l00806"></a>00806                     size_type mid_id = m_bp_support.rank(mid-1) - m_bp_rank10(mid);  <span class="comment">// Note: mid-1 is valid of mid is of type ``size_type&#39;&#39; as us the parameter of rank</span>
-<a name="l00807"></a>00807                     <span class="keywordflow">if</span> (mid_id &lt; <span class="keywordtype">id</span>) {
-<a name="l00808"></a>00808                         lb = mid;
-<a name="l00809"></a>00809                     } <span class="keywordflow">else</span> { <span class="comment">// mid_id &gt;= x</span>
-<a name="l00810"></a>00810                         <a class="code" href="group__cst__sada__tree__methods.html#ga487fb21b2825a26c5f825b73df63f8ce" title="Calculates the index of the rightmost leaf in the corresponding suffix array.">rb</a> = mid;
-<a name="l00811"></a>00811                     }
-<a name="l00812"></a>00812                 }
-<a name="l00813"></a>00813                 <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#ga1a0cbc8d46af7a9c24e9546ff2438066" title="Calculates the index of the leftmost leaf in the corresponding suffix array.">lb</a>;
-<a name="l00814"></a>00814             }
-<a name="l00815"></a>00815         }
-<a name="l00816"></a>00816 
-<a name="l00818"></a>00818         <span class="comment">/*</span>
-<a name="l00819"></a>00819 <span class="comment">         *  \return The number of nodes of the suffix tree.</span>
-<a name="l00820"></a>00820 <span class="comment">         *  \par Time complexity</span>
-<a name="l00821"></a>00821 <span class="comment">         *              \f$ \Order{1} \f$</span>
-<a name="l00822"></a>00822 <span class="comment">         */</span>
-<a name="l00823"></a><a class="code" href="group__cst__sada__tree__methods.html#ga1975d2d360e2c7cd01205d1c9b96ca79">00823</a>         size_type <a class="code" href="group__cst__sada__tree__methods.html#ga1975d2d360e2c7cd01205d1c9b96ca79" title="Get the number of nodes of the suffix tree.">nodes</a>()<span class="keyword">const </span>{
-<a name="l00824"></a>00824             <span class="keywordflow">return</span> m_bp.<a class="code" href="classsdsl_1_1int__vector.html#aea4fcbbab7fbef9c1cc4a4c89f4b1520" title="The number of elements in the int_vector.">size</a>()&gt;&gt;1;
-<a name="l00825"></a>00825         }
-<a name="l00826"></a>00826 
-<a name="l00828"></a>00828         <span class="comment">/* \param lb Left bound of the lcp-interval [lb..rb] (inclusive).</span>
-<a name="l00829"></a>00829 <span class="comment">         * \param rb Right bound of the lcp-interval [lb..rb] (inclusive).</span>
-<a name="l00830"></a>00830 <span class="comment">         * \param l  Depth of the lcp-interval.</span>
-<a name="l00831"></a>00831 <span class="comment">         *\ return The node in the suffix tree corresponding lcp-interval [lb..rb]</span>
-<a name="l00832"></a>00832 <span class="comment">         */</span>
-<a name="l00833"></a><a class="code" href="group__cst__sada__tree__methods.html#ga25042e0e96e77784c562e5383e4d914c">00833</a>         <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> <a class="code" href="group__cst__sada__tree__methods.html#ga25042e0e96e77784c562e5383e4d914c" title="Get the node in the suffix tree which corresponds to the lcp-interval [lb..rb].">node</a>(size_type <a class="code" href="group__cst__sada__tree__methods.html#ga1a0cbc8d46af7a9c24e9546ff2438066" title="Calculates the index of the leftmost leaf in the corresponding suffix array.">lb</a>, size_type <a class="code" href="group__cst__sada__tree__methods.html#ga487fb21b2825a26c5f825b73df63f8ce" title="Calculates the index of the rightmost leaf in the corresponding suffix array.">rb</a>, size_type l=0)<span class="keyword"> const </span>{
-<a name="l00834"></a>00834             <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#ga5cd3e5cd2dde30d5c281c6ee29e9e4ef" title="Calculate the lowest common ancestor (lca) of two nodes v and w of the suffix tree.">lca</a>(<a class="code" href="group__cst__sada__tree__methods.html#ga7da51e5c2ad0329df3e2edaf415de3e5" title="Return the i-th leaf (1-based from left to right) of the suffix tree.">ith_leaf</a>(lb+1), <a class="code" href="group__cst__sada__tree__methods.html#ga7da51e5c2ad0329df3e2edaf415de3e5" title="Return the i-th leaf (1-based from left to right) of the suffix tree.">ith_leaf</a>(rb+1));
-<a name="l00835"></a>00835         }
-<a name="l00836"></a>00836 
-<a name="l00838"></a>00838 
-<a name="l00844"></a><a class="code" href="group__cst__sada__tree__methods.html#ga937f95965629c243d54fa7b01c550323">00844</a>         size_type <a class="code" href="group__cst__sada__tree__methods.html#ga937f95965629c243d54fa7b01c550323" title="Get the number of children of a node v.">degree</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> v)<span class="keyword">const </span>{
-<a name="l00845"></a>00845             size_type res = 0;
-<a name="l00846"></a>00846             v = v+1;
-<a name="l00847"></a>00847             <span class="keywordflow">while</span> (m_bp[v]) { <span class="comment">// found open parentheses</span>
-<a name="l00848"></a>00848                 ++res;
-<a name="l00849"></a>00849                 v = m_bp_support.find_close(v)+1;
-<a name="l00850"></a>00850             }
-<a name="l00851"></a>00851             <span class="keywordflow">return</span> res;
-<a name="l00852"></a>00852         }
-<a name="l00853"></a>00853 
-<a name="l00855"></a>00855 
-<a name="l00859"></a><a class="code" href="group__cst__sada__tree__methods.html#gaf1d55f701966d1755634372696d57e96">00859</a>         size_type <a class="code" href="group__cst__sada__tree__methods.html#gaf1d55f701966d1755634372696d57e96" title="Maps an index i to the position in TLCP where LCP[i] can be found.">tlcp_idx</a>(size_type i)<span class="keyword"> const </span>{
-<a name="l00860"></a>00860             size_type ii = 0;
-<a name="l00861"></a>00861             <span class="keywordflow">if</span> (i &gt; 0) {
-<a name="l00862"></a>00862                 size_type ipos   = m_bp_select10(i) - 1;  <span class="comment">// -1 as select returns the position of the zero</span>
-<a name="l00863"></a>00863                 size_type ip1pos = m_bp_select10(i+1) - 1;<span class="comment">// &quot;  &quot;    &quot;        &quot;    &quot;     &quot;     &quot;   &quot;   &quot;</span>
-<a name="l00864"></a>00864                 ii    = m_bp_support.double_enclose(ipos, ip1pos);
-<a name="l00865"></a>00865             }
-<a name="l00866"></a>00866             ii = m_bp_support.find_close(ii);
-<a name="l00867"></a>00867             <span class="comment">// all right, as bp[ii] = 0</span>
-<a name="l00868"></a>00868             <span class="keywordflow">return</span> ii - m_bp_support.rank(ii) - m_bp_rank10(ii);
-<a name="l00869"></a>00869         }
-<a name="l00870"></a>00870 
-<a name="l00872"></a><a class="code" href="group__cst__sada__tree__methods.html#gaf699e3494f15c1f4adafa3ddefc89db3">00872</a>         <span class="keywordtype">void</span> <a class="code" href="group__cst__sada__tree__methods.html#gaf699e3494f15c1f4adafa3ddefc89db3" title="Print some infos about the size of the compressed suffix tree.">print_info</a>()<span class="keyword">const </span>{
-<a name="l00873"></a>00873             std::cout &lt;&lt; <span class="stringliteral">&quot;# size of cst in bytes per character&quot;</span> &lt;&lt; std::endl;
-<a name="l00874"></a>00874             size_type cst_size = <a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(*<span class="keyword">this</span>);
-<a name="l00875"></a>00875             std::cout &lt;&lt; ((double)cst_size)/<a class="code" href="classsdsl_1_1cst__sada.html#a44464284d176dd95bbc1a5be4a3fe7e6" title="The compressed suffix array the suffix tree is based on.">csa</a>.size() &lt;&lt; <span class="stringliteral">&quot; # = &quot;</span>&lt;&lt; ((double)cst_size)/(1&lt;&lt;20) &lt;&lt;<span class="stringliteral">&quot; MB&quot;</span>&lt;&lt;std::endl;
-<a name="l00876"></a>00876             std::cout&lt;&lt; ((double)<a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a44464284d176dd95bbc1a5be4a3fe7e6" title="The compressed suffix array the suffix tree is based on.">csa</a>))/cst_size &lt;&lt; <span class="stringliteral">&quot; # ratio of csa size&quot;</span> &lt;&lt; std::endl;
-<a name="l00877"></a>00877             std::cout&lt;&lt; ((double)<a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a3acc21d46abdac9861fc41a66b57aa29" title="The lcp array the suffix tree is based on.">lcp</a>))/cst_size &lt;&lt; <span class="stringliteral">&quot; # ratio of lcp size&quot;</span> &lt;&lt; std::endl;
-<a name="l00878"></a>00878             std::cout&lt;&lt; ((double)<a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(<a class="code" href="classsdsl_1_1cst__sada.html#ae25541428336ad697b9ceefffccea100" title="The balanced parentheses sequence of the suffix tree.">bp</a>))/cst_size &lt;&lt; <span class="stringliteral">&quot; # ratio of bp size&quot;</span> &lt;&lt; std::endl;
-<a name="l00879"></a>00879             std::cout&lt;&lt; ((double)<a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(<a class="code" href="classsdsl_1_1cst__sada.html#ae6a021c0152e18b70e0e6eff161f82ec" title="The balanced parentheses sequence support for member bp.">bp_support</a>))/cst_size &lt;&lt; <span class="stringliteral">&quot; # ratio of bp_support size&quot;</span> &lt;&lt; std::endl;
-<a name="l00880"></a>00880             std::cout&lt;&lt; ((double)<a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a7d8fa2b299508229d68ab43b1112387a" title="The rank support for the bit pattern &quot;01&quot; for member bp.">bp_rank_10</a>))/cst_size &lt;&lt; <span class="stringliteral">&quot; # ratio of bp_rank_10 size&quot;</span> &lt;&lt; std::endl;
-<a name="l00881"></a>00881             std::cout&lt;&lt; ((double)<a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(<a class="code" href="classsdsl_1_1cst__sada.html#ad740210c84684d0aea732b7fe00d089e" title="The select support for the bit pattern &quot;01&quot; for member bp.">bp_select_10</a>))/cst_size &lt;&lt; <span class="stringliteral">&quot; # ratio of bp_select_10 size&quot;</span> &lt;&lt; std::endl;
-<a name="l00882"></a>00882         }
-<a name="l00883"></a>00883 
-<a name="l00884"></a>00884         <span class="comment">/* @} */</span>
-<a name="l00885"></a>00885 
-<a name="l00886"></a>00886 };
-<a name="l00887"></a>00887 
-<a name="l00888"></a>00888 <span class="comment">// == template functions ==</span>
-<a name="l00889"></a>00889 
-<a name="l00890"></a>00890 
-<a name="l00891"></a>00891 } <span class="comment">// end namespace sdsl</span>
-<a name="l00892"></a>00892 
-<a name="l00893"></a>00893 <span class="preprocessor">#endif</span>
+<a name="l00629"></a><a class="code" href="group__cst__sada__tree__methods.html#ga68fc8ccd8a629362d972ba1e6b718698">00629</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="group__cst__sada__tree__methods.html#ga68fc8ccd8a629362d972ba1e6b718698" title="Returns the d-th character (1-based indexing) of the edge-label pointing to v.">edge</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> v, size_type d)<span class="keyword">const </span>{
+<a name="l00630"></a>00630             <span class="keywordflow">if</span> (d &lt; 1 or d &gt; <a class="code" href="group__cst__sada__tree__methods.html#gac92d4d641c6fba4d4a234d06e00df6a8" title="Returns the depth of node v.">depth</a>(v)) {
+<a name="l00631"></a>00631                 <span class="keywordflow">throw</span> std::out_of_range(<span class="stringliteral">&quot;OUT_OF_RANGE_ERROR: &quot;</span>+<a class="code" href="namespacesdsl_1_1util.html#a5ac1913316c61c170cba986b98c27c90" title="Demangle the class name of typeid(...).name()">util::demangle</a>(<span class="keyword">typeid</span>(<span class="keyword">this</span>).name())+<span class="stringliteral">&quot; cst_sada&lt;&gt;::edge(node_type v, size_type d). d == 0 or d &gt; depth(v)!&quot;</span>);
+<a name="l00632"></a>00632             }
+<a name="l00633"></a>00633 
+<a name="l00634"></a>00634             size_type i = 0;<span class="comment">// index of the first suffix in the subtree of v</span>
+<a name="l00635"></a>00635             <span class="keywordflow">if</span> (<a class="code" href="group__cst__sada__tree__methods.html#ga57c8d06102aebe2ca2b6a0e4b57fe134" title="Decide if a node is a leaf in the suffix tree.">is_leaf</a>(v)) { <span class="comment">// if v is a leave</span>
+<a name="l00636"></a>00636                 i = m_bp_rank10(v); <span class="comment">// get the index in the suffix array</span>
+<a name="l00637"></a>00637             } <span class="keywordflow">else</span> {
+<a name="l00638"></a>00638                 i = inorder(v);
+<a name="l00639"></a>00639             }
+<a name="l00640"></a>00640 <span class="comment">//                      size_type order = m_csa(m_csa[i]+d-1); // replaced by the following line</span>
+<a name="l00641"></a>00641             size_type order = get_char_pos(i, d-1, m_csa);
+<a name="l00642"></a>00642             uint16_t c_begin = 1, c_end = m_csa.sigma+1, mid;
+<a name="l00643"></a>00643             <span class="keywordflow">while</span> (c_begin &lt; c_end) {
+<a name="l00644"></a>00644                 mid = (c_begin+c_end)&gt;&gt;1;
+<a name="l00645"></a>00645                 <span class="keywordflow">if</span> (m_csa.C[mid] &lt;= order) {
+<a name="l00646"></a>00646                     c_begin = mid+1;
+<a name="l00647"></a>00647                 } <span class="keywordflow">else</span> {
+<a name="l00648"></a>00648                     c_end = mid;
+<a name="l00649"></a>00649                 }
+<a name="l00650"></a>00650             }
+<a name="l00651"></a>00651             <span class="keywordflow">return</span> m_csa.comp2char[c_begin-1];
+<a name="l00652"></a>00652         }
+<a name="l00653"></a>00653 
+<a name="l00655"></a>00655 
+<a name="l00662"></a><a class="code" href="group__cst__sada__tree__methods.html#ga5cd3e5cd2dde30d5c281c6ee29e9e4ef">00662</a>         <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> <a class="code" href="group__cst__sada__tree__methods.html#ga5cd3e5cd2dde30d5c281c6ee29e9e4ef" title="Calculate the lowest common ancestor (lca) of two nodes v and w of the suffix tree.">lca</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> v, <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> w)<span class="keyword">const </span>{
+<a name="l00663"></a>00663             assert(m_bp[v] == 1 and m_bp[w] == 1);
+<a name="l00664"></a>00664             <span class="keywordflow">if</span> (v &gt; w) {
+<a name="l00665"></a>00665                 <a class="code" href="classsdsl_1_1cst__sada.html#aab0107fa1782344dd5bd8c8db8c99f4d" title="Swap method for cst_sada.">std::swap</a>(v,w);
+<a name="l00666"></a>00666             } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (v==w) {
+<a name="l00667"></a>00667                 <span class="keywordflow">return</span> v;
+<a name="l00668"></a>00668             }
+<a name="l00669"></a>00669             <span class="keywordflow">if</span> (v == <a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7" title="Return the root of the suffix tree.">root</a>())
+<a name="l00670"></a>00670                 <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7" title="Return the root of the suffix tree.">root</a>();
+<a name="l00671"></a>00671             <span class="keywordflow">return</span> m_bp_support.double_enclose(v, w);
+<a name="l00672"></a>00672         }
+<a name="l00673"></a>00673 
+<a name="l00675"></a>00675 
+<a name="l00681"></a><a class="code" href="group__cst__sada__tree__methods.html#ga92f93a4f14a8e89465de1e33fc4a27cf">00681</a>         <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> <a class="code" href="group__cst__sada__tree__methods.html#ga92f93a4f14a8e89465de1e33fc4a27cf" title="Compute the suffix link of node v.">sl</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> v)<span class="keyword">const </span>{
+<a name="l00682"></a>00682             <span class="keywordflow">if</span> (v == <a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7" title="Return the root of the suffix tree.">root</a>())
+<a name="l00683"></a>00683                 <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7" title="Return the root of the suffix tree.">root</a>();
+<a name="l00684"></a>00684             <span class="comment">// get leftmost leaf in the tree rooted at v</span>
+<a name="l00685"></a>00685             size_type left              = m_bp_rank10(v);
+<a name="l00686"></a>00686             <span class="keywordflow">if</span> (<a class="code" href="group__cst__sada__tree__methods.html#ga57c8d06102aebe2ca2b6a0e4b57fe134" title="Decide if a node is a leaf in the suffix tree.">is_leaf</a>(v)) {
+<a name="l00687"></a>00687                 <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#ga7da51e5c2ad0329df3e2edaf415de3e5" title="Return the i-th leaf (1-based from left to right) of the suffix tree.">ith_leaf</a>(m_csa.psi[left]+1);
+<a name="l00688"></a>00688             }
+<a name="l00689"></a>00689             <span class="comment">// get the rightmost leaf in the tree rooted at v</span>
+<a name="l00690"></a>00690             size_type right             = m_bp_rank10(m_bp_support.find_close(v))-1;
+<a name="l00691"></a>00691             assert(left &lt; right);
+<a name="l00692"></a>00692             <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> left_leaf = <a class="code" href="group__cst__sada__tree__methods.html#ga7da51e5c2ad0329df3e2edaf415de3e5" title="Return the i-th leaf (1-based from left to right) of the suffix tree.">ith_leaf</a>(m_csa.psi[left]+1);
+<a name="l00693"></a>00693             <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> right_leaf= <a class="code" href="group__cst__sada__tree__methods.html#ga7da51e5c2ad0329df3e2edaf415de3e5" title="Return the i-th leaf (1-based from left to right) of the suffix tree.">ith_leaf</a>(m_csa.psi[right]+1);
+<a name="l00694"></a>00694             <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#ga5cd3e5cd2dde30d5c281c6ee29e9e4ef" title="Calculate the lowest common ancestor (lca) of two nodes v and w of the suffix tree.">lca</a>(left_leaf, right_leaf);
+<a name="l00695"></a>00695         }
+<a name="l00696"></a>00696 
+<a name="l00698"></a>00698         <span class="comment">/*</span>
+<a name="l00699"></a>00699 <span class="comment">         *  \param v A valid not of a cst_sada.</span>
+<a name="l00700"></a>00700 <span class="comment">         *  \param c The character which should be prepended to the string of the current node.</span>
+<a name="l00701"></a>00701 <span class="comment">         *      \return root() if the Weiner link of (v, c) does not exist, otherwise the Weiner link is returned.</span>
+<a name="l00702"></a>00702 <span class="comment">         *  \par Time complexity</span>
+<a name="l00703"></a>00703 <span class="comment">         *              \f$ \Order{ t_{rank\_bwt} + t_{lca}}\f$</span>
+<a name="l00704"></a>00704 <span class="comment">         */</span>
+<a name="l00705"></a><a class="code" href="group__cst__sada__tree__methods.html#ga8cf9dea22b2626aca3023861ccde2fda">00705</a>         <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> <a class="code" href="group__cst__sada__tree__methods.html#ga8cf9dea22b2626aca3023861ccde2fda" title="Compute the Weiner link of node v and character c.">wl</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> v, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> c)<span class="keyword"> const </span>{
+<a name="l00706"></a>00706             <span class="comment">// get leftmost leaf in the tree rooted at v</span>
+<a name="l00707"></a>00707             size_type left              = m_bp_rank10(v);
+<a name="l00708"></a>00708             <span class="comment">// get the rightmost leaf in the tree rooted at v</span>
+<a name="l00709"></a>00709             size_type right = <a class="code" href="group__cst__sada__tree__methods.html#ga57c8d06102aebe2ca2b6a0e4b57fe134" title="Decide if a node is a leaf in the suffix tree.">is_leaf</a>(v) ? left : m_bp_rank10(m_bp_support.find_close(v))-1;
+<a name="l00710"></a>00710 
+<a name="l00711"></a>00711             size_type c_left    = m_csa.rank_bwt(left, c);
+<a name="l00712"></a>00712             size_type c_right   = m_csa.rank_bwt(right+1, c);
+<a name="l00713"></a>00713 
+<a name="l00714"></a>00714             <span class="keywordflow">if</span> (c_left == c_right)  <span class="comment">// there exists no Weiner link</span>
+<a name="l00715"></a>00715                 <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#gae50ef2a5efd91d2a22630c02e99c9ad7" title="Return the root of the suffix tree.">root</a>();
+<a name="l00716"></a>00716             <span class="keywordflow">if</span> (c_left+1 == c_right)
+<a name="l00717"></a>00717                 <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#ga7da51e5c2ad0329df3e2edaf415de3e5" title="Return the i-th leaf (1-based from left to right) of the suffix tree.">ith_leaf</a>(m_csa.C[m_csa.char2comp[c]] + c_left + 1);
+<a name="l00718"></a>00718             <span class="keywordflow">else</span> {
+<a name="l00719"></a>00719                 size_type left  = m_csa.C[m_csa.char2comp[c]] + c_left;
+<a name="l00720"></a>00720                 size_type right = m_csa.C[m_csa.char2comp[c]] + c_right - 1;
+<a name="l00721"></a>00721                 assert(left &lt; right);
+<a name="l00722"></a>00722                 <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> left_leaf = <a class="code" href="group__cst__sada__tree__methods.html#ga7da51e5c2ad0329df3e2edaf415de3e5" title="Return the i-th leaf (1-based from left to right) of the suffix tree.">ith_leaf</a>(left+1);
+<a name="l00723"></a>00723                 <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> right_leaf= <a class="code" href="group__cst__sada__tree__methods.html#ga7da51e5c2ad0329df3e2edaf415de3e5" title="Return the i-th leaf (1-based from left to right) of the suffix tree.">ith_leaf</a>(right+1);
+<a name="l00724"></a>00724                 <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#ga5cd3e5cd2dde30d5c281c6ee29e9e4ef" title="Calculate the lowest common ancestor (lca) of two nodes v and w of the suffix tree.">lca</a>(left_leaf, right_leaf);
+<a name="l00725"></a>00725             }
+<a name="l00726"></a>00726         }
+<a name="l00727"></a>00727 
+<a name="l00729"></a>00729 
+<a name="l00734"></a><a class="code" href="group__cst__sada__tree__methods.html#ga84df60eb3e3d5ea3a92592c7287158be">00734</a>         size_type <a class="code" href="group__cst__sada__tree__methods.html#ga84df60eb3e3d5ea3a92592c7287158be" title="Compute the suffix number of a leaf node v.">sn</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> v)<span class="keyword">const </span>{
+<a name="l00735"></a>00735             assert(<a class="code" href="group__cst__sada__tree__methods.html#ga57c8d06102aebe2ca2b6a0e4b57fe134" title="Decide if a node is a leaf in the suffix tree.">is_leaf</a>(v));
+<a name="l00736"></a>00736             <span class="comment">// count the leaves left to leaf v</span>
+<a name="l00737"></a>00737             <span class="keywordflow">return</span> m_csa[m_bp_rank10(v)];
+<a name="l00738"></a>00738         }
+<a name="l00739"></a>00739 
+<a name="l00741"></a>00741 
+<a name="l00748"></a><a class="code" href="group__cst__sada__tree__methods.html#ga6a61b2b1a473ba53b532a338adf08ca5">00748</a>         size_type <a class="code" href="group__cst__sada__tree__methods.html#ga6a61b2b1a473ba53b532a338adf08ca5" title="Computes a unique identification number for a node of the suffix tree in the range [0...">id</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> v)<span class="keyword">const </span>{
+<a name="l00749"></a>00749             <span class="comment">// v+1 is &lt; m_bp.size(), as v is the position of an open parenthesis</span>
+<a name="l00750"></a>00750             <span class="keywordflow">if</span> (m_bp[v+1]) {    <span class="comment">// case (a) inner node</span>
+<a name="l00751"></a>00751                 <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1cst__sada.html#a1ed08bccecd1b747d81ce203c47d55e1" title="Number of leaves in the suffix tree.">size</a>() + (m_bp_support.rank(v) - 1) - m_bp_rank10(v);
+<a name="l00752"></a>00752             } <span class="keywordflow">else</span> {            <span class="comment">// case (b) leaf</span>
+<a name="l00753"></a>00753                 <span class="keywordflow">return</span> m_bp_rank10(v);
+<a name="l00754"></a>00754             }
+<a name="l00755"></a>00755             <span class="comment">// each node has a unique opening parenthesis -&gt; results in an integer between [0..2n-1]</span>
+<a name="l00756"></a>00756             <span class="comment">//  return m_bp_support.rank(v)-1;</span>
+<a name="l00757"></a>00757         }
+<a name="l00758"></a>00758 
+<a name="l00760"></a>00760 
+<a name="l00767"></a><a class="code" href="group__cst__sada__tree__methods.html#ga63616dcebb8f34023a1ba31752e6901a">00767</a>         size_type <a class="code" href="group__cst__sada__tree__methods.html#ga63616dcebb8f34023a1ba31752e6901a" title="Computes the node for such that id(v)=id.">inv_id</a>(size_type <span class="keywordtype">id</span>) {
+<a name="l00768"></a>00768             <span class="keywordflow">if</span> (<span class="keywordtype">id</span> &lt; <a class="code" href="classsdsl_1_1cst__sada.html#a1ed08bccecd1b747d81ce203c47d55e1" title="Number of leaves in the suffix tree.">size</a>()) {  <span class="comment">// the corresponding node is a leaf</span>
+<a name="l00769"></a>00769                 <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#ga7da51e5c2ad0329df3e2edaf415de3e5" title="Return the i-th leaf (1-based from left to right) of the suffix tree.">ith_leaf</a>(<span class="keywordtype">id</span>+1);
+<a name="l00770"></a>00770             } <span class="keywordflow">else</span> { <span class="comment">// the corresponding node is a inner node</span>
+<a name="l00771"></a>00771                 <span class="keywordtype">id</span> = <span class="keywordtype">id</span> + 1 - <a class="code" href="classsdsl_1_1cst__sada.html#a1ed08bccecd1b747d81ce203c47d55e1" title="Number of leaves in the suffix tree.">size</a>();
+<a name="l00772"></a>00772                 <span class="comment">// solved by binary search; TODO: can be done in constant time by using a select structure on the bitpattern 11</span>
+<a name="l00773"></a>00773                 size_type <a class="code" href="group__cst__sada__tree__methods.html#ga1a0cbc8d46af7a9c24e9546ff2438066" title="Calculates the index of the leftmost leaf in the corresponding suffix array.">lb</a> = 0, <a class="code" href="group__cst__sada__tree__methods.html#ga487fb21b2825a26c5f825b73df63f8ce" title="Calculates the index of the rightmost leaf in the corresponding suffix array.">rb</a> = m_bp.<a class="code" href="classsdsl_1_1int__vector.html#aea4fcbbab7fbef9c1cc4a4c89f4b1520" title="The number of elements in the int_vector.">size</a>(); <span class="comment">// lb inclusive, rb exclusive</span>
+<a name="l00774"></a>00774                 <span class="comment">// invariant: arg(lb) &lt; id, arg(rb)&gt;= id</span>
+<a name="l00775"></a>00775                 <span class="keywordflow">while</span> (<a class="code" href="group__cst__sada__tree__methods.html#ga487fb21b2825a26c5f825b73df63f8ce" title="Calculates the index of the rightmost leaf in the corresponding suffix array.">rb</a>-lb &gt; 1) {
+<a name="l00776"></a>00776                     size_type mid = lb + (<a class="code" href="group__cst__sada__tree__methods.html#ga487fb21b2825a26c5f825b73df63f8ce" title="Calculates the index of the rightmost leaf in the corresponding suffix array.">rb</a>-<a class="code" href="group__cst__sada__tree__methods.html#ga1a0cbc8d46af7a9c24e9546ff2438066" title="Calculates the index of the leftmost leaf in the corresponding suffix array.">lb</a>)/2; <span class="comment">// mid \in [0..m_bp.size()-1]</span>
+<a name="l00777"></a>00777                     <span class="keywordflow">if</span> (m_bp[mid] == 0 and m_bp[mid-1] == 1) {  <span class="comment">// if we are ``half on a leaf&#39;&#39;</span>
+<a name="l00778"></a>00778                         ++mid; <span class="comment">//we step one to the right to include it</span>
+<a name="l00779"></a>00779                     }
+<a name="l00780"></a>00780                     <span class="comment">// get the number of open inner nodes before position mid, i.e. arg(mid)</span>
+<a name="l00781"></a>00781                     size_type mid_id = m_bp_support.rank(mid-1) - m_bp_rank10(mid);  <span class="comment">// Note: mid-1 is valid of mid is of type ``size_type&#39;&#39; as us the parameter of rank</span>
+<a name="l00782"></a>00782                     <span class="keywordflow">if</span> (mid_id &lt; <span class="keywordtype">id</span>) {
+<a name="l00783"></a>00783                         lb = mid;
+<a name="l00784"></a>00784                     } <span class="keywordflow">else</span> { <span class="comment">// mid_id &gt;= x</span>
+<a name="l00785"></a>00785                         <a class="code" href="group__cst__sada__tree__methods.html#ga487fb21b2825a26c5f825b73df63f8ce" title="Calculates the index of the rightmost leaf in the corresponding suffix array.">rb</a> = mid;
+<a name="l00786"></a>00786                     }
+<a name="l00787"></a>00787                 }
+<a name="l00788"></a>00788                 <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#ga1a0cbc8d46af7a9c24e9546ff2438066" title="Calculates the index of the leftmost leaf in the corresponding suffix array.">lb</a>;
+<a name="l00789"></a>00789             }
+<a name="l00790"></a>00790         }
+<a name="l00791"></a>00791 
+<a name="l00793"></a>00793         <span class="comment">/*</span>
+<a name="l00794"></a>00794 <span class="comment">         *  \return The number of nodes of the suffix tree.</span>
+<a name="l00795"></a>00795 <span class="comment">         *  \par Time complexity</span>
+<a name="l00796"></a>00796 <span class="comment">         *              \f$ \Order{1} \f$</span>
+<a name="l00797"></a>00797 <span class="comment">         */</span>
+<a name="l00798"></a><a class="code" href="group__cst__sada__tree__methods.html#ga1975d2d360e2c7cd01205d1c9b96ca79">00798</a>         size_type <a class="code" href="group__cst__sada__tree__methods.html#ga1975d2d360e2c7cd01205d1c9b96ca79" title="Get the number of nodes of the suffix tree.">nodes</a>()<span class="keyword">const </span>{
+<a name="l00799"></a>00799             <span class="keywordflow">return</span> m_bp.<a class="code" href="classsdsl_1_1int__vector.html#aea4fcbbab7fbef9c1cc4a4c89f4b1520" title="The number of elements in the int_vector.">size</a>()&gt;&gt;1;
+<a name="l00800"></a>00800         }
+<a name="l00801"></a>00801 
+<a name="l00803"></a>00803         <span class="comment">/* \param lb Left bound of the lcp-interval [lb..rb] (inclusive).</span>
+<a name="l00804"></a>00804 <span class="comment">         * \param rb Right bound of the lcp-interval [lb..rb] (inclusive).</span>
+<a name="l00805"></a>00805 <span class="comment">         * \param l  Depth of the lcp-interval.</span>
+<a name="l00806"></a>00806 <span class="comment">         *\ return The node in the suffix tree corresponding lcp-interval [lb..rb]</span>
+<a name="l00807"></a>00807 <span class="comment">         */</span>
+<a name="l00808"></a><a class="code" href="group__cst__sada__tree__methods.html#ga25042e0e96e77784c562e5383e4d914c">00808</a>         <a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> <a class="code" href="group__cst__sada__tree__methods.html#ga25042e0e96e77784c562e5383e4d914c" title="Get the node in the suffix tree which corresponds to the lcp-interval [lb..rb].">node</a>(size_type <a class="code" href="group__cst__sada__tree__methods.html#ga1a0cbc8d46af7a9c24e9546ff2438066" title="Calculates the index of the leftmost leaf in the corresponding suffix array.">lb</a>, size_type <a class="code" href="group__cst__sada__tree__methods.html#ga487fb21b2825a26c5f825b73df63f8ce" title="Calculates the index of the rightmost leaf in the corresponding suffix array.">rb</a>, size_type l=0)<span class="keyword"> const </span>{
+<a name="l00809"></a>00809             <span class="keywordflow">return</span> <a class="code" href="group__cst__sada__tree__methods.html#ga5cd3e5cd2dde30d5c281c6ee29e9e4ef" title="Calculate the lowest common ancestor (lca) of two nodes v and w of the suffix tree.">lca</a>(<a class="code" href="group__cst__sada__tree__methods.html#ga7da51e5c2ad0329df3e2edaf415de3e5" title="Return the i-th leaf (1-based from left to right) of the suffix tree.">ith_leaf</a>(lb+1), <a class="code" href="group__cst__sada__tree__methods.html#ga7da51e5c2ad0329df3e2edaf415de3e5" title="Return the i-th leaf (1-based from left to right) of the suffix tree.">ith_leaf</a>(rb+1));
+<a name="l00810"></a>00810         }
+<a name="l00811"></a>00811 
+<a name="l00813"></a>00813 
+<a name="l00819"></a><a class="code" href="group__cst__sada__tree__methods.html#ga937f95965629c243d54fa7b01c550323">00819</a>         size_type <a class="code" href="group__cst__sada__tree__methods.html#ga937f95965629c243d54fa7b01c550323" title="Get the number of children of a node v.">degree</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a14dc01b0bfc31994260148b64f2bcdc8" title="Type for the nodes in the tree.">node_type</a> v)<span class="keyword">const </span>{
+<a name="l00820"></a>00820             size_type res = 0;
+<a name="l00821"></a>00821             v = v+1;
+<a name="l00822"></a>00822             <span class="keywordflow">while</span> (m_bp[v]) { <span class="comment">// found open parentheses</span>
+<a name="l00823"></a>00823                 ++res;
+<a name="l00824"></a>00824                 v = m_bp_support.find_close(v)+1;
+<a name="l00825"></a>00825             }
+<a name="l00826"></a>00826             <span class="keywordflow">return</span> res;
+<a name="l00827"></a>00827         }
+<a name="l00828"></a>00828 
+<a name="l00830"></a>00830 
+<a name="l00834"></a><a class="code" href="group__cst__sada__tree__methods.html#gaf1d55f701966d1755634372696d57e96">00834</a>         size_type <a class="code" href="group__cst__sada__tree__methods.html#gaf1d55f701966d1755634372696d57e96" title="Maps an index i to the position in TLCP where LCP[i] can be found.">tlcp_idx</a>(size_type i)<span class="keyword"> const </span>{
+<a name="l00835"></a>00835             size_type ii = 0;
+<a name="l00836"></a>00836             <span class="keywordflow">if</span> (i &gt; 0) {
+<a name="l00837"></a>00837                 size_type ipos   = m_bp_select10(i) - 1;  <span class="comment">// -1 as select returns the position of the zero</span>
+<a name="l00838"></a>00838                 size_type ip1pos = m_bp_select10(i+1) - 1;<span class="comment">// &quot;  &quot;    &quot;        &quot;    &quot;     &quot;     &quot;   &quot;   &quot;</span>
+<a name="l00839"></a>00839                 ii    = m_bp_support.double_enclose(ipos, ip1pos);
+<a name="l00840"></a>00840             }
+<a name="l00841"></a>00841             ii = m_bp_support.find_close(ii);
+<a name="l00842"></a>00842             <span class="comment">// all right, as bp[ii] = 0</span>
+<a name="l00843"></a>00843             <span class="keywordflow">return</span> ii - m_bp_support.rank(ii) - m_bp_rank10(ii);
+<a name="l00844"></a>00844         }
+<a name="l00845"></a>00845 
+<a name="l00847"></a><a class="code" href="group__cst__sada__tree__methods.html#gaf699e3494f15c1f4adafa3ddefc89db3">00847</a>         <span class="keywordtype">void</span> <a class="code" href="group__cst__sada__tree__methods.html#gaf699e3494f15c1f4adafa3ddefc89db3" title="Print some infos about the size of the compressed suffix tree.">print_info</a>()<span class="keyword">const </span>{
+<a name="l00848"></a>00848             std::cout &lt;&lt; <span class="stringliteral">&quot;# size of cst in bytes per character&quot;</span> &lt;&lt; std::endl;
+<a name="l00849"></a>00849             size_type cst_size = <a class="code" href="namespacesdsl_1_1util.html#a33833c48ce3ad599a19dcd3276dcf77f" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(*<span class="keyword">this</span>);
+<a name="l00850"></a>00850             std::cout &lt;&lt; ((double)cst_size)/<a class="code" href="classsdsl_1_1cst__sada.html#a44464284d176dd95bbc1a5be4a3fe7e6" title="The compressed suffix array the suffix tree is based on.">csa</a>.size() &lt;&lt; <span class="stringliteral">&quot; # = &quot;</span>&lt;&lt; ((double)cst_size)/(1&lt;&lt;20) &lt;&lt;<span class="stringliteral">&quot; MB&quot;</span>&lt;&lt;std::endl;
+<a name="l00851"></a>00851             std::cout&lt;&lt; ((double)<a class="code" href="namespacesdsl_1_1util.html#a33833c48ce3ad599a19dcd3276dcf77f" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a44464284d176dd95bbc1a5be4a3fe7e6" title="The compressed suffix array the suffix tree is based on.">csa</a>))/cst_size &lt;&lt; <span class="stringliteral">&quot; # ratio of csa size&quot;</span> &lt;&lt; std::endl;
+<a name="l00852"></a>00852             std::cout&lt;&lt; ((double)<a class="code" href="namespacesdsl_1_1util.html#a33833c48ce3ad599a19dcd3276dcf77f" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a3acc21d46abdac9861fc41a66b57aa29" title="The lcp array the suffix tree is based on.">lcp</a>))/cst_size &lt;&lt; <span class="stringliteral">&quot; # ratio of lcp size&quot;</span> &lt;&lt; std::endl;
+<a name="l00853"></a>00853             std::cout&lt;&lt; ((double)<a class="code" href="namespacesdsl_1_1util.html#a33833c48ce3ad599a19dcd3276dcf77f" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(<a class="code" href="classsdsl_1_1cst__sada.html#ae25541428336ad697b9ceefffccea100" title="The balanced parentheses sequence of the suffix tree.">bp</a>))/cst_size &lt;&lt; <span class="stringliteral">&quot; # ratio of bp size&quot;</span> &lt;&lt; std::endl;
+<a name="l00854"></a>00854             std::cout&lt;&lt; ((double)<a class="code" href="namespacesdsl_1_1util.html#a33833c48ce3ad599a19dcd3276dcf77f" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(<a class="code" href="classsdsl_1_1cst__sada.html#ae6a021c0152e18b70e0e6eff161f82ec" title="The balanced parentheses sequence support for member bp.">bp_support</a>))/cst_size &lt;&lt; <span class="stringliteral">&quot; # ratio of bp_support size&quot;</span> &lt;&lt; std::endl;
+<a name="l00855"></a>00855             std::cout&lt;&lt; ((double)<a class="code" href="namespacesdsl_1_1util.html#a33833c48ce3ad599a19dcd3276dcf77f" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(<a class="code" href="classsdsl_1_1cst__sada.html#a7d8fa2b299508229d68ab43b1112387a" title="The rank support for the bit pattern &quot;01&quot; for member bp.">bp_rank_10</a>))/cst_size &lt;&lt; <span class="stringliteral">&quot; # ratio of bp_rank_10 size&quot;</span> &lt;&lt; std::endl;
+<a name="l00856"></a>00856             std::cout&lt;&lt; ((double)<a class="code" href="namespacesdsl_1_1util.html#a33833c48ce3ad599a19dcd3276dcf77f" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(<a class="code" href="classsdsl_1_1cst__sada.html#ad740210c84684d0aea732b7fe00d089e" title="The select support for the bit pattern &quot;01&quot; for member bp.">bp_select_10</a>))/cst_size &lt;&lt; <span class="stringliteral">&quot; # ratio of bp_select_10 size&quot;</span> &lt;&lt; std::endl;
+<a name="l00857"></a>00857         }
+<a name="l00858"></a>00858 
+<a name="l00859"></a>00859         <span class="comment">/* @} */</span>
+<a name="l00860"></a>00860 
+<a name="l00861"></a>00861 };
+<a name="l00862"></a>00862 
+<a name="l00863"></a>00863 <span class="comment">// == template functions ==</span>
+<a name="l00864"></a>00864 
+<a name="l00865"></a>00865 
+<a name="l00866"></a>00866 } <span class="comment">// end namespace sdsl</span>
+<a name="l00867"></a>00867 
+<a name="l00868"></a>00868 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 10 2012 18:54:25 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 13 2012 14:05:46 for SDSL: Succinct Data Structure Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

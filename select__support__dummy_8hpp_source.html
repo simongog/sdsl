@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Succinct Data Structure Library (sdsl): sdsl/include/sdsl/select_support_dummy.hpp Source File</title>
+<title>SDSL: Succinct Data Structure Library: sdsl/include/sdsl/select_support_dummy.hpp Source File</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -27,7 +27,7 @@
   
   
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Succinct Data Structure Library (sdsl)
+   <div id="projectname">SDSL: Succinct Data Structure Library
    
    </div>
    <div id="projectbrief">A C++ template library for succinct data structures</div>
@@ -142,30 +142,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00052"></a>00052 
 <a name="l00054"></a>00054         <span class="keyword">inline</span> <span class="keyword">const</span> size_type <a class="code" href="classsdsl_1_1select__support__dummy.html#ac4cca9b47639835255c3c719cc58b230" title="Select function.">select</a>(size_type i) <span class="keyword">const</span>;
 <a name="l00056"></a>00056         <span class="keyword">inline</span> <span class="keyword">const</span> size_type <a class="code" href="classsdsl_1_1select__support__dummy.html#aebcba2de57d90a6b30b3e4eb53fd6fa8" title="Alias for select(i).">operator()</a>(size_type i)<span class="keyword">const</span>;
-<a name="l00057"></a>00057         size_type <a class="code" href="classsdsl_1_1select__support__dummy.html#ac27eaa8eb6b5c8d3b280c526e420e689" title="Serialize the select_support to an out file stream.">serialize</a>(std::ostream&amp; out)<span class="keyword">const</span>;
-<a name="l00058"></a>00058 <span class="preprocessor">#ifdef MEM_INFO</span>
-<a name="l00059"></a>00059 <span class="preprocessor"></span>        <span class="keywordtype">void</span> mem_info(std::string label=<span class="stringliteral">&quot;&quot;</span>)<span class="keyword">const</span>;
-<a name="l00060"></a>00060 <span class="preprocessor">#endif</span>
-<a name="l00061"></a>00061 <span class="preprocessor"></span>        <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1select__support__dummy.html#a690f5a5d1a16fd7d2c147b22bcb3996a" title="Load the select_support from an in file stream.">load</a>(std::istream&amp; in, <span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;1&gt;</a>* v=NULL);
-<a name="l00062"></a>00062         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1select__support__dummy.html#a92bba4ef1294523ac53616ccb3d1ee13" title="This method sets the supported bit_vector.">set_vector</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;1&gt;</a>* v=NULL);
-<a name="l00063"></a>00063         <a class="code" href="classsdsl_1_1select__support__dummy.html" title="A dummy class for select.">select_support_dummy</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1select__support__dummy.html" title="A dummy class for select.">select_support_dummy</a>&amp; ss);
-<a name="l00064"></a>00064 
-<a name="l00066"></a>00066         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1select__support__dummy.html#aac3cd40ba191b0951af57193e77520cb" title="Swap operator.">swap</a>(<a class="code" href="classsdsl_1_1select__support__dummy.html" title="A dummy class for select.">select_support_dummy</a>&amp; ss);
-<a name="l00068"></a>00068 
-<a name="l00072"></a>00072         <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1select__support__dummy.html#a6c170196b4841297497393ab131ec221" title="Equality Operator.">operator==</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1select__support__dummy.html" title="A dummy class for select.">select_support_dummy</a>&amp; ss)<span class="keyword">const</span>;
-<a name="l00074"></a>00074         <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1select__support__dummy.html#a61871891945c61717b4510aeb97593b5" title="Unequality Operator.">operator!=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1select__support__dummy.html" title="A dummy class for select.">select_support_dummy</a>&amp; ss)<span class="keyword">const</span>;
-<a name="l00075"></a>00075 };
-<a name="l00076"></a>00076 
+<a name="l00057"></a>00057         size_type <a class="code" href="classsdsl_1_1select__support__dummy.html#a60edd611e96e261ae58446e38b1181cb" title="Serialize the select_support to an out file stream.">serialize</a>(std::ostream&amp; out, <a class="code" href="classsdsl_1_1structure__tree__node.html" title="Class for a node of the structure tree.">structure_tree_node</a>* v=NULL, std::string name=<span class="stringliteral">&quot;&quot;</span>)<span class="keyword">const</span>;
+<a name="l00058"></a>00058         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1select__support__dummy.html#a690f5a5d1a16fd7d2c147b22bcb3996a" title="Load the select_support from an in file stream.">load</a>(std::istream&amp; in, <span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;1&gt;</a>* v=NULL);
+<a name="l00059"></a>00059         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1select__support__dummy.html#a92bba4ef1294523ac53616ccb3d1ee13" title="This method sets the supported bit_vector.">set_vector</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;1&gt;</a>* v=NULL);
+<a name="l00060"></a>00060         <a class="code" href="classsdsl_1_1select__support__dummy.html" title="A dummy class for select.">select_support_dummy</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1select__support__dummy.html" title="A dummy class for select.">select_support_dummy</a>&amp; ss);
+<a name="l00061"></a>00061 
+<a name="l00063"></a>00063         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1select__support__dummy.html#aac3cd40ba191b0951af57193e77520cb" title="Swap operator.">swap</a>(<a class="code" href="classsdsl_1_1select__support__dummy.html" title="A dummy class for select.">select_support_dummy</a>&amp; ss);
+<a name="l00065"></a>00065 
+<a name="l00069"></a>00069         <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1select__support__dummy.html#a6c170196b4841297497393ab131ec221" title="Equality Operator.">operator==</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1select__support__dummy.html" title="A dummy class for select.">select_support_dummy</a>&amp; ss)<span class="keyword">const</span>;
+<a name="l00071"></a>00071         <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1select__support__dummy.html#a61871891945c61717b4510aeb97593b5" title="Unequality Operator.">operator!=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1select__support__dummy.html" title="A dummy class for select.">select_support_dummy</a>&amp; ss)<span class="keyword">const</span>;
+<a name="l00072"></a>00072 };
+<a name="l00073"></a>00073 
+<a name="l00074"></a>00074 
+<a name="l00075"></a>00075 
+<a name="l00076"></a>00076 }
 <a name="l00077"></a>00077 
-<a name="l00078"></a>00078 
-<a name="l00079"></a>00079 }
-<a name="l00080"></a>00080 
-<a name="l00081"></a>00081 <span class="preprocessor">#endif</span>
+<a name="l00078"></a>00078 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 10 2012 18:54:28 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 13 2012 14:05:48 for SDSL: Succinct Data Structure Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

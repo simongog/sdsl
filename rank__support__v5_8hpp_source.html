@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Succinct Data Structure Library (sdsl): sdsl/include/sdsl/rank_support_v5.hpp Source File</title>
+<title>SDSL: Succinct Data Structure Library: sdsl/include/sdsl/rank_support_v5.hpp Source File</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -27,7 +27,7 @@
   
   
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Succinct Data Structure Library (sdsl)
+   <div id="projectname">SDSL: Succinct Data Structure Library
    
    </div>
    <div id="projectbrief">A C++ template library for succinct data structures</div>
@@ -141,191 +141,185 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00060"></a>00060         <span class="keyword">const</span> size_type <a class="code" href="classsdsl_1_1rank__support__v5.html#ab52c07042e973d116b87204dcff55375" title="Answers rank queries for the supported bit_vector if init() was called before.">rank</a>(size_type idx) <span class="keyword">const</span>;
 <a name="l00061"></a>00061         <span class="keyword">const</span> size_type <a class="code" href="classsdsl_1_1rank__support__v5.html#ad7d5d74b67abf8308866eaf1ce469ead" title="Alias for rank(i)">operator()</a>(size_type idx)<span class="keyword">const</span>;
 <a name="l00062"></a>00062         <span class="keyword">const</span> size_type size()<span class="keyword">const</span>;
-<a name="l00063"></a>00063         size_type <a class="code" href="classsdsl_1_1rank__support__v5.html#a8ca47aeff2fb93631a598e63551360e3" title="Serializes rank_support.">serialize</a>(std::ostream&amp; out)<span class="keyword">const</span>;
+<a name="l00063"></a>00063         size_type <a class="code" href="classsdsl_1_1rank__support__v5.html#aebee54ee266e2b5254d5d162dd9c2027" title="Serializes rank_support.">serialize</a>(std::ostream&amp; out, <a class="code" href="classsdsl_1_1structure__tree__node.html" title="Class for a node of the structure tree.">structure_tree_node</a>* v=NULL, std::string name=<span class="stringliteral">&quot;&quot;</span>)<span class="keyword">const</span>;
 <a name="l00064"></a>00064         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1rank__support__v5.html#a583e782e1c0dd0a39a56eddc24e5266b" title="Loads the rank_support.">load</a>(std::istream&amp; in, <span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">bit_vector</a>* v=NULL);
 <a name="l00065"></a>00065         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1rank__support__v5.html#a03d04165c0f952b3ba315dd13ad756ca" title="Sets the supported bit_vector to the given pointer.">set_vector</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">bit_vector</a>* v=NULL);
 <a name="l00066"></a>00066 
 <a name="l00068"></a>00068 
 <a name="l00070"></a>00070         <a class="code" href="classsdsl_1_1rank__support__v5.html" title="A class supporting rank queries in constant time. The implementation is a space saving version of the...">rank_support_v5</a>&amp; <a class="code" href="classsdsl_1_1rank__support__v5.html#aa65c767b15d923ad8de41980b6f27f62" title="Assign Operator.">operator=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1rank__support__v5.html" title="A class supporting rank queries in constant time. The implementation is a space saving version of the...">rank_support_v5</a>&amp; rs);
 <a name="l00072"></a>00072 
-<a name="l00077"></a>00077         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1rank__support__v5.html#a3e5d991495a7f094b9b68d258c0e55ec" title="swap Operator">swap</a>(<a class="code" href="classsdsl_1_1rank__support__v5.html" title="A class supporting rank queries in constant time. The implementation is a space saving version of the...">rank_support_v5</a>&amp; rs);
-<a name="l00079"></a>00079 
-<a name="l00084"></a>00084         <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1rank__support__v5.html#a17599c7d6c2bd29e323e6b786871113a" title="Equality Operator.">operator==</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1rank__support__v5.html" title="A class supporting rank queries in constant time. The implementation is a space saving version of the...">rank_support_v5</a>&amp; rs)<span class="keyword">const</span>;
-<a name="l00086"></a>00086 
-<a name="l00091"></a>00091         <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1rank__support__v5.html#a1ca64d77dc420bbdc83f36dd2a1ebeea" title="Unequality Operator.">operator!=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1rank__support__v5.html" title="A class supporting rank queries in constant time. The implementation is a space saving version of the...">rank_support_v5</a>&amp; rs)<span class="keyword">const</span>;
-<a name="l00092"></a>00092 
-<a name="l00093"></a>00093 <span class="preprocessor">#ifdef MEM_INFO</span>
-<a name="l00094"></a>00094 <span class="preprocessor"></span>        <span class="keywordtype">void</span> mem_info(std::string label=<span class="stringliteral">&quot;&quot;</span>)<span class="keyword">const </span>{
-<a name="l00095"></a>00095             <span class="keywordflow">if</span> (label==<span class="stringliteral">&quot;&quot;</span>)
-<a name="l00096"></a>00096                 label=<span class="stringliteral">&quot;rank&quot;</span>;
-<a name="l00097"></a>00097             size_type bytes = <a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(*<span class="keyword">this</span>);
-<a name="l00098"></a>00098             std::cout &lt;&lt; <span class="stringliteral">&quot;list(label = \&quot;&quot;</span>&lt;&lt;label&lt;&lt;<span class="stringliteral">&quot;\&quot;, size = &quot;</span>&lt;&lt; bytes/(1024.0*1024.0) &lt;&lt;<span class="stringliteral">&quot;)\n&quot;</span>;
-<a name="l00099"></a>00099         }
-<a name="l00100"></a>00100 <span class="preprocessor">#endif</span>
-<a name="l00101"></a>00101 <span class="preprocessor"></span>
-<a name="l00102"></a>00102 };
-<a name="l00103"></a>00103 
-<a name="l00104"></a>00104 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t b, u<span class="keywordtype">int</span>8_t pattern_len&gt;
-<a name="l00105"></a>00105 <span class="keyword">inline</span> <a class="code" href="classsdsl_1_1rank__support__v5.html" title="A class supporting rank queries in constant time. The implementation is a space saving version of the...">rank_support_v5&lt;b, pattern_len&gt;::rank_support_v5</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">bit_vector</a>* v)
-<a name="l00106"></a>00106 {
-<a name="l00107"></a>00107     init(v);
-<a name="l00108"></a>00108 }
-<a name="l00109"></a>00109 
-<a name="l00110"></a>00110 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t b, u<span class="keywordtype">int</span>8_t pattern_len&gt;
-<a name="l00111"></a>00111 <span class="keyword">inline</span> rank_support_v5&lt;b, pattern_len&gt;::rank_support_v5(<span class="keyword">const</span> rank_support_v5&amp; rs)
-<a name="l00112"></a>00112 {
-<a name="l00113"></a>00113     m_v = rs.m_v;
-<a name="l00114"></a>00114     m_basic_block = rs.m_basic_block;
-<a name="l00115"></a>00115 }
-<a name="l00116"></a>00116 
-<a name="l00117"></a>00117 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t b, u<span class="keywordtype">int</span>8_t pattern_len&gt;
-<a name="l00118"></a><a class="code" href="classsdsl_1_1rank__support__v5.html#aabd6957ad30b777c90bef9fa6833a3cb">00118</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1rank__support__v5.html#aabd6957ad30b777c90bef9fa6833a3cb" title="Initializes the data structure.">rank_support_v5&lt;b, pattern_len&gt;::init</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">bit_vector</a>* v)
-<a name="l00119"></a>00119 {
-<a name="l00120"></a>00120     set_vector(v);
-<a name="l00121"></a>00121     <span class="keywordflow">if</span> (v == NULL) {
-<a name="l00122"></a>00122         <span class="keywordflow">return</span>;
-<a name="l00123"></a>00123     } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (v-&gt;<a class="code" href="classsdsl_1_1int__vector.html#ae02951f30971e4127b6c711ae25cade7" title="Equivalent to size() == 0.">empty</a>()) {
-<a name="l00124"></a>00124         m_basic_block = <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;64&gt;</a>(2,0);   <span class="comment">// resize structure for basic_blocks</span>
-<a name="l00125"></a>00125         <span class="keywordflow">return</span>;
-<a name="l00126"></a>00126     }
-<a name="l00127"></a>00127     size_type basic_block_size = ((v-&gt;<a class="code" href="classsdsl_1_1int__vector.html#adf7f805690ed9a2d642ac93612d86809" title="Returns the size of the occupied bits of the int_vector.">capacity</a>() &gt;&gt; 11)+1)&lt;&lt;1;
-<a name="l00128"></a>00128     m_basic_block.<a class="code" href="classsdsl_1_1int__vector.html#a311439ddb68d63e4172457a4861affd9" title="Resize the int_vector in terms of elements.">resize</a>(basic_block_size);   <span class="comment">// resize structure for basic_blocks</span>
-<a name="l00129"></a>00129     <span class="keywordflow">if</span> (m_basic_block.empty())
-<a name="l00130"></a>00130         <span class="keywordflow">return</span>;
-<a name="l00131"></a>00131     <span class="keyword">const</span> uint64_t* data = m_v-&gt;data();
-<a name="l00132"></a>00132     size_type i, j=0;
-<a name="l00133"></a>00133     m_basic_block[0] = m_basic_block[1] = 0;
-<a name="l00134"></a>00134 <span class="comment">//      uint64_t carry = 0;</span>
-<a name="l00135"></a>00135 
-<a name="l00136"></a>00136     uint64_t carry = <a class="code" href="structsdsl_1_1rank__support__v__trait.html">rank_support_v_trait&lt;b, pattern_len&gt;::init_carry</a>();
-<a name="l00137"></a>00137     uint64_t sum = <a class="code" href="structsdsl_1_1rank__support__v__trait.html">rank_support_v_trait&lt;b, pattern_len&gt;::args_in_the_word</a>(*data, carry), second_level_cnt = 0;
-<a name="l00138"></a>00138     uint64_t cnt_words=1;
-<a name="l00139"></a>00139     <span class="keywordflow">for</span> (i = 1; i &lt; (m_v-&gt;capacity()&gt;&gt;6) ; ++i, ++cnt_words) {
-<a name="l00140"></a>00140         <span class="keywordflow">if</span> (cnt_words == 32) {
-<a name="l00141"></a>00141             j += 2;
-<a name="l00142"></a>00142             m_basic_block[j-1] = second_level_cnt;
-<a name="l00143"></a>00143             m_basic_block[j]    = m_basic_block[j-2] + sum;
-<a name="l00144"></a>00144             second_level_cnt = sum = cnt_words = 0;
-<a name="l00145"></a>00145         } <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((cnt_words%6)==0) {
-<a name="l00146"></a>00146             <span class="comment">// pack the prefix sum for each 6x64bit block into the second_level_cnt</span>
-<a name="l00147"></a>00147             second_level_cnt |= sum&lt;&lt;(60-12*(cnt_words/6));<span class="comment">//  48, 36, 24, 12, 0</span>
-<a name="l00148"></a>00148         }
-<a name="l00149"></a>00149         sum += <a class="code" href="structsdsl_1_1rank__support__v__trait.html">rank_support_v_trait&lt;b, pattern_len&gt;::args_in_the_word</a>(*(++data), carry);
+<a name="l00075"></a>00075         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1rank__support__v5.html#a3e5d991495a7f094b9b68d258c0e55ec" title="swap Operator">swap</a>(<a class="code" href="classsdsl_1_1rank__support__v5.html" title="A class supporting rank queries in constant time. The implementation is a space saving version of the...">rank_support_v5</a>&amp; rs);
+<a name="l00077"></a>00077 
+<a name="l00082"></a>00082         <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1rank__support__v5.html#a17599c7d6c2bd29e323e6b786871113a" title="Equality Operator.">operator==</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1rank__support__v5.html" title="A class supporting rank queries in constant time. The implementation is a space saving version of the...">rank_support_v5</a>&amp; rs)<span class="keyword">const</span>;
+<a name="l00084"></a>00084 
+<a name="l00089"></a>00089         <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1rank__support__v5.html#a1ca64d77dc420bbdc83f36dd2a1ebeea" title="Unequality Operator.">operator!=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1rank__support__v5.html" title="A class supporting rank queries in constant time. The implementation is a space saving version of the...">rank_support_v5</a>&amp; rs)<span class="keyword">const</span>;
+<a name="l00090"></a>00090 };
+<a name="l00091"></a>00091 
+<a name="l00092"></a>00092 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t b, u<span class="keywordtype">int</span>8_t pattern_len&gt;
+<a name="l00093"></a>00093 <span class="keyword">inline</span> <a class="code" href="classsdsl_1_1rank__support__v5.html" title="A class supporting rank queries in constant time. The implementation is a space saving version of the...">rank_support_v5&lt;b, pattern_len&gt;::rank_support_v5</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">bit_vector</a>* v)
+<a name="l00094"></a>00094 {
+<a name="l00095"></a>00095     init(v);
+<a name="l00096"></a>00096 }
+<a name="l00097"></a>00097 
+<a name="l00098"></a>00098 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t b, u<span class="keywordtype">int</span>8_t pattern_len&gt;
+<a name="l00099"></a>00099 <span class="keyword">inline</span> rank_support_v5&lt;b, pattern_len&gt;::rank_support_v5(<span class="keyword">const</span> rank_support_v5&amp; rs)
+<a name="l00100"></a>00100 {
+<a name="l00101"></a>00101     m_v = rs.m_v;
+<a name="l00102"></a>00102     m_basic_block = rs.m_basic_block;
+<a name="l00103"></a>00103 }
+<a name="l00104"></a>00104 
+<a name="l00105"></a>00105 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t b, u<span class="keywordtype">int</span>8_t pattern_len&gt;
+<a name="l00106"></a><a class="code" href="classsdsl_1_1rank__support__v5.html#aabd6957ad30b777c90bef9fa6833a3cb">00106</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1rank__support__v5.html#aabd6957ad30b777c90bef9fa6833a3cb" title="Initializes the data structure.">rank_support_v5&lt;b, pattern_len&gt;::init</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">bit_vector</a>* v)
+<a name="l00107"></a>00107 {
+<a name="l00108"></a>00108     set_vector(v);
+<a name="l00109"></a>00109     <span class="keywordflow">if</span> (v == NULL) {
+<a name="l00110"></a>00110         <span class="keywordflow">return</span>;
+<a name="l00111"></a>00111     } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (v-&gt;<a class="code" href="classsdsl_1_1int__vector.html#ae02951f30971e4127b6c711ae25cade7" title="Equivalent to size() == 0.">empty</a>()) {
+<a name="l00112"></a>00112         m_basic_block = <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;64&gt;</a>(2,0);   <span class="comment">// resize structure for basic_blocks</span>
+<a name="l00113"></a>00113         <span class="keywordflow">return</span>;
+<a name="l00114"></a>00114     }
+<a name="l00115"></a>00115     size_type basic_block_size = ((v-&gt;<a class="code" href="classsdsl_1_1int__vector.html#adf7f805690ed9a2d642ac93612d86809" title="Returns the size of the occupied bits of the int_vector.">capacity</a>() &gt;&gt; 11)+1)&lt;&lt;1;
+<a name="l00116"></a>00116     m_basic_block.<a class="code" href="classsdsl_1_1int__vector.html#a311439ddb68d63e4172457a4861affd9" title="Resize the int_vector in terms of elements.">resize</a>(basic_block_size);   <span class="comment">// resize structure for basic_blocks</span>
+<a name="l00117"></a>00117     <span class="keywordflow">if</span> (m_basic_block.empty())
+<a name="l00118"></a>00118         <span class="keywordflow">return</span>;
+<a name="l00119"></a>00119     <span class="keyword">const</span> uint64_t* data = m_v-&gt;data();
+<a name="l00120"></a>00120     size_type i, j=0;
+<a name="l00121"></a>00121     m_basic_block[0] = m_basic_block[1] = 0;
+<a name="l00122"></a>00122 <span class="comment">//      uint64_t carry = 0;</span>
+<a name="l00123"></a>00123 
+<a name="l00124"></a>00124     uint64_t carry = <a class="code" href="structsdsl_1_1rank__support__v__trait.html">rank_support_v_trait&lt;b, pattern_len&gt;::init_carry</a>();
+<a name="l00125"></a>00125     uint64_t sum = <a class="code" href="structsdsl_1_1rank__support__v__trait.html">rank_support_v_trait&lt;b, pattern_len&gt;::args_in_the_word</a>(*data, carry), second_level_cnt = 0;
+<a name="l00126"></a>00126     uint64_t cnt_words=1;
+<a name="l00127"></a>00127     <span class="keywordflow">for</span> (i = 1; i &lt; (m_v-&gt;capacity()&gt;&gt;6) ; ++i, ++cnt_words) {
+<a name="l00128"></a>00128         <span class="keywordflow">if</span> (cnt_words == 32) {
+<a name="l00129"></a>00129             j += 2;
+<a name="l00130"></a>00130             m_basic_block[j-1] = second_level_cnt;
+<a name="l00131"></a>00131             m_basic_block[j]    = m_basic_block[j-2] + sum;
+<a name="l00132"></a>00132             second_level_cnt = sum = cnt_words = 0;
+<a name="l00133"></a>00133         } <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((cnt_words%6)==0) {
+<a name="l00134"></a>00134             <span class="comment">// pack the prefix sum for each 6x64bit block into the second_level_cnt</span>
+<a name="l00135"></a>00135             second_level_cnt |= sum&lt;&lt;(60-12*(cnt_words/6));<span class="comment">//  48, 36, 24, 12, 0</span>
+<a name="l00136"></a>00136         }
+<a name="l00137"></a>00137         sum += <a class="code" href="structsdsl_1_1rank__support__v__trait.html">rank_support_v_trait&lt;b, pattern_len&gt;::args_in_the_word</a>(*(++data), carry);
+<a name="l00138"></a>00138     }
+<a name="l00139"></a>00139 
+<a name="l00140"></a>00140     <span class="keywordflow">if</span> ((cnt_words%6)==0) {
+<a name="l00141"></a>00141         second_level_cnt |= sum&lt;&lt;(60-12*(cnt_words/6));
+<a name="l00142"></a>00142     }
+<a name="l00143"></a>00143     <span class="keywordflow">if</span> (cnt_words == 32) {
+<a name="l00144"></a>00144         j += 2;
+<a name="l00145"></a>00145         m_basic_block[j-1] = second_level_cnt;
+<a name="l00146"></a>00146         m_basic_block[j]   = m_basic_block[j-2] + sum;
+<a name="l00147"></a>00147         m_basic_block[j+1] = 0;
+<a name="l00148"></a>00148     } <span class="keywordflow">else</span> {
+<a name="l00149"></a>00149         m_basic_block[j+1] = second_level_cnt;
 <a name="l00150"></a>00150     }
 <a name="l00151"></a>00151 
-<a name="l00152"></a>00152     <span class="keywordflow">if</span> ((cnt_words%6)==0) {
-<a name="l00153"></a>00153         second_level_cnt |= sum&lt;&lt;(60-12*(cnt_words/6));
-<a name="l00154"></a>00154     }
-<a name="l00155"></a>00155     <span class="keywordflow">if</span> (cnt_words == 32) {
-<a name="l00156"></a>00156         j += 2;
-<a name="l00157"></a>00157         m_basic_block[j-1] = second_level_cnt;
-<a name="l00158"></a>00158         m_basic_block[j]   = m_basic_block[j-2] + sum;
-<a name="l00159"></a>00159         m_basic_block[j+1] = 0;
-<a name="l00160"></a>00160     } <span class="keywordflow">else</span> {
-<a name="l00161"></a>00161         m_basic_block[j+1] = second_level_cnt;
-<a name="l00162"></a>00162     }
-<a name="l00163"></a>00163 
-<a name="l00164"></a>00164 }
-<a name="l00165"></a>00165 
-<a name="l00166"></a>00166 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t b, u<span class="keywordtype">int</span>8_t pattern_len&gt;
-<a name="l00167"></a><a class="code" href="classsdsl_1_1rank__support__v5.html#ab52c07042e973d116b87204dcff55375">00167</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keyword">typename</span> rank_support_v5&lt;b, pattern_len&gt;::size_type <a class="code" href="classsdsl_1_1rank__support__v5.html#ab52c07042e973d116b87204dcff55375" title="Answers rank queries for the supported bit_vector if init() was called before.">rank_support_v5&lt;b, pattern_len&gt;::rank</a>(size_type idx)<span class="keyword">const</span>
-<a name="l00168"></a>00168 <span class="keyword"></span>{
-<a name="l00169"></a>00169     <span class="keyword">const</span> uint64_t* p = m_basic_block.data() + ((idx&gt;&gt;10)&amp;0xFFFFFFFFFFFFFFFEULL);<span class="comment">// (idx/2048)*2</span>
-<a name="l00170"></a>00170     size_type result = *p + ((*(p+1)&gt;&gt;(60-12*((idx&amp;0x7FF)/(64*6))))&amp;0x7FFULL)+     <span class="comment">// ( prefix sum of the 6x64bit blocks | (idx%2048)/(64*6)  )</span>
-<a name="l00171"></a>00171                        <a class="code" href="structsdsl_1_1rank__support__v__trait.html">rank_support_v_trait&lt;b, pattern_len&gt;::word_rank</a>(m_v-&gt;data(), idx);
-<a name="l00172"></a>00172 <span class="comment">//      std::cerr&lt;&lt;&quot;idx=&quot;&lt;&lt;idx&lt;&lt;std::endl;</span>
-<a name="l00173"></a>00173     idx -= (idx&amp;0x3F);
-<a name="l00174"></a>00174 <span class="comment">//      uint32_t to_do = ((idx&gt;&gt;6)&amp;0x1FULL)%6;</span>
-<a name="l00175"></a>00175     uint8_t to_do = ((idx&gt;&gt;6)&amp;0x1FULL)%6;
-<a name="l00176"></a>00176     --idx;
-<a name="l00177"></a>00177     <span class="keywordflow">while</span> (to_do) {
-<a name="l00178"></a>00178         result +=       <a class="code" href="structsdsl_1_1rank__support__v__trait.html">rank_support_v_trait&lt;b, pattern_len&gt;::full_word_rank</a>(m_v-&gt;data(), idx);
-<a name="l00179"></a>00179         --to_do;
-<a name="l00180"></a>00180         idx-=64;
-<a name="l00181"></a>00181     }
-<a name="l00182"></a>00182     <span class="comment">// could not be accelerated with switch command. 2009-12-04</span>
-<a name="l00183"></a>00183     <span class="keywordflow">return</span> result;
+<a name="l00152"></a>00152 }
+<a name="l00153"></a>00153 
+<a name="l00154"></a>00154 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t b, u<span class="keywordtype">int</span>8_t pattern_len&gt;
+<a name="l00155"></a><a class="code" href="classsdsl_1_1rank__support__v5.html#ab52c07042e973d116b87204dcff55375">00155</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keyword">typename</span> rank_support_v5&lt;b, pattern_len&gt;::size_type <a class="code" href="classsdsl_1_1rank__support__v5.html#ab52c07042e973d116b87204dcff55375" title="Answers rank queries for the supported bit_vector if init() was called before.">rank_support_v5&lt;b, pattern_len&gt;::rank</a>(size_type idx)<span class="keyword">const</span>
+<a name="l00156"></a>00156 <span class="keyword"></span>{
+<a name="l00157"></a>00157     <span class="keyword">const</span> uint64_t* p = m_basic_block.data() + ((idx&gt;&gt;10)&amp;0xFFFFFFFFFFFFFFFEULL);<span class="comment">// (idx/2048)*2</span>
+<a name="l00158"></a>00158     size_type result = *p + ((*(p+1)&gt;&gt;(60-12*((idx&amp;0x7FF)/(64*6))))&amp;0x7FFULL)+     <span class="comment">// ( prefix sum of the 6x64bit blocks | (idx%2048)/(64*6)  )</span>
+<a name="l00159"></a>00159                        <a class="code" href="structsdsl_1_1rank__support__v__trait.html">rank_support_v_trait&lt;b, pattern_len&gt;::word_rank</a>(m_v-&gt;data(), idx);
+<a name="l00160"></a>00160 <span class="comment">//      std::cerr&lt;&lt;&quot;idx=&quot;&lt;&lt;idx&lt;&lt;std::endl;</span>
+<a name="l00161"></a>00161     idx -= (idx&amp;0x3F);
+<a name="l00162"></a>00162 <span class="comment">//      uint32_t to_do = ((idx&gt;&gt;6)&amp;0x1FULL)%6;</span>
+<a name="l00163"></a>00163     uint8_t to_do = ((idx&gt;&gt;6)&amp;0x1FULL)%6;
+<a name="l00164"></a>00164     --idx;
+<a name="l00165"></a>00165     <span class="keywordflow">while</span> (to_do) {
+<a name="l00166"></a>00166         result +=       <a class="code" href="structsdsl_1_1rank__support__v__trait.html">rank_support_v_trait&lt;b, pattern_len&gt;::full_word_rank</a>(m_v-&gt;data(), idx);
+<a name="l00167"></a>00167         --to_do;
+<a name="l00168"></a>00168         idx-=64;
+<a name="l00169"></a>00169     }
+<a name="l00170"></a>00170     <span class="comment">// could not be accelerated with switch command. 2009-12-04</span>
+<a name="l00171"></a>00171     <span class="keywordflow">return</span> result;
+<a name="l00172"></a>00172 
+<a name="l00173"></a>00173 }
+<a name="l00174"></a>00174 
+<a name="l00175"></a>00175 
+<a name="l00176"></a>00176 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t b, u<span class="keywordtype">int</span>8_t pattern_len&gt;
+<a name="l00177"></a><a class="code" href="classsdsl_1_1rank__support__v5.html#ad7d5d74b67abf8308866eaf1ce469ead">00177</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keyword">typename</span> rank_support_v5&lt;b, pattern_len&gt;::size_type <a class="code" href="classsdsl_1_1rank__support__v5.html#ad7d5d74b67abf8308866eaf1ce469ead" title="Alias for rank(i)">rank_support_v5&lt;b, pattern_len&gt;::operator()</a>(size_type idx)<span class="keyword">const</span>
+<a name="l00178"></a>00178 <span class="keyword"></span>{
+<a name="l00179"></a>00179     <span class="keywordflow">return</span> rank(idx);
+<a name="l00180"></a>00180 }
+<a name="l00181"></a>00181 
+<a name="l00182"></a>00182 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t b, u<span class="keywordtype">int</span>8_t pattern_len&gt;
+<a name="l00183"></a>00183 <span class="keyword">inline</span> <a class="code" href="classsdsl_1_1rank__support__v5.html" title="A class supporting rank queries in constant time. The implementation is a space saving version of the...">rank_support_v5&lt;b, pattern_len&gt;::~rank_support_v5</a>() {}
 <a name="l00184"></a>00184 
-<a name="l00185"></a>00185 }
-<a name="l00186"></a>00186 
-<a name="l00187"></a>00187 
-<a name="l00188"></a>00188 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t b, u<span class="keywordtype">int</span>8_t pattern_len&gt;
-<a name="l00189"></a><a class="code" href="classsdsl_1_1rank__support__v5.html#ad7d5d74b67abf8308866eaf1ce469ead">00189</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keyword">typename</span> rank_support_v5&lt;b, pattern_len&gt;::size_type <a class="code" href="classsdsl_1_1rank__support__v5.html#ad7d5d74b67abf8308866eaf1ce469ead" title="Alias for rank(i)">rank_support_v5&lt;b, pattern_len&gt;::operator()</a>(size_type idx)<span class="keyword">const</span>
-<a name="l00190"></a>00190 <span class="keyword"></span>{
-<a name="l00191"></a>00191     <span class="keywordflow">return</span> rank(idx);
-<a name="l00192"></a>00192 }
-<a name="l00193"></a>00193 
-<a name="l00194"></a>00194 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t b, u<span class="keywordtype">int</span>8_t pattern_len&gt;
-<a name="l00195"></a>00195 <span class="keyword">inline</span> <a class="code" href="classsdsl_1_1rank__support__v5.html" title="A class supporting rank queries in constant time. The implementation is a space saving version of the...">rank_support_v5&lt;b, pattern_len&gt;::~rank_support_v5</a>() {}
-<a name="l00196"></a>00196 
-<a name="l00197"></a>00197 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t b, u<span class="keywordtype">int</span>8_t pattern_len&gt;
-<a name="l00198"></a><a class="code" href="classsdsl_1_1rank__support__v5.html#a03d04165c0f952b3ba315dd13ad756ca">00198</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1rank__support__v5.html#a03d04165c0f952b3ba315dd13ad756ca" title="Sets the supported bit_vector to the given pointer.">rank_support_v5&lt;b, pattern_len&gt;::set_vector</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">bit_vector</a>* v)
-<a name="l00199"></a>00199 {
-<a name="l00200"></a>00200     m_v = v;
-<a name="l00201"></a>00201 }
-<a name="l00202"></a>00202 
-<a name="l00203"></a>00203 
-<a name="l00204"></a>00204 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t b, u<span class="keywordtype">int</span>8_t pattern_len&gt;
-<a name="l00205"></a>00205 <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keyword">typename</span> rank_support_v5&lt;b,pattern_len&gt;::size_type <a class="code" href="classsdsl_1_1rank__support__v5.html" title="A class supporting rank queries in constant time. The implementation is a space saving version of the...">rank_support_v5&lt;b, pattern_len&gt;::size</a>()<span class="keyword">const</span>
-<a name="l00206"></a>00206 <span class="keyword"></span>{
-<a name="l00207"></a>00207     <span class="keywordflow">return</span> m_v-&gt;size();
-<a name="l00208"></a>00208 }
-<a name="l00209"></a>00209 
-<a name="l00210"></a>00210 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t b, u<span class="keywordtype">int</span>8_t pattern_len&gt;
-<a name="l00211"></a><a class="code" href="classsdsl_1_1rank__support__v5.html#a8ca47aeff2fb93631a598e63551360e3">00211</a> <span class="keyword">inline</span> <span class="keyword">typename</span> rank_support_v5&lt;b, pattern_len&gt;::size_type <a class="code" href="classsdsl_1_1rank__support__v5.html#a8ca47aeff2fb93631a598e63551360e3" title="Serializes rank_support.">rank_support_v5&lt;b, pattern_len&gt;::serialize</a>(std::ostream&amp; out)<span class="keyword">const</span>
-<a name="l00212"></a>00212 <span class="keyword"></span>{
-<a name="l00213"></a>00213     <span class="keywordflow">return</span> m_basic_block.serialize(out);
+<a name="l00185"></a>00185 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t b, u<span class="keywordtype">int</span>8_t pattern_len&gt;
+<a name="l00186"></a><a class="code" href="classsdsl_1_1rank__support__v5.html#a03d04165c0f952b3ba315dd13ad756ca">00186</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1rank__support__v5.html#a03d04165c0f952b3ba315dd13ad756ca" title="Sets the supported bit_vector to the given pointer.">rank_support_v5&lt;b, pattern_len&gt;::set_vector</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">bit_vector</a>* v)
+<a name="l00187"></a>00187 {
+<a name="l00188"></a>00188     m_v = v;
+<a name="l00189"></a>00189 }
+<a name="l00190"></a>00190 
+<a name="l00191"></a>00191 
+<a name="l00192"></a>00192 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t b, u<span class="keywordtype">int</span>8_t pattern_len&gt;
+<a name="l00193"></a>00193 <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keyword">typename</span> rank_support_v5&lt;b,pattern_len&gt;::size_type <a class="code" href="classsdsl_1_1rank__support__v5.html" title="A class supporting rank queries in constant time. The implementation is a space saving version of the...">rank_support_v5&lt;b, pattern_len&gt;::size</a>()<span class="keyword">const</span>
+<a name="l00194"></a>00194 <span class="keyword"></span>{
+<a name="l00195"></a>00195     <span class="keywordflow">return</span> m_v-&gt;size();
+<a name="l00196"></a>00196 }
+<a name="l00197"></a>00197 
+<a name="l00198"></a>00198 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t b, u<span class="keywordtype">int</span>8_t pattern_len&gt;
+<a name="l00199"></a><a class="code" href="classsdsl_1_1rank__support__v5.html#aebee54ee266e2b5254d5d162dd9c2027">00199</a> <span class="keyword">inline</span> <span class="keyword">typename</span> rank_support_v5&lt;b, pattern_len&gt;::size_type <a class="code" href="classsdsl_1_1rank__support__v5.html#aebee54ee266e2b5254d5d162dd9c2027" title="Serializes rank_support.">rank_support_v5&lt;b, pattern_len&gt;::serialize</a>(std::ostream&amp; out, <a class="code" href="classsdsl_1_1structure__tree__node.html" title="Class for a node of the structure tree.">structure_tree_node</a>* v, std::string name)<span class="keyword">const</span>
+<a name="l00200"></a>00200 <span class="keyword"></span>{
+<a name="l00201"></a>00201     size_type written_bytes = 0;
+<a name="l00202"></a>00202     <a class="code" href="classsdsl_1_1structure__tree__node.html" title="Class for a node of the structure tree.">structure_tree_node</a>* child = structure_tree::add_child(v, name, util::class_name(*<span class="keyword">this</span>));
+<a name="l00203"></a>00203     written_bytes += m_basic_block.serialize(out, child, <span class="stringliteral">&quot;cumulative_counts&quot;</span>);
+<a name="l00204"></a>00204     structure_tree::add_size(child, written_bytes);
+<a name="l00205"></a>00205     <span class="keywordflow">return</span> written_bytes;
+<a name="l00206"></a>00206 }
+<a name="l00207"></a>00207 
+<a name="l00208"></a>00208 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t b, u<span class="keywordtype">int</span>8_t pattern_len&gt;
+<a name="l00209"></a><a class="code" href="classsdsl_1_1rank__support__v5.html#a583e782e1c0dd0a39a56eddc24e5266b">00209</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1rank__support__v5.html#a583e782e1c0dd0a39a56eddc24e5266b" title="Loads the rank_support.">rank_support_v5&lt;b, pattern_len&gt;::load</a>(std::istream&amp; in, <span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">bit_vector</a>* v)
+<a name="l00210"></a>00210 {
+<a name="l00211"></a>00211     set_vector(v);
+<a name="l00212"></a>00212     assert(m_v != NULL); <span class="comment">// supported bit vector should be known</span>
+<a name="l00213"></a>00213     m_basic_block.load(in);
 <a name="l00214"></a>00214 }
 <a name="l00215"></a>00215 
 <a name="l00216"></a>00216 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t b, u<span class="keywordtype">int</span>8_t pattern_len&gt;
-<a name="l00217"></a><a class="code" href="classsdsl_1_1rank__support__v5.html#a583e782e1c0dd0a39a56eddc24e5266b">00217</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1rank__support__v5.html#a583e782e1c0dd0a39a56eddc24e5266b" title="Loads the rank_support.">rank_support_v5&lt;b, pattern_len&gt;::load</a>(std::istream&amp; in, <span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">bit_vector</a>* v)
+<a name="l00217"></a><a class="code" href="classsdsl_1_1rank__support__v5.html#aa65c767b15d923ad8de41980b6f27f62">00217</a> <span class="keyword">inline</span> <a class="code" href="classsdsl_1_1rank__support__v5.html" title="A class supporting rank queries in constant time. The implementation is a space saving version of the...">rank_support_v5&lt;b, pattern_len&gt;</a>&amp; <a class="code" href="classsdsl_1_1rank__support__v5.html#aa65c767b15d923ad8de41980b6f27f62" title="Assign Operator.">rank_support_v5&lt;b, pattern_len&gt;::operator=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1rank__support__v5.html" title="A class supporting rank queries in constant time. The implementation is a space saving version of the...">rank_support_v5</a>&amp; rs)
 <a name="l00218"></a>00218 {
-<a name="l00219"></a>00219     set_vector(v);
-<a name="l00220"></a>00220     assert(m_v != NULL); <span class="comment">// supported bit vector should be known</span>
-<a name="l00221"></a>00221     m_basic_block.load(in);
-<a name="l00222"></a>00222 }
-<a name="l00223"></a>00223 
-<a name="l00224"></a>00224 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t b, u<span class="keywordtype">int</span>8_t pattern_len&gt;
-<a name="l00225"></a><a class="code" href="classsdsl_1_1rank__support__v5.html#aa65c767b15d923ad8de41980b6f27f62">00225</a> <span class="keyword">inline</span> <a class="code" href="classsdsl_1_1rank__support__v5.html" title="A class supporting rank queries in constant time. The implementation is a space saving version of the...">rank_support_v5&lt;b, pattern_len&gt;</a>&amp; <a class="code" href="classsdsl_1_1rank__support__v5.html#aa65c767b15d923ad8de41980b6f27f62" title="Assign Operator.">rank_support_v5&lt;b, pattern_len&gt;::operator=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1rank__support__v5.html" title="A class supporting rank queries in constant time. The implementation is a space saving version of the...">rank_support_v5</a>&amp; rs)
-<a name="l00226"></a>00226 {
-<a name="l00227"></a>00227     <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;rs) {
-<a name="l00228"></a>00228         set_vector(rs.<a class="code" href="classsdsl_1_1rank__support.html#ac774d248f05ee99a6f33cb96b3db615c" title="Pointer to the rank supported bit_vector.">m_v</a>);
-<a name="l00229"></a>00229         m_basic_block = rs.m_basic_block;
-<a name="l00230"></a>00230     }
-<a name="l00231"></a>00231     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00219"></a>00219     <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;rs) {
+<a name="l00220"></a>00220         set_vector(rs.<a class="code" href="classsdsl_1_1rank__support.html#ac774d248f05ee99a6f33cb96b3db615c" title="Pointer to the rank supported bit_vector.">m_v</a>);
+<a name="l00221"></a>00221         m_basic_block = rs.m_basic_block;
+<a name="l00222"></a>00222     }
+<a name="l00223"></a>00223     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00224"></a>00224 }
+<a name="l00225"></a>00225 
+<a name="l00226"></a>00226 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t b, u<span class="keywordtype">int</span>8_t pattern_len&gt;
+<a name="l00227"></a><a class="code" href="classsdsl_1_1rank__support__v5.html#a3e5d991495a7f094b9b68d258c0e55ec">00227</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1rank__support__v5.html#a3e5d991495a7f094b9b68d258c0e55ec" title="swap Operator">rank_support_v5&lt;b, pattern_len&gt;::swap</a>(<a class="code" href="classsdsl_1_1rank__support__v5.html" title="A class supporting rank queries in constant time. The implementation is a space saving version of the...">rank_support_v5</a>&amp; rs)
+<a name="l00228"></a>00228 {
+<a name="l00229"></a>00229     <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;rs) { <span class="comment">// if rs and _this_ are not the same object</span>
+<a name="l00230"></a>00230         m_basic_block.swap(rs.m_basic_block);
+<a name="l00231"></a>00231     }
 <a name="l00232"></a>00232 }
 <a name="l00233"></a>00233 
-<a name="l00234"></a>00234 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t b, u<span class="keywordtype">int</span>8_t pattern_len&gt;
-<a name="l00235"></a><a class="code" href="classsdsl_1_1rank__support__v5.html#a3e5d991495a7f094b9b68d258c0e55ec">00235</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1rank__support__v5.html#a3e5d991495a7f094b9b68d258c0e55ec" title="swap Operator">rank_support_v5&lt;b, pattern_len&gt;::swap</a>(<a class="code" href="classsdsl_1_1rank__support__v5.html" title="A class supporting rank queries in constant time. The implementation is a space saving version of the...">rank_support_v5</a>&amp; rs)
-<a name="l00236"></a>00236 {
-<a name="l00237"></a>00237     <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;rs) { <span class="comment">// if rs and _this_ are not the same object</span>
-<a name="l00238"></a>00238         m_basic_block.swap(rs.m_basic_block);
-<a name="l00239"></a>00239     }
-<a name="l00240"></a>00240 }
-<a name="l00241"></a>00241 
-<a name="l00242"></a>00242 <span class="comment">// TODO: == operator remove pointer comparison</span>
+<a name="l00234"></a>00234 <span class="comment">// TODO: == operator remove pointer comparison</span>
+<a name="l00235"></a>00235 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t b, u<span class="keywordtype">int</span>8_t pattern_len&gt;
+<a name="l00236"></a><a class="code" href="classsdsl_1_1rank__support__v5.html#a17599c7d6c2bd29e323e6b786871113a">00236</a> <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1rank__support__v5.html#a17599c7d6c2bd29e323e6b786871113a" title="Equality Operator.">rank_support_v5&lt;b, pattern_len&gt;::operator==</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1rank__support__v5.html" title="A class supporting rank queries in constant time. The implementation is a space saving version of the...">rank_support_v5</a>&amp; rs)<span class="keyword">const</span>
+<a name="l00237"></a>00237 <span class="keyword"></span>{
+<a name="l00238"></a>00238     <span class="keywordflow">if</span> (<span class="keyword">this</span> == &amp;rs)
+<a name="l00239"></a>00239         <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00240"></a>00240     <span class="keywordflow">return</span> m_basic_block == rs.m_basic_block and *(rs.<a class="code" href="classsdsl_1_1rank__support.html#ac774d248f05ee99a6f33cb96b3db615c" title="Pointer to the rank supported bit_vector.">m_v</a>) == *m_v;
+<a name="l00241"></a>00241 }
+<a name="l00242"></a>00242 
 <a name="l00243"></a>00243 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t b, u<span class="keywordtype">int</span>8_t pattern_len&gt;
-<a name="l00244"></a><a class="code" href="classsdsl_1_1rank__support__v5.html#a17599c7d6c2bd29e323e6b786871113a">00244</a> <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1rank__support__v5.html#a17599c7d6c2bd29e323e6b786871113a" title="Equality Operator.">rank_support_v5&lt;b, pattern_len&gt;::operator==</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1rank__support__v5.html" title="A class supporting rank queries in constant time. The implementation is a space saving version of the...">rank_support_v5</a>&amp; rs)<span class="keyword">const</span>
+<a name="l00244"></a><a class="code" href="classsdsl_1_1rank__support__v5.html#a1ca64d77dc420bbdc83f36dd2a1ebeea">00244</a> <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1rank__support__v5.html#a1ca64d77dc420bbdc83f36dd2a1ebeea" title="Unequality Operator.">rank_support_v5&lt;b, pattern_len&gt;::operator!=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1rank__support__v5.html" title="A class supporting rank queries in constant time. The implementation is a space saving version of the...">rank_support_v5</a>&amp; rs)<span class="keyword">const</span>
 <a name="l00245"></a>00245 <span class="keyword"></span>{
-<a name="l00246"></a>00246     <span class="keywordflow">if</span> (<span class="keyword">this</span> == &amp;rs)
-<a name="l00247"></a>00247         <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00248"></a>00248     <span class="keywordflow">return</span> m_basic_block == rs.m_basic_block and *(rs.<a class="code" href="classsdsl_1_1rank__support.html#ac774d248f05ee99a6f33cb96b3db615c" title="Pointer to the rank supported bit_vector.">m_v</a>) == *m_v;
-<a name="l00249"></a>00249 }
+<a name="l00246"></a>00246     <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == rs);
+<a name="l00247"></a>00247 }
+<a name="l00248"></a>00248 
+<a name="l00249"></a>00249 }<span class="comment">// end namespace sds</span>
 <a name="l00250"></a>00250 
-<a name="l00251"></a>00251 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t b, u<span class="keywordtype">int</span>8_t pattern_len&gt;
-<a name="l00252"></a><a class="code" href="classsdsl_1_1rank__support__v5.html#a1ca64d77dc420bbdc83f36dd2a1ebeea">00252</a> <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1rank__support__v5.html#a1ca64d77dc420bbdc83f36dd2a1ebeea" title="Unequality Operator.">rank_support_v5&lt;b, pattern_len&gt;::operator!=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1rank__support__v5.html" title="A class supporting rank queries in constant time. The implementation is a space saving version of the...">rank_support_v5</a>&amp; rs)<span class="keyword">const</span>
-<a name="l00253"></a>00253 <span class="keyword"></span>{
-<a name="l00254"></a>00254     <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == rs);
-<a name="l00255"></a>00255 }
-<a name="l00256"></a>00256 
-<a name="l00257"></a>00257 }<span class="comment">// end namespace sds</span>
-<a name="l00258"></a>00258 
-<a name="l00259"></a>00259 <span class="preprocessor">#endif // end file </span>
+<a name="l00251"></a>00251 <span class="preprocessor">#endif // end file </span>
 </pre></div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 10 2012 18:54:27 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 13 2012 14:05:47 for SDSL: Succinct Data Structure Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Succinct Data Structure Library (sdsl): sdsl::_lcp_support_tree&lt; Lcp, Cst &gt; Class Template Reference</title>
+<title>SDSL: Succinct Data Structure Library: sdsl::_lcp_support_tree&lt; Lcp, Cst &gt; Class Template Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -27,7 +27,7 @@
   
   
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Succinct Data Structure Library (sdsl)
+   <div id="projectname">SDSL: Succinct Data Structure Library
    
    </div>
    <div id="projectbrief">A C++ template library for succinct data structures</div>
@@ -120,7 +120,7 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1__lcp__support__tree_1_1type.html">type</a></td></tr>
 <tr><td colspan="2"><h2><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a76e4593658d0b8405a13302e8902ad15"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>fast_access</b> =  0, 
+<tr class="memitem:adf170e220d6f895fe815bc01aaaf5afd"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>fast_access</b> =  0, 
 <b>text_order</b> =  Lcp::text_order, 
 <b>sa_order</b> =  Lcp::sa_order
  }</td></tr>
@@ -187,8 +187,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> (<a class="e
 <tr class="memdesc:a9f81272dc6aa3c1d3e3a64f9c9f6f0d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality Operator.  <a href="#a9f81272dc6aa3c1d3e3a64f9c9f6f0d7"></a><br/></td></tr>
 <tr class="memitem:a893d9fc439bef2dbcef328d333989219"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1__lcp__support__tree.html#a893d9fc439bef2dbcef328d333989219">operator!=</a> (const <a class="el" href="classsdsl_1_1__lcp__support__tree.html">_lcp_support_tree</a> &amp;lcp_c) const </td></tr>
 <tr class="memdesc:a893d9fc439bef2dbcef328d333989219"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unequality Operator.  <a href="#a893d9fc439bef2dbcef328d333989219"></a><br/></td></tr>
-<tr class="memitem:ac736cbffb6af40a487e74354d80f9581"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1__lcp__support__tree.html#ac736cbffb6af40a487e74354d80f9581">serialize</a> (std::ostream &amp;out) const </td></tr>
-<tr class="memdesc:ac736cbffb6af40a487e74354d80f9581"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize to a stream.  <a href="#ac736cbffb6af40a487e74354d80f9581"></a><br/></td></tr>
+<tr class="memitem:a2d8d887365ea634eacff39793e082547"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1__lcp__support__tree.html#a2d8d887365ea634eacff39793e082547">serialize</a> (std::ostream &amp;out, <a class="el" href="classsdsl_1_1structure__tree__node.html">structure_tree_node</a> *v=NULL, std::string name=&quot;&quot;) const </td></tr>
+<tr class="memdesc:a2d8d887365ea634eacff39793e082547"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize to a stream.  <a href="#a2d8d887365ea634eacff39793e082547"></a><br/></td></tr>
 <tr class="memitem:ae6b92a0d45748b1329eef579c63203ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1__lcp__support__tree.html#ae6b92a0d45748b1329eef579c63203ef">load</a> (std::istream &amp;in, const Cst *cst=NULL)</td></tr>
 <tr class="memdesc:ae6b92a0d45748b1329eef579c63203ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load from a stream.  <a href="#ae6b92a0d45748b1329eef579c63203ef"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-methods"></a>
@@ -200,7 +200,7 @@ static size_type&#160;</td><td class="memItemRight" valign="bottom"><b>max_size<
 <div class="textblock"><h3>template&lt;class Lcp, class Cst&gt;<br/>
 class sdsl::_lcp_support_tree&lt; Lcp, Cst &gt;</h3>
 
-<p>This class composes a virtual lcp array from a lcp arrays which is ordered in suffix array order (e.g. <a class="el" href="classsdsl_1_1lcp__kurtz.html" title="A class for the compressed version of lcp information of an suffix array proposed by Stefan Kurtz in ...">lcp_kurtz</a> or <a class="el" href="classsdsl_1_1lcp__uncompressed.html" title="A class which stores the lcp array uncompressed.">lcp_uncompressed</a>) and a compressed suffix tree like <a class="el" href="classsdsl_1_1cst__sct3.html" title="A class for the Compressed Suffix Tree (CST) proposed by Ohlebusch and Gog.">cst_sct3</a> or <a class="el" href="classsdsl_1_1cst__sada.html" title="A class for the Compressed Suffix Tree (CST) proposed by Sadakane.">cst_sada</a>. The time consumption of the []-operator depends on:</p>
+<p>This class composes a virtual lcp array from a lcp arrays which is ordered in suffix array order (e.g. <a class="el" href="classsdsl_1_1lcp__kurtz.html" title="A class for the compressed version of lcp information of an suffix array proposed by Stefan Kurtz in ...">lcp_kurtz</a> or <a class="el" href="classsdsl_1_1lcp__bitcompressed.html" title="A class which stores the lcp array uncompressed.">lcp_bitcompressed</a>) and a compressed suffix tree like <a class="el" href="classsdsl_1_1cst__sct3.html" title="A class for the Compressed Suffix Tree (CST) proposed by Ohlebusch and Gog.">cst_sct3</a> or <a class="el" href="classsdsl_1_1cst__sada.html" title="A class for the Compressed Suffix Tree (CST) proposed by Sadakane.">cst_sada</a>. The time consumption of the []-operator depends on:</p>
 <ul>
 <li>The time consumption of the tlcp_idx function of the CST</li>
 <li>The access time to the suffix array ordered LCP array </li>
@@ -468,18 +468,34 @@ template&lt;class Lcp , class Cst &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="ac736cbffb6af40a487e74354d80f9581"></a>
+<a class="anchor" id="a2d8d887365ea634eacff39793e082547"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class Lcp , class Cst &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">size_type <a class="el" href="classsdsl_1_1__lcp__support__tree.html">sdsl::_lcp_support_tree</a>&lt; Lcp, Cst &gt;::<a class="el" href="classsdsl_1_1__lcp__support__tree.html#ac736cbffb6af40a487e74354d80f9581">serialize</a> </td>
+          <td class="memname">size_type <a class="el" href="classsdsl_1_1__lcp__support__tree.html">sdsl::_lcp_support_tree</a>&lt; Lcp, Cst &gt;::<a class="el" href="classsdsl_1_1__lcp__support__tree.html#a2d8d887365ea634eacff39793e082547">serialize</a> </td>
           <td>(</td>
           <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>out</em></td><td>)</td>
-          <td> const<code> [inline]</code></td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsdsl_1_1structure__tree__node.html">structure_tree_node</a> *&#160;</td>
+          <td class="paramname"><em>v</em> = <code>NULL</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const<code> [inline]</code></td>
         </tr>
       </table>
 </div>
@@ -503,7 +519,7 @@ template&lt;class Lcp , class Cst &gt; </div>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 10 2012 18:54:31 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 13 2012 14:05:50 for SDSL: Succinct Data Structure Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Succinct Data Structure Library (sdsl): sdsl::rank_support_v&lt; b, pattern_len &gt; Class Template Reference</title>
+<title>SDSL: Succinct Data Structure Library: sdsl::rank_support_v&lt; b, pattern_len &gt; Class Template Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -27,7 +27,7 @@
   
   
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Succinct Data Structure Library (sdsl)
+   <div id="projectname">SDSL: Succinct Data Structure Library
    
    </div>
    <div id="projectbrief">A C++ template library for succinct data structures</div>
@@ -137,8 +137,8 @@ const size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el"
 <tr class="memdesc:a48077e2c262a9dd960a23bd325d748b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for rank(i) <br/></td></tr>
 <tr class="memitem:a7c434a3695b1af79d8bcba0b9208fc38"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7c434a3695b1af79d8bcba0b9208fc38"></a>
 const size_type&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> () const </td></tr>
-<tr class="memitem:af5233ee941ee8ac6ae8523ff408a952c"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rank__support__v.html#af5233ee941ee8ac6ae8523ff408a952c">serialize</a> (std::ostream &amp;out) const </td></tr>
-<tr class="memdesc:af5233ee941ee8ac6ae8523ff408a952c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes <a class="el" href="classsdsl_1_1rank__support.html" title="The base class of classes supporting rank_queries for a sdsl::bit_vector in constant time...">rank_support</a>.  <a href="#af5233ee941ee8ac6ae8523ff408a952c"></a><br/></td></tr>
+<tr class="memitem:a10b1d8fabe3cd2c4eb1bd1bda16ce5e3"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rank__support__v.html#a10b1d8fabe3cd2c4eb1bd1bda16ce5e3">serialize</a> (std::ostream &amp;out, <a class="el" href="classsdsl_1_1structure__tree__node.html">structure_tree_node</a> *v=NULL, std::string name=&quot;&quot;) const </td></tr>
+<tr class="memdesc:a10b1d8fabe3cd2c4eb1bd1bda16ce5e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes <a class="el" href="classsdsl_1_1rank__support.html" title="The base class of classes supporting rank_queries for a sdsl::bit_vector in constant time...">rank_support</a>.  <a href="#a10b1d8fabe3cd2c4eb1bd1bda16ce5e3"></a><br/></td></tr>
 <tr class="memitem:aa025f3b217e686022adc9a47a029311a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rank__support__v.html#aa025f3b217e686022adc9a47a029311a">load</a> (std::istream &amp;in, const <a class="el" href="classsdsl_1_1int__vector.html">int_vector</a>&lt; 1 &gt; *v=NULL)</td></tr>
 <tr class="memdesc:aa025f3b217e686022adc9a47a029311a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the <a class="el" href="classsdsl_1_1rank__support.html" title="The base class of classes supporting rank_queries for a sdsl::bit_vector in constant time...">rank_support</a>.  <a href="#aa025f3b217e686022adc9a47a029311a"></a><br/></td></tr>
 <tr class="memitem:a41ef56b81127cb8784d3cb1877e6f266"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rank__support__v.html#a41ef56b81127cb8784d3cb1877e6f266">set_vector</a> (const <a class="el" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb">bit_vector</a> *v=NULL)</td></tr>
@@ -333,18 +333,34 @@ template&lt;uint8_t b, uint8_t pattern_len&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="af5233ee941ee8ac6ae8523ff408a952c"></a>
+<a class="anchor" id="a10b1d8fabe3cd2c4eb1bd1bda16ce5e3"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;uint8_t b, uint8_t pattern_len&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classsdsl_1_1rank__support__v.html">rank_support_v</a>&lt; b, pattern_len &gt;::size_type <a class="el" href="classsdsl_1_1rank__support__v.html">sdsl::rank_support_v</a>&lt; b, pattern_len &gt;::<a class="el" href="classsdsl_1_1rank__support__v.html#af5233ee941ee8ac6ae8523ff408a952c">serialize</a> </td>
+          <td class="memname"><a class="el" href="classsdsl_1_1rank__support__v.html">rank_support_v</a>&lt; b, pattern_len &gt;::size_type <a class="el" href="classsdsl_1_1rank__support__v.html">sdsl::rank_support_v</a>&lt; b, pattern_len &gt;::<a class="el" href="classsdsl_1_1rank__support__v.html#a10b1d8fabe3cd2c4eb1bd1bda16ce5e3">serialize</a> </td>
           <td>(</td>
           <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>out</em></td><td>)</td>
-          <td> const<code> [inline, virtual]</code></td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsdsl_1_1structure__tree__node.html">structure_tree_node</a> *&#160;</td>
+          <td class="paramname"><em>v</em> = <code>NULL</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const<code> [inline, virtual]</code></td>
         </tr>
       </table>
 </div>
@@ -358,7 +374,7 @@ template&lt;uint8_t b, uint8_t pattern_len&gt; </div>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="classsdsl_1_1rank__support.html#a3a32a079cc7e22ee54cb16e487da0603">sdsl::rank_support</a>.</p>
+<p>Implements <a class="el" href="classsdsl_1_1rank__support.html#a8fcdd407fd805f1075c55e3bb1a886e0">sdsl::rank_support</a>.</p>
 
 </div>
 </div>
@@ -422,7 +438,7 @@ template&lt;uint8_t b, uint8_t pattern_len&gt; </div>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 10 2012 18:54:31 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 13 2012 14:05:50 for SDSL: Succinct Data Structure Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

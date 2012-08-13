@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Succinct Data Structure Library (sdsl): sdsl::bp_support_sada&lt; SmlBlkSize, MedBlkDeg, RankSupport, SelectSupport &gt; Class Template Reference</title>
+<title>SDSL: Succinct Data Structure Library: sdsl::bp_support_sada&lt; SmlBlkSize, MedBlkDeg, RankSupport, SelectSupport &gt; Class Template Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -27,7 +27,7 @@
   
   
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Succinct Data Structure Library (sdsl)
+   <div id="projectname">SDSL: Succinct Data Structure Library
    
    </div>
    <div id="projectbrief">A C++ template library for succinct data structures</div>
@@ -167,8 +167,8 @@ size_type&#160;</td><td class="memItemRight" valign="bottom"><b>median_block_rmq
 <tr class="memitem:aaf24af535e0a0331cb880c3b0b95a844"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1bp__support__sada.html#aaf24af535e0a0331cb880c3b0b95a844">preceding_closing_parentheses</a> (size_type i) const </td></tr>
 <tr class="memdesc:aaf24af535e0a0331cb880c3b0b95a844"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the number of zeros which procede position i in the balanced parentheses sequence.  <a href="#aaf24af535e0a0331cb880c3b0b95a844"></a><br/></td></tr>
 <tr class="memitem:a90c0a09e9ec877b959cb775a3db3a41f"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1bp__support__sada.html#a90c0a09e9ec877b959cb775a3db3a41f">size</a> () const </td></tr>
-<tr class="memitem:afe3d92bf589cf24608e8ca2c5d9737ea"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1bp__support__sada.html#afe3d92bf589cf24608e8ca2c5d9737ea">serialize</a> (std::ostream &amp;out) const </td></tr>
-<tr class="memdesc:afe3d92bf589cf24608e8ca2c5d9737ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes the <a class="el" href="classsdsl_1_1bp__support__sada.html" title="A class that provides support for bit_vectors that represent a balanced parentheses sequence...">bp_support_sada</a> to a stream.  <a href="#afe3d92bf589cf24608e8ca2c5d9737ea"></a><br/></td></tr>
+<tr class="memitem:a3eb0b5da317f501dd4c25f9d3b09d51d"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1bp__support__sada.html#a3eb0b5da317f501dd4c25f9d3b09d51d">serialize</a> (std::ostream &amp;out, <a class="el" href="classsdsl_1_1structure__tree__node.html">structure_tree_node</a> *v=NULL, std::string name=&quot;&quot;) const </td></tr>
+<tr class="memdesc:a3eb0b5da317f501dd4c25f9d3b09d51d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes the <a class="el" href="classsdsl_1_1bp__support__sada.html" title="A class that provides support for bit_vectors that represent a balanced parentheses sequence...">bp_support_sada</a> to a stream.  <a href="#a3eb0b5da317f501dd4c25f9d3b09d51d"></a><br/></td></tr>
 <tr class="memitem:a04718f71f03396b6f337f9b7f16d46bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1bp__support__sada.html#a04718f71f03396b6f337f9b7f16d46bb">load</a> (std::istream &amp;in, const <a class="el" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb">bit_vector</a> *bp)</td></tr>
 <tr class="memdesc:a04718f71f03396b6f337f9b7f16d46bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load the <a class="el" href="classsdsl_1_1bp__support__sada.html" title="A class that provides support for bit_vectors that represent a balanced parentheses sequence...">bp_support_sada</a> for a bit_vector v.  <a href="#a04718f71f03396b6f337f9b7f16d46bb"></a><br/></td></tr>
 <tr class="memitem:a5e57c2e22bbbd564c0b089b688871ef5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5e57c2e22bbbd564c0b089b688871ef5"></a>
@@ -639,18 +639,34 @@ template&lt;uint32_t SmlBlkSize = 256, uint32_t MedBlkDeg = 32, class RankSuppor
 
 </div>
 </div>
-<a class="anchor" id="afe3d92bf589cf24608e8ca2c5d9737ea"></a>
+<a class="anchor" id="a3eb0b5da317f501dd4c25f9d3b09d51d"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;uint32_t SmlBlkSize = 256, uint32_t MedBlkDeg = 32, class RankSupport  = rank_support_v&lt;&gt;, class SelectSupport  = select_support_mcl&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">size_type <a class="el" href="classsdsl_1_1bp__support__sada.html">sdsl::bp_support_sada</a>&lt; SmlBlkSize, MedBlkDeg, RankSupport, SelectSupport &gt;::<a class="el" href="classsdsl_1_1bp__support__sada.html#afe3d92bf589cf24608e8ca2c5d9737ea">serialize</a> </td>
+          <td class="memname">size_type <a class="el" href="classsdsl_1_1bp__support__sada.html">sdsl::bp_support_sada</a>&lt; SmlBlkSize, MedBlkDeg, RankSupport, SelectSupport &gt;::<a class="el" href="classsdsl_1_1bp__support__sada.html#a3eb0b5da317f501dd4c25f9d3b09d51d">serialize</a> </td>
           <td>(</td>
           <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>out</em></td><td>)</td>
-          <td> const<code> [inline]</code></td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsdsl_1_1structure__tree__node.html">structure_tree_node</a> *&#160;</td>
+          <td class="paramname"><em>v</em> = <code>NULL</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const<code> [inline]</code></td>
         </tr>
       </table>
 </div>
@@ -722,7 +738,7 @@ template&lt;uint32_t SmlBlkSize = 256, uint32_t MedBlkDeg = 32, class RankSuppor
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 10 2012 18:54:30 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 13 2012 14:05:49 for SDSL: Succinct Data Structure Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

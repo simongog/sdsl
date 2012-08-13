@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Succinct Data Structure Library (sdsl): sdsl::util Namespace Reference</title>
+<title>SDSL: Succinct Data Structure Library: sdsl::util Namespace Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -27,7 +27,7 @@
   
   
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Succinct Data Structure Library (sdsl)
+   <div id="projectname">SDSL: Succinct Data Structure Library
    
    </div>
    <div id="projectbrief">A C++ template library for succinct data structures</div>
@@ -118,6 +118,12 @@ Classes</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:a7d6c8aaffb3ba4648a86eac1ad68997b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7d6c8aaffb3ba4648a86eac1ad68997b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>set_zero_bits</b> (<a class="el" href="classsdsl_1_1nn__dict__dynamic.html">nn_dict_dynamic</a> &amp;nn)</td></tr>
+<tr class="memitem:a6d8c83ac15f316e914edff973d8d77b6"><td class="memTemplParams" colspan="2"><a class="anchor" id="a6d8c83ac15f316e914edff973d8d77b6"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a6d8c83ac15f316e914edff973d8d77b6"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#a6d8c83ac15f316e914edff973d8d77b6">to_string</a> (const T &amp;t)</td></tr>
+<tr class="memdesc:a6d8c83ac15f316e914edff973d8d77b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert type to string. <br/></td></tr>
+<tr class="memitem:aa7a8ff8239021cc620a195187a566ee8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa7a8ff8239021cc620a195187a566ee8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>set_verbose</b> ()</td></tr>
 <tr class="memitem:ab7e3467fc3050296f4815ad697a67456"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab7e3467fc3050296f4815ad697a67456"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#ab7e3467fc3050296f4815ad697a67456">basename</a> (const std::string &amp;file_name)</td></tr>
 <tr class="memdesc:ab7e3467fc3050296f4815ad697a67456"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the basename of a file_name. <br/></td></tr>
@@ -185,18 +191,21 @@ template&lt;uint8_t fixed_int_width, class size_type_class &gt; </td></tr>
 <tr class="memitem:a80b5944bc4677736dd6dcb218781f04f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a80b5944bc4677736dd6dcb218781f04f"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#a80b5944bc4677736dd6dcb218781f04f">demangle2</a> (const char *name)</td></tr>
 <tr class="memdesc:a80b5944bc4677736dd6dcb218781f04f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Demangle the class name of typeid(...).name() and remove the "sdsl::"-prefix, "unsigned int",... <br/></td></tr>
-<tr class="memitem:a9585e65f4f4c4e40ad4f4161eb3b8cdb"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a9585e65f4f4c4e40ad4f4161eb3b8cdb"><td class="memTemplItemLeft" align="right" valign="top">T::size_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb">get_size_in_bytes</a> (const T &amp;v)</td></tr>
-<tr class="memdesc:a9585e65f4f4c4e40ad4f4161eb3b8cdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the size of a data structure in bytes.  <a href="#a9585e65f4f4c4e40ad4f4161eb3b8cdb"></a><br/></td></tr>
-<tr class="memitem:a581dc4033b0d6384f7586e3383cd3368"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a581dc4033b0d6384f7586e3383cd3368"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#a581dc4033b0d6384f7586e3383cd3368">get_size_in_mega_bytes</a> (const T &amp;v)</td></tr>
-<tr class="memdesc:a581dc4033b0d6384f7586e3383cd3368"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the size of a data structure in mega bytes (MB).  <a href="#a581dc4033b0d6384f7586e3383cd3368"></a><br/></td></tr>
-<tr class="memitem:a7bf24d442c7a67dcc53b41c1af165b27"><td class="memTemplParams" colspan="2"><a class="anchor" id="a7bf24d442c7a67dcc53b41c1af165b27"></a>
+<tr class="memitem:acecf64b6c993ce437c2b9348fa0fdd48"><td class="memTemplParams" colspan="2"><a class="anchor" id="acecf64b6c993ce437c2b9348fa0fdd48"></a>
 template&lt;class T &gt; </td></tr>
-<tr class="memitem:a7bf24d442c7a67dcc53b41c1af165b27"><td class="memTemplItemLeft" align="right" valign="top">size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><b>write_member</b> (const T &amp;t, std::ostream &amp;out)</td></tr>
-<tr class="memitem:aab0f24d6557fbde5551d07d6e21b40f0"><td class="memTemplParams" colspan="2"><a class="anchor" id="aab0f24d6557fbde5551d07d6e21b40f0"></a>
+<tr class="memitem:acecf64b6c993ce437c2b9348fa0fdd48"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><b>class_name</b> (const T &amp;t)</td></tr>
+<tr class="memitem:a33833c48ce3ad599a19dcd3276dcf77f"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a33833c48ce3ad599a19dcd3276dcf77f"><td class="memTemplItemLeft" align="right" valign="top">T::size_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#a33833c48ce3ad599a19dcd3276dcf77f">get_size_in_bytes</a> (const T &amp;t)</td></tr>
+<tr class="memdesc:a33833c48ce3ad599a19dcd3276dcf77f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the size of a data structure in bytes.  <a href="#a33833c48ce3ad599a19dcd3276dcf77f"></a><br/></td></tr>
+<tr class="memitem:ae996eb7fbeb902a20cee253f232bf3c1"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:ae996eb7fbeb902a20cee253f232bf3c1"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#ae996eb7fbeb902a20cee253f232bf3c1">get_size_in_mega_bytes</a> (const T &amp;t)</td></tr>
+<tr class="memdesc:ae996eb7fbeb902a20cee253f232bf3c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the size of a data structure in mega bytes (MB).  <a href="#ae996eb7fbeb902a20cee253f232bf3c1"></a><br/></td></tr>
+<tr class="memitem:a540714d0b12c3783ad32e214792cfa01"><td class="memTemplParams" colspan="2"><a class="anchor" id="a540714d0b12c3783ad32e214792cfa01"></a>
+template&lt;class T &gt; </td></tr>
+<tr class="memitem:a540714d0b12c3783ad32e214792cfa01"><td class="memTemplItemLeft" align="right" valign="top">size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><b>write_member</b> (const T &amp;t, std::ostream &amp;out, <a class="el" href="classsdsl_1_1structure__tree__node.html">sdsl::structure_tree_node</a> *v=NULL, std::string name=&quot;&quot;)</td></tr>
+<tr class="memitem:a77d37132aeabc3da877843216d7ba2f7"><td class="memTemplParams" colspan="2"><a class="anchor" id="a77d37132aeabc3da877843216d7ba2f7"></a>
 template&lt;&gt; </td></tr>
-<tr class="memitem:aab0f24d6557fbde5551d07d6e21b40f0"><td class="memTemplItemLeft" align="right" valign="top">size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><b>write_member&lt; std::string &gt;</b> (const std::string &amp;t, std::ostream &amp;out)</td></tr>
+<tr class="memitem:a77d37132aeabc3da877843216d7ba2f7"><td class="memTemplItemLeft" align="right" valign="top">size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><b>write_member&lt; std::string &gt;</b> (const std::string &amp;t, std::ostream &amp;out, <a class="el" href="classsdsl_1_1structure__tree__node.html">structure_tree_node</a> *v, std::string name)</td></tr>
 <tr class="memitem:a8452aa443a4489ebac116bdcbed98620"><td class="memTemplParams" colspan="2"><a class="anchor" id="a8452aa443a4489ebac116bdcbed98620"></a>
 template&lt;class T &gt; </td></tr>
 <tr class="memitem:a8452aa443a4489ebac116bdcbed98620"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>read_member</b> (T &amp;t, std::istream &amp;in)</td></tr>
@@ -209,10 +218,6 @@ uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <tr class="memitem:a6d9b7c00544c815b561e2f1e8a04c486"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6d9b7c00544c815b561e2f1e8a04c486"></a>
 uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#a6d9b7c00544c815b561e2f1e8a04c486">get_id</a> ()</td></tr>
 <tr class="memdesc:a6d9b7c00544c815b561e2f1e8a04c486"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a unique id inside the process. <br/></td></tr>
-<tr class="memitem:a6d8c83ac15f316e914edff973d8d77b6"><td class="memTemplParams" colspan="2"><a class="anchor" id="a6d8c83ac15f316e914edff973d8d77b6"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a6d8c83ac15f316e914edff973d8d77b6"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#a6d8c83ac15f316e914edff973d8d77b6">to_string</a> (const T &amp;t)</td></tr>
-<tr class="memdesc:a6d8c83ac15f316e914edff973d8d77b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert type to string. <br/></td></tr>
 <tr class="memitem:af6bb42389b67bd1c0b0b3e9da55c1968"><td class="memTemplParams" colspan="2"><a class="anchor" id="af6bb42389b67bd1c0b0b3e9da55c1968"></a>
 template&lt;typename T &gt; </td></tr>
 <tr class="memitem:af6bb42389b67bd1c0b0b3e9da55c1968"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><b>to_latex_string</b> (const T &amp;t)</td></tr>
@@ -236,6 +241,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="name
 <tr class="memitem:a261681cbaa98ab77a78dddb6f21b1f6e"><td class="memTemplParams" colspan="2">template&lt;class S , class X &gt; </td></tr>
 <tr class="memitem:a261681cbaa98ab77a78dddb6f21b1f6e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesdsl_1_1util.html#a261681cbaa98ab77a78dddb6f21b1f6e">init_support</a> (S &amp;s, const X *x)</td></tr>
 <tr class="memdesc:a261681cbaa98ab77a78dddb6f21b1f6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise support data structure with.  <a href="#a261681cbaa98ab77a78dddb6f21b1f6e"></a><br/></td></tr>
+<tr class="memitem:a6ff4c8c6fc9c5c2dff17b5479cd63e49"><td class="memTemplParams" colspan="2"><a class="anchor" id="a6ff4c8c6fc9c5c2dff17b5479cd63e49"></a>
+template&lt;format_type F, class X &gt; </td></tr>
+<tr class="memitem:a6ff4c8c6fc9c5c2dff17b5479cd63e49"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>write_structure</b> (const X &amp;x, std::ostream &amp;out)</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>A namespace for helper functions. </p>
@@ -440,17 +448,17 @@ template&lt;class int_vector_type &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a9585e65f4f4c4e40ad4f4161eb3b8cdb"></a>
+<a class="anchor" id="a33833c48ce3ad599a19dcd3276dcf77f"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">T::size_type <a class="el" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb">sdsl::util::get_size_in_bytes</a> </td>
+          <td class="memname">T::size_type <a class="el" href="namespacesdsl_1_1util.html#a33833c48ce3ad599a19dcd3276dcf77f">sdsl::util::get_size_in_bytes</a> </td>
           <td>(</td>
           <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -467,17 +475,17 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a581dc4033b0d6384f7586e3383cd3368"></a>
+<a class="anchor" id="ae996eb7fbeb902a20cee253f232bf3c1"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">double <a class="el" href="namespacesdsl_1_1util.html#a581dc4033b0d6384f7586e3383cd3368">sdsl::util::get_size_in_mega_bytes</a> </td>
+          <td class="memname">double <a class="el" href="namespacesdsl_1_1util.html#ae996eb7fbeb902a20cee253f232bf3c1">sdsl::util::get_size_in_mega_bytes</a> </td>
           <td>(</td>
           <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -487,7 +495,7 @@ template&lt;class T &gt; </div>
 <p>Get the size of a data structure in mega bytes (MB). </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">v</td><td>A reference to the data structure for which the size in bytes should be calculated. </td></tr>
+    <tr><td class="paramname">t</td><td>A reference to the data structure for which the size in bytes should be calculated. </td></tr>
   </table>
   </dd>
 </dl>
@@ -766,7 +774,7 @@ template&lt;class S , class P &gt; </div>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 10 2012 18:54:33 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 13 2012 14:05:51 for SDSL: Succinct Data Structure Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

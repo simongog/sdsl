@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Succinct Data Structure Library (sdsl): sdsl/include/sdsl/suffixtrees.hpp Source File</title>
+<title>SDSL: Succinct Data Structure Library: sdsl/include/sdsl/suffixtrees.hpp Source File</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -27,7 +27,7 @@
   
   
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Succinct Data Structure Library (sdsl)
+   <div id="projectname">SDSL: Succinct Data Structure Library
    
    </div>
    <div id="projectbrief">A C++ template library for succinct data structures</div>
@@ -194,10 +194,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00110"></a>00110     cout &lt;&lt; <span class="stringliteral">&quot;# alphabet size: &quot;</span> &lt;&lt; (int)cst.csa.sigma &lt;&lt; endl;
 <a name="l00111"></a>00111     cout &lt;&lt; <span class="stringliteral">&quot;# text size: &quot;</span> &lt;&lt; (text_size = cst.csa.size()) &lt;&lt; endl;
 <a name="l00112"></a>00112     cout &lt;&lt; <span class="stringliteral">&quot;# nodes: &quot;</span> &lt;&lt; cst.nodes() &lt;&lt; endl;
-<a name="l00113"></a>00113     cout &lt;&lt; <span class="stringliteral">&quot;# cst in MB: &quot;</span> &lt;&lt; (cst_size=(((double)<a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(cst))/(1024.0*1024.0))) &lt;&lt; endl;
-<a name="l00114"></a>00114     cout &lt;&lt; <span class="stringliteral">&quot;# csa in MB: &quot;</span> &lt;&lt; (csa_size=(((double)<a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(cst.csa))/(1024.0*1024.0))) &lt;&lt; endl;
-<a name="l00115"></a>00115     cout &lt;&lt; <span class="stringliteral">&quot;# csa samples in MB: &quot;</span> &lt;&lt; ((double)<a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(cst.csa.sa_sample)+<a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(cst.csa.isa_sample))/(1024.0*1024.0) &lt;&lt; endl;
-<a name="l00116"></a>00116     cout &lt;&lt; <span class="stringliteral">&quot;# lcp in MB: &quot;</span> &lt;&lt; (lcp_size=(((double)<a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(cst.lcp))/(1024.0*1024.0))) &lt;&lt; endl;
+<a name="l00113"></a>00113     cout &lt;&lt; <span class="stringliteral">&quot;# cst in MB: &quot;</span> &lt;&lt; (cst_size=(((double)<a class="code" href="namespacesdsl_1_1util.html#a33833c48ce3ad599a19dcd3276dcf77f" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(cst))/(1024.0*1024.0))) &lt;&lt; endl;
+<a name="l00114"></a>00114     cout &lt;&lt; <span class="stringliteral">&quot;# csa in MB: &quot;</span> &lt;&lt; (csa_size=(((double)<a class="code" href="namespacesdsl_1_1util.html#a33833c48ce3ad599a19dcd3276dcf77f" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(cst.csa))/(1024.0*1024.0))) &lt;&lt; endl;
+<a name="l00115"></a>00115     cout &lt;&lt; <span class="stringliteral">&quot;# csa samples in MB: &quot;</span> &lt;&lt; ((double)<a class="code" href="namespacesdsl_1_1util.html#a33833c48ce3ad599a19dcd3276dcf77f" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(cst.csa.sa_sample)+<a class="code" href="namespacesdsl_1_1util.html#a33833c48ce3ad599a19dcd3276dcf77f" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(cst.csa.isa_sample))/(1024.0*1024.0) &lt;&lt; endl;
+<a name="l00116"></a>00116     cout &lt;&lt; <span class="stringliteral">&quot;# lcp in MB: &quot;</span> &lt;&lt; (lcp_size=(((double)<a class="code" href="namespacesdsl_1_1util.html#a33833c48ce3ad599a19dcd3276dcf77f" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(cst.lcp))/(1024.0*1024.0))) &lt;&lt; endl;
 <a name="l00117"></a>00117     cout &lt;&lt; <span class="stringliteral">&quot;# nav in MB: &quot;</span> &lt;&lt; (nav_size=(cst_size-lcp_size-csa_size)) &lt;&lt; endl;
 <a name="l00118"></a>00118     text_size /= 1024*1024;
 <a name="l00119"></a>00119     cout &lt;&lt; <span class="stringliteral">&quot;# &quot;</span>&lt;&lt; 8*csa_size/text_size &lt;&lt;<span class="stringliteral">&quot; &quot;</span> &lt;&lt; 8*lcp_size/text_size &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; 8*nav_size/text_size &lt;&lt; endl;
@@ -295,7 +295,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 10 2012 18:54:28 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 13 2012 14:05:48 for SDSL: Succinct Data Structure Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

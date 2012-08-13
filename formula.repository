@@ -1,0 +1,266 @@
+\form#0:$ O( sa.size() ) $
+\form#1:$0..sa.size()-1$
+\form#2:$ \Order{sa.size()}, i.e. linear time complexity $
+\form#3:\[ psv[i] = \begin{array}{rl} a.size() &\mbox{ if} \min\{ a[j] \mid j<i \} \geq a[i] \\ max\{j\mid a[j] < a[i] \wedge j<i\} &\mbox{ otherwise.}\end{array} \]
+\form#4:\[ nsv[i] = \begin{array}{rl} 0 &\mbox{ if} \min\{ a[j] \mid j>i \} \geq a[i] \\ min\{j\mid a[j] < a[i] \wedge j>i\} &\mbox{ otherwise.}\end{array} \]
+\form#5:$ \Order{ 2*SA.size() }$
+\form#6:$\Psi$
+\form#7:$ \Order{3*SA.size() }$
+\form#8:$ sa.size() \cdot \log(RandomAccessContainer::size_type)$
+\form#9:$ \Order{ SA.size() } $
+\form#10:$ SA^{-1}[0]$
+\form#11:$\Psi-$
+\form#12:$ SA^{-1}[0] $
+\form#13:$ SA^{-1}[0]=\Psi(0) $
+\form#14:$\Order{psi.size()}$
+\form#15:$ \Order{n \log n} $
+\form#16:$ n=$
+\form#17:$ \Order{2n + min(block\_size, \frac{n}{block\_size} )\cdot \log n } $
+\form#18:$ \Order{n} $
+\form#19:$ \Order{2n + n} $
+\form#20:$n$
+\form#21:$ \Order{n + 2n\log n } $
+\form#22:$ bp[i]=1 $
+\form#23:$ j\leq i $
+\form#24:$ excess(j) = excess(i+1)+rel $
+\form#25:$ bp[i]=0 $
+\form#26:$ csa.size()>0 $
+\form#27:$ \Order{2n} $
+\form#28:$ \Order{n \cdot \log n } $
+\form#29:$\Order{n}$
+\form#30:$\Order{2n}$
+\form#31:$[\ell..r]$
+\form#32:$ [\ell..r]$
+\form#33:$ [\ell_{new}..r_{new}] $
+\form#34:$ 0 \leq \ell \leq r < csa.size() $
+\form#35:$ \Order{ t_{rank\_bwt} } $
+\form#36:$ \Order{ len \cdot t_{rank\_bwt} } $
+\form#37:$ \Order{ t_{backward\_search} } $
+\form#38:$ \Order{ t_{backward\_search} + z \cdot t_{SA} } $
+\form#39:$z$
+\form#40:$begin <= end$
+\form#41:$ end < csa.size() $
+\form#42:$ \Order{ (end-begin+1) \cdot t_{\Psi} + t_{SA^{-1}} } $
+\form#43:$begin$
+\form#44:$end$
+\form#45:$d$
+\form#46:$v$
+\form#47:$ \Order{ t_{\Psi} } $
+\form#48:$ \Order{t_{cst.child}} $
+\form#49:$ cst.depth(v)+1$
+\form#50:$ 0 \leq i < size() $
+\form#51:$ \Order{1} $
+\form#52:$2^64$
+\form#53:$[0..7]$
+\form#54:$i\in \{1,3,5,7\}$
+\form#55:$[1..b1Cnt(x)]$
+\form#56:$i \in [1..b11Cnt(x)]$
+\form#57:$ len \in [0..64] $
+\form#58:$[idx..\infty )$
+\form#59:$[0..idx]$
+\form#60:$0<excess\_val \leq 64 $
+\form#61:$ 0\leq i < size() $
+\form#62:$1\leq i < rank(size())$
+\form#63:$ 0\leq select(i) < size() $
+\form#64:$ i<j \wedge findclose(i) < j $
+\form#65:$ \Order{block\_size} $
+\form#66:$ \ell \leq i < r $
+\form#67:$ find_close(i) \geq r $
+\form#68:$[l..r]$
+\form#69:$l\leq r$
+\form#70:$l \leq r$
+\form#71:$ k<j \wedge k>findclose(j) $
+\form#72:$(i,\mu(i))$
+\form#73:$(j,\mu(j))$
+\form#74:$ findclose(i) < k < j$
+\form#75:$ \Order{size()}$
+\form#76:$ j>i $
+\form#77:$ excess(j) = excess(i)+rel $
+\form#78:$i$
+\form#79:$ j>i$
+\form#80:$j$
+\form#81:$ j<i $
+\form#82:$i<j$
+\form#83:$ excess(j) = excess(i)+rel$
+\form#84:$ j \leq sml_block_idx\cdot SmlBlkSize+(SmlBlkSize-1) $
+\form#85:$ excess(j)=desired\_excess $
+\form#86:$ j \geq sml_block_idx\cdot SmlBlkSize $
+\form#87:$s_{SA}$
+\form#88:$s_{SA}th$
+\form#89:$\log n$
+\form#90:$s_{\Psi}$
+\form#91:$\CSA$
+\form#92:$ i \in [0..size()-1]$
+\form#93:$ \Order{s_{SA}\cdot t_{\Psi}} $
+\form#94:$t_{\Psi}$
+\form#95:$ \Order{s_{SA^{-1}}\cdot t_{\Psi}} $
+\form#96:$s_{SA^{-1}}$
+\form#97:$i\in [0..size()]$
+\form#98:$ \Order{\log n t_{\Psi}} $
+\form#99:$i\in [1..rank(size(),c)]$
+\form#100:$ \Order{t_{\Psi}} $
+\form#101:$O(\log\log n)$
+\form#102:$ 2n\cdot \log n$
+\form#103:$size()$
+\form#104:$ \Order{\log n} $
+\form#105:$i\in [0..size()-1]$
+\form#106:$ \Order{\log |\Sigma|} $
+\form#107:$ \Order{\min\{k\cdot \log |\Sigma|, (s_{\SUF}+s_{\ISA})\log|\Sigma|\}} $
+\form#108:$LF[\Psi(i)]=i$
+\form#109:$csa$
+\form#110:$lcp$
+\form#111:$bp\_support$
+\form#112:$bp$
+\form#113:$2n+n=3n$
+\form#114:$4n$
+\form#115:$n=$
+\form#116:$1\leq i\leq size()$
+\form#117:$ 1 \leq i \leq size() $
+\form#118:$ \Order{1}$
+\form#119:$i \geq 1$
+\form#120:$ \Order{\frac{\sigma}{w}} $
+\form#121:$\Order{1}$
+\form#122:$ 1 \leq i \leq degree(v) $
+\form#123:$ \Order{(\saaccess+\isaaccess) \cdot \log\sigma + \lcpaccess} $
+\form#124:$ d > 0 \wedge d < depth(v) $
+\form#125:$ \Order{ \log\sigma + (\saaccess+\isaaccess) } $
+\form#126:$ 1 \leq d \leq depth(v) $
+\form#127:$ \Order{\rrenclose}\ $
+\form#128:$\Order{t_{SA}}$
+\form#129:$ \Order{z} $
+\form#130:$ \Order{ \rrenclose } $
+\form#131:$ \Order{ \saaccess } $
+\form#132:$5n$
+\form#133:$\Order{1} $
+\form#134:$bp\_rank\_10$
+\form#135:$bp\_select\_10$
+\form#136:$1\leq i\leq csa.size()$
+\form#137:$ 1 \leq i \leq csa.size() $
+\form#138:$ \Order{\lcpaccess \vee \saaccess} $
+\form#139:$ \Order{i} $
+\form#140:$ i \leq \sigma $
+\form#141:$ \Order{ 1 } $
+\form#142:$ \log n $
+\form#143:$ \Order{\sigma} $
+\form#144:$\ell-[left..right]$
+\form#145:$LCP$
+\form#146:$[left..right]$
+\form#147:$1\leq i<j\leq n$
+\form#148:$\ell$
+\form#149:$LCP[left]<\ell$
+\form#150:$LCP[k]\geq \ell$
+\form#151:$k$
+\form#152:$left+1\leq k \leq right$
+\form#153:$LCP[k] = \ell$
+\form#154:$LCP[right+1]<\ell$
+\form#155:$left=right$
+\form#156:$\ell=LCP[left]$
+\form#157:$2n$
+\form#158:$ \Order{\saaccess} $
+\form#159:$ \Order{\lcpaccess \cdot \log\sigma}$
+\form#160:$ \Order{i \cdot \lcpaccess}$
+\form#161:$\Order{\log i \cdot \lcpaccess}$
+\form#162:$ \Order{\lcpaccess \cdot \log\sigma} $
+\form#163:$ \Order{\lcpaccess} $
+\form#164:$ \Order{ \sigma \cdot (\saaccess+\isaaccess+\lcpaccess) } $
+\form#165:$ \Order{(\lcpaccess+\saaccess+\isaaccess) \cdot \log\sigma} $
+\form#166:$ \Order{ \rrenclose + \lcpaccess \cdot \log\sigma} $
+\form#167:$ \Order{\lcpaccess}$
+\form#168:$ \Order{\log size()} $
+\form#169:$\delta$
+\form#170:$idx\in [0..v->size()]$
+\form#171:$0\leq offset< 64$
+\form#172:$ \Order{\log m} $
+\form#173:$w\in [1..64]$
+\form#174:$ 5n $
+\form#175:$ 4n $
+\form#176:$ 2n $
+\form#177:$5n bytes$
+\form#178:$ n+\Order{1} $
+\form#179:$K=\lceil k/(b-1)\rceil$
+\form#180:$K$
+\form#181:$ b $
+\form#182:$\Order{\log n/b}$
+\form#183:$ log n $
+\form#184:$\Order{\log n}$
+\form#185:$n=size()$
+\form#186:$ 2n+o(n) $
+\form#187:$ \Order{t_{find\_close} + t_{rank}} $
+\form#188:$H_0$
+\form#189:$ i \in [1..degree(v)] $
+\form#190:$i\in [1..ones()]$
+\form#191:$ i \in [0..size()-1] $
+\form#192:$j \leq i$
+\form#193:$ j \geq i $
+\form#194:$ 0 \leq idx < size() $
+\form#195:$i\geq idx$
+\form#196:$ 0\leq idx < size()$
+\form#197:$i \leq idx$
+\form#198:$ 0 \leq idx < size()$
+\form#199:$ 0.25n$
+\form#200:$ 0.0625n$
+\form#201:$4 n+o(n) bits$
+\form#202:$ 4n+o(n) $
+\form#203:$ n=size() $
+\form#204:$\ell \leq i \leq r$
+\form#205:$ v[i] $
+\form#206:$ \ell \leq r $
+\form#207:$2 n+o(n) bits$
+\form#208:$ \Order{2n}+o(n) $
+\form#209:$\Order{n\log^2 n} bits$
+\form#210:$ \Order{n\log^2 n} $
+\form#211:${m \choose k}$
+\form#212:$ k\leq m\leq \leq n$
+\form#213:$ n/\lceil\log{n+1}\rceil $
+\form#214:$ k<n\log(n) $
+\form#215:$len$
+\form#216:${n \choose k}$
+\form#217:$ off $
+\form#218:$ block\_size \in \{1,...,23\} $
+\form#219:$0\leq i \leq size()$
+\form#220:$ \Order{ sample\_rate of the rrr\_vector} $
+\form#221:$ \Order{t_{select0} + n/m} $
+\form#222:$\Order{t_{select0}+\log(n/m)}$
+\form#223:$\in [0..v.size()-1]$
+\form#224:$ m $
+\form#225:$\frac{m}{4096} \log{n} \leq \frac{64}{n}$
+\form#226:$ \log n = 35 $
+\form#227:$ \frac{4\log\log n}{64} \leq \frac{24}{64} = 0.375$
+\form#228:$0$
+\form#229:$n-1$
+\form#230:$\psi$
+\form#231:$ \Order{\saaccess+\isaaccess} $
+\form#232:$ 2^{12}=4096 $
+\form#233:$times$
+\form#234:$\Sigma$
+\form#235:$\Sigma << n$
+\form#236:$wt$
+\form#237:$wt[i]$
+\form#238:$wt.rank(i,c)$
+\form#239:$c$
+\form#240:$wt.select(j,c)$
+\form#241:$\Order{n\log|\Sigma| + 2|\Sigma|\log n}$
+\form#242:$ \Order{n\log|\Sigma|}$
+\form#243:$n=size$
+\form#244:$i \in [0..size()-1]$
+\form#245:$i\in[0..size()]$
+\form#246:$ 0 \leq p < k $
+\form#247:$ \Order{\min{\sigma, k \log \sigma}} $
+\form#248:$ i\leq j $
+\form#249:$ cs.size() \geq \sigma $
+\form#250:$ rank_{c_i}.size() \geq \sigma $
+\form#251:$ rank_{c_j}.size() \geq \sigma $
+\form#252:$\Sigma \ll n$
+\form#253:$\Order{n H_0 + 2|\Sigma|\log n}$
+\form#254:$ \Order{H_0} $
+\form#255:$ H_0 $
+\form#256:$\Order{n\log|\Sigma|}$
+\form#257:$ 3n\log|\Sigma| $
+\form#258:$3n\log n $
+\form#259:$ n\log|\Sigma| + O(1)$
+\form#260:$ L $
+\form#261:$ \Order{H_0 + \log L} $
+\form#262:$L$
+\form#263:$ \Order{H_0 \log L} $
+\form#264:$ \Order{\log n H_0 \log L} $
+\form#265:$ nH_0 + 2|\Sigma|\log n + 2n + o(n) $

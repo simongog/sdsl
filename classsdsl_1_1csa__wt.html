@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Succinct Data Structure Library (sdsl): sdsl::csa_wt&lt; WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType &gt; Class Template Reference</title>
+<title>SDSL: Succinct Data Structure Library: sdsl::csa_wt&lt; WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType &gt; Class Template Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -27,7 +27,7 @@
   
   
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Succinct Data Structure Library (sdsl)
+   <div id="projectname">SDSL: Succinct Data Structure Library
    
    </div>
    <div id="projectbrief">A C++ template library for succinct data structures</div>
@@ -216,8 +216,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>construct</b> (tMSS &
 <tr class="memdesc:a512eca5b58b1bbd34e759eb6b2ac7de9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality Operator.  <a href="#a512eca5b58b1bbd34e759eb6b2ac7de9"></a><br/></td></tr>
 <tr class="memitem:a518aae765eaf510ca6bb72fb7a732568"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1csa__wt.html#a518aae765eaf510ca6bb72fb7a732568">operator!=</a> (const <a class="el" href="classsdsl_1_1csa__wt.html">csa_wt</a> &amp;csa) const </td></tr>
 <tr class="memdesc:a518aae765eaf510ca6bb72fb7a732568"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unequality Operator.  <a href="#a518aae765eaf510ca6bb72fb7a732568"></a><br/></td></tr>
-<tr class="memitem:a54bb45c439e023bd35b82c38e0f1faca"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1csa__wt.html#a54bb45c439e023bd35b82c38e0f1faca">serialize</a> (std::ostream &amp;out) const </td></tr>
-<tr class="memdesc:a54bb45c439e023bd35b82c38e0f1faca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize to a stream.  <a href="#a54bb45c439e023bd35b82c38e0f1faca"></a><br/></td></tr>
+<tr class="memitem:aa166ef3a038ecf791171ab74e8a9e5d0"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1csa__wt.html#aa166ef3a038ecf791171ab74e8a9e5d0">serialize</a> (std::ostream &amp;out, <a class="el" href="classsdsl_1_1structure__tree__node.html">structure_tree_node</a> *v=NULL, std::string name=&quot;&quot;) const </td></tr>
+<tr class="memdesc:aa166ef3a038ecf791171ab74e8a9e5d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize to a stream.  <a href="#aa166ef3a038ecf791171ab74e8a9e5d0"></a><br/></td></tr>
 <tr class="memitem:a7ea024aa093debef6605971583898c34"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1csa__wt.html#a7ea024aa093debef6605971583898c34">load</a> (std::istream &amp;in)</td></tr>
 <tr class="memdesc:a7ea024aa093debef6605971583898c34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load from a stream.  <a href="#a7ea024aa093debef6605971583898c34"></a><br/></td></tr>
 <tr class="memitem:a0f011fe73559e9f630e14b47b3df5f05"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0f011fe73559e9f630e14b47b3df5f05"></a>
@@ -227,7 +227,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>set_psi_sample_dens</
 <tr class="memitem:ac6d316f3d719f20c13023fa5dfcf83ce"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1csa__wt.html#ac6d316f3d719f20c13023fa5dfcf83ce">rank_bwt</a> (size_type i, const char_type c) const </td></tr>
 <tr class="memdesc:ac6d316f3d719f20c13023fa5dfcf83ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates how many symbols c are in the prefix [0..i-1] of the BWT of the original text.  <a href="#ac6d316f3d719f20c13023fa5dfcf83ce"></a><br/></td></tr>
 <tr class="memitem:aba7d6496a4a8c806eb677eb39322fca6"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1csa__wt.html#aba7d6496a4a8c806eb677eb39322fca6">select_bwt</a> (size_type i, const char_type c) const </td></tr>
-<tr class="memdesc:aba7d6496a4a8c806eb677eb39322fca6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the ith occurence of symbol c in the BWT of the original text.  <a href="#aba7d6496a4a8c806eb677eb39322fca6"></a><br/></td></tr>
+<tr class="memdesc:aba7d6496a4a8c806eb677eb39322fca6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the ith occurrence of symbol c in the BWT of the original text.  <a href="#aba7d6496a4a8c806eb677eb39322fca6"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ae7320a5b3a4b93c03fc4a0044c7a2a46"><td class="memItemLeft" align="right" valign="top">static size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1csa__wt.html#ae7320a5b3a4b93c03fc4a0044c7a2a46">max_size</a> ()</td></tr>
@@ -576,31 +576,47 @@ template&lt;class WaveletTree, uint32_t SampleDens, uint32_t InvSampleDens, uint
 </div>
 <div class="memdoc">
 
-<p>Calculates the ith occurence of symbol c in the BWT of the original text. </p>
+<p>Calculates the ith occurrence of symbol c in the BWT of the original text. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>The ith occurence. <img class="formulaInl" alt="$i\in [1..rank(size(),c)]$" src="form_99.png"/>. </td></tr>
+    <tr><td class="paramname">i</td><td>The ith occurrence. <img class="formulaInl" alt="$i\in [1..rank(size(),c)]$" src="form_99.png"/>. </td></tr>
     <tr><td class="paramname">c</td><td>The symbol c. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns:</dt><dd>The ith occurence symbol c in the the BWT or <a class="el" href="classsdsl_1_1csa__wt.html#abfc0df2b14ba06181938e61b4bc39db1" title="Number of elements in the .">size()</a> if no ith occurence of the symbol exists in the BWT. </dd></dl>
+<dl class="section return"><dt>Returns:</dt><dd>The ith occurrence symbol c in the the BWT or <a class="el" href="classsdsl_1_1csa__wt.html#abfc0df2b14ba06181938e61b4bc39db1" title="Number of elements in the .">size()</a> if no ith occurence of the symbol exists in the BWT. </dd></dl>
 <dl class="section user"><dt>Time complexity</b></dt><dd><img class="formulaInl" alt="$ \Order{t_{\Psi}} $" src="form_100.png"/> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a54bb45c439e023bd35b82c38e0f1faca"></a>
+<a class="anchor" id="aa166ef3a038ecf791171ab74e8a9e5d0"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class WaveletTree , uint32_t SampleDens, uint32_t InvSampleDens, uint8_t fixedIntWidth, class charType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classsdsl_1_1csa__wt.html">csa_wt</a>&lt; WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType &gt;::size_type <a class="el" href="classsdsl_1_1csa__wt.html">sdsl::csa_wt</a>&lt; WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType &gt;::<a class="el" href="classsdsl_1_1csa__wt.html#a54bb45c439e023bd35b82c38e0f1faca">serialize</a> </td>
+          <td class="memname"><a class="el" href="classsdsl_1_1csa__wt.html">csa_wt</a>&lt; WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType &gt;::size_type <a class="el" href="classsdsl_1_1csa__wt.html">sdsl::csa_wt</a>&lt; WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType &gt;::<a class="el" href="classsdsl_1_1csa__wt.html#aa166ef3a038ecf791171ab74e8a9e5d0">serialize</a> </td>
           <td>(</td>
           <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>out</em></td><td>)</td>
-          <td> const</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsdsl_1_1structure__tree__node.html">structure_tree_node</a> *&#160;</td>
+          <td class="paramname"><em>v</em> = <code>NULL</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
         </tr>
       </table>
 </div>
@@ -676,7 +692,7 @@ template&lt;class WaveletTree, uint32_t SampleDens, uint32_t InvSampleDens, uint
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 10 2012 18:54:30 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 13 2012 14:05:49 for SDSL: Succinct Data Structure Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

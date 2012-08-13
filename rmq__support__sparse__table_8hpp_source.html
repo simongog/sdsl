@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Succinct Data Structure Library (sdsl): sdsl/include/sdsl/rmq_support_sparse_table.hpp Source File</title>
+<title>SDSL: Succinct Data Structure Library: sdsl/include/sdsl/rmq_support_sparse_table.hpp Source File</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -27,7 +27,7 @@
   
   
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Succinct Data Structure Library (sdsl)
+   <div id="projectname">SDSL: Succinct Data Structure Library
    
    </div>
    <div id="projectbrief">A C++ template library for succinct data structures</div>
@@ -243,38 +243,40 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00170"></a>00170                 <span class="keywordflow">return</span> m_v-&gt;size();
 <a name="l00171"></a>00171         }
 <a name="l00172"></a>00172 
-<a name="l00173"></a>00173         size_type serialize(std::ostream&amp; out)<span class="keyword">const </span>{
+<a name="l00173"></a>00173         size_type serialize(std::ostream&amp; out, structure_tree_node* v=NULL, std::string name=<span class="stringliteral">&quot;&quot;</span>)<span class="keyword">const </span>{
 <a name="l00174"></a>00174             size_type written_bytes = 0;
-<a name="l00175"></a>00175             written_bytes += util::write_member(m_k, out);
-<a name="l00176"></a>00176             <span class="keywordflow">if</span> (m_k &gt; 0) {
-<a name="l00177"></a>00177                 assert(m_table != NULL);
-<a name="l00178"></a>00178                 <span class="keywordflow">for</span> (size_type i=0; i &lt; m_k; ++i)
-<a name="l00179"></a>00179                     written_bytes += m_table[i].serialize(out);
-<a name="l00180"></a>00180             }
-<a name="l00181"></a>00181             <span class="keywordflow">return</span> written_bytes;
-<a name="l00182"></a>00182         }
-<a name="l00183"></a>00183 
-<a name="l00184"></a>00184         <span class="keywordtype">void</span> load(std::istream&amp; in, <span class="keyword">const</span> RandomAccessContainer* v) {
-<a name="l00185"></a>00185             set_vector(v);
-<a name="l00186"></a>00186             util::read_member(m_k, in);
-<a name="l00187"></a>00187             <span class="keywordflow">if</span> (m_k &gt;0) {
-<a name="l00188"></a>00188                 <span class="keywordflow">if</span> (m_table != NULL)
-<a name="l00189"></a>00189                     <span class="keyword">delete</span> [] m_table;
-<a name="l00190"></a>00190                 m_table = <span class="keyword">new</span> int_vector&lt;&gt;[m_k];
-<a name="l00191"></a>00191                 <span class="keywordflow">for</span> (size_type i=0; i &lt; m_k; ++i)
-<a name="l00192"></a>00192                     m_table[i].load(in);
-<a name="l00193"></a>00193             }
-<a name="l00194"></a>00194         }
-<a name="l00195"></a>00195 };
-<a name="l00196"></a>00196 
-<a name="l00197"></a>00197 }<span class="comment">// end namespace sds</span>
+<a name="l00175"></a>00175             structure_tree_node* child = structure_tree::add_child(v, name, util::class_name(*<span class="keyword">this</span>));
+<a name="l00176"></a>00176             written_bytes += util::write_member(m_k, out);
+<a name="l00177"></a>00177             <span class="keywordflow">if</span> (m_k &gt; 0) {
+<a name="l00178"></a>00178                 assert(m_table != NULL);
+<a name="l00179"></a>00179                 <span class="keywordflow">for</span> (size_type i=0; i &lt; m_k; ++i)
+<a name="l00180"></a>00180                     written_bytes += m_table[i].serialize(out);
+<a name="l00181"></a>00181             }
+<a name="l00182"></a>00182             structure_tree::add_size(child, written_bytes);
+<a name="l00183"></a>00183             <span class="keywordflow">return</span> written_bytes;
+<a name="l00184"></a>00184         }
+<a name="l00185"></a>00185 
+<a name="l00186"></a>00186         <span class="keywordtype">void</span> load(std::istream&amp; in, <span class="keyword">const</span> RandomAccessContainer* v) {
+<a name="l00187"></a>00187             set_vector(v);
+<a name="l00188"></a>00188             util::read_member(m_k, in);
+<a name="l00189"></a>00189             <span class="keywordflow">if</span> (m_k &gt;0) {
+<a name="l00190"></a>00190                 <span class="keywordflow">if</span> (m_table != NULL)
+<a name="l00191"></a>00191                     <span class="keyword">delete</span> [] m_table;
+<a name="l00192"></a>00192                 m_table = <span class="keyword">new</span> int_vector&lt;&gt;[m_k];
+<a name="l00193"></a>00193                 <span class="keywordflow">for</span> (size_type i=0; i &lt; m_k; ++i)
+<a name="l00194"></a>00194                     m_table[i].load(in);
+<a name="l00195"></a>00195             }
+<a name="l00196"></a>00196         }
+<a name="l00197"></a>00197 };
 <a name="l00198"></a>00198 
-<a name="l00199"></a>00199 <span class="preprocessor">#endif // end file </span>
+<a name="l00199"></a>00199 }<span class="comment">// end namespace sds</span>
+<a name="l00200"></a>00200 
+<a name="l00201"></a>00201 <span class="preprocessor">#endif // end file </span>
 </pre></div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 10 2012 18:54:27 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 13 2012 14:05:47 for SDSL: Succinct Data Structure Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

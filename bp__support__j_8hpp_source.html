@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Succinct Data Structure Library (sdsl): sdsl/include/sdsl/bp_support_j.hpp Source File</title>
+<title>SDSL: Succinct Data Structure Library: sdsl/include/sdsl/bp_support_j.hpp Source File</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -27,7 +27,7 @@
   
   
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Succinct Data Structure Library (sdsl)
+   <div id="projectname">SDSL: Succinct Data Structure Library
    
    </div>
    <div id="projectbrief">A C++ template library for succinct data structures</div>
@@ -537,75 +537,77 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00490"></a>00490         }
 <a name="l00491"></a>00491 
 <a name="l00493"></a>00493 
-<a name="l00497"></a><a class="code" href="classsdsl_1_1bp__support__j.html#aab4ac0c64b488b59977eaac914da0876">00497</a>         size_type <a class="code" href="classsdsl_1_1bp__support__j.html#aab4ac0c64b488b59977eaac914da0876" title="Serializes the bp_support_j to a stream.">serialize</a>(std::ostream&amp; out)<span class="keyword"> const </span>{
-<a name="l00498"></a>00498             size_type written_bytes = 0;
-<a name="l00499"></a>00499             written_bytes += m_rank.serialize(out);
-<a name="l00500"></a>00500             written_bytes += m_select.serialize(out);
-<a name="l00501"></a>00501 
-<a name="l00502"></a>00502             written_bytes += m_pioneer_bitmap.<a class="code" href="classsdsl_1_1int__vector.html#a32bfb973d19b10c8e9d32107805bbab0" title="Serializes the int_vector to a stream.">serialize</a>(out);
-<a name="l00503"></a>00503             written_bytes += m_rank_pioneer_bitmap.serialize(out);
-<a name="l00504"></a>00504             written_bytes += m_pioneer.<a class="code" href="classsdsl_1_1int__vector.html#a32bfb973d19b10c8e9d32107805bbab0" title="Serializes the int_vector to a stream.">serialize</a>(out);
-<a name="l00505"></a>00505 
-<a name="l00506"></a>00506             written_bytes += m_enclose_pioneer_bitmap.<a class="code" href="classsdsl_1_1int__vector.html#a32bfb973d19b10c8e9d32107805bbab0" title="Serializes the int_vector to a stream.">serialize</a>(out);
-<a name="l00507"></a>00507             written_bytes += m_rank_enclose_pioneer_bitmap.serialize(out);
-<a name="l00508"></a>00508             written_bytes += m_enclose_pioneer.<a class="code" href="classsdsl_1_1int__vector.html#a32bfb973d19b10c8e9d32107805bbab0" title="Serializes the int_vector to a stream.">serialize</a>(out);
-<a name="l00509"></a>00509 
-<a name="l00510"></a>00510             <span class="keywordflow">return</span> written_bytes;
-<a name="l00511"></a>00511         }
-<a name="l00512"></a>00512 
+<a name="l00497"></a><a class="code" href="classsdsl_1_1bp__support__j.html#adcac6f93e1c2c2551007d622e162737a">00497</a>         size_type <a class="code" href="classsdsl_1_1bp__support__j.html#adcac6f93e1c2c2551007d622e162737a" title="Serializes the bp_support_j to a stream.">serialize</a>(std::ostream&amp; out, <a class="code" href="classsdsl_1_1structure__tree__node.html" title="Class for a node of the structure tree.">structure_tree_node</a>* v=NULL, std::string name=<span class="stringliteral">&quot;&quot;</span>)<span class="keyword">const </span>{
+<a name="l00498"></a>00498             <a class="code" href="classsdsl_1_1structure__tree__node.html" title="Class for a node of the structure tree.">structure_tree_node</a>* child = structure_tree::add_child(v, name, util::class_name(*<span class="keyword">this</span>));
+<a name="l00499"></a>00499             size_type written_bytes = 0;
+<a name="l00500"></a>00500             written_bytes += m_rank.serialize(out, child, <span class="stringliteral">&quot;bp_rank&quot;</span>);
+<a name="l00501"></a>00501             written_bytes += m_select.serialize(out, child, <span class="stringliteral">&quot;bp_select&quot;</span>);
+<a name="l00502"></a>00502 
+<a name="l00503"></a>00503             written_bytes += m_pioneer_bitmap.<a class="code" href="classsdsl_1_1int__vector.html#a54bb26e2d6f6932b41ab12e52746e86a" title="Serializes the int_vector to a stream.">serialize</a>(out, child, <span class="stringliteral">&quot;pioneer_bitmap&quot;</span>);
+<a name="l00504"></a>00504             written_bytes += m_rank_pioneer_bitmap.serialize(out, child, <span class="stringliteral">&quot;pioneer_bitmap_rank&quot;</span>);
+<a name="l00505"></a>00505             written_bytes += m_pioneer.<a class="code" href="classsdsl_1_1int__vector.html#a54bb26e2d6f6932b41ab12e52746e86a" title="Serializes the int_vector to a stream.">serialize</a>(out, child, <span class="stringliteral">&quot;pioneer&quot;</span>);
+<a name="l00506"></a>00506 
+<a name="l00507"></a>00507             written_bytes += m_enclose_pioneer_bitmap.<a class="code" href="classsdsl_1_1int__vector.html#a54bb26e2d6f6932b41ab12e52746e86a" title="Serializes the int_vector to a stream.">serialize</a>(out, child, <span class="stringliteral">&quot;enclose&quot;</span>);
+<a name="l00508"></a>00508             written_bytes += m_rank_enclose_pioneer_bitmap.serialize(out, child, <span class="stringliteral">&quot;enclose_rank&quot;</span>);
+<a name="l00509"></a>00509             written_bytes += m_enclose_pioneer.<a class="code" href="classsdsl_1_1int__vector.html#a54bb26e2d6f6932b41ab12e52746e86a" title="Serializes the int_vector to a stream.">serialize</a>(out, child, <span class="stringliteral">&quot;enclose_pioneer&quot;</span>);
+<a name="l00510"></a>00510 
+<a name="l00511"></a>00511             structure_tree::add_size(child, written_bytes);
+<a name="l00512"></a>00512             <span class="keywordflow">return</span> written_bytes;
+<a name="l00513"></a>00513         }
 <a name="l00514"></a>00514 
-<a name="l00518"></a><a class="code" href="classsdsl_1_1bp__support__j.html#a796d6f65eb417727fbc22bf3fd4a7702">00518</a>         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1bp__support__j.html#a796d6f65eb417727fbc22bf3fd4a7702" title="Load the bp_support_j for a bit_vector v.">load</a>(std::istream&amp; in, <span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">bit_vector</a>* bp) {
-<a name="l00519"></a>00519             m_bp = bp;
-<a name="l00520"></a>00520             <span class="keywordflow">if</span> (m_bp == NULL)
-<a name="l00521"></a>00521                 <span class="keywordflow">return</span>;
-<a name="l00522"></a>00522             m_size = m_bp-&gt;<a class="code" href="classsdsl_1_1int__vector.html#aea4fcbbab7fbef9c1cc4a4c89f4b1520" title="The number of elements in the int_vector.">size</a>();
-<a name="l00523"></a>00523             m_block_size = 64;
-<a name="l00524"></a>00524             m_blocks = (m_size+m_block_size-1)/m_block_size;
-<a name="l00525"></a>00525 
-<a name="l00526"></a>00526             m_rank.load(in, m_bp);
-<a name="l00527"></a>00527             m_select.load(in, m_bp);
-<a name="l00528"></a>00528 
-<a name="l00529"></a>00529             m_pioneer_bitmap.<a class="code" href="classsdsl_1_1int__vector.html#a57c9fc2fdc93eeaa477a49389e7a47ac" title="Load the int_vector for a stream.">load</a>(in);
-<a name="l00530"></a>00530             m_rank_pioneer_bitmap.load(in, &amp;m_pioneer_bitmap);
-<a name="l00531"></a>00531             m_pioneer.<a class="code" href="classsdsl_1_1int__vector.html#a57c9fc2fdc93eeaa477a49389e7a47ac" title="Load the int_vector for a stream.">load</a>(in);
-<a name="l00532"></a>00532 
-<a name="l00533"></a>00533             m_enclose_pioneer_bitmap.<a class="code" href="classsdsl_1_1int__vector.html#a57c9fc2fdc93eeaa477a49389e7a47ac" title="Load the int_vector for a stream.">load</a>(in);
-<a name="l00534"></a>00534             m_rank_enclose_pioneer_bitmap.load(in, &amp;m_enclose_pioneer_bitmap);
-<a name="l00535"></a>00535             m_enclose_pioneer.<a class="code" href="classsdsl_1_1int__vector.html#a57c9fc2fdc93eeaa477a49389e7a47ac" title="Load the int_vector for a stream.">load</a>(in);
-<a name="l00536"></a>00536         }
-<a name="l00537"></a>00537 
-<a name="l00538"></a>00538         std::string get_info()<span class="keyword">const </span>{
-<a name="l00539"></a>00539             std::stringstream ss;
-<a name="l00540"></a>00540             <span class="keywordflow">if</span> (m_bp == NULL) {
-<a name="l00541"></a>00541                 ss&lt;&lt;<span class="stringliteral">&quot;ERROR: bp_support_j is unitialized!&quot;</span>&lt;&lt;std::endl;
-<a name="l00542"></a>00542                 <span class="keywordflow">return</span> ss.str();
-<a name="l00543"></a>00543             }
-<a name="l00544"></a>00544             ss&lt;&lt;<span class="stringliteral">&quot;number of parentheses: &quot;</span>&lt;&lt;m_bp-&gt;<a class="code" href="classsdsl_1_1int__vector.html#aea4fcbbab7fbef9c1cc4a4c89f4b1520" title="The number of elements in the int_vector.">size</a>()&lt;&lt;std::endl;
-<a name="l00545"></a>00545             ss&lt;&lt;<span class="stringliteral">&quot;number of pioneers: &quot;</span>&lt;&lt; m_pioneer.<a class="code" href="classsdsl_1_1int__vector.html#aea4fcbbab7fbef9c1cc4a4c89f4b1520" title="The number of elements in the int_vector.">size</a>()&lt;&lt;std::endl;
-<a name="l00546"></a>00546             std::ofstream out(<span class="stringliteral">&quot;/dev/null&quot;</span>);
-<a name="l00547"></a>00547             ss&lt;&lt;<span class="stringliteral">&quot;size of parentheses sequence: &quot;</span>&lt;&lt; m_bp-&gt;<a class="code" href="classsdsl_1_1int__vector.html#a32bfb973d19b10c8e9d32107805bbab0" title="Serializes the int_vector to a stream.">serialize</a>(out) &lt;&lt; std::endl;
-<a name="l00548"></a>00548             ss&lt;&lt;<span class="stringliteral">&quot;size of pioneer bitmap: &quot;</span>&lt;&lt; m_pioneer_bitmap.<a class="code" href="classsdsl_1_1int__vector.html#a32bfb973d19b10c8e9d32107805bbab0" title="Serializes the int_vector to a stream.">serialize</a>(out) &lt;&lt; std::endl;
-<a name="l00549"></a>00549             ss&lt;&lt;<span class="stringliteral">&quot;size of pioneer data  : &quot;</span>&lt;&lt; m_pioneer.<a class="code" href="classsdsl_1_1int__vector.html#a32bfb973d19b10c8e9d32107805bbab0" title="Serializes the int_vector to a stream.">serialize</a>(out) &lt;&lt; std::endl;
-<a name="l00550"></a>00550             ss&lt;&lt;<span class="stringliteral">&quot;size of rank for pioneers: &quot;</span>&lt;&lt; m_rank_pioneer_bitmap.serialize(out) &lt;&lt; std::endl;
-<a name="l00551"></a>00551 
-<a name="l00552"></a>00552             ss&lt;&lt;<span class="stringliteral">&quot;size of enclose  pioneer bitmap: &quot;</span>&lt;&lt; m_enclose_pioneer_bitmap.<a class="code" href="classsdsl_1_1int__vector.html#a32bfb973d19b10c8e9d32107805bbab0" title="Serializes the int_vector to a stream.">serialize</a>(out) &lt;&lt; std::endl;
-<a name="l00553"></a>00553             ss&lt;&lt;<span class="stringliteral">&quot;size of pioneer data  : &quot;</span>&lt;&lt; m_pioneer.<a class="code" href="classsdsl_1_1int__vector.html#a32bfb973d19b10c8e9d32107805bbab0" title="Serializes the int_vector to a stream.">serialize</a>(out) &lt;&lt; std::endl;
-<a name="l00554"></a>00554             ss&lt;&lt;<span class="stringliteral">&quot;size of rank for pioneers: &quot;</span>&lt;&lt; m_rank_enclose_pioneer_bitmap.serialize(out) &lt;&lt; std::endl;
-<a name="l00555"></a>00555 
-<a name="l00556"></a>00556             <span class="keywordflow">return</span> ss.str();
-<a name="l00557"></a>00557         }
-<a name="l00558"></a>00558 };
-<a name="l00559"></a>00559 }<span class="comment">// end namespace sdsl</span>
-<a name="l00560"></a>00560 
-<a name="l00561"></a>00561 
+<a name="l00516"></a>00516 
+<a name="l00520"></a><a class="code" href="classsdsl_1_1bp__support__j.html#a796d6f65eb417727fbc22bf3fd4a7702">00520</a>         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1bp__support__j.html#a796d6f65eb417727fbc22bf3fd4a7702" title="Load the bp_support_j for a bit_vector v.">load</a>(std::istream&amp; in, <span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">bit_vector</a>* bp) {
+<a name="l00521"></a>00521             m_bp = bp;
+<a name="l00522"></a>00522             <span class="keywordflow">if</span> (m_bp == NULL)
+<a name="l00523"></a>00523                 <span class="keywordflow">return</span>;
+<a name="l00524"></a>00524             m_size = m_bp-&gt;<a class="code" href="classsdsl_1_1int__vector.html#aea4fcbbab7fbef9c1cc4a4c89f4b1520" title="The number of elements in the int_vector.">size</a>();
+<a name="l00525"></a>00525             m_block_size = 64;
+<a name="l00526"></a>00526             m_blocks = (m_size+m_block_size-1)/m_block_size;
+<a name="l00527"></a>00527 
+<a name="l00528"></a>00528             m_rank.load(in, m_bp);
+<a name="l00529"></a>00529             m_select.load(in, m_bp);
+<a name="l00530"></a>00530 
+<a name="l00531"></a>00531             m_pioneer_bitmap.<a class="code" href="classsdsl_1_1int__vector.html#a57c9fc2fdc93eeaa477a49389e7a47ac" title="Load the int_vector for a stream.">load</a>(in);
+<a name="l00532"></a>00532             m_rank_pioneer_bitmap.load(in, &amp;m_pioneer_bitmap);
+<a name="l00533"></a>00533             m_pioneer.<a class="code" href="classsdsl_1_1int__vector.html#a57c9fc2fdc93eeaa477a49389e7a47ac" title="Load the int_vector for a stream.">load</a>(in);
+<a name="l00534"></a>00534 
+<a name="l00535"></a>00535             m_enclose_pioneer_bitmap.<a class="code" href="classsdsl_1_1int__vector.html#a57c9fc2fdc93eeaa477a49389e7a47ac" title="Load the int_vector for a stream.">load</a>(in);
+<a name="l00536"></a>00536             m_rank_enclose_pioneer_bitmap.load(in, &amp;m_enclose_pioneer_bitmap);
+<a name="l00537"></a>00537             m_enclose_pioneer.<a class="code" href="classsdsl_1_1int__vector.html#a57c9fc2fdc93eeaa477a49389e7a47ac" title="Load the int_vector for a stream.">load</a>(in);
+<a name="l00538"></a>00538         }
+<a name="l00539"></a>00539 
+<a name="l00540"></a>00540         std::string get_info()<span class="keyword">const </span>{
+<a name="l00541"></a>00541             std::stringstream ss;
+<a name="l00542"></a>00542             <span class="keywordflow">if</span> (m_bp == NULL) {
+<a name="l00543"></a>00543                 ss&lt;&lt;<span class="stringliteral">&quot;ERROR: bp_support_j is unitialized!&quot;</span>&lt;&lt;std::endl;
+<a name="l00544"></a>00544                 <span class="keywordflow">return</span> ss.str();
+<a name="l00545"></a>00545             }
+<a name="l00546"></a>00546             ss&lt;&lt;<span class="stringliteral">&quot;number of parentheses: &quot;</span>&lt;&lt;m_bp-&gt;<a class="code" href="classsdsl_1_1int__vector.html#aea4fcbbab7fbef9c1cc4a4c89f4b1520" title="The number of elements in the int_vector.">size</a>()&lt;&lt;std::endl;
+<a name="l00547"></a>00547             ss&lt;&lt;<span class="stringliteral">&quot;number of pioneers: &quot;</span>&lt;&lt; m_pioneer.<a class="code" href="classsdsl_1_1int__vector.html#aea4fcbbab7fbef9c1cc4a4c89f4b1520" title="The number of elements in the int_vector.">size</a>()&lt;&lt;std::endl;
+<a name="l00548"></a>00548             std::ofstream out(<span class="stringliteral">&quot;/dev/null&quot;</span>);
+<a name="l00549"></a>00549             ss&lt;&lt;<span class="stringliteral">&quot;size of parentheses sequence: &quot;</span>&lt;&lt; m_bp-&gt;<a class="code" href="classsdsl_1_1int__vector.html#a54bb26e2d6f6932b41ab12e52746e86a" title="Serializes the int_vector to a stream.">serialize</a>(out) &lt;&lt; std::endl;
+<a name="l00550"></a>00550             ss&lt;&lt;<span class="stringliteral">&quot;size of pioneer bitmap: &quot;</span>&lt;&lt; m_pioneer_bitmap.<a class="code" href="classsdsl_1_1int__vector.html#a54bb26e2d6f6932b41ab12e52746e86a" title="Serializes the int_vector to a stream.">serialize</a>(out) &lt;&lt; std::endl;
+<a name="l00551"></a>00551             ss&lt;&lt;<span class="stringliteral">&quot;size of pioneer data  : &quot;</span>&lt;&lt; m_pioneer.<a class="code" href="classsdsl_1_1int__vector.html#a54bb26e2d6f6932b41ab12e52746e86a" title="Serializes the int_vector to a stream.">serialize</a>(out) &lt;&lt; std::endl;
+<a name="l00552"></a>00552             ss&lt;&lt;<span class="stringliteral">&quot;size of rank for pioneers: &quot;</span>&lt;&lt; m_rank_pioneer_bitmap.serialize(out) &lt;&lt; std::endl;
+<a name="l00553"></a>00553 
+<a name="l00554"></a>00554             ss&lt;&lt;<span class="stringliteral">&quot;size of enclose  pioneer bitmap: &quot;</span>&lt;&lt; m_enclose_pioneer_bitmap.<a class="code" href="classsdsl_1_1int__vector.html#a54bb26e2d6f6932b41ab12e52746e86a" title="Serializes the int_vector to a stream.">serialize</a>(out) &lt;&lt; std::endl;
+<a name="l00555"></a>00555             ss&lt;&lt;<span class="stringliteral">&quot;size of pioneer data  : &quot;</span>&lt;&lt; m_pioneer.<a class="code" href="classsdsl_1_1int__vector.html#a54bb26e2d6f6932b41ab12e52746e86a" title="Serializes the int_vector to a stream.">serialize</a>(out) &lt;&lt; std::endl;
+<a name="l00556"></a>00556             ss&lt;&lt;<span class="stringliteral">&quot;size of rank for pioneers: &quot;</span>&lt;&lt; m_rank_enclose_pioneer_bitmap.serialize(out) &lt;&lt; std::endl;
+<a name="l00557"></a>00557 
+<a name="l00558"></a>00558             <span class="keywordflow">return</span> ss.str();
+<a name="l00559"></a>00559         }
+<a name="l00560"></a>00560 };
+<a name="l00561"></a>00561 }<span class="comment">// end namespace sdsl</span>
 <a name="l00562"></a>00562 
 <a name="l00563"></a>00563 
-<a name="l00564"></a>00564 <span class="preprocessor">#endif</span>
+<a name="l00564"></a>00564 
+<a name="l00565"></a>00565 
+<a name="l00566"></a>00566 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 10 2012 18:54:25 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 13 2012 14:05:45 for SDSL: Succinct Data Structure Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

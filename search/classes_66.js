@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['fast_5fcache',['fast_cache',['../structsdsl_1_1fast__cache.html',1,'sdsl']]],
-  ['fibonacci',['fibonacci',['../classsdsl_1_1coder_1_1fibonacci.html',1,'sdsl::coder']]],
-  ['file',['file',['../classsdsl_1_1file.html',1,'sdsl']]]
+  ['fast_5fcache',['fast_cache',['../a00062.html',1,'sdsl']]],
+  ['fibonacci',['fibonacci',['../a00063.html',1,'sdsl::coder']]],
+  ['file',['file',['../a00064.html',1,'sdsl']]]
 ];

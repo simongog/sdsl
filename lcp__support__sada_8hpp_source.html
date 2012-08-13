@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Succinct Data Structure Library (sdsl): sdsl/include/sdsl/lcp_support_sada.hpp Source File</title>
+<title>SDSL: Succinct Data Structure Library: sdsl/include/sdsl/lcp_support_sada.hpp Source File</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -27,7 +27,7 @@
   
   
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Succinct Data Structure Library (sdsl)
+   <div id="projectname">SDSL: Succinct Data Structure Library
    
    </div>
    <div id="projectbrief">A C++ template library for succinct data structures</div>
@@ -137,7 +137,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00042"></a>00042 
 <a name="l00043"></a>00043 
 <a name="l00045"></a>00045 
-<a name="l00055"></a>00055 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa = csa_sada&lt;&gt;, <span class="keyword">class</span> SelectSupport = select_support_mcl&lt;1&gt; &gt;
+<a name="l00055"></a>00055 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa = csa_sada&lt;&gt;, <span class="keyword">class</span> BitVector = bit_vector, <span class="keyword">class</span> SelectSupport = <span class="keyword">typename</span> BitVector::select_1_type&gt;
 <a name="l00056"></a><a class="code" href="classsdsl_1_1__lcp__support__sada.html">00056</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">_lcp_support_sada</a>
 <a name="l00057"></a>00057 {
 <a name="l00058"></a>00058     <span class="keyword">public</span>:
@@ -150,300 +150,292 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00065"></a>00065         <span class="keyword">typedef</span> <span class="keyword">const</span> pointer                                                            const_pointer;
 <a name="l00066"></a>00066         <span class="keyword">typedef</span> int_vector&lt;&gt;::size_type                                          size_type;             <span class="comment">// STL Container requirement</span>
 <a name="l00067"></a>00067         <span class="keyword">typedef</span> ptrdiff_t                                                                        difference_type; <span class="comment">// STL Container requirement</span>
-<a name="l00068"></a>00068         <span class="keyword">typedef</span> Csa                                                                                      csa_type;
-<a name="l00069"></a>00069 
+<a name="l00068"></a>00068         <span class="keyword">typedef</span> BitVector                                                                        bit_vector_type;
+<a name="l00069"></a>00069         <span class="keyword">typedef</span> Csa                                                                                      csa_type;
 <a name="l00070"></a>00070 
-<a name="l00071"></a>00071         <span class="keyword">typedef</span> <a class="code" href="structsdsl_1_1lcp__permuted__tag.html">lcp_permuted_tag</a>                                                                 <a class="code" href="structsdsl_1_1lcp__permuted__tag.html">lcp_category</a>;
-<a name="l00072"></a>00072 
-<a name="l00073"></a>00073         <span class="keyword">enum</span> {  fast_access = 0,
-<a name="l00074"></a>00074                 text_order      = 1,
-<a name="l00075"></a>00075                 sa_order        = 0
-<a name="l00076"></a>00076              };
-<a name="l00077"></a>00077 
-<a name="l00078"></a>00078         <span class="keyword">template</span>&lt;<span class="keyword">class</span> Cst&gt;  <span class="comment">// template inner class which is used in CSTs to parametrize lcp classes</span>
-<a name="l00079"></a><a class="code" href="classsdsl_1_1__lcp__support__sada_1_1type.html">00079</a>         <span class="keyword">class </span><a class="code" href="classsdsl_1_1__lcp__support__sada_1_1type.html">type</a>           <span class="comment">// with information about the CST. Thanks Stefan Arnold! (2011-03-02)</span>
-<a name="l00080"></a>00080         {
-<a name="l00081"></a>00081             <span class="keyword">public</span>:
-<a name="l00082"></a>00082                 <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">_lcp_support_sada</a> <a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">lcp_type</a>;
-<a name="l00083"></a>00083         };
-<a name="l00084"></a>00084 
-<a name="l00085"></a>00085     <span class="keyword">private</span>:
-<a name="l00086"></a>00086         <span class="comment">//</span>
-<a name="l00087"></a>00087         <span class="keyword">const</span> Csa*               m_csa;
-<a name="l00088"></a>00088         <a class="code" href="classsdsl_1_1int__vector.html">bit_vector</a>      m_data;
-<a name="l00089"></a>00089         SelectSupport   m_select_support;
-<a name="l00090"></a>00090 
-<a name="l00091"></a>00091         <span class="keywordtype">void</span> copy(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">_lcp_support_sada</a>&amp; lcp_c) {
-<a name="l00092"></a>00092             m_csa = lcp_c.m_csa;
-<a name="l00093"></a>00093             m_data = lcp_c.m_data;
-<a name="l00094"></a>00094             m_select_support = lcp_c.m_select_support;
-<a name="l00095"></a>00095             m_select_support.set_vector(&amp;m_data);
-<a name="l00096"></a>00096         }
-<a name="l00097"></a>00097     <span class="keyword">public</span>:
-<a name="l00098"></a>00098         <span class="keyword">const</span> Csa*&amp; csa;
-<a name="l00100"></a><a class="code" href="classsdsl_1_1__lcp__support__sada.html#aad11dedfb728845be4a32ccf5a4b2b10">00100</a>         <a class="code" href="classsdsl_1_1__lcp__support__sada.html#aad11dedfb728845be4a32ccf5a4b2b10" title="Default Constructor.">_lcp_support_sada</a>(): csa(m_csa) {}
-<a name="l00102"></a><a class="code" href="classsdsl_1_1__lcp__support__sada.html#a5d9dfe3cd2408c0a32121e6a1d24f7c2">00102</a>         <a class="code" href="classsdsl_1_1__lcp__support__sada.html#a5d9dfe3cd2408c0a32121e6a1d24f7c2" title="Default Destructor.">~_lcp_support_sada</a>() {}
-<a name="l00104"></a><a class="code" href="classsdsl_1_1__lcp__support__sada.html#a390766170f720c60b6f66131a2eeee80">00104</a>         <a class="code" href="classsdsl_1_1__lcp__support__sada.html#a390766170f720c60b6f66131a2eeee80" title="Copy constructor.">_lcp_support_sada</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">_lcp_support_sada</a>&amp; lcp_c):csa(m_csa) {
-<a name="l00105"></a>00105             copy(lcp_c);
-<a name="l00106"></a>00106         }
-<a name="l00107"></a>00107 
-<a name="l00109"></a>00109         <span class="keyword">template</span>&lt;<span class="keyword">class</span> Text, <span class="keyword">class</span> Sa&gt;
-<a name="l00110"></a>00110         <a class="code" href="classsdsl_1_1__lcp__support__sada.html#aad11dedfb728845be4a32ccf5a4b2b10" title="Default Constructor.">_lcp_support_sada</a>(<span class="keyword">const</span> Text&amp; text, <span class="keyword">const</span> Sa&amp; sa, <span class="keyword">const</span> Csa* csa);
-<a name="l00111"></a>00111 
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072         <span class="keyword">typedef</span> <a class="code" href="structsdsl_1_1lcp__permuted__tag.html">lcp_permuted_tag</a>                                                                 <a class="code" href="structsdsl_1_1lcp__permuted__tag.html">lcp_category</a>;
+<a name="l00073"></a>00073 
+<a name="l00074"></a>00074         <span class="keyword">enum</span> {  fast_access = 0,
+<a name="l00075"></a>00075                 text_order      = 1,
+<a name="l00076"></a>00076                 sa_order        = 0
+<a name="l00077"></a>00077              };
+<a name="l00078"></a>00078 
+<a name="l00079"></a>00079         <span class="keyword">template</span>&lt;<span class="keyword">class</span> Cst&gt;  <span class="comment">// template inner class which is used in CSTs to parametrize lcp classes</span>
+<a name="l00080"></a><a class="code" href="classsdsl_1_1__lcp__support__sada_1_1type.html">00080</a>         <span class="keyword">class </span><a class="code" href="classsdsl_1_1__lcp__support__sada_1_1type.html">type</a>           <span class="comment">// with information about the CST. Thanks Stefan Arnold! (2011-03-02)</span>
+<a name="l00081"></a>00081         {
+<a name="l00082"></a>00082             <span class="keyword">public</span>:
+<a name="l00083"></a>00083                 <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">_lcp_support_sada</a> <a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">lcp_type</a>;
+<a name="l00084"></a>00084         };
+<a name="l00085"></a>00085 
+<a name="l00086"></a>00086     <span class="keyword">private</span>:
+<a name="l00087"></a>00087         <span class="comment">//</span>
+<a name="l00088"></a>00088         <span class="keyword">const</span> Csa*              m_csa;
+<a name="l00089"></a>00089         bit_vector_type m_data;
+<a name="l00090"></a>00090         SelectSupport   m_select_support;
+<a name="l00091"></a>00091 
+<a name="l00092"></a>00092         <span class="keywordtype">void</span> copy(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">_lcp_support_sada</a>&amp; lcp_c) {
+<a name="l00093"></a>00093             m_csa = lcp_c.m_csa;
+<a name="l00094"></a>00094             m_data = lcp_c.m_data;
+<a name="l00095"></a>00095             m_select_support = lcp_c.m_select_support;
+<a name="l00096"></a>00096             m_select_support.set_vector(&amp;m_data);
+<a name="l00097"></a>00097         }
+<a name="l00098"></a>00098     <span class="keyword">public</span>:
+<a name="l00099"></a>00099         <span class="keyword">const</span> Csa*&amp; csa;
+<a name="l00101"></a><a class="code" href="classsdsl_1_1__lcp__support__sada.html#abbd9599d48cbda926e6a99dee4035148">00101</a>         <a class="code" href="classsdsl_1_1__lcp__support__sada.html#abbd9599d48cbda926e6a99dee4035148" title="Default Constructor.">_lcp_support_sada</a>(): csa(m_csa) {}
+<a name="l00103"></a><a class="code" href="classsdsl_1_1__lcp__support__sada.html#a8ea470a7213e92d8b2537fec6ce3dcbb">00103</a>         <a class="code" href="classsdsl_1_1__lcp__support__sada.html#a8ea470a7213e92d8b2537fec6ce3dcbb" title="Default Destructor.">~_lcp_support_sada</a>() {}
+<a name="l00105"></a><a class="code" href="classsdsl_1_1__lcp__support__sada.html#a8dab5c1163b54a3a0dd20fbaf9a0265b">00105</a>         <a class="code" href="classsdsl_1_1__lcp__support__sada.html#a8dab5c1163b54a3a0dd20fbaf9a0265b" title="Copy constructor.">_lcp_support_sada</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">_lcp_support_sada</a>&amp; lcp_c):csa(m_csa) {
+<a name="l00106"></a>00106             copy(lcp_c);
+<a name="l00107"></a>00107         }
+<a name="l00108"></a>00108 
+<a name="l00110"></a>00110         <span class="keyword">template</span>&lt;<span class="keyword">class</span> Text, <span class="keyword">class</span> Sa&gt;
+<a name="l00111"></a>00111         <a class="code" href="classsdsl_1_1__lcp__support__sada.html#abbd9599d48cbda926e6a99dee4035148" title="Default Constructor.">_lcp_support_sada</a>(<span class="keyword">const</span> Text&amp; text, <span class="keyword">const</span> Sa&amp; sa, <span class="keyword">const</span> Csa* csa);
 <a name="l00112"></a>00112 
-<a name="l00114"></a>00114         <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>, u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th_1, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>_1&gt;
-<a name="l00115"></a>00115         <a class="code" href="classsdsl_1_1__lcp__support__sada.html#aad11dedfb728845be4a32ccf5a4b2b10" title="Default Constructor.">_lcp_support_sada</a>(<a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;int_width, size_type_class&gt;</a>&amp; lcp_buf,
-<a name="l00116"></a>00116                           <a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;int_width_1, size_type_class_1&gt;</a>&amp; isa_buf,
-<a name="l00117"></a>00117                           <span class="keyword">const</span> Csa* f_csa);
-<a name="l00118"></a>00118 
-<a name="l00119"></a>00119         <span class="keyword">template</span>&lt;<span class="keyword">class</span> Text, <span class="keyword">class</span> Sa&gt;
-<a name="l00120"></a>00120         <span class="keywordtype">void</span> construct(<span class="keyword">const</span> Text&amp; text, <span class="keyword">const</span> Sa&amp; sa, <span class="keyword">const</span> Csa* csa);
-<a name="l00121"></a>00121 
-<a name="l00122"></a>00122         <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>, u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th_1, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>_1&gt;
-<a name="l00123"></a>00123         <span class="keywordtype">void</span> construct(<a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;int_width, size_type_class&gt;</a>&amp; lcp_buf,
-<a name="l00124"></a>00124                        <a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;int_width_1, size_type_class_1&gt;</a>&amp; isa_buf,
-<a name="l00125"></a>00125                        <span class="keyword">const</span> Csa* f_csa);
-<a name="l00126"></a>00126 
+<a name="l00113"></a>00113 
+<a name="l00115"></a>00115         <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>, u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th_1, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>_1&gt;
+<a name="l00116"></a>00116         <a class="code" href="classsdsl_1_1__lcp__support__sada.html#abbd9599d48cbda926e6a99dee4035148" title="Default Constructor.">_lcp_support_sada</a>(<a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;int_width, size_type_class&gt;</a>&amp; lcp_buf,
+<a name="l00117"></a>00117                           <a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;int_width_1, size_type_class_1&gt;</a>&amp; isa_buf,
+<a name="l00118"></a>00118                           <span class="keyword">const</span> Csa* f_csa);
+<a name="l00119"></a>00119 
+<a name="l00120"></a>00120         <span class="keyword">template</span>&lt;<span class="keyword">class</span> Text, <span class="keyword">class</span> Sa&gt;
+<a name="l00121"></a>00121         <span class="keywordtype">void</span> construct(<span class="keyword">const</span> Text&amp; text, <span class="keyword">const</span> Sa&amp; sa, <span class="keyword">const</span> Csa* csa);
+<a name="l00122"></a>00122 
+<a name="l00123"></a>00123         <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>, u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th_1, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>_1&gt;
+<a name="l00124"></a>00124         <span class="keywordtype">void</span> construct(<a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;int_width, size_type_class&gt;</a>&amp; lcp_buf,
+<a name="l00125"></a>00125                        <a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;int_width_1, size_type_class_1&gt;</a>&amp; isa_buf,
+<a name="l00126"></a>00126                        <span class="keyword">const</span> Csa* f_csa);
 <a name="l00127"></a>00127 
 <a name="l00128"></a>00128 
 <a name="l00129"></a>00129 
-<a name="l00130"></a>00130         <span class="keywordtype">void</span> set_csa(<span class="keyword">const</span> Csa* f_csa) {
-<a name="l00131"></a>00131             <span class="keywordflow">if</span> (f_csa==NULL) {
-<a name="l00132"></a>00132                 std::cerr&lt;&lt;<span class="stringliteral">&quot;_lcp_support_sada: Warnung: set m_csa to NULL&quot;</span>&lt;&lt;std::endl;
-<a name="l00133"></a>00133             }
-<a name="l00134"></a>00134             m_csa = f_csa;
-<a name="l00135"></a>00135         }
-<a name="l00136"></a>00136 
-<a name="l00138"></a>00138 
-<a name="l00141"></a><a class="code" href="classsdsl_1_1__lcp__support__sada.html#ad84e5127cde5030e947a26bf8cdebb76">00141</a>         size_type <a class="code" href="classsdsl_1_1__lcp__support__sada.html#ad84e5127cde5030e947a26bf8cdebb76" title="Number of elements in the instance.">size</a>()<span class="keyword">const </span>{
-<a name="l00142"></a>00142             <span class="keywordflow">return</span> m_csa-&gt;size();
-<a name="l00143"></a>00143         }
-<a name="l00144"></a>00144 
-<a name="l00146"></a>00146 
-<a name="l00149"></a><a class="code" href="classsdsl_1_1__lcp__support__sada.html#a12e2a5e1f818d6ec7c08848771ee1f2b">00149</a>         <span class="keyword">static</span> size_type <a class="code" href="classsdsl_1_1__lcp__support__sada.html#a12e2a5e1f818d6ec7c08848771ee1f2b" title="Returns the largest size that _lcp_support_sada can ever have.">max_size</a>() {
-<a name="l00150"></a>00150             <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html#a12e2a5e1f818d6ec7c08848771ee1f2b" title="Returns the largest size that _lcp_support_sada can ever have.">Csa::max_size</a>();
-<a name="l00151"></a>00151         }
-<a name="l00152"></a>00152 
-<a name="l00154"></a>00154 
-<a name="l00157"></a><a class="code" href="classsdsl_1_1__lcp__support__sada.html#a465647e446a9a20179e0de6b21634c1b">00157</a>         <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html#a465647e446a9a20179e0de6b21634c1b" title="Returns if the data strucutre is empty.">empty</a>()<span class="keyword">const </span>{
-<a name="l00158"></a>00158             <span class="keywordflow">return</span> m_csa-&gt;empty();
-<a name="l00159"></a>00159         }
-<a name="l00160"></a>00160 
-<a name="l00162"></a>00162 
-<a name="l00170"></a>00170         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html#a3c67fb54403ea0a717b49b219be9d03a" title="Swap method for _lcp_support_sada.">swap</a>(<a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">_lcp_support_sada</a>&amp; lcp_c);
-<a name="l00171"></a>00171 
-<a name="l00173"></a>00173 
-<a name="l00176"></a>00176         const_iterator <a class="code" href="classsdsl_1_1__lcp__support__sada.html#a79b484ac5e8904a62d087bfb09d4b7eb" title="Returns a const_iterator to the first element.">begin</a>()<span class="keyword">const</span>;
-<a name="l00177"></a>00177 
-<a name="l00179"></a>00179 
-<a name="l00182"></a>00182         const_iterator <a class="code" href="classsdsl_1_1__lcp__support__sada.html#a53d5d90a353aee8a4730bff9025cea49" title="Returns a const_iterator to the element after the last element.">end</a>()<span class="keyword">const</span>;
-<a name="l00183"></a>00183 
-<a name="l00185"></a>00185 
-<a name="l00189"></a>00189         <span class="keyword">inline</span> value_type <a class="code" href="classsdsl_1_1__lcp__support__sada.html#a964915c9d49c81fc6beac61595bb0904" title="[]-operator">operator[]</a>(size_type i)<span class="keyword">const</span>;
-<a name="l00190"></a>00190 
-<a name="l00192"></a>00192 
-<a name="l00195"></a>00195         <a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">_lcp_support_sada</a>&amp; <a class="code" href="classsdsl_1_1__lcp__support__sada.html#ad16d1123fd0ce94c254aff260f874644" title="Assignment Operator.">operator=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">_lcp_support_sada</a>&amp; lcp_c);
-<a name="l00196"></a>00196 
-<a name="l00198"></a>00198 
-<a name="l00203"></a>00203         <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html#a6d4e760aad629199bb7936d8ab3cb5bf" title="Equality Operator.">operator==</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">_lcp_support_sada</a>&amp; lcp_c)<span class="keyword">const</span>;
-<a name="l00204"></a>00204 
-<a name="l00206"></a>00206 
-<a name="l00211"></a>00211         <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html#a1ae465e151da565acb5a7436389804f4" title="Unequality Operator.">operator!=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">_lcp_support_sada</a>&amp; lcp_c)<span class="keyword">const</span>;
-<a name="l00212"></a>00212 
-<a name="l00214"></a>00214 
-<a name="l00217"></a>00217         size_type <a class="code" href="classsdsl_1_1__lcp__support__sada.html#af499cf47847efe7a3f4edb333bc0638c" title="Serialize to a stream.">serialize</a>(std::ostream&amp; out) <span class="keyword">const</span>;
-<a name="l00218"></a>00218 
-<a name="l00220"></a>00220 
-<a name="l00223"></a>00223         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html#ab6e527cb9b6180a2c2379f9174caea95" title="Load from a stream.">load</a>(std::istream&amp; in, <span class="keyword">const</span> Csa* csa);
-<a name="l00224"></a>00224 
-<a name="l00225"></a>00225 <span class="preprocessor">#ifdef MEM_INFO</span>
-<a name="l00226"></a>00226 <span class="preprocessor"></span>        <span class="keywordtype">void</span> mem_info(std::string label=<span class="stringliteral">&quot;&quot;</span>)<span class="keyword">const </span>{
-<a name="l00227"></a>00227             <span class="keywordflow">if</span> (label==<span class="stringliteral">&quot;&quot;</span>)
-<a name="l00228"></a>00228                 label = <span class="stringliteral">&quot;lcp&quot;</span>;
-<a name="l00229"></a>00229             size_type bytes = <a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(*<span class="keyword">this</span>);
-<a name="l00230"></a>00230             std::cout &lt;&lt; <span class="stringliteral">&quot;list(label = \&quot;&quot;</span>&lt;&lt;label&lt;&lt;<span class="stringliteral">&quot;\&quot;, size = &quot;</span>&lt;&lt; bytes/(1024.0*1024.0) &lt;&lt;<span class="stringliteral">&quot;\n,&quot;</span>;
-<a name="l00231"></a>00231             m_data.mem_info(<span class="stringliteral">&quot;bit vector 2n&quot;</span>);
-<a name="l00232"></a>00232             std::cout&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>;
-<a name="l00233"></a>00233             m_select_support.mem_info(<span class="stringliteral">&quot;select&quot;</span>);
-<a name="l00234"></a>00234             std::cout &lt;&lt; <span class="stringliteral">&quot;)\n&quot;</span>;
-<a name="l00235"></a>00235         }
-<a name="l00236"></a>00236 <span class="preprocessor">#endif</span>
-<a name="l00237"></a>00237 <span class="preprocessor"></span>};
-<a name="l00238"></a>00238 
-<a name="l00239"></a>00239 <span class="comment">// == template functions ==</span>
-<a name="l00240"></a>00240 
-<a name="l00241"></a>00241 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> SelectSupport&gt;
-<a name="l00242"></a>00242 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Text, <span class="keyword">class</span> Sa&gt;
-<a name="l00243"></a><a class="code" href="classsdsl_1_1__lcp__support__sada.html#ac15637faf7d723a0ad67e2901d3b5964">00243</a> <a class="code" href="classsdsl_1_1__lcp__support__sada.html#aad11dedfb728845be4a32ccf5a4b2b10" title="Default Constructor.">_lcp_support_sada&lt;Csa, SelectSupport&gt;::_lcp_support_sada</a>(<span class="keyword">const</span> Text&amp; text, <span class="keyword">const</span> Sa&amp; sa, <span class="keyword">const</span> Csa* csa):csa(m_csa)
-<a name="l00244"></a>00244 {
-<a name="l00245"></a>00245     construct(text, sa, csa);
-<a name="l00246"></a>00246 }
-<a name="l00247"></a>00247 
-<a name="l00248"></a>00248 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> SelectSupport&gt;
-<a name="l00249"></a>00249 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Text, <span class="keyword">class</span> Sa&gt;
-<a name="l00250"></a>00250 <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">_lcp_support_sada&lt;Csa, SelectSupport&gt;::construct</a>(<span class="keyword">const</span> Text&amp; text, <span class="keyword">const</span> Sa&amp; sa, <span class="keyword">const</span> Csa* csa)
-<a name="l00251"></a>00251 {
-<a name="l00252"></a>00252     set_csa(csa);
-<a name="l00253"></a>00253 <span class="preprocessor">#ifdef SDSL_DEBUG</span>
-<a name="l00254"></a>00254 <span class="preprocessor"></span>    std::cerr&lt;&lt;<span class="stringliteral">&quot;start building _lcp_support_sada&quot;</span>&lt;&lt;std::endl;
-<a name="l00255"></a>00255 <span class="preprocessor">#endif</span>
-<a name="l00256"></a>00256 <span class="preprocessor"></span>    m_data = <a class="code" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb" title="bit_vector is a specialization of the int_vector.">bit_vector</a>(2*sa.size(), 0);
-<a name="l00257"></a>00257     size_type data_cnt = 0;
-<a name="l00258"></a>00258     <span class="keywordflow">for</span> (<span class="keyword">typename</span> Csa::size_type i=0,j=0, sa_1 = sa(0), l=0, oldl=1; i &lt; sa.size(); ++i) {
-<a name="l00259"></a>00259         <span class="keywordflow">if</span> (l) --l;
-<a name="l00260"></a>00260         <span class="keywordflow">if</span> (sa_1) {
-<a name="l00261"></a>00261             j = sa[sa_1-1];
-<a name="l00262"></a>00262             <span class="keywordflow">while</span> (i+l &lt; sa.size() and j+l &lt; sa.size() and text[i+l]==text[j+l]) ++l;
-<a name="l00263"></a>00263         } <span class="keywordflow">else</span> {
-<a name="l00264"></a>00264             l = 0;
-<a name="l00265"></a>00265         }
-<a name="l00266"></a>00266         data_cnt += l-oldl+1;
-<a name="l00267"></a>00267         m_data[data_cnt]=1;
-<a name="l00268"></a>00268         ++data_cnt;
-<a name="l00269"></a>00269         sa_1 = sa.psi[sa_1];
-<a name="l00270"></a>00270         oldl = l;
-<a name="l00271"></a>00271     }
-<a name="l00272"></a>00272     m_data.<a class="code" href="classsdsl_1_1int__vector.html#a311439ddb68d63e4172457a4861affd9" title="Resize the int_vector in terms of elements.">resize</a>(data_cnt);
-<a name="l00273"></a>00273     <a class="code" href="namespacesdsl_1_1util.html#a261681cbaa98ab77a78dddb6f21b1f6e" title="Initialise support data structure with.">util::init_support</a>(m_select_support, &amp;m_data);
-<a name="l00274"></a>00274 <span class="preprocessor">#ifdef SDSL_DEBUG</span>
-<a name="l00275"></a>00275 <span class="preprocessor"></span>    std::cerr&lt;&lt;<span class="stringliteral">&quot;finished building _lcp_support_sada&quot;</span>&lt;&lt;std::endl;
-<a name="l00276"></a>00276 <span class="preprocessor">#endif</span>
-<a name="l00277"></a>00277 <span class="preprocessor"></span>}
-<a name="l00278"></a>00278 
-<a name="l00279"></a>00279 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> SelectSupport&gt;
-<a name="l00280"></a>00280 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>, u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th_1, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>_1&gt;
-<a name="l00281"></a><a class="code" href="classsdsl_1_1__lcp__support__sada.html#a3dd18fa07b8e0c0b253aaf5045c32824">00281</a> <a class="code" href="classsdsl_1_1__lcp__support__sada.html#aad11dedfb728845be4a32ccf5a4b2b10" title="Default Constructor.">_lcp_support_sada&lt;Csa, SelectSupport&gt;::_lcp_support_sada</a>(<a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;int_width, size_type_class&gt;</a>&amp; lcp_buf,
-<a name="l00282"></a>00282         <a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;int_width_1, size_type_class_1&gt;</a>&amp; isa_buf,
-<a name="l00283"></a>00283         <span class="keyword">const</span> Csa* f_csa):csa(m_csa)
-<a name="l00284"></a>00284 {
-<a name="l00285"></a>00285     construct(lcp_buf, isa_buf, f_csa);
-<a name="l00286"></a>00286 }
-<a name="l00287"></a>00287 
-<a name="l00288"></a>00288 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> SelectSupport&gt;
-<a name="l00289"></a>00289 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>, u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th_1, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>_1&gt;
-<a name="l00290"></a>00290 <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">_lcp_support_sada&lt;Csa, SelectSupport&gt;::construct</a>(<a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;int_width, size_type_class&gt;</a>&amp; lcp_buf,
-<a name="l00291"></a>00291         <a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;int_width_1, size_type_class_1&gt;</a>&amp; isa_buf,
-<a name="l00292"></a>00292         <span class="keyword">const</span> Csa* f_csa)
-<a name="l00293"></a>00293 {
-<a name="l00294"></a>00294     <span class="keyword">typedef</span> <span class="keyword">typename</span> Csa::size_type size_type;
-<a name="l00295"></a>00295     set_csa(f_csa);
-<a name="l00296"></a>00296 <span class="preprocessor">#ifdef SDSL_DEBUG</span>
-<a name="l00297"></a>00297 <span class="preprocessor"></span>    std::cerr&lt;&lt;<span class="stringliteral">&quot;start building _lcp_support_sada&quot;</span>&lt;&lt;std::endl;
-<a name="l00298"></a>00298 <span class="preprocessor">#endif</span>
-<a name="l00299"></a>00299 <span class="preprocessor"></span>    <a class="code" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector&lt;int_width, size_type_class&gt;</a> lcp;
-<a name="l00300"></a>00300     <a class="code" href="namespacesdsl_1_1util.html#a61645c49a282eb5bde5c9ca9d6dc94ff" title="Load a data structure from a file.">util::load_from_file</a>(lcp, lcp_buf.file_name.c_str());
-<a name="l00301"></a>00301     isa_buf.reset();
-<a name="l00302"></a>00302     size_type n = lcp.<a class="code" href="classsdsl_1_1int__vector.html#aea4fcbbab7fbef9c1cc4a4c89f4b1520" title="The number of elements in the int_vector.">size</a>();
-<a name="l00303"></a>00303     m_data = <a class="code" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb" title="bit_vector is a specialization of the int_vector.">bit_vector</a>(2*n, 0);
-<a name="l00304"></a>00304     size_type data_cnt=0;
-<a name="l00305"></a>00305     <span class="keywordflow">for</span> (size_type i=0, r_sum=0, r = isa_buf.load_next_block(), l=0, old_l=1; r_sum &lt; n;) {
-<a name="l00306"></a>00306         <span class="keywordflow">for</span> (; i &lt; r_sum+r; ++i) {
-<a name="l00307"></a>00307             l = lcp[isa_buf[i-r_sum]];
-<a name="l00308"></a>00308             data_cnt += l + 1 - old_l;
-<a name="l00309"></a>00309             m_data[data_cnt++] = 1;
-<a name="l00310"></a>00310             old_l = l;
-<a name="l00311"></a>00311         }
-<a name="l00312"></a>00312         r_sum   +=      r;
-<a name="l00313"></a>00313         r               =       isa_buf.load_next_block();
-<a name="l00314"></a>00314     }
-<a name="l00315"></a>00315     m_data.resize(data_cnt);
-<a name="l00316"></a>00316     <a class="code" href="namespacesdsl_1_1util.html#a261681cbaa98ab77a78dddb6f21b1f6e" title="Initialise support data structure with.">util::init_support</a>(m_select_support, &amp;m_data);
-<a name="l00317"></a>00317 <span class="preprocessor">#ifdef SDSL_DEBUG</span>
-<a name="l00318"></a>00318 <span class="preprocessor"></span>    std::cerr&lt;&lt;<span class="stringliteral">&quot;finished building _lcp_support_sada&quot;</span>&lt;&lt;std::endl;
-<a name="l00319"></a>00319 <span class="preprocessor">#endif</span>
-<a name="l00320"></a>00320 <span class="preprocessor"></span>}
-<a name="l00321"></a>00321 
-<a name="l00322"></a>00322 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> SelectSupport&gt;
-<a name="l00323"></a><a class="code" href="classsdsl_1_1__lcp__support__sada.html#a3c67fb54403ea0a717b49b219be9d03a">00323</a> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html#a3c67fb54403ea0a717b49b219be9d03a" title="Swap method for _lcp_support_sada.">_lcp_support_sada&lt;Csa, SelectSupport&gt;::swap</a>(<a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">_lcp_support_sada</a>&amp; lcp_c)
-<a name="l00324"></a>00324 {
-<a name="l00325"></a>00325     m_data.swap(lcp_c.m_data);
-<a name="l00326"></a>00326     <a class="code" href="namespacesdsl_1_1util.html#aa60ad1bcd3cc5099fbf22ac1ee3764ef" title="Swap support data structure and assign to new vector.">util::swap_support</a>(m_select_support, lcp_c.m_select_support, &amp;m_data, &amp;(lcp_c.m_data));
-<a name="l00327"></a>00327 }
-<a name="l00328"></a>00328 
-<a name="l00329"></a>00329 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> SelectSupport&gt;
-<a name="l00330"></a><a class="code" href="classsdsl_1_1__lcp__support__sada.html#a964915c9d49c81fc6beac61595bb0904">00330</a> <span class="keyword">inline</span> <span class="keyword">typename</span> _lcp_support_sada&lt;Csa, SelectSupport&gt;::value_type <a class="code" href="classsdsl_1_1__lcp__support__sada.html#a964915c9d49c81fc6beac61595bb0904" title="[]-operator">_lcp_support_sada&lt;Csa, SelectSupport&gt;::operator[]</a>(size_type i)<span class="keyword">const</span>
-<a name="l00331"></a>00331 <span class="keyword"></span>{
-<a name="l00332"></a>00332     size_type j = (*m_csa)[i];
-<a name="l00333"></a>00333     size_type s = m_select_support.select(j+1);
-<a name="l00334"></a>00334     <span class="keywordflow">return</span> s-(j&lt;&lt;1);
-<a name="l00335"></a>00335 }
-<a name="l00336"></a>00336 
-<a name="l00337"></a>00337 
-<a name="l00338"></a>00338 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> SelectSupport&gt;
-<a name="l00339"></a><a class="code" href="classsdsl_1_1__lcp__support__sada.html#af499cf47847efe7a3f4edb333bc0638c">00339</a> <span class="keyword">typename</span> _lcp_support_sada&lt;Csa, SelectSupport&gt;::size_type <a class="code" href="classsdsl_1_1__lcp__support__sada.html#af499cf47847efe7a3f4edb333bc0638c" title="Serialize to a stream.">_lcp_support_sada&lt;Csa, SelectSupport&gt;::serialize</a>(std::ostream&amp; out)<span class="keyword"> const</span>
-<a name="l00340"></a>00340 <span class="keyword"></span>{
-<a name="l00341"></a>00341     size_type written_bytes = 0;
-<a name="l00342"></a>00342     written_bytes += m_data.serialize(out);
-<a name="l00343"></a>00343     written_bytes += m_select_support.serialize(out);
-<a name="l00344"></a>00344     <span class="keywordflow">return</span> written_bytes;
+<a name="l00130"></a>00130 
+<a name="l00131"></a>00131         <span class="keywordtype">void</span> set_csa(<span class="keyword">const</span> Csa* f_csa) {
+<a name="l00132"></a>00132             <span class="keywordflow">if</span> (f_csa==NULL) {
+<a name="l00133"></a>00133                 std::cerr&lt;&lt;<span class="stringliteral">&quot;_lcp_support_sada: Warnung: set m_csa to NULL&quot;</span>&lt;&lt;std::endl;
+<a name="l00134"></a>00134             }
+<a name="l00135"></a>00135             m_csa = f_csa;
+<a name="l00136"></a>00136         }
+<a name="l00137"></a>00137 
+<a name="l00139"></a>00139 
+<a name="l00142"></a><a class="code" href="classsdsl_1_1__lcp__support__sada.html#a0da6e6a77bb451ea50e7470f4c51f847">00142</a>         size_type <a class="code" href="classsdsl_1_1__lcp__support__sada.html#a0da6e6a77bb451ea50e7470f4c51f847" title="Number of elements in the instance.">size</a>()<span class="keyword">const </span>{
+<a name="l00143"></a>00143             <span class="keywordflow">return</span> m_csa-&gt;size();
+<a name="l00144"></a>00144         }
+<a name="l00145"></a>00145 
+<a name="l00147"></a>00147 
+<a name="l00150"></a><a class="code" href="classsdsl_1_1__lcp__support__sada.html#a8bfe694f8defdb38e24bc2a7075a6611">00150</a>         <span class="keyword">static</span> size_type <a class="code" href="classsdsl_1_1__lcp__support__sada.html#a8bfe694f8defdb38e24bc2a7075a6611" title="Returns the largest size that _lcp_support_sada can ever have.">max_size</a>() {
+<a name="l00151"></a>00151             <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html#a8bfe694f8defdb38e24bc2a7075a6611" title="Returns the largest size that _lcp_support_sada can ever have.">Csa::max_size</a>();
+<a name="l00152"></a>00152         }
+<a name="l00153"></a>00153 
+<a name="l00155"></a>00155 
+<a name="l00158"></a><a class="code" href="classsdsl_1_1__lcp__support__sada.html#a8771a6eae66a893a1a310bc87528e24c">00158</a>         <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html#a8771a6eae66a893a1a310bc87528e24c" title="Returns if the data strucutre is empty.">empty</a>()<span class="keyword">const </span>{
+<a name="l00159"></a>00159             <span class="keywordflow">return</span> m_csa-&gt;empty();
+<a name="l00160"></a>00160         }
+<a name="l00161"></a>00161 
+<a name="l00163"></a>00163 
+<a name="l00171"></a>00171         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html#aa6acdc79b8b9a8af7b691c8bbda84a0d" title="Swap method for _lcp_support_sada.">swap</a>(<a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">_lcp_support_sada</a>&amp; lcp_c);
+<a name="l00172"></a>00172 
+<a name="l00174"></a>00174 
+<a name="l00177"></a>00177         const_iterator <a class="code" href="classsdsl_1_1__lcp__support__sada.html#a1a5b6ef1b818b7e26260c5da164a0614" title="Returns a const_iterator to the first element.">begin</a>()<span class="keyword">const</span>;
+<a name="l00178"></a>00178 
+<a name="l00180"></a>00180 
+<a name="l00183"></a>00183         const_iterator <a class="code" href="classsdsl_1_1__lcp__support__sada.html#acee345cd166f507f1ae1042c8d920942" title="Returns a const_iterator to the element after the last element.">end</a>()<span class="keyword">const</span>;
+<a name="l00184"></a>00184 
+<a name="l00186"></a>00186 
+<a name="l00190"></a>00190         <span class="keyword">inline</span> value_type <a class="code" href="classsdsl_1_1__lcp__support__sada.html#a18481511221458d486371a90e7a8219d" title="[]-operator">operator[]</a>(size_type i)<span class="keyword">const</span>;
+<a name="l00191"></a>00191 
+<a name="l00193"></a>00193 
+<a name="l00196"></a>00196         <a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">_lcp_support_sada</a>&amp; <a class="code" href="classsdsl_1_1__lcp__support__sada.html#a3dae835e503b8a2517d3704b991cd3fd" title="Assignment Operator.">operator=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">_lcp_support_sada</a>&amp; lcp_c);
+<a name="l00197"></a>00197 
+<a name="l00199"></a>00199 
+<a name="l00204"></a>00204         <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html#a855591850b4c9b467692b499abbcc8ef" title="Equality Operator.">operator==</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">_lcp_support_sada</a>&amp; lcp_c)<span class="keyword">const</span>;
+<a name="l00205"></a>00205 
+<a name="l00207"></a>00207 
+<a name="l00212"></a>00212         <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html#a86c7b29860ba0dd682a10b249cb7e172" title="Unequality Operator.">operator!=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">_lcp_support_sada</a>&amp; lcp_c)<span class="keyword">const</span>;
+<a name="l00213"></a>00213 
+<a name="l00215"></a>00215 
+<a name="l00218"></a>00218         size_type <a class="code" href="classsdsl_1_1__lcp__support__sada.html#a6b623601abb9ca7cd878e639d2d6f760" title="Serialize to a stream.">serialize</a>(std::ostream&amp; out, <a class="code" href="classsdsl_1_1structure__tree__node.html" title="Class for a node of the structure tree.">structure_tree_node</a>* v=NULL, std::string name=<span class="stringliteral">&quot;&quot;</span>)<span class="keyword">const</span>;
+<a name="l00219"></a>00219 
+<a name="l00221"></a>00221 
+<a name="l00224"></a>00224         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html#ae64ee3b7513131203082d9ccc916ccba" title="Load from a stream.">load</a>(std::istream&amp; in, <span class="keyword">const</span> Csa* csa);
+<a name="l00225"></a>00225 };
+<a name="l00226"></a>00226 
+<a name="l00227"></a>00227 <span class="comment">// == template functions ==</span>
+<a name="l00228"></a>00228 
+<a name="l00229"></a>00229 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> BitVector, <span class="keyword">class</span> SelectSupport&gt;
+<a name="l00230"></a>00230 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Text, <span class="keyword">class</span> Sa&gt;
+<a name="l00231"></a><a class="code" href="classsdsl_1_1__lcp__support__sada.html#a6fa95a2204f2c7f2da599fbb0d037429">00231</a> <a class="code" href="classsdsl_1_1__lcp__support__sada.html#abbd9599d48cbda926e6a99dee4035148" title="Default Constructor.">_lcp_support_sada&lt;Csa, BitVector, SelectSupport&gt;::_lcp_support_sada</a>(<span class="keyword">const</span> Text&amp; text, <span class="keyword">const</span> Sa&amp; sa, <span class="keyword">const</span> Csa* csa):csa(m_csa)
+<a name="l00232"></a>00232 {
+<a name="l00233"></a>00233     construct(text, sa, csa);
+<a name="l00234"></a>00234 }
+<a name="l00235"></a>00235 
+<a name="l00236"></a>00236 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> BitVector, <span class="keyword">class</span> SelectSupport&gt;
+<a name="l00237"></a>00237 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Text, <span class="keyword">class</span> Sa&gt;
+<a name="l00238"></a>00238 <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">_lcp_support_sada&lt;Csa, BitVector, SelectSupport&gt;::construct</a>(<span class="keyword">const</span> Text&amp; text, <span class="keyword">const</span> Sa&amp; sa, <span class="keyword">const</span> Csa* csa)
+<a name="l00239"></a>00239 {
+<a name="l00240"></a>00240     set_csa(csa);
+<a name="l00241"></a>00241 <span class="preprocessor">#ifdef SDSL_DEBUG</span>
+<a name="l00242"></a>00242 <span class="preprocessor"></span>    std::cerr&lt;&lt;<span class="stringliteral">&quot;start building _lcp_support_sada&quot;</span>&lt;&lt;std::endl;
+<a name="l00243"></a>00243 <span class="preprocessor">#endif</span>
+<a name="l00244"></a>00244 <span class="preprocessor"></span>    <a class="code" href="classsdsl_1_1int__vector.html">bit_vector</a> data = <a class="code" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb" title="bit_vector is a specialization of the int_vector.">bit_vector</a>(2*sa.size(), 0);
+<a name="l00245"></a>00245     size_type data_cnt = 0;
+<a name="l00246"></a>00246     <span class="keywordflow">for</span> (<span class="keyword">typename</span> Csa::size_type i=0,j=0, sa_1 = sa(0), l=0, oldl=1; i &lt; sa.size(); ++i) {
+<a name="l00247"></a>00247         <span class="keywordflow">if</span> (l) --l;
+<a name="l00248"></a>00248         <span class="keywordflow">if</span> (sa_1) {
+<a name="l00249"></a>00249             j = sa[sa_1-1];
+<a name="l00250"></a>00250             <span class="keywordflow">while</span> (i+l &lt; sa.size() and j+l &lt; sa.size() and text[i+l]==text[j+l]) ++l;
+<a name="l00251"></a>00251         } <span class="keywordflow">else</span> {
+<a name="l00252"></a>00252             l = 0;
+<a name="l00253"></a>00253         }
+<a name="l00254"></a>00254         data_cnt += l-oldl+1;
+<a name="l00255"></a>00255         data[data_cnt]=1;
+<a name="l00256"></a>00256         ++data_cnt;
+<a name="l00257"></a>00257         sa_1 = sa.psi[sa_1];
+<a name="l00258"></a>00258         oldl = l;
+<a name="l00259"></a>00259     }
+<a name="l00260"></a>00260     data.<a class="code" href="classsdsl_1_1int__vector.html#a311439ddb68d63e4172457a4861affd9" title="Resize the int_vector in terms of elements.">resize</a>(data_cnt);
+<a name="l00261"></a>00261     <a class="code" href="namespacesdsl_1_1util.html#aa945b4d1593f6bf0f5f2a913610e5bf5" title="Assigns the value x of type T to the value of y of type U.">util::assign</a>(m_data, data);
+<a name="l00262"></a>00262     <a class="code" href="namespacesdsl_1_1util.html#a261681cbaa98ab77a78dddb6f21b1f6e" title="Initialise support data structure with.">util::init_support</a>(m_select_support, &amp;m_data);
+<a name="l00263"></a>00263 <span class="preprocessor">#ifdef SDSL_DEBUG</span>
+<a name="l00264"></a>00264 <span class="preprocessor"></span>    std::cerr&lt;&lt;<span class="stringliteral">&quot;finished building _lcp_support_sada&quot;</span>&lt;&lt;std::endl;
+<a name="l00265"></a>00265 <span class="preprocessor">#endif</span>
+<a name="l00266"></a>00266 <span class="preprocessor"></span>}
+<a name="l00267"></a>00267 
+<a name="l00268"></a>00268 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> BitVector, <span class="keyword">class</span> SelectSupport&gt;
+<a name="l00269"></a>00269 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>, u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th_1, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>_1&gt;
+<a name="l00270"></a><a class="code" href="classsdsl_1_1__lcp__support__sada.html#ab0cefe44c5215c1b1457c353edd1996b">00270</a> <a class="code" href="classsdsl_1_1__lcp__support__sada.html#abbd9599d48cbda926e6a99dee4035148" title="Default Constructor.">_lcp_support_sada&lt;Csa, BitVector, SelectSupport&gt;::_lcp_support_sada</a>(<a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;int_width, size_type_class&gt;</a>&amp; lcp_buf,
+<a name="l00271"></a>00271         <a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;int_width_1, size_type_class_1&gt;</a>&amp; isa_buf,
+<a name="l00272"></a>00272         <span class="keyword">const</span> Csa* f_csa):csa(m_csa)
+<a name="l00273"></a>00273 {
+<a name="l00274"></a>00274     construct(lcp_buf, isa_buf, f_csa);
+<a name="l00275"></a>00275 }
+<a name="l00276"></a>00276 
+<a name="l00277"></a>00277 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> BitVector, <span class="keyword">class</span> SelectSupport&gt;
+<a name="l00278"></a>00278 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>, u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th_1, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>_1&gt;
+<a name="l00279"></a>00279 <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">_lcp_support_sada&lt;Csa, BitVector, SelectSupport&gt;::construct</a>(<a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;int_width, size_type_class&gt;</a>&amp; lcp_buf,
+<a name="l00280"></a>00280         <a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;int_width_1, size_type_class_1&gt;</a>&amp; isa_buf,
+<a name="l00281"></a>00281         <span class="keyword">const</span> Csa* f_csa)
+<a name="l00282"></a>00282 {
+<a name="l00283"></a>00283     <span class="keyword">typedef</span> <span class="keyword">typename</span> Csa::size_type size_type;
+<a name="l00284"></a>00284     set_csa(f_csa);
+<a name="l00285"></a>00285 <span class="preprocessor">#ifdef SDSL_DEBUG</span>
+<a name="l00286"></a>00286 <span class="preprocessor"></span>    std::cerr&lt;&lt;<span class="stringliteral">&quot;start building _lcp_support_sada&quot;</span>&lt;&lt;std::endl;
+<a name="l00287"></a>00287 <span class="preprocessor">#endif</span>
+<a name="l00288"></a>00288 <span class="preprocessor"></span>    <a class="code" href="classsdsl_1_1int__vector.html" title="A generic vector class for integers of width .">int_vector&lt;int_width, size_type_class&gt;</a> lcp;
+<a name="l00289"></a>00289     <a class="code" href="namespacesdsl_1_1util.html#a61645c49a282eb5bde5c9ca9d6dc94ff" title="Load a data structure from a file.">util::load_from_file</a>(lcp, lcp_buf.file_name.c_str());
+<a name="l00290"></a>00290     isa_buf.reset();
+<a name="l00291"></a>00291     size_type n = lcp.<a class="code" href="classsdsl_1_1int__vector.html#aea4fcbbab7fbef9c1cc4a4c89f4b1520" title="The number of elements in the int_vector.">size</a>();
+<a name="l00292"></a>00292     <a class="code" href="classsdsl_1_1int__vector.html">bit_vector</a> data = <a class="code" href="namespacesdsl.html#a93df8f263fced9ae9a8b0f9f37e444eb" title="bit_vector is a specialization of the int_vector.">bit_vector</a>(2*n, 0);
+<a name="l00293"></a>00293     size_type data_cnt=0;
+<a name="l00294"></a>00294     <span class="keywordflow">for</span> (size_type i=0, r_sum=0, r = isa_buf.load_next_block(), l=0, old_l=1; r_sum &lt; n;) {
+<a name="l00295"></a>00295         <span class="keywordflow">for</span> (; i &lt; r_sum+r; ++i) {
+<a name="l00296"></a>00296             l = lcp[isa_buf[i-r_sum]];
+<a name="l00297"></a>00297             data_cnt += l + 1 - old_l;
+<a name="l00298"></a>00298             data[data_cnt++] = 1;
+<a name="l00299"></a>00299             old_l = l;
+<a name="l00300"></a>00300         }
+<a name="l00301"></a>00301         r_sum   +=      r;
+<a name="l00302"></a>00302         r               =       isa_buf.load_next_block();
+<a name="l00303"></a>00303     }
+<a name="l00304"></a>00304     data.<a class="code" href="classsdsl_1_1int__vector.html#a311439ddb68d63e4172457a4861affd9" title="Resize the int_vector in terms of elements.">resize</a>(data_cnt);
+<a name="l00305"></a>00305     <a class="code" href="namespacesdsl_1_1util.html#aa945b4d1593f6bf0f5f2a913610e5bf5" title="Assigns the value x of type T to the value of y of type U.">util::assign</a>(m_data, data);
+<a name="l00306"></a>00306     <a class="code" href="namespacesdsl_1_1util.html#a261681cbaa98ab77a78dddb6f21b1f6e" title="Initialise support data structure with.">util::init_support</a>(m_select_support, &amp;m_data);
+<a name="l00307"></a>00307 <span class="preprocessor">#ifdef SDSL_DEBUG</span>
+<a name="l00308"></a>00308 <span class="preprocessor"></span>    std::cerr&lt;&lt;<span class="stringliteral">&quot;finished building _lcp_support_sada&quot;</span>&lt;&lt;std::endl;
+<a name="l00309"></a>00309 <span class="preprocessor">#endif</span>
+<a name="l00310"></a>00310 <span class="preprocessor"></span>}
+<a name="l00311"></a>00311 
+<a name="l00312"></a>00312 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> BitVector, <span class="keyword">class</span> SelectSupport&gt;
+<a name="l00313"></a><a class="code" href="classsdsl_1_1__lcp__support__sada.html#aa6acdc79b8b9a8af7b691c8bbda84a0d">00313</a> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html#aa6acdc79b8b9a8af7b691c8bbda84a0d" title="Swap method for _lcp_support_sada.">_lcp_support_sada&lt;Csa, BitVector, SelectSupport&gt;::swap</a>(<a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">_lcp_support_sada</a>&amp; lcp_c)
+<a name="l00314"></a>00314 {
+<a name="l00315"></a>00315     m_data.swap(lcp_c.m_data);
+<a name="l00316"></a>00316     <a class="code" href="namespacesdsl_1_1util.html#aa60ad1bcd3cc5099fbf22ac1ee3764ef" title="Swap support data structure and assign to new vector.">util::swap_support</a>(m_select_support, lcp_c.m_select_support, &amp;m_data, &amp;(lcp_c.m_data));
+<a name="l00317"></a>00317 }
+<a name="l00318"></a>00318 
+<a name="l00319"></a>00319 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> BitVector, <span class="keyword">class</span> SelectSupport&gt;
+<a name="l00320"></a><a class="code" href="classsdsl_1_1__lcp__support__sada.html#a18481511221458d486371a90e7a8219d">00320</a> <span class="keyword">inline</span> <span class="keyword">typename</span> _lcp_support_sada&lt;Csa, BitVector, SelectSupport&gt;::value_type <a class="code" href="classsdsl_1_1__lcp__support__sada.html#a18481511221458d486371a90e7a8219d" title="[]-operator">_lcp_support_sada&lt;Csa, BitVector, SelectSupport&gt;::operator[]</a>(size_type i)<span class="keyword">const</span>
+<a name="l00321"></a>00321 <span class="keyword"></span>{
+<a name="l00322"></a>00322     size_type j = (*m_csa)[i];
+<a name="l00323"></a>00323     size_type s = m_select_support.select(j+1);
+<a name="l00324"></a>00324     <span class="keywordflow">return</span> s-(j&lt;&lt;1);
+<a name="l00325"></a>00325 }
+<a name="l00326"></a>00326 
+<a name="l00327"></a>00327 
+<a name="l00328"></a>00328 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> BitVector, <span class="keyword">class</span> SelectSupport&gt;
+<a name="l00329"></a><a class="code" href="classsdsl_1_1__lcp__support__sada.html#a6b623601abb9ca7cd878e639d2d6f760">00329</a> <span class="keyword">typename</span> _lcp_support_sada&lt;Csa, BitVector, SelectSupport&gt;::size_type <a class="code" href="classsdsl_1_1__lcp__support__sada.html#a6b623601abb9ca7cd878e639d2d6f760" title="Serialize to a stream.">_lcp_support_sada&lt;Csa, BitVector, SelectSupport&gt;::serialize</a>(std::ostream&amp; out, <a class="code" href="classsdsl_1_1structure__tree__node.html" title="Class for a node of the structure tree.">structure_tree_node</a>* v, std::string name)<span class="keyword">const</span>
+<a name="l00330"></a>00330 <span class="keyword"></span>{
+<a name="l00331"></a>00331     <a class="code" href="classsdsl_1_1structure__tree__node.html" title="Class for a node of the structure tree.">structure_tree_node</a>* child = structure_tree::add_child(v, name, util::class_name(*<span class="keyword">this</span>));
+<a name="l00332"></a>00332     size_type written_bytes = 0;
+<a name="l00333"></a>00333     written_bytes += m_data.serialize(out, child, <span class="stringliteral">&quot;data&quot;</span>);
+<a name="l00334"></a>00334     written_bytes += m_select_support.serialize(out, child, <span class="stringliteral">&quot;select_support&quot;</span>);
+<a name="l00335"></a>00335     structure_tree::add_size(child, written_bytes);
+<a name="l00336"></a>00336     <span class="keywordflow">return</span> written_bytes;
+<a name="l00337"></a>00337 }
+<a name="l00338"></a>00338 
+<a name="l00339"></a>00339 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> BitVector, <span class="keyword">class</span> SelectSupport&gt;
+<a name="l00340"></a><a class="code" href="classsdsl_1_1__lcp__support__sada.html#ae64ee3b7513131203082d9ccc916ccba">00340</a> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html#ae64ee3b7513131203082d9ccc916ccba" title="Load from a stream.">_lcp_support_sada&lt;Csa, BitVector, SelectSupport&gt;::load</a>(std::istream&amp; in, <span class="keyword">const</span> Csa* csa)
+<a name="l00341"></a>00341 {
+<a name="l00342"></a>00342     m_csa = csa;
+<a name="l00343"></a>00343     m_data.load(in);
+<a name="l00344"></a>00344     m_select_support.load(in, &amp;m_data);
 <a name="l00345"></a>00345 }
 <a name="l00346"></a>00346 
-<a name="l00347"></a>00347 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> SelectSupport&gt;
-<a name="l00348"></a><a class="code" href="classsdsl_1_1__lcp__support__sada.html#ab6e527cb9b6180a2c2379f9174caea95">00348</a> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html#ab6e527cb9b6180a2c2379f9174caea95" title="Load from a stream.">_lcp_support_sada&lt;Csa, SelectSupport&gt;::load</a>(std::istream&amp; in, <span class="keyword">const</span> Csa* csa)
-<a name="l00349"></a>00349 {
-<a name="l00350"></a>00350     m_csa = csa;
-<a name="l00351"></a>00351     m_data.load(in);
-<a name="l00352"></a>00352     m_select_support.load(in, &amp;m_data);
-<a name="l00353"></a>00353 }
-<a name="l00354"></a>00354 
-<a name="l00355"></a>00355 
-<a name="l00356"></a>00356 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> SelectSupport&gt;
-<a name="l00357"></a><a class="code" href="classsdsl_1_1__lcp__support__sada.html#ad16d1123fd0ce94c254aff260f874644">00357</a> <a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">_lcp_support_sada&lt;Csa, SelectSupport&gt;</a>&amp; <a class="code" href="classsdsl_1_1__lcp__support__sada.html#ad16d1123fd0ce94c254aff260f874644" title="Assignment Operator.">_lcp_support_sada&lt;Csa, SelectSupport&gt;::operator=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">_lcp_support_sada</a>&amp; lcp_c)
-<a name="l00358"></a>00358 {
-<a name="l00359"></a>00359     <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;lcp_c) {
-<a name="l00360"></a>00360         copy(lcp_c);
-<a name="l00361"></a>00361     }
-<a name="l00362"></a>00362     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
-<a name="l00363"></a>00363 }
-<a name="l00364"></a>00364 
+<a name="l00347"></a>00347 
+<a name="l00348"></a>00348 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> BitVector, <span class="keyword">class</span> SelectSupport&gt;
+<a name="l00349"></a><a class="code" href="classsdsl_1_1__lcp__support__sada.html#a3dae835e503b8a2517d3704b991cd3fd">00349</a> <a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">_lcp_support_sada&lt;Csa, BitVector, SelectSupport&gt;</a>&amp; <a class="code" href="classsdsl_1_1__lcp__support__sada.html#a3dae835e503b8a2517d3704b991cd3fd" title="Assignment Operator.">_lcp_support_sada&lt;Csa, BitVector, SelectSupport&gt;::operator=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">_lcp_support_sada</a>&amp; lcp_c)
+<a name="l00350"></a>00350 {
+<a name="l00351"></a>00351     <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;lcp_c) {
+<a name="l00352"></a>00352         copy(lcp_c);
+<a name="l00353"></a>00353     }
+<a name="l00354"></a>00354     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00355"></a>00355 }
+<a name="l00356"></a>00356 
+<a name="l00357"></a>00357 
+<a name="l00358"></a>00358 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> BitVector, <span class="keyword">class</span> SelectSupport&gt;
+<a name="l00359"></a><a class="code" href="classsdsl_1_1__lcp__support__sada.html#a855591850b4c9b467692b499abbcc8ef">00359</a> <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html#a855591850b4c9b467692b499abbcc8ef" title="Equality Operator.">_lcp_support_sada&lt;Csa, BitVector, SelectSupport&gt;::operator==</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">_lcp_support_sada</a>&amp; lcp_c)<span class="keyword">const</span>
+<a name="l00360"></a>00360 <span class="keyword"></span>{
+<a name="l00361"></a>00361     <span class="keywordflow">if</span> (<span class="keyword">this</span> == &amp;lcp_c)
+<a name="l00362"></a>00362         <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00363"></a>00363     <span class="keywordflow">return</span> m_csa == lcp_c.m_csa and m_data == lcp_c.m_data and m_select_support == lcp_c.m_select_support;
+<a name="l00364"></a>00364 }
 <a name="l00365"></a>00365 
-<a name="l00366"></a>00366 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> SelectSupport&gt;
-<a name="l00367"></a><a class="code" href="classsdsl_1_1__lcp__support__sada.html#a6d4e760aad629199bb7936d8ab3cb5bf">00367</a> <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html#a6d4e760aad629199bb7936d8ab3cb5bf" title="Equality Operator.">_lcp_support_sada&lt;Csa, SelectSupport&gt;::operator==</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">_lcp_support_sada</a>&amp; lcp_c)<span class="keyword">const</span>
+<a name="l00366"></a>00366 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> BitVector, <span class="keyword">class</span> SelectSupport&gt;
+<a name="l00367"></a><a class="code" href="classsdsl_1_1__lcp__support__sada.html#a86c7b29860ba0dd682a10b249cb7e172">00367</a> <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html#a86c7b29860ba0dd682a10b249cb7e172" title="Unequality Operator.">_lcp_support_sada&lt;Csa, BitVector, SelectSupport&gt;::operator!=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">_lcp_support_sada</a>&amp; lcp_c)<span class="keyword">const</span>
 <a name="l00368"></a>00368 <span class="keyword"></span>{
-<a name="l00369"></a>00369     <span class="keywordflow">if</span> (<span class="keyword">this</span> == &amp;lcp_c)
-<a name="l00370"></a>00370         <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00371"></a>00371     <span class="keywordflow">return</span> m_csa == lcp_c.m_csa and m_data == lcp_c.m_data and m_select_support == lcp_c.m_select_support;
-<a name="l00372"></a>00372 }
-<a name="l00373"></a>00373 
-<a name="l00374"></a>00374 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> SelectSupport&gt;
-<a name="l00375"></a><a class="code" href="classsdsl_1_1__lcp__support__sada.html#a1ae465e151da565acb5a7436389804f4">00375</a> <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html#a1ae465e151da565acb5a7436389804f4" title="Unequality Operator.">_lcp_support_sada&lt;Csa, SelectSupport&gt;::operator!=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">_lcp_support_sada</a>&amp; lcp_c)<span class="keyword">const</span>
-<a name="l00376"></a>00376 <span class="keyword"></span>{
-<a name="l00377"></a>00377     <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == lcp_c);
-<a name="l00378"></a>00378 }
-<a name="l00379"></a>00379 
-<a name="l00380"></a>00380 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> SelectSupport&gt;
-<a name="l00381"></a><a class="code" href="classsdsl_1_1__lcp__support__sada.html#a79b484ac5e8904a62d087bfb09d4b7eb">00381</a> <span class="keyword">typename</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">_lcp_support_sada&lt;Csa, SelectSupport&gt;::const_iterator</a> <a class="code" href="classsdsl_1_1__lcp__support__sada.html#a79b484ac5e8904a62d087bfb09d4b7eb" title="Returns a const_iterator to the first element.">_lcp_support_sada&lt;Csa, SelectSupport&gt;::begin</a>()<span class="keyword">const</span>
-<a name="l00382"></a>00382 <span class="keyword"></span>{
-<a name="l00383"></a>00383     <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>(<span class="keyword">this</span>, 0);
-<a name="l00384"></a>00384 }
-<a name="l00385"></a>00385 
-<a name="l00386"></a>00386 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> SelectSupport&gt;
-<a name="l00387"></a><a class="code" href="classsdsl_1_1__lcp__support__sada.html#a53d5d90a353aee8a4730bff9025cea49">00387</a> <span class="keyword">typename</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">_lcp_support_sada&lt;Csa, SelectSupport&gt;::const_iterator</a> <a class="code" href="classsdsl_1_1__lcp__support__sada.html#a53d5d90a353aee8a4730bff9025cea49" title="Returns a const_iterator to the element after the last element.">_lcp_support_sada&lt;Csa, SelectSupport&gt;::end</a>()<span class="keyword">const</span>
-<a name="l00388"></a>00388 <span class="keyword"></span>{
-<a name="l00389"></a>00389     <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>(<span class="keyword">this</span>, size());
-<a name="l00390"></a>00390 }
-<a name="l00391"></a>00391 
-<a name="l00392"></a>00392 
-<a name="l00394"></a>00394 <span class="keyword">template</span>&lt;<span class="keyword">class</span> SelectSupport = select_support_mcl&lt;1&gt; &gt;
-<a name="l00395"></a><a class="code" href="classsdsl_1_1lcp__support__sada.html">00395</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1lcp__support__sada.html" title="Helper class which provides _lcp_support_sada the context of a CSA.">lcp_support_sada</a>
-<a name="l00396"></a>00396 {
-<a name="l00397"></a>00397     <span class="keyword">public</span>:
-<a name="l00398"></a>00398         <span class="keyword">template</span>&lt;<span class="keyword">class</span> Cst&gt;  <span class="comment">// template inner class which is used in CSTs to parametrize lcp classes</span>
-<a name="l00399"></a><a class="code" href="classsdsl_1_1lcp__support__sada_1_1type.html">00399</a>         <span class="keyword">class </span><a class="code" href="classsdsl_1_1lcp__support__sada_1_1type.html">type</a>           <span class="comment">// with information about the CST. Thanks Stefan Arnold! (2011-03-02)</span>
-<a name="l00400"></a>00400         {
-<a name="l00401"></a>00401             <span class="keyword">public</span>:
-<a name="l00402"></a>00402                 <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">_lcp_support_sada&lt;typename Cst::csa_type, SelectSupport&gt;</a> <a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">lcp_type</a>;
-<a name="l00403"></a>00403         };
-<a name="l00404"></a>00404 };
-<a name="l00405"></a>00405 
-<a name="l00406"></a>00406 } <span class="comment">// end namespace sdsl</span>
-<a name="l00407"></a>00407 
-<a name="l00408"></a>00408 <span class="preprocessor">#endif</span>
+<a name="l00369"></a>00369     <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == lcp_c);
+<a name="l00370"></a>00370 }
+<a name="l00371"></a>00371 
+<a name="l00372"></a>00372 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> BitVector, <span class="keyword">class</span> SelectSupport&gt;
+<a name="l00373"></a><a class="code" href="classsdsl_1_1__lcp__support__sada.html#a1a5b6ef1b818b7e26260c5da164a0614">00373</a> <span class="keyword">typename</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">_lcp_support_sada&lt;Csa, BitVector, SelectSupport&gt;::const_iterator</a> <a class="code" href="classsdsl_1_1__lcp__support__sada.html#a1a5b6ef1b818b7e26260c5da164a0614" title="Returns a const_iterator to the first element.">_lcp_support_sada&lt;Csa, BitVector, SelectSupport&gt;::begin</a>()<span class="keyword">const</span>
+<a name="l00374"></a>00374 <span class="keyword"></span>{
+<a name="l00375"></a>00375     <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>(<span class="keyword">this</span>, 0);
+<a name="l00376"></a>00376 }
+<a name="l00377"></a>00377 
+<a name="l00378"></a>00378 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> BitVector, <span class="keyword">class</span> SelectSupport&gt;
+<a name="l00379"></a><a class="code" href="classsdsl_1_1__lcp__support__sada.html#acee345cd166f507f1ae1042c8d920942">00379</a> <span class="keyword">typename</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">_lcp_support_sada&lt;Csa, BitVector, SelectSupport&gt;::const_iterator</a> <a class="code" href="classsdsl_1_1__lcp__support__sada.html#acee345cd166f507f1ae1042c8d920942" title="Returns a const_iterator to the element after the last element.">_lcp_support_sada&lt;Csa, BitVector, SelectSupport&gt;::end</a>()<span class="keyword">const</span>
+<a name="l00380"></a>00380 <span class="keyword"></span>{
+<a name="l00381"></a>00381     <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>(<span class="keyword">this</span>, size());
+<a name="l00382"></a>00382 }
+<a name="l00383"></a>00383 
+<a name="l00384"></a>00384 
+<a name="l00386"></a>00386 <span class="keyword">template</span>&lt;<span class="keyword">class</span> BitVector = bit_vector, <span class="keyword">class</span> SelectSupport = <span class="keyword">typename</span> BitVector::select_1_type&gt;
+<a name="l00387"></a><a class="code" href="classsdsl_1_1lcp__support__sada.html">00387</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1lcp__support__sada.html" title="Helper class which provides _lcp_support_sada the context of a CSA.">lcp_support_sada</a>
+<a name="l00388"></a>00388 {
+<a name="l00389"></a>00389     <span class="keyword">public</span>:
+<a name="l00390"></a>00390         <span class="keyword">template</span>&lt;<span class="keyword">class</span> Cst&gt;  <span class="comment">// template inner class which is used in CSTs to parametrize lcp classes</span>
+<a name="l00391"></a><a class="code" href="classsdsl_1_1lcp__support__sada_1_1type.html">00391</a>         <span class="keyword">class </span><a class="code" href="classsdsl_1_1lcp__support__sada_1_1type.html">type</a>           <span class="comment">// with information about the CST. Thanks Stefan Arnold! (2011-03-02)</span>
+<a name="l00392"></a>00392         {
+<a name="l00393"></a>00393             <span class="keyword">public</span>:
+<a name="l00394"></a>00394                 <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">_lcp_support_sada&lt;typename Cst::csa_type, BitVector, SelectSupport&gt;</a> <a class="code" href="classsdsl_1_1__lcp__support__sada.html" title="A class for the compressed version of lcp information of an suffix array of class Csa proposed by Sad...">lcp_type</a>;
+<a name="l00395"></a>00395         };
+<a name="l00396"></a>00396 };
+<a name="l00397"></a>00397 
+<a name="l00398"></a>00398 } <span class="comment">// end namespace sdsl</span>
+<a name="l00399"></a>00399 
+<a name="l00400"></a>00400 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 10 2012 18:54:26 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 13 2012 14:05:47 for SDSL: Succinct Data Structure Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Succinct Data Structure Library (sdsl): sdsl::rrr_vector&lt; block_size, wt_type &gt; Class Template Reference</title>
+<title>SDSL: Succinct Data Structure Library: sdsl::rrr_vector&lt; block_size, wt_type &gt; Class Template Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -27,7 +27,7 @@
   
   
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Succinct Data Structure Library (sdsl)
+   <div id="projectname">SDSL: Succinct Data Structure Library
    
    </div>
    <div id="projectbrief">A C++ template library for succinct data structures</div>
@@ -164,7 +164,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a329a0e5d9d296d66316eaef6a7613af2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a329a0e5d9d296d66316eaef6a7613af2"></a>
 size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rrr__vector.html#a329a0e5d9d296d66316eaef6a7613af2">size</a> () const </td></tr>
 <tr class="memdesc:a329a0e5d9d296d66316eaef6a7613af2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the size of the original bit vector. <br/></td></tr>
-<tr class="memitem:ab293996b01284e7b7a09aa20fa753dcc"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rrr__vector.html#ab293996b01284e7b7a09aa20fa753dcc">serialize</a> (std::ostream &amp;out) const </td></tr>
+<tr class="memitem:aeb09d4223dc7dba6df883b94260b13a9"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rrr__vector.html#aeb09d4223dc7dba6df883b94260b13a9">serialize</a> (std::ostream &amp;out, <a class="el" href="classsdsl_1_1structure__tree__node.html">structure_tree_node</a> *v=NULL, std::string name=&quot;&quot;) const </td></tr>
 <tr class="memitem:a2585bbdb3b7ed3ecfef64fc2a2d75da7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2585bbdb3b7ed3ecfef64fc2a2d75da7"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1rrr__vector.html#a2585bbdb3b7ed3ecfef64fc2a2d75da7">load</a> (std::istream &amp;in)</td></tr>
 <tr class="memdesc:a2585bbdb3b7ed3ecfef64fc2a2d75da7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the data structure from the given istream. <br/></td></tr>
@@ -263,18 +263,34 @@ template&lt;uint16_t block_size = 15, class wt_type  = int_vector&lt;&gt;&gt; </
 
 </div>
 </div>
-<a class="anchor" id="ab293996b01284e7b7a09aa20fa753dcc"></a>
+<a class="anchor" id="aeb09d4223dc7dba6df883b94260b13a9"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;uint16_t block_size = 15, class wt_type  = int_vector&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">size_type <a class="el" href="classsdsl_1_1rrr__vector.html">sdsl::rrr_vector</a>&lt; block_size, wt_type &gt;::<a class="el" href="classsdsl_1_1rrr__vector.html#ab293996b01284e7b7a09aa20fa753dcc">serialize</a> </td>
+          <td class="memname">size_type <a class="el" href="classsdsl_1_1rrr__vector.html">sdsl::rrr_vector</a>&lt; block_size, wt_type &gt;::<a class="el" href="classsdsl_1_1rrr__vector.html#aeb09d4223dc7dba6df883b94260b13a9">serialize</a> </td>
           <td>(</td>
           <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>out</em></td><td>)</td>
-          <td> const<code> [inline]</code></td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsdsl_1_1structure__tree__node.html">structure_tree_node</a> *&#160;</td>
+          <td class="paramname"><em>v</em> = <code>NULL</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const<code> [inline]</code></td>
         </tr>
       </table>
 </div>
@@ -290,7 +306,7 @@ template&lt;uint16_t block_size = 15, class wt_type  = int_vector&lt;&gt;&gt; </
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 10 2012 18:54:32 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 13 2012 14:05:50 for SDSL: Succinct Data Structure Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

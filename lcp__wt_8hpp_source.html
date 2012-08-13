@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Succinct Data Structure Library (sdsl): sdsl/include/sdsl/lcp_wt.hpp Source File</title>
+<title>SDSL: Succinct Data Structure Library: sdsl/include/sdsl/lcp_wt.hpp Source File</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -27,7 +27,7 @@
   
   
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Succinct Data Structure Library (sdsl)
+   <div id="projectname">SDSL: Succinct Data Structure Library
    
    </div>
    <div id="projectbrief">A C++ template library for succinct data structures</div>
@@ -236,178 +236,168 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00191"></a>00191         <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1lcp__wt.html#a90b8c7931578e27f305daf92163cf0ca" title="Unequality Operator.">operator!=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1lcp__wt.html" title="A class for the compressed version of lcp information of an suffix array.">lcp_wt</a>&amp; lcp_c)<span class="keyword">const</span>;
 <a name="l00192"></a>00192 
 <a name="l00194"></a>00194 
-<a name="l00197"></a>00197         size_type <a class="code" href="classsdsl_1_1lcp__wt.html#aa28845d39ef39222ec8d0d198eb2e6fc" title="Serialize to a stream.">serialize</a>(std::ostream&amp; out) <span class="keyword">const</span>;
+<a name="l00197"></a>00197         size_type <a class="code" href="classsdsl_1_1lcp__wt.html#a9ce8737cf0fc26440fccfc69761ec373" title="Serialize to a stream.">serialize</a>(std::ostream&amp; out, <a class="code" href="classsdsl_1_1structure__tree__node.html" title="Class for a node of the structure tree.">structure_tree_node</a>* v=NULL, std::string name=<span class="stringliteral">&quot;&quot;</span>)<span class="keyword">const</span>;
 <a name="l00198"></a>00198 
 <a name="l00200"></a>00200 
 <a name="l00202"></a>00202         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1lcp__wt.html#a3c3262a8e9ff85ee645d5095852c5d67" title="Load from a stream.">load</a>(std::istream&amp; in);
-<a name="l00203"></a>00203 <span class="preprocessor">#ifdef MEM_INFO</span>
-<a name="l00204"></a>00204 <span class="preprocessor"></span>        <span class="keywordtype">void</span> mem_info(std::string label=<span class="stringliteral">&quot;&quot;</span>)<span class="keyword">const </span>{
-<a name="l00205"></a>00205             <span class="keywordflow">if</span> (label==<span class="stringliteral">&quot;&quot;</span>)
-<a name="l00206"></a>00206                 label = <span class="stringliteral">&quot;lcp&quot;</span>;
-<a name="l00207"></a>00207             size_type bytes = <a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(*<span class="keyword">this</span>);
-<a name="l00208"></a>00208             std::cout &lt;&lt; <span class="stringliteral">&quot;list(label = \&quot;&quot;</span>&lt;&lt;label&lt;&lt;<span class="stringliteral">&quot;\&quot;, size = &quot;</span>&lt;&lt; bytes/(1024.0*1024.0) &lt;&lt;<span class="stringliteral">&quot;\n,&quot;</span>;
-<a name="l00209"></a>00209             m_small_lcp.mem_info(<span class="stringliteral">&quot;small lcp values&quot;</span>);
-<a name="l00210"></a>00210             std::cout&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>;
-<a name="l00211"></a>00211             m_big_lcp.mem_info(<span class="stringliteral">&quot;big lcp values&quot;</span>);
-<a name="l00212"></a>00212             std::cout &lt;&lt; <span class="stringliteral">&quot;)\n&quot;</span>;
-<a name="l00213"></a>00213         }
-<a name="l00214"></a>00214 <span class="preprocessor">#endif</span>
-<a name="l00215"></a>00215 <span class="preprocessor"></span>};
-<a name="l00216"></a>00216 
-<a name="l00217"></a>00217 <span class="comment">// == template functions ==</span>
-<a name="l00218"></a>00218 
-<a name="l00219"></a>00219 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t w<span class="keywordtype">id</span>th&gt;
-<a name="l00220"></a>00220 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Text, <span class="keyword">class</span> Sa&gt;
-<a name="l00221"></a><a class="code" href="classsdsl_1_1lcp__wt.html#aa68abc1ebe6c01df12240d2aa4a3c53f">00221</a> <a class="code" href="classsdsl_1_1lcp__wt.html#a3211237890b7f5a20bfe6a01886c34cc" title="Default Constructor.">lcp_wt&lt;width&gt;::lcp_wt</a>(<span class="keyword">const</span> Text&amp; text, <span class="keyword">const</span> Sa&amp; sa)
-<a name="l00222"></a>00222 {
-<a name="l00223"></a>00223     construct(text, sa);
+<a name="l00203"></a>00203 };
+<a name="l00204"></a>00204 
+<a name="l00205"></a>00205 <span class="comment">// == template functions ==</span>
+<a name="l00206"></a>00206 
+<a name="l00207"></a>00207 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t w<span class="keywordtype">id</span>th&gt;
+<a name="l00208"></a>00208 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Text, <span class="keyword">class</span> Sa&gt;
+<a name="l00209"></a><a class="code" href="classsdsl_1_1lcp__wt.html#aa68abc1ebe6c01df12240d2aa4a3c53f">00209</a> <a class="code" href="classsdsl_1_1lcp__wt.html#a3211237890b7f5a20bfe6a01886c34cc" title="Default Constructor.">lcp_wt&lt;width&gt;::lcp_wt</a>(<span class="keyword">const</span> Text&amp; text, <span class="keyword">const</span> Sa&amp; sa)
+<a name="l00210"></a>00210 {
+<a name="l00211"></a>00211     construct(text, sa);
+<a name="l00212"></a>00212 }
+<a name="l00213"></a>00213 
+<a name="l00214"></a>00214 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t w<span class="keywordtype">id</span>th&gt;
+<a name="l00215"></a>00215 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Text, <span class="keyword">class</span> Sa&gt;
+<a name="l00216"></a>00216 <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1lcp__wt.html" title="A class for the compressed version of lcp information of an suffix array.">lcp_wt&lt;width&gt;::construct</a>(<span class="keyword">const</span> Text&amp; text, <span class="keyword">const</span> Sa&amp; sa)
+<a name="l00217"></a>00217 {
+<a name="l00218"></a>00218     <span class="keywordflow">if</span> (sa.size() == 0) {
+<a name="l00219"></a>00219         <span class="keywordflow">return</span>;
+<a name="l00220"></a>00220     }
+<a name="l00221"></a>00221     <span class="keywordflow">throw</span> std::logic_error(<span class="stringliteral">&quot;This constructor of lcp_wt is not yet implemented!&quot;</span>);
+<a name="l00222"></a>00222     <span class="comment">/*</span>
+<a name="l00223"></a>00223 <span class="comment">    */</span>
 <a name="l00224"></a>00224 }
 <a name="l00225"></a>00225 
-<a name="l00226"></a>00226 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t w<span class="keywordtype">id</span>th&gt;
-<a name="l00227"></a>00227 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Text, <span class="keyword">class</span> Sa&gt;
-<a name="l00228"></a>00228 <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1lcp__wt.html" title="A class for the compressed version of lcp information of an suffix array.">lcp_wt&lt;width&gt;::construct</a>(<span class="keyword">const</span> Text&amp; text, <span class="keyword">const</span> Sa&amp; sa)
-<a name="l00229"></a>00229 {
-<a name="l00230"></a>00230     <span class="keywordflow">if</span> (sa.size() == 0) {
-<a name="l00231"></a>00231         <span class="keywordflow">return</span>;
-<a name="l00232"></a>00232     }
-<a name="l00233"></a>00233     <span class="keywordflow">throw</span> std::logic_error(<span class="stringliteral">&quot;This constructor of lcp_wt is not yet implemented!&quot;</span>);
-<a name="l00234"></a>00234     <span class="comment">/*</span>
-<a name="l00235"></a>00235 <span class="comment">    */</span>
-<a name="l00236"></a>00236 }
-<a name="l00237"></a>00237 
-<a name="l00238"></a>00238 
-<a name="l00239"></a>00239 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t w<span class="keywordtype">id</span>th&gt;
-<a name="l00240"></a>00240 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>&gt;
-<a name="l00241"></a><a class="code" href="classsdsl_1_1lcp__wt.html#ac616c0a4a2af3823e9ef76f093deadbf">00241</a> <a class="code" href="classsdsl_1_1lcp__wt.html#a3211237890b7f5a20bfe6a01886c34cc" title="Default Constructor.">lcp_wt&lt;width&gt;::lcp_wt</a>(<a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;int_width, size_type_class&gt;</a>&amp; lcp_buf)
-<a name="l00242"></a>00242 {
-<a name="l00243"></a>00243     construct(lcp_buf);
-<a name="l00244"></a>00244 }
-<a name="l00245"></a>00245 
-<a name="l00246"></a>00246 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t w<span class="keywordtype">id</span>th&gt;
-<a name="l00247"></a>00247 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>&gt;
-<a name="l00248"></a>00248 <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1lcp__wt.html" title="A class for the compressed version of lcp information of an suffix array.">lcp_wt&lt;width&gt;::construct</a>(<a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;int_width, size_type_class&gt;</a>&amp; lcp_buf)
-<a name="l00249"></a>00249 {
-<a name="l00250"></a>00250     std::string temp_file = <span class="stringliteral">&quot;/tmp/lcp_sml&quot;</span> + <a class="code" href="namespacesdsl_1_1util.html#a6d8c83ac15f316e914edff973d8d77b6" title="Convert type to string.">util::to_string</a>(<a class="code" href="namespacesdsl_1_1util.html#ad89157cf167352afc99fe41318990191" title="Get the process id of the current process.">util::get_pid</a>()) + <span class="stringliteral">&quot;_&quot;</span> + <a class="code" href="namespacesdsl_1_1util.html#a6d8c83ac15f316e914edff973d8d77b6" title="Convert type to string.">util::to_string</a>(<a class="code" href="namespacesdsl_1_1util.html#a6d9b7c00544c815b561e2f1e8a04c486" title="Get a unique id inside the process.">util::get_id</a>()) ;<span class="comment">// TODO: remove absolute file name</span>
-<a name="l00251"></a>00251 <span class="comment">//      write_R_output(&quot;lcp&quot;,&quot;construct sml&quot;,&quot;begin&quot;);</span>
-<a name="l00252"></a>00252     <span class="keyword">typename</span> int_vector&lt;&gt;::size_type l=0, max_l=0, big_sum=0, n = lcp_buf.int_vector_size;
-<a name="l00253"></a>00253     {
-<a name="l00254"></a>00254         <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;8&gt;</a> small_lcp = <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;8&gt;</a>(n);
-<a name="l00255"></a>00255         lcp_buf.reset();
-<a name="l00256"></a>00256         <span class="keywordflow">for</span> (size_type i=0, r_sum=0, r = lcp_buf.load_next_block(); r_sum &lt; n;) {
-<a name="l00257"></a>00257             <span class="keywordflow">for</span> (; i &lt; r_sum+r; ++i) {
-<a name="l00258"></a>00258                 <span class="keywordflow">if</span> ((l=lcp_buf[i-r_sum]) &lt; 255) {
-<a name="l00259"></a>00259                     small_lcp[i] = l;
-<a name="l00260"></a>00260                 } <span class="keywordflow">else</span> {
-<a name="l00261"></a>00261                     small_lcp[i] = 255;
-<a name="l00262"></a>00262                     <span class="keywordflow">if</span> (l &gt; max_l) max_l = l;
-<a name="l00263"></a>00263                     ++big_sum;
-<a name="l00264"></a>00264                 }
-<a name="l00265"></a>00265             }
-<a name="l00266"></a>00266             r_sum += r; r = lcp_buf.load_next_block();
-<a name="l00267"></a>00267         }
-<a name="l00268"></a>00268         <a class="code" href="namespacesdsl_1_1util.html#a7b338a462d03048f4a71b3e83b02be7f" title="Store a data structure to a file.">util::store_to_file</a>(small_lcp, temp_file.c_str());
-<a name="l00269"></a>00269     }
-<a name="l00270"></a>00270 <span class="comment">//      write_R_output(&quot;lcp&quot;,&quot;construct sml&quot;,&quot;end&quot;);</span>
-<a name="l00271"></a>00271     int_vector_file_buffer&lt;8&gt; lcp_sml_buf(temp_file.c_str());
-<a name="l00272"></a>00272     m_small_lcp.construct(lcp_sml_buf, lcp_sml_buf.int_vector_size);
-<a name="l00273"></a>00273     std::remove(temp_file.c_str());
-<a name="l00274"></a>00274 <span class="comment">//      write_R_output(&quot;lcp&quot;,&quot;construct big&quot;,&quot;begin&quot;);</span>
-<a name="l00275"></a>00275     m_big_lcp           = int_vector&lt;&gt;(big_sum, 0, <a class="code" href="classsdsl_1_1bit__magic.html#a7e056c78ea2cea39ac49e552731c0c95" title="Calculates the position of the leftmost 1-bit in the 64bit integer x if it exists.">bit_magic::l1BP</a>(max_l)+1);
-<a name="l00276"></a>00276     {
-<a name="l00277"></a>00277         lcp_buf.reset();
-<a name="l00278"></a>00278         <span class="keywordflow">for</span> (size_type i=0, ii=0, r_sum=0, r = lcp_buf.load_next_block(); r_sum &lt; n;) {
-<a name="l00279"></a>00279             <span class="keywordflow">for</span> (; i &lt; r_sum+r; ++i) {
-<a name="l00280"></a>00280                 <span class="keywordflow">if</span> (lcp_buf[i-r_sum] &gt;= 255) {
-<a name="l00281"></a>00281                     m_big_lcp[ ii++ ] = lcp_buf[i-r_sum];
-<a name="l00282"></a>00282                 }
-<a name="l00283"></a>00283             }
-<a name="l00284"></a>00284             r_sum += r; r = lcp_buf.load_next_block();
-<a name="l00285"></a>00285         }
-<a name="l00286"></a>00286     }
-<a name="l00287"></a>00287 <span class="comment">//      write_R_output(&quot;lcp&quot;,&quot;construct big&quot;,&quot;end&quot;);</span>
-<a name="l00288"></a>00288 }
-<a name="l00289"></a>00289 
-<a name="l00290"></a>00290 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t w<span class="keywordtype">id</span>th&gt;
-<a name="l00291"></a><a class="code" href="classsdsl_1_1lcp__wt.html#aa8b14554e551a7748663dfd86836a331">00291</a> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1lcp__wt.html#aa8b14554e551a7748663dfd86836a331" title="Swap method for lcp_wt.">lcp_wt&lt;width&gt;::swap</a>(<a class="code" href="classsdsl_1_1lcp__wt.html" title="A class for the compressed version of lcp information of an suffix array.">lcp_wt</a>&amp; lcp_c)
-<a name="l00292"></a>00292 {
-<a name="l00293"></a>00293     m_small_lcp.swap(lcp_c.m_small_lcp);
-<a name="l00294"></a>00294     m_big_lcp.swap(lcp_c.m_big_lcp);
-<a name="l00295"></a>00295 }
-<a name="l00296"></a>00296 
-<a name="l00297"></a>00297 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t w<span class="keywordtype">id</span>th&gt;
-<a name="l00298"></a><a class="code" href="classsdsl_1_1lcp__wt.html#a70d722230f8fd56fe799ea7e88829b68">00298</a> <span class="keyword">inline</span> <span class="keyword">typename</span> lcp_wt&lt;width&gt;::value_type <a class="code" href="classsdsl_1_1lcp__wt.html#a70d722230f8fd56fe799ea7e88829b68" title="[]-operator">lcp_wt&lt;width&gt;::operator[]</a>(size_type i)<span class="keyword">const</span>
-<a name="l00299"></a>00299 <span class="keyword"></span>{
-<a name="l00300"></a>00300     <span class="keywordflow">if</span> (m_small_lcp[i]!=255) {
-<a name="l00301"></a>00301         <span class="keywordflow">return</span> m_small_lcp[i];
-<a name="l00302"></a>00302     } <span class="keywordflow">else</span> {
-<a name="l00303"></a>00303         <span class="keywordflow">return</span> m_big_lcp[ m_small_lcp.rank(i, 255) ];
-<a name="l00304"></a>00304     }
+<a name="l00226"></a>00226 
+<a name="l00227"></a>00227 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t w<span class="keywordtype">id</span>th&gt;
+<a name="l00228"></a>00228 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>&gt;
+<a name="l00229"></a><a class="code" href="classsdsl_1_1lcp__wt.html#ac616c0a4a2af3823e9ef76f093deadbf">00229</a> <a class="code" href="classsdsl_1_1lcp__wt.html#a3211237890b7f5a20bfe6a01886c34cc" title="Default Constructor.">lcp_wt&lt;width&gt;::lcp_wt</a>(<a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;int_width, size_type_class&gt;</a>&amp; lcp_buf)
+<a name="l00230"></a>00230 {
+<a name="l00231"></a>00231     construct(lcp_buf);
+<a name="l00232"></a>00232 }
+<a name="l00233"></a>00233 
+<a name="l00234"></a>00234 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t w<span class="keywordtype">id</span>th&gt;
+<a name="l00235"></a>00235 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t <span class="keywordtype">int</span>_w<span class="keywordtype">id</span>th, <span class="keyword">class</span> <span class="keywordtype">size_t</span>ype_<span class="keyword">class</span>&gt;
+<a name="l00236"></a>00236 <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1lcp__wt.html" title="A class for the compressed version of lcp information of an suffix array.">lcp_wt&lt;width&gt;::construct</a>(<a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;int_width, size_type_class&gt;</a>&amp; lcp_buf)
+<a name="l00237"></a>00237 {
+<a name="l00238"></a>00238     std::string temp_file = <span class="stringliteral">&quot;/tmp/lcp_sml&quot;</span> + <a class="code" href="namespacesdsl_1_1util.html#a6d8c83ac15f316e914edff973d8d77b6" title="Convert type to string.">util::to_string</a>(<a class="code" href="namespacesdsl_1_1util.html#ad89157cf167352afc99fe41318990191" title="Get the process id of the current process.">util::get_pid</a>()) + <span class="stringliteral">&quot;_&quot;</span> + <a class="code" href="namespacesdsl_1_1util.html#a6d8c83ac15f316e914edff973d8d77b6" title="Convert type to string.">util::to_string</a>(<a class="code" href="namespacesdsl_1_1util.html#a6d9b7c00544c815b561e2f1e8a04c486" title="Get a unique id inside the process.">util::get_id</a>()) ;<span class="comment">// TODO: remove absolute file name</span>
+<a name="l00239"></a>00239 <span class="comment">//      write_R_output(&quot;lcp&quot;,&quot;construct sml&quot;,&quot;begin&quot;);</span>
+<a name="l00240"></a>00240     <span class="keyword">typename</span> int_vector&lt;&gt;::size_type l=0, max_l=0, big_sum=0, n = lcp_buf.int_vector_size;
+<a name="l00241"></a>00241     {
+<a name="l00242"></a>00242         <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;8&gt;</a> small_lcp = <a class="code" href="classsdsl_1_1int__vector.html">int_vector&lt;8&gt;</a>(n);
+<a name="l00243"></a>00243         lcp_buf.reset();
+<a name="l00244"></a>00244         <span class="keywordflow">for</span> (size_type i=0, r_sum=0, r = lcp_buf.load_next_block(); r_sum &lt; n;) {
+<a name="l00245"></a>00245             <span class="keywordflow">for</span> (; i &lt; r_sum+r; ++i) {
+<a name="l00246"></a>00246                 <span class="keywordflow">if</span> ((l=lcp_buf[i-r_sum]) &lt; 255) {
+<a name="l00247"></a>00247                     small_lcp[i] = l;
+<a name="l00248"></a>00248                 } <span class="keywordflow">else</span> {
+<a name="l00249"></a>00249                     small_lcp[i] = 255;
+<a name="l00250"></a>00250                     <span class="keywordflow">if</span> (l &gt; max_l) max_l = l;
+<a name="l00251"></a>00251                     ++big_sum;
+<a name="l00252"></a>00252                 }
+<a name="l00253"></a>00253             }
+<a name="l00254"></a>00254             r_sum += r; r = lcp_buf.load_next_block();
+<a name="l00255"></a>00255         }
+<a name="l00256"></a>00256         <a class="code" href="namespacesdsl_1_1util.html#a7b338a462d03048f4a71b3e83b02be7f" title="Store a data structure to a file.">util::store_to_file</a>(small_lcp, temp_file.c_str());
+<a name="l00257"></a>00257     }
+<a name="l00258"></a>00258 <span class="comment">//      write_R_output(&quot;lcp&quot;,&quot;construct sml&quot;,&quot;end&quot;);</span>
+<a name="l00259"></a>00259     int_vector_file_buffer&lt;8&gt; lcp_sml_buf(temp_file.c_str());
+<a name="l00260"></a>00260     m_small_lcp.construct(lcp_sml_buf, lcp_sml_buf.int_vector_size);
+<a name="l00261"></a>00261     std::remove(temp_file.c_str());
+<a name="l00262"></a>00262 <span class="comment">//      write_R_output(&quot;lcp&quot;,&quot;construct big&quot;,&quot;begin&quot;);</span>
+<a name="l00263"></a>00263     m_big_lcp           = int_vector&lt;&gt;(big_sum, 0, <a class="code" href="classsdsl_1_1bit__magic.html#a7e056c78ea2cea39ac49e552731c0c95" title="Calculates the position of the leftmost 1-bit in the 64bit integer x if it exists.">bit_magic::l1BP</a>(max_l)+1);
+<a name="l00264"></a>00264     {
+<a name="l00265"></a>00265         lcp_buf.reset();
+<a name="l00266"></a>00266         <span class="keywordflow">for</span> (size_type i=0, ii=0, r_sum=0, r = lcp_buf.load_next_block(); r_sum &lt; n;) {
+<a name="l00267"></a>00267             <span class="keywordflow">for</span> (; i &lt; r_sum+r; ++i) {
+<a name="l00268"></a>00268                 <span class="keywordflow">if</span> (lcp_buf[i-r_sum] &gt;= 255) {
+<a name="l00269"></a>00269                     m_big_lcp[ ii++ ] = lcp_buf[i-r_sum];
+<a name="l00270"></a>00270                 }
+<a name="l00271"></a>00271             }
+<a name="l00272"></a>00272             r_sum += r; r = lcp_buf.load_next_block();
+<a name="l00273"></a>00273         }
+<a name="l00274"></a>00274     }
+<a name="l00275"></a>00275 <span class="comment">//      write_R_output(&quot;lcp&quot;,&quot;construct big&quot;,&quot;end&quot;);</span>
+<a name="l00276"></a>00276 }
+<a name="l00277"></a>00277 
+<a name="l00278"></a>00278 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t w<span class="keywordtype">id</span>th&gt;
+<a name="l00279"></a><a class="code" href="classsdsl_1_1lcp__wt.html#aa8b14554e551a7748663dfd86836a331">00279</a> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1lcp__wt.html#aa8b14554e551a7748663dfd86836a331" title="Swap method for lcp_wt.">lcp_wt&lt;width&gt;::swap</a>(<a class="code" href="classsdsl_1_1lcp__wt.html" title="A class for the compressed version of lcp information of an suffix array.">lcp_wt</a>&amp; lcp_c)
+<a name="l00280"></a>00280 {
+<a name="l00281"></a>00281     m_small_lcp.swap(lcp_c.m_small_lcp);
+<a name="l00282"></a>00282     m_big_lcp.swap(lcp_c.m_big_lcp);
+<a name="l00283"></a>00283 }
+<a name="l00284"></a>00284 
+<a name="l00285"></a>00285 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t w<span class="keywordtype">id</span>th&gt;
+<a name="l00286"></a><a class="code" href="classsdsl_1_1lcp__wt.html#a70d722230f8fd56fe799ea7e88829b68">00286</a> <span class="keyword">inline</span> <span class="keyword">typename</span> lcp_wt&lt;width&gt;::value_type <a class="code" href="classsdsl_1_1lcp__wt.html#a70d722230f8fd56fe799ea7e88829b68" title="[]-operator">lcp_wt&lt;width&gt;::operator[]</a>(size_type i)<span class="keyword">const</span>
+<a name="l00287"></a>00287 <span class="keyword"></span>{
+<a name="l00288"></a>00288     <span class="keywordflow">if</span> (m_small_lcp[i]!=255) {
+<a name="l00289"></a>00289         <span class="keywordflow">return</span> m_small_lcp[i];
+<a name="l00290"></a>00290     } <span class="keywordflow">else</span> {
+<a name="l00291"></a>00291         <span class="keywordflow">return</span> m_big_lcp[ m_small_lcp.rank(i, 255) ];
+<a name="l00292"></a>00292     }
+<a name="l00293"></a>00293 }
+<a name="l00294"></a>00294 
+<a name="l00295"></a>00295 
+<a name="l00296"></a>00296 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t w<span class="keywordtype">id</span>th&gt;
+<a name="l00297"></a><a class="code" href="classsdsl_1_1lcp__wt.html#a9ce8737cf0fc26440fccfc69761ec373">00297</a> <span class="keyword">typename</span> lcp_wt&lt;width&gt;::size_type <a class="code" href="classsdsl_1_1lcp__wt.html#a9ce8737cf0fc26440fccfc69761ec373" title="Serialize to a stream.">lcp_wt&lt;width&gt;::serialize</a>(std::ostream&amp; out, <a class="code" href="classsdsl_1_1structure__tree__node.html" title="Class for a node of the structure tree.">structure_tree_node</a>* v, std::string name)<span class="keyword">const</span>
+<a name="l00298"></a>00298 <span class="keyword"></span>{
+<a name="l00299"></a>00299     <a class="code" href="classsdsl_1_1structure__tree__node.html" title="Class for a node of the structure tree.">structure_tree_node</a>* child = structure_tree::add_child(v, name, util::class_name(*<span class="keyword">this</span>));
+<a name="l00300"></a>00300     size_type written_bytes = 0;
+<a name="l00301"></a>00301     written_bytes += m_small_lcp.serialize(out, child,  <span class="stringliteral">&quot;small_lcp&quot;</span>);
+<a name="l00302"></a>00302     written_bytes += m_big_lcp.serialize(out, child, <span class="stringliteral">&quot;large_lcp&quot;</span>);
+<a name="l00303"></a>00303     structure_tree::add_size(child, written_bytes);
+<a name="l00304"></a>00304     <span class="keywordflow">return</span> written_bytes;
 <a name="l00305"></a>00305 }
 <a name="l00306"></a>00306 
-<a name="l00307"></a>00307 
-<a name="l00308"></a>00308 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t w<span class="keywordtype">id</span>th&gt;
-<a name="l00309"></a><a class="code" href="classsdsl_1_1lcp__wt.html#aa28845d39ef39222ec8d0d198eb2e6fc">00309</a> <span class="keyword">typename</span> lcp_wt&lt;width&gt;::size_type <a class="code" href="classsdsl_1_1lcp__wt.html#aa28845d39ef39222ec8d0d198eb2e6fc" title="Serialize to a stream.">lcp_wt&lt;width&gt;::serialize</a>(std::ostream&amp; out)<span class="keyword"> const</span>
-<a name="l00310"></a>00310 <span class="keyword"></span>{
-<a name="l00311"></a>00311     size_type written_bytes = 0;
-<a name="l00312"></a>00312     written_bytes += m_small_lcp.serialize(out);
-<a name="l00313"></a>00313     written_bytes += m_big_lcp.serialize(out);
-<a name="l00314"></a>00314     <span class="keywordflow">return</span> written_bytes;
-<a name="l00315"></a>00315 }
-<a name="l00316"></a>00316 
-<a name="l00317"></a>00317 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t w<span class="keywordtype">id</span>th&gt;
-<a name="l00318"></a><a class="code" href="classsdsl_1_1lcp__wt.html#a3c3262a8e9ff85ee645d5095852c5d67">00318</a> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1lcp__wt.html#a3c3262a8e9ff85ee645d5095852c5d67" title="Load from a stream.">lcp_wt&lt;width&gt;::load</a>(std::istream&amp; in)
-<a name="l00319"></a>00319 {
-<a name="l00320"></a>00320     m_small_lcp.load(in);
-<a name="l00321"></a>00321     m_big_lcp.load(in);
+<a name="l00307"></a>00307 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t w<span class="keywordtype">id</span>th&gt;
+<a name="l00308"></a><a class="code" href="classsdsl_1_1lcp__wt.html#a3c3262a8e9ff85ee645d5095852c5d67">00308</a> <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1lcp__wt.html#a3c3262a8e9ff85ee645d5095852c5d67" title="Load from a stream.">lcp_wt&lt;width&gt;::load</a>(std::istream&amp; in)
+<a name="l00309"></a>00309 {
+<a name="l00310"></a>00310     m_small_lcp.load(in);
+<a name="l00311"></a>00311     m_big_lcp.load(in);
+<a name="l00312"></a>00312 }
+<a name="l00313"></a>00313 
+<a name="l00314"></a>00314 
+<a name="l00315"></a>00315 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t w<span class="keywordtype">id</span>th&gt;
+<a name="l00316"></a><a class="code" href="classsdsl_1_1lcp__wt.html#afeb4a986f6b88e10f9b4e68dc2855ebf">00316</a> <a class="code" href="classsdsl_1_1lcp__wt.html" title="A class for the compressed version of lcp information of an suffix array.">lcp_wt&lt;width&gt;</a>&amp; <a class="code" href="classsdsl_1_1lcp__wt.html#afeb4a986f6b88e10f9b4e68dc2855ebf" title="Assignment Operator.">lcp_wt&lt;width&gt;::operator=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1lcp__wt.html" title="A class for the compressed version of lcp information of an suffix array.">lcp_wt</a>&amp; lcp_c)
+<a name="l00317"></a>00317 {
+<a name="l00318"></a>00318     <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;lcp_c) {
+<a name="l00319"></a>00319         copy(lcp_c);
+<a name="l00320"></a>00320     }
+<a name="l00321"></a>00321     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
 <a name="l00322"></a>00322 }
 <a name="l00323"></a>00323 
 <a name="l00324"></a>00324 
 <a name="l00325"></a>00325 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t w<span class="keywordtype">id</span>th&gt;
-<a name="l00326"></a><a class="code" href="classsdsl_1_1lcp__wt.html#afeb4a986f6b88e10f9b4e68dc2855ebf">00326</a> <a class="code" href="classsdsl_1_1lcp__wt.html" title="A class for the compressed version of lcp information of an suffix array.">lcp_wt&lt;width&gt;</a>&amp; <a class="code" href="classsdsl_1_1lcp__wt.html#afeb4a986f6b88e10f9b4e68dc2855ebf" title="Assignment Operator.">lcp_wt&lt;width&gt;::operator=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1lcp__wt.html" title="A class for the compressed version of lcp information of an suffix array.">lcp_wt</a>&amp; lcp_c)
-<a name="l00327"></a>00327 {
-<a name="l00328"></a>00328     <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;lcp_c) {
-<a name="l00329"></a>00329         copy(lcp_c);
-<a name="l00330"></a>00330     }
-<a name="l00331"></a>00331     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
-<a name="l00332"></a>00332 }
-<a name="l00333"></a>00333 
-<a name="l00334"></a>00334 
-<a name="l00335"></a>00335 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t w<span class="keywordtype">id</span>th&gt;
-<a name="l00336"></a><a class="code" href="classsdsl_1_1lcp__wt.html#ab9d28bcf8d107db7de6684cf0682291a">00336</a> <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1lcp__wt.html#ab9d28bcf8d107db7de6684cf0682291a" title="Equality Operator.">lcp_wt&lt;width&gt;::operator==</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1lcp__wt.html" title="A class for the compressed version of lcp information of an suffix array.">lcp_wt</a>&amp; lcp_c)<span class="keyword">const</span>
-<a name="l00337"></a>00337 <span class="keyword"></span>{
-<a name="l00338"></a>00338     <span class="keywordflow">if</span> (<span class="keyword">this</span> == &amp;lcp_c)
-<a name="l00339"></a>00339         <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00340"></a>00340     <span class="keywordflow">return</span> m_small_lcp == lcp_c.m_small_lcp and m_big_lcp == lcp_c.m_big_lcp;
-<a name="l00341"></a>00341 }
-<a name="l00342"></a>00342 
-<a name="l00343"></a>00343 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t w<span class="keywordtype">id</span>th&gt;
-<a name="l00344"></a><a class="code" href="classsdsl_1_1lcp__wt.html#a90b8c7931578e27f305daf92163cf0ca">00344</a> <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1lcp__wt.html#a90b8c7931578e27f305daf92163cf0ca" title="Unequality Operator.">lcp_wt&lt;width&gt;::operator!=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1lcp__wt.html" title="A class for the compressed version of lcp information of an suffix array.">lcp_wt</a>&amp; lcp_c)<span class="keyword">const</span>
-<a name="l00345"></a>00345 <span class="keyword"></span>{
-<a name="l00346"></a>00346     <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == lcp_c);
-<a name="l00347"></a>00347 }
-<a name="l00348"></a>00348 
-<a name="l00349"></a>00349 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t w<span class="keywordtype">id</span>th&gt;
-<a name="l00350"></a><a class="code" href="classsdsl_1_1lcp__wt.html#a47819e4416a422eabd9f596b13d643c8">00350</a> <span class="keyword">typename</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">lcp_wt&lt;width&gt;::const_iterator</a> <a class="code" href="classsdsl_1_1lcp__wt.html#a47819e4416a422eabd9f596b13d643c8" title="Returns a const_iterator to the first element.">lcp_wt&lt;width&gt;::begin</a>()<span class="keyword">const</span>
-<a name="l00351"></a>00351 <span class="keyword"></span>{
-<a name="l00352"></a>00352     <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>(<span class="keyword">this</span>, 0);
-<a name="l00353"></a>00353 }
+<a name="l00326"></a><a class="code" href="classsdsl_1_1lcp__wt.html#ab9d28bcf8d107db7de6684cf0682291a">00326</a> <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1lcp__wt.html#ab9d28bcf8d107db7de6684cf0682291a" title="Equality Operator.">lcp_wt&lt;width&gt;::operator==</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1lcp__wt.html" title="A class for the compressed version of lcp information of an suffix array.">lcp_wt</a>&amp; lcp_c)<span class="keyword">const</span>
+<a name="l00327"></a>00327 <span class="keyword"></span>{
+<a name="l00328"></a>00328     <span class="keywordflow">if</span> (<span class="keyword">this</span> == &amp;lcp_c)
+<a name="l00329"></a>00329         <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00330"></a>00330     <span class="keywordflow">return</span> m_small_lcp == lcp_c.m_small_lcp and m_big_lcp == lcp_c.m_big_lcp;
+<a name="l00331"></a>00331 }
+<a name="l00332"></a>00332 
+<a name="l00333"></a>00333 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t w<span class="keywordtype">id</span>th&gt;
+<a name="l00334"></a><a class="code" href="classsdsl_1_1lcp__wt.html#a90b8c7931578e27f305daf92163cf0ca">00334</a> <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1lcp__wt.html#a90b8c7931578e27f305daf92163cf0ca" title="Unequality Operator.">lcp_wt&lt;width&gt;::operator!=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1lcp__wt.html" title="A class for the compressed version of lcp information of an suffix array.">lcp_wt</a>&amp; lcp_c)<span class="keyword">const</span>
+<a name="l00335"></a>00335 <span class="keyword"></span>{
+<a name="l00336"></a>00336     <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == lcp_c);
+<a name="l00337"></a>00337 }
+<a name="l00338"></a>00338 
+<a name="l00339"></a>00339 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t w<span class="keywordtype">id</span>th&gt;
+<a name="l00340"></a><a class="code" href="classsdsl_1_1lcp__wt.html#a47819e4416a422eabd9f596b13d643c8">00340</a> <span class="keyword">typename</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">lcp_wt&lt;width&gt;::const_iterator</a> <a class="code" href="classsdsl_1_1lcp__wt.html#a47819e4416a422eabd9f596b13d643c8" title="Returns a const_iterator to the first element.">lcp_wt&lt;width&gt;::begin</a>()<span class="keyword">const</span>
+<a name="l00341"></a>00341 <span class="keyword"></span>{
+<a name="l00342"></a>00342     <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>(<span class="keyword">this</span>, 0);
+<a name="l00343"></a>00343 }
+<a name="l00344"></a>00344 
+<a name="l00345"></a>00345 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t w<span class="keywordtype">id</span>th&gt;
+<a name="l00346"></a><a class="code" href="classsdsl_1_1lcp__wt.html#a62e8e07fea91e55a12c0aaa8513b4c92">00346</a> <span class="keyword">typename</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">lcp_wt&lt;width&gt;::const_iterator</a> <a class="code" href="classsdsl_1_1lcp__wt.html#a62e8e07fea91e55a12c0aaa8513b4c92" title="Returns a const_iterator to the element after the last element.">lcp_wt&lt;width&gt;::end</a>()<span class="keyword">const</span>
+<a name="l00347"></a>00347 <span class="keyword"></span>{
+<a name="l00348"></a>00348     <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>(<span class="keyword">this</span>, size());
+<a name="l00349"></a>00349 }
+<a name="l00350"></a>00350 
+<a name="l00351"></a>00351 
+<a name="l00352"></a>00352 
+<a name="l00353"></a>00353 } <span class="comment">// end namespace sdsl</span>
 <a name="l00354"></a>00354 
-<a name="l00355"></a>00355 <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span>8_t w<span class="keywordtype">id</span>th&gt;
-<a name="l00356"></a><a class="code" href="classsdsl_1_1lcp__wt.html#a62e8e07fea91e55a12c0aaa8513b4c92">00356</a> <span class="keyword">typename</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">lcp_wt&lt;width&gt;::const_iterator</a> <a class="code" href="classsdsl_1_1lcp__wt.html#a62e8e07fea91e55a12c0aaa8513b4c92" title="Returns a const_iterator to the element after the last element.">lcp_wt&lt;width&gt;::end</a>()<span class="keyword">const</span>
-<a name="l00357"></a>00357 <span class="keyword"></span>{
-<a name="l00358"></a>00358     <span class="keywordflow">return</span> <a class="code" href="classsdsl_1_1random__access__const__iterator.html">const_iterator</a>(<span class="keyword">this</span>, size());
-<a name="l00359"></a>00359 }
-<a name="l00360"></a>00360 
-<a name="l00361"></a>00361 
-<a name="l00362"></a>00362 
-<a name="l00363"></a>00363 } <span class="comment">// end namespace sdsl</span>
-<a name="l00364"></a>00364 
-<a name="l00365"></a>00365 <span class="preprocessor">#endif</span>
+<a name="l00355"></a>00355 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 10 2012 18:54:27 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 13 2012 14:05:47 for SDSL: Succinct Data Structure Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

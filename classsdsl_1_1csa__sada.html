@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Succinct Data Structure Library (sdsl): sdsl::csa_sada&lt; EncVector, SampleDens, InvSampleDens, fixedIntWidth &gt; Class Template Reference</title>
+<title>SDSL: Succinct Data Structure Library: sdsl::csa_sada&lt; EncVector, SampleDens, InvSampleDens, fixedIntWidth &gt; Class Template Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -27,7 +27,7 @@
   
   
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Succinct Data Structure Library (sdsl)
+   <div id="projectname">SDSL: Succinct Data Structure Library
    
    </div>
    <div id="projectbrief">A C++ template library for succinct data structures</div>
@@ -106,6 +106,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="#friends">Friends</a>  </div>
   <div class="headertitle">
 <div class="title">sdsl::csa_sada&lt; EncVector, SampleDens, InvSampleDens, fixedIntWidth &gt; Class Template Reference<div class="ingroups"><a class="el" href="group__csa.html">Compressed Suffix Arrays (CSA)</a></div></div>  </div>
@@ -213,8 +214,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>construct</b> (tMSS &
 <tr class="memdesc:af845f0cb1dc99bed5eb1cd60dad0895f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality Operator.  <a href="#af845f0cb1dc99bed5eb1cd60dad0895f"></a><br/></td></tr>
 <tr class="memitem:ac80418bc68f0aefbc86895d8f3f3243c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1csa__sada.html#ac80418bc68f0aefbc86895d8f3f3243c">operator!=</a> (const <a class="el" href="classsdsl_1_1csa__sada.html">csa_sada</a> &amp;csa) const </td></tr>
 <tr class="memdesc:ac80418bc68f0aefbc86895d8f3f3243c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unequality Operator.  <a href="#ac80418bc68f0aefbc86895d8f3f3243c"></a><br/></td></tr>
-<tr class="memitem:a65cd04a7624cf4420547e3e453dd51b3"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1csa__sada.html#a65cd04a7624cf4420547e3e453dd51b3">serialize</a> (std::ostream &amp;out) const </td></tr>
-<tr class="memdesc:a65cd04a7624cf4420547e3e453dd51b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize to a stream.  <a href="#a65cd04a7624cf4420547e3e453dd51b3"></a><br/></td></tr>
+<tr class="memitem:ace4717c670a4d29ea9deea69a4d822fd"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1csa__sada.html#ace4717c670a4d29ea9deea69a4d822fd">serialize</a> (std::ostream &amp;out, <a class="el" href="classsdsl_1_1structure__tree__node.html">structure_tree_node</a> *v=NULL, std::string name=&quot;&quot;) const </td></tr>
+<tr class="memdesc:ace4717c670a4d29ea9deea69a4d822fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize to a stream.  <a href="#ace4717c670a4d29ea9deea69a4d822fd"></a><br/></td></tr>
 <tr class="memitem:a05189d33cb86c33ce4d68da7fccd97ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1csa__sada.html#a05189d33cb86c33ce4d68da7fccd97ca">load</a> (std::istream &amp;in)</td></tr>
 <tr class="memdesc:a05189d33cb86c33ce4d68da7fccd97ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load from a stream.  <a href="#a05189d33cb86c33ce4d68da7fccd97ca"></a><br/></td></tr>
 <tr class="memitem:a862082122c8a168f90d36c09c8706c9f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a862082122c8a168f90d36c09c8706c9f"></a>
@@ -249,6 +250,10 @@ const <a class="el" href="classsdsl_1_1bwt__of__csa__psi.html">bwt_type</a> &amp
 const <a class="el" href="classsdsl_1_1int__vector.html">sa_sample_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>sa_sample</b></td></tr>
 <tr class="memitem:ab0e260e69cf39ffdf2601f28caa76fea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab0e260e69cf39ffdf2601f28caa76fea"></a>
 const <a class="el" href="classsdsl_1_1int__vector.html">isa_sample_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>isa_sample</b></td></tr>
+<tr><td colspan="2"><h2><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:aa1faab01fbbe8f9e019c9b0b00c9c43e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa1faab01fbbe8f9e019c9b0b00c9c43e"></a>
+static const int&#160;</td><td class="memItemRight" valign="bottom"><b>linear_decode_limit</b> = 100000</td></tr>
 <tr><td colspan="2"><h2><a name="friends"></a>
 Friends</h2></td></tr>
 <tr class="memitem:a8a0f54366ebb0c95a672350ec0bc1b21"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8a0f54366ebb0c95a672350ec0bc1b21"></a>
@@ -262,7 +267,7 @@ class sdsl::csa_sada&lt; EncVector, SampleDens, InvSampleDens, fixedIntWidth &gt
 
 <p>A class for the Compressed Suffix Array (CSA) proposed by Sadakane for practical implementation. </p>
 <p>The CSA is parameterized with an EncVector and the sample density SampleDens ( <img class="formulaInl" alt="$s_{SA}$" src="form_87.png"/>). I.e. every <img class="formulaInl" alt="$s_{SA}th$" src="form_88.png"/> value from the original suffix array is explicitely stored with <img class="formulaInl" alt="$\log n$" src="form_89.png"/> bits.</p>
-<p>The EncVector (default is <a class="el" href="classsdsl_1_1enc__vector.html" title="A generic immutable space-saving vector class for unsigned positiv integers. It encodes each integer ...">sdsl::enc_vector</a>) holds the <img class="formulaInl" alt="$\Psi$" src="form_6.png"/>-function and can be parametrized with <img class="formulaInl" alt="$s_{\Psi}$" src="form_90.png"/>. </p>
+<p>The EncVector (default is <a class="el" href="classsdsl_1_1enc__vector.html" title="A generic immutable space-saving vector class for unsigned integers. It encodes each integer with its...">sdsl::enc_vector</a>) holds the <img class="formulaInl" alt="$\Psi$" src="form_6.png"/>-function and can be parametrized with <img class="formulaInl" alt="$s_{\Psi}$" src="form_90.png"/>. </p>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>example, code example </dd></dl>
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="classsdsl_1_1csa__sada__theo.html" title="A class for the Compressed Suffix Array (CSA) proposed by Sadakane. csa_sada_theo is the one to one i...">csa_sada_theo</a> </dd></dl>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
@@ -696,18 +701,34 @@ template&lt;class EncVector = enc_vector&lt;&gt;, uint32_t SampleDens = 32, uint
 
 </div>
 </div>
-<a class="anchor" id="a65cd04a7624cf4420547e3e453dd51b3"></a>
+<a class="anchor" id="ace4717c670a4d29ea9deea69a4d822fd"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class EncVector , uint32_t SampleDens, uint32_t InvSampleDens, uint8_t fixedIntWidth&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classsdsl_1_1csa__sada.html">csa_sada</a>&lt; EncVector, SampleDens, InvSampleDens, fixedIntWidth &gt;::size_type <a class="el" href="classsdsl_1_1csa__sada.html">sdsl::csa_sada</a>&lt; EncVector, SampleDens, InvSampleDens, fixedIntWidth &gt;::<a class="el" href="classsdsl_1_1csa__sada.html#a65cd04a7624cf4420547e3e453dd51b3">serialize</a> </td>
+          <td class="memname"><a class="el" href="classsdsl_1_1csa__sada.html">csa_sada</a>&lt; EncVector, SampleDens, InvSampleDens, fixedIntWidth &gt;::size_type <a class="el" href="classsdsl_1_1csa__sada.html">sdsl::csa_sada</a>&lt; EncVector, SampleDens, InvSampleDens, fixedIntWidth &gt;::<a class="el" href="classsdsl_1_1csa__sada.html#ace4717c670a4d29ea9deea69a4d822fd">serialize</a> </td>
           <td>(</td>
           <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>out</em></td><td>)</td>
-          <td> const</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsdsl_1_1structure__tree__node.html">structure_tree_node</a> *&#160;</td>
+          <td class="paramname"><em>v</em> = <code>NULL</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
         </tr>
       </table>
 </div>
@@ -783,7 +804,7 @@ template&lt;class EncVector, uint32_t SampleDens, uint32_t InvSampleDens, uint8_
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 10 2012 18:54:30 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 13 2012 14:05:49 for SDSL: Succinct Data Structure Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

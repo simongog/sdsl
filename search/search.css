@@ -100,7 +100,7 @@
     display: none;
     position: absolute;
     left: 0; top: 0;
-    border: 1px solid #90A5CE;
+    border: 1px solid #8EA4D0;
     background-color: #F9FAFC;
     z-index: 1;
     padding-top: 4px;
@@ -145,7 +145,7 @@ a.SelectItem:active {
 
 a.SelectItem:hover {
     color: #FFFFFF;
-    background-color: #3D578C;
+    background-color: #3A568E;
     outline-style: none;
     text-decoration: none;
     cursor: pointer;
@@ -164,7 +164,7 @@ iframe#MSearchResults {
     position: absolute;
     left: 0; top: 0;
     border: 1px solid #000;
-    background-color: #EEF1F7;
+    background-color: #EDF1F7;
 }
 
 /* ----------------------------------- */
@@ -199,7 +199,7 @@ body.SRPage {
 
 .SRSymbol {
     font-weight: bold; 
-    color: #425E97;
+    color: #3F5D9A;
     font-family: Arial, Verdana, sans-serif;
     text-decoration: none;
     outline: none;
@@ -207,7 +207,7 @@ body.SRPage {
 
 a.SRScope {
     display: block;
-    color: #425E97; 
+    color: #3F5D9A; 
     font-family: Arial, Verdana, sans-serif;
     text-decoration: none;
     outline: none;

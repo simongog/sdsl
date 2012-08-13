@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Succinct Data Structure Library (sdsl): sdsl/include/sdsl/lcp_support_tree.hpp Source File</title>
+<title>SDSL: Succinct Data Structure Library: sdsl/include/sdsl/lcp_support_tree.hpp Source File</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -27,7 +27,7 @@
   
   
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Succinct Data Structure Library (sdsl)
+   <div id="projectname">SDSL: Succinct Data Structure Library
    
    </div>
    <div id="projectbrief">A C++ template library for succinct data structures</div>
@@ -146,7 +146,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00053"></a>00053 
 <a name="l00054"></a>00054         <span class="keywordtype">void</span> copy(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1__lcp__support__tree.html">_lcp_support_tree</a>&amp; lcp_c) {
 <a name="l00055"></a>00055             m_cst = lcp_c.m_cst;
-<a name="l00056"></a>00056             m_lcp = lcp_c.m_lcp; <span class="comment">// works for lcp_uncompressed and lcp_kurtz</span>
+<a name="l00056"></a>00056             m_lcp = lcp_c.m_lcp; <span class="comment">// works for lcp_bitcompressed and lcp_kurtz</span>
 <a name="l00057"></a>00057         }
 <a name="l00058"></a>00058 
 <a name="l00059"></a>00059     <span class="keyword">public</span>:
@@ -190,7 +190,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00109"></a>00109             }
 <a name="l00110"></a>00110             {
 <a name="l00111"></a>00111                 <a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;int_width, size_type_class&gt;</a> temp_lcp_buf(<span class="keywordtype">id</span>.c_str());
-<a name="l00112"></a>00112                 m_lcp = Lcp(temp_lcp_buf); <span class="comment">// works for lcp_kurtz, lcp_wt and lcp_uncompressed</span>
+<a name="l00112"></a>00112                 m_lcp = Lcp(temp_lcp_buf); <span class="comment">// works for lcp_kurtz, lcp_wt and lcp_bitcompressed</span>
 <a name="l00113"></a>00113             }
 <a name="l00114"></a>00114             std::remove(<span class="keywordtype">id</span>.c_str());
 <a name="l00115"></a>00115         }
@@ -253,47 +253,43 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00197"></a>00197         }
 <a name="l00198"></a>00198 
 <a name="l00200"></a>00200 
-<a name="l00203"></a><a class="code" href="classsdsl_1_1__lcp__support__tree.html#ac736cbffb6af40a487e74354d80f9581">00203</a>         size_type <a class="code" href="classsdsl_1_1__lcp__support__tree.html#ac736cbffb6af40a487e74354d80f9581" title="Serialize to a stream.">serialize</a>(std::ostream&amp; out)<span class="keyword"> const </span>{
+<a name="l00203"></a><a class="code" href="classsdsl_1_1__lcp__support__tree.html#a2d8d887365ea634eacff39793e082547">00203</a>         size_type <a class="code" href="classsdsl_1_1__lcp__support__tree.html#a2d8d887365ea634eacff39793e082547" title="Serialize to a stream.">serialize</a>(std::ostream&amp; out, <a class="code" href="classsdsl_1_1structure__tree__node.html" title="Class for a node of the structure tree.">structure_tree_node</a>* v=NULL, std::string name=<span class="stringliteral">&quot;&quot;</span>)<span class="keyword">const </span>{
 <a name="l00204"></a>00204             size_type written_bytes = 0;
-<a name="l00205"></a>00205             written_bytes += m_lcp.serialize(out);
-<a name="l00206"></a>00206             <span class="keywordflow">return</span> written_bytes;
-<a name="l00207"></a>00207         }
-<a name="l00208"></a>00208 
+<a name="l00205"></a>00205             <a class="code" href="classsdsl_1_1structure__tree__node.html" title="Class for a node of the structure tree.">structure_tree_node</a>* child = structure_tree::add_child(v, name, util::class_name(*<span class="keyword">this</span>));
+<a name="l00206"></a>00206             written_bytes += m_lcp.serialize(out, child, <span class="stringliteral">&quot;lcp&quot;</span>);
+<a name="l00207"></a>00207             structure_tree::add_size(child, written_bytes);
+<a name="l00208"></a>00208             <span class="keywordflow">return</span> written_bytes;
+<a name="l00209"></a>00209         }
 <a name="l00210"></a>00210 
-<a name="l00214"></a><a class="code" href="classsdsl_1_1__lcp__support__tree.html#ae6b92a0d45748b1329eef579c63203ef">00214</a>         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1__lcp__support__tree.html#ae6b92a0d45748b1329eef579c63203ef" title="Load from a stream.">load</a>(std::istream&amp; in, <span class="keyword">const</span> Cst* cst=NULL) {
-<a name="l00215"></a>00215             m_lcp.load(in); <span class="comment">// works for lcp_kurtz and lcp_uncompressed</span>
-<a name="l00216"></a>00216             m_cst = cst;
-<a name="l00217"></a>00217         }
-<a name="l00218"></a>00218 
-<a name="l00219"></a>00219 <span class="preprocessor">#ifdef MEM_INFO</span>
-<a name="l00220"></a>00220 <span class="preprocessor"></span>        <span class="keywordtype">void</span> mem_info(std::string label=<span class="stringliteral">&quot;&quot;</span>)<span class="keyword">const </span>{
-<a name="l00221"></a>00221             m_lcp.mem_info(label);
-<a name="l00222"></a>00222         }
-<a name="l00223"></a>00223 <span class="preprocessor">#endif</span>
-<a name="l00224"></a>00224 <span class="preprocessor"></span>};
-<a name="l00225"></a>00225 
-<a name="l00227"></a>00227 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Lcp = lcp_wt&lt;&gt; &gt;
-<a name="l00228"></a><a class="code" href="classsdsl_1_1lcp__support__tree.html">00228</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1lcp__support__tree.html" title="Helper class which provides _lcp_support_tree the context of a CST.">lcp_support_tree</a>
-<a name="l00229"></a>00229 {
-<a name="l00230"></a>00230     <span class="keyword">public</span>:
-<a name="l00231"></a>00231         <span class="keyword">template</span>&lt;<span class="keyword">class</span> Cst&gt;  <span class="comment">// template inner class which is used in CSTs to parametrize lcp classes</span>
-<a name="l00232"></a><a class="code" href="classsdsl_1_1lcp__support__tree_1_1type.html">00232</a>         <span class="keyword">class </span><a class="code" href="classsdsl_1_1lcp__support__tree_1_1type.html">type</a>           <span class="comment">// with information about the CST. Thanks Stefan Arnold! (2011-03-02)</span>
-<a name="l00233"></a>00233         {
-<a name="l00234"></a>00234             <span class="keyword">public</span>:
-<a name="l00235"></a>00235                 <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1__lcp__support__tree.html">_lcp_support_tree&lt;Lcp, Cst&gt;</a> <a class="code" href="classsdsl_1_1__lcp__support__tree.html">lcp_type</a>;
-<a name="l00236"></a>00236         };
-<a name="l00237"></a>00237 };
+<a name="l00212"></a>00212 
+<a name="l00216"></a><a class="code" href="classsdsl_1_1__lcp__support__tree.html#ae6b92a0d45748b1329eef579c63203ef">00216</a>         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1__lcp__support__tree.html#ae6b92a0d45748b1329eef579c63203ef" title="Load from a stream.">load</a>(std::istream&amp; in, <span class="keyword">const</span> Cst* cst=NULL) {
+<a name="l00217"></a>00217             m_lcp.load(in); <span class="comment">// works for lcp_kurtz and lcp_bitcompressed</span>
+<a name="l00218"></a>00218             m_cst = cst;
+<a name="l00219"></a>00219         }
+<a name="l00220"></a>00220 };
+<a name="l00221"></a>00221 
+<a name="l00223"></a>00223 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Lcp = lcp_wt&lt;&gt; &gt;
+<a name="l00224"></a><a class="code" href="classsdsl_1_1lcp__support__tree.html">00224</a> <span class="keyword">class </span><a class="code" href="classsdsl_1_1lcp__support__tree.html" title="Helper class which provides _lcp_support_tree the context of a CST.">lcp_support_tree</a>
+<a name="l00225"></a>00225 {
+<a name="l00226"></a>00226     <span class="keyword">public</span>:
+<a name="l00227"></a>00227         <span class="keyword">template</span>&lt;<span class="keyword">class</span> Cst&gt;  <span class="comment">// template inner class which is used in CSTs to parametrize lcp classes</span>
+<a name="l00228"></a><a class="code" href="classsdsl_1_1lcp__support__tree_1_1type.html">00228</a>         <span class="keyword">class </span><a class="code" href="classsdsl_1_1lcp__support__tree_1_1type.html">type</a>           <span class="comment">// with information about the CST. Thanks Stefan Arnold! (2011-03-02)</span>
+<a name="l00229"></a>00229         {
+<a name="l00230"></a>00230             <span class="keyword">public</span>:
+<a name="l00231"></a>00231                 <span class="keyword">typedef</span> <a class="code" href="classsdsl_1_1__lcp__support__tree.html">_lcp_support_tree&lt;Lcp, Cst&gt;</a> <a class="code" href="classsdsl_1_1__lcp__support__tree.html">lcp_type</a>;
+<a name="l00232"></a>00232         };
+<a name="l00233"></a>00233 };
+<a name="l00234"></a>00234 
+<a name="l00235"></a>00235 
+<a name="l00236"></a>00236 
+<a name="l00237"></a>00237 } <span class="comment">// end namespace</span>
 <a name="l00238"></a>00238 
-<a name="l00239"></a>00239 
-<a name="l00240"></a>00240 
-<a name="l00241"></a>00241 } <span class="comment">// end namespace</span>
-<a name="l00242"></a>00242 
-<a name="l00243"></a>00243 <span class="preprocessor">#endif</span>
+<a name="l00239"></a>00239 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 10 2012 18:54:26 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 13 2012 14:05:47 for SDSL: Succinct Data Structure Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Succinct Data Structure Library (sdsl): sdsl/include/sdsl/nn_dict_dynamic.hpp Source File</title>
+<title>SDSL: Succinct Data Structure Library: sdsl/include/sdsl/nn_dict_dynamic.hpp Source File</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -27,7 +27,7 @@
   
   
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Succinct Data Structure Library (sdsl)
+   <div id="projectname">SDSL: Succinct Data Structure Library
    
    </div>
    <div id="projectbrief">A C++ template library for succinct data structures</div>
@@ -314,117 +314,109 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00239"></a>00239 
 <a name="l00240"></a>00240 
 <a name="l00242"></a><a class="code" href="classsdsl_1_1nn__dict__dynamic.html#a15c45c806bd8ecb4be04172656987d24">00242</a>         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1nn__dict__dynamic.html#a15c45c806bd8ecb4be04172656987d24" title="Load the data structure.">load</a>(std::istream&amp; in) {
-<a name="l00243"></a>00243             in.read((<span class="keywordtype">char</span>*) &amp;m_depth, <span class="keyword">sizeof</span>(m_depth));
-<a name="l00244"></a>00244             in.read((<span class="keywordtype">char</span>*) &amp;m_v_begin_leaves, <span class="keyword">sizeof</span>(m_v_begin_leaves));
-<a name="l00245"></a>00245             in.read((<span class="keywordtype">char</span>*) &amp;m_size, <span class="keyword">sizeof</span>(m_size));
+<a name="l00243"></a>00243                         util::read_member(m_depth, in);
+<a name="l00244"></a>00244                         util::read_member(m_v_begin_leaves, in);
+<a name="l00245"></a>00245                         util::read_member(m_size, in);
 <a name="l00246"></a>00246             m_offset.<a class="code" href="classsdsl_1_1int__vector.html#a57c9fc2fdc93eeaa477a49389e7a47ac" title="Load the int_vector for a stream.">load</a>(in);
 <a name="l00247"></a>00247             m_tree.<a class="code" href="classsdsl_1_1int__vector.html#a57c9fc2fdc93eeaa477a49389e7a47ac" title="Load the int_vector for a stream.">load</a>(in);
 <a name="l00248"></a>00248         }
 <a name="l00249"></a>00249 
-<a name="l00251"></a><a class="code" href="classsdsl_1_1nn__dict__dynamic.html#a7a8ddaf0ed3b78f02d0e9b6236db4561">00251</a>         size_type <a class="code" href="classsdsl_1_1nn__dict__dynamic.html#a7a8ddaf0ed3b78f02d0e9b6236db4561" title="Serialize the data structure.">serialize</a>(std::ostream&amp; out)<span class="keyword">const </span>{
-<a name="l00252"></a>00252             size_type written_bytes = 0;
-<a name="l00253"></a>00253             out.write((<span class="keywordtype">char</span>*)&amp;m_depth, <span class="keyword">sizeof</span>(m_depth));
-<a name="l00254"></a>00254             written_bytes += <span class="keyword">sizeof</span>(m_depth);
-<a name="l00255"></a>00255             out.write((<span class="keywordtype">char</span>*)&amp;m_v_begin_leaves, <span class="keyword">sizeof</span>(m_v_begin_leaves));
-<a name="l00256"></a>00256             written_bytes += <span class="keyword">sizeof</span>(m_v_begin_leaves);
-<a name="l00257"></a>00257             out.write((<span class="keywordtype">char</span>*)&amp;m_size, <span class="keyword">sizeof</span>(m_size));
-<a name="l00258"></a>00258             written_bytes += <span class="keyword">sizeof</span>(m_size);
-<a name="l00259"></a>00259             written_bytes += m_offset.<a class="code" href="classsdsl_1_1int__vector.html#a32bfb973d19b10c8e9d32107805bbab0" title="Serializes the int_vector to a stream.">serialize</a>(out);
-<a name="l00260"></a>00260             written_bytes += m_tree.<a class="code" href="classsdsl_1_1int__vector.html#a32bfb973d19b10c8e9d32107805bbab0" title="Serializes the int_vector to a stream.">serialize</a>(out);
-<a name="l00261"></a>00261             <span class="keywordflow">return</span> written_bytes;
-<a name="l00262"></a>00262         }
-<a name="l00263"></a>00263 
-<a name="l00264"></a>00264 <span class="preprocessor">#ifdef MEM_INFO</span>
-<a name="l00265"></a>00265 <span class="preprocessor"></span>
-<a name="l00266"></a>00266         <span class="keywordtype">void</span> mem_info() {
-<a name="l00267"></a>00267             <span class="comment">// TODO</span>
-<a name="l00268"></a>00268         }
-<a name="l00269"></a>00269 <span class="preprocessor">#endif</span>
-<a name="l00270"></a>00270 <span class="preprocessor"></span>
-<a name="l00271"></a><a class="code" href="classsdsl_1_1nn__dict__dynamic_1_1reference.html">00271</a>         <span class="keyword">class </span><a class="code" href="classsdsl_1_1nn__dict__dynamic_1_1reference.html">reference</a>
-<a name="l00272"></a>00272         {
-<a name="l00273"></a>00273             <span class="keyword">private</span>:
-<a name="l00274"></a>00274                 <a class="code" href="classsdsl_1_1nn__dict__dynamic.html" title="A class for a dynamic bit vector which also supports the prev and next operations.">nn_dict_dynamic</a>* m_pbv;  <span class="comment">// pointer to the bit_vector_nearest_neigbour</span>
-<a name="l00275"></a>00275                 size_type m_idx;        <span class="comment">// virtual node position</span>
-<a name="l00276"></a>00276             <span class="keyword">public</span>:
-<a name="l00278"></a><a class="code" href="classsdsl_1_1nn__dict__dynamic_1_1reference.html#a01195ec7445df2b3fed08c945ae1956a">00278</a>                 <a class="code" href="classsdsl_1_1nn__dict__dynamic_1_1reference.html#a01195ec7445df2b3fed08c945ae1956a" title="Constructor.">reference</a>(<a class="code" href="classsdsl_1_1nn__dict__dynamic.html" title="A class for a dynamic bit vector which also supports the prev and next operations.">nn_dict_dynamic</a>* pbv,
-<a name="l00279"></a>00279                           nn_dict_dynamic::size_type idx):m_pbv(pbv),m_idx(idx) {};
-<a name="l00280"></a>00280 
-<a name="l00282"></a><a class="code" href="classsdsl_1_1nn__dict__dynamic_1_1reference.html#a35f583bbc25d93ad1432ae13fbcff623">00282</a>                 <a class="code" href="classsdsl_1_1nn__dict__dynamic_1_1reference.html">reference</a>&amp; <a class="code" href="classsdsl_1_1nn__dict__dynamic_1_1reference.html#a35f583bbc25d93ad1432ae13fbcff623" title="Assignment operator for the proxy class.">operator=</a>(<span class="keywordtype">bool</span> x) {
-<a name="l00283"></a>00283                     uint64_t v_node_position;   <span class="comment">// virtual node position</span>
-<a name="l00284"></a>00284                     uint64_t r_node_position;   <span class="comment">// real    node position</span>
-<a name="l00285"></a>00285                     uint64_t depth = m_pbv-&gt;m_depth;    <span class="comment">// current depth of node</span>
-<a name="l00286"></a>00286 
-<a name="l00287"></a>00287                     v_node_position = m_pbv-&gt;m_v_begin_leaves + (m_idx&gt;&gt;6);
-<a name="l00288"></a>00288                     uint8_t offset = m_idx &amp; 0x3F; <span class="comment">// pos mod 64</span>
-<a name="l00289"></a>00289                     <span class="keywordflow">if</span> (x) {
-<a name="l00290"></a>00290                         <span class="keywordflow">while</span> (<span class="keyword">true</span>) {
-<a name="l00291"></a>00291                             r_node_position = v_node_position - m_pbv-&gt;m_offset[depth];
-<a name="l00292"></a>00292                             uint64_t w = m_pbv-&gt;m_tree[r_node_position];
-<a name="l00293"></a>00293                             <span class="keywordflow">if</span> ((w&gt;&gt;offset) &amp; 1) { <span class="comment">// if the bit was already set</span>
-<a name="l00294"></a>00294                                 <span class="keywordflow">return</span> *<span class="keyword">this</span>;
-<a name="l00295"></a>00295                             } <span class="keywordflow">else</span> {
-<a name="l00296"></a>00296                                 m_pbv-&gt;m_tree[r_node_position] |= (1ULL&lt;&lt;offset); <span class="comment">// set bit</span>
-<a name="l00297"></a>00297                                 <span class="keywordflow">if</span> (!w and depth) { <span class="comment">// go up in the tree</span>
-<a name="l00298"></a>00298                                     --depth; --v_node_position;
-<a name="l00299"></a>00299                                     offset = v_node_position&amp;0x3F;
-<a name="l00300"></a>00300                                     v_node_position &gt;&gt;= 6;
-<a name="l00301"></a>00301                                 } <span class="keywordflow">else</span> {
-<a name="l00302"></a>00302                                     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
-<a name="l00303"></a>00303                                 }
-<a name="l00304"></a>00304                             }
-<a name="l00305"></a>00305                         }
-<a name="l00306"></a>00306                     } <span class="keywordflow">else</span> {
-<a name="l00307"></a>00307                         <span class="keywordflow">while</span> (<span class="keyword">true</span>) {
-<a name="l00308"></a>00308                             r_node_position = v_node_position - m_pbv-&gt;m_offset[depth];
-<a name="l00309"></a>00309                             uint64_t w = m_pbv-&gt;m_tree[r_node_position];
-<a name="l00310"></a>00310                             <span class="keywordflow">if</span> (!((w&gt;&gt;offset) &amp; 1)) { <span class="comment">// if the bit is already 0</span>
-<a name="l00311"></a>00311                                 <span class="keywordflow">return</span> *<span class="keyword">this</span>;
-<a name="l00312"></a>00312                             } <span class="keywordflow">else</span> {
-<a name="l00313"></a>00313                                 m_pbv-&gt;m_tree[r_node_position] &amp;= (~(1ULL&lt;&lt;offset)); <span class="comment">// unset bit</span>
-<a name="l00314"></a>00314                                 <span class="keywordflow">if</span> (!m_pbv-&gt;m_tree[r_node_position] and depth) { <span class="comment">// go up in the tree</span>
-<a name="l00315"></a>00315                                     --depth; --v_node_position;
-<a name="l00316"></a>00316                                     offset = v_node_position&amp;0x3F;
-<a name="l00317"></a>00317                                     v_node_position &gt;&gt;= 6;
-<a name="l00318"></a>00318                                 } <span class="keywordflow">else</span> {
-<a name="l00319"></a>00319                                     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
-<a name="l00320"></a>00320                                 }
-<a name="l00321"></a>00321                             }
-<a name="l00322"></a>00322                         }
-<a name="l00323"></a>00323                     }
-<a name="l00324"></a>00324                     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
-<a name="l00325"></a>00325                 }
-<a name="l00326"></a>00326 
-<a name="l00327"></a>00327                 <a class="code" href="classsdsl_1_1nn__dict__dynamic_1_1reference.html">reference</a>&amp; <a class="code" href="classsdsl_1_1nn__dict__dynamic_1_1reference.html#a35f583bbc25d93ad1432ae13fbcff623" title="Assignment operator for the proxy class.">operator=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1nn__dict__dynamic_1_1reference.html">reference</a>&amp; x) {
-<a name="l00328"></a>00328                     <span class="keywordflow">return</span> *<span class="keyword">this</span> = bool(x);
-<a name="l00329"></a>00329                 }
-<a name="l00330"></a>00330 
-<a name="l00332"></a><a class="code" href="classsdsl_1_1nn__dict__dynamic_1_1reference.html#a09005977a27431306bcdee3757feeba7">00332</a>                 <a class="code" href="classsdsl_1_1nn__dict__dynamic_1_1reference.html#a09005977a27431306bcdee3757feeba7" title="Cast the reference to a bool.">operator bool</a>()<span class="keyword">const </span>{
-<a name="l00333"></a>00333                     uint64_t node = m_pbv-&gt;m_tree[(m_pbv-&gt;m_v_begin_leaves + (m_idx&gt;&gt;6)) - m_pbv-&gt;m_offset[m_pbv-&gt;m_depth] ];
-<a name="l00334"></a>00334                     <span class="keywordflow">return</span> (node &gt;&gt; (m_idx&amp;0x3F)) &amp; 1;
+<a name="l00251"></a><a class="code" href="classsdsl_1_1nn__dict__dynamic.html#aabfc2c5450b9f12fbd125229c591bbfd">00251</a>         size_type <a class="code" href="classsdsl_1_1nn__dict__dynamic.html#aabfc2c5450b9f12fbd125229c591bbfd" title="Serialize the data structure.">serialize</a>(std::ostream&amp; out, <a class="code" href="classsdsl_1_1structure__tree__node.html" title="Class for a node of the structure tree.">structure_tree_node</a>* v=NULL, std::string name=<span class="stringliteral">&quot;&quot;</span>)<span class="keyword">const </span>{
+<a name="l00252"></a>00252             <a class="code" href="classsdsl_1_1structure__tree__node.html" title="Class for a node of the structure tree.">structure_tree_node</a>* child = structure_tree::add_child(v, name, util::class_name(*<span class="keyword">this</span>));
+<a name="l00253"></a>00253             size_type written_bytes = 0;
+<a name="l00254"></a>00254                         written_bytes += util::write_member(m_depth, out, child, <span class="stringliteral">&quot;depth&quot;</span>);
+<a name="l00255"></a>00255                         written_bytes += util::write_member(m_v_begin_leaves, out, child, <span class="stringliteral">&quot;v_begin_leaves&quot;</span>);
+<a name="l00256"></a>00256                         written_bytes += util::write_member(m_size, out, child, <span class="stringliteral">&quot;size&quot;</span>);
+<a name="l00257"></a>00257             written_bytes += m_offset.<a class="code" href="classsdsl_1_1int__vector.html#a54bb26e2d6f6932b41ab12e52746e86a" title="Serializes the int_vector to a stream.">serialize</a>(out, child, <span class="stringliteral">&quot;offset&quot;</span>);
+<a name="l00258"></a>00258             written_bytes += m_tree.<a class="code" href="classsdsl_1_1int__vector.html#a54bb26e2d6f6932b41ab12e52746e86a" title="Serializes the int_vector to a stream.">serialize</a>(out, child, <span class="stringliteral">&quot;tree&quot;</span>);
+<a name="l00259"></a>00259             structure_tree::add_size(child, written_bytes);
+<a name="l00260"></a>00260             <span class="keywordflow">return</span> written_bytes;
+<a name="l00261"></a>00261         }
+<a name="l00262"></a>00262 
+<a name="l00263"></a><a class="code" href="classsdsl_1_1nn__dict__dynamic_1_1reference.html">00263</a>         <span class="keyword">class </span><a class="code" href="classsdsl_1_1nn__dict__dynamic_1_1reference.html">reference</a>
+<a name="l00264"></a>00264         {
+<a name="l00265"></a>00265             <span class="keyword">private</span>:
+<a name="l00266"></a>00266                 <a class="code" href="classsdsl_1_1nn__dict__dynamic.html" title="A class for a dynamic bit vector which also supports the prev and next operations.">nn_dict_dynamic</a>* m_pbv;  <span class="comment">// pointer to the bit_vector_nearest_neigbour</span>
+<a name="l00267"></a>00267                 size_type m_idx;        <span class="comment">// virtual node position</span>
+<a name="l00268"></a>00268             <span class="keyword">public</span>:
+<a name="l00270"></a><a class="code" href="classsdsl_1_1nn__dict__dynamic_1_1reference.html#a01195ec7445df2b3fed08c945ae1956a">00270</a>                 <a class="code" href="classsdsl_1_1nn__dict__dynamic_1_1reference.html#a01195ec7445df2b3fed08c945ae1956a" title="Constructor.">reference</a>(<a class="code" href="classsdsl_1_1nn__dict__dynamic.html" title="A class for a dynamic bit vector which also supports the prev and next operations.">nn_dict_dynamic</a>* pbv,
+<a name="l00271"></a>00271                           nn_dict_dynamic::size_type idx):m_pbv(pbv),m_idx(idx) {};
+<a name="l00272"></a>00272 
+<a name="l00274"></a><a class="code" href="classsdsl_1_1nn__dict__dynamic_1_1reference.html#a35f583bbc25d93ad1432ae13fbcff623">00274</a>                 <a class="code" href="classsdsl_1_1nn__dict__dynamic_1_1reference.html">reference</a>&amp; <a class="code" href="classsdsl_1_1nn__dict__dynamic_1_1reference.html#a35f583bbc25d93ad1432ae13fbcff623" title="Assignment operator for the proxy class.">operator=</a>(<span class="keywordtype">bool</span> x) {
+<a name="l00275"></a>00275                     uint64_t v_node_position;   <span class="comment">// virtual node position</span>
+<a name="l00276"></a>00276                     uint64_t r_node_position;   <span class="comment">// real    node position</span>
+<a name="l00277"></a>00277                     uint64_t depth = m_pbv-&gt;m_depth;    <span class="comment">// current depth of node</span>
+<a name="l00278"></a>00278 
+<a name="l00279"></a>00279                     v_node_position = m_pbv-&gt;m_v_begin_leaves + (m_idx&gt;&gt;6);
+<a name="l00280"></a>00280                     uint8_t offset = m_idx &amp; 0x3F; <span class="comment">// pos mod 64</span>
+<a name="l00281"></a>00281                     <span class="keywordflow">if</span> (x) {
+<a name="l00282"></a>00282                         <span class="keywordflow">while</span> (<span class="keyword">true</span>) {
+<a name="l00283"></a>00283                             r_node_position = v_node_position - m_pbv-&gt;m_offset[depth];
+<a name="l00284"></a>00284                             uint64_t w = m_pbv-&gt;m_tree[r_node_position];
+<a name="l00285"></a>00285                             <span class="keywordflow">if</span> ((w&gt;&gt;offset) &amp; 1) { <span class="comment">// if the bit was already set</span>
+<a name="l00286"></a>00286                                 <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00287"></a>00287                             } <span class="keywordflow">else</span> {
+<a name="l00288"></a>00288                                 m_pbv-&gt;m_tree[r_node_position] |= (1ULL&lt;&lt;offset); <span class="comment">// set bit</span>
+<a name="l00289"></a>00289                                 <span class="keywordflow">if</span> (!w and depth) { <span class="comment">// go up in the tree</span>
+<a name="l00290"></a>00290                                     --depth; --v_node_position;
+<a name="l00291"></a>00291                                     offset = v_node_position&amp;0x3F;
+<a name="l00292"></a>00292                                     v_node_position &gt;&gt;= 6;
+<a name="l00293"></a>00293                                 } <span class="keywordflow">else</span> {
+<a name="l00294"></a>00294                                     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00295"></a>00295                                 }
+<a name="l00296"></a>00296                             }
+<a name="l00297"></a>00297                         }
+<a name="l00298"></a>00298                     } <span class="keywordflow">else</span> {
+<a name="l00299"></a>00299                         <span class="keywordflow">while</span> (<span class="keyword">true</span>) {
+<a name="l00300"></a>00300                             r_node_position = v_node_position - m_pbv-&gt;m_offset[depth];
+<a name="l00301"></a>00301                             uint64_t w = m_pbv-&gt;m_tree[r_node_position];
+<a name="l00302"></a>00302                             <span class="keywordflow">if</span> (!((w&gt;&gt;offset) &amp; 1)) { <span class="comment">// if the bit is already 0</span>
+<a name="l00303"></a>00303                                 <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00304"></a>00304                             } <span class="keywordflow">else</span> {
+<a name="l00305"></a>00305                                 m_pbv-&gt;m_tree[r_node_position] &amp;= (~(1ULL&lt;&lt;offset)); <span class="comment">// unset bit</span>
+<a name="l00306"></a>00306                                 <span class="keywordflow">if</span> (!m_pbv-&gt;m_tree[r_node_position] and depth) { <span class="comment">// go up in the tree</span>
+<a name="l00307"></a>00307                                     --depth; --v_node_position;
+<a name="l00308"></a>00308                                     offset = v_node_position&amp;0x3F;
+<a name="l00309"></a>00309                                     v_node_position &gt;&gt;= 6;
+<a name="l00310"></a>00310                                 } <span class="keywordflow">else</span> {
+<a name="l00311"></a>00311                                     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00312"></a>00312                                 }
+<a name="l00313"></a>00313                             }
+<a name="l00314"></a>00314                         }
+<a name="l00315"></a>00315                     }
+<a name="l00316"></a>00316                     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00317"></a>00317                 }
+<a name="l00318"></a>00318 
+<a name="l00319"></a>00319                 <a class="code" href="classsdsl_1_1nn__dict__dynamic_1_1reference.html">reference</a>&amp; <a class="code" href="classsdsl_1_1nn__dict__dynamic_1_1reference.html#a35f583bbc25d93ad1432ae13fbcff623" title="Assignment operator for the proxy class.">operator=</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1nn__dict__dynamic_1_1reference.html">reference</a>&amp; x) {
+<a name="l00320"></a>00320                     <span class="keywordflow">return</span> *<span class="keyword">this</span> = bool(x);
+<a name="l00321"></a>00321                 }
+<a name="l00322"></a>00322 
+<a name="l00324"></a><a class="code" href="classsdsl_1_1nn__dict__dynamic_1_1reference.html#a09005977a27431306bcdee3757feeba7">00324</a>                 <a class="code" href="classsdsl_1_1nn__dict__dynamic_1_1reference.html#a09005977a27431306bcdee3757feeba7" title="Cast the reference to a bool.">operator bool</a>()<span class="keyword">const </span>{
+<a name="l00325"></a>00325                     uint64_t node = m_pbv-&gt;m_tree[(m_pbv-&gt;m_v_begin_leaves + (m_idx&gt;&gt;6)) - m_pbv-&gt;m_offset[m_pbv-&gt;m_depth] ];
+<a name="l00326"></a>00326                     <span class="keywordflow">return</span> (node &gt;&gt; (m_idx&amp;0x3F)) &amp; 1;
+<a name="l00327"></a>00327                 }
+<a name="l00328"></a>00328 
+<a name="l00329"></a>00329                 <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1nn__dict__dynamic_1_1reference.html">reference</a>&amp; x)<span class="keyword">const </span>{
+<a name="l00330"></a>00330                     <span class="keywordflow">return</span> bool(*<span class="keyword">this</span>) == bool(x);
+<a name="l00331"></a>00331                 }
+<a name="l00332"></a>00332 
+<a name="l00333"></a>00333                 <span class="keywordtype">bool</span> operator&lt;(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1nn__dict__dynamic_1_1reference.html#a01195ec7445df2b3fed08c945ae1956a" title="Constructor.">reference</a>&amp; x)<span class="keyword">const </span>{
+<a name="l00334"></a>00334                     <span class="keywordflow">return</span> !bool(*<span class="keyword">this</span>) and <span class="keywordtype">bool</span>(x);
 <a name="l00335"></a>00335                 }
-<a name="l00336"></a>00336 
-<a name="l00337"></a>00337                 <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1nn__dict__dynamic_1_1reference.html">reference</a>&amp; x)<span class="keyword">const </span>{
-<a name="l00338"></a>00338                     <span class="keywordflow">return</span> bool(*<span class="keyword">this</span>) == bool(x);
-<a name="l00339"></a>00339                 }
+<a name="l00336"></a>00336         };
+<a name="l00337"></a>00337 
+<a name="l00338"></a>00338 };
+<a name="l00339"></a>00339 
 <a name="l00340"></a>00340 
-<a name="l00341"></a>00341                 <span class="keywordtype">bool</span> operator&lt;(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1nn__dict__dynamic_1_1reference.html#a01195ec7445df2b3fed08c945ae1956a" title="Constructor.">reference</a>&amp; x)<span class="keyword">const </span>{
-<a name="l00342"></a>00342                     <span class="keywordflow">return</span> !bool(*<span class="keyword">this</span>) and <span class="keywordtype">bool</span>(x);
-<a name="l00343"></a>00343                 }
-<a name="l00344"></a>00344         };
-<a name="l00345"></a>00345 
-<a name="l00346"></a>00346 };
-<a name="l00347"></a>00347 
-<a name="l00348"></a>00348 
-<a name="l00349"></a>00349 
-<a name="l00350"></a>00350 } <span class="comment">// end of namespace</span>
-<a name="l00351"></a>00351 
-<a name="l00352"></a>00352 <span class="preprocessor">#endif // end file </span>
+<a name="l00341"></a>00341 
+<a name="l00342"></a>00342 } <span class="comment">// end of namespace</span>
+<a name="l00343"></a>00343 
+<a name="l00344"></a>00344 <span class="preprocessor">#endif // end file </span>
 </pre></div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 10 2012 18:54:27 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 13 2012 14:05:47 for SDSL: Succinct Data Structure Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

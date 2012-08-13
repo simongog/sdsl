@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Succinct Data Structure Library (sdsl): sdsl/include/sdsl/cst_sct.hpp Source File</title>
+<title>SDSL: Succinct Data Structure Library: sdsl/include/sdsl/cst_sct.hpp Source File</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -27,7 +27,7 @@
   
   
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Succinct Data Structure Library (sdsl)
+   <div id="projectname">SDSL: Succinct Data Structure Library
    
    </div>
    <div id="projectbrief">A C++ template library for succinct data structures</div>
@@ -384,10 +384,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00338"></a>00338                 <a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;int_width, size_type_class&gt;</a>&amp; lcp_buf,
 <a name="l00339"></a>00339                 <a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;int_width_1, size_type_class_1&gt;</a>&amp; sa_buf,
 <a name="l00340"></a>00340                 <a class="code" href="classsdsl_1_1int__vector__file__buffer.html" title="A class for reading an int_vector buffered from a file.">int_vector_file_buffer&lt;int_width_2, size_type_class_2&gt;</a>&amp; isa_buf,
-<a name="l00341"></a>00341                 std::string dir,
-<a name="l00342"></a>00342                 <span class="keywordtype">bool</span> build_only_bps);
+<a name="l00341"></a>00341                 std::string dir=<span class="stringliteral">&quot;./&quot;</span>,
+<a name="l00342"></a>00342                 <span class="keywordtype">bool</span> build_only_bps=<span class="keyword">false</span>);
 <a name="l00343"></a>00343 
-<a name="l00344"></a>00344         <a class="code" href="group__cst__sct__constructors.html#ga3b296fd26baf82ee6ca685385ac2f389" title="Default Constructor.">cst_sct</a>(tMSS&amp; file_map, <span class="keyword">const</span> std::string&amp; dir, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>, <span class="keywordtype">bool</span> build_only_bps);
+<a name="l00344"></a>00344         <a class="code" href="group__cst__sct__constructors.html#ga3b296fd26baf82ee6ca685385ac2f389" title="Default Constructor.">cst_sct</a>(tMSS&amp; file_map, <span class="keyword">const</span> std::string&amp; dir, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>, <span class="keywordtype">bool</span> build_only_bps=<span class="keyword">false</span>);
 <a name="l00345"></a>00345 
 <a name="l00347"></a>00347 
 <a name="l00352"></a><a class="code" href="group__cst__sct__constructors.html#gac3224e102bcf5a83e4f4fc8d2ecfb2a1">00352</a>         <a class="code" href="group__cst__sct__constructors.html#gac3224e102bcf5a83e4f4fc8d2ecfb2a1" title="Copy constructor.">cst_sct</a>(<span class="keyword">const</span> <a class="code" href="classsdsl_1_1cst__sct.html" title="A class for the Compressed Suffix Tree (CST) proposed by Ohlebusch and Gog.">cst_sct</a>&amp; cst):<a class="code" href="classsdsl_1_1cst__sct.html#a1216ba808703e062c0e3e707a3d4a2c9" title="The compressed suffix array the suffix tree is based on.">csa</a>(m_csa),<a class="code" href="classsdsl_1_1cst__sct.html#aa01d82f7359665ab9ceb07942ead0dc9" title="The lcp array the suffix tree is based on.">lcp</a>(m_lcp),<a class="code" href="classsdsl_1_1cst__sct.html#a3252574708be08710e0a058621ec26d5" title="The balanced parentheses sequence of the Super-Cartesian tree the suffix tree is based on...">bp</a>(m_bp),<a class="code" href="classsdsl_1_1cst__sct.html#aa4be9891228e8122a79ffac2a933c2a8" title="The balanced parentheses sequence support for member bp.">bp_support</a>(m_bp_support) {
@@ -396,7 +396,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00355"></a>00355 
 <a name="l00356"></a>00356         <span class="comment">/* @} */</span>
 <a name="l00357"></a>00357 
-<a name="l00358"></a>00358         <span class="keywordtype">void</span> construct(tMSS&amp; file_map, <span class="keyword">const</span> std::string&amp; dir, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>, <span class="keywordtype">bool</span> build_only_bps);
+<a name="l00358"></a>00358         <span class="keywordtype">void</span> construct(tMSS&amp; file_map, <span class="keyword">const</span> std::string&amp; dir, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>, <span class="keywordtype">bool</span> build_only_bps=<span class="keyword">false</span>);
 <a name="l00359"></a>00359 
 <a name="l00361"></a><a class="code" href="classsdsl_1_1cst__sct.html#a5d79355ed6fe4d454cd8cdbfb972f413">00361</a>         <a class="code" href="classsdsl_1_1cst__sct.html#a5d79355ed6fe4d454cd8cdbfb972f413" title="Default Destructor.">~cst_sct</a>() {}
 <a name="l00362"></a>00362 
@@ -910,12 +910,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l01053"></a>01053 
 <a name="l01055"></a><a class="code" href="group__cst__sct__tree__methods.html#ga3a6a8acb7e4dd736ee21b9c0d0b0a68f">01055</a>         <span class="keywordtype">void</span> <a class="code" href="group__cst__sct__tree__methods.html#ga3a6a8acb7e4dd736ee21b9c0d0b0a68f" title="Print some infos about the size of the compressed suffix tree.">print_info</a>()<span class="keyword">const </span>{
 <a name="l01056"></a>01056             std::cout &lt;&lt; <span class="stringliteral">&quot;# size of cst in bytes per character&quot;</span> &lt;&lt; std::endl;
-<a name="l01057"></a>01057             size_type cst_size = <a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(*<span class="keyword">this</span>);
+<a name="l01057"></a>01057             size_type cst_size = <a class="code" href="namespacesdsl_1_1util.html#a33833c48ce3ad599a19dcd3276dcf77f" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(*<span class="keyword">this</span>);
 <a name="l01058"></a>01058             std::cout &lt;&lt; ((double)cst_size)/<a class="code" href="classsdsl_1_1cst__sct.html#a1216ba808703e062c0e3e707a3d4a2c9" title="The compressed suffix array the suffix tree is based on.">csa</a>.size() &lt;&lt; <span class="stringliteral">&quot; # = &quot;</span>&lt;&lt; ((double)cst_size)/(1&lt;&lt;20) &lt;&lt;<span class="stringliteral">&quot; MB&quot;</span>&lt;&lt;std::endl;
-<a name="l01059"></a>01059             std::cout&lt;&lt; ((double)<a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(<a class="code" href="classsdsl_1_1cst__sct.html#a1216ba808703e062c0e3e707a3d4a2c9" title="The compressed suffix array the suffix tree is based on.">csa</a>))/cst_size &lt;&lt; <span class="stringliteral">&quot; # ratio of csa size&quot;</span> &lt;&lt; std::endl;
-<a name="l01060"></a>01060             std::cout&lt;&lt; ((double)<a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(<a class="code" href="classsdsl_1_1cst__sct.html#aa01d82f7359665ab9ceb07942ead0dc9" title="The lcp array the suffix tree is based on.">lcp</a>))/cst_size &lt;&lt; <span class="stringliteral">&quot; # ratio of lcp size&quot;</span> &lt;&lt; std::endl;
-<a name="l01061"></a>01061             std::cout&lt;&lt; ((double)<a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(<a class="code" href="classsdsl_1_1cst__sct.html#a3252574708be08710e0a058621ec26d5" title="The balanced parentheses sequence of the Super-Cartesian tree the suffix tree is based on...">bp</a>))/cst_size &lt;&lt; <span class="stringliteral">&quot; # ratio of bp size&quot;</span> &lt;&lt; std::endl;
-<a name="l01062"></a>01062             std::cout&lt;&lt; ((double)<a class="code" href="namespacesdsl_1_1util.html#a9585e65f4f4c4e40ad4f4161eb3b8cdb" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(<a class="code" href="classsdsl_1_1cst__sct.html#aa4be9891228e8122a79ffac2a933c2a8" title="The balanced parentheses sequence support for member bp.">bp_support</a>))/cst_size &lt;&lt; <span class="stringliteral">&quot; # ratio of bp_support size&quot;</span> &lt;&lt; std::endl;
+<a name="l01059"></a>01059             std::cout&lt;&lt; ((double)<a class="code" href="namespacesdsl_1_1util.html#a33833c48ce3ad599a19dcd3276dcf77f" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(<a class="code" href="classsdsl_1_1cst__sct.html#a1216ba808703e062c0e3e707a3d4a2c9" title="The compressed suffix array the suffix tree is based on.">csa</a>))/cst_size &lt;&lt; <span class="stringliteral">&quot; # ratio of csa size&quot;</span> &lt;&lt; std::endl;
+<a name="l01060"></a>01060             std::cout&lt;&lt; ((double)<a class="code" href="namespacesdsl_1_1util.html#a33833c48ce3ad599a19dcd3276dcf77f" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(<a class="code" href="classsdsl_1_1cst__sct.html#aa01d82f7359665ab9ceb07942ead0dc9" title="The lcp array the suffix tree is based on.">lcp</a>))/cst_size &lt;&lt; <span class="stringliteral">&quot; # ratio of lcp size&quot;</span> &lt;&lt; std::endl;
+<a name="l01061"></a>01061             std::cout&lt;&lt; ((double)<a class="code" href="namespacesdsl_1_1util.html#a33833c48ce3ad599a19dcd3276dcf77f" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(<a class="code" href="classsdsl_1_1cst__sct.html#a3252574708be08710e0a058621ec26d5" title="The balanced parentheses sequence of the Super-Cartesian tree the suffix tree is based on...">bp</a>))/cst_size &lt;&lt; <span class="stringliteral">&quot; # ratio of bp size&quot;</span> &lt;&lt; std::endl;
+<a name="l01062"></a>01062             std::cout&lt;&lt; ((double)<a class="code" href="namespacesdsl_1_1util.html#a33833c48ce3ad599a19dcd3276dcf77f" title="Get the size of a data structure in bytes.">util::get_size_in_bytes</a>(<a class="code" href="classsdsl_1_1cst__sct.html#aa4be9891228e8122a79ffac2a933c2a8" title="The balanced parentheses sequence support for member bp.">bp_support</a>))/cst_size &lt;&lt; <span class="stringliteral">&quot; # ratio of bp_support size&quot;</span> &lt;&lt; std::endl;
 <a name="l01063"></a>01063             std::cout&lt;&lt; 0 &lt;&lt; <span class="stringliteral">&quot; # ratio of bp_rank_10 size&quot;</span> &lt;&lt; std::endl;
 <a name="l01064"></a>01064             std::cout&lt;&lt; 0 &lt;&lt; <span class="stringliteral">&quot; # ratio of bp_select_10 size&quot;</span> &lt;&lt; std::endl;
 <a name="l01065"></a>01065         }
@@ -932,8 +932,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l01076"></a>01076                                        int_vector_file_buffer&lt;int_width, size_type_class&gt;&amp; lcp_buf,
 <a name="l01077"></a>01077                                        int_vector_file_buffer&lt;int_width_1, size_type_class_1&gt;&amp; sa_buf,
 <a name="l01078"></a>01078                                        int_vector_file_buffer&lt;int_width_2, size_type_class_2&gt;&amp; isa_buf,
-<a name="l01079"></a>01079                                        std::string dir=<span class="stringliteral">&quot;./&quot;</span>,
-<a name="l01080"></a>01080                                        <span class="keywordtype">bool</span> build_only_bps = <span class="keyword">false</span>
+<a name="l01079"></a>01079                                        std::string dir,
+<a name="l01080"></a>01080                                        <span class="keywordtype">bool</span> build_only_bps
 <a name="l01081"></a>01081                                       ):csa(m_csa), lcp(m_lcp), bp(m_bp), bp_support(m_bp_support)
 <a name="l01082"></a>01082 {
 <a name="l01083"></a>01083     std::string <span class="keywordtype">id</span> =  <a class="code" href="namespacesdsl_1_1util.html#a6d8c83ac15f316e914edff973d8d77b6" title="Convert type to string.">util::to_string</a>(<a class="code" href="namespacesdsl_1_1util.html#ad89157cf167352afc99fe41318990191" title="Get the process id of the current process.">util::get_pid</a>())+<span class="stringliteral">&quot;_&quot;</span>+<a class="code" href="namespacesdsl_1_1util.html#a6d8c83ac15f316e914edff973d8d77b6" title="Convert type to string.">util::to_string</a>(<a class="code" href="namespacesdsl_1_1util.html#a6d9b7c00544c815b561e2f1e8a04c486" title="Get a unique id inside the process.">util::get_id</a>()).c_str();
@@ -956,13 +956,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l01100"></a>01100 }
 <a name="l01101"></a>01101 
 <a name="l01102"></a>01102 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> Lcp, <span class="keyword">class</span> Bp_support&gt;
-<a name="l01103"></a>01103 <a class="code" href="group__cst__sct__constructors.html#ga3b296fd26baf82ee6ca685385ac2f389" title="Default Constructor.">cst_sct&lt;Csa, Lcp, Bp_support&gt;::cst_sct</a>(tMSS&amp; file_map, <span class="keyword">const</span> std::string&amp; dir, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>, <span class="keywordtype">bool</span> build_only_bps = <span class="keyword">false</span>):csa(m_csa), lcp(m_lcp), bp(m_bp), bp_support(m_bp_support)
+<a name="l01103"></a>01103 <a class="code" href="group__cst__sct__constructors.html#ga3b296fd26baf82ee6ca685385ac2f389" title="Default Constructor.">cst_sct&lt;Csa, Lcp, Bp_support&gt;::cst_sct</a>(tMSS&amp; file_map, <span class="keyword">const</span> std::string&amp; dir, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>, <span class="keywordtype">bool</span> build_only_bps):csa(m_csa), lcp(m_lcp), bp(m_bp), bp_support(m_bp_support)
 <a name="l01104"></a>01104 {
 <a name="l01105"></a>01105     construct(file_map, dir, <span class="keywordtype">id</span>, build_only_bps);
 <a name="l01106"></a>01106 }
 <a name="l01107"></a>01107 
 <a name="l01108"></a>01108 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Csa, <span class="keyword">class</span> Lcp, <span class="keyword">class</span> Bp_support&gt;
-<a name="l01109"></a>01109 <span class="keywordtype">void</span> cst_sct&lt;Csa, Lcp, Bp_support&gt;::construct(tMSS&amp; file_map, <span class="keyword">const</span> std::string&amp; dir, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>, <span class="keywordtype">bool</span> build_only_bps = <span class="keyword">false</span>)
+<a name="l01109"></a>01109 <span class="keywordtype">void</span> cst_sct&lt;Csa, Lcp, Bp_support&gt;::construct(tMSS&amp; file_map, <span class="keyword">const</span> std::string&amp; dir, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>, <span class="keywordtype">bool</span> build_only_bps)
 <a name="l01110"></a>01110 {
 <a name="l01111"></a>01111     <a class="code" href="namespacesdsl.html#a478f5f7db45f61644d75e6c664bd961e" title="Write stopwatch output in readable format.">write_R_output</a>(<span class="stringliteral">&quot;cst&quot;</span>, <span class="stringliteral">&quot;construct BPS&quot;</span>, <span class="stringliteral">&quot;begin&quot;</span>, 1, 0);
 <a name="l01112"></a>01112     {
@@ -1036,7 +1036,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 10 2012 18:54:25 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 13 2012 14:05:46 for SDSL: Succinct Data Structure Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

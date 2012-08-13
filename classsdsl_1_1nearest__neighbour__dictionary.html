@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Succinct Data Structure Library (sdsl): sdsl::nearest_neighbour_dictionary&lt; sample_dens &gt; Class Template Reference</title>
+<title>SDSL: Succinct Data Structure Library: sdsl::nearest_neighbour_dictionary&lt; sample_dens &gt; Class Template Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -27,7 +27,7 @@
   
   
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Succinct Data Structure Library (sdsl)
+   <div id="projectname">SDSL: Succinct Data Structure Library
    
    </div>
    <div id="projectbrief">A C++ template library for succinct data structures</div>
@@ -148,8 +148,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> (<a class="e
 size_type&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> () const </td></tr>
 <tr class="memitem:a7dd90987f8dddc21372c563e05eb90a2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7dd90987f8dddc21372c563e05eb90a2"></a>
 size_type&#160;</td><td class="memItemRight" valign="bottom"><b>ones</b> () const </td></tr>
-<tr class="memitem:a6fbb59b514737d6a825175dc9210a8ab"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1nearest__neighbour__dictionary.html#a6fbb59b514737d6a825175dc9210a8ab">serialize</a> (std::ostream &amp;out) const </td></tr>
-<tr class="memdesc:a6fbb59b514737d6a825175dc9210a8ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes the <a class="el" href="classsdsl_1_1nearest__neighbour__dictionary.html" title="Nearest neighbour dictionary for sparse uniform sets (described in Geary et al., A Simple Optimal Rep...">nearest_neighbour_dictionary</a>.  <a href="#a6fbb59b514737d6a825175dc9210a8ab"></a><br/></td></tr>
+<tr class="memitem:a72508fcd3d6fce5afd1be140ab0cc8ee"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1nearest__neighbour__dictionary.html#a72508fcd3d6fce5afd1be140ab0cc8ee">serialize</a> (std::ostream &amp;out, <a class="el" href="classsdsl_1_1structure__tree__node.html">structure_tree_node</a> *v=NULL, std::string name=&quot;&quot;) const </td></tr>
+<tr class="memdesc:a72508fcd3d6fce5afd1be140ab0cc8ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes the <a class="el" href="classsdsl_1_1nearest__neighbour__dictionary.html" title="Nearest neighbour dictionary for sparse uniform sets (described in Geary et al., A Simple Optimal Rep...">nearest_neighbour_dictionary</a>.  <a href="#a72508fcd3d6fce5afd1be140ab0cc8ee"></a><br/></td></tr>
 <tr class="memitem:ac23051de47ead6630f8519d923518e80"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1nearest__neighbour__dictionary.html#ac23051de47ead6630f8519d923518e80">load</a> (std::istream &amp;in)</td></tr>
 <tr class="memdesc:ac23051de47ead6630f8519d923518e80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the <a class="el" href="classsdsl_1_1nearest__neighbour__dictionary.html" title="Nearest neighbour dictionary for sparse uniform sets (described in Geary et al., A Simple Optimal Rep...">nearest_neighbour_dictionary</a>.  <a href="#ac23051de47ead6630f8519d923518e80"></a><br/></td></tr>
 </table>
@@ -305,7 +305,7 @@ template&lt;uint8_t sample_dens&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>Number of 1-bits in the prefix [0..idx-1] of the supported bit_vector. </dd></dl>
-<dl class="section user"><dt>Time complexity <img class="formulaInl" alt="" src=".png"/>#51</b></dt><dd></dd></dl>
+<dl class="section user"><dt>Time complexity <img class="formulaInl" alt="$ O( sa.size() ) $" src="form_0.png"/>#51</b></dt><dd></dd></dl>
 
 </div>
 </div>
@@ -338,18 +338,34 @@ template&lt;uint8_t sample_dens&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a6fbb59b514737d6a825175dc9210a8ab"></a>
+<a class="anchor" id="a72508fcd3d6fce5afd1be140ab0cc8ee"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;uint8_t sample_dens&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">size_type <a class="el" href="classsdsl_1_1nearest__neighbour__dictionary.html">sdsl::nearest_neighbour_dictionary</a>&lt; sample_dens &gt;::<a class="el" href="classsdsl_1_1nearest__neighbour__dictionary.html#a6fbb59b514737d6a825175dc9210a8ab">serialize</a> </td>
+          <td class="memname">size_type <a class="el" href="classsdsl_1_1nearest__neighbour__dictionary.html">sdsl::nearest_neighbour_dictionary</a>&lt; sample_dens &gt;::<a class="el" href="classsdsl_1_1nearest__neighbour__dictionary.html#a72508fcd3d6fce5afd1be140ab0cc8ee">serialize</a> </td>
           <td>(</td>
           <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>out</em></td><td>)</td>
-          <td> const<code> [inline]</code></td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsdsl_1_1structure__tree__node.html">structure_tree_node</a> *&#160;</td>
+          <td class="paramname"><em>v</em> = <code>NULL</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const<code> [inline]</code></td>
         </tr>
       </table>
 </div>
@@ -372,7 +388,7 @@ template&lt;uint8_t sample_dens&gt; </div>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 10 2012 18:54:31 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 13 2012 14:05:50 for SDSL: Succinct Data Structure Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

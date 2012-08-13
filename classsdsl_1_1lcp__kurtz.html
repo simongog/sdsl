@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Succinct Data Structure Library (sdsl): sdsl::lcp_kurtz&lt; width &gt; Class Template Reference</title>
+<title>SDSL: Succinct Data Structure Library: sdsl::lcp_kurtz&lt; width &gt; Class Template Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -27,7 +27,7 @@
   
   
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Succinct Data Structure Library (sdsl)
+   <div id="projectname">SDSL: Succinct Data Structure Library
    
    </div>
    <div id="projectbrief">A C++ template library for succinct data structures</div>
@@ -123,7 +123,7 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1lcp__kurtz_1_1type.html">type</a></td></tr>
 <tr><td colspan="2"><h2><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a941f2a0421b530c72356f840edb92920"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>fast_access</b> =  0, 
+<tr class="memitem:a1f187ca826fcd76591107a15164bbaba"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>fast_access</b> =  0, 
 <b>text_order</b> =  0, 
 <b>sa_order</b> =  1
  }</td></tr>
@@ -193,8 +193,8 @@ template&lt;uint8_t int_width, class size_type_class &gt; </td></tr>
 <tr class="memdesc:a0e196b68b70ed6c0479b843358be8f2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality Operator.  <a href="#a0e196b68b70ed6c0479b843358be8f2f"></a><br/></td></tr>
 <tr class="memitem:aae489f6b1ac10a5e213dbe4534512c1d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1lcp__kurtz.html#aae489f6b1ac10a5e213dbe4534512c1d">operator!=</a> (const <a class="el" href="classsdsl_1_1lcp__kurtz.html">lcp_kurtz</a> &amp;lcp_c) const </td></tr>
 <tr class="memdesc:aae489f6b1ac10a5e213dbe4534512c1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unequality Operator.  <a href="#aae489f6b1ac10a5e213dbe4534512c1d"></a><br/></td></tr>
-<tr class="memitem:aa4905524464dd8c820a6da1a061593e3"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1lcp__kurtz.html#aa4905524464dd8c820a6da1a061593e3">serialize</a> (std::ostream &amp;out) const </td></tr>
-<tr class="memdesc:aa4905524464dd8c820a6da1a061593e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize to a stream.  <a href="#aa4905524464dd8c820a6da1a061593e3"></a><br/></td></tr>
+<tr class="memitem:a36e98b57ee8e094015195cf5395b0daf"><td class="memItemLeft" align="right" valign="top">size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1lcp__kurtz.html#a36e98b57ee8e094015195cf5395b0daf">serialize</a> (std::ostream &amp;out, <a class="el" href="classsdsl_1_1structure__tree__node.html">structure_tree_node</a> *v=NULL, std::string name=&quot;&quot;) const </td></tr>
+<tr class="memdesc:a36e98b57ee8e094015195cf5395b0daf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize to a stream.  <a href="#a36e98b57ee8e094015195cf5395b0daf"></a><br/></td></tr>
 <tr class="memitem:af04767117711e0d9be5e22058e56b215"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1lcp__kurtz.html#af04767117711e0d9be5e22058e56b215">load</a> (std::istream &amp;in)</td></tr>
 <tr class="memdesc:af04767117711e0d9be5e22058e56b215"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load from a stream.  <a href="#af04767117711e0d9be5e22058e56b215"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-methods"></a>
@@ -426,18 +426,34 @@ template&lt;uint8_t width&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="aa4905524464dd8c820a6da1a061593e3"></a>
+<a class="anchor" id="a36e98b57ee8e094015195cf5395b0daf"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;uint8_t width&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classsdsl_1_1lcp__kurtz.html">lcp_kurtz</a>&lt; width &gt;::size_type <a class="el" href="classsdsl_1_1lcp__kurtz.html">sdsl::lcp_kurtz</a>&lt; width &gt;::<a class="el" href="classsdsl_1_1lcp__kurtz.html#aa4905524464dd8c820a6da1a061593e3">serialize</a> </td>
+          <td class="memname"><a class="el" href="classsdsl_1_1lcp__kurtz.html">lcp_kurtz</a>&lt; width &gt;::size_type <a class="el" href="classsdsl_1_1lcp__kurtz.html">sdsl::lcp_kurtz</a>&lt; width &gt;::<a class="el" href="classsdsl_1_1lcp__kurtz.html#a36e98b57ee8e094015195cf5395b0daf">serialize</a> </td>
           <td>(</td>
           <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>out</em></td><td>)</td>
-          <td> const</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsdsl_1_1structure__tree__node.html">structure_tree_node</a> *&#160;</td>
+          <td class="paramname"><em>v</em> = <code>NULL</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
         </tr>
       </table>
 </div>
@@ -512,7 +528,7 @@ template&lt;uint8_t width&gt; </div>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 10 2012 18:54:31 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 13 2012 14:05:50 for SDSL: Succinct Data Structure Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

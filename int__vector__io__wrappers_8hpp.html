@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Succinct Data Structure Library (sdsl): sdsl/include/sdsl/int_vector_io_wrappers.hpp File Reference</title>
+<title>SDSL: Succinct Data Structure Library: sdsl/include/sdsl/int_vector_io_wrappers.hpp File Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -27,7 +27,7 @@
   
   
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Succinct Data Structure Library (sdsl)
+   <div id="projectname">SDSL: Succinct Data Structure Library
    
    </div>
    <div id="projectbrief">A C++ template library for succinct data structures</div>
@@ -104,6 +104,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>This file contains classes which could be used to encode and decode integer vectors when they are written to disk.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;sdsl/int_vector.hpp&gt;</code><br/>
+<code>#include &lt;<a class="el" href="util_8hpp_source.html">sdsl/util.hpp</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="coder_8hpp_source.html">sdsl/coder.hpp</a>&gt;</code><br/>
 <code>#include &lt;iostream&gt;</code><br/>
 </div>
 <p><a href="int__vector__io__wrappers_8hpp_source.html">Go to the source code of this file.</a></p>
@@ -112,8 +114,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1int__vector__serialize__vbyte__wrapper.html">sdsl::int_vector_serialize_vbyte_wrapper&lt; fixedIntWidth, size_type_class &gt;</a></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1int__vector__load__vbyte__wrapper.html">sdsl::int_vector_load_vbyte_wrapper&lt; fixedIntWidth, size_type_class &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1int__vector__serialize__vlen__wrapper.html">sdsl::int_vector_serialize_vlen_wrapper&lt; coder_type &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1int__vector__load__vlen__wrapper.html">sdsl::int_vector_load_vlen_wrapper&lt; coder_type &gt;</a></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1int__vector__serialize__wrapper.html">sdsl::int_vector_serialize_wrapper&lt; int_vector_type &gt;</a></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1int__vector__load__wrapper.html">sdsl::int_vector_load_wrapper&lt; int_vector_type &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsdsl_1_1int__vector__serialize__min__overhead.html">sdsl::int_vector_serialize_min_overhead&lt; int_vector_serialize_wrapper_type &gt;</a></td></tr>
 <tr><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacesdsl"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesdsl.html">sdsl</a></td></tr>
@@ -122,13 +127,13 @@ Namespaces</h2></td></tr>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>This file contains classes which could be used to encode and decode integer vectors when they are written to disk. </p>
 <dl class="section author"><dt>Author:</dt><dd>Simon Gog (<a href="#" onclick="location.href='mai'+'lto:'+'sim'+'on'+'.go'+'g@'+'uni'+'me'+'lb.'+'ed'+'u.a'+'u'; return false;">simon<span style="display: none;">.nosp@m.</span>.gog<span style="display: none;">.nosp@m.</span>@unim<span style="display: none;">.nosp@m.</span>elb.<span style="display: none;">.nosp@m.</span>edu.a<span style="display: none;">.nosp@m.</span>u</a>)</dd></dl>
-<p>So far we two coders: int_vector_(load/serialize)_wrapper is just a dummy class which does not change the writing and reading process int_vector_(load/serialize)_vbyte_wrapper encodes and decodes each element using vbyte (aka escaping) coding. </p>
+<p>So far we two coders: int_vector_(load/serialize)_wrapper is just a dummy class which does not change the writing and reading process int_vector_(load/serialize)_vbyte_wrapper encodes and decodes each element using vbyte (aka escaping) coding. int_vector_(load/serialize)_vlen_wrapper encodes and decodes each element using a variable length code (e.g. Delta/Gamma/Fibonacci code) </p>
 <div class="fragment"><pre class="fragment">  TODO: more sophisticated coders which have in contrast to the implemented version an internal state
   after the initialization. Like a Huffman coder which calculates the Huffman tree at initialization.</pre></div></div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 10 2012 18:54:29 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 13 2012 14:05:49 for SDSL: Succinct Data Structure Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

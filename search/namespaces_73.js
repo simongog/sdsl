@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['algorithm',['algorithm',['../namespacesdsl_1_1algorithm.html',1,'sdsl']]],
-  ['coder',['coder',['../namespacesdsl_1_1coder.html',1,'sdsl']]],
-  ['sdsl',['sdsl',['../namespacesdsl.html',1,'']]],
-  ['util',['util',['../namespacesdsl_1_1util.html',1,'sdsl']]]
+  ['algorithm',['algorithm',['../a00286.html',1,'sdsl']]],
+  ['coder',['coder',['../a00287.html',1,'sdsl']]],
+  ['sdsl',['sdsl',['../a00285.html',1,'']]],
+  ['util',['util',['../a00288.html',1,'sdsl']]]
 ];

@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Succinct Data Structure Library (sdsl): sdsl/include/sdsl/bp_support_g.hpp Source File</title>
+<title>SDSL: Succinct Data Structure Library: sdsl/include/sdsl/bp_support_g.hpp Source File</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -27,7 +27,7 @@
   
   
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Succinct Data Structure Library (sdsl)
+   <div id="projectname">SDSL: Succinct Data Structure Library
    
    </div>
    <div id="projectbrief">A C++ template library for succinct data structures</div>
@@ -590,63 +590,65 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00583"></a>00583         }
 <a name="l00584"></a>00584 
 <a name="l00586"></a>00586 
-<a name="l00590"></a><a class="code" href="classsdsl_1_1bp__support__g.html#a63ac0debe059747f1de2d10330406fdf">00590</a>         size_type <a class="code" href="classsdsl_1_1bp__support__g.html#a63ac0debe059747f1de2d10330406fdf" title="Serializes the bp_support_g to a stream.">serialize</a>(std::ostream&amp; out)<span class="keyword"> const </span>{
-<a name="l00591"></a>00591             size_type written_bytes = 0;
-<a name="l00592"></a>00592             written_bytes += m_rank_bp.serialize(out);
-<a name="l00593"></a>00593             written_bytes += m_select_bp.serialize(out);
-<a name="l00594"></a>00594             written_bytes += m_nnd.serialize(out);
-<a name="l00595"></a>00595 
-<a name="l00596"></a>00596             written_bytes += m_pioneer_bp.<a class="code" href="classsdsl_1_1int__vector.html#a32bfb973d19b10c8e9d32107805bbab0" title="Serializes the int_vector to a stream.">serialize</a>(out);
-<a name="l00597"></a>00597             written_bytes += m_rank_pioneer_bp.serialize(out);
-<a name="l00598"></a>00598             written_bytes += m_nnd2.serialize(out);
-<a name="l00599"></a>00599             written_bytes += m_match.<a class="code" href="classsdsl_1_1int__vector.html#a32bfb973d19b10c8e9d32107805bbab0" title="Serializes the int_vector to a stream.">serialize</a>(out);
-<a name="l00600"></a>00600             written_bytes += m_enclose.<a class="code" href="classsdsl_1_1int__vector.html#a32bfb973d19b10c8e9d32107805bbab0" title="Serializes the int_vector to a stream.">serialize</a>(out);
-<a name="l00601"></a>00601             written_bytes += m_range_max_match.serialize(out);
-<a name="l00602"></a>00602 
-<a name="l00603"></a>00603             written_bytes += util::write_member(m_block_size, out);
-<a name="l00604"></a>00604             written_bytes += util::write_member(m_size, out);
-<a name="l00605"></a>00605             written_bytes += util::write_member(m_blocks, out);
-<a name="l00606"></a>00606             <span class="keywordflow">return</span> written_bytes;
-<a name="l00607"></a>00607         }
-<a name="l00608"></a>00608 
+<a name="l00590"></a><a class="code" href="classsdsl_1_1bp__support__g.html#a59872c5d91f5d3f72b93b0cba65168c4">00590</a>         size_type <a class="code" href="classsdsl_1_1bp__support__g.html#a59872c5d91f5d3f72b93b0cba65168c4" title="Serializes the bp_support_g to a stream.">serialize</a>(std::ostream&amp; out, <a class="code" href="classsdsl_1_1structure__tree__node.html" title="Class for a node of the structure tree.">structure_tree_node</a>* v=NULL, std::string name=<span class="stringliteral">&quot;&quot;</span>)<span class="keyword">const </span>{
+<a name="l00591"></a>00591             <a class="code" href="classsdsl_1_1structure__tree__node.html" title="Class for a node of the structure tree.">structure_tree_node</a>* child = structure_tree::add_child(v, name, util::class_name(*<span class="keyword">this</span>));
+<a name="l00592"></a>00592             size_type written_bytes = 0;
+<a name="l00593"></a>00593             written_bytes += m_rank_bp.serialize(out, child, <span class="stringliteral">&quot;bp_rank&quot;</span>);
+<a name="l00594"></a>00594             written_bytes += m_select_bp.serialize(out, child, <span class="stringliteral">&quot;bp_select&quot;</span>);
+<a name="l00595"></a>00595             written_bytes += m_nnd.serialize(out, child,<span class="stringliteral">&quot;nearest_neighbor_dictionary&quot;</span>);
+<a name="l00596"></a>00596 
+<a name="l00597"></a>00597             written_bytes += m_pioneer_bp.<a class="code" href="classsdsl_1_1int__vector.html#a54bb26e2d6f6932b41ab12e52746e86a" title="Serializes the int_vector to a stream.">serialize</a>(out, child, <span class="stringliteral">&quot;pioneer_bp&quot;</span>);
+<a name="l00598"></a>00598             written_bytes += m_rank_pioneer_bp.serialize(out, child, <span class="stringliteral">&quot;pioneer_bp_rank&quot;</span>);
+<a name="l00599"></a>00599             written_bytes += m_nnd2.serialize(out, child, <span class="stringliteral">&quot;nearest_neighbor_dictionary2&quot;</span>);
+<a name="l00600"></a>00600             written_bytes += m_match.<a class="code" href="classsdsl_1_1int__vector.html#a54bb26e2d6f6932b41ab12e52746e86a" title="Serializes the int_vector to a stream.">serialize</a>(out, child, <span class="stringliteral">&quot;match_answers&quot;</span>);
+<a name="l00601"></a>00601             written_bytes += m_enclose.<a class="code" href="classsdsl_1_1int__vector.html#a54bb26e2d6f6932b41ab12e52746e86a" title="Serializes the int_vector to a stream.">serialize</a>(out, child, <span class="stringliteral">&quot;enclose_answers&quot;</span>);
+<a name="l00602"></a>00602             written_bytes += m_range_max_match.serialize(out, child, <span class="stringliteral">&quot;rmq_answers&quot;</span>);
+<a name="l00603"></a>00603 
+<a name="l00604"></a>00604             written_bytes += util::write_member(m_block_size, out, child, <span class="stringliteral">&quot;block_size&quot;</span>);
+<a name="l00605"></a>00605             written_bytes += util::write_member(m_size, out, child, <span class="stringliteral">&quot;size&quot;</span>);
+<a name="l00606"></a>00606             written_bytes += util::write_member(m_blocks, out, child, <span class="stringliteral">&quot;block_cnt&quot;</span>);
+<a name="l00607"></a>00607             structure_tree::add_size(child, written_bytes);
+<a name="l00608"></a>00608             <span class="keywordflow">return</span> written_bytes;
+<a name="l00609"></a>00609         }
 <a name="l00610"></a>00610 
-<a name="l00614"></a><a class="code" href="classsdsl_1_1bp__support__g.html#a338c7635e8fa40b2f4b58172ffec973f">00614</a>         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1bp__support__g.html#a338c7635e8fa40b2f4b58172ffec973f" title="Load the bp_support_g for a bit_vector v.">load</a>(std::istream&amp; in, <span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">bit_vector</a>* bp) {
-<a name="l00615"></a>00615             m_bp = bp;
-<a name="l00616"></a>00616             m_rank_bp.load(in, m_bp);
-<a name="l00617"></a>00617             m_select_bp.load(in, m_bp);
-<a name="l00618"></a>00618             m_nnd.load(in);
-<a name="l00619"></a>00619 
-<a name="l00620"></a>00620             m_pioneer_bp.<a class="code" href="classsdsl_1_1int__vector.html#a57c9fc2fdc93eeaa477a49389e7a47ac" title="Load the int_vector for a stream.">load</a>(in);
-<a name="l00621"></a>00621             m_rank_pioneer_bp.load(in, &amp;m_pioneer_bp);
-<a name="l00622"></a>00622             m_nnd2.load(in);
-<a name="l00623"></a>00623             m_match.<a class="code" href="classsdsl_1_1int__vector.html#a57c9fc2fdc93eeaa477a49389e7a47ac" title="Load the int_vector for a stream.">load</a>(in);
-<a name="l00624"></a>00624             m_enclose.<a class="code" href="classsdsl_1_1int__vector.html#a57c9fc2fdc93eeaa477a49389e7a47ac" title="Load the int_vector for a stream.">load</a>(in);
-<a name="l00625"></a>00625             m_range_max_match.load(in, &amp;m_match);
-<a name="l00626"></a>00626             util::read_member(m_block_size, in);
-<a name="l00627"></a>00627             util::read_member(m_size, in);
-<a name="l00628"></a>00628             assert(m_size == bp-&gt;<a class="code" href="classsdsl_1_1int__vector.html#aea4fcbbab7fbef9c1cc4a4c89f4b1520" title="The number of elements in the int_vector.">size</a>());
-<a name="l00629"></a>00629             util::read_member(m_blocks, in);
-<a name="l00630"></a>00630         }
-<a name="l00631"></a>00631 
-<a name="l00632"></a>00632         std::string get_info()<span class="keyword">const </span>{
-<a name="l00633"></a>00633             std::stringstream ss;
-<a name="l00634"></a>00634             ss&lt;&lt;<span class="stringliteral">&quot;number of parentheses: &quot;</span>&lt;&lt; (m_bp != NULL ? m_bp-&gt;<a class="code" href="classsdsl_1_1int__vector.html#aea4fcbbab7fbef9c1cc4a4c89f4b1520" title="The number of elements in the int_vector.">size</a>() : 0) &lt;&lt;std::endl;
-<a name="l00635"></a>00635 
-<a name="l00636"></a>00636             <span class="keywordflow">return</span> ss.str();
-<a name="l00637"></a>00637         }
-<a name="l00638"></a>00638 };
-<a name="l00639"></a>00639 
-<a name="l00640"></a>00640 }<span class="comment">// end namespace</span>
+<a name="l00612"></a>00612 
+<a name="l00616"></a><a class="code" href="classsdsl_1_1bp__support__g.html#a338c7635e8fa40b2f4b58172ffec973f">00616</a>         <span class="keywordtype">void</span> <a class="code" href="classsdsl_1_1bp__support__g.html#a338c7635e8fa40b2f4b58172ffec973f" title="Load the bp_support_g for a bit_vector v.">load</a>(std::istream&amp; in, <span class="keyword">const</span> <a class="code" href="classsdsl_1_1int__vector.html">bit_vector</a>* bp) {
+<a name="l00617"></a>00617             m_bp = bp;
+<a name="l00618"></a>00618             m_rank_bp.load(in, m_bp);
+<a name="l00619"></a>00619             m_select_bp.load(in, m_bp);
+<a name="l00620"></a>00620             m_nnd.load(in);
+<a name="l00621"></a>00621 
+<a name="l00622"></a>00622             m_pioneer_bp.<a class="code" href="classsdsl_1_1int__vector.html#a57c9fc2fdc93eeaa477a49389e7a47ac" title="Load the int_vector for a stream.">load</a>(in);
+<a name="l00623"></a>00623             m_rank_pioneer_bp.load(in, &amp;m_pioneer_bp);
+<a name="l00624"></a>00624             m_nnd2.load(in);
+<a name="l00625"></a>00625             m_match.<a class="code" href="classsdsl_1_1int__vector.html#a57c9fc2fdc93eeaa477a49389e7a47ac" title="Load the int_vector for a stream.">load</a>(in);
+<a name="l00626"></a>00626             m_enclose.<a class="code" href="classsdsl_1_1int__vector.html#a57c9fc2fdc93eeaa477a49389e7a47ac" title="Load the int_vector for a stream.">load</a>(in);
+<a name="l00627"></a>00627             m_range_max_match.load(in, &amp;m_match);
+<a name="l00628"></a>00628             util::read_member(m_block_size, in);
+<a name="l00629"></a>00629             util::read_member(m_size, in);
+<a name="l00630"></a>00630             assert(m_size == bp-&gt;<a class="code" href="classsdsl_1_1int__vector.html#aea4fcbbab7fbef9c1cc4a4c89f4b1520" title="The number of elements in the int_vector.">size</a>());
+<a name="l00631"></a>00631             util::read_member(m_blocks, in);
+<a name="l00632"></a>00632         }
+<a name="l00633"></a>00633 
+<a name="l00634"></a>00634         std::string get_info()<span class="keyword">const </span>{
+<a name="l00635"></a>00635             std::stringstream ss;
+<a name="l00636"></a>00636             ss&lt;&lt;<span class="stringliteral">&quot;number of parentheses: &quot;</span>&lt;&lt; (m_bp != NULL ? m_bp-&gt;<a class="code" href="classsdsl_1_1int__vector.html#aea4fcbbab7fbef9c1cc4a4c89f4b1520" title="The number of elements in the int_vector.">size</a>() : 0) &lt;&lt;std::endl;
+<a name="l00637"></a>00637 
+<a name="l00638"></a>00638             <span class="keywordflow">return</span> ss.str();
+<a name="l00639"></a>00639         }
+<a name="l00640"></a>00640 };
 <a name="l00641"></a>00641 
-<a name="l00642"></a>00642 
+<a name="l00642"></a>00642 }<span class="comment">// end namespace</span>
 <a name="l00643"></a>00643 
 <a name="l00644"></a>00644 
-<a name="l00645"></a>00645 <span class="preprocessor">#endif</span>
+<a name="l00645"></a>00645 
+<a name="l00646"></a>00646 
+<a name="l00647"></a>00647 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 10 2012 18:54:25 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 13 2012 14:05:45 for SDSL: Succinct Data Structure Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Succinct Data Structure Library (sdsl): sdsl/include/sdsl/fibonacci_coder.hpp Source File</title>
+<title>SDSL: Succinct Data Structure Library: sdsl/include/sdsl/fibonacci_coder.hpp Source File</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -27,7 +27,7 @@
   
   
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Succinct Data Structure Library (sdsl)
+   <div id="projectname">SDSL: Succinct Data Structure Library
    
    </div>
    <div id="projectbrief">A C++ template library for succinct data structures</div>
@@ -176,248 +176,274 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00103"></a>00103 
 <a name="l00104"></a><a class="code" href="classsdsl_1_1coder_1_1fibonacci.html#a117290ec6d7dc6d317492f3a944c8aa4">00104</a> <span class="keyword">inline</span> uint8_t <a class="code" href="classsdsl_1_1coder_1_1fibonacci.html#a117290ec6d7dc6d317492f3a944c8aa4" title="Get the number of bits that are necessary to encode the value w in fibonacci code.">fibonacci::encoding_length</a>(uint64_t w)
 <a name="l00105"></a>00105 {
-<a name="l00106"></a>00106     <span class="comment">// This limit for the leftmost 1bit in the resulting fib code could be improved using a table</span>
-<a name="l00107"></a>00107     uint8_t len_1 = <a class="code" href="classsdsl_1_1bit__magic.html#a7e056c78ea2cea39ac49e552731c0c95" title="Calculates the position of the leftmost 1-bit in the 64bit integer x if it exists.">bit_magic::l1BP</a>(w); <span class="comment">// len-1 of the fib code</span>
-<a name="l00108"></a>00108     <span class="keywordflow">while</span> (++len_1 &lt; (uint8_t)(<span class="keyword">sizeof</span>(<a class="code" href="classsdsl_1_1bit__magic.html#aa1c89438382fe044290ee2b21d9a510e" title="Array containing fibonacci numbers less than .">bit_magic::Fib</a>)/<span class="keyword">sizeof</span>(<a class="code" href="classsdsl_1_1bit__magic.html#aa1c89438382fe044290ee2b21d9a510e" title="Array containing fibonacci numbers less than .">bit_magic::Fib</a>[0])) &amp;&amp; w &gt;= <a class="code" href="classsdsl_1_1bit__magic.html#aa1c89438382fe044290ee2b21d9a510e" title="Array containing fibonacci numbers less than .">bit_magic::Fib</a>[len_1]);
-<a name="l00109"></a>00109     <span class="keywordflow">return</span> len_1+1;
-<a name="l00110"></a>00110 }
-<a name="l00111"></a>00111 
-<a name="l00112"></a>00112 <span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="keywordtype">int</span>_vector1, <span class="keyword">class</span> <span class="keywordtype">int</span>_vector2&gt;
-<a name="l00113"></a>00113 <span class="keyword">inline</span> <span class="keywordtype">bool</span> fibonacci::encode(<span class="keyword">const</span> int_vector1&amp; v, int_vector2&amp; z)
-<a name="l00114"></a>00114 {
-<a name="l00115"></a>00115     uint64_t z_bit_size = 0;
-<a name="l00116"></a>00116     <span class="keywordflow">for</span> (<span class="keyword">typename</span> int_vector1::const_iterator it=v.begin(), end = v.end(); it != end; ++it) {
-<a name="l00117"></a>00117         <span class="keywordflow">if</span> (*it == 0) {
-<a name="l00118"></a>00118             <span class="keywordflow">throw</span> std::logic_error(<span class="stringliteral">&quot;fibonacci::encode(const SDSBitVector &amp;v, SDSBitVector &amp;z); entry of v equals 0 that cannot be encoded!&quot;</span>);
-<a name="l00119"></a>00119         }
-<a name="l00120"></a>00120         z_bit_size += <a class="code" href="classsdsl_1_1coder_1_1fibonacci.html#a117290ec6d7dc6d317492f3a944c8aa4" title="Get the number of bits that are necessary to encode the value w in fibonacci code.">encoding_length</a>(*it);
-<a name="l00121"></a>00121     }
-<a name="l00122"></a>00122     z.bit_resize(z_bit_size);
-<a name="l00123"></a>00123     <span class="keywordflow">if</span> (z_bit_size &amp; 0x3F) { <span class="comment">// if z_bit_size % 64 != 0</span>
-<a name="l00124"></a>00124         *(z.m_data + (z_bit_size&gt;&gt;6)) = 0; <span class="comment">// initialize last word</span>
-<a name="l00125"></a>00125     }
-<a name="l00126"></a>00126     uint64_t* z_data    = z.m_data;
-<a name="l00127"></a>00127     uint8_t offset              = 0;
-<a name="l00128"></a>00128     <span class="keyword">register</span> uint64_t w;
-<a name="l00129"></a>00129     <span class="keyword">register</span> uint64_t fibword_high = 0x0000000000000001ULL, fibword_low;
-<a name="l00130"></a>00130     <span class="keyword">register</span> uint64_t t;
-<a name="l00131"></a>00131     <span class="keywordflow">for</span> (<span class="keyword">typename</span> int_vector1::const_iterator it=v.begin(), end = v.end(); it != end; ++it) {
-<a name="l00132"></a>00132         w = *it;
-<a name="l00133"></a>00133         int8_t len_1 = <a class="code" href="classsdsl_1_1coder_1_1fibonacci.html#a117290ec6d7dc6d317492f3a944c8aa4" title="Get the number of bits that are necessary to encode the value w in fibonacci code.">encoding_length</a>(w)-1,j;
-<a name="l00134"></a>00134         fibword_low = 0x0000000000000001ULL;
-<a name="l00135"></a>00135 
-<a name="l00136"></a>00136         <span class="keywordflow">if</span> (len_1 &gt;= 64) { <span class="comment">// length &gt; 65</span>
-<a name="l00137"></a>00137             fibword_high = 0x0000000000000001ULL;
-<a name="l00138"></a>00138             <span class="keywordflow">for</span> (j = len_1-1; j&gt;63; --j) {
-<a name="l00139"></a>00139                 fibword_high &lt;&lt;= 1;
-<a name="l00140"></a>00140                 <span class="keywordflow">if</span> (w &gt;= (t=<a class="code" href="classsdsl_1_1bit__magic.html#aa1c89438382fe044290ee2b21d9a510e" title="Array containing fibonacci numbers less than .">bit_magic::Fib</a>[j])) {
-<a name="l00141"></a>00141                     w -= t;
-<a name="l00142"></a>00142                     fibword_high |= 1;
-<a name="l00143"></a>00143                     <span class="keywordflow">if</span> (w and j&gt;64) {
-<a name="l00144"></a>00144                         fibword_high &lt;&lt;= 1;
-<a name="l00145"></a>00145                         --j;
-<a name="l00146"></a>00146                     } <span class="keywordflow">else</span> {
-<a name="l00147"></a>00147                         fibword_high &lt;&lt;= (64-j);
-<a name="l00148"></a>00148                         <span class="keywordflow">break</span>;
-<a name="l00149"></a>00149                     }
-<a name="l00150"></a>00150                 }
-<a name="l00151"></a>00151             }
-<a name="l00152"></a>00152             j           = 64;
-<a name="l00153"></a>00153         } <span class="keywordflow">else</span> {
-<a name="l00154"></a>00154             j = len_1-1;
-<a name="l00155"></a>00155         }
-<a name="l00156"></a>00156 
-<a name="l00157"></a>00157         <span class="keywordflow">for</span> (; j &gt;= 0; --j) {
-<a name="l00158"></a>00158             fibword_low &lt;&lt;= 1;
-<a name="l00159"></a>00159             <span class="keywordflow">if</span> (w &gt;= (t=<a class="code" href="classsdsl_1_1bit__magic.html#aa1c89438382fe044290ee2b21d9a510e" title="Array containing fibonacci numbers less than .">bit_magic::Fib</a>[j])) {
-<a name="l00160"></a>00160                 w -= t;
-<a name="l00161"></a>00161                 fibword_low |= 1;
-<a name="l00162"></a>00162                 <span class="keywordflow">if</span> (w) {
-<a name="l00163"></a>00163                     fibword_low &lt;&lt;= 1;
-<a name="l00164"></a>00164                     --j;
-<a name="l00165"></a>00165                 } <span class="keywordflow">else</span> {
-<a name="l00166"></a>00166                     fibword_low &lt;&lt;= (j);
-<a name="l00167"></a>00167                     <span class="keywordflow">break</span>;
-<a name="l00168"></a>00168                 }
-<a name="l00169"></a>00169             }
-<a name="l00170"></a>00170         }
-<a name="l00171"></a>00171         <span class="keywordflow">if</span> (len_1 &gt;=64) {
-<a name="l00172"></a>00172             <a class="code" href="classsdsl_1_1bit__magic.html#ab58d5023421a45f490b3af42227446b6" title="TODO: Documentation for this function.">bit_magic::write_int_and_move</a>(z_data, fibword_low, offset, 64);
-<a name="l00173"></a>00173             <a class="code" href="classsdsl_1_1bit__magic.html#ab58d5023421a45f490b3af42227446b6" title="TODO: Documentation for this function.">bit_magic::write_int_and_move</a>(z_data, fibword_high, offset, len_1 - 63);
-<a name="l00174"></a>00174         } <span class="keywordflow">else</span> {
-<a name="l00175"></a>00175             <a class="code" href="classsdsl_1_1bit__magic.html#ab58d5023421a45f490b3af42227446b6" title="TODO: Documentation for this function.">bit_magic::write_int_and_move</a>(z_data, fibword_low, offset, (len_1&amp;0x3F) +1);
-<a name="l00176"></a>00176         }
-<a name="l00177"></a>00177     }
-<a name="l00178"></a>00178     z.set_int_width(v.get_int_width());
-<a name="l00179"></a>00179     <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00180"></a>00180 }
-<a name="l00181"></a>00181 
-<a name="l00182"></a><a class="code" href="classsdsl_1_1coder_1_1fibonacci.html#af34c9c8f57c6b524faec6970789d2af9">00182</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> fibonacci::encode(uint64_t x, uint64_t*&amp; z, uint8_t&amp; offset)
-<a name="l00183"></a>00183 {
-<a name="l00184"></a>00184     <span class="keyword">register</span> uint64_t fibword_high = 0x0000000000000001ULL, fibword_low;
-<a name="l00185"></a>00185     <span class="keyword">register</span> uint64_t t;
-<a name="l00186"></a>00186     int8_t len_1 = <a class="code" href="classsdsl_1_1coder_1_1fibonacci.html#a117290ec6d7dc6d317492f3a944c8aa4" title="Get the number of bits that are necessary to encode the value w in fibonacci code.">encoding_length</a>(x)-1,j;
-<a name="l00187"></a>00187     fibword_low = 0x0000000000000001ULL;
-<a name="l00188"></a>00188 
-<a name="l00189"></a>00189     <span class="keywordflow">if</span> (len_1 &gt;= 64) { <span class="comment">// length &gt; 65</span>
-<a name="l00190"></a>00190         fibword_high = 0x0000000000000001ULL;
-<a name="l00191"></a>00191         <span class="keywordflow">for</span> (j = len_1-1; j&gt;63; --j) {
-<a name="l00192"></a>00192             fibword_high &lt;&lt;= 1;
-<a name="l00193"></a>00193             <span class="keywordflow">if</span> (x &gt;= (t=<a class="code" href="classsdsl_1_1bit__magic.html#aa1c89438382fe044290ee2b21d9a510e" title="Array containing fibonacci numbers less than .">bit_magic::Fib</a>[j])) {
-<a name="l00194"></a>00194                 x -= t;
-<a name="l00195"></a>00195                 fibword_high |= 1;
-<a name="l00196"></a>00196                 <span class="keywordflow">if</span> (x and j&gt;64) {
-<a name="l00197"></a>00197                     fibword_high &lt;&lt;= 1;
-<a name="l00198"></a>00198                     --j;
-<a name="l00199"></a>00199                 } <span class="keywordflow">else</span> {
-<a name="l00200"></a>00200                     fibword_high &lt;&lt;= (64-j);
-<a name="l00201"></a>00201                     <span class="keywordflow">break</span>;
-<a name="l00202"></a>00202                 }
-<a name="l00203"></a>00203             }
-<a name="l00204"></a>00204         }
-<a name="l00205"></a>00205         j       = 64;
-<a name="l00206"></a>00206     } <span class="keywordflow">else</span> {
-<a name="l00207"></a>00207         j = len_1-1;
-<a name="l00208"></a>00208     }
-<a name="l00209"></a>00209     <span class="keywordflow">for</span> (; j &gt;= 0; --j) {
-<a name="l00210"></a>00210         fibword_low &lt;&lt;= 1;
-<a name="l00211"></a>00211         <span class="keywordflow">if</span> (x &gt;= (t=<a class="code" href="classsdsl_1_1bit__magic.html#aa1c89438382fe044290ee2b21d9a510e" title="Array containing fibonacci numbers less than .">bit_magic::Fib</a>[j])) {
-<a name="l00212"></a>00212             x -= t;
-<a name="l00213"></a>00213             fibword_low |= 1;
-<a name="l00214"></a>00214             <span class="keywordflow">if</span> (x) {
-<a name="l00215"></a>00215                 fibword_low &lt;&lt;= 1;
-<a name="l00216"></a>00216                 --j;
-<a name="l00217"></a>00217             } <span class="keywordflow">else</span> {
-<a name="l00218"></a>00218                 fibword_low &lt;&lt;= (j);
-<a name="l00219"></a>00219                 <span class="keywordflow">break</span>;
-<a name="l00220"></a>00220             }
-<a name="l00221"></a>00221         }
-<a name="l00222"></a>00222     }
-<a name="l00223"></a>00223     <span class="keywordflow">if</span> (len_1 &gt;=64) {
-<a name="l00224"></a>00224         <a class="code" href="classsdsl_1_1bit__magic.html#ab58d5023421a45f490b3af42227446b6" title="TODO: Documentation for this function.">bit_magic::write_int_and_move</a>(z, fibword_low, offset, 64);
-<a name="l00225"></a>00225         <a class="code" href="classsdsl_1_1bit__magic.html#ab58d5023421a45f490b3af42227446b6" title="TODO: Documentation for this function.">bit_magic::write_int_and_move</a>(z, fibword_high, offset, len_1 - 63);
-<a name="l00226"></a>00226     } <span class="keywordflow">else</span> {
-<a name="l00227"></a>00227         <a class="code" href="classsdsl_1_1bit__magic.html#ab58d5023421a45f490b3af42227446b6" title="TODO: Documentation for this function.">bit_magic::write_int_and_move</a>(z, fibword_low, offset, (len_1&amp;0x3F) +1);
-<a name="l00228"></a>00228     }
-<a name="l00229"></a>00229 }
-<a name="l00230"></a>00230 
-<a name="l00231"></a>00231 <span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="keywordtype">int</span>_vector1, <span class="keyword">class</span> <span class="keywordtype">int</span>_vector2&gt;
-<a name="l00232"></a>00232 <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1coder_1_1fibonacci.html#a68a115809949141c6baa31bc3c6b643c" title="Decode n Fibonacci encoded bits beginning at start_idx in the bitstring &quot;data&quot;.">fibonacci::decode</a>(<span class="keyword">const</span> int_vector1&amp; z, int_vector2&amp; v)
-<a name="l00233"></a>00233 {
-<a name="l00234"></a>00234     uint64_t n = 0, carry = 0; <span class="comment">// n = number of values to be decoded</span>
-<a name="l00235"></a>00235     <span class="keyword">const</span> uint64_t* data = z.data();
-<a name="l00236"></a>00236     <span class="comment">// Determine size of v</span>
-<a name="l00237"></a>00237     <span class="keywordflow">if</span> (z.empty()) {<span class="comment">// if z is empty we are ready with decoding</span>
-<a name="l00238"></a>00238         v.set_int_width(z.get_int_width());
-<a name="l00239"></a>00239         v.resize(0);
-<a name="l00240"></a>00240         <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00241"></a>00241     }
-<a name="l00242"></a>00242     <span class="keywordflow">for</span> (<span class="keyword">typename</span> int_vector1::size_type i=0; i &lt; (z.capacity()&gt;&gt;6)-1; ++i, ++data) {
-<a name="l00243"></a>00243         n += <a class="code" href="classsdsl_1_1bit__magic.html#aa62c5d7fd80825ccf446078212934de9" title="Count the number of consecutive and distinct 11 in the 64bit integer x.">bit_magic::b11Cnt</a>(*data, carry);
-<a name="l00244"></a>00244     }
-<a name="l00245"></a>00245     <span class="keywordflow">if</span> (z.capacity() != z.bit_size()) {
-<a name="l00246"></a>00246         n += <a class="code" href="classsdsl_1_1bit__magic.html#aa62c5d7fd80825ccf446078212934de9" title="Count the number of consecutive and distinct 11 in the 64bit integer x.">bit_magic::b11Cnt</a>((*data) &amp; <a class="code" href="classsdsl_1_1bit__magic.html#a1d17114e1e8edc00d4e093df9b43c491" title="An array with entry i containing a 64bit integer with the last i bits set.">bit_magic::Li1Mask</a>[z.bit_size()&amp;0x3F], carry);
-<a name="l00247"></a>00247     } <span class="keywordflow">else</span> {
-<a name="l00248"></a>00248         n += <a class="code" href="classsdsl_1_1bit__magic.html#aa62c5d7fd80825ccf446078212934de9" title="Count the number of consecutive and distinct 11 in the 64bit integer x.">bit_magic::b11Cnt</a>(*data, carry);
-<a name="l00249"></a>00249     }
-<a name="l00250"></a>00250     v.set_int_width(z.get_int_width()); v.resize(n);
-<a name="l00251"></a>00251     <span class="keywordflow">return</span> decode&lt;false, true&gt;(z.data(), 0, n, v.begin());
-<a name="l00252"></a>00252 }
-<a name="l00253"></a>00253 
-<a name="l00254"></a>00254 <span class="keyword">template</span>&lt;<span class="keywordtype">bool</span> sumup, <span class="keywordtype">bool</span> increment, <span class="keyword">class</span> Iterator&gt;
-<a name="l00255"></a><a class="code" href="classsdsl_1_1coder_1_1fibonacci.html#a68a115809949141c6baa31bc3c6b643c">00255</a> <span class="keyword">inline</span> uint64_t <a class="code" href="classsdsl_1_1coder_1_1fibonacci.html#a68a115809949141c6baa31bc3c6b643c" title="Decode n Fibonacci encoded bits beginning at start_idx in the bitstring &quot;data&quot;.">fibonacci::decode</a>(<span class="keyword">const</span> uint64_t* data, <span class="keyword">const</span> size_type start_idx, size_type n, Iterator it)
-<a name="l00256"></a>00256 {
-<a name="l00257"></a>00257     data += (start_idx &gt;&gt; 6);
-<a name="l00258"></a>00258     uint64_t w = 0, value = 0;
-<a name="l00259"></a>00259     int8_t buffered = 0; <span class="comment">// bits buffered in w, in 0..64</span>
-<a name="l00260"></a>00260     int8_t read = start_idx &amp; 0x3F; <span class="comment">// read bits in current *data 0..63</span>
-<a name="l00261"></a>00261     int8_t shift = 0;
-<a name="l00262"></a>00262     uint32_t fibtable = 0;
-<a name="l00263"></a>00263     <span class="keywordflow">while</span> (n) {<span class="comment">// while not all values are decoded</span>
-<a name="l00264"></a>00264         <span class="keywordflow">while</span> (buffered &lt; 13 and <a class="code" href="classsdsl_1_1bit__magic.html#aa62c5d7fd80825ccf446078212934de9" title="Count the number of consecutive and distinct 11 in the 64bit integer x.">bit_magic::b11Cnt</a>(w) &lt; n) {
-<a name="l00265"></a>00265             w |= (((*data)&gt;&gt;read)&lt;&lt;buffered);
-<a name="l00266"></a>00266             <span class="keywordflow">if</span> (read &gt;= buffered) {
-<a name="l00267"></a>00267                 ++data;
-<a name="l00268"></a>00268                 buffered += 64-read;
-<a name="l00269"></a>00269                 read = 0;
-<a name="l00270"></a>00270             } <span class="keywordflow">else</span> { <span class="comment">// read &lt; buffered</span>
-<a name="l00271"></a>00271                 read += 64-buffered;
-<a name="l00272"></a>00272                 buffered = 64;
-<a name="l00273"></a>00273             }
-<a name="l00274"></a>00274         }
-<a name="l00275"></a>00275         value += <a class="code" href="classsdsl_1_1coder_1_1fibonacci.html#ac640f8f69efe1c2354f05600c51332b8" title="Array contains precomputed values for the decoding of a number in the fibonacci system.">Fib2bin_0_95</a>[(fibtable&lt;&lt;12) | (w&amp;0xFFF)];
-<a name="l00276"></a>00276         shift  = <a class="code" href="classsdsl_1_1coder_1_1fibonacci.html#a30e616bf377a2f4ab94f16ea83238282" title="Array contains precomputed values for the decoding of a number in the fibonacci system.">Fib2binShift</a>[w&amp;0x1FFF];
-<a name="l00277"></a>00277         <span class="keywordflow">if</span> (shift &gt; 0) {<span class="comment">// if end of decoding</span>
-<a name="l00278"></a>00278             w &gt;&gt;= shift;
-<a name="l00279"></a>00279             buffered -= shift;
-<a name="l00280"></a>00280             <span class="keywordflow">if</span> (increment) *(it++) = value;
-<a name="l00281"></a>00281             <span class="keywordflow">if</span> (!sumup and n!=1) value = 0;
-<a name="l00282"></a>00282             fibtable = 0;
-<a name="l00283"></a>00283             --n;
-<a name="l00284"></a>00284         } <span class="keywordflow">else</span> { <span class="comment">// not end of decoding</span>
-<a name="l00285"></a>00285             w &gt;&gt;= 12;
-<a name="l00286"></a>00286             buffered -= 12;
-<a name="l00287"></a>00287             ++fibtable;
-<a name="l00288"></a>00288         }
-<a name="l00289"></a>00289     }
-<a name="l00290"></a>00290     <span class="keywordflow">return</span> value;
-<a name="l00291"></a>00291 }
-<a name="l00292"></a>00292 
-<a name="l00293"></a>00293 <span class="keyword">template</span>&lt;<span class="keywordtype">bool</span> sumup, <span class="keywordtype">bool</span> increment, <span class="keyword">class</span> Iterator&gt;
-<a name="l00294"></a>00294 <span class="keyword">inline</span> uint64_t fibonacci::decode1(<span class="keyword">const</span> uint64_t* data, <span class="keyword">const</span> size_type start_idx, size_type n, Iterator it)
-<a name="l00295"></a>00295 {
-<a name="l00296"></a>00296     data += (start_idx &gt;&gt; 6);
-<a name="l00297"></a>00297     uint64_t w = 0, value = 0;
-<a name="l00298"></a>00298     int8_t buffered = 0; <span class="comment">// bits buffered in w, in 0..64</span>
-<a name="l00299"></a>00299     int8_t read = start_idx &amp; 0x3F; <span class="comment">// read bits in current *data 0..63</span>
-<a name="l00300"></a>00300     int8_t shift = 0;
-<a name="l00301"></a>00301     uint32_t fibtable = 0;
-<a name="l00302"></a>00302     uint8_t blocknr = (start_idx&gt;&gt;6)%9;
-<a name="l00303"></a>00303     <span class="keywordflow">while</span> (n) {<span class="comment">// while not all values are decoded</span>
-<a name="l00304"></a>00304         <span class="keywordflow">while</span> (buffered &lt; 13 and <a class="code" href="classsdsl_1_1bit__magic.html#aa62c5d7fd80825ccf446078212934de9" title="Count the number of consecutive and distinct 11 in the 64bit integer x.">bit_magic::b11Cnt</a>(w) &lt; n) {
-<a name="l00305"></a>00305             w |= (((*data)&gt;&gt;read)&lt;&lt;buffered);
-<a name="l00306"></a>00306             <span class="keywordflow">if</span> (read &gt;= buffered) {
-<a name="l00307"></a>00307                 ++blocknr;
-<a name="l00308"></a>00308                 ++data;
-<a name="l00309"></a>00309                 <span class="keywordflow">if</span> (blocknr==8) {
-<a name="l00310"></a>00310                     ++data;
-<a name="l00311"></a>00311                     blocknr=0;
-<a name="l00312"></a>00312                 }
-<a name="l00313"></a>00313                 buffered += 64-read;
-<a name="l00314"></a>00314                 read = 0;
-<a name="l00315"></a>00315             } <span class="keywordflow">else</span> { <span class="comment">// read &lt; buffered</span>
-<a name="l00316"></a>00316                 read += 64-buffered;
-<a name="l00317"></a>00317                 buffered = 64;
-<a name="l00318"></a>00318             }
-<a name="l00319"></a>00319         }
-<a name="l00320"></a>00320         value += <a class="code" href="classsdsl_1_1coder_1_1fibonacci.html#ac640f8f69efe1c2354f05600c51332b8" title="Array contains precomputed values for the decoding of a number in the fibonacci system.">Fib2bin_0_95</a>[(fibtable&lt;&lt;12) | (w&amp;0xFFF)];
-<a name="l00321"></a>00321         shift  = <a class="code" href="classsdsl_1_1coder_1_1fibonacci.html#a30e616bf377a2f4ab94f16ea83238282" title="Array contains precomputed values for the decoding of a number in the fibonacci system.">Fib2binShift</a>[w&amp;0x1FFF];
-<a name="l00322"></a>00322         <span class="keywordflow">if</span> (shift &gt; 0) {<span class="comment">// if end of decoding</span>
-<a name="l00323"></a>00323             w &gt;&gt;= shift;
-<a name="l00324"></a>00324             buffered -= shift;
-<a name="l00325"></a>00325             <span class="keywordflow">if</span> (increment) *(it++) = value;
-<a name="l00326"></a>00326             <span class="keywordflow">if</span> (!sumup)
-<a name="l00327"></a>00327                 value = 0;
-<a name="l00328"></a>00328             fibtable = 0;
-<a name="l00329"></a>00329             --n;
-<a name="l00330"></a>00330         } <span class="keywordflow">else</span> { <span class="comment">// not end of decoding</span>
-<a name="l00331"></a>00331             w &gt;&gt;= 12;
-<a name="l00332"></a>00332             buffered -= 12;
-<a name="l00333"></a>00333             ++fibtable;
-<a name="l00334"></a>00334         }
-<a name="l00335"></a>00335     }
-<a name="l00336"></a>00336     <span class="keywordflow">return</span> value;
-<a name="l00337"></a>00337 }
-<a name="l00338"></a>00338 
-<a name="l00339"></a>00339 } <span class="comment">// end namespace coder</span>
-<a name="l00340"></a>00340 } <span class="comment">// end namespace sdsl</span>
-<a name="l00341"></a>00341 
-<a name="l00342"></a>00342 <span class="preprocessor">#endif</span>
+<a name="l00106"></a>00106     <span class="keywordflow">if</span> (w == 0) {
+<a name="l00107"></a>00107         <span class="keywordflow">return</span> 93;
+<a name="l00108"></a>00108     }
+<a name="l00109"></a>00109     <span class="comment">// This limit for the leftmost 1bit in the resulting fib code could be improved using a table</span>
+<a name="l00110"></a>00110     uint8_t len_1 = <a class="code" href="classsdsl_1_1bit__magic.html#a7e056c78ea2cea39ac49e552731c0c95" title="Calculates the position of the leftmost 1-bit in the 64bit integer x if it exists.">bit_magic::l1BP</a>(w); <span class="comment">// len-1 of the fib code</span>
+<a name="l00111"></a>00111     <span class="keywordflow">while</span> (++len_1 &lt; (uint8_t)(<span class="keyword">sizeof</span>(<a class="code" href="classsdsl_1_1bit__magic.html#aa1c89438382fe044290ee2b21d9a510e" title="Array containing fibonacci numbers less than .">bit_magic::Fib</a>)/<span class="keyword">sizeof</span>(<a class="code" href="classsdsl_1_1bit__magic.html#aa1c89438382fe044290ee2b21d9a510e" title="Array containing fibonacci numbers less than .">bit_magic::Fib</a>[0])) &amp;&amp; w &gt;= <a class="code" href="classsdsl_1_1bit__magic.html#aa1c89438382fe044290ee2b21d9a510e" title="Array containing fibonacci numbers less than .">bit_magic::Fib</a>[len_1]);
+<a name="l00112"></a>00112     <span class="keywordflow">return</span> len_1+1;
+<a name="l00113"></a>00113 }
+<a name="l00114"></a>00114 
+<a name="l00115"></a>00115 <span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="keywordtype">int</span>_vector1, <span class="keyword">class</span> <span class="keywordtype">int</span>_vector2&gt;
+<a name="l00116"></a>00116 <span class="keyword">inline</span> <span class="keywordtype">bool</span> fibonacci::encode(<span class="keyword">const</span> int_vector1&amp; v, int_vector2&amp; z)
+<a name="l00117"></a>00117 {
+<a name="l00118"></a>00118     uint64_t z_bit_size = 0;
+<a name="l00119"></a>00119     <span class="keyword">register</span> uint64_t w;
+<a name="l00120"></a>00120     <span class="keyword">const</span> uint64_t zero_val = v.get_int_width() &lt; 64 ? (1ULL)&lt;&lt;v.get_int_width() : 0;
+<a name="l00121"></a>00121     <span class="keywordflow">for</span> (<span class="keyword">typename</span> int_vector1::const_iterator it=v.begin(), end = v.end(); it != end; ++it) {
+<a name="l00122"></a>00122         <span class="keywordflow">if</span> ((w=*it) == 0) {
+<a name="l00123"></a>00123             <span class="keywordflow">if</span> (v.get_int_width() &lt; 64) {
+<a name="l00124"></a>00124                 w = zero_val;
+<a name="l00125"></a>00125             }
+<a name="l00126"></a>00126         }
+<a name="l00127"></a>00127         z_bit_size += <a class="code" href="classsdsl_1_1coder_1_1fibonacci.html#a117290ec6d7dc6d317492f3a944c8aa4" title="Get the number of bits that are necessary to encode the value w in fibonacci code.">encoding_length</a>(w);
+<a name="l00128"></a>00128     }
+<a name="l00129"></a>00129     z.bit_resize(z_bit_size);
+<a name="l00130"></a>00130     <span class="keywordflow">if</span> (z_bit_size &amp; 0x3F) { <span class="comment">// if z_bit_size % 64 != 0</span>
+<a name="l00131"></a>00131         *(z.m_data + (z_bit_size&gt;&gt;6)) = 0; <span class="comment">// initialize last word</span>
+<a name="l00132"></a>00132     }
+<a name="l00133"></a>00133     uint64_t* z_data    = z.m_data;
+<a name="l00134"></a>00134     uint8_t offset              = 0;
+<a name="l00135"></a>00135     <span class="keyword">register</span> uint64_t fibword_high = 0x0000000000000001ULL, fibword_low;
+<a name="l00136"></a>00136     <span class="keyword">register</span> uint64_t t;
+<a name="l00137"></a>00137     <span class="keywordflow">for</span> (<span class="keyword">typename</span> int_vector1::const_iterator it=v.begin(), end = v.end(); it != end; ++it) {
+<a name="l00138"></a>00138         w = *it;
+<a name="l00139"></a>00139         <span class="keywordflow">if</span> (w == 0) {
+<a name="l00140"></a>00140             w = zero_val;
+<a name="l00141"></a>00141         }
+<a name="l00142"></a>00142         int8_t len_1 = <a class="code" href="classsdsl_1_1coder_1_1fibonacci.html#a117290ec6d7dc6d317492f3a944c8aa4" title="Get the number of bits that are necessary to encode the value w in fibonacci code.">encoding_length</a>(w)-1,j;
+<a name="l00143"></a>00143         fibword_low = 0x0000000000000001ULL;
+<a name="l00144"></a>00144 
+<a name="l00145"></a>00145         <span class="keywordflow">if</span> (len_1 &gt;= 64) { <span class="comment">// length &gt; 65</span>
+<a name="l00146"></a>00146             fibword_high = 0x0000000000000001ULL;
+<a name="l00147"></a>00147             j = len_1-1;
+<a name="l00148"></a>00148             <span class="keywordflow">if</span> (w == 0) { <span class="comment">// handle special case</span>
+<a name="l00149"></a>00149                 fibword_high &lt;&lt;= 1;
+<a name="l00150"></a>00150                 fibword_high |= 1;
+<a name="l00151"></a>00151                 fibword_high &lt;&lt;= 1;
+<a name="l00152"></a>00152                 w -= <a class="code" href="classsdsl_1_1bit__magic.html#aa1c89438382fe044290ee2b21d9a510e" title="Array containing fibonacci numbers less than .">bit_magic::Fib</a>[len_1-1];
+<a name="l00153"></a>00153                 j -= 2;
+<a name="l00154"></a>00154             }
+<a name="l00155"></a>00155             <span class="keywordflow">for</span> (; j&gt;63; --j) {
+<a name="l00156"></a>00156                 fibword_high &lt;&lt;= 1;
+<a name="l00157"></a>00157                 <span class="keywordflow">if</span> (w &gt;= (t=<a class="code" href="classsdsl_1_1bit__magic.html#aa1c89438382fe044290ee2b21d9a510e" title="Array containing fibonacci numbers less than .">bit_magic::Fib</a>[j])) {
+<a name="l00158"></a>00158                     w -= t;
+<a name="l00159"></a>00159                     fibword_high |= 1;
+<a name="l00160"></a>00160                     <span class="keywordflow">if</span> (w and j&gt;64) {
+<a name="l00161"></a>00161                         fibword_high &lt;&lt;= 1;
+<a name="l00162"></a>00162                         --j;
+<a name="l00163"></a>00163                     } <span class="keywordflow">else</span> {
+<a name="l00164"></a>00164                         fibword_high &lt;&lt;= (64-j);
+<a name="l00165"></a>00165                         <span class="keywordflow">break</span>;
+<a name="l00166"></a>00166                     }
+<a name="l00167"></a>00167                 }
+<a name="l00168"></a>00168             }
+<a name="l00169"></a>00169             j           = 64;
+<a name="l00170"></a>00170         } <span class="keywordflow">else</span> {
+<a name="l00171"></a>00171             j = len_1-1;
+<a name="l00172"></a>00172         }
+<a name="l00173"></a>00173 
+<a name="l00174"></a>00174         <span class="keywordflow">for</span> (; j &gt;= 0; --j) {
+<a name="l00175"></a>00175             fibword_low &lt;&lt;= 1;
+<a name="l00176"></a>00176             <span class="keywordflow">if</span> (w &gt;= (t=<a class="code" href="classsdsl_1_1bit__magic.html#aa1c89438382fe044290ee2b21d9a510e" title="Array containing fibonacci numbers less than .">bit_magic::Fib</a>[j])) {
+<a name="l00177"></a>00177                 w -= t;
+<a name="l00178"></a>00178                 fibword_low |= 1;
+<a name="l00179"></a>00179                 <span class="keywordflow">if</span> (w) {
+<a name="l00180"></a>00180                     fibword_low &lt;&lt;= 1;
+<a name="l00181"></a>00181                     --j;
+<a name="l00182"></a>00182                 } <span class="keywordflow">else</span> {
+<a name="l00183"></a>00183                     fibword_low &lt;&lt;= (j);
+<a name="l00184"></a>00184                     <span class="keywordflow">break</span>;
+<a name="l00185"></a>00185                 }
+<a name="l00186"></a>00186             }
+<a name="l00187"></a>00187         }
+<a name="l00188"></a>00188         <span class="keywordflow">if</span> (len_1 &gt;=64) {
+<a name="l00189"></a>00189             <a class="code" href="classsdsl_1_1bit__magic.html#ab58d5023421a45f490b3af42227446b6" title="TODO: Documentation for this function.">bit_magic::write_int_and_move</a>(z_data, fibword_low, offset, 64);
+<a name="l00190"></a>00190             <a class="code" href="classsdsl_1_1bit__magic.html#ab58d5023421a45f490b3af42227446b6" title="TODO: Documentation for this function.">bit_magic::write_int_and_move</a>(z_data, fibword_high, offset, len_1 - 63);
+<a name="l00191"></a>00191         } <span class="keywordflow">else</span> {
+<a name="l00192"></a>00192             <a class="code" href="classsdsl_1_1bit__magic.html#ab58d5023421a45f490b3af42227446b6" title="TODO: Documentation for this function.">bit_magic::write_int_and_move</a>(z_data, fibword_low, offset, (len_1&amp;0x3F) +1);
+<a name="l00193"></a>00193         }
+<a name="l00194"></a>00194     }
+<a name="l00195"></a>00195     z.set_int_width(v.get_int_width());
+<a name="l00196"></a>00196     <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00197"></a>00197 }
+<a name="l00198"></a>00198 
+<a name="l00199"></a><a class="code" href="classsdsl_1_1coder_1_1fibonacci.html#af34c9c8f57c6b524faec6970789d2af9">00199</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> fibonacci::encode(uint64_t x, uint64_t*&amp; z, uint8_t&amp; offset)
+<a name="l00200"></a>00200 {
+<a name="l00201"></a>00201     <span class="keyword">register</span> uint64_t fibword_high = 0x0000000000000001ULL, fibword_low;
+<a name="l00202"></a>00202     <span class="keyword">register</span> uint64_t t;
+<a name="l00203"></a>00203     int8_t len_1 = <a class="code" href="classsdsl_1_1coder_1_1fibonacci.html#a117290ec6d7dc6d317492f3a944c8aa4" title="Get the number of bits that are necessary to encode the value w in fibonacci code.">encoding_length</a>(x)-1,j;
+<a name="l00204"></a>00204     fibword_low = 0x0000000000000001ULL;
+<a name="l00205"></a>00205 
+<a name="l00206"></a>00206     <span class="keywordflow">if</span> (len_1 &gt;= 64) { <span class="comment">// length &gt; 65</span>
+<a name="l00207"></a>00207         fibword_high = 0x0000000000000001ULL;
+<a name="l00208"></a>00208         j = len_1-1;
+<a name="l00209"></a>00209         <span class="keywordflow">if</span> (x == 0) { <span class="comment">// handle special case</span>
+<a name="l00210"></a>00210             fibword_high &lt;&lt;= 1;
+<a name="l00211"></a>00211             fibword_high |= 1;
+<a name="l00212"></a>00212             fibword_high &lt;&lt;= 1;
+<a name="l00213"></a>00213             x -= <a class="code" href="classsdsl_1_1bit__magic.html#aa1c89438382fe044290ee2b21d9a510e" title="Array containing fibonacci numbers less than .">bit_magic::Fib</a>[len_1-1];
+<a name="l00214"></a>00214             j -= 2;
+<a name="l00215"></a>00215         }
+<a name="l00216"></a>00216         <span class="keywordflow">for</span> (; j&gt;63; --j) {
+<a name="l00217"></a>00217             fibword_high &lt;&lt;= 1;
+<a name="l00218"></a>00218             <span class="keywordflow">if</span> (x &gt;= (t=<a class="code" href="classsdsl_1_1bit__magic.html#aa1c89438382fe044290ee2b21d9a510e" title="Array containing fibonacci numbers less than .">bit_magic::Fib</a>[j])) {
+<a name="l00219"></a>00219                 x -= t;
+<a name="l00220"></a>00220                 fibword_high |= 1;
+<a name="l00221"></a>00221                 <span class="keywordflow">if</span> (x and j&gt;64) {
+<a name="l00222"></a>00222                     fibword_high &lt;&lt;= 1;
+<a name="l00223"></a>00223                     --j;
+<a name="l00224"></a>00224                 } <span class="keywordflow">else</span> {
+<a name="l00225"></a>00225                     fibword_high &lt;&lt;= (64-j);
+<a name="l00226"></a>00226                     <span class="keywordflow">break</span>;
+<a name="l00227"></a>00227                 }
+<a name="l00228"></a>00228             }
+<a name="l00229"></a>00229         }
+<a name="l00230"></a>00230         j       = 64;
+<a name="l00231"></a>00231     } <span class="keywordflow">else</span> {
+<a name="l00232"></a>00232         j = len_1-1;
+<a name="l00233"></a>00233     }
+<a name="l00234"></a>00234     <span class="keywordflow">for</span> (; j &gt;= 0; --j) {
+<a name="l00235"></a>00235         fibword_low &lt;&lt;= 1;
+<a name="l00236"></a>00236         <span class="keywordflow">if</span> (x &gt;= (t=<a class="code" href="classsdsl_1_1bit__magic.html#aa1c89438382fe044290ee2b21d9a510e" title="Array containing fibonacci numbers less than .">bit_magic::Fib</a>[j])) {
+<a name="l00237"></a>00237             x -= t;
+<a name="l00238"></a>00238             fibword_low |= 1;
+<a name="l00239"></a>00239             <span class="keywordflow">if</span> (x) {
+<a name="l00240"></a>00240                 fibword_low &lt;&lt;= 1;
+<a name="l00241"></a>00241                 --j;
+<a name="l00242"></a>00242             } <span class="keywordflow">else</span> {
+<a name="l00243"></a>00243                 fibword_low &lt;&lt;= (j);
+<a name="l00244"></a>00244                 <span class="keywordflow">break</span>;
+<a name="l00245"></a>00245             }
+<a name="l00246"></a>00246         }
+<a name="l00247"></a>00247     }
+<a name="l00248"></a>00248     <span class="keywordflow">if</span> (len_1 &gt;=64) {
+<a name="l00249"></a>00249         <a class="code" href="classsdsl_1_1bit__magic.html#ab58d5023421a45f490b3af42227446b6" title="TODO: Documentation for this function.">bit_magic::write_int_and_move</a>(z, fibword_low, offset, 64);
+<a name="l00250"></a>00250         <a class="code" href="classsdsl_1_1bit__magic.html#ab58d5023421a45f490b3af42227446b6" title="TODO: Documentation for this function.">bit_magic::write_int_and_move</a>(z, fibword_high, offset, len_1 - 63);
+<a name="l00251"></a>00251     } <span class="keywordflow">else</span> {
+<a name="l00252"></a>00252         <a class="code" href="classsdsl_1_1bit__magic.html#ab58d5023421a45f490b3af42227446b6" title="TODO: Documentation for this function.">bit_magic::write_int_and_move</a>(z, fibword_low, offset, (len_1&amp;0x3F) +1);
+<a name="l00253"></a>00253     }
+<a name="l00254"></a>00254 }
+<a name="l00255"></a>00255 
+<a name="l00256"></a>00256 <span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="keywordtype">int</span>_vector1, <span class="keyword">class</span> <span class="keywordtype">int</span>_vector2&gt;
+<a name="l00257"></a>00257 <span class="keywordtype">bool</span> <a class="code" href="classsdsl_1_1coder_1_1fibonacci.html#a68a115809949141c6baa31bc3c6b643c" title="Decode n Fibonacci encoded bits beginning at start_idx in the bitstring &quot;data&quot;.">fibonacci::decode</a>(<span class="keyword">const</span> int_vector1&amp; z, int_vector2&amp; v)
+<a name="l00258"></a>00258 {
+<a name="l00259"></a>00259     uint64_t n = 0, carry = 0; <span class="comment">// n = number of values to be decoded</span>
+<a name="l00260"></a>00260     <span class="keyword">const</span> uint64_t* data = z.data();
+<a name="l00261"></a>00261     <span class="comment">// Determine size of v</span>
+<a name="l00262"></a>00262     <span class="keywordflow">if</span> (z.empty()) {<span class="comment">// if z is empty we are ready with decoding</span>
+<a name="l00263"></a>00263         v.set_int_width(z.get_int_width());
+<a name="l00264"></a>00264         v.resize(0);
+<a name="l00265"></a>00265         <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00266"></a>00266     }
+<a name="l00267"></a>00267     <span class="keywordflow">for</span> (<span class="keyword">typename</span> int_vector1::size_type i=0; i &lt; (z.capacity()&gt;&gt;6)-1; ++i, ++data) {
+<a name="l00268"></a>00268         n += <a class="code" href="classsdsl_1_1bit__magic.html#aa62c5d7fd80825ccf446078212934de9" title="Count the number of consecutive and distinct 11 in the 64bit integer x.">bit_magic::b11Cnt</a>(*data, carry);
+<a name="l00269"></a>00269     }
+<a name="l00270"></a>00270     <span class="keywordflow">if</span> (z.capacity() != z.bit_size()) {
+<a name="l00271"></a>00271         n += <a class="code" href="classsdsl_1_1bit__magic.html#aa62c5d7fd80825ccf446078212934de9" title="Count the number of consecutive and distinct 11 in the 64bit integer x.">bit_magic::b11Cnt</a>((*data) &amp; <a class="code" href="classsdsl_1_1bit__magic.html#a1d17114e1e8edc00d4e093df9b43c491" title="An array with entry i containing a 64bit integer with the last i bits set.">bit_magic::Li1Mask</a>[z.bit_size()&amp;0x3F], carry);
+<a name="l00272"></a>00272     } <span class="keywordflow">else</span> {
+<a name="l00273"></a>00273         n += <a class="code" href="classsdsl_1_1bit__magic.html#aa62c5d7fd80825ccf446078212934de9" title="Count the number of consecutive and distinct 11 in the 64bit integer x.">bit_magic::b11Cnt</a>(*data, carry);
+<a name="l00274"></a>00274     }
+<a name="l00275"></a>00275     std::cout&lt;&lt;<span class="stringliteral">&quot;n=&quot;</span>&lt;&lt;n&lt;&lt;std::endl;
+<a name="l00276"></a>00276     v.set_int_width(z.get_int_width()); v.resize(n);
+<a name="l00277"></a>00277     <span class="keywordflow">return</span> decode&lt;false, true&gt;(z.data(), 0, n, v.begin());
+<a name="l00278"></a>00278 }
+<a name="l00279"></a>00279 
+<a name="l00280"></a>00280 <span class="keyword">template</span>&lt;<span class="keywordtype">bool</span> sumup, <span class="keywordtype">bool</span> increment, <span class="keyword">class</span> Iterator&gt;
+<a name="l00281"></a><a class="code" href="classsdsl_1_1coder_1_1fibonacci.html#a68a115809949141c6baa31bc3c6b643c">00281</a> <span class="keyword">inline</span> uint64_t <a class="code" href="classsdsl_1_1coder_1_1fibonacci.html#a68a115809949141c6baa31bc3c6b643c" title="Decode n Fibonacci encoded bits beginning at start_idx in the bitstring &quot;data&quot;.">fibonacci::decode</a>(<span class="keyword">const</span> uint64_t* data, <span class="keyword">const</span> size_type start_idx, size_type n, Iterator it)
+<a name="l00282"></a>00282 {
+<a name="l00283"></a>00283     data += (start_idx &gt;&gt; 6);
+<a name="l00284"></a>00284     uint64_t w = 0, value = 0;
+<a name="l00285"></a>00285     int8_t buffered = 0; <span class="comment">// bits buffered in w, in 0..64</span>
+<a name="l00286"></a>00286     int8_t read = start_idx &amp; 0x3F; <span class="comment">// read bits in current *data 0..63</span>
+<a name="l00287"></a>00287     int8_t shift = 0;
+<a name="l00288"></a>00288     uint32_t fibtable = 0;
+<a name="l00289"></a>00289     <span class="keywordflow">while</span> (n) {<span class="comment">// while not all values are decoded</span>
+<a name="l00290"></a>00290         <span class="keywordflow">while</span> (buffered &lt; 13 and <a class="code" href="classsdsl_1_1bit__magic.html#aa62c5d7fd80825ccf446078212934de9" title="Count the number of consecutive and distinct 11 in the 64bit integer x.">bit_magic::b11Cnt</a>(w) &lt; n) {
+<a name="l00291"></a>00291             w |= (((*data)&gt;&gt;read)&lt;&lt;buffered);
+<a name="l00292"></a>00292             <span class="keywordflow">if</span> (read &gt;= buffered) {
+<a name="l00293"></a>00293                 ++data;
+<a name="l00294"></a>00294                 buffered += 64-read;
+<a name="l00295"></a>00295                 read = 0;
+<a name="l00296"></a>00296             } <span class="keywordflow">else</span> { <span class="comment">// read &lt; buffered</span>
+<a name="l00297"></a>00297                 read += 64-buffered;
+<a name="l00298"></a>00298                 buffered = 64;
+<a name="l00299"></a>00299             }
+<a name="l00300"></a>00300         }
+<a name="l00301"></a>00301         value += <a class="code" href="classsdsl_1_1coder_1_1fibonacci.html#ac640f8f69efe1c2354f05600c51332b8" title="Array contains precomputed values for the decoding of a number in the fibonacci system.">Fib2bin_0_95</a>[(fibtable&lt;&lt;12) | (w&amp;0xFFF)];
+<a name="l00302"></a>00302         shift  = <a class="code" href="classsdsl_1_1coder_1_1fibonacci.html#a30e616bf377a2f4ab94f16ea83238282" title="Array contains precomputed values for the decoding of a number in the fibonacci system.">Fib2binShift</a>[w&amp;0x1FFF];
+<a name="l00303"></a>00303         <span class="keywordflow">if</span> (shift &gt; 0) {<span class="comment">// if end of decoding</span>
+<a name="l00304"></a>00304             w &gt;&gt;= shift;
+<a name="l00305"></a>00305             buffered -= shift;
+<a name="l00306"></a>00306             <span class="keywordflow">if</span> (increment) *(it++) = value;
+<a name="l00307"></a>00307             <span class="keywordflow">if</span> (!sumup and n!=1) value = 0;
+<a name="l00308"></a>00308             fibtable = 0;
+<a name="l00309"></a>00309             --n;
+<a name="l00310"></a>00310         } <span class="keywordflow">else</span> { <span class="comment">// not end of decoding</span>
+<a name="l00311"></a>00311             w &gt;&gt;= 12;
+<a name="l00312"></a>00312             buffered -= 12;
+<a name="l00313"></a>00313             ++fibtable;
+<a name="l00314"></a>00314         }
+<a name="l00315"></a>00315     }
+<a name="l00316"></a>00316     <span class="keywordflow">return</span> value;
+<a name="l00317"></a>00317 }
+<a name="l00318"></a>00318 
+<a name="l00319"></a>00319 <span class="keyword">template</span>&lt;<span class="keywordtype">bool</span> sumup, <span class="keywordtype">bool</span> increment, <span class="keyword">class</span> Iterator&gt;
+<a name="l00320"></a>00320 <span class="keyword">inline</span> uint64_t fibonacci::decode1(<span class="keyword">const</span> uint64_t* data, <span class="keyword">const</span> size_type start_idx, size_type n, Iterator it)
+<a name="l00321"></a>00321 {
+<a name="l00322"></a>00322     data += (start_idx &gt;&gt; 6);
+<a name="l00323"></a>00323     uint64_t w = 0, value = 0;
+<a name="l00324"></a>00324     int8_t buffered = 0; <span class="comment">// bits buffered in w, in 0..64</span>
+<a name="l00325"></a>00325     int8_t read = start_idx &amp; 0x3F; <span class="comment">// read bits in current *data 0..63</span>
+<a name="l00326"></a>00326     int8_t shift = 0;
+<a name="l00327"></a>00327     uint32_t fibtable = 0;
+<a name="l00328"></a>00328     uint8_t blocknr = (start_idx&gt;&gt;6)%9;
+<a name="l00329"></a>00329     <span class="keywordflow">while</span> (n) {<span class="comment">// while not all values are decoded</span>
+<a name="l00330"></a>00330         <span class="keywordflow">while</span> (buffered &lt; 13 and <a class="code" href="classsdsl_1_1bit__magic.html#aa62c5d7fd80825ccf446078212934de9" title="Count the number of consecutive and distinct 11 in the 64bit integer x.">bit_magic::b11Cnt</a>(w) &lt; n) {
+<a name="l00331"></a>00331             w |= (((*data)&gt;&gt;read)&lt;&lt;buffered);
+<a name="l00332"></a>00332             <span class="keywordflow">if</span> (read &gt;= buffered) {
+<a name="l00333"></a>00333                 ++blocknr;
+<a name="l00334"></a>00334                 ++data;
+<a name="l00335"></a>00335                 <span class="keywordflow">if</span> (blocknr==8) {
+<a name="l00336"></a>00336                     ++data;
+<a name="l00337"></a>00337                     blocknr=0;
+<a name="l00338"></a>00338                 }
+<a name="l00339"></a>00339                 buffered += 64-read;
+<a name="l00340"></a>00340                 read = 0;
+<a name="l00341"></a>00341             } <span class="keywordflow">else</span> { <span class="comment">// read &lt; buffered</span>
+<a name="l00342"></a>00342                 read += 64-buffered;
+<a name="l00343"></a>00343                 buffered = 64;
+<a name="l00344"></a>00344             }
+<a name="l00345"></a>00345         }
+<a name="l00346"></a>00346         value += <a class="code" href="classsdsl_1_1coder_1_1fibonacci.html#ac640f8f69efe1c2354f05600c51332b8" title="Array contains precomputed values for the decoding of a number in the fibonacci system.">Fib2bin_0_95</a>[(fibtable&lt;&lt;12) | (w&amp;0xFFF)];
+<a name="l00347"></a>00347         shift  = <a class="code" href="classsdsl_1_1coder_1_1fibonacci.html#a30e616bf377a2f4ab94f16ea83238282" title="Array contains precomputed values for the decoding of a number in the fibonacci system.">Fib2binShift</a>[w&amp;0x1FFF];
+<a name="l00348"></a>00348         <span class="keywordflow">if</span> (shift &gt; 0) {<span class="comment">// if end of decoding</span>
+<a name="l00349"></a>00349             w &gt;&gt;= shift;
+<a name="l00350"></a>00350             buffered -= shift;
+<a name="l00351"></a>00351             <span class="keywordflow">if</span> (increment) *(it++) = value;
+<a name="l00352"></a>00352             <span class="keywordflow">if</span> (!sumup)
+<a name="l00353"></a>00353                 value = 0;
+<a name="l00354"></a>00354             fibtable = 0;
+<a name="l00355"></a>00355             --n;
+<a name="l00356"></a>00356         } <span class="keywordflow">else</span> { <span class="comment">// not end of decoding</span>
+<a name="l00357"></a>00357             w &gt;&gt;= 12;
+<a name="l00358"></a>00358             buffered -= 12;
+<a name="l00359"></a>00359             ++fibtable;
+<a name="l00360"></a>00360         }
+<a name="l00361"></a>00361     }
+<a name="l00362"></a>00362     <span class="keywordflow">return</span> value;
+<a name="l00363"></a>00363 }
+<a name="l00364"></a>00364 
+<a name="l00365"></a>00365 } <span class="comment">// end namespace coder</span>
+<a name="l00366"></a>00366 } <span class="comment">// end namespace sdsl</span>
+<a name="l00367"></a>00367 
+<a name="l00368"></a>00368 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 10 2012 18:54:26 for Succinct Data Structure Library (sdsl) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 13 2012 14:05:46 for SDSL: Succinct Data Structure Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>
