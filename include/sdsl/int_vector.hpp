@@ -21,12 +21,6 @@
 #ifndef INCLUDED_SDSL_INT_VECTOR
 #define INCLUDED_SDSL_INT_VECTOR
 
-#include <sys/mman.h>
-
-#define HUGE_LEN 1073741824 
-#define HUGE_PROTECTION (PROT_READ | PROT_WRITE)
-#define HUGE_FLAGS (MAP_HUGETLB | MAP_ANONYMOUS | MAP_PRIVATE)
-
 #include "compatibility.hpp"
 #include "bitmagic.hpp"
 #include "util.hpp"
