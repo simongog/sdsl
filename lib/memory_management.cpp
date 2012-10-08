@@ -16,6 +16,9 @@ namespace sdsl
 	std::map<uint64_t, mm_item_base*> mm::m_items;
 	uint64_t mm::m_total_memory;
 	uint64_t *mm::m_data;
+	std::set<void*> mm::m_malloced_ptrs; 
+	std::map<void*, size_t> mm::m_mapped_ptrs; 
+
 
 	mm_initializer::mm_initializer(){
 		if ( 0 == nifty_counter++ ){
