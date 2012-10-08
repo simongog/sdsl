@@ -8,6 +8,7 @@
 #include "uintx_t.hpp"
 #include "util.hpp"
 #include <map>
+#include <set>
 #include <iostream>
 using std::cout;
 using std::endl;
@@ -27,8 +28,9 @@ template<class int_vector_type>
 class mm_item : public mm_item_base{
 	private:
 		int_vector_type *m_v;
+		bool m_mapped;		// indicated if the item is hugepage mapped or not
 	public:
-		explicit mm_item(int_vector_type *v):m_v(v){}
+		explicit mm_item(int_vector_type *v):m_v(v), m_mapped(false){}
 		~mm_item(){ }
 
 		//! Map content of int_vector to a hugepage starting at address addr
@@ -46,26 +48,32 @@ class mm_item : public mm_item_base{
 				memcpy((char*)addr, m_v->m_data, len); // copy old data
 				free(m_v->m_data);
 				m_v->m_data = addr;
-				addr += (len/8);		
+				addr += (len/8);
+				m_mapped = true;
 			}
 			return true;	
 		}
 
 		//! 
 		bool unmap_hp(){
-			uint64_t len = size();
-			if (  util::verbose ){
-				std::cerr<<"unmap int_vector of size "<< len <<std::endl;
-				std::cerr<<"m_data="<<m_v->m_data<<std::endl;
+			if ( m_mapped ){
+				uint64_t len = m_v->  size();
+				uint64_t* tmp_data = (uint64_t*)malloc(len); // allocate memory for m_data
+				memcpy(tmp_data, m_v->m_data, len); // copy data from the mmapped region
+				m_v->m_data = tmp_data;
 			}
-			uint64_t* tmp_data = (uint64_t*)malloc(len); // allocate memory for m_data
-			memcpy(tmp_data, m_v->m_data, len); // copy data from the mmapped region
-			m_v->m_data = tmp_data;
+			m_mapped = false;
 			return true;
 		}
 
+		//! Returns the amount of memory required by the bit_vector of the item.
 		uint64_t size(){
 			return ((m_v->bit_size()+63)>>6)<<3;
+		}
+
+		//! Returns if the item is mapped to hugepage memory
+		bool is_mapped(){
+			return m_mapped;
 		}
 };
 
@@ -76,8 +84,12 @@ class mm{
 	friend class mm_initializer;
 	typedef std::map<uint64_t, mm_item_base*> tMVecItem;
 	static tMVecItem m_items; 
-	static uint64_t m_total_memory;
+	static uint64_t m_total_memory; // memory of all int_vector in bytes 
 	static uint64_t *m_data;
+	static std::set<void*> m_malloced_ptrs;         // keeping track of results of
+	static std::map<void*, size_t> m_mapped_ptrs;   // mm::malloc_hp 
+	private:
+		static void* registered_malloc(size_t size);
 	public:
 		mm();
 
@@ -106,9 +118,71 @@ class mm{
 				if( false and util::verbose ){ cout << "mm:remove: mm_item is not in the set" << endl; };
 			}
 		}
-
+		//! Map the heap memory of all registered object to hugepages
+		/*!
+		 * \sa unmap_hp 
+		 */
 		static bool map_hp();
+		
+		//! Unmap the hugepage-mapped memory of all registered objects
+		/*!
+		 * \sa map_hp 
+		 */
 		static bool unmap_hp();
+
+		//! Maps a single int_vector to hugepage memory
+		template<class int_vector_type>
+		static bool map_hp(int_vector_type *v){
+			// if the object is not yet registered
+			if( mm::m_items.find((uint64_t)v) == mm::m_items.end() ){
+				add(v);
+			}
+			if( mm::m_items.find((uint64_t)v) != mm::m_items.end() ){
+				mm_item<int_vector_type>* item = (mm_item<int_vector_type>*)mm::m_items[(uint64_t)v];
+				if ( !item->is_mapped() ){
+					bool success = false;
+					uint64_t *ptr = (uint64_t*) malloc_hp(item->size(), false, success);
+					if ( success ){
+						return item->map_hp( ptr );
+					}
+				}
+				return true;
+			}
+			return false;
+		}
+
+		template<class int_vector_type>
+		static bool unmap_hp(int_vector_type *v){
+			if( mm::m_items.find((uint64_t)v) != mm::m_items.end() ){
+				mm_item<int_vector_type>* item = (mm_item<int_vector_type>*)mm::m_items[(uint64_t)v];
+				if ( item->is_mapped() ){
+					return item->unmap_hp();
+				}else{
+					return false;
+				}
+			}else{
+				return false;
+			}
+		}
+
+		//! malloc_hp tries to allocate size bytes of hugepage memory
+		/*! 
+		 * \param size 	Size of requested memory in bytes.
+	     * \return 		A pointer to the allocated memory. The memory
+	     *         		manager tries to allocate the memory in hugepage
+	     *         		segmented memory. However, if this fails 
+		 * \sa free_hp
+		 */
+		static void* malloc_hp(size_t size);
+
+		static void* malloc_hp(size_t size, bool force_alloc, bool &success);
+
+		//! free_hp frees malloc_hp allocated memory
+		/*! 
+		 * \param ptr 		
+		 * \sa malloc_hp 
+	     */	  
+		static void free_hp(void *ptr);	
 };
 
 static class mm_initializer{

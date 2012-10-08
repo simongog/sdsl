@@ -23,18 +23,9 @@
 #ifndef INCLUDED_SDSL_ALGORITHMS_FOR_SUFFIX_ARRAY_CONSTRUCTION
 #define INCLUDED_SDSL_ALGORITHMS_FOR_SUFFIX_ARRAY_CONSTRUCTION
 
+#include "algorithms_for_suffix_array_construction.incl.hpp" // include the headers of divsufsort
+
 #include "int_vector.hpp"
-
-#cmakedefine divsufsort_FOUND
-#cmakedefine divsufsort64_FOUND
-
-#ifdef divsufsort_FOUND
-	#include "divsufsort.h"
-#endif
-
-#ifdef divsufsort64_FOUND
-	#include "divsufsort64.h"
-#endif
 
 namespace sdsl{
 
@@ -101,31 +92,35 @@ void calculate_sa(const unsigned char *c, typename RandomAccessContainer::size_t
 	#endif
 	if( small_file ){
 		#if defined(divsufsort_FOUND)
-			int32_t *sufarray = new int32_t[len];
+			int32_t *sufarray = (int32_t*)mm::malloc_hp( len*sizeof(int32_t) );
 			divsufsort(c, sufarray, len);		
 			for(size_type i=0; i<len; ++i) { sa[i] = sufarray[i]; }
-			delete [] sufarray;
-		#else	
-			uint32_t *s = new uint32_t[len+3], *suffarray = new uint32_t[len];
+			mm::free_hp((void*)sufarray);
+		#else
+			uint32_t *s 		= (uint32_t*)mm::malloc_hp( (len+3)*sizeof(uint32_t) );
+			uint32_t *suffarray = (uint32_t*)mm::malloc_hp( (len)*sizeof(uint32_t) );
 			for(size_type i=0; i<len; ++i) s[i] = occ[*(cp++)];
 			s[len] = s[len+1] = s[len+2] = 0; 
 			_calcSuffixArrayDC3(s, suffarray, (uint32_t)len, (uint32_t)K);
 			for(size_type i=0; i<len; ++i) sa[i] = suffarray[i];
-			delete [] s; delete [] suffarray;
+			mm::free_hp((void*)s);
+			mm::free_hp((void*)suffarray);
 		#endif	
 	}else{
 		#if defined(divsufsort64_FOUND)
-			int64_t *sufarray = new int64_t[len];
+			int64_t *sufarray = (int64_t*)mm::malloc_hp( len*sizeof(int64_t) );
 			divsufsort64(c, sufarray, len);		
 			for(size_type i=0; i<len; ++i) { sa[i] = sufarray[i]; }
-			delete [] sufarray;
+			mm::free_hp((void*)sufarray);
 		#else	
-			uint64_t *s = new uint64_t[len+3], *suffarray = new uint64_t[len];
+			uint64_t *s 		= (uint64_t*)mm::malloc_hp( (len+3)*sizeof(uint64_t) );
+			uint64_t *suffarray = (uint64_t*)mm::malloc_hp( (len)*sizeof(uint64_t) );
 			for(size_type i=0; i<len; ++i) s[i] = occ[(uint8_t)*(cp++)];
 			s[len] = s[len+1] = s[len+2]= 0;	
 			_calcSuffixArrayDC3(s, suffarray, (uint64_t)len, (uint64_t)K);
 			for(size_type i=0; i<len; ++i) sa[i] = suffarray[i];
-			delete [] s; delete [] suffarray;
+			mm::free_hp((void*)s);
+			mm::free_hp((void*)suffarray);
 		#endif	
 	}
 }
@@ -144,7 +139,9 @@ void calculate_sa(const unsigned char *c, typename int_vector<fixedIntWidth>::si
 			if( 32 == fixedIntWidth or (0==fixedIntWidth and 32 >= oldIntWidth) ){
 				sa.set_int_width(32);
 				sa.resize( len );
+				mm::map_hp( &sa );
 				divsufsort(c, (int32_t*)sa.m_data, len);
+				mm::unmap_hp( &sa ); 
 				// copy integers back to the right positions
 				if(oldIntWidth!=32){
 					for(size_type i=0; i<len; ++i) { sa.set_int(i*oldIntWidth, sa.get_int(i<<5, 32), oldIntWidth);  }
@@ -169,7 +166,9 @@ void calculate_sa(const unsigned char *c, typename int_vector<fixedIntWidth>::si
 			uint8_t oldIntWidth = sa.get_int_width();
 			sa.set_int_width(64);
 			sa.resize( len );
+			mm::map_hp( &sa );
 			divsufsort64(c, (int64_t*)sa.m_data, len);
+			mm::unmap_hp( &sa ); 
 			// copy integers back to the right positions
 			if(oldIntWidth!=64){
 				for(size_type i=0; i<len; ++i) { sa.set_int(i*oldIntWidth, sa.get_int(i<<6, 64), oldIntWidth);  }

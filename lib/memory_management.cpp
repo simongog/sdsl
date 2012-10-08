@@ -87,4 +87,72 @@ namespace sdsl
 #endif
 	}
 
+	void* mm::malloc_hp(size_t size){
+		bool success = true;
+		return malloc_hp(size, true, success);
+	}
+
+	void* mm::malloc_hp(size_t size, bool force_alloc, bool &success){
+#ifdef MAP_HUGETLB		
+		size_t hpgs= (size+HUGE_LEN-1)/HUGE_LEN; // number of huge pages required to meet the request
+		void *ptr = (uint64_t*)mmap(NULL, hpgs*HUGE_LEN, HUGE_PROTECTION, HUGE_FLAGS, 0, 0);
+		if (ptr == MAP_FAILED) {
+//			logger<<"mm::malloc_hp("<<size<<") could not allocate hugepages"<<endl;
+			if ( force_alloc ){
+				void* ptr = registered_malloc(size);
+				success = (NULL != ptr) or (size==0);
+				return ptr;
+			}else{
+				success = false;
+				return NULL;
+			}
+		}else{
+			success = true;
+//			logger<<"mm::malloc_hp("<<size<<") was successful and allocated "<<hpgs<<" hugepages"<<endl;
+			m_mapped_ptrs[ptr] = hpgs;
+			return ptr;		
+		}
+#else
+		if( force_alloc ){
+			void* ptr = registered_malloc(size);
+			success = (NULL != ptr) or (size==0);
+			return ptr;
+		}else{
+			success = false;
+			return NULL;
+		}
+#endif		
+	}
+
+	void * mm::registered_malloc(size_t size){
+		void * ptr = malloc(size);		// allocate memory via 
+		if ( NULL != ptr ){
+			m_malloced_ptrs.insert(ptr);
+		}
+		return ptr;		
+	}
+
+	void mm::free_hp(void *ptr){
+		if ( NULL !=  ptr ){
+			//   if the pointer was allocated wiht malloc 
+			if ( m_malloced_ptrs.find(ptr) != m_malloced_ptrs.end() ){
+				free(ptr);
+				m_malloced_ptrs.erase(ptr);
+//			logger<<"mm::free_hp("<<ptr<<") freed non-hugepage memory"<<endl;
+			}
+#ifdef MAP_HUGETLB			
+			else if ( m_mapped_ptrs[ptr] != m_mapped_ptrs.end() ){				
+				size_t hpgs = m_mapped_ptrs[ptr];
+				int ret = munmap((void*)m_data, hpgs*HUGE_LEN ); 
+				if ( ret == -1 ){
+					perror("Unmap failed");
+				}else{
+					m_mapped_ptrs.erase(ptr);
+//			logger<<"mm::free_hp("<<ptr<<") freed hugepage memory successfully"<<endl;
+				}
+			}
+#endif		
+		}
+	}
+
 } // end namespace
