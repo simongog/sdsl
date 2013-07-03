@@ -88,7 +88,7 @@ class fibonacci
         template<class int_vector>
         static uint64_t* raw_data(int_vector& v) {
             return v.m_data;
-        };
+        }
 
         //! Encode one positive integer x to an int_vector at bit position start_idx.
         /*! \param x Positive integer to encode.

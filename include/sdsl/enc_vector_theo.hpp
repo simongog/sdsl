@@ -105,7 +105,7 @@ class enc_vector_theo
         enc_vector_theo(const Container& c) {
             construct();
             init(c);
-        };
+        }
 
         template<class Container>
         void init(const Container& c);
