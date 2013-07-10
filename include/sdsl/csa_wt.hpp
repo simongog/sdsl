@@ -614,7 +614,7 @@ csa_wt<WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType>::csa_wt(
     m_isa_sample.resize((n + InvSampleDens - 1) / InvSampleDens);
     m_sa_sample.resize((n + SampleDens - 1) / SampleDens);
 
-    for (size_type i = 0, j = m_psi(0); i < size(); i++, j = m_psi(j)) {
+    for (size_type i = 0, j = m_psi[0]; i < size(); i++, j = m_psi[j]) {
       if ((j % SampleDens) == 0) {
         m_sa_sample[j / SampleDens] = i;
       }
