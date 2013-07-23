@@ -107,7 +107,7 @@ class enc_vector_dna
         enc_vector_dna(const Container& c) {
             construct();
             init(c);
-        };
+        }
 
         template<class Container>
         void init(const Container& c);

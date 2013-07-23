@@ -400,7 +400,7 @@ class csa_wt
                int_vector_file_buffer<int_width, size_type_class_1>& sa_buf
               );
 
-        //! Construct the bwt part of the csa_wt from the int_vector_file_buffers of the bwt of the text
+        //! Construct the the csa_wt from the int_vector_file_buffers of the bwt of the text
         template<class size_type_class>
         csa_wt(int_vector_file_buffer<8, size_type_class>& bwt_buf);
 
@@ -602,9 +602,6 @@ template<class WaveletTree, uint32_t SampleDens, uint32_t InvSampleDens, uint8_t
 template<class size_type_class>
 csa_wt<WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType>::csa_wt(int_vector_file_buffer<8, size_type_class>& bwt_buf):char2comp(m_char2comp), comp2char(m_comp2char),C(m_C), sigma(m_sigma), psi(m_psi), bwt(m_bwt),sa_sample(m_sa_sample),isa_sample(m_isa_sample),wavelet_tree(m_wavelet_tree)
 {
-    if (SampleDens != 0 or InvSampleDens !=0) {
-        std::cerr << "Warning: Construct only the BWT part of the CSA, please make sure SampleDens and InvSampleDens equal 0!" << std::endl;
-    }
     bwt_buf.reset();
     size_type n = bwt_buf.int_vector_size;
     algorithm::set_text<csa_wt>(bwt_buf, n, m_C, m_char2comp, m_comp2char, m_sigma);
@@ -613,6 +610,18 @@ csa_wt<WaveletTree, SampleDens, InvSampleDens, fixedIntWidth, charType>::csa_wt(
 
     m_psi = psi_type(this);
     m_bwt = bwt_type(this);
+
+    m_isa_sample.resize((n + InvSampleDens - 1) / InvSampleDens);
+    m_sa_sample.resize((n + SampleDens - 1) / SampleDens);
+
+    for (size_type i = 0, j = m_psi[0]; i < size(); i++, j = m_psi[j]) {
+      if ((j % SampleDens) == 0) {
+        m_sa_sample[j / SampleDens] = i;
+      }
+      if ((i % InvSampleDens) == 0) {
+        m_isa_sample[i / InvSampleDens] = j;
+      }
+    }
 }
 
 

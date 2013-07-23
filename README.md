@@ -208,6 +208,7 @@ Code:
   * Simon Gog
   * Shanika Kuruppu
   * Matthias Petri
+  * Jani Rahkola
 
 Bug reports:
   * Kalle Karhu

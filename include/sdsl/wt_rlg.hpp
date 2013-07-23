@@ -152,7 +152,6 @@ class wt_rlg
             m_b_border.resize(bit_magic::l1BP(size) + 1);
             m_b_border[0] = 0;
 
-            typedef std::pair<int, char> tPIC;
             int m=0;
 
             rac.reset();
