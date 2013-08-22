@@ -140,71 +140,56 @@ int main(int argc, char **argv) {
   stc.push(SearchTreeNode(0, forward_index.size() - 1,
                           0, backward_index.size() - 1,
                           0));
-  while (!stc.empty()) {
-    SearchTreeNode s = stc.top();
-    stc.pop();
+   while (!stc.empty()) {
+      SearchTreeNode s = stc.top();
+      stc.pop();
 
-    if (s.ep - s.sp + 1 < 2 ||
-        suffix_index.rank_one(s.sp, s.ep + 1) == 0 ||
-        suffix_index.rank_zero(s.sp, s.ep + 1) == 0) {
-      continue; // no MUM in this branch
-    }
-      
-    bool left_maximal = true;
-    bool right_maximal = true;
-    for (size_t i = 0; i < forward_index.sigma; i++) {
-      char c = (forward_index.comp2char)[i];
-      size_t l = algorithm::backward_search(forward_index,
-                                            s.sp, s.ep,
-                                            c,
-                                            spc[i], epc[i]);
-      size_t rl = algorithm::backward_search(backward_index,
-                                             s.spr, s.epr,
-                                             c,
-                                             spcr[i], epcr[i]);
-      if (l == s.ep - s.sp + 1) {
-        left_maximal = false;
+      if (s.ep - s.sp + 1 < 2 ||
+          suffix_index.rank_one(s.sp, s.ep + 1) == 0 ||
+          suffix_index.rank_zero(s.sp, s.ep + 1) == 0) {
+        continue; // no MUM in this branch
       }
-      if (rl == s.epr - s.spr + 1) {
-        right_maximal = false;
-      }
-    }
       
-    if (!right_maximal) {
-      continue; // extending to left cannot make this branch right-maximal
-    }
-
-    if ((left_maximal || s.depth == maxlen) &&
-        s.depth >= minlen &&
-        s.ep - s.sp + 1 == 2) {
-      output_mum(forward_index, a_length, s);
-    }
-    if (maxlen == 0 || s.depth < maxlen) {
-      size_t sum = 0;
-      size_t largest_interval = 0;
-      size_t largest_interval_i = 0;
+      bool left_maximal = true;
+      bool right_maximal = true;
       for (size_t i = 0; i < forward_index.sigma; i++) {
-        spcr[i] = s.spr + sum;
-        epcr[i] = spcr[i] + epc[i] - spc[i];
-        sum += epc[i] - spc[i] + 1;
-        if (epc[i] - spc[i] + 1 > largest_interval) {
-          largest_interval = epc[i] - spc[i] + 1;
-          largest_interval_i = i;
+        char c = (forward_index.comp2char)[i];
+        size_t l = algorithm::backward_search(forward_index,
+                                              s.sp, s.ep,
+                                              c,
+                                              spc[i], epc[i]);
+        size_t rl = algorithm::backward_search(backward_index,
+                                               s.spr, s.epr,
+                                               c,
+                                               spcr[i], epcr[i]);
+        if (l == s.ep - s.sp + 1) {
+          left_maximal = false;
+        }
+        if (rl == s.epr - s.spr + 1) {
+          right_maximal = false;
         }
       }
-      stc.push(SearchTreeNode(spc[largest_interval_i], epc[largest_interval_i],
-                              spcr[largest_interval_i], epcr[largest_interval_i],
-                              s.depth + 1));
-      for (size_t i = 0; i < largest_interval_i; i++) {
-        stc.push(SearchTreeNode(spc[i], epc[i],
-                                spcr[i], epcr[i],
-                                s.depth + 1));
+      
+      if (!right_maximal) {
+        continue; // extending to left cannot make this branch right-maximal
       }
-      for (size_t i = largest_interval_i + 1; i < forward_index.sigma; i++) {
-        stc.push(SearchTreeNode(spc[i], epc[i],
-                                spcr[i], epcr[i],
-                                s.depth + 1));
+
+      if ((left_maximal || s.depth == maxlen) &&
+          s.depth >= minlen &&
+          s.ep - s.sp + 1 == 2) {
+        output_mum(forward_index, a_length, s);
       }
-    }
-  }
+
+      if (maxlen == 0 || s.depth < maxlen) {
+        size_t sum = 0;
+        for (size_t i = 0; i < forward_index.sigma; i++) {
+          spcr[i] = s.spr + sum;
+          epcr[i] = spcr[i] + epc[i] - spc[i];
+          sum += epc[i] - spc[i] + 1;
+          stc.push(SearchTreeNode(spc[i], epc[i],
+                                  spcr[i], epcr[i],
+                                  s.depth + 1));
+        }
+      }
+   }
 }
