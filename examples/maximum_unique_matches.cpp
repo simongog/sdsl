@@ -179,13 +179,29 @@ int main(int argc, char **argv) {
           s.ep - s.sp + 1 == 2) {
         output_mum(forward_index, a_length, s);
       }
-
+      
       if (maxlen == 0 || s.depth < maxlen) {
         size_t sum = 0;
+        size_t largest_interval = 0;
+        size_t largest_interval_i = 0;
         for (size_t i = 0; i < forward_index.sigma; i++) {
           spcr[i] = s.spr + sum;
           epcr[i] = spcr[i] + epc[i] - spc[i];
           sum += epc[i] - spc[i] + 1;
+          if (epc[i] - spc[i] + 1 > largest_interval) {
+            largest_interval = epc[i] - spc[i] + 1;
+            largest_interval_i = i;
+          }
+        }
+        stc.push(SearchTreeNode(spc[largest_interval_i], epc[largest_interval_i],
+                                spcr[largest_interval_i], epcr[largest_interval_i],
+                                s.depth + 1));
+        for (size_t i = 0; i < largest_interval_i; i++) {
+          stc.push(SearchTreeNode(spc[i], epc[i],
+                                  spcr[i], epcr[i],
+                                  s.depth + 1));
+        }
+        for (size_t i = largest_interval_i + 1; i < forward_index.sigma; i++) {
           stc.push(SearchTreeNode(spc[i], epc[i],
                                   spcr[i], epcr[i],
                                   s.depth + 1));
