@@ -5,6 +5,23 @@
 
 using namespace sdsl;
 
+/* 
+   This is an algorithm for computing maximal unique matches between two strings.
+   Takes as input the BWT of A#B (string A concatenated with B adding # in between),
+   and the BWT of reverse of A#B. It builds then two FM-indexes and an indicator vector. 
+   The algorithm backtracks with all alphabet symbols, but visits only virtual suffix tree
+   nodes. See details in 
+
+   Djamal Belazzougui, Fabio Cunial, Juha Kärkkäinen, Veli Mäkinen: 
+   Versatile Succinct Representations of the Bidirectional Burrows-Wheeler Transform. 
+   ESA 2013: 133-144.
+   
+   This is not a faithful implementation of the O(n log sigma) algorithm given there, since
+   operations are computed using trivial scans with all sigmna alphabet symbols. 
+   However, this version probably works fine with DNA.
+*/
+
+
 /*
   Index that tells from which string a suffix comes from.
  */
