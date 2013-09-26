@@ -1,3 +1,10 @@
+# NOTE: This is version 1.0 of SDSL which is not developed further. Version 2.0 contains more features and is better documented. It is available at [https://github.com/simongog/sdsl-lite](https://github.com/simongog/sdsl-lite).
+
+
+
+
+
+
 SDSL: Succinct Data Structure Library
 =====================================
 
